@@ -4157,6 +4157,10 @@ body .video-banner-section .video-bg {
     justify-content: center;
 }
 
+.blog .title-wrapper-with-link.title-wrapper--self-padded-tablet-down {
+    align-items: center;
+}
+
 .customer-reviews .cust-rev-section {
     margin-left: 5px;
 }
