@@ -1,0 +1,133 @@
+<section class="two-column-colour-grid">
+  <div class="mobile-vhhg">
+    <h2 class="color_heading">{{ section.settings.heading }}</h2>
+    <p class="color_text">{{ section.settings.subtext }}</p>
+  </div>
+  <div class="container-cloor-com">
+    <div class="left-column">
+      <h2 class="color_heading" data-aos="fade-down">{{ section.settings.heading }}</h2>
+      <p class="color_text" data-aos="fade-down">{{ section.settings.subtext }}</p>
+      
+      <div class="colour-grid">
+        {% for block in section.blocks %}
+          <div class="colour-item" 
+               data-aos="zoom-in" 
+               data-full="{{ block.settings.full_image | img_url: 'master' }}">
+               
+            {% if block.settings.image %}
+              <img src="{{ block.settings.image | img_url: '200x200' }}" alt="{{ block.settings.title }}">
+            {% endif %}
+            <h4 class="color-inner-headeing">{{ block.settings.title }}</h4>
+            <p class="color-inner-text">{{ block.settings.text }}</p>
+          </div>
+        {% endfor %}
+      </div>
+
+      <a href="{{ section.settings.button_link }}" class="colour-button">
+        {{ section.settings.button_label }}
+      </a>
+    </div>
+
+    <div class="right-column">
+      {% if section.settings.right_image %}
+        <img id="main-colour-image" 
+             src="{{ section.settings.right_image | img_url: 'master' }}" 
+             alt="Right Side Image">
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const swatches = document.querySelectorAll(".colour-item");
+  const mainImage = document.getElementById("main-colour-image");
+
+  swatches.forEach((swatch) => {
+    swatch.addEventListener("click", () => {
+      const fullImg = swatch.getAttribute("data-full");
+      if (fullImg && mainImage) {
+        mainImage.src = fullImg;
+      }
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Two Column Colour Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Popular interior colours"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Choose a colour to see how it looks on the stairs"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Default Right Side Image"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "View All Colours"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "color_item",
+      "name": "Colour Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Swatch Thumbnail"
+        },
+        {
+          "type": "image_picker",
+          "id": "full_image",
+          "label": "Full Preview Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Dunes"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Natuurlijke, witte tint"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Two Column Colour Grid",
+      "category": "Custom",
+      "blocks": [
+        { "type": "color_item" },
+        { "type": "color_item" },
+        { "type": "color_item" }
+      ]
+    }
+  ]
+}
+{% endschema %}

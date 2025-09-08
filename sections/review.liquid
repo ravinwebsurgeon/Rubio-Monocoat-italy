@@ -1,0 +1,136 @@
+<div class="customer-reviews">
+  <div class="container">
+          <div class="review-hhheadiing">
+      <h2 class="section-heading" data-aos="fade-down">{{ section.settings.heading }}</h2>
+      <div class="review-hediing-right">
+
+      </div>
+      </div>
+
+    <div class="reviews-grid">
+      {% for block in section.blocks %}
+        <div class="review-card" data-aos="zoom-in">
+          <div class="review-header">
+            <div class="profile-info">
+              {% if block.settings.image %}
+                <img src="{{ block.settings.image | img_url: '90x90' }}" alt="{{ block.settings.name }}">
+              {% endif %}
+              <div>
+                <h3 class="name">{{ block.settings.name }}</h3>
+                <p class="designation">{{ block.settings.designation }}</p>
+              </div>
+            </div>
+            <div class="star-rating">
+              {% if block.settings.stars %}
+                <img src="{{ block.settings.stars | img_url: '80x' }}" alt="Star rating">
+              {% endif %}
+            </div>
+          </div>
+    
+          <p class="review-text">{{ block.settings.review }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function () {
+  function initSlick() {
+    if ($(window).width() < 989) {
+      if (!$('.reviews-grid').hasClass('slick-initialized')) {
+        $('.reviews-grid').slick({
+          dots: false,
+          arrows: true,
+          appendArrows: $('.review-hediing-right'),
+          prevArrow:
+            '<div class="slick-prev"><img src="https://cdn.shopify.com/s/files/1/0680/7647/0314/files/Group_2087325031_1.png?v=1756734227" width="24" height="24"></div>',
+          nextArrow:
+            '<div class="slick-next"><img src="https://cdn.shopify.com/s/files/1/0680/7647/0314/files/Group_2087325032_1.png?v=1756734778" width="24" height="24"></div>',
+          responsive: [
+            {
+              breakpoint: 989, // < 989px
+              settings: {
+                slidesToShow: 2
+              }
+            },
+            {
+              breakpoint: 749, // < 749px
+              settings: {
+                slidesToShow: 1
+              }
+            }
+          ]
+        });
+      }
+    } else {
+      if ($('.reviews-grid').hasClass('slick-initialized')) {
+        $('.reviews-grid').slick('unslick');
+      }
+    }
+  }
+
+  initSlick();
+  $(window).on('resize', initSlick);
+});
+
+</script>
+
+
+{% schema %}
+{
+  "name": "Customer Reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "What Our Customers Say"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Customer Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+        {
+          "type": "text",
+          "id": "designation",
+          "label": "Designation",
+          "default": "Designer"
+        },
+        {
+          "type": "image_picker",
+          "id": "stars",
+          "label": "Star Rating"
+        },
+        {
+          "type": "textarea",
+          "id": "review",
+          "label": "Review Text",
+          "default": "This is the customer review text."
+        }
+      ]
+    }
+  ],
+  
+  "presets": [
+    {
+      "name": "Customer Reviews",
+      "category": "Custom"
+     
+    }
+  ]
+}
+{% endschema %}

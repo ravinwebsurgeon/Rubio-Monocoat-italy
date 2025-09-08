@@ -1,0 +1,409 @@
+<section class="video-products-section">
+  <div class="container">
+    <h2 class="video-heading" data-aos="fade-down">{{ section.settings.heading }}</h2>
+    <div class="video-wrapper">
+      <div class="video-container">
+        <video autoplay muted loop playsinline class="video-bg" data-aos="fade-zoom-in"
+     data-aos-easing="ease-in-back"
+     data-aos-delay=""
+     data-aos-offset="0">
+          <source src="{{ section.settings.video_url }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+  <div class="product-overlay">
+  <div class="product-slider">
+    <div class="product-track">
+      {% for block in section.blocks %}
+        {% if block.settings.product %}
+          {% assign product = all_products[block.settings.product] %}
+          {% if product %}
+            <div class="product-card">
+              <div class="product-image">
+                <img src="{{ product.featured_image | img_url: '150x' }}" alt="{{ product.title }}">
+              </div>
+              <div class="product-info">
+                <div class="stars">★★★★★</div>
+                <h4>{{ product.title }}</h4>
+                <p class="price">{{ product.price | money }}</p>
+              </div>
+              <div class="product-icons">
+                {% if block.settings.icon_1 %}
+                  <a href="#" class="add-to-cart-btn" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+                    <img src="{{ block.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
+                  </a>
+                {% endif %}
+                {% if block.settings.icon_2 %}
+                  <a href="javascript:void(0);" class="slide-next-btn gg-{{ forloop.index }}">
+                    <img src="{{ block.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+
+    {% if section.settings.button_link %}
+      <a href="{{ section.settings.button_link }}" class="view-button" data-aos="fade-up">{{ section.settings.button_label }}</a>
+    {% endif %}
+  </div>
+</section>
+<script>
+$(document).ready(function () {
+  function setCartBubble(count) {
+    var $icon = $("#cart-icon-bubble");
+    if (!$icon.length) return;
+
+    var $bubble = $icon.find(".cart-count-bubble");
+
+    if (count > 0) {
+      if (!$bubble.length) {
+        $bubble = $('<div class="cart-count-bubble" aria-live="polite"></div>').appendTo($icon);
+      }
+      $bubble.html(
+        '<span aria-hidden="true">' + count + '</span>' +
+        '<span class="visually-hidden">' + count + ' item' + (count > 1 ? 's' : '') + '</span>'
+      ).show();
+    } else {
+      $bubble.remove();
+    }
+  }
+
+  // Check cart every 2 seconds
+  setInterval(function () {
+    $.getJSON("/cart.js", function (cart) {
+      setCartBubble(cart.item_count);
+    });
+  }, 2000);
+
+  // Add to cart click handler
+  $(".add-to-cart-btn").on("click", function (e) {
+    e.preventDefault();
+
+    var variantId = $(this).data("variant-id");
+    if (!variantId) return console.error("Variant ID missing");
+
+    $.ajax({
+      type: "POST",
+      url: "/cart/add.js",
+      data: { id: variantId, quantity: 1 },
+      dataType: "json",
+      success: function () {
+        $.get("/?section_id=cart-drawer", function (data) {
+          var $drawer = $("cart-drawer");
+          var newDrawerHtml = $(data).find("cart-drawer").html();
+          var newDrawerClass = $(data).find("cart-drawer").attr("class") || "drawer animate";
+          $drawer.html(newDrawerHtml);
+          $drawer.attr("class", newDrawerClass.replace("is-empty", "").trim()).addClass("active");
+        });
+      },
+      error: function (err) {
+        console.error("Error adding to cart:", err);
+      }
+    });
+  });
+
+  // Close drawer on overlay click
+  $(document).on("click", ".cart-drawer__overlay", function () {
+    $("cart-drawer").removeClass("active");
+  });
+});
+
+$(document).on("click", ".slide-next-btn", function () {
+    setTimeout(function () {
+        $(".product-overlay").addClass("active-slide");
+    }, 200); // 500ms = half second delay
+});
+
+$(document).on("click", ".slide-next-btn.gg-3, .slide-next-btn.gg-2", function () {
+    setTimeout(function () {
+        $(".product-overlay").removeClass("active-slide");
+    }, 200); // change the time as needed
+});
+
+
+{% comment %} document.addEventListener("DOMContentLoaded", function () {
+  const track = document.querySelector(".product-track");
+  
+  // Define how much to move each time
+  const moves = [470, 150];  
+  let currentIndex = 0;
+  let currentOffset = 0;
+
+  function moveSlide() {
+    if (currentIndex < moves.length) {
+      currentOffset -= moves[currentIndex]; 
+      track.style.transform = `translateX(${currentOffset}px)`;
+      currentIndex++;
+    } else {
+      // Reset back to start
+      currentIndex = 0;
+      currentOffset = 0;
+      track.style.transform = `translateX(0px)`;
+    }
+  }
+
+  // Auto slide every 30s
+  setInterval(moveSlide, 6000);
+}); {% endcomment %}
+document.addEventListener("DOMContentLoaded", function () {
+  const track = document.querySelector(".product-track");
+  const wrapper = document.querySelector(".product-slider");
+
+  // Clone slides for infinite seamless loop
+  const slides = Array.from(track.children);
+  slides.forEach(slide => track.appendChild(slide.cloneNode(true)));
+
+  let speed = 1; // adjust speed
+  let offset = 0;
+  let isPaused = false;
+
+  wrapper.addEventListener("mouseenter", () => isPaused = true);
+  wrapper.addEventListener("mouseleave", () => isPaused = false);
+
+  function animate() {
+    if (!isPaused) {
+      offset -= speed;
+
+      // Use modulo to loop smoothly without jump
+      offset %= track.scrollWidth / 2;
+
+      track.style.transform = `translateX(${offset}px)`;
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+});
+
+
+
+
+
+
+
+
+</script>
+
+{% stylesheet %}
+.product-overlay {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 936px;
+  overflow: hidden;
+}
+/* 
+.product-slider {
+  overflow: hidden;
+} */
+
+.product-overlay.active-slide {
+    left: 50%;
+    /* transform: translateX(-50%); */
+    width: 100%;
+    justify-content: center;
+     transition: transform .10s ease,visibility .64s ease 
+}
+
+
+
+  .video-products-section {
+    text-align: center;
+  }
+
+  .video-wrapper {
+    position: relative;
+    max-width: 1700px;
+    margin: 0 auto;
+  }
+
+  .video-container {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .video-container .video-bg {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+   .product-overlay {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 20px;
+    /* flex-wrap: wrap; */
+  } 
+
+  .product-card {
+    display: flex !important;
+    align-items: center;
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    gap: 12px;
+    min-width: 450px;
+  }
+
+  .product-image img {
+    width: 60px;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .product-info {
+    flex: 1;
+  }
+
+  .stars {
+    color: #f5a623;
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  .product-info h4 {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+
+  .product-info .price {
+    color: #2f4f2f;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .product-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .product-icons img {
+    width: 24px;
+    height: auto;
+  }
+
+  .view-button {
+    display: inline-block;
+    margin-top: 20px;
+    background: #0c1c13;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 24px;
+    text-decoration: none;
+  }
+
+  .view-button:hover {
+    background: #1b3a27;
+  }
+.product-overlay {
+    transition: transform .64s ease, visibility .64s ease;
+}
+
+
+
+.product-slider {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.product-track {
+  display: flex;
+  /* transition: transform 1s ease-in-out; */
+  /* will-change: transform; */
+}
+
+
+
+
+
+
+
+.product-card {
+  flex: 0 0 100%; /* each card takes full width */
+  max-width: 100%;
+}
+
+{% endstylesheet %} 
+
+{% schema %}
+{
+  "name": "Video with Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Application in a few simple steps"
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Video MP4 URL"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "View All Products"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_block",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_1",
+          "label": "First Icon"
+        },
+        {
+          "type": "url",
+          "id": "icon_1_link",
+          "label": "First Icon Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_2",
+          "label": "Second Icon"
+        },
+        {
+          "type": "url",
+          "id": "icon_2_link",
+          "label": "Second Icon Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video with Products",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

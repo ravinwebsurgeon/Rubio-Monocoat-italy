@@ -1,0 +1,36 @@
+<div class="icon-text-block">
+  <div class="icon-text-grid">
+    {% if block.settings.icon %}
+      <img src="{{ block.settings.icon | img_url: '100x100' }}" alt="{{ block.settings.text }}">
+    {% endif %}
+    {% if block.settings.text %}
+      <p>{{ block.settings.text }}</p>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+.icon-text-block {
+  margin: 15px 0;
+}
+.icon-text-grid {
+  text-align: center;
+  background: #f7f7f7;
+  padding: 15px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+.icon-text-grid img {
+  max-width: 50px;
+  margin-bottom: 8px;
+}
+.icon-text-grid p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #222;
+  margin: 0;
+}
+.icon-text-grid:hover {
+  transform: translateY(-3px);
+}
+</style>

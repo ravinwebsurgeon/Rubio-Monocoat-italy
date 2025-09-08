@@ -1,0 +1,64 @@
+<section class="custom-collections-section">
+  <div class="container">
+    {% if section.settings.section_heading != blank %}
+      <h2 class="section-title" data-aos="fade-down">{{ section.settings.section_heading }}</h2>
+    {% endif %}
+    
+    <div class="collections-grid">
+      {% for block in section.blocks %}
+        {% assign collection = collections[block.settings.collection] %}
+        {% if collection %}
+          <div class="collection-item" data-aos="zoom-in" data-aos-duration="1000">
+            <a href="{{ collection.url }}">
+              {% if collection.image %}
+                <img src="{{ collection.image | img_url: '600x600' }}" alt="{{ collection.title }}">
+              {% elsif collection.products.first and collection.products.first.featured_image %}
+                <img src="{{ collection.products.first.featured_image | img_url: '600x600' }}" alt="{{ collection.title }}">
+              {% else %}
+                <div class="placeholder-image" style="background:#f4f4f4;height:250px;"></div>
+              {% endif %}
+              <h3 class="collection-title">{{ collection.title }}</h3>
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "custom collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Our Collections"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select Collection"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "custom collection",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+
+

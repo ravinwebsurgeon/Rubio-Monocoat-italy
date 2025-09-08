@@ -1,0 +1,116 @@
+{% comment %} <section class="product-features-section">
+  {% if product.metafields.custom.custom_section_heading != blank %}
+    <h2 class="section-heading">{{ product.metafields.custom.custom_section_heading }}</h2>
+  {% endif %}
+
+  <div class="features-wrapper">
+    <!-- Left column -->
+    {% if product.metafields.custom.title_left != blank and product.metafields.custom.custom_description_left != blank %}
+      <ul class="product-features">
+        {% assign titles = product.metafields.custom.title_left.value %}
+        {% assign descriptions = product.metafields.custom.custom_description_left.value %}
+
+        {% for title in titles %}
+          <li>
+            <strong>{{ title }}</strong>
+            {% if descriptions[forloop.index0] %}
+              <p>{{ descriptions[forloop.index0] }}</p>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <!-- Center image -->
+    {% if product.metafields.custom.custom_center_image != blank %}
+      <div class="feature-image">
+        <img 
+          src="{{ product.metafields.custom.custom_center_image | image_url: width: 600 }}" 
+          alt="{{ product.title }} feature image">
+      </div>
+    {% endif %}
+
+     <!-- right column -->
+    {% if product.metafields.custom.title_left != blank and product.metafields.custom.custom_description_left != blank %}
+      <ul class="product-features">
+        {% assign titles = product.metafields.custom.title_left.value %}
+        {% assign descriptions = product.metafields.custom.custom_description_left.value %}
+
+        {% for title in titles %}
+          <li>
+            <strong>{{ title }}</strong>
+            {% if descriptions[forloop.index0] %}
+              <p>{{ descriptions[forloop.index0] }}</p>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    
+
+  </div>
+</section> {% endcomment %}
+
+<section class="product-features-section">
+  {% if product.metafields.custom.custom_section_heading != blank %}
+    <h2 class="section-heading">{{ product.metafields.custom.custom_section_heading }}</h2>
+  {% endif %}
+
+  <div class="features-wrapper">
+    {% assign titles = product.metafields.custom.title_left.value %}
+    {% assign descriptions = product.metafields.custom.custom_description_left.value %}
+
+    {%- assign titles_size = titles.size -%}
+    {%- assign desc_size = descriptions.size -%}
+    {% if titles_size > desc_size %}
+      {% assign loop_size = titles_size %}
+    {% else %}
+      {% assign loop_size = desc_size %}
+    {% endif %}
+
+    {%- assign last_index = loop_size | minus: 1 -%}
+
+    <!-- Left column -->
+    <ul class="product-features left-col">
+      {% for i in (0..last_index) %}
+        {% assign mod = i | modulo: 2 %}
+        {% if mod == 0 and titles[i] %}
+          <li>
+            <strong>{{ titles[i] }}</strong>
+            {% if descriptions[i] %}
+              <p>{{ descriptions[i] }}</p>
+            {% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    <!-- Center image -->
+    {% if product.metafields.custom.custom_center_image != blank %}
+      <div class="feature-image">
+        <img 
+          src="{{ product.metafields.custom.custom_center_image | image_url: width: 600 }}" 
+          alt="{{ product.title }} feature image">
+      </div>
+    {% endif %}
+
+    <!-- Right column -->
+    <ul class="product-features right-col">
+      {% for i in (0..last_index) %}
+        {% assign mod = i | modulo: 2 %}
+        {% if mod == 1 and titles[i] %}
+          <li>
+            <strong>{{ titles[i] }}</strong>
+            {% if descriptions[i] %}
+              <p>{{ descriptions[i] }}</p>
+            {% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+
+
+

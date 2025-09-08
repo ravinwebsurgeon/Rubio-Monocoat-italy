@@ -1,0 +1,400 @@
+<style>
+    .tabs-section {
+  padding: 4rem 1rem;
+}
+
+.tabs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #ffffffdd;
+  overflow: hidden;
+  border: 1px solid;
+}
+
+/* Tab nav */
+.tabs-nav {
+  display: flex;
+  {% comment %} background: #00b4db;
+  background: linear-gradient(90deg, #00b4db, #0083b0); {% endcomment %}
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+li.tab.active {
+    border-top: 2px solid;
+    border-right: 0;
+    border-left: 1px solid;
+    border-bottom: 0;
+}
+
+li.tab {
+    border: 1px solid;
+    border-top: 0;
+    border-right: 0;
+}
+
+li.tab.active:nth-child(1) {
+    border-left: 0;
+}
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 1rem;
+  cursor: pointer;
+  color: #000;
+  font-weight: 500;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.tab:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.tab svg {
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+}
+
+.tab.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+}
+
+/* Content panes */
+.tabs-content {
+  padding: 2rem;
+  background-color: #fff;
+}
+
+.tab-pane {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tab-pane.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Typography */
+.tab-pane h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.tab-pane p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+.meta_accordions_item_heading.open .meta_icon_wrapper svg:first-child {
+    opacity: 0;
+}
+
+.meta_accordions_item_heading:not(.open) .meta_icon_wrapper svg+svg {
+    opacity: 0;
+}
+
+.meta_accordions_item_heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  cursor: pointer;
+}
+
+.meta_accordions_item_heading {
+    padding: 12px 0px;
+}
+
+.meta_accordions_slider_item {
+    border-bottom: 1px solid #e0e0e0;
+}
+.video-item.hidden { display: none; }
+.video-tab-btn.active { font-weight: bold; }
+.first-tab {
+    display: flex;
+    gap: 80px;
+}
+
+.left-first-tab {
+    width: 60%;
+}
+
+.right-first-tab {
+    width: 40%;
+}
+.video-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.video-tab-btn {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    text-align: left;
+}
+.tab-second-rich-con {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+</style>
+
+<section class="tabs-section">
+  <div class="tabs-container">
+<ul class="tabs-nav">
+  {% for block in section.blocks %}
+    <li class="tab {% if forloop.first %}active{% endif %}" data-tab="tab{{ forloop.index }}">
+      {{ block.settings.title }}
+    </li>
+  {% endfor %}
+</ul>
+
+    <div class="tabs-content">
+      <div class="tab-pane active" id="tab1">
+        <div class="first-tab">
+          <div class="left-first-tab">
+            <div class="heading">{{ section.settings.instruction }}</div>
+            <div class="meta_accordions_slider">
+                  {% for faq_heading in product.metafields.custom.product_accordions_heading.value %}
+                    {% assign index = forloop.index %}
+                    <div class="meta_accordions_slider_item">
+                      <div class="meta_accordions_item_heading">
+                        <span>{{ faq_heading }}</span>
+                        <div class="meta_icon_wrapper">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                          >
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.82323 5.94458V0.94458H5.82323V5.94458H0.823242V6.94458H5.82323V11.9446H6.82323V6.94458H11.8232V5.94458H6.82323Z" fill="#474747"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.82323 5.94458V0.94458H5.82323V5.94458H0.823242V6.94458H5.82323V11.9446H6.82323V6.94458H11.8232V5.94458H6.82323Z" fill="black" fill-opacity="0.5"/>
+                          </svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="1" viewBox="0 0 11 1" fill="none">
+                            <path d="M11 0.500244L1.58305e-07 0.500244" stroke="#474747"/>
+                            <path d="M11 0.500244L1.58305e-07 0.500244" stroke="black" stroke-opacity="0.5"/>
+                          </svg>
+                        </div>
+                      </div>
+                      {% for faq_description in product.metafields.custom.product_accordions_subtext.value %}
+                        {% if index == forloop.index %}
+                          <div class="accordions_item_content">
+                            <p>{{ faq_description }}</p>
+                          </div>
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+                  {% endfor %}
+            </div>
+            <div class="tips&tricks">
+                <div class="richtext-tricks">
+                  {% if product.metafields.custom.tips_and_tricks != blank %}
+                     <div class="product-tips-and-tricks">
+                     {{ product.metafields.custom.tips_and_tricks | metafield_tag }}
+                     </div>
+                   {% endif %}
+                </div>
+            </div>
+          </div>
+          <div class="right-first-tab">
+<div class="video-tabs-wrapper">
+    <!-- Video Container -->
+  <div class="video-container">
+    {% for video_url in product.metafields.custom.video_url_tab.value %}
+      <div class="video-item {% if forloop.first == false %}hidden{% endif %}" data-index="{{ forloop.index0 }}">
+        <iframe width="420" height="315" src="{{ video_url }}"> </iframe>
+      </div>
+    {% endfor %}
+  </div>
+  <!-- Tab Headings -->
+  <div class="video-tabs">
+    {% for heading in product.metafields.custom.video_tab_heading.value %}
+      <button class="video-tab-btn" data-index="{{ forloop.index0 }}">
+        {{ heading }}
+      </button>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% if product.metafields.custom.consumption != blank %}
+  <div class="consuption-con">
+    <div class="cunsuption-richtext">
+      {{ product.metafields.custom.consumption | metafield_tag }}
+    </div>
+  </div>
+{% endif %}
+
+{% if product.metafields.custom.remarks != blank %}
+  <div class="consuption-con">
+    <div class="cunsuption-richtext">
+      {{ product.metafields.custom.remarks | metafield_tag }}
+    </div>
+  </div>
+{% endif %}
+
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-pane" id="tab2">
+        <div class="tab-second-rich-con">
+        <div class="tab-second-rich">{{ product.metafields.custom.discription_pro | metafield_tag }}</div>
+        {% if product.metafields.custom.product_image != blank %}
+        <div class="tab-second-rich-img"><img src="{{ product.metafields.custom.product_image | img_url:'master'}}" width="100%" height="100%"></div>
+        {% endif %}
+        </div>
+      </div>
+
+
+      <div class="tab-pane" id="tab3">
+        {% if product.metafields.custom.product_image != blank %}
+        <div class="techinal-inf">{{ product.metafields.custom.technical_info | metafield_tag }}</div>
+        {% endif %}
+      </div>
+    </div>
+      <div class="tab-pane" id="tab4">
+        {% if product.metafields.custom.product_information != blank %}
+        <div class="techinal-inf">{{ product.metafields.custom.product_information | metafield_tag }}</div>
+        {% endif %}
+      </div>
+      <div class="tab-pane" id="tab5">
+       
+                    <div class="meta_accordions_slider">
+                  {% for faq_heading in product.metafields.custom.product_faq_heading.value %}
+                    {% assign index = forloop.index %}
+                    <div class="meta_accordions_slider_item">
+                      <div class="meta_accordions_item_heading">
+                        <span>{{ faq_heading }}</span>
+                        <div class="meta_icon_wrapper">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                          >
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.82323 5.94458V0.94458H5.82323V5.94458H0.823242V6.94458H5.82323V11.9446H6.82323V6.94458H11.8232V5.94458H6.82323Z" fill="#474747"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.82323 5.94458V0.94458H5.82323V5.94458H0.823242V6.94458H5.82323V11.9446H6.82323V6.94458H11.8232V5.94458H6.82323Z" fill="black" fill-opacity="0.5"/>
+                          </svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="1" viewBox="0 0 11 1" fill="none">
+                            <path d="M11 0.500244L1.58305e-07 0.500244" stroke="#474747"/>
+                            <path d="M11 0.500244L1.58305e-07 0.500244" stroke="black" stroke-opacity="0.5"/>
+                          </svg>
+                        </div>
+                      </div>
+                      {% for faq_description in product.metafields.custom.product_faq_accordions.value %}
+                        {% if index == forloop.index %}
+                          <div class="accordions_item_content">
+                            <p>{{ faq_description }}</p>
+                          </div>
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+                  {% endfor %}
+            </div>
+         
+      </div>
+  </div>
+</section>
+
+
+<script>
+const tabs = document.querySelectorAll(".tab");
+  const panes = document.querySelectorAll(".tab-pane");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      // Remove active from all
+      tabs.forEach(t => t.classList.remove("active"));
+      panes.forEach(p => {
+        p.classList.remove("active");
+      });
+
+      // Add active to selected
+      tab.classList.add("active");
+      const target = document.getElementById(tab.dataset.tab);
+      target.classList.add("active");
+    });
+  });
+
+  $(".meta_accordions_item_heading").click(function () {
+  $(this).toggleClass("open").next().slideToggle("fast");
+  $(this)
+    .parent()
+    .siblings()
+    .find(".meta_accordions_item_heading")
+    .removeClass("open")
+    .next()
+    .slideUp("fast");
+});
+document.addEventListener('DOMContentLoaded', function() {
+  const tabs = document.querySelectorAll('.video-tab-btn');
+  const videos = document.querySelectorAll('.video-item');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      const index = tab.getAttribute('data-index');
+
+      // Hide all videos
+      videos.forEach(video => video.classList.add('hidden'));
+
+      // Remove active class from all tabs
+      tabs.forEach(t => t.classList.remove('active'));
+
+      // Show selected video and mark tab active
+      videos[index].classList.remove('hidden');
+      tab.classList.add('active');
+    });
+  });
+
+  // Make first tab active by default
+  tabs[0].classList.add('active');
+});
+</script>
+
+{% schema %}
+{
+  "name": "product-discriptiont-tab",
+  "settings": [
+    {
+     "type": "text",
+     "id":"instruction",
+     "label": "Add first tab heading instruction",
+     "default":"Instruction"
+    }
+    ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Tab Title",
+          "default": "Overview"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "product-discription-tab",
+      "category": "product-discription-tab",
+    }
+  ]
+}
+{% endschema %}

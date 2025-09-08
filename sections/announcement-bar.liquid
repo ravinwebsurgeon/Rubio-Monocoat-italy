@@ -1,0 +1,335 @@
+{{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign social_icons = true
+  if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
+    assign social_icons = false
+  endif
+  if section.settings.enable_country_selector or section.settings.enable_language_selector
+    assign language_country_selector = true
+  endif
+  if section.blocks.size > 0
+    assign announcement_bar = true
+  endif
+-%}
+
+{% if social_icons %}
+  {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
+<div
+  class="utility-bar color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% elsif section.settings.show_line_separator and section.settings.show_social and social_icons%} utility-bar--bottom-border-social-only{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header-localization{% endif %}"
+>
+  <div class="page-width utility-bar__grid{% if announcement_bar and language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--3-col{% elsif language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--2-col{% endif %}">
+    {%- if section.settings.show_social and social_icons -%}
+      {%- render 'social-icons' -%}
+    {%- endif -%}
+    {%- if section.blocks.size == 1 -%}
+      <div
+        class="announcement-bar{% if section.settings.show_social %} announcement-bar--one-announcement{% endif %}"
+        role="region"
+        aria-label="{{ 'sections.header.announcement' | t }}"
+        {{ section.blocks.first.shopify_attributes }}
+      >
+        {%- if section.blocks.first.settings.text != blank -%}
+          {%- if section.blocks.first.settings.link != blank -%}
+            <a
+              href="{{ section.blocks.first.settings.link }}"
+              class="announcement-bar__link link link--text focus-inset animate-arrow"
+            >
+          {%- endif -%}
+           {% if section.blocks.first.settings.custom_svg != blank %}
+    <span class="announce-svg">
+      {{ section.blocks.first.settings.custom_svg }}
+    </span>
+  {% endif %}
+          <p class="announcement-bar__message h5">
+            <span>{{ section.blocks.first.settings.text | escape }}</span>
+            {%- if section.blocks.first.settings.link != blank -%}
+              {{- 'icon-arrow.svg' | inline_asset_content -}}
+            {%- endif -%}
+          </p>
+
+
+          {%- if section.blocks.first.settings.link != blank -%}
+            </a>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+    {%- elsif section.blocks.size > 1 -%}
+      <slideshow-component
+        class="announcement-bar"
+        role="region"
+        aria-roledescription="{{ 'sections.announcements.carousel' | t }}"
+        aria-label="{{ 'sections.announcements.announcement_bar' | t }}"
+      >
+        <div class="announcement-bar-slider slider-buttons">
+          <button
+            type="button"
+            class="slider-button slider-button--prev"
+            name="previous"
+            aria-label="{{ 'sections.announcements.previous_announcement' | t }}"
+            aria-controls="Slider-{{ section.id }}"
+          >
+            <span class="svg-wrapper">
+              {{- 'icon-caret.svg' | inline_asset_content -}}
+            </span>
+          </button>
+          <div
+            class="grid grid--1-col slider slider--everywhere"
+            id="Slider-{{ section.id }}"
+            aria-live="polite"
+            aria-atomic="true"
+            data-autoplay="{{ section.settings.auto_rotate }}"
+            data-speed="{{ section.settings.change_slides_speed }}"
+          >
+            {%- for block in section.blocks -%}
+              <div
+                class="slideshow__slide slider__slide grid__item grid--1-col"
+                id="Slide-{{ section.id }}-{{ forloop.index }}"
+                {{ block.shopify_attributes }}
+                role="group"
+                aria-roledescription="{{ 'sections.announcements.announcement' | t }}"
+                aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
+                tabindex="-1"
+              >
+                <div
+                  class="announcement-bar__announcement"
+                  role="region"
+                  aria-label="{{ 'sections.header.announcement' | t }}"
+                >
+                  {%- if block.settings.text != blank -%}
+                    {%- if block.settings.link != blank -%}
+                      <a
+                        href="{{ block.settings.link }}"
+                        class="announcement-bar__link link link--text focus-inset animate-arrow"
+                      >
+                    {%- endif -%}
+                    {% if block.settings.custom_svg != blank %}
+                      <span class="announce-svg">
+                        {{ block.settings.custom_svg }}
+                      </span>
+                    {% endif %}
+                    <p class="announcement-bar__message h5">
+                      <span>{{ block.settings.text | escape }}</span>
+                      {%- if block.settings.link != blank -%}
+                        {{- 'icon-arrow.svg' | inline_asset_content -}}
+                      {%- endif -%}
+                    </p>
+                    {%- if block.settings.link != blank -%}
+                      </a>
+                    {%- endif -%}
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+          <button
+            type="button"
+            class="slider-button slider-button--next"
+            name="next"
+            aria-label="{{ 'sections.announcements.next_announcement' | t }}"
+            aria-controls="Slider-{{ section.id }}"
+          >
+            <span class="svg-wrapper">
+              {{- 'icon-caret.svg' | inline_asset_content -}}
+            </span>
+          </button>
+        </div>
+      </slideshow-component>
+      {%- if request.design_mode -%}
+        <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+        <style>
+          /* theme editor power preview fix */
+          .announcement-bar-slider .slider__slide[aria-hidden='true'] {
+            visibility: hidden;
+          }
+        </style>
+      {%- endif -%}
+    {%- endif -%}
+    <div class="localization-wrapper">
+
+<div class="annouce_menu">
+  <div class="annouce-wrapper">
+    <div class="annouce_review">
+      <a href="{{ section.settings.review_link }}">{{ section.settings.review_text }}</a>
+      </div>
+      <div class="annouce_service">
+        <a href="{{ section.settings.service_link }}">{{ section.settings.service_text }}</a>
+        </div>
+         <div class="language-selector">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect width="22" height="22" fill="url(#pattern0_371_5)"/>
+<defs>
+<pattern id="pattern0_371_5" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_371_5" transform="scale(0.0078125)"/>
+</pattern>
+<image id="image0_371_5" width="128" height="128" preserveAspectRatio="none" xlink:href="data:image/png;base64,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"/>
+</defs>
+</svg>
+
+
+    <form action="{{ localization.form_action }}" method="post" class="locale-form">
+      <input type="hidden" name="locale_code" id="locale-code">
+      <select onchange="this.form.submit()">
+        {% for locale in shop.enabled_locales %}
+          <option value="{{ locale.iso_code }}" {% if locale.iso_code == localization.locale.iso_code %}selected{% endif %}>
+            {{ locale.iso_code | upcase }}
+          </option>
+        {% endfor %}
+      </select>
+    </form>
+  </div>
+    </div>
+</div>
+
+      {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
+        <localization-form class="small-hide medium-hide">
+          {%- form 'localization', id: 'AnnouncementCountryForm', class: 'localization-form' -%}
+            <div>
+              <h2 class="visually-hidden" id="AnnouncementCountryLabel">{{ 'localization.country_label' | t }}</h2>
+              {%- render 'country-localization', localPosition: 'AnnouncementCountry' -%}
+            </div>
+          {%- endform -%}
+        </localization-form>
+      {% endif %}
+
+      {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+        <localization-form class="small-hide medium-hide">
+          {%- form 'localization', id: 'AnnouncementLanguageForm', class: 'localization-form' -%}
+            <div>
+              <h2 class="visually-hidden" id="AnnouncementLanguageLabel">{{ 'localization.language_label' | t }}</h2>
+              {%- render 'language-localization', localPosition: 'AnnouncementLanguage' -%}
+            </div>
+          {%- endform -%}
+        </localization-form>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.announcement-bar.name",
+  "max_blocks": 12,
+  "class": "announcement-bar-section",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+     "type": "url",
+     "id":"review_link",
+    "label": "Add Review Url"
+    },
+    {
+     "type": "text",
+     "id":"review_text",
+     "label": "Add Reviw text"
+     },
+    {
+     "type": "url",
+     "id":"service_link",
+     "label": "Add Service Url"
+   },   
+{
+"type": "text",
+"id":"service_text",
+"label": "Add Service text"
+},
+    {
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "t:sections.announcement-bar.settings.auto_rotate.label",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "t:sections.announcement-bar.settings.change_slides_speed.label",
+      "default": 5
+    },    
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-4"
+    },  
+    {
+      "type": "checkbox",
+      "id": "show_line_separator",
+      "default": true,
+      "label": "t:sections.header.settings.show_line_separator.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.announcement-bar.settings.heading_utilities.content"
+    },
+    {
+      "type": "paragraph",
+         "content": "t:sections.announcement-bar.settings.paragraph.content"
+    },             
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "default": false,
+      "label": "t:sections.announcement-bar.settings.show_social.label",
+      "info": "t:sections.announcement-bar.settings.show_social.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_country_selector",
+      "default": false,
+      "label": "t:sections.announcement-bar.settings.enable_country_selector.label",
+      "info": "t:sections.announcement-bar.settings.enable_country_selector.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_language_selector",
+      "default": false,
+      "label": "t:sections.announcement-bar.settings.enable_language_selector.label",
+      "info": "t:sections.announcement-bar.settings.enable_language_selector.info"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "t:sections.announcement-bar.blocks.announcement.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "t:sections.announcement-bar.blocks.announcement.settings.text.default",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
+        },
+        {
+          "type": "textarea",
+          "id": "custom_svg",
+          "label": "Add SVG Code",
+          "info": "Paste your SVG code here"
+        },
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.announcement-bar.presets.name",
+      "blocks": [
+        {
+          "type": "announcement"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,84 @@
+<!-- sections/icon-columns.liquid -->
+<section class="icon-columns-section">
+  <div class="container">
+    <!-- Main Heading -->
+    <h2 class="main-headingsds" data-aos="fade-down">{{ section.settings.main_heading }}</h2>
+    <p class="main-subtext" data-aos="fade-down">{{ section.settings.main_text }}</p>
+
+    <!-- 4 Column Layout -->
+    <div class="icon-columns">
+      {% for block in section.blocks %}
+        <div class="icon-column">
+            <div class="icon-image-wrap" data-aos="zoom-in"  data-aos-duration="2000">
+          {% if block.settings.icon != blank %}
+            <img src="{{ block.settings.icon | img_url: '100x100' }}" alt="{{ block.settings.heading }}" class="icon-image">
+          {% endif %}
+        </div>
+         <div data-aos="fade-up">
+          <h3 class="icon-heading">{{ block.settings.heading }}</h3>
+          <p class="icon-text">{{ block.settings.text }}</p>
+         </div>
+          
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "custom multicolumn",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main Heading",
+      "default": "Our Features"
+    },
+    {
+      "type": "text",
+      "id": "main_text",
+      "label": "Subtext",
+      "default": "What makes us special"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Feature Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Short description of the feature."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "custom multicolumn",
+      "category": "Custom Sections",
+      "blocks": [
+        { "type": "column" },
+        { "type": "column" },
+        { "type": "column" },
+        { "type": "column" }
+      ]
+    }
+  ]
+}
+{% endschema %}

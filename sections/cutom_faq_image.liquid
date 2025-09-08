@@ -1,0 +1,276 @@
+<section class="product-faq-image">
+  <div class="faq-image-grid">
+
+    <!-- Left Column: Heading + Accordion -->
+    <div class="faq-column">
+      {% if section.settings.faq_heading != blank %}
+        <h2 class="faq-heading">{{ section.settings.faq_heading }}</h2>
+      {% endif %}
+
+      {% assign faq_questions = product.metafields.custom.faq_questions.value %}
+      {% assign faq_answers = product.metafields.custom.faq_answers.value %}
+
+      {% if faq_questions != blank %}
+        <div class="faq-accordion">
+          {% for question in faq_questions %}
+            <div class="faq-item{% if forloop.first %} active{% endif %}">
+              <button class="faq-question">
+                <div class="faq-icon-head">
+                <span class="faq-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M530.8 134.1C545.1 144.5 548.3 164.5 537.9 178.8L281.9 530.8C276.4 538.4 267.9 543.1 258.5 543.9C249.1 544.7 240 541.2 233.4 534.6L105.4 406.6C92.9 394.1 92.9 373.8 105.4 361.3C117.9 348.8 138.2 348.8 150.7 361.3L252.2 462.8L486.2 141.1C496.6 126.8 516.6 123.6 530.9 134z"/></svg>
+                </span>
+                 <h3>{{ question }}</h3>
+                </div>
+                <span class="arrow">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M297.4 470.6C309.9 483.1 330.2 483.1 342.7 470.6L534.7 278.6C547.2 266.1 547.2 245.8 534.7 233.3C522.2 220.8 501.9 220.8 489.4 233.3L320 402.7L150.6 233.4C138.1 220.9 117.8 220.9 105.3 233.4C92.8 245.9 92.8 266.2 105.3 278.7L297.3 470.7z"/></svg>
+                </span>
+              </button>
+              {% if faq_answers[forloop.index0] %}
+                <div class="faq-answer">
+                  <p>{{ faq_answers[forloop.index0] }}</p>
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Right Column: Image -->
+    <div class="image-column">
+      {% if product.metafields.custom.right_image != blank %}
+        <img 
+          src="{{ product.metafields.custom.right_image | image_url: width: 800 }}" 
+          alt="{{ section.settings.faq_heading | escape }}" 
+          class="faq-image"
+        >
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+
+<style>
+.product-faq-image {
+  background-color: #0f2f24; 
+}
+
+.faq-accordion .faq-icon-head {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.faq-accordion .faq-icon-head h3 {
+    margin: 0;
+    color: #fff;
+    font-family: Frutiger Neue LT W1G;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 27px;
+}
+
+.faq-image-grid {
+  display: flex;
+  align-items: center;
+}
+.faq-column, .image-column {
+  flex: 1;
+  width: 50%;
+}
+.faq-heading {
+    color: #fff;
+    font-family: Frutiger Neue LT W1G;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 45px;
+    margin: 0 0 20px;
+}
+
+.faq-column {
+    padding-left: 110px;
+}
+
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+      max-width: 700px;
+}
+.faq-item {
+  border-bottom: 1px solid #fff;
+      padding: 30px 0;
+}
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #fff;
+      justify-content: space-between;
+}
+
+.faq-question .arrow {
+  transition: transform 0.3s ease;
+}
+
+.faq-accordion .faq-icon-head .faq-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0;
+}
+
+.faq-question span.arrow svg, .faq-accordion .faq-icon-head .faq-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.faq-question span.arrow svg path{
+    fill: #fff;
+}
+
+.product-faq-image .faq-accordion .faq-answer p {
+    font-family: Frutiger Neue LT W1G;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+    color: #fff;
+    margin: 0;
+    max-width: 600px;
+}
+
+.product-faq-image .faq-accordion .faq-answer {
+    padding-left: 55px;
+}
+
+{% comment %} .product-faq-image .faq-accordion .faq-item.active .faq-question {
+    padding-bottom: 10px;
+} {% endcomment %}
+
+.faq-item.active .faq-question .arrow {
+  transform: rotate(180deg);
+}
+
+.faq-accordion .faq-item.active {
+    padding-bottom: 20px;
+}
+
+.faq-answer {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.4s ease;
+  {% comment %} transition: max-height 0.4s ease, padding 0.3s ease;
+  color: #ddd;
+  font-size: 14px; {% endcomment %}
+}
+.faq-item.active .faq-answer {
+  max-height: 200px;
+}
+.faq-image {
+      max-width: 100%;
+    height: 100%;
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    object-fit: cover;
+}
+
+.product-faq-image .image-column {
+    position: relative;
+    padding-bottom: 800px;
+}
+
+.product-faq-image .faq-accordion .faq-item.active .faq-answer {
+    padding-top: 10px;
+}
+
+@media(max-width: 768px) {
+  .faq-image-grid {
+    flex-direction: column;
+  }
+  .faq-column, .image-column {
+    width: 100%;
+  }
+  .faq-image {
+    margin: 20px auto 0;
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  faqItems.forEach((item) => {
+    const question = item.querySelector(".faq-question");
+    const answer = item.querySelector(".faq-answer");
+
+    // OPEN default active
+    if (item.classList.contains("active")) {
+      answer.style.height = answer.scrollHeight + "px";
+    }
+
+    question.addEventListener("click", () => {
+      const isActive = item.classList.contains("active");
+
+      if (isActive) {
+        // CLOSE
+        item.classList.remove("active");
+        answer.style.height = answer.scrollHeight + "px";
+        requestAnimationFrame(() => {
+          answer.style.height = "0px";
+        });
+      } else {
+        // OPEN
+        item.classList.add("active");
+        answer.style.height = "0px";
+        requestAnimationFrame(() => {
+          answer.style.height = answer.scrollHeight + "px";
+        });
+      }
+    });
+
+    // reset to auto height after open
+    answer.addEventListener("transitionend", () => {
+      if (item.classList.contains("active")) {
+        answer.style.height = "auto";
+      }
+    });
+  });
+});
+</script>
+
+
+{% schema %}
+{
+  "name": "custom faq image",
+  "tag": "section",
+  "class": "faq-image-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "faq_heading",
+      "label": "FAQ Section Heading"
+    }
+  ],
+  "presets": [
+    {
+      "name": "custom faq image"
+    }
+  ]
+}
+{% endschema %}

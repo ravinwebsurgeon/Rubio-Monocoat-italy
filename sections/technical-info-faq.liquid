@@ -1,0 +1,151 @@
+{% comment %}
+  Section: Technical Info FAQ
+  Layout: Left Image + Right Accordion
+  Metafields:
+    - custom.technical_info_faq_question
+    - custom.technical_info_faq_answer
+{% endcomment %}
+
+<div class="tech-info-wrapper page-width">
+  <div class="tech-info-inner">
+    
+    <!-- Left Image -->
+    <div class="tech-info-image">
+      {% if section.settings.image != blank %}
+        <img src="{{ section.settings.image | img_url: '800x' }}" alt="{{ section.settings.heading | escape }}" loading="lazy">
+      {% endif %}
+    </div>
+
+    <!-- Right Content -->
+    <div class="tech-info-content">
+      {% if section.settings.heading != blank %}
+        <h2 class="tech-info-heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+
+      <!-- Accordion -->
+      <div class="tech-info-accordion">
+        {% assign t_questions = product.metafields.custom.technical_info_faq_question.value %}
+        {% assign t_answers = product.metafields.custom.technical_info_faq_answer.value %}
+
+        {% if t_questions and t_answers %}
+          {% for t_question in t_questions %}
+            {% assign t_answer = t_answers[forloop.index0] %}
+            <div class="tech-info-item {% if forloop.first %}active{% endif %}">
+              <button type="button" class="tech-info-question">
+                {{ t_question }}
+                <span class="tech-info-icon">+</span>
+              </button>
+              <div class="tech-info-answer">
+                <p>{{ t_answer }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.tech-info-wrapper {
+  padding: 50px 20px;
+  border-radius: 12px;
+}
+.tech-info-inner {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+.tech-info-image img {
+  max-width: 100%;
+  border-radius: 12px;
+}
+.tech-info-content {
+  flex: 1;
+}
+.tech-info-heading {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.tech-info-item {
+  border-bottom: 1px solid #ccc;
+  padding: 12px 0;
+}
+.tech-info-question {
+  width: 100%;
+  text-align: left;
+  font-weight: 600;
+  font-size: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tech-info-icon {
+  transition: transform 0.3s ease;
+}
+.tech-info-item.active .tech-info-icon {
+  transform: rotate(180deg);
+}
+.tech-info-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.tech-info-item.active .tech-info-answer {
+  max-height: 500px;
+  margin-top: 10px;
+}
+@media(max-width: 768px) {
+  .tech-info-inner {
+    flex-direction: column;
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  document.querySelectorAll(".tech-info-section .tech-info-question").forEach(btn => {
+    btn.addEventListener("click", function(){
+      const item = this.parentElement;
+      // close others
+      item.parentElement.querySelectorAll(".tech-info-item").forEach(i => {
+        if(i !== item) i.classList.remove("active");
+      });
+      item.classList.toggle("active");
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Technical Info FAQ",
+  "tag": "section",
+  "class": "tech-info-section",
+  "templates": ["product"],
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Technical info"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Left Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Technical Info FAQ"
+    }
+  ]
+}
+{% endschema %}

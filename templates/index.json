@@ -1,0 +1,367 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_banner_MEwF3B": {
+      "type": "custom-banner",
+      "name": "Custom Banner",
+      "settings": {
+        "banner_image": "shopify://shop_images/Rectangle_2_2.png",
+        "banner_heading": "Prepare your wood for summer",
+        "button1_text": "Shop Now",
+        "button1_link": "#",
+        "button2_text": "Learn More",
+        "button2_link": "#"
+      }
+    },
+    "custom_multicolumn_RBfXX8": {
+      "type": "custom-multicolumn",
+      "blocks": {
+        "column_zE9DFU": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Layers_1.png",
+            "heading": "ONE SINGLE LAYER",
+            "text": "Thanks to our molecular bonding technology"
+          }
+        },
+        "column_nrCWd7": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Mortar_1.png",
+            "heading": "NATURAL INGREDIENTS",
+            "text": "Safe for you & your environment"
+          }
+        },
+        "column_UdPKcz": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Pantone_1.png",
+            "heading": "UNIQUE COLOURS",
+            "text": "Intense colouring without loosing the natural look & feel of wood"
+          }
+        },
+        "column_yeAnfG": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Tree_of_life_1.png",
+            "heading": "ALL WOOD TYPES",
+            "text": "Apply our wood oil to almost all wood types, furniture & floors"
+          }
+        }
+      },
+      "block_order": [
+        "column_zE9DFU",
+        "column_nrCWd7",
+        "column_UdPKcz",
+        "column_yeAnfG"
+      ],
+      "name": "custom multicolumn",
+      "settings": {
+        "main_heading": "The Power of One",
+        "main_text": "At Rubio Monocoat, we understand what truly matters when treating wood: durability, simplicity, and a flawless result. Our products are designed with quality and ease of use in mind, so you can protect and enhance your wood with confidence, in just one single layer."
+      }
+    },
+    "custom_collection_NPiKyw": {
+      "type": "custom-collection",
+      "blocks": {
+        "collection_NQRcfR": {
+          "type": "collection",
+          "settings": {
+            "collection": "interior-protection"
+          }
+        },
+        "collection_YTJTFW": {
+          "type": "collection",
+          "settings": {
+            "collection": "exterior-protection"
+          }
+        },
+        "collection_dWzbD7": {
+          "type": "collection",
+          "settings": {
+            "collection": "cleaning-maintenance"
+          }
+        },
+        "collection_rhhP3Y": {
+          "type": "collection",
+          "settings": {
+            "collection": "tools"
+          }
+        }
+      },
+      "block_order": [
+        "collection_NQRcfR",
+        "collection_YTJTFW",
+        "collection_dWzbD7",
+        "collection_rhhP3Y"
+      ],
+      "name": "custom collection",
+      "settings": {
+        "section_heading": "Shop by Category"
+      }
+    },
+    "video_product_zqartH": {
+      "type": "video-product",
+      "blocks": {
+        "product_block_HB4Utr": {
+          "type": "product_block",
+          "settings": {
+            "product": "oil-plus-part-a-20-ml",
+            "icon_1": "shopify://shop_images/Shopping_Bag.png",
+            "icon_1_link": "",
+            "icon_2": "shopify://shop_images/Rewind_double_arrows_outline.png",
+            "icon_2_link": ""
+          }
+        },
+        "product_block_PAiMBA": {
+          "type": "product_block",
+          "settings": {
+            "product": "oil-plus-2c-1-3-liter",
+            "icon_1": "shopify://shop_images/Shopping_Bag.png",
+            "icon_1_link": "",
+            "icon_2": "shopify://shop_images/Rewind_double_arrows_outline.png",
+            "icon_2_link": ""
+          }
+        },
+        "product_block_aPTgFF": {
+          "type": "product_block",
+          "settings": {
+            "product": "oil-plus-part-a-20-ml-copy",
+            "icon_1": "shopify://shop_images/Shopping_Bag.png",
+            "icon_1_link": "",
+            "icon_2": "shopify://shop_images/Rewind_double_arrows_outline.png",
+            "icon_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_block_HB4Utr",
+        "product_block_PAiMBA",
+        "product_block_aPTgFF"
+      ],
+      "name": "Video with Products",
+      "settings": {
+        "heading": "Application in a few simple steps",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/d1ecb683406f4f61befd2623ad86a0e9.mp4",
+        "button_link": "shopify://collections/all",
+        "button_label": "View All Products"
+      }
+    },
+    "two_color_grid_ifntXn": {
+      "type": "two-color-grid",
+      "blocks": {
+        "color_item_NXwrqq": {
+          "type": "color_item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_62.png",
+            "full_image": "shopify://shop_images/Oil_Plus_2C_3.50L_RedVelvet.png",
+            "title": "Dunes",
+            "text": "Natuurlijke,witte tint"
+          }
+        },
+        "color_item_N3aGeQ": {
+          "type": "color_item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_63.png",
+            "full_image": "shopify://shop_images/Oil_Plus_2C_1_3L_Mist.png",
+            "title": "Dunes",
+            "text": "Natuurlijke,witte tint"
+          }
+        },
+        "color_item_a6e4XY": {
+          "type": "color_item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_64_1.png",
+            "full_image": "shopify://shop_images/Oil_Plus_2C_1.3L_MidnightSky.png",
+            "title": "Dunes",
+            "text": "Natuurlijke,witte tint"
+          }
+        },
+        "color_item_D4jTci": {
+          "type": "color_item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_65_1.png",
+            "full_image": "shopify://shop_images/Oil_Plus_2C_130ml_RedVelvet.png",
+            "title": "Dunes",
+            "text": "Natuurlijke,witte tint"
+          }
+        },
+        "color_item_9L8db7": {
+          "type": "color_item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_66_1.png",
+            "full_image": "shopify://shop_images/Oil_Plus_2C_3.50L_MidnightSky.png",
+            "title": "Dunes",
+            "text": "Natuurlijke,witte tint"
+          }
+        },
+        "color_item_JDDP8d": {
+          "type": "color_item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_67.png",
+            "full_image": "shopify://shop_images/Oil_Plus_2C_1.3L_Fern.png",
+            "title": "Dunes",
+            "text": "Natuurlijke,witte tint"
+          }
+        }
+      },
+      "block_order": [
+        "color_item_NXwrqq",
+        "color_item_N3aGeQ",
+        "color_item_a6e4XY",
+        "color_item_D4jTci",
+        "color_item_9L8db7",
+        "color_item_JDDP8d"
+      ],
+      "name": "Two Column Colour Grid",
+      "settings": {
+        "heading": "Popular interior colours",
+        "subtext": "Choose a colour to see how it looks on the stairs",
+        "right_image": "shopify://shop_images/c480c7a225fa3e29070c858b00b7e45dae5ded2b.png",
+        "button_label": "View All Colours",
+        "button_link": "#"
+      }
+    },
+    "custom_vedio_banner_fbxRjq": {
+      "type": "custom-vedio-banner",
+      "name": "Video Banner with Overlay",
+      "settings": {
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/6956ee1757f94674817c8a05dcd62987.mp4",
+        "subheading": "Giving back",
+        "heading": "Environmentally friendly wood protection",
+        "button_link": "#",
+        "button_label": "Read More"
+      }
+    },
+    "featured_blog_iVXYwC": {
+      "type": "featured-blog",
+      "name": "t:sections.featured-blog.presets.name",
+      "settings": {
+        "blog": "news",
+        "post_limit": 3,
+        "heading": "Our Blogs",
+        "heading_size": "h1",
+        "columns_desktop": 3,
+        "show_view_all": false,
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "review_UCVi8b": {
+      "type": "review",
+      "blocks": {
+        "review_9tHE9H": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Ellipse_7.png",
+            "name": "Julia",
+            "designation": "Designer",
+            "stars": "shopify://shop_images/44cfefb3be4bc3b95389869e7b4625d61f393764.png",
+            "review": "The architects had never worked with Rubio Monocoat Oil before, but the contractor (In Wood We Trust) had. When\nthe architects saw Rubio Monocoat Oil Plus 2C’s extensive colour palette, they were instantly convinced of the product. They also appreciated other features, such as one single coat is sufficient and no overlaps, easy to..."
+          }
+        },
+        "review_eUMA87": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Ellipse_5.png",
+            "name": "John Doe",
+            "designation": "Designer",
+            "stars": "shopify://shop_images/44cfefb3be4bc3b95389869e7b4625d61f393764.png",
+            "review": "What a product! I got the Pure finish for a butcher block top for my standing desk. Sanded the top to 120, then followed the simple instructions for the finish. The smell\nof the product is that of something chemically but with honey. It is not a strong smell at all, almost good. The finish is incredibly natural to look and feel."
+          }
+        },
+        "review_Yqg7H6": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Ellipse_6.png",
+            "name": "Max Alice",
+            "designation": "Designer",
+            "stars": "shopify://shop_images/44cfefb3be4bc3b95389869e7b4625d61f393764.png",
+            "review": "Rubio Monocoat is such a great product. We use it mainly on oak timber in most of our projects. The product prevents the oak from turning yellow, and gives a smooth easy feel finish texture, feeling like a second skin. A great durable product, that all our clients are very satisfied with as the end result."
+          }
+        }
+      },
+      "block_order": [
+        "review_9tHE9H",
+        "review_eUMA87",
+        "review_Yqg7H6"
+      ],
+      "name": "Customer Reviews",
+      "settings": {
+        "heading": "Customer Reviews"
+      }
+    },
+    "icons_section_KNL9aM": {
+      "type": "icons-section",
+      "blocks": {
+        "container_hRecTF": {
+          "type": "container",
+          "settings": {
+            "icon": "shopify://shop_images/Telephone.png",
+            "heading": "Telephone advice",
+            "subtext": "Available on +32 (0) 51 30 80 54",
+            "extra_text": "On weekdays 08:30 - 17:00"
+          }
+        },
+        "container_dpr4DD": {
+          "type": "container",
+          "settings": {
+            "icon": "shopify://shop_images/Email_2.png",
+            "heading": "Send us an email",
+            "subtext": "Send us a rubio@monocoatusa.com",
+            "extra_text": "Response within 2 working days"
+          }
+        },
+        "container_rBbnjT": {
+          "type": "container",
+          "settings": {
+            "icon": "shopify://shop_images/Headphones.png",
+            "heading": "Customized advice",
+            "subtext": "Fill out the form",
+            "extra_text": "Advice within 2 days"
+          }
+        },
+        "container_f8nFpf": {
+          "type": "container",
+          "settings": {
+            "icon": "shopify://shop_images/Clipboard_with_check_marks.png",
+            "heading": "Take the Test",
+            "subtext": "Answer the questions",
+            "extra_text": "Direct Personal advice"
+          }
+        }
+      },
+      "block_order": [
+        "container_hRecTF",
+        "container_dpr4DD",
+        "container_rBbnjT",
+        "container_f8nFpf"
+      ],
+      "name": "icons section",
+      "settings": {}
+    }
+  },
+  "order": [
+    "custom_banner_MEwF3B",
+    "custom_multicolumn_RBfXX8",
+    "custom_collection_NPiKyw",
+    "video_product_zqartH",
+    "two_color_grid_ifntXn",
+    "custom_vedio_banner_fbxRjq",
+    "featured_blog_iVXYwC",
+    "review_UCVi8b",
+    "icons_section_KNL9aM"
+  ]
+}
