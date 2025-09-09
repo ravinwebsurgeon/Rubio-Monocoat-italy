@@ -32,11 +32,11 @@
             {% assign t_answer = t_answers[forloop.index0] %}
             <div class="tech-info-item {% if forloop.first %}active{% endif %}">
               <button type="button" class="tech-info-question">
-                {{ t_question }}
+                <span>{{ t_question }}</span>
                 <span class="tech-info-icon">+</span>
               </button>
               <div class="tech-info-answer">
-                <p>{{ t_answer }}</p>
+                {{ t_answer }}
               </div>
             </div>
           {% endfor %}
@@ -50,6 +50,7 @@
 .tech-info-wrapper {
   padding: 50px 20px;
   border-radius: 12px;
+  background: #f8f8f8;
 }
 .tech-info-inner {
   display: flex;
@@ -59,6 +60,7 @@
 .tech-info-image img {
   max-width: 100%;
   border-radius: 12px;
+  display: block;
 }
 .tech-info-content {
   flex: 1;
@@ -69,11 +71,11 @@
   margin-bottom: 20px;
 }
 .tech-info-item {
-  border-bottom: 1px solid #ccc;
-  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
 }
 .tech-info-question {
   width: 100%;
+  padding: 16px 0;
   text-align: left;
   font-weight: 600;
   font-size: 16px;
@@ -85,21 +87,24 @@
   align-items: center;
 }
 .tech-info-icon {
+  font-size: 20px;
+  line-height: 1;
   transition: transform 0.3s ease;
 }
 .tech-info-item.active .tech-info-icon {
-  transform: rotate(180deg);
+  transform: rotate(45deg); /* turns + into × */
 }
 .tech-info-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  transition: max-height 0.3s ease, padding 0.3s ease;
   font-size: 15px;
   line-height: 1.5;
+  color: #333;
 }
 .tech-info-item.active .tech-info-answer {
-  max-height: 500px;
-  margin-top: 10px;
+  max-height: 600px;
+  padding: 8px 0 16px;
 }
 @media(max-width: 768px) {
   .tech-info-inner {
