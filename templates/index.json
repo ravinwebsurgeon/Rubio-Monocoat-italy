@@ -311,7 +311,7 @@
           "settings": {
             "icon": "shopify://shop_images/Telephone.png",
             "heading": "Telephone advice",
-            "subtext": "Available on +32 (0) 51 30 80 54",
+            "subtext": "+32 (0) 51 30 80 54",
             "extra_text": "On weekdays 08:30 - 17:00"
           }
         },
