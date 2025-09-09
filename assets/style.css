@@ -3638,18 +3638,6 @@ ul.footer-block__details-content.list-unstyled {
     gap: 5px;
 }
 
-
-html body .blog .slider.slider--tablet {
-    position: relative ;
-    flex-wrap: inherit;
-    overflow-x: inherit;
-    scroll-snap-type: inherit;
-    scroll-behavior: inherit;
-    scroll-padding-left: inherit;
-    -webkit-overflow-scrolling: inherit;
-    margin-bottom: 0;
-}
-
 .blog .title-wrapper-with-link.title-wrapper--self-padded-tablet-down {
     margin-bottom: 15px;
 }
