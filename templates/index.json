@@ -241,24 +241,6 @@
         "button_label": "Read More"
       }
     },
-    "featured_blog_iVXYwC": {
-      "type": "featured-blog",
-      "name": "t:sections.featured-blog.presets.name",
-      "settings": {
-        "blog": "news",
-        "post_limit": 3,
-        "heading": "Our Blogs",
-        "heading_size": "h1",
-        "columns_desktop": 3,
-        "show_view_all": false,
-        "show_image": true,
-        "show_date": true,
-        "show_author": false,
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "custom_blog_section_W9ehre": {
       "type": "custom-blog-section",
       "name": "Csutom Blog Section",
@@ -377,7 +359,6 @@
     "video_product_zqartH",
     "two_color_grid_ifntXn",
     "custom_vedio_banner_fbxRjq",
-    "featured_blog_iVXYwC",
     "custom_blog_section_W9ehre",
     "review_UCVi8b",
     "icons_section_KNL9aM"
