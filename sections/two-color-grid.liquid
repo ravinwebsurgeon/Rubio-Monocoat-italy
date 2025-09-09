@@ -7,36 +7,39 @@
     <div class="left-column">
       <h2 class="color_heading" data-aos="fade-down">{{ section.settings.heading }}</h2>
       <p class="color_text" data-aos="fade-down">{{ section.settings.subtext }}</p>
-      
+     
       <div class="colour-grid">
         {% for block in section.blocks %}
-          <div class="colour-item" 
-               data-aos="zoom-in" 
+          <div class="colour-item"
+               data-aos="zoom-in"
                data-full="{{ block.settings.full_image | img_url: 'master' }}">
                
             {% if block.settings.image %}
+              <div class="image-wrapper">
               <img src="{{ block.settings.image | img_url: '200x200' }}" alt="{{ block.settings.title }}">
+              </div>
             {% endif %}
             <h4 class="color-inner-headeing">{{ block.settings.title }}</h4>
             <p class="color-inner-text">{{ block.settings.text }}</p>
           </div>
         {% endfor %}
       </div>
-
+ 
       <a href="{{ section.settings.button_link }}" class="colour-button">
         {{ section.settings.button_label }}
       </a>
     </div>
-
+ 
     <div class="right-column">
       {% if section.settings.right_image %}
-        <img id="main-colour-image" 
-             src="{{ section.settings.right_image | img_url: 'master' }}" 
+        <img id="main-colour-image"
+             src="{{ section.settings.right_image | img_url: 'master' }}"
              alt="Right Side Image">
       {% endif %}
     </div>
   </div>
 </section>
+ 
 
 <style>
 
@@ -49,12 +52,11 @@
 
 </style>
 
-
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const swatches = document.querySelectorAll(".colour-item");
   const mainImage = document.getElementById("main-colour-image");
-
+ 
   swatches.forEach((swatch) => {
     swatch.addEventListener("click", () => {
       const fullImg = swatch.getAttribute("data-full");
@@ -64,8 +66,22 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
+ 
+ 
+ 
+$(document).ready(function () {
+    $(".image-wrapper").on("click", function () {
+      $(".image-wrapper").removeClass("active"); // remove from all
+      $(this).addClass("active"); // add to clicked one
+    });
+  });
 </script>
-
+<style>
+.two-column-colour-grid .colour-button:hover {
+    background: #1b3a27c4;
+    transition: all ease 1s;
+}
+</style>
 {% schema %}
 {
   "name": "Two Column Colour Grid",
