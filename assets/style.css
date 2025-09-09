@@ -4154,6 +4154,12 @@ section.video-products-section{
     }
 }
 
+
+.newsletter button.newsletter-form__button:hover {
+    background-color: #ffffffba !important;
+    transition: all ease 1s;
+}
+
 @media (max-width: 1400px) and (min-width: 992px){
 
     body .custom-blog-section .blogss-imggg {
