@@ -1,12 +1,3 @@
-{% comment %}
-Section: How To Use FAQ
-Image (left) + Accordion FAQ (right)
-Metafields:
-- custom.how_to_use_faq_image
-- custom.how_to_use_faq_question
-- custom.how_to_use_faq_answer
-{% endcomment %}
-
 <div class="faq-main-container">
   <div class="custom-faq-wrapper">
     <div class="custom-faq-inner">
@@ -33,29 +24,14 @@ Metafields:
                   <!-- Down Arrow SVG -->
                   <svg class="arrow-down" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="20" height="20" fill="url(#pattern0_810_908)"/>
-                    <defs>
-                      <pattern id="pattern0_810_908" patternContentUnits="objectBoundingBox" width="1" height="1">
-                        <use xlink:href="#image0_810_908" transform="scale(0.0078125)"/>
-                      </pattern>
-                      <image id="image0_810_908" width="128" height="128" preserveAspectRatio="none"
-                        xlink:href="data:image/png;base64,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"/>
-                    </defs>
                   </svg>
-
                   <!-- Up Arrow SVG -->
-                  <svg class="arrow-up" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none;">
+                  <svg class="arrow-up" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="{% if forloop.first %}display:block{% else %}display:none{% endif %}">
                     <rect width="20" height="20" transform="matrix(1 0 0 -1 0 20)" fill="url(#pattern0_810_905)"/>
-                    <defs>
-                      <pattern id="pattern0_810_905" patternContentUnits="objectBoundingBox" width="1" height="1">
-                        <use xlink:href="#image0_810_905" transform="scale(0.0078125)"/>
-                      </pattern>
-                      <image id="image0_810_905" width="128" height="128" preserveAspectRatio="none"
-                        xlink:href="data:image/png;base64,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"/>
-                    </defs>
                   </svg>
                 </span>
               </button>
-              <div class="custom-faq-answer" {% if forloop.first %}style="display:block;"{% endif %}>
+              <div class="custom-faq-answer" style="{% if forloop.first %}display:block{% else %}display:none{% endif %}">
                 <p>{{ answer }}</p>
               </div>
             </div>
@@ -76,18 +52,26 @@ Metafields:
 .custom-faq-item { border-bottom: 1px solid #fff; padding: 10px 0; }
 .custom-faq-question { width: 100%; text-align: left; font-weight: bold; background: none; border: none; cursor: pointer; padding: 10px 0; display: flex; justify-content: space-between; align-items: center; color:#fff; }
 .custom-faq-icon svg { transition: transform 0.3s ease; }
-.custom-faq-item.active .arrow-down { display: none; }
-.custom-faq-item.active .arrow-up { display: block; }
-.custom-faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; color:#fff; }
-.custom-faq-item.active .custom-faq-answer { max-height: 500px; margin-top: 10px; }
+.arrow-up { display: none; }
+.custom-faq-answer { display: none; color:#fff; margin-top: 10px; }
 /* Responsive */
 @media(max-width: 768px) { .custom-faq-inner { flex-direction: column; } }
 </style>
 
 <script>
-$(".custom-faq-item").on("click", ".custom-faq-question, .custom-faq-icon", function () {
+$(document).ready(function() {
+  $(".custom-faq-question").on("click", function() {
     var $item = $(this).closest(".custom-faq-item");
+    var $answer = $item.find(".custom-faq-answer");
+    var $downArrow = $item.find(".arrow-down");
+    var $upArrow = $item.find(".arrow-up");
+
     $item.toggleClass("active");
-    $item.find(".custom-faq-answer").slideToggle();
+    $answer.slideToggle(300);
+
+    // Toggle arrows
+    $downArrow.toggle();
+    $upArrow.toggle();
+  });
 });
 </script>
