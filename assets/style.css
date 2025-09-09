@@ -4216,22 +4216,22 @@ body .video-banner-section .video-bg, section.video-banner-section {
 
 @media (max-width: 767px) {
 
-    .two-column-colour-grid .right-column img {
+   body .two-column-colour-grid .right-column img {
     object-fit: cover;
 }
 
-.two-column-colour-grid .colour-grid {
+body .two-column-colour-grid .colour-grid {
     grid-template-columns: repeat(2,1fr);
     justify-content: center;
     gap: 30px;
 }
 
-.two-column-colour-grid .colour-item .image-wrapper {
+body .two-column-colour-grid .colour-item .image-wrapper {
     width: 90px;
     max-width: 90px;
 }
 
-.two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
+body .two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
     top: -5px;
     right: -4px;
 }
