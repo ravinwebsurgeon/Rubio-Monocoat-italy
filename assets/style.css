@@ -3666,6 +3666,10 @@ ul.footer-block__details-content.list-unstyled {
 }
 @media screen and (min-width: 990px) and (max-width: 1480px) {
 
+    .two-column-colour-grid .colour-item .image-wrapper {
+    width: 80px;
+    max-width: 80px;
+}
     .four-containers_outer .first-container-sec .available-and-text {
     margin: 10px 0 !important;
 }
