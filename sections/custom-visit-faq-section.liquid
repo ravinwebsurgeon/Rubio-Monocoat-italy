@@ -11,7 +11,7 @@ Metafields:
   <div class="faq-container">
     <!-- Left Column -->
     <div class="faq-left">
-      <h2 class="faq-heading">{{ section.settings.heading }}</h2>
+      <h2 class="faq-heading1">{{ section.settings.heading }}</h2>
       {% if section.settings.button_label != blank and section.settings.button_link != blank %}
         <a href="{{ section.settings.button_link }}" class="faq-btn">
           {{ section.settings.button_label }}
@@ -68,10 +68,11 @@ Metafields:
 .faq-left {
   flex: 1;
 }
-.faq-heading {
+.faq-heading1 {
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 20px;
+  color:#000;
 }
 .faq-btn {
   background: #12322b;
