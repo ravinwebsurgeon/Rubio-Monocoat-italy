@@ -4166,3 +4166,17 @@ body .video-banner-section .video-bg {
 }
 
 }
+
+@media (max-width: 767px) {
+
+    .four-containers_outer .first-container-sec .available-and-text {
+    flex-direction: column;
+    gap: 5px;
+    margin: 7px 0 0;
+}
+
+.four-containers_outer .container-item .text-part h3 {
+    font-size: 17px;
+}
+
+}
