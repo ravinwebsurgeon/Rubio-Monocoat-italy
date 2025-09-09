@@ -4165,6 +4165,9 @@ body .video-banner-section .video-bg {
     margin-left: 5px;
 }
 
+.four-containers_outer .first-container-sec .available-and-text {
+    margin: 7px 0 0 !important;
+}
 }
 
 @media (max-width: 767px) {
