@@ -20,7 +20,9 @@
         <div class="blog-post">
           {% if article.image %}
             <a href="{{ article.url }}" class="blog-post-image">
+              <div class="blogss-imggg">
               <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.title }}">
+              </div>
             </a>
           {% endif %}
 
