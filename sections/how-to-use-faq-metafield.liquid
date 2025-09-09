@@ -137,13 +137,15 @@
   
 </style>
 {% javascript %}
+
 $(".custom-faq-item").on("click", ".custom-faq-question, .custom-faq-icon", function () {
+    // Get the parent FAQ item
     var $item = $(this).closest(".custom-faq-item");
 
-    // Toggle active class
+    // Toggle active class for arrow and answer
     $item.toggleClass("active");
 
-    // Toggle content
+    // Toggle the answer content
     $item.find(".custom-faq-answer").slideToggle();
 });
 
