@@ -15,7 +15,9 @@
                data-full="{{ block.settings.full_image | img_url: 'master' }}">
                
             {% if block.settings.image %}
+              <div class="image-wrapper">
               <img src="{{ block.settings.image | img_url: '200x200' }}" alt="{{ block.settings.title }}">
+              </div>
             {% endif %}
             <h4 class="color-inner-headeing">{{ block.settings.title }}</h4>
             <p class="color-inner-text">{{ block.settings.text }}</p>
@@ -52,6 +54,15 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
+
+
+
+$(document).ready(function () {
+    $(".image-wrapper").on("click", function () {
+      $(".image-wrapper").removeClass("active"); // remove from all
+      $(this).addClass("active"); // add to clicked one
+    });
+  });
 </script>
 <style>
 .two-column-colour-grid .colour-button:hover {
