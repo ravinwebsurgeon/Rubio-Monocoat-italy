@@ -21,6 +21,11 @@ details[open] .modal-overlay:after {
     BACKGROUND-COLOR: #000000cf !important;
 }
 
+
+.customer-reviews .cust-rev-section .review-card {
+    width: 100%;
+}
+
 .search-modal__close-button {
     top: 18px !important;
 }
