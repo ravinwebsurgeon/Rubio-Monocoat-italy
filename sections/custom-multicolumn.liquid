@@ -1,20 +1,20 @@
 <!-- sections/icon-columns.liquid -->
 <section class="icon-columns-section">
-  <div class="container">
+  <div class="container" data-aos="fade-up">
     <!-- Main Heading -->
-    <h2 class="main-headingsds" data-aos="fade-down">{{ section.settings.main_heading }}</h2>
-    <p class="main-subtext" data-aos="fade-down">{{ section.settings.main_text }}</p>
+    <h2 class="main-headingsds" >{{ section.settings.main_heading }}</h2>
+    <p class="main-subtext" >{{ section.settings.main_text }}</p>
 
     <!-- 4 Column Layout -->
     <div class="icon-columns">
       {% for block in section.blocks %}
         <div class="icon-column">
-            <div class="icon-image-wrap" data-aos="zoom-in"  data-aos-duration="2000">
+            <div class="icon-image-wrap">
           {% if block.settings.icon != blank %}
             <img src="{{ block.settings.icon | img_url: '100x100' }}" alt="{{ block.settings.heading }}" class="icon-image">
           {% endif %}
         </div>
-         <div data-aos="fade-up">
+         <div>
           <h3 class="icon-heading">{{ block.settings.heading }}</h3>
           <p class="icon-text">{{ block.settings.text }}</p>
          </div>
