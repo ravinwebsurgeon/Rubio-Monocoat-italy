@@ -3660,6 +3660,11 @@ ul.footer-block__details-content.list-unstyled {
 }
 }
 @media screen and (min-width: 990px) and (max-width: 1480px) {
+
+    .four-containers_outer .first-container-sec .available-and-text {
+    margin: 10px 0;
+}
+
     .annouce-wrapper a {
     font-size: 14px;
 }
