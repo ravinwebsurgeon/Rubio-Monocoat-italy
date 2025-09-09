@@ -118,18 +118,18 @@ Metafields:
   transition: transform 0.3s ease;
 }
 </style>
-
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  const faqItems = document.querySelectorAll(".faq-item");
+  const faqItems = document.querySelectorAll(".faq-item1");
   faqItems.forEach(item => {
-    const button = item.querySelector(".faq-question");
+    const button = item.querySelector(".faq-question1");
     button.addEventListener("click", () => {
       item.classList.toggle("active");
     });
   });
 });
 </script>
+
 
 {% schema %}
 {
