@@ -1,7 +1,7 @@
 <div class="customer-reviews">
-  <div class="container">
+  <div class="container" data-aos="fade-up">
           <div class="review-hhheadiing">
-      <h2 class="section-heading" data-aos="fade-down">{{ section.settings.heading }}</h2>
+      <h2 class="section-heading">{{ section.settings.heading }}</h2>
       <div class="review-hediing-right">
 
       </div>
@@ -10,7 +10,7 @@
     <div class="reviews-grid">
       {% for block in section.blocks %}
         <div class="cust-rev-section">
-        <div class="review-card" data-aos="zoom-in">
+        <div class="review-card">
           <div class="review-header">
             <div class="profile-info">
               {% if block.settings.image %}
