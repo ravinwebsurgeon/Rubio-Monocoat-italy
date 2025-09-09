@@ -300,7 +300,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Slick CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-{% comment %} <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/> {% endcomment %}
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
 <!-- Slick JS -->
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
@@ -420,7 +420,6 @@ $(document).ready(function () {
           slidesToShow: 1,
           dots: false,
           {% comment %} variableWidth: true, {% endcomment %}
-           infinite: false,
           arrows: true,
           appendArrows: $('.blog-hediidsng-right'),
           prevArrow: '<div class="slick-prev"><img src="https://cdn.shopify.com/s/files/1/0680/7647/0314/files/Arrow_down_sign_to_navigate_1.png?v=1757337856" width="10px" height="10px"></div>',
@@ -438,11 +437,12 @@ $(document).ready(function () {
   $(window).on('resize', initSlick);
 });
 
-</script>
 
-<script>
+    </script>
+    <script>
   AOS.init({
   duration: 1500,
+  once: true
 });
 </script>
 
