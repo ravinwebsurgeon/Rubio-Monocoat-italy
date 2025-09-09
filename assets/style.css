@@ -4172,7 +4172,7 @@ body .video-banner-section .video-bg {
     .four-containers_outer .first-container-sec .available-and-text {
     flex-direction: column;
     gap: 5px;
-    margin: 7px 0 0;
+    margin: 7px 0 0 !important;
 }
 
 .four-containers_outer .container-item .text-part h3 {
