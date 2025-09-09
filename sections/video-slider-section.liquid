@@ -1,0 +1,168 @@
+<section class="inspired-slider-section">
+  <div class="container">
+    <h2 class="slider-heading">{{ section.settings.heading }}</h2>
+
+    <!-- Slider -->
+    <div class="inspired-slider">
+      {% for block in section.blocks %}
+        <div class="inspired-slide" 
+             data-product-title="{{ block.settings.product.title }}" 
+             data-product-img="{{ block.settings.product.featured_image | img_url: '200x200' }}" 
+             data-product-url="{{ block.settings.product.url }}">
+          <div class="slide-media">
+            {% if block.settings.video_url != blank %}
+              <img src="{{ block.settings.thumbnail | img_url: '600x600' }}" alt="Video Thumbnail">
+              <div class="play-button">&#9658;</div>
+            {% else %}
+              <img src="{{ block.settings.image | img_url: '600x600' }}" alt="Slide Image">
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Product Info -->
+    <div class="inspired-product-info">
+      <img id="product-img" src="" alt="">
+      <p id="product-title"></p>
+    </div>
+  </div>
+</section>
+
+<style>
+.inspired-slider-section {
+  padding: 50px 20px;
+  text-align: center;
+}
+.slider-heading {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+.inspired-slider {
+  margin: 0 auto 30px;
+}
+.inspired-slide {
+  position: relative;
+  padding: 10px;
+}
+.inspired-slide img {
+  width: 100%;
+  border-radius: 12px;
+}
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: white;
+  background: rgba(0,0,0,0.5);
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  display: none;
+}
+.slick-center .play-button {
+  display: block;
+}
+.inspired-product-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 25px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fff;
+}
+.inspired-product-info img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  $('.inspired-slider').slick({
+    centerMode: true,
+    centerPadding: '60px',
+    slidesToShow: 3,
+    arrows: true,
+    dots: false,
+    responsive: [
+      { breakpoint: 768, settings: { slidesToShow: 1, centerPadding: '40px' } }
+    ]
+  });
+
+  // Update product info when slide changes
+  function updateProductInfo() {
+    let centerSlide = document.querySelector(".inspired-slide.slick-center");
+    if(centerSlide) {
+      let title = centerSlide.getAttribute("data-product-title");
+      let img = centerSlide.getAttribute("data-product-img");
+      let url = centerSlide.getAttribute("data-product-url");
+
+      document.getElementById("product-title").innerHTML = `<a href="${url}">${title}</a>`;
+      document.getElementById("product-img").src = img;
+    }
+  }
+
+  $('.inspired-slider').on('afterChange', function () {
+    updateProductInfo();
+  });
+
+  // Run initially
+  updateProductInfo();
+});
+</script>
+
+{% schema %}
+{
+  "name": "Inspired Video Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Get inspired.."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Slide Image (if no video)"
+        },
+        {
+          "type": "image_picker",
+          "id": "thumbnail",
+          "label": "Video Thumbnail"
+        },
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "Video URL"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Linked Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Inspired Video Slider",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
