@@ -1884,12 +1884,12 @@ section.video-products-section {
 }
 
 .left-column {
-    margin-top: 30px;
+    margin-top: 0;
 }
 
 .left-column {
     padding: 65px 45px 33px 45px;
-    margin: -45px auto 0px;
+    margin: 0 auto 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -3735,7 +3735,7 @@ header.header {
 }
 .left-column {
     background: #f5f5f5;
-    margin-top: 74px;
+    margin-top: 0;
     margin-right: -318px;
     padding:80px 350px 50px 45px;
     border-radius: 20px;
@@ -4149,7 +4149,7 @@ body .video-banner-section .video-bg, section.video-banner-section {
 }
 
 .right-column img{
-    height: 500px;
+    height: 100%;
 }
 
 }
