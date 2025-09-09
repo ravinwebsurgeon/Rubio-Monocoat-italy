@@ -17,6 +17,9 @@
             {% if block.settings.image %}
               <div class="image-wrapper">
               <img src="{{ block.settings.image | img_url: '200x200' }}" alt="{{ block.settings.title }}">
+              <div>
+                <img class="check-icon" src="https://cdn.shopify.com/s/files/1/0680/7647/0314/files/Group_78.png?v=1757401005">
+              </div>
               </div>
             {% endif %}
             <h4 class="color-inner-headeing">{{ block.settings.title }}</h4>
@@ -49,10 +52,6 @@
   border-radius: 20px;
   padding: 3px;
   cursor: pointer;
-  background-image: url(https://cdn.shopify.com/s/files/1/0680/7647/0314/files/Group_78.png?v=1757401005);
-  background-repeat: no-repeat;
-  background-position: top right; /* ✅ positions in the corner */
-  background-size: 20px 20px;
 }
 
  .two-column-colour-grid .colour-item {
