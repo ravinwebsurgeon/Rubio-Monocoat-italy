@@ -1,71 +1,83 @@
-{% comment %}
-  Section: How To Use FAQ
-  Image (left) + Accordion FAQ (right)
-  Metafields:
-    - custom.how_to_use_faq_image
-    - custom.how_to_use_faq_question
-    - custom.how_to_use_faq_answer
-{% endcomment %}
 <div class="faq-main-container">
-<div class="custom-faq-wrapper">
-  <div class="custom-faq-inner">
-    <!-- Left Image -->
-    <div class="custom-faq-image">
-      {% if product.metafields.custom.how_to_use_faq_image %}
-        <img src="{{ product.metafields.custom.how_to_use_faq_image | img_url: '800x' }}" alt="How to use" loading="lazy">
-      {% endif %}
-    </div>
+  <div class="custom-faq-wrapper">
+    <div class="custom-faq-inner">
+      <!-- Left Image -->
+      <div class="custom-faq-image">
+        {% if product.metafields.custom.how_to_use_faq_image %}
+          <img src="{{ product.metafields.custom.how_to_use_faq_image | img_url: '800x' }}" alt="How to use" loading="lazy">
+        {% endif %}
+      </div>
 
-    <!-- Right FAQ Accordion -->
-    <div class="custom-faq-section">
-      {% assign faq_questions = product.metafields.custom.how_to_use_faq_question.value %}
-      {% assign faq_answers = product.metafields.custom.how_to_use_faq_answer.value %}
+      <!-- Right FAQ Accordion -->
+      <div class="custom-faq-section">
+        {% assign faq_questions = product.metafields.custom.how_to_use_faq_question.value %}
+        {% assign faq_answers = product.metafields.custom.how_to_use_faq_answer.value %}
 
-      {% if faq_questions and faq_answers %}
-        {% for question in faq_questions %}
-          {% assign answer = faq_answers[forloop.index0] %}
-          <div class="custom-faq-item {% if forloop.first %}active{% endif %}">
-            <button type="button" class="custom-faq-question">
-              {{ question }}
-              <span class="custom-faq-icon">+</span>
-            </button>
-            <div class="custom-faq-answer">
-              <p>{{ answer }}</p>
+        {% if faq_questions and faq_answers %}
+          {% for question in faq_questions %}
+            {% assign answer = faq_answers[forloop.index0] %}
+            <div class="custom-faq-item {% if forloop.first %}active{% endif %}">
+              <button type="button" class="custom-faq-question">
+                {{ question }}
+                <span class="custom-faq-icon">
+                  <!-- Default Arrow (Down) -->
+                  <svg class="faq-arrow-down" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="20" height="20" fill="url(#pattern0_810_908)"/>
+                  </svg>
+                  <svg class="faq-arrow-up" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="20" height="20" transform="matrix(1 0 0 -1 0 20)" fill="url(#pattern0_810_905)"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="custom-faq-answer" {% if forloop.first %}style="display:block;"{% endif %}>
+                <p>{{ answer }}</p>
+              </div>
             </div>
-          </div>
-        {% endfor %}
-      {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
     </div>
   </div>
 </div>
-</div>
-
 <style>
-    .faq-main-container {
+/* FAQ Section Container */
+.faq-main-container {
     background: #183029;
 }
-  .custom-faq-wrapper {
-      max-width: 1745px;
+
+/* Wrapper */
+.custom-faq-wrapper {
+    max-width: 1745px;
     margin: 0 auto;
     padding: 0 30px;
-  }
-  .custom-faq-inner {
+}
+
+/* Inner Flex Container */
+.custom-faq-inner {
     display: flex;
     gap: 40px;
     align-items: center;
-  }
-  .custom-faq-image img {
+}
+
+/* Left Image */
+.custom-faq-image img {
     max-width: 100%;
     border-radius: 12px;
-  }
-  .custom-faq-section {
+}
+
+/* Right FAQ Section */
+.custom-faq-section {
     flex: 1;
-  }
-  .custom-faq-item {
+}
+
+/* FAQ Item */
+.custom-faq-item {
     border-bottom: 1px solid #fff;
     padding: 10px 0;
-  }
-  .custom-faq-question {
+}
+
+/* Question Button */
+.custom-faq-question {
     width: 100%;
     text-align: left;
     font-weight: bold;
@@ -76,41 +88,63 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color:#fff;
-  }
-  .custom-faq-icon {
+    color: #fff;
+}
+
+/* FAQ Icon / Arrows */
+.custom-faq-icon {
     transition: transform 0.3s ease;
-  }
-  .custom-faq-item.active .custom-faq-icon {
-    transform: rotate(45deg);
-  }
-  .custom-faq-answer {
+    display: flex;
+    align-items: center;
+}
+
+/* Hide / Show SVG Arrows */
+.custom-faq-icon svg {
+    display: none;
+}
+
+.custom-faq-icon .faq-arrow-down {
+    display: inline-block; /* Default arrow */
+}
+
+.custom-faq-item.active .faq-arrow-down {
+    display: none; /* Hide when active */
+}
+
+.custom-faq-item.active .faq-arrow-up {
+    display: inline-block; /* Show upward arrow when active */
+}
+
+/* FAQ Answer */
+.custom-faq-answer {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
-    color:#fff;
-  }
-  .custom-faq-item.active .custom-faq-answer {
-    max-height: 500px; /* adjust for longer answers */
+    color: #fff;
+}
+
+.custom-faq-item.active .custom-faq-answer {
+    max-height: 500px; /* Adjust for longer answers */
     margin-top: 10px;
-  }
+}
 
-  /* Responsive */
-  @media(max-width: 768px) {
+/* Responsive */
+@media (max-width: 768px) {
     .custom-faq-inner {
-      flex-direction: column;
+        flex-direction: column;
     }
-  }
+}
+  
 </style>
-
-<script>
+{% javascript %}
 $(".custom-faq-item").on("click", ".custom-faq-question, .custom-faq-icon", function () {
-    // Always target the .custom-faq-question
-    var $header = $(this).closest(".custom-faq-question");
-    var $content = $header.next(".custom-faq-answer");
+    var $item = $(this).closest(".custom-faq-item");
+
+    // Toggle active class
+    $item.toggleClass("active");
 
     // Toggle content
-    $content.slideToggle();
-    $header.toggleClass("open");
+    $item.find(".custom-faq-answer").slideToggle();
 });
-</script>
+
+{% endjavascript %}
