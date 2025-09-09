@@ -359,6 +359,15 @@
       ],
       "name": "icons section",
       "settings": {}
+    },
+    "custom_blog_section_W9ehre": {
+      "type": "custom-blog-section",
+      "name": "Csutom Blog Section",
+      "settings": {
+        "heading": "Our Blogs",
+        "blog": "news",
+        "post_limit": 3
+      }
     }
   },
   "order": [
@@ -370,6 +379,7 @@
     "custom_vedio_banner_fbxRjq",
     "featured_blog_iVXYwC",
     "review_UCVi8b",
-    "icons_section_KNL9aM"
+    "icons_section_KNL9aM",
+    "custom_blog_section_W9ehre"
   ]
 }
