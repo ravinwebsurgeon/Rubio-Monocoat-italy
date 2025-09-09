@@ -1,28 +1,23 @@
 {% comment %}
   Section: Technical Info FAQ
-  Layout: Left Image + Right Accordion
-  Metafields:
-    - custom.technical_info_faq_question
-    - custom.technical_info_faq_answer
+  Layout: Heading + Image (Left) | FAQ (Right)
 {% endcomment %}
 
-<div class="tech-info-wrapper page-width">
-  <div class="tech-info-inner">
+<div class="tech-info-wrapper">
+  <div class="page-width tech-info-inner">
     
-    <!-- Left Image -->
-    <div class="tech-info-image">
+    <!-- Left side -->
+    <div class="tech-info-left">
+      {% if section.settings.heading != blank %}
+        <h2 class="tech-info-heading">{{ section.settings.heading }}</h2>
+      {% endif %}
       {% if section.settings.image != blank %}
         <img src="{{ section.settings.image | img_url: '800x' }}" alt="{{ section.settings.heading | escape }}" loading="lazy">
       {% endif %}
     </div>
 
-    <!-- Right Content -->
-    <div class="tech-info-content">
-      {% if section.settings.heading != blank %}
-        <h2 class="tech-info-heading">{{ section.settings.heading }}</h2>
-      {% endif %}
-
-      <!-- Accordion -->
+    <!-- Right side -->
+    <div class="tech-info-right">
       <div class="tech-info-accordion">
         {% assign t_questions = product.metafields.custom.technical_info_faq_question.value %}
         {% assign t_answers = product.metafields.custom.technical_info_faq_answer.value %}
@@ -48,28 +43,33 @@
 
 <style>
 .tech-info-wrapper {
-  padding: 50px 20px;
-  border-radius: 12px;
-  background: #f8f8f8;
+  background: #f8f8f8; /* background fill like screenshot */
+  padding: 60px 20px;
 }
 .tech-info-inner {
   display: flex;
-  gap: 40px;
+  gap: 50px;
   align-items: flex-start;
 }
-.tech-info-image img {
-  max-width: 100%;
-  border-radius: 12px;
-  display: block;
-}
-.tech-info-content {
+.tech-info-left {
   flex: 1;
 }
-.tech-info-heading {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 20px;
+.tech-info-left img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin-top: 20px;
+  display: block;
 }
+.tech-info-heading {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.tech-info-right {
+  flex: 1;
+}
+
+/* Accordion */
 .tech-info-item {
   border-bottom: 1px solid #ddd;
 }
@@ -99,16 +99,20 @@
   overflow: hidden;
   transition: max-height 0.3s ease, padding 0.3s ease;
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.6;
   color: #333;
 }
 .tech-info-item.active .tech-info-answer {
   max-height: 600px;
-  padding: 8px 0 16px;
+  padding: 10px 0 16px;
 }
+
 @media(max-width: 768px) {
   .tech-info-inner {
     flex-direction: column;
+  }
+  .tech-info-left, .tech-info-right {
+    width: 100%;
   }
 }
 </style>
