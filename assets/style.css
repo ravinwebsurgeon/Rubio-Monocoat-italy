@@ -4154,6 +4154,35 @@ section.video-products-section{
     }
 }
 
+@media (max-width: 1400px) and (min-width: 992px){
+
+    body .custom-blog-section .blogss-imggg {
+    padding-bottom: 250px;
+}
+
+body .custom-blog-section h3.blog-title a {
+    font-size: 20px;
+}
+
+body .custom-blog-section p.blog-description {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+body .custom-blog-section h3.blog-title {
+    min-height: 59px;
+}
+
+body .custom-blog-section {
+    padding: 80px 0;
+}
+
+body .custom-blog-section .blog-posts-grid {
+    margin-top: 30px;
+}
+    
+}
+
 @media (max-width: 1380px) and (min-width: 768px) {
 
       .custom-banner__content {
