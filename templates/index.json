@@ -259,6 +259,15 @@
         "padding_bottom": 36
       }
     },
+    "custom_blog_section_W9ehre": {
+      "type": "custom-blog-section",
+      "name": "Csutom Blog Section",
+      "settings": {
+        "heading": "Our Blogs",
+        "blog": "news",
+        "post_limit": 3
+      }
+    },
     "review_UCVi8b": {
       "type": "review",
       "blocks": {
@@ -359,15 +368,6 @@
       ],
       "name": "icons section",
       "settings": {}
-    },
-    "custom_blog_section_W9ehre": {
-      "type": "custom-blog-section",
-      "name": "Csutom Blog Section",
-      "settings": {
-        "heading": "Our Blogs",
-        "blog": "news",
-        "post_limit": 3
-      }
     }
   },
   "order": [
@@ -378,8 +378,8 @@
     "two_color_grid_ifntXn",
     "custom_vedio_banner_fbxRjq",
     "featured_blog_iVXYwC",
+    "custom_blog_section_W9ehre",
     "review_UCVi8b",
-    "icons_section_KNL9aM",
-    "custom_blog_section_W9ehre"
+    "icons_section_KNL9aM"
   ]
 }
