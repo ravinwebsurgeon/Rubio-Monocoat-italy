@@ -1,0 +1,163 @@
+{% comment %}
+  Section: Blog Posts Grid + Slick
+{% endcomment %}
+
+<section class="custom-blog-section">
+  <div class="page-width">
+    {% if section.settings.heading != blank %}
+      <h2 class="blog-section-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="blog-posts-grid">
+      {% assign blog_handle = section.settings.blog %}
+      {% assign post_limit = section.settings.post_limit %}
+      {% for article in blogs[blog_handle].articles limit: post_limit %}
+        <div class="blog-post">
+          {% if article.image %}
+            <a href="{{ article.url }}" class="blog-post-image">
+              <img src="{{ article.image | img_url: '800x600' }}" alt="{{ article.title }}">
+            </a>
+          {% endif %}
+
+          <div class="blog-post-meta">
+            <p class="blog-date">{{ article.published_at | date: "%B %d, %Y" }}</p>
+            <h3 class="blog-title"><a href="{{ article.url }}">{{ article.title }}</a></h3>
+            <p class="blog-excerpt">{{ article.excerpt | strip_html | truncate: 100 }}</p>
+            <a href="{{ article.url }}" class="blog-readmore">Read More</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+.custom-blog-section {
+  padding: 60px 0;
+}
+.blog-section-heading {
+  text-align: left;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+.blog-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.blog-post {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.blog-post img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #eee;
+}
+.blog-post-meta {
+  padding: 20px;
+}
+.blog-date {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 8px;
+}
+.blog-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.blog-excerpt {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 15px;
+}
+.blog-readmore {
+  display: inline-block;
+  background: #143d2d;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+.blog-readmore:hover {
+  background: #0d2a20;
+}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  function initSlick() {
+    if ($(window).width() < 990) {
+      if (!$('.blog-posts-grid').hasClass('slick-initialized')) {
+        $('.blog-posts-grid').slick({
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          arrows: true,
+          dots: true,
+          responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1
+              }
+            }
+          ]
+        });
+      }
+    } else {
+      if ($('.blog-posts-grid').hasClass('slick-initialized')) {
+        $('.blog-posts-grid').slick('unslick');
+      }
+    }
+  }
+
+  initSlick();
+  $(window).on('resize', function(){
+    initSlick();
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Custom Blog Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Our Blogs"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Select Blog"
+    },
+    {
+      "type": "range",
+      "id": "post_limit",
+      "label": "Number of posts",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 3
+    }
+  ],
+  "presets": [
+    {
+      "name": "Csutom Blog Section",
+      "category": "Blog"
+    }
+  ]
+}
+{% endschema %}

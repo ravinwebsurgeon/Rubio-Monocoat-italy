@@ -3666,7 +3666,7 @@ ul.footer-block__details-content.list-unstyled {
 }
 @media screen and (min-width: 990px) and (max-width: 1480px) {
 
-    .two-column-colour-grid .colour-item .image-wrapper {
+    body .two-column-colour-grid .colour-item .image-wrapper {
     width: 80px;
     max-width: 80px;
 }
