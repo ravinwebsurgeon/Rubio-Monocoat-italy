@@ -1508,7 +1508,7 @@ section.product-features-section .section-heading {
 @media screen and (min-width: 990px) {
     
     footer.footer {
-    padding: 0 0 62px;
+    padding: 0 0 0;
 }
     nav.header__inline-menu {
     display: flex;
