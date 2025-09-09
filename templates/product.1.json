@@ -250,6 +250,44 @@
         "image": "shopify://shop_images/Rectangle_146.png"
       }
     },
+    "video_slider_section_dQyWeG": {
+      "type": "video-slider-section",
+      "blocks": {
+        "slide_J4KiA9": {
+          "type": "slide",
+          "settings": {
+            "thumbnail": "shopify://shop_images/Rectangle_137.png",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/e9187465675742ac8a58a7331877ea98.mp4",
+            "product": "durogrit"
+          }
+        },
+        "slide_dmed9Y": {
+          "type": "slide",
+          "settings": {
+            "thumbnail": "shopify://shop_images/Rectangle_135.png",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/e9187465675742ac8a58a7331877ea98.mp4",
+            "product": "durogrit"
+          }
+        },
+        "slide_9j7nh3": {
+          "type": "slide",
+          "settings": {
+            "thumbnail": "shopify://shop_images/Rectangle_136.png",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/e9187465675742ac8a58a7331877ea98.mp4",
+            "product": "durogrit"
+          }
+        }
+      },
+      "block_order": [
+        "slide_J4KiA9",
+        "slide_dmed9Y",
+        "slide_9j7nh3"
+      ],
+      "name": "Inspired Video Slider",
+      "settings": {
+        "heading": "Get inspired.."
+      }
+    },
     "custom_visit_faq_section_hLVgVR": {
       "type": "custom-visit-faq-section",
       "name": "Visit FAQ Sec",
@@ -326,6 +364,7 @@
     "video_product_FcVMD6",
     "how_to_use_faq_metafield_k4TgDV",
     "technical_info_faq_MAX6Rn",
+    "video_slider_section_dQyWeG",
     "custom_visit_faq_section_hLVgVR",
     "icons_section_czdkEA"
   ]
