@@ -46,6 +46,32 @@
 
 <style>
 
+  .two-column-colour-grid .colour-item .check-icon img {
+    max-width: 15px;
+    height: 15px;
+}
+
+.two-column-colour-grid .colour-item .image-wrapper {
+    position: relative;
+}
+
+.two-column-colour-grid .colour-item .check-icon {
+    display: none;
+}
+
+.two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
+    display: block;
+    position: absolute;
+    top: -4px;
+    right: 46px;
+}
+
+.two-column-colour-grid .colour-item .image-wrapper.active .check-icon img {
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+}
+
   .two-column-colour-grid .colour-item .image-wrapper.active img {
    border: 2px solid #183029;
   display: block;
