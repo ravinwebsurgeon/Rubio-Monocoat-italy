@@ -90,9 +90,7 @@
 }
 </style>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 
 <script>
 $(document).ready(function(){
@@ -102,8 +100,10 @@ $(document).ready(function(){
         $('.blog-posts-grid').slick({
           slidesToShow: 2,
           slidesToScroll: 1,
-          arrows: true,
           dots: true,
+          arrows: true,
+          prevArrow: '<div class="slick-prev"><img src="https://cdn.shopify.com/s/files/1/0680/7647/0314/files/Arrow_down_sign_to_navigate_1.png?v=1757337856" width="10px" height="10px"></div>',
+          nextArrow: '<div class="slick-next"><img src="https://cdn.shopify.com/s/files/1/0680/7647/0314/files/Arrow_down_sign_to_navigate.png?v=1757337858" width="10px" height="10px"></div>',
           responsive: [
             {
               breakpoint: 768,
@@ -127,6 +127,7 @@ $(document).ready(function(){
   });
 });
 </script>
+
 
 {% schema %}
 {
