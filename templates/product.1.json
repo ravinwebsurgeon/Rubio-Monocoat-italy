@@ -31,21 +31,6 @@
             "swatch_shape": "circle"
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "shipping_info_dQ4qci": {
-          "type": "shipping_info",
-          "settings": {}
-        },
         "icon_with_text_hk7wi6": {
           "type": "icon-with-text",
           "settings": {
@@ -60,6 +45,21 @@
             "image_3": "shopify://shop_images/Pantone_2.png",
             "heading_3": "100% secure payments"
           }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "shipping_info_dQ4qci": {
+          "type": "shipping_info",
+          "settings": {}
         }
       },
       "block_order": [
@@ -67,10 +67,10 @@
         "description",
         "price",
         "variant_picker",
+        "icon_with_text_hk7wi6",
         "quantity_selector",
         "buy_buttons",
-        "shipping_info_dQ4qci",
-        "icon_with_text_hk7wi6"
+        "shipping_info_dQ4qci"
       ],
       "settings": {
         "enable_sticky_info": true,
