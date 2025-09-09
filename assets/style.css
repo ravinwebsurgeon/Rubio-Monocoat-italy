@@ -2615,6 +2615,16 @@ footer .footer__content-bottom-wrapper.page-width {
 }
 @media screen and (min-width: 750px) and (max-width: 989px) {
     
+       body .two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
+    top: -6px;
+    right: -3px;
+}
+
+    body .two-column-colour-grid .colour-item .image-wrapper {
+    width: 80px;
+    max-width: 80px;
+}
+
     .review-card {
     margin-right: 10px;
     margin-left: 10px;
