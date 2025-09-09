@@ -4156,6 +4156,14 @@ body .video-banner-section .video-bg, section.video-banner-section {
 
 @media (max-width: 992px){
 
+    .search-modal__content.search-modal__content-bottom {
+    top: 0;
+}
+
+.search-modal.modal__content .search-modal__form {
+    margin-top: 40px;
+}
+
    .customer-reviews .review-hediing-right .slick-arrow, .blog-hediidsng-right .slick-arrow {
     border: 1px solid #00000033;
     background-color: #fff;
