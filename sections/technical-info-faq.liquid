@@ -1,23 +1,25 @@
 {% comment %}
   Section: Technical Info FAQ
-  Layout: Heading + Image (Left) | FAQ (Right)
+  Layout: Heading → Image on left → Accordion on right
 {% endcomment %}
 
-<div class="tech-info-wrapper">
-  <div class="page-width tech-info-inner">
+<div class="tech-info-wrapper page-width">
+  <div class="tech-info-inner">
     
-    <!-- Left side -->
+    <!-- Left Side -->
     <div class="tech-info-left">
       {% if section.settings.heading != blank %}
         <h2 class="tech-info-heading">{{ section.settings.heading }}</h2>
       {% endif %}
       {% if section.settings.image != blank %}
-        <img src="{{ section.settings.image | img_url: '800x' }}" alt="{{ section.settings.heading | escape }}" loading="lazy">
+        <div class="tech-info-image">
+          <img src="{{ section.settings.image | img_url: '800x' }}" alt="{{ section.settings.heading | escape }}" loading="lazy">
+        </div>
       {% endif %}
     </div>
 
-    <!-- Right side -->
-    <div class="tech-info-right">
+    <!-- Right Side -->
+    <div class="tech-info-content">
       <div class="tech-info-accordion">
         {% assign t_questions = product.metafields.custom.technical_info_faq_question.value %}
         {% assign t_answers = product.metafields.custom.technical_info_faq_answer.value %}
@@ -28,10 +30,31 @@
             <div class="tech-info-item {% if forloop.first %}active{% endif %}">
               <button type="button" class="tech-info-question">
                 <span>{{ t_question }}</span>
-                <span class="tech-info-icon">+</span>
+                <span class="tech-info-icon">
+                  <!-- Down Arrow -->
+                  <svg class="icon-down" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <rect width="20" height="20" fill="url(#pattern0_810_908)"/>
+                    <defs>
+                      <pattern id="pattern0_810_908" patternContentUnits="objectBoundingBox" width="1" height="1">
+                        <use xlink:href="#image0_810_908" transform="scale(0.0078125)"/>
+                      </pattern>
+                      <image id="image0_810_908" width="128" height="128" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAA..."/>
+                    </defs>
+                  </svg>
+                  <!-- Up Arrow -->
+                  <svg class="icon-up" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <rect width="20" height="20" transform="matrix(1 0 0 -1 0 20)" fill="url(#pattern0_810_905)"/>
+                    <defs>
+                      <pattern id="pattern0_810_905" patternContentUnits="objectBoundingBox" width="1" height="1">
+                        <use xlink:href="#image0_810_905" transform="scale(0.0078125)"/>
+                      </pattern>
+                      <image id="image0_810_905" width="128" height="128" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAA..."/>
+                    </defs>
+                  </svg>
+                </span>
               </button>
               <div class="tech-info-answer">
-                {{ t_answer }}
+                <p>{{ t_answer }}</p>
               </div>
             </div>
           {% endfor %}
@@ -43,39 +66,37 @@
 
 <style>
 .tech-info-wrapper {
-  background: #f8f8f8; /* background fill like screenshot */
-  padding: 60px 20px;
+  padding: 50px 20px;
+  border-radius: 12px;
+  background: #f7f7f7; /* light bg like screenshot */
 }
 .tech-info-inner {
   display: flex;
-  gap: 50px;
+  gap: 40px;
   align-items: flex-start;
 }
 .tech-info-left {
   flex: 1;
 }
-.tech-info-left img {
+.tech-info-image img {
   max-width: 100%;
   border-radius: 12px;
   margin-top: 20px;
-  display: block;
 }
-.tech-info-heading {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-.tech-info-right {
+.tech-info-content {
   flex: 1;
 }
-
-/* Accordion */
+.tech-info-heading {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
 .tech-info-item {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ccc;
+  padding: 12px 0;
 }
 .tech-info-question {
   width: 100%;
-  padding: 16px 0;
   text-align: left;
   font-weight: 600;
   font-size: 16px;
@@ -86,33 +107,27 @@
   justify-content: space-between;
   align-items: center;
 }
-.tech-info-icon {
-  font-size: 20px;
-  line-height: 1;
-  transition: transform 0.3s ease;
+.tech-info-icon svg {
+  width: 20px;
+  height: 20px;
 }
-.tech-info-item.active .tech-info-icon {
-  transform: rotate(45deg); /* turns + into × */
-}
+.icon-up { display: none; }
+.tech-info-item.active .icon-down { display: none; }
+.tech-info-item.active .icon-up { display: inline-block; }
 .tech-info-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
+  transition: max-height 0.3s ease;
   font-size: 15px;
-  line-height: 1.6;
-  color: #333;
+  line-height: 1.5;
 }
 .tech-info-item.active .tech-info-answer {
-  max-height: 600px;
-  padding: 10px 0 16px;
+  max-height: 500px;
+  margin-top: 10px;
 }
-
 @media(max-width: 768px) {
   .tech-info-inner {
     flex-direction: column;
-  }
-  .tech-info-left, .tech-info-right {
-    width: 100%;
   }
 }
 </style>
