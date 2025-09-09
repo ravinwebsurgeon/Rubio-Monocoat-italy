@@ -27,7 +27,7 @@
           <div class="blog-post-meta">
             <p class="blog-date">{{ article.published_at | date: "%B %d, %Y" }}</p>
             <h3 class="blog-title"><a href="{{ article.url }}">{{ article.title }}</a></h3>
-<p class="blog-description">{{ article.content | strip_html | truncate: 200 }}</p>
+<p class="blog-description">{{ article.content | strip_html | truncate: 10 }}</p>
 <a href="{{ article.url }}" class="blog-readmore">Read More</a>
 
           </div>
