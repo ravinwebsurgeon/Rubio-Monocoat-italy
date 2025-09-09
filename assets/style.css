@@ -469,7 +469,7 @@ section.custom-collections-section .container {
 
 .left-column {
     background: #F5F5F5;
-    margin-top: 80px;
+    margin-top: 0;
     margin-right: -404px;
     padding-right: 486px;
     padding-top: 40px;
@@ -4192,7 +4192,7 @@ body .video-banner-section .video-bg, section.video-banner-section {
         height: 500px;
         object-fit: contain;
     }
-    
+
 }
 
 @media (max-width: 767px) {
