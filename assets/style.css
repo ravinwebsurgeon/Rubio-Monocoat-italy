@@ -1506,70 +1506,7 @@ section.product-features-section .section-heading {
 
 
 @media screen and (min-width: 990px) {
-
-    .custom-blog-section .blog-posts-grid {
-    display: block;
-    margin-top: 30px;
-}
-
-.custom-blog-section {
-    padding: 40px 0 60px;
-}
-
-.custom-blog-section .blog-hediing-right .slick-arrow {
-    border: 1px solid #00000033;
-    background-color: #fff;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.custom-blog-section .blog-hhheadiing {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.custom-blog-section .blog-hediing-right {
-    display: flex;
-    gap: 5px;
-    align-items: center;
-}
-
-section.custom-blog-section .page-width {
-    padding: 0 25px;
-}
-
-.custom-blog-section p.blog-description {
-    font-size: 13px;
-    line-height: 21px;
-}
-
-.custom-blog-section h3.blog-title a {
-    font-size: 20px;
-    line-height: 26px;
-}
-
-.custom-blog-section .blogss-imggg {
-    padding-bottom: 300px;
-}
-
-.custom-blog-section h2.blog-section-heading {
-    font-size: 24px;
-    line-height: 30px;
-}
-
-.custom-blog-section .blog-post {
-    margin-left: 5px;
-}
-
-.custom-blog-section h3.blog-title {
-    min-height: 60px;
-}
-
+    
     footer.footer {
     padding: 0 0 62px;
 }
@@ -4239,7 +4176,69 @@ body .video-banner-section .video-bg, section.video-banner-section {
 
 @media (max-width: 992px){
 
-    
+    .custom-blog-section .blog-posts-grid {
+    display: block;
+    margin-top: 30px;
+}
+
+.custom-blog-section {
+    padding: 40px 0 60px;
+}
+
+.custom-blog-section .blog-hediing-right .slick-arrow {
+    border: 1px solid #00000033;
+    background-color: #fff;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-blog-section .blog-hhheadiing {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.custom-blog-section .blog-hediing-right {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+section.custom-blog-section .page-width {
+    padding: 0 25px;
+}
+
+.custom-blog-section p.blog-description {
+    font-size: 13px;
+    line-height: 21px;
+}
+
+.custom-blog-section h3.blog-title a {
+    font-size: 20px;
+    line-height: 26px;
+}
+
+.custom-blog-section .blogss-imggg {
+    padding-bottom: 300px;
+}
+
+.custom-blog-section h2.blog-section-heading {
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.custom-blog-section .blog-post {
+    margin-left: 5px;
+}
+
+.custom-blog-section h3.blog-title {
+    min-height: 60px;
+}
+
     .search-modal__content.search-modal__content-bottom {
     top: 0;
 }
