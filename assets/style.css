@@ -3638,11 +3638,6 @@ ul.footer-block__details-content.list-unstyled {
     gap: 5px;
 }
 
-.blog__post .read-more-btn:hover {
-    background: #1b3a27c4;
-    transition: all ease 1s;
-}
-
 .blog .title-wrapper-with-link.title-wrapper--self-padded-tablet-down {
     margin-bottom: 15px;
 }
