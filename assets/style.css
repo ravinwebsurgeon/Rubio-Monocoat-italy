@@ -4193,3 +4193,11 @@ body .video-banner-section .video-bg, section.video-banner-section {
 }
 
 }
+
+@media only screen and (max-width: 1100px) and (min-width: 767px) {
+
+    .custom-banner__content {
+    bottom: 50px;
+}
+
+}
