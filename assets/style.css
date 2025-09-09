@@ -2621,8 +2621,8 @@ footer .footer__content-bottom-wrapper.page-width {
 }
 
     body .two-column-colour-grid .colour-item .image-wrapper {
-    width: 80px;
-    max-width: 80px;
+    width: 90px;
+    max-width: 90px;
 }
 
     .review-card {
@@ -4215,6 +4215,26 @@ body .video-banner-section .video-bg, section.video-banner-section {
 }
 
 @media (max-width: 767px) {
+
+    .two-column-colour-grid .right-column img {
+    object-fit: cover;
+}
+
+.two-column-colour-grid .colour-grid {
+    grid-template-columns: repeat(2,1fr);
+    justify-content: center;
+    gap: 30px;
+}
+
+.two-column-colour-grid .colour-item .image-wrapper {
+    width: 90px;
+    max-width: 90px;
+}
+
+.two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
+    top: -5px;
+    right: -4px;
+}
 
     .four-containers_outer .first-container-sec .available-and-text {
     flex-direction: column;
