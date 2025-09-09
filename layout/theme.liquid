@@ -377,7 +377,7 @@
     </script>
 
 
-    <script>
+    {% comment %} <script>
 $(document).ready(function () {
   function initFooterAccordion() {
     if ($(window).width() < 990) {
@@ -422,8 +422,8 @@ $(document).ready(function () {
           {% comment %} variableWidth: true, {% endcomment %}
           arrows: true,
           appendArrows: $('.blog-hediidsng-right'),
-          prevArrow: '<div class="slick-prev"><img src="https://cdn.shopify.com/s/files/1/0680/7647/0314/files/Arrow_down_sign_to_navigate_1.png?v=1757337856" width="24px" height="24px"></div>',
-          nextArrow: '<div class="slick-next"><img src="https://cdn.shopify.com/s/files/1/0680/7647/0314/files/Arrow_down_sign_to_navigate.png?v=1757337858" width="24px" height="24px"></div>'
+          prevArrow: '<div class="slick-prev"><img src="https://cdn.shopify.com/s/files/1/0680/7647/0314/files/Arrow_down_sign_to_navigate_1.png?v=1757337856" width="10px" height="10px"></div>',
+          nextArrow: '<div class="slick-next"><img src="https://cdn.shopify.com/s/files/1/0680/7647/0314/files/Arrow_down_sign_to_navigate.png?v=1757337858" width="10px" height="10px"></div>'
         });
       }
     } else {
@@ -438,7 +438,74 @@ $(document).ready(function () {
 });
 
 
-    </script>
+    </script> {% endcomment %}
+
+    <script>
+$(document).ready(function () {
+  const breakpoint = 990;
+
+  // ------------------------------
+  // Footer Accordion
+  // ------------------------------
+  function initFooterAccordion() {
+    if ($(window).width() < breakpoint) {
+      $(".footer-block__details-content").hide();
+
+      $(".footer-block__heading").off("click").on("click", function () {
+        let content = $(this).next(".footer-block__details-content");
+
+        $(".footer-block__details-content").not(content).slideUp();
+        $(".footer-block__heading").not(this).removeClass("active");
+
+        $(this).toggleClass("active");
+        content.slideToggle();
+      });
+    } else {
+      $(".footer-block__details-content").show();
+      $(".footer-block__heading").off("click").removeClass("active");
+    }
+  }
+
+  // ------------------------------
+  // Blog Slick Slider
+  // ------------------------------
+  function initSlick() {
+    if ($(window).width() < breakpoint) {
+      if (!$('.blog__posts').hasClass('slick-initialized')) {
+        $('.blog__posts').slick({
+          slidesToShow: 1,
+          dots: false,
+          arrows: true,
+          appendArrows: $('.blog-hediidsng-right'),
+          prevArrow: '<div class="slick-prev"><img src="https://cdn.shopify.com/s/files/1/0680/7647/0314/files/Arrow_down_sign_to_navigate_1.png?v=1757337856" width="10" height="10"></div>',
+          nextArrow: '<div class="slick-next"><img src="https://cdn.shopify.com/s/files/1/0680/7647/0314/files/Arrow_down_sign_to_navigate.png?v=1757337858" width="10" height="10"></div>'
+        });
+      }
+    } else {
+      if ($('.blog__posts').hasClass('slick-initialized')) {
+        $('.blog__posts').slick('unslick');
+      }
+    }
+  }
+
+  // ------------------------------
+  // Run on Load + Resize (Debounced)
+  // ------------------------------
+  function runAll() {
+    initFooterAccordion();
+    initSlick();
+  }
+
+  runAll();
+
+  let resizeTimer;
+  $(window).on("resize", function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(runAll, 200);
+  });
+});
+</script>
+
     <script>
   AOS.init({
   duration: 1500,
