@@ -1,14 +1,14 @@
 <section class="custom-collections-section">
-  <div class="container">
+  <div class="container" data-aos="fade-up">
     {% if section.settings.section_heading != blank %}
-      <h2 class="section-title" data-aos="fade-down">{{ section.settings.section_heading }}</h2>
+      <h2 class="section-title">{{ section.settings.section_heading }}</h2>
     {% endif %}
     
     <div class="collections-grid">
       {% for block in section.blocks %}
         {% assign collection = collections[block.settings.collection] %}
         {% if collection %}
-          <div class="collection-item" data-aos="zoom-in" data-aos-duration="1000">
+          <div class="collection-item">
             <a href="{{ collection.url }}">
               {% if collection.image %}
                 <img src="{{ collection.image | img_url: '600x600' }}" alt="{{ collection.title }}">
