@@ -321,7 +321,7 @@
           "settings": {
             "icon": "shopify://shop_images/Email_2.png",
             "heading": "Send us an email",
-            "subhead": "This is subhead",
+            "subhead": "",
             "subtext": "Send us a rubio@monocoatusa.com",
             "extra_text": "Response within 2 working days"
           }
@@ -331,7 +331,7 @@
           "settings": {
             "icon": "shopify://shop_images/Headphones.png",
             "heading": "Customized advice",
-            "subhead": "This is subhead",
+            "subhead": "",
             "subtext": "Fill out the form",
             "extra_text": "Advice within 2 days"
           }
@@ -341,7 +341,7 @@
           "settings": {
             "icon": "shopify://shop_images/Clipboard_with_check_marks.png",
             "heading": "Take the Test",
-            "subhead": "This is subhead",
+            "subhead": "",
             "subtext": "Answer the questions",
             "extra_text": "Direct Personal advice"
           }
