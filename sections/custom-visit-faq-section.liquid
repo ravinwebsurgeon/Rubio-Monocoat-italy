@@ -22,7 +22,8 @@ Metafields:
     <!-- Right Column -->
     <div class="faq-right">
       {% assign questions = product.metafields.custom.visit_faq_ques %}
-      {% assign answers = product.metafields.custom.visit_faq_answers %}
+{% assign answers = product.metafields.custom.visit_faq_answers %}
+
 
       {% if questions and answers %}
         {% for question in questions %}
