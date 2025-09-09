@@ -15,9 +15,7 @@
                data-full="{{ block.settings.full_image | img_url: 'master' }}">
                
             {% if block.settings.image %}
-              <div class="image-wrapper">
               <img src="{{ block.settings.image | img_url: '200x200' }}" alt="{{ block.settings.title }}">
-              </div>
             {% endif %}
             <h4 class="color-inner-headeing">{{ block.settings.title }}</h4>
             <p class="color-inner-text">{{ block.settings.text }}</p>
@@ -40,6 +38,18 @@
   </div>
 </section>
 
+<style>
+
+  .two-column-colour-grid .colour-item .image-wrapper.active img {
+    border: 2px solid #183029;
+    display: block;
+    border-radius: 20px;
+    padding: 3px;
+}
+
+</style>
+
+
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const swatches = document.querySelectorAll(".colour-item");
@@ -54,22 +64,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
-
-
-
-$(document).ready(function () {
-    $(".image-wrapper").on("click", function () {
-      $(".image-wrapper").removeClass("active"); // remove from all
-      $(this).addClass("active"); // add to clicked one
-    });
-  });
 </script>
-<style>
-.two-column-colour-grid .colour-button:hover {
-    background: #1b3a27c4;
-    transition: all ease 1s;
-}
-</style>
+
 {% schema %}
 {
   "name": "Two Column Colour Grid",
