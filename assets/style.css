@@ -4156,6 +4156,7 @@ body .video-banner-section .video-bg, section.video-banner-section {
 
 @media (max-width: 992px){
 
+    
     .search-modal__content.search-modal__content-bottom {
     top: 0;
 }
@@ -4186,6 +4187,12 @@ body .video-banner-section .video-bg, section.video-banner-section {
 .four-containers_outer .first-container-sec .available-and-text {
     margin: 7px 0 0 !important;
 }
+
+    .right-column img {
+        height: 500px;
+        object-fit: contain;
+    }
+    
 }
 
 @media (max-width: 767px) {
