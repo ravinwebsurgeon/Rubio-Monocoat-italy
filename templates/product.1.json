@@ -246,7 +246,8 @@
       "type": "technical-info-faq",
       "name": "Technical Info FAQ",
       "settings": {
-        "heading": "Technical info"
+        "heading": "Technical info",
+        "image": "shopify://shop_images/Rectangle_146.png"
       }
     },
     "collapsible_content_7reJKa": {
@@ -319,8 +320,10 @@
         "container_DnniFR": {
           "type": "container",
           "settings": {
+            "class": "",
             "icon": "shopify://shop_images/Telephone.png",
             "heading": "Telephone advice",
+            "subhead": "",
             "subtext": "Available on +32 (0) 51 30 80 54",
             "extra_text": "On weekdays 08:30 - 17:00"
           }
@@ -328,8 +331,10 @@
         "container_BNApUr": {
           "type": "container",
           "settings": {
+            "class": "",
             "icon": "shopify://shop_images/Email_2.png",
             "heading": "Send us an email",
+            "subhead": "",
             "subtext": "Send us a rubio@monocoatusa.com",
             "extra_text": "Response within 2 working days"
           }
@@ -337,8 +342,10 @@
         "container_awtDwV": {
           "type": "container",
           "settings": {
+            "class": "",
             "icon": "shopify://shop_images/Headphones.png",
             "heading": "Customized advice",
+            "subhead": "",
             "subtext": "Fill out the form",
             "extra_text": "Advice within 2 days"
           }
@@ -346,8 +353,10 @@
         "container_J79rr3": {
           "type": "container",
           "settings": {
+            "class": "",
             "icon": "shopify://shop_images/Clipboard_with_check_marks.png",
             "heading": "Take the Test",
+            "subhead": "",
             "subtext": "Answer the questions",
             "extra_text": "Direct Personal advice"
           }
