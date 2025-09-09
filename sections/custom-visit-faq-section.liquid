@@ -21,24 +21,19 @@ Metafields:
 
     <!-- Right Column -->
     <div class="faq-right">
-      {% assign questions = product.metafields.custom.visit_faq_ques %}
-{% assign answers = product.metafields.custom.visit_faq_answers %}
-
-
-      {% if questions and answers %}
-        {% for question in questions %}
-          {% assign answer = answers[forloop.index0] %}
+      {% if product.metafields.custom.visit_faq_ques and product.metafields.custom.visit_faq_answers %}
+        {% for question in product.metafields.custom.visit_faq_ques.value %}
+          {% assign answer = product.metafields.custom.visit_faq_answers.value[forloop.index0] %}
           <div class="faq-item1">
             <button class="faq-question1">
               <span>{{ question }}</span>
               <span class="faq-icon">
-  <!-- Simple downward arrow -->
-  <svg class="faq-svg" width="20" height="20" viewBox="0 0 20 20" fill="none"
-    xmlns="http://www.w3.org/2000/svg">
-    <path d="M5 7.5L10 12.5L15 7.5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-</span>
-
+                <!-- Simple Down Arrow SVG -->
+                <svg class="faq-svg" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 7.5L10 12.5L15 7.5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
             </button>
             <div class="faq-answer1">
               <p>{{ answer }}</p>
@@ -69,7 +64,7 @@ Metafields:
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 20px;
-  color:#000;
+  color: #000;
 }
 .faq-btn {
   background: #12322b;
@@ -97,7 +92,6 @@ Metafields:
   font-size: 18px;
   text-align: left;
   cursor: pointer;
-
 }
 .faq-answer1 {
   display: none;
@@ -115,6 +109,7 @@ Metafields:
   transition: transform 0.3s ease;
 }
 </style>
+
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const faqItems = document.querySelectorAll(".faq-item1");
@@ -126,6 +121,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 </script>
+
 
 
 {% schema %}
