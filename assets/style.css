@@ -3666,6 +3666,11 @@ ul.footer-block__details-content.list-unstyled {
 }
 @media screen and (min-width: 990px) and (max-width: 1480px) {
 
+    body .two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
+    top: -6px;
+    right: -3px;
+}
+
     body .two-column-colour-grid .colour-item .image-wrapper {
     width: 80px;
     max-width: 80px;
