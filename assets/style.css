@@ -4139,7 +4139,7 @@ section.video-products-section{
         height: 430px;
     }
  
-body .video-banner-section .video-bg {
+body .video-banner-section .video-bg, section.video-banner-section {
     height: 450px;
 }
 
