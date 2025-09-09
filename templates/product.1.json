@@ -250,6 +250,15 @@
         "image": "shopify://shop_images/Rectangle_146.png"
       }
     },
+    "custom_visit_faq_section_hLVgVR": {
+      "type": "custom-visit-faq-section",
+      "name": "Visit FAQ Sec",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "button_label": "Visit FAQ",
+        "button_link": "#"
+      }
+    },
     "icons_section_czdkEA": {
       "type": "icons-section",
       "blocks": {
@@ -306,15 +315,6 @@
       ],
       "name": "icons section",
       "settings": {}
-    },
-    "custom_visit_faq_section_hLVgVR": {
-      "type": "custom-visit-faq-section",
-      "name": "Visit FAQ Sec",
-      "settings": {
-        "heading": "Frequently Asked Questions",
-        "button_label": "Visit FAQ",
-        "button_link": "#"
-      }
     }
   },
   "order": [
@@ -326,7 +326,7 @@
     "video_product_FcVMD6",
     "how_to_use_faq_metafield_k4TgDV",
     "technical_info_faq_MAX6Rn",
-    "icons_section_czdkEA",
-    "custom_visit_faq_section_hLVgVR"
+    "custom_visit_faq_section_hLVgVR",
+    "icons_section_czdkEA"
   ]
 }
