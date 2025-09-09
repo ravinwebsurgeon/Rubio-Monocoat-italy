@@ -309,7 +309,7 @@
         "container_hRecTF": {
           "type": "container",
           "settings": {
-            "class": "",
+            "class": "first-container-sec",
             "icon": "shopify://shop_images/Telephone.png",
             "heading": "Telephone advice",
             "subhead": "Available on",
@@ -342,7 +342,7 @@
         "container_f8nFpf": {
           "type": "container",
           "settings": {
-            "class": "first-container-sec",
+            "class": "",
             "icon": "shopify://shop_images/Clipboard_with_check_marks.png",
             "heading": "Take the Test",
             "subhead": "",
