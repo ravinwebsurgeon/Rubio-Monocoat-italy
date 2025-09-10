@@ -491,7 +491,70 @@
                   show_pickup_availability: true
                 -%}
                 {% comment %} product add on code {% endcomment %}
-                  
+                  <div class="product-addons-wrapper">
+  <div class="addons-header">
+    <span>Popular upgrades</span>
+    <button type="button" class="addons-toggle" aria-label="Toggle">
+      <!-- Collapsed (down arrow) SVG by default -->
+      <span class="icon-collapsed">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="20" height="20" fill="url(#pattern0_843_76)"/>
+          <defs>
+            <pattern id="pattern0_843_76" patternContentUnits="objectBoundingBox" width="1" height="1">
+              <use xlink:href="#image0_843_76" transform="scale(0.0078125)"/>
+            </pattern>
+            <image id="image0_843_76" width="128" height="128" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAAPsAAAD7AFKhtV5AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAALFQTFRF////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADcidCwAAADp0Uk5TAAEDBAUGCw0PGx4gISstLkBER11fYGFnaWtsk5eYmp2eo6Spq6ytrq+wsbK2zM/d4OPw8vP09vf4/uaZfbgAAAHzSURBVHja7drZTsJQFIXhBXWeBwQF5wlFAUUm1/s/mDeYgPS057RnbzXZ67Jp8/1J26QXBWw2m81ms9lsNpvN9jeW7J8c71a1tOru8cl+Mndg53VKkuP2pga/2R6T5PR1Z3ag0hxxtkFd3q8PvrVRswIAuODcboTvQ/VmXjsHgCMu7Fa0oHq7qB0CG+/UK/jp820dZ6RawZJPnuKaagUpPq/Qo1ZBms8ehlQqSPU5RJc6Bek+u7ikSoHD5yUa1Chw+Wxgra9Q4PT7a8DBp3iB0/88AIAWhQucPlsAgORetsDt38++CWQL8n3ZAh9fssDPlytw+w/J4pkyBf6+TEGIL1EQ5scvCPVjF4T7cQuK+DELivnxCtz+Y5J9ZZyC4n6cgjJ+jIJyfvmCsn7ZgvJ+uYIMf8X/KS5eEMcvXhDLL1rg9tuBfrGCmH6Rgrh+eEFsP7Qgvh9WIOGHFMj4/gVSvm+BnO9X4PafSvs+BbJ+foG0n1cg72cXaPiZBSp+VoGOH14Q2w8teI7uhxVI+CEFMr5/gZTvWyDn+xVI+j4Fsn5+gbSfVyDvZxd0FPysAh3fXaDluwr0/PSCzirwmwW6/nKBtg8kdwvvv7oPoPHxzQ9nf6Nob+tlQpKTl2381pK9Wm0vgc1ms9lsNpvNZrPZ/vW+AEbmqyT8wqAZAAAAAElFTkSuQmCC"/>
+          </defs>
+        </svg>
+      </span>
+
+      <!-- Expanded (cross) SVG -->
+      <span class="icon-expanded" style="display:none;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 4L4 12M4 4L12 12" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+    </button>
+  </div>
+
+  <div class="addons-list" style="display:none;">
+    {% if product.metafields.custom.product_addon.value %}
+      {% assign addon_products = product.metafields.custom.product_addon.value %}
+      {% for addon in addon_products %}
+        {% assign addon_product = all_products[addon] %}
+        {% if addon_product %}
+          <div class="addon-item">
+            <label>
+              <input type="checkbox" class="addon-checkbox" value="{{ addon_product.variants.first.id }}">
+              <div class="addon-content">
+                <img src="{{ addon_product.featured_image | img_url: '100x100' }}" alt="{{ addon_product.title }}">
+                <span class="addon-title">{{ addon_product.title }}</span>
+                <span class="addon-price">{{ addon_product.price | money }}</span>
+              </div>
+            </label>
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const toggleBtn = document.querySelector(".addons-toggle");
+  const addonsList = document.querySelector(".addons-list");
+  const iconCollapsed = toggleBtn.querySelector(".icon-collapsed");
+  const iconExpanded = toggleBtn.querySelector(".icon-expanded");
+
+  toggleBtn.addEventListener("click", () => {
+    const isOpen = addonsList.style.display === "block";
+    addonsList.style.display = isOpen ? "none" : "block";
+    iconCollapsed.style.display = isOpen ? "inline-block" : "none";
+    iconExpanded.style.display = isOpen ? "none" : "inline-block";
+  });
+});
+</script>
+
                 {% comment %} product add on code end {% endcomment %}
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
