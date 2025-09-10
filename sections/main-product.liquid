@@ -491,7 +491,12 @@
                   show_pickup_availability: true
                 -%}
                 {% comment %} product add on code {% endcomment %}
-                  <div class="product-addons-wrapper">
+                  {% comment %}
+Section: Product Add-ons (Popular upgrades)
+Metafield: custom.product_addon (list of products)
+{% endcomment %}
+
+<div class="product-addons-wrapper">
   <div class="addons-header">
     <span>Popular upgrades</span>
     <button type="button" class="addons-toggle" aria-label="Toggle">
@@ -527,7 +532,7 @@
             <label>
               <input type="checkbox" class="addon-checkbox" value="{{ addon_product.variants.first.id }}">
               <div class="addon-content">
-                <img src="{{ addon_product.featured_image | img_url: '100x100' }}" alt="{{ addon_product.title }}">
+                <img src="{{ addon_product.featured_image | img_url: '60x60' }}" alt="{{ addon_product.title }}">
                 <span class="addon-title">{{ addon_product.title }}</span>
                 <span class="addon-price">{{ addon_product.price | money }}</span>
               </div>
@@ -539,21 +544,6 @@
   </div>
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const toggleBtn = document.querySelector(".addons-toggle");
-  const addonsList = document.querySelector(".addons-list");
-  const iconCollapsed = toggleBtn.querySelector(".icon-collapsed");
-  const iconExpanded = toggleBtn.querySelector(".icon-expanded");
-
-  toggleBtn.addEventListener("click", () => {
-    const isOpen = addonsList.style.display === "block";
-    addonsList.style.display = isOpen ? "none" : "block";
-    iconCollapsed.style.display = isOpen ? "inline-block" : "none";
-    iconExpanded.style.display = isOpen ? "none" : "inline-block";
-  });
-});
-</script>
 
                 {% comment %} product add on code end {% endcomment %}
               {%- when 'rating' -%}
@@ -816,6 +806,99 @@ document.addEventListener("DOMContentLoaded", function() {
   </div>
 </product-info>
 
+<style>
+.product-addons-wrapper {
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  margin-top: 20px;
+  background: #fff;
+  font-family: inherit;
+}
+.addons-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  font-weight: 600;
+}
+.addons-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.addons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 14px 14px;
+}
+.addon-item {
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 8px;
+  background: #fafafa;
+}
+.addon-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.addon-title {
+  flex: 1;
+}
+.addon-price {
+  font-weight: 600;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const toggleBtn = document.querySelector(".addons-toggle");
+  const addonsList = document.querySelector(".addons-list");
+  const iconCollapsed = toggleBtn.querySelector(".icon-collapsed");
+  const iconExpanded = toggleBtn.querySelector(".icon-expanded");
+
+  // Accordion toggle
+  toggleBtn.addEventListener("click", () => {
+    const isOpen = addonsList.style.display === "block";
+    addonsList.style.display = isOpen ? "none" : "block";
+    iconCollapsed.style.display = isOpen ? "inline-block" : "none";
+    iconExpanded.style.display = isOpen ? "none" : "inline-block";
+  });
+
+  // Add-ons with Add to Cart
+  const addToCartForm = document.querySelector("form[action*='/cart/add']");
+  if (addToCartForm) {
+    addToCartForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const formData = new FormData(addToCartForm);
+      const mainProductId = formData.get("id");
+
+      // Collect add-on product variant IDs
+      const addonCheckboxes = document.querySelectorAll(".addon-checkbox:checked");
+      const items = [{ id: mainProductId, quantity: 1 }];
+
+      addonCheckboxes.forEach(cb => {
+        items.push({ id: cb.value, quantity: 1 });
+      });
+
+      // Send AJAX request to Shopify cart API
+      fetch("/cart/add.js", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items })
+      })
+      .then(res => res.json())
+      .then(() => {
+        // Redirect OR open drawer depending on your theme
+        window.location.href = "/cart";
+      })
+      .catch(err => console.error("Error adding to cart:", err));
+    });
+  }
+});
+</script>
 {% schema %}
 {
   "name": "t:sections.main-product.name",
