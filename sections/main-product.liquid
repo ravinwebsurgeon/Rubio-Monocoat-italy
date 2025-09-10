@@ -492,8 +492,8 @@
                 -%}
                 {% comment %} product add on code {% endcomment %}
                   <div class="addons-list" style="display: block; padding: 10px 0px;">
-  {% if product.metafields.custom.addons.value.size > 0 %}
-    {% for addon_product in product.metafields.custom.addons.value %}
+  {% if product.metafields.custom.product_addon.value %}
+    {% for addon_product in product.metafields.custom.product_addon.value %}
       <div class="addon-item">
         <label>
           <input 
@@ -505,6 +505,9 @@
         </label>
       </div>
     {% endfor %}
+  {% else %}
+    <!-- Debugging message, remove later -->
+    <p>No addons found for this product.</p>
   {% endif %}
 </div>
 
