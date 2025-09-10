@@ -77,7 +77,6 @@
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
         {% render 'product-media-gallery', variant_images: variant_images %}
-        
       </div>
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
@@ -97,24 +96,13 @@
                 >
                   {{- block.settings.text -}}
                 </p>
-                
+
               {%- when 'title' -%}
                 {%- if product.metafields.custom.tag_name != blank -%}
-  <div class="product-tag">
-    <!-- SVG Icon -->
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <rect width="20" height="20" fill="url(#pattern0_781_323)"/>
-      <defs>
-        <pattern id="pattern0_781_323" patternContentUnits="objectBoundingBox" width="1" height="1">
-          <use xlink:href="#image0_781_323" transform="scale(0.0078125)"/>
-        </pattern>
-        <image id="image0_781_323" width="128" height="128" preserveAspectRatio="none" 
-          xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAA..."/> <!-- shortened for readability -->
-      </defs>
-    </svg>
-    <span>{{ product.metafields.custom.tag_name }}</span>
-  </div>
-{%- endif -%}
+                  <div class="product-tag">
+                    <span>{{ product.metafields.custom.tag_name }}</span>
+                  </div>
+                {%- endif -%}
 
                 <div class="product__title" {{ block.shopify_attributes }}>
                   <h1>{{ product.title | escape }}</h1>
@@ -126,7 +114,7 @@
                 </div>
               {%- when 'shipping_info' -%}
                 <div class="payment-method">
-                 {{ product.metafields.custom.shipping_info | metafield_tag }}
+                  {{ product.metafields.custom.shipping_info | metafield_tag }}
                 </div>
               {%- when 'price' -%}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
@@ -142,20 +130,22 @@
                     <span>{{ 'products.product.volume_pricing.note' | t }}</span>
                   </div>
                 {%- endif -%}
-               {% comment %} {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
-                   <div class="product__tax caption rte">
-                    {%- if cart.duties_included and cart.taxes_included -%}
-                      {{ 'products.product.duties_and_taxes_included' | t }}
-                    {%- elsif cart.taxes_included -%}
-                      {{ 'products.product.taxes_included' | t }}
-                    {%- elsif cart.duties_included -%}
-                      {{ 'products.product.duties_included' | t }}
-                    {%- endif -%}
-                    {%- if shop.shipping_policy.body != blank -%}
-                      {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                    {%- endif -%}
-                  </div> 
-                {%- endif -%}{% endcomment %}
+                {% comment %}
+                  {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
+                     <div class="product__tax caption rte">
+                      {%- if cart.duties_included and cart.taxes_included -%}
+                        {{ 'products.product.duties_and_taxes_included' | t }}
+                      {%- elsif cart.taxes_included -%}
+                        {{ 'products.product.taxes_included' | t }}
+                      {%- elsif cart.duties_included -%}
+                        {{ 'products.product.duties_included' | t }}
+                      {%- endif -%}
+                      {%- if shop.shipping_policy.body != blank -%}
+                        {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+                {% endcomment %}
                 <div {{ block.shopify_attributes }}>
                   {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
                   {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
@@ -476,7 +466,6 @@
                       {%- endif -%}
                     </volume-pricing>
                   {%- endif -%}
-                  
                 </div>
               {%- when 'popup' -%}
                 <modal-opener
@@ -510,151 +499,154 @@
                   show_pickup_availability: true
                 -%}
                 {% comment %} product add on code {% endcomment %}
-                  <div class="product-addons-wrapper">
-  <!-- Accordion Header -->
-  <div class="addons-header">
-    <span>Popular upgrades</span>
-    <button type="button" class="addons-toggle" aria-label="Toggle">
-      <!-- Collapsed (down arrow) SVG -->
-      <span class="icon-collapsed" style="display:inline-block;">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <path d="M5 7l5 5 5-5" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </span>
-      <!-- Expanded (cross) SVG -->
-      <span class="icon-expanded" style="display:none;">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M12 4L4 12M4 4L12 12" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </span>
-    </button>
-  </div>
+                <div class="product-addons-wrapper">
+                  <!-- Accordion Header -->
+                  <div class="addons-header">
+                    <span>Popular upgrades</span>
+                    <button type="button" class="addons-toggle" aria-label="Toggle">
+                      <!-- Collapsed (down arrow) SVG -->
+                      <span class="icon-collapsed" style="display:inline-block;">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                          <path d="M5 7l5 5 5-5" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </span>
+                      <!-- Expanded (cross) SVG -->
+                      <span class="icon-expanded" style="display:none;">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                          <path d="M12 4L4 12M4 4L12 12" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
 
-  <!-- Accordion Body -->
-  <div class="addons-list" style="display:none; padding:10px 0;">
-    {% if product.metafields.custom.product_addon.value %}
-      {% for addon_product in product.metafields.custom.product_addon.value %}
-        <div class="addon-item">
-          <label class="addon-label">
-            <input 
-              type="checkbox" 
-              class="addon-checkbox" 
-              data-variant-id="{{ addon_product.variants.first.id }}"
-            >
-            <img src="{{ addon_product.featured_image | img_url: '100x100' }}" alt="{{ addon_product.title }}">
-            <span class="addon-title">{{ addon_product.title }}</span>
-            <span class="addon-price">{{ addon_product.price | money }}</span>
-          </label>
-        </div>
-      {% endfor %}
-    {% endif %}
-  </div>
-</div>
+                  <!-- Accordion Body -->
+                  <div class="addons-list" style="display:none; padding:10px 0;">
+                    {% if product.metafields.custom.product_addon.value %}
+                      {% for addon_product in product.metafields.custom.product_addon.value %}
+                        <div class="addon-item">
+                          <label class="addon-label">
+                            <input
+                              type="checkbox"
+                              class="addon-checkbox"
+                              data-variant-id="{{ addon_product.variants.first.id }}"
+                            >
+                            <img
+                              src="{{ addon_product.featured_image | img_url: '100x100' }}"
+                              alt="{{ addon_product.title }}"
+                            >
+                            <span class="addon-title">{{ addon_product.title }}</span>
+                            <span class="addon-price">{{ addon_product.price | money }}</span>
+                          </label>
+                        </div>
+                      {% endfor %}
+                    {% endif %}
+                  </div>
+                </div>
 
-<style>
-  button.addons-toggle {
-    border: 0;
-    background: none;
-}
-.product-addons-wrapper {
-  border: 1px solid #eee;
-  border-radius: 8px;
-  margin: 15px 0;
-  background: #fff;
-  padding: 10px;
-}
-.addons-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-}
-.addon-item {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  border-radius: 8px;
-  background: #f9f9f9;
-  margin-bottom: 10px;
-}
-.addon-item input[type="checkbox"] {
-  margin-right: 10px;
-}
-.addon-label {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  gap: 10px;
-  cursor: pointer;
-}
-.addon-label img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-}
-.addon-title {
-  flex-grow: 1;
-}
-.addon-price {
-  font-weight: bold;
-}
-</style>
+                <style>
+                    button.addons-toggle {
+                      border: 0;
+                      background: none;
+                  }
+                  .product-addons-wrapper {
+                    border: 1px solid #eee;
+                    border-radius: 8px;
+                    margin: 15px 0;
+                    background: #fff;
+                    padding: 10px;
+                  }
+                  .addons-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    cursor: pointer;
+                  }
+                  .addon-item {
+                    display: flex;
+                    align-items: center;
+                    padding: 10px;
+                    border-radius: 8px;
+                    background: #f9f9f9;
+                    margin-bottom: 10px;
+                  }
+                  .addon-item input[type="checkbox"] {
+                    margin-right: 10px;
+                  }
+                  .addon-label {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    gap: 10px;
+                    cursor: pointer;
+                  }
+                  .addon-label img {
+                    width: 40px;
+                    height: 40px;
+                    object-fit: contain;
+                  }
+                  .addon-title {
+                    flex-grow: 1;
+                  }
+                  .addon-price {
+                    font-weight: bold;
+                  }
+                </style>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  // Accordion toggle
-  document.querySelectorAll(".addons-toggle").forEach(toggle => {
-    toggle.addEventListener("click", function() {
-      let wrapper = this.closest(".product-addons-wrapper");
-      let list = wrapper.querySelector(".addons-list");
-      let collapsed = this.querySelector(".icon-collapsed");
-      let expanded = this.querySelector(".icon-expanded");
+                <script>
+                  document.addEventListener('DOMContentLoaded', function () {
+                    // Accordion toggle
+                    document.querySelectorAll('.addons-toggle').forEach((toggle) => {
+                      toggle.addEventListener('click', function () {
+                        let wrapper = this.closest('.product-addons-wrapper');
+                        let list = wrapper.querySelector('.addons-list');
+                        let collapsed = this.querySelector('.icon-collapsed');
+                        let expanded = this.querySelector('.icon-expanded');
 
-      if (list.style.display === "none") {
-        list.style.display = "block";
-        collapsed.style.display = "none";
-        expanded.style.display = "inline-block";
-      } else {
-        list.style.display = "none";
-        collapsed.style.display = "inline-block";
-        expanded.style.display = "none";
-      }
-    });
-  });
+                        if (list.style.display === 'none') {
+                          list.style.display = 'block';
+                          collapsed.style.display = 'none';
+                          expanded.style.display = 'inline-block';
+                        } else {
+                          list.style.display = 'none';
+                          collapsed.style.display = 'inline-block';
+                          expanded.style.display = 'none';
+                        }
+                      });
+                    });
 
-  // Add to Cart handling
-  let mainForm = document.querySelector("form[action*='/cart/add']");
-  if(mainForm){
-    mainForm.addEventListener("submit", function(e){
-      e.preventDefault();
+                    // Add to Cart handling
+                    let mainForm = document.querySelector("form[action*='/cart/add']");
+                    if (mainForm) {
+                      mainForm.addEventListener('submit', function (e) {
+                        e.preventDefault();
 
-      let formData = new FormData(mainForm);
-      let items = [];
-      items.push({
-        id: formData.get("id"), // main product variant id
-        quantity: formData.get("quantity") || 1
-      });
+                        let formData = new FormData(mainForm);
+                        let items = [];
+                        items.push({
+                          id: formData.get('id'), // main product variant id
+                          quantity: formData.get('quantity') || 1,
+                        });
 
-      document.querySelectorAll(".addon-checkbox:checked").forEach(cb => {
-        items.push({
-          id: cb.getAttribute("data-variant-id"),
-          quantity: 1
-        });
-      });
+                        document.querySelectorAll('.addon-checkbox:checked').forEach((cb) => {
+                          items.push({
+                            id: cb.getAttribute('data-variant-id'),
+                            quantity: 1,
+                          });
+                        });
 
-      fetch("/cart/add.js", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items: items })
-      })
-      .then(res => res.json())
-      .then(() => {
-        window.location.href = "/cart";
-      });
-    });
-  }
-});
-</script>
+                        fetch('/cart/add.js', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify({ items: items }),
+                        })
+                          .then((res) => res.json())
+                          .then(() => {
+                            window.location.href = '/cart';
+                          });
+                      });
+                    }
+                  });
+                </script>
 
                 {% comment %} product add on code end {% endcomment %}
               {%- when 'rating' -%}
@@ -848,12 +840,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 {% render 'icon-with-text', block: block %}
             {%- endcase -%}
             {% for block in section.blocks %}
-  {% case block.type %}
-    {% when 'icons_text_custom' %}
-      {% render 'icons-text-custom', block: block %}
-  {% endcase %}
-{% endfor %}
-
+              {% case block.type %}
+                {% when 'icons_text_custom' %}
+                  {% render 'icons-text-custom', block: block %}
+              {% endcase %}
+            {% endfor %}
           {%- endfor -%}
           <a href="{{ product.url }}" class="link product__view-details animate-arrow">
             {{ 'products.product.view_full_details' | t }}
@@ -959,7 +950,7 @@ document.addEventListener("DOMContentLoaded", function() {
       ]
     },
 
-       {
+    {
       "type": "shipping_info",
       "name": "shipping_info",
       "limit": 1
