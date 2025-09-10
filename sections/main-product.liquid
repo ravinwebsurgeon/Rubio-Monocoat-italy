@@ -491,105 +491,22 @@
                   show_pickup_availability: true
                 -%}
                 {% comment %} product add on code {% endcomment %}
-                  <div class="product-addons-wrapper">
-  <div class="addons-header">
-    <span>Popular upgrades</span>
-    <button type="button" class="addons-toggle" aria-label="Toggle">
-      <!-- Collapsed (down arrow) SVG -->
-      <span class="icon-collapsed" style="display:inline-block;">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="20" height="20" fill="url(#pattern0_843_76)"/>
-          <defs>
-            <pattern id="pattern0_843_76" patternContentUnits="objectBoundingBox" width="1" height="1">
-              <use xlink:href="#image0_843_76" transform="scale(0.0078125)"/>
-            </pattern>
-            <image id="image0_843_76" width="128" height="128" preserveAspectRatio="none" 
-              xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAAPsAAAD7AFKhtV5AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAALFQTFRF////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADcidCwAAADp0Uk5TAAEDBAUGCw0PGx4gISstLkBER11fYGFnaWtsk5eYmp2eo6Spq6ytrq+wsbK2zM/d4OPw8vP09vf4/uaZfbgAAAHzSURBVHja7drZTsJQFIXhBXWeBwQF5wlFAUUm1/s/mDeYgPS057RnbzXZ67Jp8/1J26QXBWw2m81ms9lsNpvN9jeW7J8c71a1tOru8cl+Mndg53VKkuP2pga/2R6T5PR1Z3ag0hxxtkFd3q8PvrVRswIAuODcboTvQ/VmXjsHgCMu7Fa0oHq7qB0CG+/UK/jp820dZ6RawZJPnuKaagUpPq/Qo1ZBms8ehlQqSPU5RJc6Bek+u7ikSoHD5yUa1Chw+Wxgra9Q4PT7a8DBp3iB0/88AIAWhQucPlsAgORetsDt38++CWQL8n3ZAh9fssDPlytw+w/J4pkyBf6+TEGIL1EQ5scvCPVjF4T7cQuK+DELivnxCtz+Y5J9ZZyC4n6cgjJ+jIJyfvmCsn7ZgvJ+uYIMf8X/KS5eEMcvXhDLL1rg9tuBfrGCmH6Rgrh+eEFsP7Qgvh9WIOGHFMj4/gVSvm+BnO9X4PafSvs+BbJ+foG0n1cg72cXaPiZBSp+VoGOH14Q2w8teI7uhxVI+CEFMr5/gZTvWyDn+xVI+j4Fsn5+gbSfVyDvZxd0FPysAh3fXaDluwr0/PSCzirwmwW6/nKBtg8kdwvvv7oPoPHxzQ9nf6Nob+tlQpKTl2381pK9Wm0vgc1ms9lsNpvNZrPZ/vW+AEbmqyT8wqAZAAAAAElFTkSuQmCC"/>
-          </defs>
-        </svg>
-      </span>
-
-      <!-- Expanded (cross) SVG -->
-      <span class="icon-expanded" style="display:none;">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 4L4 12M4 4L12 12" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </span>
-    </button>
-  </div>
-
-  <div class="addons-list" style="display:none; padding:10px 0;">
-    {% if product.metafields.custom.product_addon.value %}
-      {% for addon in product.metafields.custom.product_addon.value %}
-        {% assign addon_product = all_products[addon] %}
-        {% if addon_product %}
-          <label class="addon-item" style="display:flex;align-items:center;margin-bottom:10px;gap:10px;">
-            <input type="checkbox" class="addon-checkbox" value="{{ addon_product.variants.first.id }}">
-            <img src="{{ addon_product.featured_image | img_url: '100x100' }}" alt="{{ addon_product.title }}" style="width:60px;height:60px;object-fit:cover;">
-            <span>{{ addon_product.title }} - {{ addon_product.price | money }}</span>
-          </label>
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-  </div>
+                  <div class="addons-list" style="display: block; padding: 10px 0px;">
+  {% if product.metafields.custom.addons.value.size > 0 %}
+    {% for addon_product in product.metafields.custom.addons.value %}
+      <div class="addon-item">
+        <label>
+          <input 
+            type="checkbox" 
+            class="addon-checkbox" 
+            data-variant-id="{{ addon_product.variants.first.id }}"
+          >
+          {{ addon_product.title }} – {{ addon_product.price | money }}
+        </label>
+      </div>
+    {% endfor %}
+  {% endif %}
 </div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function(){
-  const toggleBtn = document.querySelector(".addons-toggle");
-  const addonsList = document.querySelector(".addons-list");
-  const iconCollapsed = document.querySelector(".icon-collapsed");
-  const iconExpanded = document.querySelector(".icon-expanded");
-
-  // accordion toggle
-  toggleBtn.addEventListener("click", function(){
-    if (addonsList.style.display === "none") {
-      addonsList.style.display = "block";
-      iconCollapsed.style.display = "none";
-      iconExpanded.style.display = "inline-block";
-    } else {
-      addonsList.style.display = "none";
-      iconCollapsed.style.display = "inline-block";
-      iconExpanded.style.display = "none";
-    }
-  });
-
-  // add-ons handling on Add to Cart
-  const form = document.querySelector("form[action*='/cart/add']");
-  if (form) {
-    form.addEventListener("submit", function(e){
-      e.preventDefault();
-
-      let formData = new FormData(form);
-
-      // collect addon variant ids
-      const checkedAddons = document.querySelectorAll(".addon-checkbox:checked");
-      let items = [{
-        id: form.querySelector("[name='id']").value,
-        quantity: form.querySelector("[name='quantity']") ? form.querySelector("[name='quantity']").value : 1
-      }];
-
-      checkedAddons.forEach(chk => {
-        items.push({
-          id: chk.value,
-          quantity: 1
-        });
-      });
-
-      fetch("/cart/add.js", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items: items })
-      })
-      .then(res => res.json())
-      .then(data => {
-        window.location.href = "/cart"; // redirect to cart
-      })
-      .catch(err => console.error(err));
-    });
-  }
-});
-</script>
 
                 {% comment %} product add on code end {% endcomment %}
               {%- when 'rating' -%}
