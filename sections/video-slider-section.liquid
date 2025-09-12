@@ -1,9 +1,9 @@
-<section class="inspired-slider-section" id="inspiration">
+<section class="inspired-slider-section">
   <div class="container">
     <h2 class="slider-heading">{{ section.settings.heading }}</h2>
 
     <!-- Slider -->
-    <div class="inspired-slider">
+    <div class="inspired-slider" id="inspiration">
       {% for block in section.blocks %}
         <div class="inspired-slide" 
              data-product-title="{{ block.settings.product.title }}" 
