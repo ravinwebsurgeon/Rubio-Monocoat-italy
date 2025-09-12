@@ -552,60 +552,72 @@
                   </div>
                 </div>
                 <script>
-                  document.addEventListener('DOMContentLoaded', function () {
-                    // Accordion toggle
-                    document.querySelectorAll('.addons-toggle').forEach((toggle) => {
-                      toggle.addEventListener('click', function () {
-                        let wrapper = this.closest('.product-addons-wrapper');
-                        let list = wrapper.querySelector('.addons-list');
-                        let collapsed = this.querySelector('.icon-collapsed');
-                        let expanded = this.querySelector('.icon-expanded');
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.product-addons-wrapper').forEach((wrapper) => {
+      const toggleBtn = wrapper.querySelector('.addons-toggle');
+      const list = wrapper.querySelector('.addons-list');
+      const collapsed = wrapper.querySelector('.icon-collapsed');
+      const expanded = wrapper.querySelector('.icon-expanded');
 
-                        if (list.style.display === 'none') {
-                          list.style.display = 'block';
-                          collapsed.style.display = 'none';
-                          expanded.style.display = 'inline-block';
-                        } else {
-                          list.style.display = 'none';
-                          collapsed.style.display = 'inline-block';
-                          expanded.style.display = 'none';
-                        }
-                      });
-                    });
+      function toggleAccordion() {
+        if (list.classList.contains('open')) {
+          list.classList.remove('open');
+          collapsed.style.display = 'inline-block';
+          expanded.style.display = 'none';
+        } else {
+          list.classList.add('open');
+          collapsed.style.display = 'none';
+          expanded.style.display = 'inline-block';
+        }
+      }
 
-                    // Add to Cart handling
-                    let mainForm = document.querySelector("form[action*='/cart/add']");
-                    if (mainForm) {
-                      mainForm.addEventListener('submit', function (e) {
-                        e.preventDefault();
+      // Click on button
+      toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleAccordion();
+      });
 
-                        let formData = new FormData(mainForm);
-                        let items = [];
-                        items.push({
-                          id: formData.get('id'), // main product variant id
-                          quantity: formData.get('quantity') || 1,
-                        });
+      // Click on wrapper (except when clicking inside addon item)
+      wrapper.addEventListener('click', (e) => {
+        if (!e.target.closest('.addon-item') && !e.target.closest('.addons-toggle')) {
+          toggleAccordion();
+        }
+      });
+    });
 
-                        document.querySelectorAll('.addon-checkbox:checked').forEach((cb) => {
-                          items.push({
-                            id: cb.getAttribute('data-variant-id'),
-                            quantity: 1,
-                          });
-                        });
+    // Add to Cart handling
+    let mainForm = document.querySelector("form[action*='/cart/add']");
+    if (mainForm) {
+      mainForm.addEventListener('submit', function (e) {
+        e.preventDefault();
 
-                        fetch('/cart/add.js', {
-                          method: 'POST',
-                          headers: { 'Content-Type': 'application/json' },
-                          body: JSON.stringify({ items: items }),
-                        })
-                          .then((res) => res.json())
-                          .then(() => {
-                            window.location.href = '/cart';
-                          });
-                      });
-                    }
-                  });
-                </script>
+        let formData = new FormData(mainForm);
+        let items = [];
+        items.push({
+          id: formData.get('id'), // main product variant id
+          quantity: formData.get('quantity') || 1,
+        });
+
+        document.querySelectorAll('.addon-checkbox:checked').forEach((cb) => {
+          items.push({
+            id: cb.getAttribute('data-variant-id'),
+            quantity: 1,
+          });
+        });
+
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ items: items }),
+        })
+          .then((res) => res.json())
+          .then(() => {
+            window.location.href = '/cart';
+          });
+      });
+    }
+  });
+</script>
 
                 {% comment %} product add on code end {% endcomment %}
               {%- when 'rating' -%}
