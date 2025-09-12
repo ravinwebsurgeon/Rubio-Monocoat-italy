@@ -509,48 +509,48 @@
               {%- when 'buy_buttons' -%}
                 {% comment %} product add on code {% endcomment %}
                 <div class="product-addons-wrapper">
-                  <!-- Accordion Header -->
-                  <div class="addons-header">
-                    <span>Popular upgrades</span>
-                    <button type="button" class="addons-toggle" aria-label="Toggle">
-                      <!-- Collapsed (down arrow) SVG -->
-                      <span class="icon-collapsed" style="display:inline-block;">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                          <path d="M5 7l5 5 5-5" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </span>
-                      <!-- Expanded (cross) SVG -->
-                      <span class="icon-expanded" style="display:none;">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                          <path d="M12 4L4 12M4 4L12 12" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
-                        </svg>
-                      </span>
-                    </button>
-                  </div>
+  <!-- Accordion Header -->
+  <div class="addons-header">
+    <span>Popular upgrades</span>
+    <button type="button" class="addons-toggle" aria-label="Toggle">
+      <!-- Collapsed (down arrow) SVG -->
+      <span class="icon-collapsed" style="display:inline-block;">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M5 7l5 5 5-5" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <!-- Expanded (cross) SVG -->
+      <span class="icon-expanded" style="display:none;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M12 4L4 12M4 4L12 12" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+    </button>
+  </div>
 
-                  <!-- Accordion Body -->
-                  <div class="addons-list" style="display:none; padding:10px 0;">
-                    {% if product.metafields.custom.product_addon.value %}
-                      {% for addon_product in product.metafields.custom.product_addon.value %}
-                        <div class="addon-item">
-                          <label class="addon-label">
-                            <input
-                              type="checkbox"
-                              class="addon-checkbox"
-                              data-variant-id="{{ addon_product.variants.first.id }}"
-                            >
-                            <img
-                              src="{{ addon_product.featured_image | img_url: '100x100' }}"
-                              alt="{{ addon_product.title }}"
-                            >
-                            <span class="addon-title">{{ addon_product.title }}</span>
-                            <span class="addon-price">{{ addon_product.price | money }}</span>
-                          </label>
-                        </div>
-                      {% endfor %}
-                    {% endif %}
-                  </div>
-                </div>
+  <!-- Accordion Body -->
+  <div class="addons-list">
+    {% if product.metafields.custom.product_addon.value %}
+      {% for addon_product in product.metafields.custom.product_addon.value %}
+        <div class="addon-item">
+          <label class="addon-label">
+            <input
+              type="checkbox"
+              class="addon-checkbox"
+              data-variant-id="{{ addon_product.variants.first.id }}"
+            >
+            <img
+              src="{{ addon_product.featured_image | img_url: '100x100' }}"
+              alt="{{ addon_product.title }}"
+            >
+            <span class="addon-title">{{ addon_product.title }}</span>
+            <span class="addon-price">{{ addon_product.price | money }}</span>
+          </label>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
                 <script>
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.product-addons-wrapper').forEach((wrapper) => {
