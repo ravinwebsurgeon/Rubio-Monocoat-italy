@@ -117,11 +117,8 @@
                     </h2>
                   </a>
                 </div>
-              {%- when 'shipping_info' -%}
-                <div class="payment-method">
-                  {{ product.metafields.custom.shipping_info | metafield_tag }}
-                </div>
-              {%- when 'price' -%}
+
+                 {%- when 'price' -%}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                   {%- render 'price',
                     product: product,
@@ -129,6 +126,11 @@
                     show_badges: true,
                     price_class: 'price--large'
                   -%}
+                </div>
+                
+              {%- when 'shipping_info' -%}
+                <div class="payment-method">
+                  {{ product.metafields.custom.shipping_info | metafield_tag }}
                 </div>
                 {%- if product.quantity_price_breaks_configured? -%}
                   <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
