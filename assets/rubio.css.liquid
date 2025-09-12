@@ -380,6 +380,18 @@ section.product-features-section {
     color: #000;
 }
 
+ .product-section .product-addons-wrapper .addons-list {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding: 0 0; /* reset */
+  }
+
+ .product-section .product-addons-wrapper .addons-list.open {
+    max-height: 800px; /* large enough to fit contents */
+    padding: 10px 0;
+  }
+
 .product-section .product-addons-wrapper .addon-item {
     background-color: #fff;
     padding: 12px 24px;
