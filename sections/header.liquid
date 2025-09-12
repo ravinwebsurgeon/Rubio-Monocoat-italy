@@ -171,11 +171,11 @@
                 sizes: sizes,
                 preload: true
             }}
+            <div class="another-logo"><img class="another-pages-logo" src="{{ section.settings.logo-img | img_url:'master' }}"></div>
           </div>
         {%- else -%}
           <span class="h2">{{ shop.name }}</span>
         {%- endif -%}
-        <img class="another-pages-logo" src="{{ section.settings.logo-img | img_url:'master' }}">
       </a>
       {%- if request.page_type == 'index' -%}
         </h1>
