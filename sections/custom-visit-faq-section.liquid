@@ -111,16 +111,23 @@ Metafields:
 </style>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const faqItems = document.querySelectorAll(".faq-item1");
-  faqItems.forEach(item => {
-    const button = item.querySelector(".faq-question1");
-    button.addEventListener("click", () => {
-      item.classList.toggle("active");
-    });
+$(document).ready(function () {
+  $(".faq-question1").on("click", function () {
+    const $item = $(this).closest(".faq-item1");
+    const $answer = $item.find(".faq-answer1");
+
+    // Toggle active state
+    $item.toggleClass("active");
+
+    // Slide the answer up/down
+    $answer.stop(true, true).slideToggle(300);
+
+    // Optionally rotate the single arrow SVG
+    $item.find(".faq-svg").toggleClass("rotated");
   });
 });
 </script>
+
 
 
 
