@@ -294,3 +294,40 @@ body:not(.templateindex) .shopify-section-header-sticky.scrolled-past-header .co
 section.product-features-section {
     margin-top: 100px;
 }
+
+.product-section .quantity-add-to-cart .quantity:after {
+    box-shadow: none;
+    outline: 0;
+}
+
+.product-section .quantity-add-to-cart quantity-input.quantity {
+    border: 1px solid #183029;
+    border-radius: 50px;
+    height: 60px;
+}
+
+.product-section .quantity-add-to-cart button.quantity__button.disabled {
+    color: #183029;
+}
+
+.product-section .quantity-add-to-cart .quantity__button .svg-wrapper svg path {
+    stroke: #183029;
+}
+
+.product-section .quantity-add-to-cart .quantity__input {
+    color: #183029 !important;
+}
+
+.product-section .quantity-add-to-cart .product-form__submit span {
+    font-family: Frutiger Neue LT W1G;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.button:after, .button:not([disabled]):hover:after, .shopify-challenge__button:hover:after, .customer button:hover:after, .shopify-payment-button__button--unbranded:hover:after {
+    box-shadow: none;
+    outline: 0;
+}
