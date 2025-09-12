@@ -11,35 +11,35 @@
       </div>
       </div>
 
-      <!-- Right FAQ Accordion -->
-      <div class="cust-faq-content">
-      <div class="custom-faq-section">
-        {% assign faq_questions = product.metafields.custom.how_to_use_faq_question.value %}
-        {% assign faq_answers = product.metafields.custom.how_to_use_faq_answer.value %}
+ <!-- Right FAQ Accordion -->
+<div class="cust-faq-content">
+  <div class="custom-faq-section">
+    {% assign faq_questions = product.metafields.custom.how_to_use_faq_question.value %}
+    {% assign faq_answers = product.metafields.custom.how_to_use_faq_answer.value %}
 
-        {% if faq_questions and faq_answers %}
-          {% for question in faq_questions %}
-            {% assign answer = faq_answers[forloop.index0] %}
-            <div class="custom-faq-item {% if forloop.first %}active{% endif %}">
-              <button type="button" class="custom-faq-question">
-                 {{ question }}
-  <span class="custom-faq-icon">
-    <!-- Single Arrow SVG -->
-    <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M6 9l6 6 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </span>
-</button>
-                </span>
-              </button>
-              <div class="custom-faq-answer" style="{% if forloop.first %}display:block{% else %}display:none{% endif %}">
-                <p>{{ answer }}</p>
-              </div>
-            </div>
-          {% endfor %}
-        {% endif %}
-      </div>
-      </div>
+    {% if faq_questions and faq_answers %}
+      {% for question in faq_questions %}
+        {% assign answer = faq_answers[forloop.index0] %}
+        <div class="custom-faq-item {% if forloop.first %}active{% endif %}">
+          <button type="button" class="custom-faq-question">
+            {{ question }}
+            <span class="custom-faq-icon">
+              <!-- Single Arrow SVG -->
+              <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 9l6 6 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </button>
+
+          <div class="custom-faq-answer" style="{% if forloop.first %}display:block{% else %}display:none{% endif %}">
+            <p>{{ answer }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
 
     </div>
   </div>
@@ -47,7 +47,7 @@
 
 <style>
 .faq-main-container { background: #183029; }
-.custom-faq-wrapper { max-width: 1745px; margin: 0 auto; padding: 0 30px; }
+.custom-faq-wrapper { max-width: 1745px; margin: 0 auto; padding: 100px 30px; }
 .custom-faq-inner { display: flex; gap: 150px; align-items: center; }
 .custom-faq-image img { max-width: 100%; border-radius: 12px; }
 .custom-faq-section { flex: 1; }
