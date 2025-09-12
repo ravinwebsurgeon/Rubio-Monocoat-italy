@@ -3,7 +3,7 @@
   Layout: Heading → Image on left → Accordion on right
 {% endcomment %}
 
-<div class="tech-info-wrapper page-width">
+<div class="tech-info-wrapper page-width" id="technical-info">
   <div class="tech-info-inner">
     
     <!-- Left Side -->
@@ -50,68 +50,35 @@
 
 <style>
 .tech-info-wrapper {
-  max-width: 1745px;
-  padding: 76px 30px 89px;
-  margin: 100px auto 0;
-  background: #F5F5F5;
-  border-radius: 20px;
+  padding: 50px 20px;
+  border-radius: 12px;
+  background: #f7f7f7;
 }
 .tech-info-inner {
   display: flex;
-  gap: 80px;
+  gap: 40px;
   align-items: flex-start;
-      justify-content: center;
 }
-
-.tech-info-inner .tech-info-left {
-    width: 30%;
+.tech-info-left {
+  flex: 1;
 }
-
-h2.tech-info-heading {
-    margin: 0;
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 50px;
-}
-
 .tech-info-image img {
-    margin: 0;
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    object-fit: cover;
-    border-radius: 20px;
+  max-width: 100%;
+  border-radius: 12px;
+  margin-top: 20px;
 }
-
-.tech-info-wrapper .tech-info-question span {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 30px;
-    color: #000;
+.tech-info-content {
+  flex: 1;
 }
-
-.tech-info-wrapper .tech-info-item {
-    padding: 33px 0;
+.tech-info-heading {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
 }
-
-.tech-info-image {
-    position: relative;
-    padding-bottom: 560px;
-    margin-top: 30px;
-}
-
 .tech-info-item {
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #ccc;
+  padding: 12px 0;
 }
-
 .tech-info-question {
   width: 100%;
   text-align: left;
@@ -146,6 +113,7 @@ h2.tech-info-heading {
 }
 .tech-info-item.active .tech-info-answer {
   max-height: 500px;
+  margin-top: 10px;
 }
 @media(max-width: 768px) {
   .tech-info-inner {
@@ -155,19 +123,27 @@ h2.tech-info-heading {
 </style>
 
 <script>
-document.addEventListener("DOMContentLoaded", function(){
-  document.querySelectorAll(".tech-info-section .tech-info-question").forEach(btn => {
-    btn.addEventListener("click", function(){
-      const item = this.parentElement;
-      // close others
-      item.parentElement.querySelectorAll(".tech-info-item").forEach(i => {
-        if(i !== item) i.classList.remove("active");
-      });
-      item.classList.toggle("active");
-    });
+$(document).ready(function () {
+  $(".tech-info-question").on("click", function () {
+    const $item   = $(this).closest(".tech-info-item");
+    const $answer = $item.find(".tech-info-answer");
+
+    // Close other open items (optional—remove if you want multiple open)
+    $item.siblings(".tech-info-item").removeClass("active")
+         .find(".tech-info-answer").stop(true,true).slideUp(300);
+
+    // Toggle active state for clicked item
+    $item.toggleClass("active");
+
+    // Slide the clicked answer up/down
+    $answer.stop(true, true).slideToggle(300);
+
+    // Rotate the arrow
+    $item.find(".faq-arrow").toggleClass("rotated");
   });
 });
 </script>
+
 
 {% schema %}
 {
