@@ -3,13 +3,16 @@
     <div class="custom-faq-inner">
 
       <!-- Left Image -->
+      <div class="cust-image-faq">
       <div class="custom-faq-image">
         {% if product.metafields.custom.how_to_use_faq_image %}
           <img src="{{ product.metafields.custom.how_to_use_faq_image | img_url: '800x' }}" alt="How to use" loading="lazy">
         {% endif %}
       </div>
+      </div>
 
       <!-- Right FAQ Accordion -->
+      <div class="cust-faq-content">
       <div class="custom-faq-section">
         {% assign faq_questions = product.metafields.custom.how_to_use_faq_question.value %}
         {% assign faq_answers = product.metafields.custom.how_to_use_faq_answer.value %}
@@ -35,6 +38,7 @@
             </div>
           {% endfor %}
         {% endif %}
+      </div>
       </div>
 
     </div>
