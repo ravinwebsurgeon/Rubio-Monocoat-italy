@@ -109,6 +109,7 @@
                   </div>
                 {%- endif -%}
 
+                <div class="product-title-price">
                 <div class="product__title sdfds" {{ block.shopify_attributes }}>
                   <h1>{{ product.title | escape }}</h1>
                   <a href="{{ product.url }}" class="product__title">
@@ -125,6 +126,7 @@
                     price_class: 'price--large'
                   -%}
                 </div>
+              </div>
 
               {%- when 'shipping_info' -%}
                 <div class="payment-method">
