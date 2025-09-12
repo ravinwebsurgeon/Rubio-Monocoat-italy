@@ -22,7 +22,7 @@
         {% assign answer = faq_answers[forloop.index0] %}
         <div class="custom-faq-item {% if forloop.first %}active{% endif %}">
           <button type="button" class="custom-faq-question">
-            {{ question }}
+            <h3>{{ question }}</h3>
             <span class="custom-faq-icon">
               <!-- Single Arrow SVG -->
               <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"
