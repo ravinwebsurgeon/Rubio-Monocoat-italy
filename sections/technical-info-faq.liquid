@@ -61,22 +61,36 @@
   gap: 40px;
   align-items: flex-start;
 }
-.tech-info-left {
-  flex: 1;
+
+h2.tech-info-heading {
+    margin: 0;
+    font-family: Frutiger Neue LT W1G;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 50px;
 }
+
 .tech-info-image img {
-  max-width: 100%;
-  border-radius: 12px;
-  margin-top: 20px;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: cover;
+    border-radius: 20px;
 }
-.tech-info-content {
-  flex: 1;
+
+.tech-info-image {
+    position: relative;
+    padding-bottom: 560px;
+    margin-top: 30px;
 }
-.tech-info-heading {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
+
 .tech-info-item {
   border-bottom: 1px solid #ccc;
   padding: 12px 0;
