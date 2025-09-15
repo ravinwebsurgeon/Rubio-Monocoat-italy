@@ -20,6 +20,21 @@
           "type": "description",
           "settings": {}
         },
+        "product_features_bRANFJ": {
+          "type": "product_features",
+          "settings": {
+            "feature_1_svg": "",
+            "feature_1_text": "COLOURS & PROTECTS IN ONE LAYER",
+            "feature_2_svg": "",
+            "feature_2_text": "PROTECTS AGAINST SUN",
+            "feature_3_svg": "",
+            "feature_3_text": "EASY APPLICATION& MAINTENACE",
+            "feature_4_svg": "",
+            "feature_4_text": "ALL VERTICAL & HORIZONTAL SURFACES",
+            "feature_5_svg": "",
+            "feature_5_text": "FOOD SAFE& ECOLOGICAL"
+          }
+        },
         "price": {
           "type": "price",
           "settings": {}
@@ -65,6 +80,7 @@
       "block_order": [
         "title",
         "description",
+        "product_features_bRANFJ",
         "price",
         "variant_picker",
         "icon_with_text_hk7wi6",
