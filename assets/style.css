@@ -4527,7 +4527,7 @@ font-weight: bold;
 
   .oil-calculator-text a {
     text-decoration: none;
-    color: inherit;
+    color: #000;
     font-weight: 500;
   }
   .oil-calculator-text span {
