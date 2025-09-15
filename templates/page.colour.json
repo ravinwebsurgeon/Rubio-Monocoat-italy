@@ -123,12 +123,18 @@
       ],
       "name": "icons section",
       "settings": {}
+    },
+    "project_n8LMJf": {
+      "type": "Project",
+      "name": "Project",
+      "settings": {}
     }
   },
   "order": [
     "main",
     "custom_vedio_banner_QUJ4t6",
     "custom_multicolumn_xzf9Vw",
+    "project_n8LMJf",
     "icons_section_Xa7jad"
   ]
 }
