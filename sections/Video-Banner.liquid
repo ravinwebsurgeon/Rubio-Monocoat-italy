@@ -1,3 +1,13 @@
+<div class="cust-video-bann">
+<div class="page-width">
+<div class="video-wrap">
+{% if section.settings.theme_video != blank %}
+  {{ section.settings.theme_video | video_tag: "width: 100%;" }}
+{% endif %}
+
+    </div>
+    </div>
+    </div>
 {% schema %}
 {
   "name": "Video-Banner",
@@ -10,7 +20,7 @@
     },
     {
       "type": "video",
-      "id": "video",
+      "id": "theme_video",
       "label": "Video"
     },
    
