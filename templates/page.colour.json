@@ -46,11 +46,20 @@
             "heading": "INTENSE & DEEP COLOURING",
             "text": ""
           }
+        },
+        "column_AkpzPV": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Muscle.png",
+            "heading": "DURABLE PROTECTION",
+            "text": ""
+          }
         }
       },
       "block_order": [
         "column_JLFyrU",
-        "column_KYPBwd"
+        "column_KYPBwd",
+        "column_AkpzPV"
       ],
       "name": "custom multicolumn",
       "settings": {
