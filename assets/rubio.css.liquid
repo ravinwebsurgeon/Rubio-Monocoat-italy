@@ -207,10 +207,7 @@ body:not(.templateindex) .shopify-section-header-sticky.scrolled-past-header .co
 .product-section variant-selects .color-info-btn {
     position: relative;
 }
-.product-section variant-selects .color-info-btn:hover .color-tooltip {
-    opacity:1;
-    visibility:visible;
-}
+
 .product-section variant-selects .color-tooltip {
     background-color: #183029;
     color: #fff;
@@ -227,9 +224,9 @@ body:not(.templateindex) .shopify-section-header-sticky.scrolled-past-header .co
     min-width: 300px;
     transform: translateX(-50%);
     left: 50%;
-    opacity: 1;
+    opacity: 0;
     transition:all ease 0.3s;
-    visibility: visible;
+    visibility: hidden;
     bottom: calc(100% + 40px);
 }
 .product-section variant-selects .color-tooltip:after {
@@ -241,6 +238,10 @@ body:not(.templateindex) .shopify-section-header-sticky.scrolled-past-header .co
     border-top: 60px solid #16302a;
     display: block;
     margin: 0 auto -50px auto;
+}
+.product-section variant-selects .color-info-btn:hover .color-tooltip {
+    opacity:1;
+    visibility:visible;
 }
 .product-section variant-selects legend.form__label .explore-colours-link {
     margin-left: auto;
