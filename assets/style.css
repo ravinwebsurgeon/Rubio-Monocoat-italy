@@ -4530,4 +4530,18 @@ font-weight: bold;
     color: inherit;
     font-weight: 500;
   }
+  .oil-calculator-text span {
+    display: block;
+}
+
+.oil-calculator-text a:after {
+    content: "";
+    height: 1px;
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 170px;
+}
  
