@@ -86,7 +86,21 @@
         </div>
       {%- endif -%}
     {%- endfor -%}
-<p class="predicted">hehehe</p>
+<!-- Oil Calculator Block -->
+<div class="oil-calculator-box">
+  <!-- Question mark SVG -->
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <circle cx="12" cy="12" r="10" stroke-width="2"/>
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+      d="M9.09 9a3 3 0 115.82 0c0 1.5-1.5 2-2.25 2.5-.75.5-.75 1-.75 1.5m0 3h.01"/>
+  </svg>
+
+  <!-- Text -->
+  <div class="oil-calculator-text">
+    <span>Not sure how much oil you need?</span>
+    <a href="/pages/oil-calculator">Try our oil Calculator</a>
+  </div>
+</div>
     <script type="application/json" data-selected-variant>
       {{ product.selected_or_first_available_variant | json }}
     </script>
