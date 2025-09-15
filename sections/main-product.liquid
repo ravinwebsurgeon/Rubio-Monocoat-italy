@@ -160,6 +160,10 @@
                     {{ form | payment_terms }}
                   {%- endform -%}
                 </div>
+              {%- when 'custom_review' -%}
+              <div class="custom-review">
+                {{ block.settings.custom_review }}
+              </div>
               {%- when 'inventory' -%}
                 
                 <p
