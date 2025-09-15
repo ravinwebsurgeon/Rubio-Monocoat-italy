@@ -2,8 +2,10 @@
 <div class="page-width">
 <div class="video-wrap">
 {% if section.settings.theme_video != blank %}
-  {{ section.settings.theme_video | video_tag: "width: 100%; autoplay muted loop playsinline" }}
+  {{ section.settings.theme_video | video_tag:
+     "width: 100%; autoplay muted loop playsinline" }}
 {% endif %}
+
 
 
     </div>
