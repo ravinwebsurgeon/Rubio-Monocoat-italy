@@ -4529,6 +4529,7 @@ font-weight: bold;
     text-decoration: none;
     color: #000;
     font-weight: 500;
+    pointer:relative;
   }
   .oil-calculator-text span {
     display: block;
