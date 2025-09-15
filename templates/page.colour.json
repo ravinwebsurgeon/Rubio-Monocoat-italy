@@ -17,72 +17,20 @@
         "padding_bottom": 28
       }
     },
-    "video_banner_wtQhhC": {
-      "type": "Video-Banner",
-      "name": "Video-Banner",
+    "custom_vedio_banner_QUJ4t6": {
+      "type": "custom-vedio-banner",
+      "name": "Video Banner with Overlay",
       "settings": {
-        "heading": "The One that coloursyour world",
-        "theme_video": "shopify://files/videos/10559933-hd_1920_1080_25fps.mp4"
-      }
-    },
-    "multicolumn_RGi7m3": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_496tbN": {
-          "type": "column",
-          "settings": {
-            "title": "NATURALINGREDIENTS",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_wFNrPm": {
-          "type": "column",
-          "settings": {
-            "title": "INTENSE & DEEP COLOURING",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_wiQGzh": {
-          "type": "column",
-          "settings": {
-            "title": "DURABLE PROTECTION",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_496tbN",
-        "column_wFNrPm",
-        "column_wiQGzh"
-      ],
-      "name": "t:sections.multicolumn.presets.name",
-      "settings": {
-        "title": "All wood oil colours",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "color_scheme": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/6956ee1757f94674817c8a05dcd62987.mp4",
+        "subheading": "Giving back",
+        "heading": "Environmentally friendly wood protection",
+        "button_link": "#",
+        "button_label": "Read More"
       }
     }
   },
   "order": [
     "main",
-    "video_banner_wtQhhC",
-    "multicolumn_RGi7m3"
+    "custom_vedio_banner_QUJ4t6"
   ]
 }
