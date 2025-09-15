@@ -31,44 +31,26 @@
     "custom_multicolumn_xzf9Vw": {
       "type": "custom-multicolumn",
       "blocks": {
-        "column_qEwLdk": {
-          "type": "column",
-          "settings": {
-            "icon": "shopify://shop_images/Layers_1.png",
-            "heading": "ONE SINGLE LAYER",
-            "text": "Thanks to our molecular bonding technology"
-          }
-        },
         "column_JLFyrU": {
           "type": "column",
           "settings": {
             "icon": "shopify://shop_images/Mortar_1.png",
             "heading": "NATURAL INGREDIENTS",
-            "text": "Safe for you & your environment"
+            "text": ""
           }
         },
-        "column_JQqJDh": {
+        "column_KYPBwd": {
           "type": "column",
           "settings": {
-            "icon": "shopify://shop_images/Pantone_1.png",
-            "heading": "UNIQUE COLOURS",
-            "text": "Intense colouring without loosing the natural look & feel of wood"
-          }
-        },
-        "column_tqrmLE": {
-          "type": "column",
-          "settings": {
-            "icon": "shopify://shop_images/Tree_of_life_1.png",
-            "heading": "ALL WOOD TYPES",
-            "text": "Apply our wood oil to almost all wood types, furniture & floors"
+            "icon": "shopify://shop_images/Fill.png",
+            "heading": "INTENSE & DEEP COLOURING",
+            "text": ""
           }
         }
       },
       "block_order": [
-        "column_qEwLdk",
         "column_JLFyrU",
-        "column_JQqJDh",
-        "column_tqrmLE"
+        "column_KYPBwd"
       ],
       "name": "custom multicolumn",
       "settings": {
