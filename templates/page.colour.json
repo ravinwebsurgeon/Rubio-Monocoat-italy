@@ -66,11 +66,69 @@
         "main_heading": "All wood oil colours",
         "main_text": "Rubio Monocoat products are available in many different wood stain colors. If you desire a unique color outside of the standard wood stain color options, colors for each product can be mixed to create custom colors. The extensive color range combined with a unique molecular bonding technology, makes Rubio Monocoat not only a product that looks and feelsgreat, but is durable and long lasting as well."
       }
+    },
+    "icons_section_Xa7jad": {
+      "type": "icons-section",
+      "blocks": {
+        "container_ffQwGP": {
+          "type": "container",
+          "settings": {
+            "class": "first-container-sec",
+            "icon": "shopify://shop_images/Telephone.png",
+            "heading": "Telephone advice",
+            "subhead": "Available on",
+            "subtext": "+32 (0) 51 30 80 54",
+            "extra_text": "On weekdays 08:30 - 17:00"
+          }
+        },
+        "container_tfjbbz": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/Email_2.png",
+            "heading": "Send us an email",
+            "subhead": "",
+            "subtext": "Send us a rubio@monocoatusa.com",
+            "extra_text": "Response within 2 working days"
+          }
+        },
+        "container_9gjW6p": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/Headphones.png",
+            "heading": "Customized advice",
+            "subhead": "",
+            "subtext": "Fill out the form",
+            "extra_text": "Advice within 2 days"
+          }
+        },
+        "container_ViGxtE": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/Clipboard_with_check_marks.png",
+            "heading": "Take the Test",
+            "subhead": "",
+            "subtext": "Answer the questions",
+            "extra_text": "Direct Personal advice"
+          }
+        }
+      },
+      "block_order": [
+        "container_ffQwGP",
+        "container_tfjbbz",
+        "container_9gjW6p",
+        "container_ViGxtE"
+      ],
+      "name": "icons section",
+      "settings": {}
     }
   },
   "order": [
     "main",
     "custom_vedio_banner_QUJ4t6",
-    "custom_multicolumn_xzf9Vw"
+    "custom_multicolumn_xzf9Vw",
+    "icons_section_Xa7jad"
   ]
 }
