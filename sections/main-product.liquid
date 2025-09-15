@@ -248,6 +248,20 @@
                   </details>
                 </div>
               {%- when 'quantity_selector' -%}
+                {% comment %}
+Show “In stock – Ready to be shipped” if the current product/variant is available
+{% endcomment %}
+
+{% if product.available %}
+  <p class="stock-status in-stock">
+    In stock – Ready to be shipped
+  </p>
+{% else %}
+  <p class="stock-status out-of-stock">
+    Out of stock
+  </p>
+{% endif %}
+
                 <div class="quantity-add-to-cart">
                 <div
                   id="Quantity-Form-{{ section.id }}"
