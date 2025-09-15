@@ -161,6 +161,7 @@
                   {%- endform -%}
                 </div>
               {%- when 'inventory' -%}
+                
                 <p
                   class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
                   {{ block.shopify_attributes }}
@@ -217,27 +218,6 @@
                     {{ product.description }}
                   </div>
                 {%- endif -%}
-                {% comment %} icon section code {% endcomment %}
-              {%- when 'product_features' -%}
-                <div class="product-features" {{ block.shopify_attributes }}>
-                  {% for i in (1..5) %}
-                    {% assign svg_key = 'feature_' | append: i | append: '_svg' %}
-                    {% assign text_key = 'feature_' | append: i | append: '_text' %}
-
-                    {% assign svg = block.settings[svg_key] %}
-                    {% assign text = block.settings[text_key] %}
-
-                    {% if svg != blank or text != blank %}
-                      <div class="feature-item">
-                        <div class="feature-icon">{{ svg }}</div>
-                        <div class="feature-text">{{ text }}</div>
-                      </div>
-                    {% endif %}
-                  {% endfor %}
-                </div>
-
-                {% comment %} icon section code end {% endcomment %}
-
               {%- when 'sku' -%}
                 <p
                   class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
@@ -481,8 +461,7 @@
                               <li class="{%- if forloop.index >= 3 -%}show-more-item hidden{%- endif -%}">
                                 <span>
                                   {{- price_break.minimum_quantity -}}
-                                  <span aria-hidden="true">+</span></span
-                                >
+                                  <span aria-hidden="true">+</span></span>
                                 <span data-text="{{ 'products.product.volume_pricing.price_at_each_html' | t: price: price_break_price }}">
                                   {{- 'sections.quick_order_list.each' | t: money: price_break_price -}}
                                 </span>
@@ -1113,59 +1092,13 @@
       "limit": 1
     },
     {
-      "type": "product_features",
-      "name": "Product Features",
-      "limit": 1,
+      "type": "custom_review",
+      "name": "Custom Review",
       "settings": [
         {
-          "type": "textarea",
-          "id": "feature_1_svg",
-          "label": "Feature 1 SVG code"
-        },
-        {
-          "type": "text",
-          "id": "feature_1_text",
-          "label": "Feature 1 text"
-        },
-        {
-          "type": "textarea",
-          "id": "feature_2_svg",
-          "label": "Feature 2 SVG code"
-        },
-        {
-          "type": "text",
-          "id": "feature_2_text",
-          "label": "Feature 2 text"
-        },
-        {
-          "type": "textarea",
-          "id": "feature_3_svg",
-          "label": "Feature 3 SVG code"
-        },
-        {
-          "type": "text",
-          "id": "feature_3_text",
-          "label": "Feature 3 text"
-        },
-        {
-          "type": "textarea",
-          "id": "feature_4_svg",
-          "label": "Feature 4 SVG code"
-        },
-        {
-          "type": "text",
-          "id": "feature_4_text",
-          "label": "Feature 4 text"
-        },
-        {
-          "type": "textarea",
-          "id": "feature_5_svg",
-          "label": "Feature 5 SVG code"
-        },
-        {
-          "type": "text",
-          "id": "feature_5_text",
-          "label": "Feature 5 text"
+          "type": "richtext",
+          "id": "custom_review",
+          "label": "Custom Review Text"
         }
       ]
     },
