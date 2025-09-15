@@ -9,9 +9,11 @@
       <div class="animated-div" data-aos="fade-up">
       <h4 class="subheading">{{ section.settings.subheading }}</h4>
       <h2 class="main-heading">{{ section.settings.heading }}</h2>
+      {% if section.settings.button_label != blank %}
       <a href="{{ section.settings.button_link }}" class="read-more-btn">
         {{ section.settings.button_label }}
       </a>
+    {% endif %}
     </div>
     </div>
   </div>
