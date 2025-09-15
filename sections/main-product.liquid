@@ -220,23 +220,23 @@
                 {%- endif -%}
                 {% comment %} icon section code {% endcomment %}
                   {% if block.type == 'product_features' %}
-  <div class="product-features">
-    {% for i in (1..5) %}
-      {% assign svg_key = 'feature_' | append: i | append: '_svg' %}
-      {% assign text_key = 'feature_' | append: i | append: '_text' %}
+                  <div class="product-features">
+                    {% for i in (1..5) %}
+                      {% assign svg_key = 'feature_' | append: i | append: '_svg' %}
+                      {% assign text_key = 'feature_' | append: i | append: '_text' %}
 
-      {% assign svg = block.settings[svg_key] %}
-      {% assign text = block.settings[text_key] %}
+                      {% assign svg = block.settings[svg_key] %}
+                      {% assign text = block.settings[text_key] %}
 
-      {% if svg != blank or text != blank %}
-        <div class="feature-item">
-          <div class="feature-icon">{{ svg }}</div>
-          <div class="feature-text">{{ text }}</div>
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
-{% endif %}
+                      {% if svg != blank or text != blank %}
+                        <div class="feature-item">
+                          <div class="feature-icon">{{ svg }}</div>
+                          <div class="feature-text">{{ text }}</div>
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                {% endif %}
 
                 {% comment %} icon section code end {% endcomment %}
 
