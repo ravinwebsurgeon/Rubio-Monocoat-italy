@@ -20,6 +20,12 @@
           "type": "description",
           "settings": {}
         },
+        "custom_review_M9xmWe": {
+          "type": "custom_review",
+          "settings": {
+            "custom_review": "<p>131 reviews</p>"
+          }
+        },
         "price": {
           "type": "price",
           "settings": {}
@@ -60,24 +66,18 @@
         "shipping_info_dQ4qci": {
           "type": "shipping_info",
           "settings": {}
-        },
-        "custom_review_M9xmWe": {
-          "type": "custom_review",
-          "settings": {
-            "custom_review": "<p>131 reviews</p>"
-          }
         }
       },
       "block_order": [
         "title",
         "description",
+        "custom_review_M9xmWe",
         "price",
         "variant_picker",
         "icon_with_text_hk7wi6",
         "quantity_selector",
         "buy_buttons",
-        "shipping_info_dQ4qci",
-        "custom_review_M9xmWe"
+        "shipping_info_dQ4qci"
       ],
       "settings": {
         "enable_sticky_info": true,
