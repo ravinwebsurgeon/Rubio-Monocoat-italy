@@ -35,7 +35,7 @@
               {{- option.selected_value -}}
             </span>
 
-          {% comment %}  {% endcomment %}
+          {% comment %} start {% endcomment %}
             <!-- Info button -->
       <button type="button" class="color-info-btn" aria-label="More info">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,7 +51,7 @@
 
       <!-- Explore all colours --> 
       <a href="#" class="explore-colours-link">Explore all colours</a>
-          {% comment %}  {% endcomment %}
+          {% comment %} end {% endcomment %}
           </legend>
           {% render 'product-variant-options',
             product: product,
@@ -75,6 +75,21 @@
             picker_type: picker_type
           %}
         </fieldset>
+         <div class="oil-calculator-box">
+      <!-- Question mark SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <circle cx="12" cy="12" r="10" stroke-width="2"/>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M9.09 9a3 3 0 115.82 0c0 1.5-1.5 2-2.25 2.5-.75.5-.75 1-.75 1.5m0 3h.01"/>
+      </svg>
+
+      <!-- Text -->
+      <div class="oil-calculator-text">
+        <span>Not sure how much oil you need?</span>
+        <a href="/pages/oil-calculator">Try our Oil Calculator</a>
+      </div>
+    </div>
+
       {%- else -%}
         <div class="product-form__input product-form__input--dropdown">
           <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
