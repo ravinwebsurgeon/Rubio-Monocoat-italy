@@ -160,10 +160,6 @@
                     {{ form | payment_terms }}
                   {%- endform -%}
                 </div>
-              {%- when 'custom_review' -%}
-              <div class="custom-review">
-                <span> <svg width="104" height="21" viewBox="0 0 104 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.4 0L12.7349 7.18622H20.291L14.178 11.6276L16.513 18.8138L10.4 14.3724L4.28703 18.8138L6.62198 11.6276L0.509012 7.18622H8.06505L10.4 0Z" fill="#183029"/><path d="M31.2008 0L33.5357 7.18622H41.0918L34.9788 11.6276L37.3137 18.8138L31.2008 14.3724L25.0878 18.8138L27.4228 11.6276L21.3098 7.18622H28.8658L31.2008 0Z" fill="#183029"/><path d="M51.9996 0L54.3346 7.18622H61.8906L55.7776 11.6276L58.1126 18.8138L51.9996 14.3724L45.8866 18.8138L48.2216 11.6276L42.1086 7.18622H49.6647L51.9996 0Z" fill="#183029"/><path d="M72.8004 0L75.1353 7.18622H82.6914L76.5784 11.6276L78.9134 18.8138L72.8004 14.3724L66.6874 18.8138L69.0224 11.6276L62.9094 7.18622H70.4654L72.8004 0Z" fill="#183029"/><path d="M93.5992 0L95.9342 7.18622H103.49L97.3772 11.6276L99.7122 18.8138L93.5992 14.3724L87.4863 18.8138L89.8212 11.6276L83.7082 7.18622H91.2643L93.5992 0Z" fill="#183029"/></svg> </span> {{ block.settings.custom_review }}
-              </div>
               {%- when 'inventory' -%}
                 
                 <p
@@ -222,6 +218,28 @@
                     {{ product.description }}
                   </div>
                 {%- endif -%}
+                {% comment %} icon section code {% endcomment %}
+                  {% if block.type == 'product_features' %}
+  <div class="product-features">
+    {% for i in (1..5) %}
+      {% assign svg_key = 'feature_' | append: i | append: '_svg' %}
+      {% assign text_key = 'feature_' | append: i | append: '_text' %}
+
+      {% assign svg = block.settings[svg_key] %}
+      {% assign text = block.settings[text_key] %}
+
+      {% if svg != blank or text != blank %}
+        <div class="feature-item">
+          <div class="feature-icon">{{ svg }}</div>
+          <div class="feature-text">{{ text }}</div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}
+
+                {% comment %} icon section code end {% endcomment %}
+
               {%- when 'sku' -%}
                 <p
                   class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
@@ -497,7 +515,7 @@
                     show_pickup_availability: true
                   -%}
                 </div>
-              {%- when 'popup' -%} 
+              {%- when 'popup' -%}
                 <modal-opener
                   class="product-popup-modal__opener quick-add-hidden"
                   data-modal="#PopupModal-{{ block.id }}"
@@ -1096,16 +1114,62 @@
       "limit": 1
     },
     {
-      "type": "custom_review",
-      "name": "Custom Review",
-      "settings": [
-        {
-          "type": "richtext",
-          "id": "custom_review",
-          "label": "Custom Review Text"
-        }
-      ]
+  "type": "product_features",
+  "name": "Product Features",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "feature_1_svg",
+      "label": "Feature 1 SVG code"
     },
+    {
+      "type": "text",
+      "id": "feature_1_text",
+      "label": "Feature 1 text"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_2_svg",
+      "label": "Feature 2 SVG code"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_text",
+      "label": "Feature 2 text"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_3_svg",
+      "label": "Feature 3 SVG code"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_text",
+      "label": "Feature 3 text"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_4_svg",
+      "label": "Feature 4 SVG code"
+    },
+    {
+      "type": "text",
+      "id": "feature_4_text",
+      "label": "Feature 4 text"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_5_svg",
+      "label": "Feature 5 SVG code"
+    },
+    {
+      "type": "text",
+      "id": "feature_5_text",
+      "label": "Feature 5 text"
+    }
+  ]
+},
     {
       "type": "share",
       "name": "t:sections.main-product.blocks.share.name",
