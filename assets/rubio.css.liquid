@@ -229,7 +229,16 @@ body:not(.templateindex) .shopify-section-header-sticky.scrolled-past-header .co
     visibility: hidden;
     bottom: 100%;
 }
-
+.product-section variant-selects .color-tooltip:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-top: 60px solid #16302a;
+    display: block;
+    margin: 0 auto -50px auto;
+}
 .product-section variant-selects legend.form__label .explore-colours-link {
     margin-left: auto;
     font-family: Frutiger Neue LT W1G;
