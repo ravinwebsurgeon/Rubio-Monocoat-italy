@@ -17,6 +17,14 @@
         "padding_bottom": 28
       }
     },
+    "video_banner_wtQhhC": {
+      "type": "Video-Banner",
+      "name": "Video-Banner",
+      "settings": {
+        "heading": "The One that coloursyour world",
+        "theme_video": "shopify://files/videos/10559933-hd_1920_1080_25fps.mp4"
+      }
+    },
     "multicolumn_RGi7m3": {
       "type": "multicolumn",
       "blocks": {
@@ -74,6 +82,7 @@
   },
   "order": [
     "main",
+    "video_banner_wtQhhC",
     "multicolumn_RGi7m3"
   ]
 }
