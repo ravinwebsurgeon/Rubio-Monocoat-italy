@@ -4526,10 +4526,8 @@ font-weight: bold;
   }
 
   .oil-calculator-text a {
-    text-decoration: underline;
+    text-decoration: none;
     color: inherit;
     font-weight: 500;
   }
-  .oil-calculator-text a:hover {
-    text-decoration: none;
-  }
+ 
