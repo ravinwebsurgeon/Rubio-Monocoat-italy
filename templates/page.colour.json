@@ -67,6 +67,15 @@
         "main_text": "Rubio Monocoat products are available in many different wood stain colors. If you desire a unique color outside of the standard wood stain color options, colors for each product can be mixed to create custom colors. The extensive color range combined with a unique molecular bonding technology, makes Rubio Monocoat not only a product that looks and feelsgreat, but is durable and long lasting as well."
       }
     },
+    "project_n8LMJf": {
+      "type": "Project",
+      "name": "Project",
+      "settings": {
+        "heading": "Choose your project:",
+        "img1": "shopify://shop_images/Rectangle_241.png",
+        "img2": "shopify://shop_images/Rectangle_242.png"
+      }
+    },
     "icons_section_Xa7jad": {
       "type": "icons-section",
       "blocks": {
@@ -122,11 +131,6 @@
         "container_ViGxtE"
       ],
       "name": "icons section",
-      "settings": {}
-    },
-    "project_n8LMJf": {
-      "type": "Project",
-      "name": "Project",
       "settings": {}
     }
   },
