@@ -235,49 +235,68 @@ h4.oil-head {
     font-weight: 700;
     font-size: 40px;
 }
-.filter-bar {display:flex;justify-content:space-between;align-items:center;
-  background:#fff;border:1px solid #ddd;border-radius:9999px;
-  padding:6px 16px;font-family:sans-serif;max-width:900px;margin:20px auto;}
-.tips-link {display:flex;align-items:center;background:none;border:none;
-  cursor:pointer;font-size:14px;color:#0a2d2d;}
-.play {margin-right:6px;background:#0a2d2d;color:#fff;border-radius:50%;
-  width:20px;height:20px;display:inline-flex;align-items:center;
-  justify-content:center;font-size:12px;}
-
-/* --- Modal overlay --- */
-.video-modal {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.6);
-  display: none;               /* hidden by default */
-  justify-content: center;
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  z-index: 1000;
-}
-.video-modal.active { display: flex; }
-
-.modal-content {
-  position: relative;
-  max-width: 90%;
-  max-height: 90%;
-  background: #000;
-  border-radius: 8px;
-  overflow: hidden;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 9999px;
+  padding: 6px 16px;
+  font-family: sans-serif;
+  max-width: 900px;
+  margin: 20px auto;
 }
 
-.modal-content video {
-  width: 100%;
-  height: auto;
-  display: block;
+.filter-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.close {
-  position: absolute;
-  top: 8px;
-  right: 12px;
-  background: rgba(255,255,255,0.8);
+.icon-btn {
+  background: none;
   border: none;
-  font-size: 24px;
   cursor: pointer;
-  border-radius: 4px;
+  padding: 6px;
+  font-size: 18px;
 }
+
+.slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.slider {
+  width: 100px;
+  accent-color: #133;
+}
+
+.filter span {
+  margin-left: 4px;
+  font-weight: 500;
+}
+
+.tips-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #0a2d2d;
+  font-size: 14px;
+}
+
+.tips-link .play {
+  margin-right: 6px;
+  background: #0a2d2d;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
 </style>
