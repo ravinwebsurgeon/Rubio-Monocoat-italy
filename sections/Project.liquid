@@ -193,16 +193,27 @@ document.addEventListener('DOMContentLoaded', function(){
   modal.addEventListener('click',e=>{if(e.target===modal){modal.classList.remove('active');video.pause();}});
 
   /* grid column switcher: 7 → 5 → 3 */
-  const plusBtn=document.querySelector('.slider-wrap .plus');
-  const grids=document.querySelectorAll('.product-grid');
-  const cols=['cols-7','cols-5','cols-3'];
-  let idx=1; // start at 5-cols
-  plusBtn.addEventListener('click',()=>{
-    idx=(idx+1)%cols.length;
-    grids.forEach(g=>{
-      g.classList.remove('cols-7','cols-5','cols-3');
-      g.classList.add(cols[idx]);
+ const grids = document.querySelectorAll('.product-grid');
+  const slider = document.querySelector('.slider');
+
+  function updateGridCols(val) {
+    let cols;
+    if (val < 33) cols = 'cols-3';
+    else if (val < 66) cols = 'cols-5';
+    else cols = 'cols-7';
+
+    grids.forEach(g => {
+      g.classList.remove('cols-3', 'cols-5', 'cols-7');
+      g.classList.add(cols);
     });
+  }
+
+  // initial
+  updateGridCols(slider.value);
+
+  // on slide
+  slider.addEventListener('input', e => {
+    updateGridCols(e.target.value);
   });
 });
 </script>
