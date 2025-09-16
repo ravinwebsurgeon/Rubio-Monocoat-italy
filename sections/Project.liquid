@@ -296,3 +296,53 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 </script>
+<style>
+    /* product grid with dynamic cols */
+.product-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.product-grid.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.product-grid.cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.product-grid.cols-7 {
+  grid-template-columns: repeat(7, 1fr);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .product-grid.cols-7 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .product-grid.cols-7,
+  .product-grid.cols-5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-grid.cols-7,
+  .product-grid.cols-5,
+  .product-grid.cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid.cols-7,
+  .product-grid.cols-5,
+  .product-grid.cols-3 {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
