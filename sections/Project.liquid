@@ -111,6 +111,13 @@
         {% endif %}
         <h3>{{ product.title }}</h3>
         <p class="price">{{ product.price | money }}</p>
+        {% if product.tags.size > 0 %}
+      <ul class="product-tags">
+        {% for tag in product.tags %}
+          <li>{{ tag }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
       </a>
     </li>
     
