@@ -116,10 +116,10 @@ document.addEventListener("DOMContentLoaded", function(){
   const closeBtn  = document.getElementById("closeCalc");
   const panel     = document.getElementById("calcPanel");
   const overlay   = document.getElementById("calcOverlay");
-  const choices   = document.querySelectorAll(".calc-choice");
+  {% comment %} const choices   = document.querySelectorAll(".calc-choice");
   const form      = document.getElementById("calcForm");
   const calcBtn   = document.getElementById("calcBtn");
-  const resultBox = document.getElementById("calcResult");
+  const resultBox = document.getElementById("calcResult"); {% endcomment %}
 
   // Open
   openBtn.addEventListener("click", e=>{

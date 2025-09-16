@@ -70,56 +70,16 @@
     "project_n8LMJf": {
       "type": "Project",
       "blocks": {
-        "text_i7wdYU": {
-          "type": "text",
+        "collection_item_kdtgxD": {
+          "type": "collection_item",
           "settings": {
-            "tab": "Douglas",
-            "tab-content": ""
-          }
-        },
-        "text_mnjtde": {
-          "type": "text",
-          "settings": {
-            "tab": "Ipe",
-            "tab-content": ""
-          }
-        },
-        "text_RGCpGJ": {
-          "type": "text",
-          "settings": {
-            "tab": "",
-            "tab-content": ""
-          }
-        },
-        "text_iHFdNn": {
-          "type": "text",
-          "settings": {
-            "tab": "",
-            "tab-content": ""
-          }
-        },
-        "text_KnmXRU": {
-          "type": "text",
-          "settings": {
-            "tab": "",
-            "tab-content": ""
-          }
-        },
-        "text_qBmE8N": {
-          "type": "text",
-          "settings": {
-            "tab": "",
-            "tab-content": ""
+            "tab_group": "Douglas",
+            "col": "douglas-wood"
           }
         }
       },
       "block_order": [
-        "text_i7wdYU",
-        "text_mnjtde",
-        "text_RGCpGJ",
-        "text_iHFdNn",
-        "text_KnmXRU",
-        "text_qBmE8N"
+        "collection_item_kdtgxD"
       ],
       "name": "Project",
       "settings": {
