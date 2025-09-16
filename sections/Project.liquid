@@ -487,15 +487,13 @@
   const productGrids = document.querySelectorAll('.product-grid');
   
   if (gridLayoutInput && minusBtn && plusBtn) {
-    // Set initial grid layout based on slider value
+   
     updateGridLayout(parseInt(gridLayoutInput.value));
-    
-    // Handle slider input
+   
     gridLayoutInput.addEventListener('input', function() {
       updateGridLayout(parseInt(this.value));
     });
     
-    // Handle minus button click
     minusBtn.addEventListener('click', function() {
       if (parseInt(gridLayoutInput.value) > 0) {
         gridLayoutInput.value = parseInt(gridLayoutInput.value) - 1;
@@ -503,7 +501,7 @@
       }
     });
     
-    // Handle plus button click
+    
     plusBtn.addEventListener('click', function() {
       if (parseInt(gridLayoutInput.value) < 2) {
         gridLayoutInput.value = parseInt(gridLayoutInput.value) + 1;
@@ -512,13 +510,12 @@
     });
   }
   
-  // Function to update grid layout based on slider value
+  
   function updateGridLayout(value) {
-    // Remove all column classes
+    
     productGrids.forEach(grid => {
       grid.classList.remove('cols-3', 'cols-5', 'cols-7');
-      
-      // Add appropriate class based on value
+     
       if (value === 0) {
         grid.classList.add('cols-3');
       } else if (value === 1) {
