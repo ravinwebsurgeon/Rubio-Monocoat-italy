@@ -53,7 +53,7 @@
              <label for="colour-filter">Colour</label>
 <select id="colour-filter" name="colour-filter">
   {% for colour in product.metafields.custom.colour_filter %}
-    <option value="{{ colour | escape }}">{{ colour }}</option>
+    <option value="{{ colour  }}">{{ colour }}</option>
   {% endfor %}
 </select>
 
