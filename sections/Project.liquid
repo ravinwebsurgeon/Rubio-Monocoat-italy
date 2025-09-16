@@ -51,6 +51,7 @@
               </button>
              <div class="filters-code">
              <label for="colour-filter">Colour</label>
+             {{ product.metafields.custom.colour_filter }}
 <select id="colour-filter" name="colour-filter">
   {% assign col = product.metafields.custom.colour_filter.value %}
   {% for colour in col %}
