@@ -172,6 +172,31 @@
 .modal-content video{width:100%;height:auto;display:block}
 .close{position:absolute;top:8px;right:12px;background:rgba(255,255,255,0.8);border:none;font-size:24px;cursor:pointer;border-radius:4px}
 
+.product-image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.product-image-wrapper img {
+  display: block;
+  width: 100%;
+  transition: opacity 0.3s ease;
+}
+
+.cover-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.featured-image {
+  z-index: 1;
+}
+
+.product-image-wrapper:hover .cover-image {
+  opacity: 0;
+}
 
 </style>
 
