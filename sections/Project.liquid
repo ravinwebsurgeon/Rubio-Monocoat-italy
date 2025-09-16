@@ -221,50 +221,57 @@
 .product-image-wrapper.show-featured .featured-image {
   opacity: 1 !important;
 }
+ /* product grid with dynamic cols */
+.product-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
 
+.product-grid.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.product-grid.cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.product-grid.cols-7 {
+  grid-template-columns: repeat(7, 1fr);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .product-grid.cols-7 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .product-grid.cols-7,
+  .product-grid.cols-5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-grid.cols-7,
+  .product-grid.cols-5,
+  .product-grid.cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid.cols-7,
+  .product-grid.cols-5,
+  .product-grid.cols-3 {
+    grid-template-columns: 1fr;
+  }
+}
 
 </style>
 
-{% comment %} <script>
-document.addEventListener('DOMContentLoaded', function () {
-  /* circle tabs */
-  document.querySelectorAll('.circle-tab').forEach(btn => {
-    btn.addEventListener('click', function () {
-      document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove('active'));
-      document.querySelectorAll('.tab-products').forEach(c => c.classList.remove('active'));
-      this.classList.add('active');
-      document.getElementById(this.dataset.tab).classList.add('active');
-    });
-  });
-
-  /* video modal */
-  const openBtn = document.getElementById('openVideo'),
-        modal = document.getElementById('videoModal'),
-        closeBtn = document.getElementById('closeVideo'),
-        video = document.getElementById('expertVideo');
-
-  if (openBtn && modal && closeBtn && video) {
-    openBtn.addEventListener('click', () => {
-      modal.classList.add('active');
-      video.currentTime = 0;
-      video.play();
-    });
-    closeBtn.addEventListener('click', () => {
-      modal.classList.remove('active');
-      video.pause();
-    });
-    modal.addEventListener('click', e => {
-      if (e.target === modal) {
-        modal.classList.remove('active');
-        video.pause();
-      }
-    });
-  }
-
- 
-
-});
-</script> {% endcomment %}
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -366,53 +373,3 @@ document.querySelector('.img-ic').addEventListener('click', function() {
 });
 
 </script>
-<style>
-    /* product grid with dynamic cols */
-.product-grid {
-  display: grid;
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.product-grid.cols-3 {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.product-grid.cols-5 {
-  grid-template-columns: repeat(5, 1fr);
-}
-
-.product-grid.cols-7 {
-  grid-template-columns: repeat(7, 1fr);
-}
-
-/* Responsive adjustments */
-@media (max-width: 1200px) {
-  .product-grid.cols-7 {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-
-@media (max-width: 992px) {
-  .product-grid.cols-7,
-  .product-grid.cols-5 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .product-grid.cols-7,
-  .product-grid.cols-5,
-  .product-grid.cols-3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .product-grid.cols-7,
-  .product-grid.cols-5,
-  .product-grid.cols-3 {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
