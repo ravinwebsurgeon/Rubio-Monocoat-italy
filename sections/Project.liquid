@@ -175,31 +175,44 @@
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function () {
   /* circle tabs */
-  document.querySelectorAll('.circle-tab').forEach(btn=>{
-    btn.addEventListener('click',function(){
-      document.querySelectorAll('.circle-tab').forEach(t=>t.classList.remove('active'));
-      document.querySelectorAll('.tab-products').forEach(c=>c.classList.remove('active'));
+  document.querySelectorAll('.circle-tab').forEach(btn => {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-products').forEach(c => c.classList.remove('active'));
       this.classList.add('active');
       document.getElementById(this.dataset.tab).classList.add('active');
     });
   });
 
   /* video modal */
-  const openBtn=document.getElementById('openVideo'),
-        modal=document.getElementById('videoModal'),
-        closeBtn=document.getElementById('closeVideo'),
-        video=document.getElementById('expertVideo');
+  const openBtn = document.getElementById('openVideo'),
+        modal = document.getElementById('videoModal'),
+        closeBtn = document.getElementById('closeVideo'),
+        video = document.getElementById('expertVideo');
 
-  openBtn.addEventListener('click',()=>{modal.classList.add('active');video.currentTime=0;video.play();});
-  closeBtn.addEventListener('click',()=>{modal.classList.remove('active');video.pause();});
-  modal.addEventListener('click',e=>{if(e.target===modal){modal.classList.remove('active');video.pause();}});
+  if (openBtn && modal && closeBtn && video) {
+    openBtn.addEventListener('click', () => {
+      modal.classList.add('active');
+      video.currentTime = 0;
+      video.play();
+    });
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+      video.pause();
+    });
+    modal.addEventListener('click', e => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        video.pause();
+      }
+    });
+  }
 
   /* grid column switcher: 7 → 5 → 3 */
- document.addEventListener('DOMContentLoaded', function () {
-  const slider = document.querySelector('.slider');            // range input
-  const grids  = document.querySelectorAll('.product-grid');   // every grid
+  const slider = document.querySelector('.slider');
+  const grids  = document.querySelectorAll('.product-grid');
 
   function updateCols(val) {
     let newClass;
@@ -208,16 +221,15 @@ document.addEventListener('DOMContentLoaded', function(){
     else newClass = 'cols-7';
 
     grids.forEach(g => {
-      g.classList.remove('cols-3', 'cols-5', 'cols-7');  // remove ALL first
-      g.classList.add(newClass);                        // add the new one
+      g.classList.remove('cols-3', 'cols-5', 'cols-7');
+      g.classList.add(newClass);
     });
   }
 
-  // Set once on page load (even if markup starts with cols-7)
-  updateCols(slider.value);
-
-  // Update live as slider moves
-  slider.addEventListener('input', e => updateCols(e.target.value));
-});
+  if (slider) {
+    updateCols(slider.value); // initial state
+    slider.addEventListener('input', e => updateCols(e.target.value));
+  }
 });
 </script>
+
