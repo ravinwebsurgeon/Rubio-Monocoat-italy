@@ -75,7 +75,7 @@
           {% for block in section.blocks %}
             {% assign tab_collection = block.settings.tab_collection %}
             <div class="tab-products{% if forloop.first %} active{% endif %}" id="tab-{{ block.id }}">
-              <ul class="product-grid cols-5">
+              <ul class="product-grid ">
                 {% for product in tab_collection.products %}
                   <li class="product-item">
                     <a href="{{ product.url }}">
