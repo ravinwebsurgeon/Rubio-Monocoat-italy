@@ -52,12 +52,14 @@
              <div class="filters-code">
               
              
+ 
+{% if product.metafields.custom.colour_filter2 != blank %}
   <ul>
-    {% for colour in product.metafields.custom.colour_filter2.value %}
-      <li>{{ colour }}</li>
+    {% for item in product.metafields.custom.colour_filter2 %}
+      <li>{{ item }}</li>
     {% endfor %}
   </ul>
-
+{% endif %}
 
 
 
