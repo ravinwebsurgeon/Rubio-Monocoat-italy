@@ -193,12 +193,13 @@
   transform: rotate(180deg);
 }
 .tech-info-answer {
-  display: none; /* sirf jQuery control karega */
+  overflow: hidden;
+  height: 0;
   font-size: 16px;
   line-height: normal;
   color: #000;
   font-family: Frutiger Neue LT W1G;
-  margin-top: 15px;
+  margin-top: 0;
 }
 @media(max-width: 768px) {
   .tech-info-inner {
@@ -206,6 +207,34 @@
   }
 }
 </style>
+
+<script>
+$(document).ready(function () {
+  $(".tech-info-question").on("click", function () {
+    const $item = $(this).closest(".tech-info-item");
+    const $answer = $item.find(".tech-info-answer");
+
+    // Close others
+    $item.siblings(".tech-info-item").removeClass("active")
+         .find(".tech-info-answer")
+         .each(function(){
+            $(this).stop().animate({ height: 0 }, 300);
+         });
+
+    if ($item.hasClass("active")) {
+      // Close current
+      $item.removeClass("active");
+      $answer.stop().animate({ height: 0 }, 300);
+    } else {
+      // Open current
+      $item.addClass("active");
+      const fullHeight = $answer.prop("scrollHeight");
+      $answer.stop().animate({ height: fullHeight }, 300);
+    }
+  });
+});
+</script>
+
 
 
 
@@ -234,16 +263,26 @@ $(document).ready(function () {
 <script>
 $(document).ready(function () {
   $(".tech-info-question").on("click", function () {
-    const $item   = $(this).closest(".tech-info-item");
+    const $item = $(this).closest(".tech-info-item");
     const $answer = $item.find(".tech-info-answer");
 
-    // Baaki items band kar do
+    // Close others
     $item.siblings(".tech-info-item").removeClass("active")
-         .find(".tech-info-answer").slideUp(300);
+         .find(".tech-info-answer")
+         .each(function(){
+            $(this).stop().animate({ height: 0 }, 300);
+         });
 
-    // Current toggle karo
-    $item.toggleClass("active");
-    $answer.stop(true, true).slideToggle(300);
+    if ($item.hasClass("active")) {
+      // Close current
+      $item.removeClass("active");
+      $answer.stop().animate({ height: 0 }, 300);
+    } else {
+      // Open current
+      $item.addClass("active");
+      const fullHeight = $answer.prop("scrollHeight");
+      $answer.stop().animate({ height: fullHeight }, 300);
+    }
   });
 });
 </script>
