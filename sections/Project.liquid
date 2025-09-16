@@ -51,13 +51,12 @@
               </button>
              <div class="filters-code">
               
-          {% assign douglas_collection = collections['douglas-wood'] %}
-    {% for product in douglas_collection.products %}
-
-   {{ product.metafields.custom.colour_filter2 }} 
-{% endfor %}
+          
  {% for block in section.blocks %}
-
+   {% assign tab_collection = block.settings.tab_collection %}
+{% for product in tab_collection.products %}
+   {{ product.metafields.custom.colour_filter2 }}
+{% endfor %}
 {% endfor %}
 
               </div>
