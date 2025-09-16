@@ -383,30 +383,30 @@
   opacity: 1;
 }
 
-/* Hover effect — always works */
+/* Toggle buttons set the default state */
+.product-image-wrapper.show-cover .cover-image {
+  opacity: 1;
+}
+
+.product-image-wrapper.show-cover .featured-image {
+  opacity: 0;
+}
+
+.product-image-wrapper.show-featured .cover-image {
+  opacity: 0;
+}
+
+.product-image-wrapper.show-featured .featured-image {
+  opacity: 1;
+}
+
+/* Hover always works on top of toggle */
 .product-image-wrapper:hover .cover-image {
   opacity: 1;
 }
 
 .product-image-wrapper:hover .featured-image {
   opacity: 0;
-}
-
-/* Button-controlled default state */
-.product-image-wrapper.default-cover .cover-image {
-  opacity: 1;
-}
-
-.product-image-wrapper.default-cover .featured-image {
-  opacity: 0;
-}
-
-.product-image-wrapper.default-featured .cover-image {
-  opacity: 0;
-}
-
-.product-image-wrapper.default-featured .featured-image {
-  opacity: 1;
 }
 
 
@@ -540,19 +540,6 @@ document.querySelector('.img-ic').addEventListener('click', function() {
   document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
     wrapper.classList.add('show-featured');
     wrapper.classList.remove('show-cover');
-  });
-});
-document.querySelector('.color-ic').addEventListener('click', function() {
-  document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
-    wrapper.classList.add('default-cover');
-    wrapper.classList.remove('default-featured');
-  });
-});
-
-document.querySelector('.img-ic').addEventListener('click', function() {
-  document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
-    wrapper.classList.add('default-featured');
-    wrapper.classList.remove('default-cover');
   });
 });
 
