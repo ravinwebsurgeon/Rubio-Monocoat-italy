@@ -44,10 +44,7 @@
               <button class="icon-btn"><i>🎨</i></button>
               <button class="icon-btn"><i>🖼️</i></button>
 
-              <div class="slider-wrap">
-                <input type="range" min="0" max="100" value="50" class="slider" />
-                <button class="icon-btn plus">+</button>
-              </div>
+              <div class="range-input-section" data-v-56cf893a=""><button class="range-button base-button type-button size-small theme-primary" data-v-2f7a1a36="" data-v-56cf893a=""><div class="btn-content" data-v-2f7a1a36=""><svg width="14" height="2" viewBox="0 0 14 2" xmlns="http://www.w3.org/2000/svg" class="ic-minus range-input-icon" data-v-2f7a1a36="" data-v-56cf893a=""><path fill-rule="evenodd" clip-rule="evenodd" d="M14 1C14 1.55228 13.5523 2 13 2L1 2C0.447715 2 -6.78525e-08 1.55228 -4.37114e-08 0.999999C-1.95703e-08 0.447715 0.447715 -5.92389e-07 1 -5.68248e-07L13 -4.37114e-08C13.5523 -1.95703e-08 14 0.447715 14 1Z" data-v-2f7a1a36="" data-v-56cf893a=""></path></svg></div></button> <input id="gridLayout" type="range" name="gridLayout" min="0" max="2" step="1" value="1" data-v-56cf893a=""> <button class="range-button base-button type-button size-small theme-primary" data-v-2f7a1a36="" data-v-56cf893a=""><div class="btn-content" data-v-2f7a1a36=""><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" class="ic-plus range-input-icon" data-v-2f7a1a36="" data-v-56cf893a=""><path fill-rule="evenodd" clip-rule="evenodd" d="M7 0C7.55228 0 8 0.447715 8 1V13C8 13.5523 7.55228 14 7 14C6.44772 14 6 13.5523 6 13V1C6 0.447715 6.44772 0 7 0Z" class="vert-line" data-v-2f7a1a36="" data-v-56cf893a=""></path><path fill-rule="evenodd" clip-rule="evenodd" d="M14 7C14 7.55228 13.5523 8 13 8L1 8C0.447715 8 -2.41411e-08 7.55228 0 7C2.41411e-08 6.44771 0.447715 6 1 6L13 6C13.5523 6 14 6.44772 14 7Z" class="horz-line" data-v-2f7a1a36="" data-v-56cf893a=""></path></svg></div></button></div>
 
               <button class="icon-btn filter">
                 <i>⚙️</i><span>Filter by</span>
@@ -168,9 +165,7 @@
 .modal-content{position:relative;max-width:90%;max-height:90%;background:#000;border-radius:8px;overflow:hidden}
 .modal-content video{width:100%;height:auto;display:block}
 .close{position:absolute;top:8px;right:12px;background:rgba(255,255,255,0.8);border:none;font-size:24px;cursor:pointer;border-radius:4px}
-.product-grid.cols-7 { grid-template-columns: repeat(7, 1fr); }
-.product-grid.cols-5 { grid-template-columns: repeat(5, 1fr); }
-.product-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+
 
 </style>
 
@@ -210,37 +205,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* grid column switcher: 7 → 5 → 3 */
-  const slider = document.querySelector('.slider');
-  const plusBtn = document.querySelector('.plus');
-  const grids = document.querySelectorAll('.product-grid');
+ 
 
-  function updateCols(val) {
-    let newClass;
-    if (val < 33) newClass = 'cols-3';
-    else if (val < 66) newClass = 'cols-5';
-    else newClass = 'cols-7';
-
-    grids.forEach(g => {
-      g.classList.remove('cols-3', 'cols-5', 'cols-7');
-      g.classList.add(newClass);
-    });
-  }
-
-  if (slider) {
-    updateCols(slider.value); // initial state
-    slider.addEventListener('input', e => updateCols(e.target.value));
-    
-    // Plus button functionality to increase slider value
-    if (plusBtn) {
-      plusBtn.addEventListener('click', () => {
-        let newValue = parseInt(slider.value) + 10;
-        if (newValue > 100) newValue = 100;
-        slider.value = newValue;
-        updateCols(newValue);
-      });
-    }
-  }
 });
 </script>
 
