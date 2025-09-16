@@ -87,12 +87,18 @@
 }
 .calc-panel.open { right:0; }
 .calc-close {
-  position:absolute;
-  top:27px;
-  right:20px;
-  border:none;
-  background:none;
-  cursor:pointer;
+position: absolute;
+    top: 27px;
+    right: 20px;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+.calc-close:focus {
+    outline: none;
+    box-shadow: none;
 }
 .calc-choices {
   display:flex;
