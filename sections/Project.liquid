@@ -391,27 +391,27 @@
 
 /* Toggle buttons set the default state */
 .product-image-wrapper[data-default-view="cover"] .cover-image {
-  opacity: 1 !important;
+  opacity: 1;
 }
 
 .product-image-wrapper[data-default-view="cover"] .featured-image {
-  opacity: 0 !important;
+  opacity: 0;
 }
 
 .product-image-wrapper[data-default-view="featured"] .cover-image {
-  opacity: 0 !important;
+  opacity: 0;
 }
 
 .product-image-wrapper[data-default-view="featured"] .featured-image {
-  opacity: 1 !important;
+  opacity: 1;
 }
-{% comment %} .cover-image:hover {
+ .cover-image:hover {
     opacity: 0 !important;
 }
  
 .cover-image:hover + .featured-image {
     opacity: 1;
-} {% endcomment %}
+} 
 /* Hover always overrides the default */
 .product-image-wrapper:hover .cover-image {
   opacity: 1 !important;
