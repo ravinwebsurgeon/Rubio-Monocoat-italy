@@ -92,45 +92,6 @@ $(document).ready(function() {
 });
 </script>
 
-{% schema %}
-{
-  "name": "How To Use FAQ",
-  "tag": "section",
-  "class": "faq-main-container",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "faq_image",
-      "label": "FAQ Left Image"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "faq",
-      "name": "FAQ Item",
-      "settings": [
-        {
-          "type": "text",
-          "id": "question",
-          "label": "Question"
-        },
-        {
-          "type": "textarea",
-          "id": "answer",
-          "label": "Answer"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "How To Use FAQ",
-      "category": "Custom"
-    }
-  ]
-}
-{% endschema %}
-
 
 
 
