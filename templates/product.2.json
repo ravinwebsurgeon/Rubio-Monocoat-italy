@@ -188,6 +188,13 @@
       "type": "how-to-use-faq-metafield",
       "name": "How To Use FAQ",
       "settings": {}
+    },
+    "technical_info_faq_rwNNkG": {
+      "type": "technical-info-faq",
+      "name": "Technical Info FAQ",
+      "settings": {
+        "heading": "Technical info"
+      }
     }
   },
   "order": [
@@ -195,6 +202,7 @@
     "related-products",
     "durogrit_features_V8Cdig",
     "video_product_QCpLrH",
-    "how_to_use_faq_metafield_7LfmP7"
+    "how_to_use_faq_metafield_7LfmP7",
+    "technical_info_faq_rwNNkG"
   ]
 }
