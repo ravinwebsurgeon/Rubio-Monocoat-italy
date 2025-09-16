@@ -184,18 +184,18 @@ document.addEventListener("DOMContentLoaded", function () {
   // Update product info when slide changes
   function updateProductInfo() {
     let centerSlide = document.querySelector(".inspired-slide.slick-center");
-if (centerSlide) {
-  let title = centerSlide.getAttribute("data-product-title");
-  let img = centerSlide.getAttribute("data-product-img");
-  let url = centerSlide.getAttribute("data-product-url");
+    if (centerSlide) {
+    let title = centerSlide.getAttribute("data-product-title");
+    let img = centerSlide.getAttribute("data-product-img");
+    let url = centerSlide.getAttribute("data-product-url");
 
-  document.getElementById("inspired-proouter").innerHTML = `
-    <a href="${url}">
-      <img id="product-img" src="${img}" alt="${title}">
-      <p id="product-title">${title}</p>
-    </a>
-  `;
-}
+      document.getElementById("inspired-proouter").innerHTML = `
+        <a href="${url}">
+          <img id="product-img" src="${img}" alt="${title}">
+          <p id="product-title">${title}</p>
+        </a>
+      `;
+    }
   }
   $('.inspired-slider').on('afterChange', updateProductInfo);
   updateProductInfo();
