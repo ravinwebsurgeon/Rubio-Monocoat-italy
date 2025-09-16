@@ -298,5 +298,66 @@ h4.oil-head {
   justify-content: center;
   font-size: 12px;
 }
+.video-modal {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;               /* hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.video-modal.active { display: flex; }
 
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.modal-content video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: rgba(255,255,255,0.8);
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 4px;
+}
 </style>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const openBtn = document.getElementById('openVideo');
+  const modal   = document.getElementById('videoModal');
+  const closeBtn= document.getElementById('closeVideo');
+  const video   = document.getElementById('expertVideo');
+
+  openBtn.addEventListener('click', () => {
+    modal.classList.add('active');
+    video.currentTime = 0;   // start from beginning
+    video.play();            // auto-play
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.classList.remove('active');
+    video.pause();
+  });
+
+  // also close when clicking outside the video
+  modal.addEventListener('click', e => {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+      video.pause();
+    }
+  });
+});
+</script>
