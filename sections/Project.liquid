@@ -79,11 +79,13 @@
     <li class="product-item">
       <a href="{{ product.url }}">
         {% if product.featured_image %}
-          <div class="product-image-wrapper">
+          <div class="product-image-wrapper" 
+               data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}" 
+               data-featured="{{ product.featured_image | img_url: '400x' }}">
+            <img class="featured-image" src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title | escape }}">
             {% if product.metafields.custom.cover_image != blank %}
               <img class="cover-image" src="{{ product.metafields.custom.cover_image | img_url: 'master' }}" alt="{{ product.title }}">
             {% endif %}
-            <img class="featured-image" src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title | escape }}">
           </div>
         {% endif %}
         <h3>{{ product.title }}</h3>
@@ -92,6 +94,7 @@
     </li>
   {% endfor %}
 </ul>
+
 
 
 
