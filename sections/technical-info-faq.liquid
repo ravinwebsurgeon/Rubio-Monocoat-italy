@@ -166,7 +166,7 @@
 }
 .tech-info-item {
   border-bottom: 1px solid #ccc;
-  padding: 20px 0;
+  padding: 33px 0;
 }
 .tech-info-question {
   width: 100%;
@@ -259,33 +259,6 @@ $(document).ready(function () {
   });
 });
 </script> {% endcomment %}
-
-<script>
-$(document).ready(function () {
-  $(".tech-info-question").on("click", function () {
-    const $item = $(this).closest(".tech-info-item");
-    const $answer = $item.find(".tech-info-answer");
-
-    // Close others
-    $item.siblings(".tech-info-item").removeClass("active")
-         .find(".tech-info-answer")
-         .each(function(){
-            $(this).stop().animate({ height: 0 }, 300);
-         });
-
-    if ($item.hasClass("active")) {
-      // Close current
-      $item.removeClass("active");
-      $answer.stop().animate({ height: 0 }, 300);
-    } else {
-      // Open current
-      $item.addClass("active");
-      const fullHeight = $answer.prop("scrollHeight");
-      $answer.stop().animate({ height: fullHeight }, 300);
-    }
-  });
-});
-</script>
 
 
 
