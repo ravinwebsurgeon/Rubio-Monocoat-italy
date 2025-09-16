@@ -102,19 +102,20 @@
 .tech-info-icon {
   display: flex;
   align-items: center;
-  transition: transform 0.3s ease;
+    transition: all ease 0.3s;
 }
 .faq-arrow {
   width: 20px;
   height: 20px;
-  transition: transform 0.3s ease;
+  {% comment %} transition: transform 0.3s ease; {% endcomment %}
 }
 .tech-info-item.active .faq-arrow {
   transform: rotate(180deg);
 }
 .tech-info-answer {
+  max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  transition: all ease 0.3s;
   font-size: 16px;
   line-height: 1.5;
   color:#000;
