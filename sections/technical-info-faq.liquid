@@ -132,7 +132,7 @@
 }
 </style>
 
-<script>
+{% comment %} <script>
 $(document).ready(function () {
   $(".tech-info-question").on("click", function () {
     const $item   = $(this).closest(".tech-info-item");
@@ -150,6 +150,23 @@ $(document).ready(function () {
 
     // Rotate the arrow
     $item.find(".faq-arrow").toggleClass("rotated");
+  });
+});
+</script> {% endcomment %}
+
+<script>
+$(document).ready(function () {
+  $(".tech-info-question").on("click", function () {
+    const $item   = $(this).closest(".tech-info-item");
+    const $answer = $item.find(".tech-info-answer");
+
+    // Close others
+    $item.siblings(".tech-info-item").removeClass("active")
+         .find(".tech-info-answer").slideUp(300);
+
+    // Toggle current
+    $item.toggleClass("active");
+    $answer.stop(true, true).slideToggle(300);
   });
 });
 </script>
