@@ -147,7 +147,7 @@
   align-items: center;
 }
 .tech-info-left {
-  width:auto;
+  width: auto;
 }
 .tech-info-image img {
   max-width: 100%;
@@ -184,11 +184,6 @@
   line-height: normal;
   font-family: Frutiger Neue LT W1G;
 }
-.tech-info-icon {
-  display: flex;
-  align-items: center;
-  transition: transform 0.3s ease;
-}
 .faq-arrow {
   width: 20px;
   height: 20px;
@@ -198,10 +193,10 @@
   transform: rotate(180deg);
 }
 .tech-info-answer {
-  display: none; /* jQuery slideToggle handle karega */
+  display: none; /* sirf jQuery control karega */
   font-size: 16px;
   line-height: normal;
-  color:#000;
+  color: #000;
   font-family: Frutiger Neue LT W1G;
   margin-top: 15px;
 }
@@ -211,6 +206,7 @@
   }
 }
 </style>
+
 
 
 {% comment %} <script>
@@ -241,16 +237,17 @@ $(document).ready(function () {
     const $item   = $(this).closest(".tech-info-item");
     const $answer = $item.find(".tech-info-answer");
 
-    // Close others
+    // Baaki items band kar do
     $item.siblings(".tech-info-item").removeClass("active")
          .find(".tech-info-answer").slideUp(300);
 
-    // Toggle current
+    // Current toggle karo
     $item.toggleClass("active");
     $answer.stop(true, true).slideToggle(300);
   });
 });
 </script>
+
 
 
 {% schema %}
