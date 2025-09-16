@@ -48,7 +48,7 @@
   </div>
 </div>
 
-<style>
+{% comment %} <style>
 .tech-info-wrapper {
   padding: 75px 89px;
   border-radius: 20px;
@@ -130,7 +130,88 @@
     flex-direction: column;
   }
 }
+</style> {% endcomment %}
+
+
+<style>
+.tech-info-wrapper {
+  padding: 75px 89px;
+  border-radius: 20px;
+  background: #F5F5F5;
+  max-width: 1700px;
+  margin-top: 100px;
+}
+.tech-info-inner {
+  display: flex;
+  gap: 79px;
+  align-items: center;
+}
+.tech-info-left {
+  width:auto;
+}
+.tech-info-image img {
+  max-width: 100%;
+  border-radius: 20px;
+  margin-top: 0;
+}
+.tech-info-content {
+  flex: 1;
+  padding-right: 93px;
+}
+.tech-info-heading {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+.tech-info-item {
+  border-bottom: 1px solid #ccc;
+  padding: 20px 0;
+}
+.tech-info-question {
+  width: 100%;
+  text-align: left;
+  font-weight: 400;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  letter-spacing: normal;
+  line-height: normal;
+  font-family: Frutiger Neue LT W1G;
+}
+.tech-info-icon {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+.faq-arrow {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+.tech-info-item.active .faq-arrow {
+  transform: rotate(180deg);
+}
+.tech-info-answer {
+  display: none; /* jQuery slideToggle handle karega */
+  font-size: 16px;
+  line-height: normal;
+  color:#000;
+  font-family: Frutiger Neue LT W1G;
+  margin-top: 15px;
+}
+@media(max-width: 768px) {
+  .tech-info-inner {
+    flex-direction: column;
+  }
+}
 </style>
+
 
 {% comment %} <script>
 $(document).ready(function () {
