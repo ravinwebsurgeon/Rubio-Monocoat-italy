@@ -193,20 +193,23 @@
   left: 0;
 }
 
-.cover-image {
-  z-index: 2;
-}
-
 .featured-image {
-  z-index: 1;
+  z-index: 2; /* default on top */
+  opacity: 1;
 }
 
-.product-image-wrapper:hover img.cover-image {
+.cover-image {
+  z-index: 1; /* underneath by default */
   opacity: 0;
 }
 
-.product-image-wrapper img.featured-image:hover {
+/* Hover: fade featured-image to reveal cover-image */
+.product-image-wrapper:hover .featured-image {
   opacity: 0;
+}
+
+.product-image-wrapper:hover .cover-image {
+  opacity: 1;
 }
 
  /* product grid with dynamic cols */
