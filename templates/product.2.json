@@ -199,7 +199,9 @@
         "faq_hFywT4"
       ],
       "name": "How To Use FAQ",
-      "settings": {}
+      "settings": {
+        "faq_image": "shopify://shop_images/Rectangle8_1.png"
+      }
     }
   },
   "order": [
