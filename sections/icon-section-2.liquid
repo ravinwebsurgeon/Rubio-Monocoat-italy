@@ -1,0 +1,98 @@
+{% schema %}
+{
+  "name": "Icon Section 2",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#f9f9f9"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "html",
+          "id": "svg_icon",
+          "label": "SVG Icon Code"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Feature Heading"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Feature description goes here."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon Section 2",
+      "category": "Custom",
+      "blocks": [
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<section class="icon-features" style="background-color: {{ section.settings.background_color }};">
+  <div class="container">
+    <div class="features-grid">
+      {% for block in section.blocks %}
+        <div class="feature-item">
+          <div class="feature-icon">
+            {{ block.settings.svg_icon }}
+          </div>
+          <h3 class="feature-heading">{{ block.settings.heading }}</h3>
+          <p class="feature-description">{{ block.settings.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+.icon-features {
+  padding: 40px 20px;
+}
+.icon-features .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  text-align: center;
+}
+.feature-item {
+  padding: 15px;
+}
+.feature-icon {
+  margin-bottom: 15px;
+}
+.feature-heading {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.feature-description {
+  font-size: 14px;
+  color: #555;
+}
+</style>
