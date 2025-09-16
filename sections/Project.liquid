@@ -212,7 +212,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* grid column switcher: 7 → 5 → 3 */
   const slider = document.querySelector('.slider');
-  const grids  = document.querySelectorAll('.product-grid');
+  const plusBtn = document.querySelector('.plus');
+  const grids = document.querySelectorAll('.product-grid');
 
   function updateCols(val) {
     let newClass;
@@ -229,6 +230,16 @@ document.addEventListener('DOMContentLoaded', function () {
   if (slider) {
     updateCols(slider.value); // initial state
     slider.addEventListener('input', e => updateCols(e.target.value));
+    
+    // Plus button functionality to increase slider value
+    if (plusBtn) {
+      plusBtn.addEventListener('click', () => {
+        let newValue = parseInt(slider.value) + 10;
+        if (newValue > 100) newValue = 100;
+        slider.value = newValue;
+        updateCols(newValue);
+      });
+    }
   }
 });
 </script>
