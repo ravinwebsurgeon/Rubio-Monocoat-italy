@@ -211,6 +211,21 @@
 .product-image-wrapper:hover .cover-image {
   opacity: 1;
 }
+/* Default: featured on top, hover shows cover */
+.product-image-wrapper.hover-cover:hover .featured-image {
+  opacity: 0;
+}
+.product-image-wrapper.hover-cover:hover .cover-image {
+  opacity: 1;
+}
+
+/* Reverse: cover on top, hover shows featured */
+.product-image-wrapper.hover-featured:hover .cover-image {
+  opacity: 0;
+}
+.product-image-wrapper.hover-featured:hover .featured-image {
+  opacity: 1;
+}
 
  /* product grid with dynamic cols */
 .product-grid {
@@ -378,6 +393,23 @@ imgBtn.addEventListener('click', () => {
     if (coverImg) {
       coverImg.style.zIndex = 1;
     }
+  });
+});
+const colorBtn = document.querySelector('.color-ic');
+const imgBtn = document.querySelector('.img-ic');
+const products = document.querySelectorAll('.product-image-wrapper');
+
+colorBtn.addEventListener('click', () => {
+  products.forEach(wrapper => {
+    wrapper.classList.add('hover-cover');
+    wrapper.classList.remove('hover-featured');
+  });
+});
+
+imgBtn.addEventListener('click', () => {
+  products.forEach(wrapper => {
+    wrapper.classList.add('hover-featured');
+    wrapper.classList.remove('hover-cover');
   });
 });
 
