@@ -12,11 +12,11 @@
           <div class="slide-media" data-video-url="{{ block.settings.video_url }}">
             {% if block.settings.video_url != blank %}
               <div class="video-wrapper">
-                <img class="video-thumb" src="{{ block.settings.thumbnail | img_url: '600x600' }}" alt="Video Thumbnail">
+                <img class="video-thumb" src="{{ block.settings.thumbnail | img_url: '600x600' }}" alt="Video Thumbnail" width="" height="">
                 <div class="play-button">&#9658;</div>
               </div>
             {% else %}
-              <img src="{{ block.settings.image | img_url: '600x600' }}" alt="Slide Image">
+              <img src="{{ block.settings.image | img_url: '600x600' }}" alt="Slide Image" width="" height="">
             {% endif %}
           </div>
         </div>
@@ -25,7 +25,7 @@
 
     <!-- Product Info -->
     <div class="inspired-product-info">
-      <img id="product-img" src="" alt="">
+      <img id="product-img" src="" alt="" width="" height="">
       <p id="product-title"></p>
     </div>
   </div>
