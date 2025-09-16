@@ -76,34 +76,76 @@
 
           <h4 class="oil-head">Oil Plus 2C - Interior wood oil</h4>
 
-          {% for block in section.blocks %}
-            {% assign tab_collection = block.settings.tab_collection %}
-            <div class="tab-products{% if forloop.first %} active{% endif %}" id="tab-{{ block.id }}">
-    
+  <div class="filters-wrap">
+  <!-- Color Filter -->
+  <div class="filter-block">
+    <h4>Color</h4>
+    <ul>
+      {% assign colors = "" | split: "" %}
+      {% for product in collections.all.products %}
+        {% for option in product.options_with_values %}
+          {% if option.name == 'Color' %}
+            {% for val in option.values %}
+              {% unless colors contains val %}
+                {% assign colors = colors | push: val %}
+              {% endunless %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+      {% for color in colors %}
+        <li><a href="?color={{ color | url_encode }}">{{ color }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Product Type Filter -->
+  <div class="filter-block">
+    <h4>Product Type</h4>
+    <ul>
+      {% assign types = "" | split: "" %}
+      {% for product in collections.all.products %}
+        {% unless types contains product.type %}
+          {% assign types = types | push: product.type %}
+        {% endunless %}
+      {% endfor %}
+      {% for type in types %}
+        <li><a href="?type={{ type | url_encode }}">{{ type }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
 
 <ul class="product-grid">
-  {% for product in tab_collection.products %}
-    <li class="product-item">
-      <a href="{{ product.url }}">
-        {% if product.featured_image %}
-          <div class="product-image-wrapper" data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}" data-featured="{{ product.featured_image | img_url: '400x' }}">
-            {% if product.metafields.custom.cover_image != blank %}
-              <img class="cover-image" src="{{ product.metafields.custom.cover_image | img_url: 'master' }}" alt="{{ product.title }}">
-            {% endif %}
-            <img class="featured-image" src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title | escape }}">
-          </div>
+  {% assign color_filter = request.params.color %}
+  {% assign type_filter  = request.params.type %}
+  {% for product in collections.all.products %}
+    {% assign show = true %}
+    {% if color_filter %}
+      {% assign has_color = false %}
+      {% for variant in product.variants %}
+        {% if variant.options contains color_filter %}
+          {% assign has_color = true %}
         {% endif %}
-        <h3>{{ product.title }}</h3>
-        <p class="price">{{ product.price | money }}</p>
-      </a>
-    </li>
+      {% endfor %}
+      {% unless has_color %}{% assign show = false %}{% endunless %}
+    {% endif %}
+    {% if type_filter and product.type != type_filter %}
+      {% assign show = false %}
+    {% endif %}
+
+    {% if show %}
+      <li class="product-item">
+        <a href="{{ product.url }}">
+          <img src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title }}">
+          <h3>{{ product.title }}</h3>
+          <p>{{ product.price | money }}</p>
+        </a>
+      </li>
+    {% endif %}
   {% endfor %}
 </ul>
 
-
-
-            </div>
-          {% endfor %}
         </div>
       </div>
     </div>
