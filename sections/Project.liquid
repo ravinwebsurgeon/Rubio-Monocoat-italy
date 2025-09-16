@@ -26,33 +26,33 @@
       </ul>
 
       <!-- Tab Contents -->
-      {% for t in tab_names %}
-        <div class="tab-content" id="menu{{ forloop.index }}">
-  <ul class="collection-list">
-    {% for b in section.blocks %}
-      {% if b.settings.tab_group == t and b.settings.col %}
-        <li>
-           <a href="{{ b.settings.col.url }}">
-          <div class="tabbing-all-data">
-          <div class="img-col">
-            {% if b.settings.col.image %}
-              <img src="{{ b.settings.col.image | img_url: '400x' }}" alt="{{ b.settings.col.title | escape }}">
-            {% endif %}
-          </div>
-            <h3>{{ b.settings.col.title }}</h3>
-            
-          </div>
-          </a>
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-
- 
-
-</div>
-
+     {% for t in tab_names %}
+  <div class="tab-content" id="menu{{ forloop.index }}">
+    <ul class="collection-list">
+      {% for b in section.blocks %}
+        {% if b.settings.tab_group == t and b.settings.col %}
+          {% assign the_collection = b.settings.col %}
+          {% for product in the_collection.products %}
+            <li>
+              <a href="{{ product.url }}">
+                <div class="tabbing-all-data">
+                  <div class="img-col">
+                    {% if product.featured_image %}
+                      <img src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title | escape }}">
+                    {% endif %}
+                  </div>
+                  <h3>{{ product.title }}</h3>
+                  <p>{{ product.price | money }}</p>
+                </div>
+              </a>
+            </li>
+          {% endfor %}
+        {% endif %}
       {% endfor %}
+    </ul>
+  </div>
+{% endfor %}
+
     </div>
 </div>
     </div>
