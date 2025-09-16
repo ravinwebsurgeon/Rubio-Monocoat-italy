@@ -383,7 +383,16 @@
   opacity: 1;
 }
 
-/* Toggle classes */
+/* Hover effect — only works if no toggle class is applied */
+.product-image-wrapper:not(.show-cover):not(.show-featured):hover .cover-image {
+  opacity: 1;
+}
+
+.product-image-wrapper:not(.show-cover):not(.show-featured):hover .featured-image {
+  opacity: 0;
+}
+
+/* Toggle classes override hover */
 .product-image-wrapper.show-cover .cover-image {
   opacity: 1 !important;
 }
@@ -399,6 +408,7 @@
 .product-image-wrapper.show-featured .featured-image {
   opacity: 1 !important;
 }
+
 
 /* Responsive adjustments */
 @media (max-width: 1200px) {
