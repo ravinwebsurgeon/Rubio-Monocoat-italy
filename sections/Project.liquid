@@ -23,70 +23,48 @@
 
         <!-- Tabs + Products -->
         <div class="pro-second">
-          <h3 class="heading-pr">{{ section.settings.heading2 }}</h3>
-          <div class="main-tabs">
+          <div class="circle-tabs-section">
+  <div class="pagffg">
+    {% if section.settings.heading != blank %}
+      <h2 class="tabs-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
 
-            {%- comment -%}
-            Build an array of unique tab groups with their first image
-            {%- endcomment -%}
-            {% assign tab_groups = '' %}
-            {% for b in section.blocks %}
-              {% if b.settings.tab_group != blank %}
-                {% unless tab_groups contains b.settings.tab_group %}
-                  {% assign tab_groups = tab_groups | append: b.settings.tab_group | append: '||' | append: b.settings.tab_img | append: '%%' %}
-                {% endunless %}
-              {% endif %}
-            {% endfor %}
-            {% assign tab_items = tab_groups | split: '%%' %}
+    <!-- Circle Tabs -->
+    <div class="circle-tabs">
+      {% for block in section.blocks %}
+        <button class="circle-tab{% if forloop.first %} active{% endif %}" data-tab="tab-{{ block.id }}">
+          {% if block.settings.tab_image %}
+            <img src="{{ block.settings.tab_image | img_url: '200x200' }}" alt="{{ block.settings.tab_name | escape }}">
+          {% endif %}
+          <span>{{ block.settings.tab_name }}</span>
+        </button>
+      {% endfor %}
+    </div>
 
-            <!-- Tabs -->
-            <ul class="tabs">
-              {% for item in tab_items %}
-                {% assign parts = item | split: '||' %}
-                {% assign tname = parts[0] %}
-                {% assign timg  = parts[1] %}
-                {% if tname != blank %}
-                  <li data-tab="menu{{ forloop.index }}">
-                    {% if timg %}
-                      <img src="{{ timg | img_url: '80x' }}" alt="{{ tname | escape }}" class="tab-icon">
-                    {% endif %}
-                    <span>{{ tname }}</span>
-                  </li>
-                {% endif %}
-              {% endfor %}
-            </ul>
+    <!-- Products per Tab -->
+    {% for block in section.blocks %}
+      {% assign tab_collection = block.settings.tab_collection %}
+      <div class="tab-products{% if forloop.first %} active{% endif %}" id="tab-{{ block.id }}">
+        <ul class="product-grid">
+          {% for product in tab_collection.products %}
+            <li class="product-item">
+              <a href="{{ product.url }}">
+                <div class="product-image">
+                  {% if product.featured_image %}
+                    <img src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title | escape }}">
+                  {% endif %}
+                </div>
+                <h3>{{ product.title }}</h3>
+                <p class="price">{{ product.price | money }}</p>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </div>
+</div>
 
-            <!-- Tab Contents -->
-            {% for item in tab_items %}
-              {% assign parts = item | split: '||' %}
-              {% assign tname = parts[0] %}
-              <div class="tab-content" id="menu{{ forloop.index }}">
-                <ul class="collection-list">
-                  {% for b in section.blocks %}
-                    {% if b.settings.tab_group == tname and b.settings.col %}
-                      {% assign the_collection = b.settings.col %}
-                      {% for product in the_collection.products %}
-                        <li>
-                          <a href="{{ product.url }}">
-                            <div class="tabbing-all-data">
-                              <div class="img-col">
-                                {% if product.featured_image %}
-                                  <img src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title | escape }}">
-                                {% endif %}
-                              </div>
-                              <h3>{{ product.title }}</h3>
-                              <p>{{ product.price | money }}</p>
-                            </div>
-                          </a>
-                        </li>
-                      {% endfor %}
-                    {% endif %}
-                  {% endfor %}
-                </ul>
-              </div>
-            {% endfor %}
-
-          </div>
         </div>
       </div>
     </div>
