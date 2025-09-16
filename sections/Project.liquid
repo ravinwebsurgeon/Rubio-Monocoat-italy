@@ -52,24 +52,15 @@
              <div class="filters-code">
               
           
-{% assign colour_options = "" | split: "," %}
-
 {% for block in section.blocks %}
   {% assign tab_collection = block.settings.tab_collection %}
   {% for product in tab_collection.products %}
-    {% assign colour_value = product.metafields.custom.colour_filter2 %}
-    {% unless colour_options contains colour_value %}
-      {% assign colour_options = colour_options  %}
-    {% endunless %}
+    {% if product.metafields.custom.colour_filter2 != blank %}
+      {{ product.metafields.custom.colour_filter2 }}<br>
+    {% endif %}
   {% endfor %}
 {% endfor %}
 
-<select name="colour_filter">
-  <option value="">Select Colour</option>
-  {% for colour in colour_options %}
-    <option value="{{ colour | escape }}">{{ colour }}</option>
-  {% endfor %}
-</select>
 
 
               </div>
