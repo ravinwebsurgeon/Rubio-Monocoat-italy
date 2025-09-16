@@ -184,24 +184,10 @@
         "button_label": "View All Products"
       }
     },
-    "how_to_use_faq_metafield_tHdfaA": {
+    "how_to_use_faq_metafield_7LfmP7": {
       "type": "how-to-use-faq-metafield",
-      "blocks": {
-        "faq_hFywT4": {
-          "type": "faq",
-          "settings": {
-            "question": "ssa",
-            "answer": "asassaasas"
-          }
-        }
-      },
-      "block_order": [
-        "faq_hFywT4"
-      ],
       "name": "How To Use FAQ",
-      "settings": {
-        "faq_image": "shopify://shop_images/Rectangle8_1.png"
-      }
+      "settings": {}
     }
   },
   "order": [
@@ -209,6 +195,6 @@
     "related-products",
     "durogrit_features_V8Cdig",
     "video_product_QCpLrH",
-    "how_to_use_faq_metafield_tHdfaA"
+    "how_to_use_faq_metafield_7LfmP7"
   ]
 }
