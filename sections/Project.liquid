@@ -343,18 +343,37 @@
     });
   }
 });
-document.querySelector('.color-ic').addEventListener('click', function() {
-  document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
-    wrapper.classList.add('show-cover');
-    wrapper.classList.remove('show-featured');
+const colorBtn = document.querySelector('.color-ic');
+const imgBtn = document.querySelector('.img-ic');
+const products = document.querySelectorAll('.product-image-wrapper');
+
+colorBtn.addEventListener('click', () => {
+  products.forEach(wrapper => {
+    const coverImg = wrapper.querySelector('.cover-image');
+    const featuredImg = wrapper.querySelector('.featured-image');
+    if (coverImg) {
+      coverImg.style.zIndex = 2;
+      coverImg.style.opacity = 1;
+    }
+    if (featuredImg) {
+      featuredImg.style.zIndex = 1;
+    }
   });
 });
 
-document.querySelector('.img-ic').addEventListener('click', function() {
-  document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
-    wrapper.classList.add('show-featured');
-    wrapper.classList.remove('show-cover');
+imgBtn.addEventListener('click', () => {
+  products.forEach(wrapper => {
+    const coverImg = wrapper.querySelector('.cover-image');
+    const featuredImg = wrapper.querySelector('.featured-image');
+    if (featuredImg) {
+      featuredImg.style.zIndex = 2;
+      featuredImg.style.opacity = 1;
+    }
+    if (coverImg) {
+      coverImg.style.zIndex = 1;
+    }
   });
 });
+
 
 </script>
