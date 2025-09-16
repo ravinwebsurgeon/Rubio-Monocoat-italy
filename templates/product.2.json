@@ -213,6 +213,53 @@
         "image": "shopify://shop_images/Rectangle_146.png"
       }
     },
+    "icon_section_2_m8xzwH": {
+      "type": "icon-section-2",
+      "blocks": {
+        "feature_zkFNUN": {
+          "type": "feature",
+          "settings": {
+            "svg_icon": "",
+            "heading": "CLEAN & NOURISH",
+            "description": "Reinigende en voedende werkingvoor buitenhout"
+          }
+        },
+        "feature_YnMWEP": {
+          "type": "feature",
+          "settings": {
+            "svg_icon": "",
+            "heading": "ECOLOGICAL",
+            "description": "Volledig VOC-vrije zeep"
+          }
+        },
+        "feature_UykUCy": {
+          "type": "feature",
+          "settings": {
+            "svg_icon": "",
+            "heading": "USER-FRIENDLY",
+            "description": "Easy cleaning"
+          }
+        },
+        "feature_A6riaG": {
+          "type": "feature",
+          "settings": {
+            "svg_icon": "",
+            "heading": "LASTING PROTECTION & MAINTENANCE",
+            "description": "Keeps your treated wood surfaces in top condition"
+          }
+        }
+      },
+      "block_order": [
+        "feature_zkFNUN",
+        "feature_YnMWEP",
+        "feature_UykUCy",
+        "feature_A6riaG"
+      ],
+      "name": "Icon Section 2",
+      "settings": {
+        "background_color": "#f9f9f9"
+      }
+    },
     "custom_visit_faq_section_bdtKGx": {
       "type": "custom-visit-faq-section",
       "name": "Visit FAQ Sec",
@@ -287,6 +334,7 @@
     "video_product_QCpLrH",
     "how_to_use_faq_metafield_7LfmP7",
     "technical_info_faq_rwNNkG",
+    "icon_section_2_m8xzwH",
     "custom_visit_faq_section_bdtKGx",
     "icons_section_XzMnLb"
   ]

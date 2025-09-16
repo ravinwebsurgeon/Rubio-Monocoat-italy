@@ -51,23 +51,13 @@
               </button>
              <div class="filters-code">
               
-             {% for block in section.blocks %}
-            {% assign tab_collection = block.settings.tab_collection %}
-   {% for product in tab_collection.products %}
-{% if product.metafields.custom.colour_filter2 != blank %}
-  <ul>
-    {% for item in product.metafields.custom.colour_filter2 %}
-      <li>{{ item }}</li>
-    {% endfor %}
-  </ul>
-{% endif %}
+          {% assign douglas_collection = collections['douglas-wood'] %}
+    {% for product in douglas_collection.products %}
 
-{% for color in product.metafields.custom.colour_filter2 %}
-  <span>{{ color }}</span>
+   {{ product.metafields.custom.colour_filter2 }} 
 {% endfor %}
 
-{% endfor %}
-{% endfor %}
+
 
               </div>
 
