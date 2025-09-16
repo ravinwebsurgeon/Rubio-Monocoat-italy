@@ -193,7 +193,8 @@
       "type": "technical-info-faq",
       "name": "Technical Info FAQ",
       "settings": {
-        "heading": "Technical info"
+        "heading": "Technical info",
+        "image": "shopify://shop_images/Rectangle_146.png"
       }
     }
   },
