@@ -132,13 +132,16 @@
   opacity: 1;
   visibility: visible;
 }
-
+.inspired-slider .slick-list,.inspired-slider .slick-list .slick-track {
+    display: flex;
+    align-items: center;
+}
 </style>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   $('.inspired-slider').slick({
-    centerMode: true,
+    centerMode: false,
     centerPadding: '60px',
     slidesToShow: 3,
     arrows: true,
