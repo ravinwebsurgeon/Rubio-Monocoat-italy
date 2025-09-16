@@ -52,7 +52,8 @@
              <div class="filters-code">
              <label for="colour-filter">Colour</label>
 <select id="colour-filter" name="colour-filter">
-  {% for colour in product.metaields.custom.colour_filter.value %}
+  {% assign col = product.metaields.custom.colour_filter.value %}
+  {% for colour in col %}
     <option value="{{ colour | escape }}">{{ colour }}</option>
   {% endfor %}
 </select>
