@@ -384,29 +384,30 @@
 }
 
 /* Toggle buttons set the default state */
-.product-image-wrapper.show-cover .cover-image {
+/* Default states based on data attribute */
+.product-image-wrapper[data-default-view="cover"] .cover-image {
   opacity: 1;
 }
 
-.product-image-wrapper.show-cover .featured-image {
+.product-image-wrapper[data-default-view="cover"] .featured-image {
   opacity: 0;
 }
 
-.product-image-wrapper.show-featured .cover-image {
+.product-image-wrapper[data-default-view="featured"] .cover-image {
   opacity: 0;
 }
 
-.product-image-wrapper.show-featured .featured-image {
+.product-image-wrapper[data-default-view="featured"] .featured-image {
   opacity: 1;
 }
 
-/* Hover always works on top of toggle */
+/* Hover always overrides the default */
 .product-image-wrapper:hover .cover-image {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 .product-image-wrapper:hover .featured-image {
-  opacity: 0;
+  opacity: 0 !important;
 }
 
 
@@ -530,6 +531,8 @@ document.querySelector('.color-ic').addEventListener('click', function() {
   document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
     wrapper.classList.add('show-cover');
     wrapper.classList.remove('show-featured');
+    // Add a class to track the current default view
+    wrapper.dataset.defaultView = 'cover';
   });
 });
 
@@ -537,7 +540,14 @@ document.querySelector('.img-ic').addEventListener('click', function() {
   document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
     wrapper.classList.add('show-featured');
     wrapper.classList.remove('show-cover');
+    // Add a class to track the current default view
+    wrapper.dataset.defaultView = 'featured';
   });
+});
+
+// Set initial default view (cover images)
+document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
+  wrapper.dataset.defaultView = 'cover';
 });
 
 </script>
