@@ -38,14 +38,38 @@
             {% endfor %}
           </div>
 
-          <!-- Filter bar -->
+          <!-- Filter bar with slider -->
           <div class="filter-bar">
             <div class="filter-left">
               <button class="icon-btn color-ic"><i>🎨</i></button>
               <button class="icon-btn img-ic"><i>🖼️</i></button>
+
+              <div class="range-input-section slider-wrap" data-v-56cf893a=""><button class="range-button base-button type-button size-small theme-primary" data-v-2f7a1a36="" data-v-56cf893a=""><div class="btn-content" data-v-2f7a1a36=""><svg width="14" height="2" viewBox="0 0 14 2" xmlns="http://www.w3.org/2000/svg" class="ic-minus range-input-icon" data-v-2f7a1a36="" data-v-56cf893a=""><path fill-rule="evenodd" clip-rule="evenodd" d="M14 1C14 1.55228 13.5523 2 13 2L1 2C0.447715 2 -6.78525e-08 1.55228 -4.37114e-08 0.999999C-1.95703e-08 0.447715 0.447715 -5.92389e-07 1 -5.68248e-07L13 -4.37114e-08C13.5523 -1.95703e-08 14 0.447715 14 1Z" data-v-2f7a1a36="" data-v-56cf893a=""></path></svg></div></button> <input id="gridLayout" type="range" name="gridLayout" min="0" max="2" step="1" value="1" data-v-56cf893a=""> <button class="range-button base-button type-button size-small theme-primary" data-v-2f7a1a36="" data-v-56cf893a=""><div class="btn-content" data-v-2f7a1a36=""><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" class="ic-plus range-input-icon" data-v-2f7a1a36="" data-v-56cf893a=""><path fill-rule="evenodd" clip-rule="evenodd" d="M7 0C7.55228 0 8 0.447715 8 1V13C8 13.5523 7.55228 14 7 14C6.44772 14 6 13.5523 6 13V1C6 0.447715 6.44772 0 7 0Z" class="vert-line" data-v-2f7a1a36="" data-v-56cf893a=""></path><path fill-rule="evenodd" clip-rule="evenodd" d="M14 7C14 7.55228 13.5523 8 13 8L1 8C0.447715 8 -2.41411e-08 7.55228 0 7C2.41411e-08 6.44771 0.447715 6 1 6L13 6C13.5523 6 14 6.44772 14 7Z" class="horz-line" data-v-2f7a1a36="" data-v-56cf893a=""></path></svg></div></button></div>
+
               <button class="icon-btn filter">
                 <i>⚙️</i><span>Filter by</span>
               </button>
+             <div class="filters-code">
+              
+             
+ 
+{% if product.metafields.custom.colour_filter2 != blank %}
+  <ul>
+    {% for item in product.metafields.custom.colour_filter2 %}
+      <li>{{ item }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+{% for color in product.metafields.custom.colour_filter2 %}
+  <span>{{ color }}</span>
+{% endfor %}
+
+
+
+
+              </div>
+
             </div>
 
             <button class="tips-link" id="openVideo">
@@ -64,45 +88,36 @@
             </div>
           </div>
 
+          
+
           <h4 class="oil-head">Oil Plus 2C - Interior wood oil</h4>
 
           {% for block in section.blocks %}
             {% assign tab_collection = block.settings.tab_collection %}
             <div class="tab-products{% if forloop.first %} active{% endif %}" id="tab-{{ block.id }}">
-              <ul class="product-grid">
-                {% for product in tab_collection.products %}
-                  <li class="product-item">
-                    <a href="{{ product.url }}">
-                      {% if product.featured_image %}
-                        <div class="product-image-wrapper"
-                             data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}"
-                             data-featured="{{ product.featured_image | img_url: '400x' }}">
-                          {% if product.metafields.custom.cover_image != blank %}
-                            <img class="cover-image"
-                                 src="{{ product.metafields.custom.cover_image | img_url: 'master' }}"
-                                 alt="{{ product.title }}">
-                          {% endif %}
-                          <img class="featured-image"
-                               src="{{ product.featured_image | img_url: '400x' }}"
-                               alt="{{ product.title | escape }}">
-                        </div>
-                      {% endif %}
+    
 
-                      <h3>{{ product.title }}</h3>
-                      <p class="price">{{ product.price | money }}</p>
+<ul class="product-grid">
+  {% for product in tab_collection.products %}
+    <li class="product-item">
+      <a href="{{ product.url }}">
+        {% if product.featured_image %}
+          <div class="product-image-wrapper" data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}" data-featured="{{ product.featured_image | img_url: '400x' }}">
+            {% if product.metafields.custom.cover_image != blank %}
+              <img class="cover-image" src="{{ product.metafields.custom.cover_image | img_url: ' ' }}" alt="{{ product.title }}">
+            {% endif %}
+            <img class="featured-image" src="{{ product.featured_image | img_url: ' ' }}" alt="{{ product.title | escape }}">
+          </div>
+        {% endif %}
+        <h3>{{ product.title }}</h3>
+        <p class="price">{{ product.price | money }}</p>
+      </a>
+    </li>
+  {% endfor %}
+</ul>
 
-                      <!-- ✅ colour_filter2 metafield -->
-                      {% if product.metafields.custom.colour_filter2 %}
-                        <ul class="colour-filter-list">
-                          {% for value in product.metafields.custom.colour_filter2 %}
-                            <li>{{ value }}</li>
-                          {% endfor %}
-                        </ul>
-                      {% endif %}
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
+
+
             </div>
           {% endfor %}
         </div>
@@ -135,9 +150,8 @@
   "presets": [{ "name": "Project", "category": "Custom" }]
 }
 {% endschema %}
-
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () {
   /* circle tabs */
   document.querySelectorAll('.circle-tab').forEach(btn => {
     btn.addEventListener('click', function () {
@@ -171,22 +185,431 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+
+  /* Product grid layout slider functionality */
+  const gridLayoutInput = document.getElementById('gridLayout');
+  const minusBtn = document.querySelector('.range-button:first-child');
+  const plusBtn = document.querySelector('.range-button:last-child');
+  const productGrids = document.querySelectorAll('.product-grid');
+  
+  if (gridLayoutInput && minusBtn && plusBtn) {
+   
+    updateGridLayout(parseInt(gridLayoutInput.value));
+   
+    gridLayoutInput.addEventListener('input', function() {
+      updateGridLayout(parseInt(this.value));
+    });
+    
+    minusBtn.addEventListener('click', function() {
+      if (parseInt(gridLayoutInput.value) > 0) {
+        gridLayoutInput.value = parseInt(gridLayoutInput.value) - 1;
+        updateGridLayout(parseInt(gridLayoutInput.value));
+      }
+    });
+    
+    
+    plusBtn.addEventListener('click', function() {
+      if (parseInt(gridLayoutInput.value) < 2) {
+        gridLayoutInput.value = parseInt(gridLayoutInput.value) + 1;
+        updateGridLayout(parseInt(gridLayoutInput.value));
+      }
+    });
+  }
+  
+  
+  function updateGridLayout(value) {
+    
+    productGrids.forEach(grid => {
+      grid.classList.remove('cols-3', 'cols-5', 'cols-7');
+     
+      if (value === 0) {
+        grid.classList.add('cols-3');
+      } else if (value === 1) {
+        grid.classList.add('cols-5');
+      } else if (value === 2) {
+        grid.classList.add('cols-7');
+      }
+    });
+  }
+});
+document.querySelector('.color-ic').addEventListener('click', function() {
+  document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
+    // Remove all classes and use only data attribute
+    wrapper.classList.remove('show-cover', 'show-featured');
+    wrapper.dataset.defaultView = 'cover';
+  });
+});
+
+document.querySelector('.img-ic').addEventListener('click', function() {
+  document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
+    // Remove all classes and use only data attribute
+    wrapper.classList.remove('show-cover', 'show-featured');
+    wrapper.dataset.defaultView = 'featured';
+  });
+});
+
+// Set initial default view (cover images)
+document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
+  wrapper.dataset.defaultView = 'cover';
 });
 </script>
-
 <style>
-/* … keep your existing CSS styles … */
-.colour-filter-list {
-  margin-top: 8px;
-  padding: 0;
-  list-style: none;
+/* Layout */
+.pro-first {
   display: flex;
+  gap: 50px;
+}
+
+.Interio,
+.exterior {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.Interio img,
+.exterior img {
+  width: 100%;
+}
+
+.inter-btn,
+.exter-btn {
+  border-radius: 50px;
+  border: 1px solid #000;
+  padding: 13px 37px;
+  width: 160px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.heading-pr {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+/* Circle Tabs */
+.circle-tabs-section {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.circle-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.circle-tab {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.circle-tab img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+  transition: border-color 0.3s;
+}
+
+.circle-tab.active img,
+.circle-tab:hover img {
+  border-color: #000;
+}
+
+.circle-tab span {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+/* Tab Products */
+.tab-products {
+  display: none;
+}
+
+.tab-products.active {
+  display: block;
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.product-grid.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.product-grid.cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.product-grid.cols-7 {
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.product-item img {
+  width: 100%;
+  height: auto;
+}
+
+.price {
+  color: #333;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.oil-head {
+  text-align: left;
+  font-weight: 700;
+  font-size: 40px;
+  margin: 20px 0;
+}
+
+/* Filter Bar */
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 9999px;
+  padding: 6px 16px;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.filter-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  font-size: 18px;
+}
+
+.slider-wrap {
+  display: flex;
+  align-items: center;
   gap: 6px;
 }
-.colour-filter-list li {
-  background:#eee;
-  padding:4px 8px;
-  border-radius:4px;
-  font-size:14px;
+
+.slider {
+  width: 100px;
+  accent-color: #133;
 }
+
+.filter span {
+  margin-left: 4px;
+  font-weight: 500;
+}
+
+.tips-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #0a2d2d;
+  font-size: 14px;
+}
+
+.tips-link .play {
+  margin-right: 6px;
+  background: #0a2d2d;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+/* Video Modal */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.video-modal.active {
+  display: flex;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.modal-content video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Product Image Wrapper with toggle buttons */
+.product-image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.product-image-wrapper img {
+  display: block;
+  width: 100%;
+  transition: opacity 0.3s ease;
+}
+
+/* Default states */
+.cover-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  opacity: 0;
+}
+
+.featured-image {
+  z-index: 1;
+  opacity: 1;
+}
+
+/* Toggle buttons set the default state */
+.product-image-wrapper[data-default-view="cover"] .cover-image {
+  opacity: 1;
+}
+
+.product-image-wrapper[data-default-view="cover"] .featured-image {
+  opacity: 0;
+}
+
+.product-image-wrapper[data-default-view="featured"] .cover-image {
+  opacity: 0;
+}
+
+.product-image-wrapper[data-default-view="featured"] .featured-image {
+  opacity: 1;
+} 
+ 
+/* Hover always overrides the default */
+ .product-image-wrapper:hover .cover-image {
+  opacity: 1 !important;
+}
+
+.product-image-wrapper:hover .featured-image {
+  opacity: 0 !important;
+} 
+
+.product-image-wrapper:hover .cover-image {
+  opacity: 0 !important;
+}
+
+.product-image-wrapper:hover .featured-image {
+  opacity: 1 !important;
+} 
+
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .product-grid.cols-7 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .product-grid.cols-7,
+  .product-grid.cols-5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-grid.cols-7,
+  .product-grid.cols-5,
+  .product-grid.cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid.cols-7,
+  .product-grid.cols-5,
+  .product-grid.cols-3 {
+    grid-template-columns: 1fr;
+  }
+}
+.tab-products ul.product-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 25px;
+    height: 100%;
+}
+ 
+.tab-products ul.product-grid .product-item > a {
+    display: block;
+    height: auto;
+}
+ 
+.tab-products ul.product-grid .product-item .product-image-wrapper {
+    height: 100%;
+    width: 100%;
+}
+ 
+.tab-products ul.product-grid .product-item .product-image-wrapper img {
+    height: 100%;
+    object-fit: cover;
+    max-width: 100%;
+    aspect-ratio: 320 / 320;
+    border-radius: 20px;
+}
+ 
+.tab-products ul.product-grid li.product-item {
+    height: 100%;
+}
+#colour-filter {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 16px;
+}
+
 </style>
+
+
+
