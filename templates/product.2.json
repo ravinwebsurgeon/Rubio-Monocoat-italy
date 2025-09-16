@@ -124,57 +124,10 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
-    },
-    "product_discription_tab_DDrtWQ": {
-      "type": "product-discription-tab",
-      "blocks": {
-        "tab_jMBgWr": {
-          "type": "tab",
-          "settings": {
-            "title": "How to use"
-          }
-        },
-        "tab_LaEDJd": {
-          "type": "tab",
-          "settings": {
-            "title": "Product description"
-          }
-        },
-        "tab_yDyQqa": {
-          "type": "tab",
-          "settings": {
-            "title": "Technical information"
-          }
-        },
-        "tab_F969GB": {
-          "type": "tab",
-          "settings": {
-            "title": "Product information"
-          }
-        },
-        "tab_xkPkim": {
-          "type": "tab",
-          "settings": {
-            "title": "FAQ"
-          }
-        }
-      },
-      "block_order": [
-        "tab_jMBgWr",
-        "tab_LaEDJd",
-        "tab_yDyQqa",
-        "tab_F969GB",
-        "tab_xkPkim"
-      ],
-      "name": "product-discription-tab",
-      "settings": {
-        "instruction": "Instruction"
-      }
     }
   },
   "order": [
     "main",
-    "related-products",
-    "product_discription_tab_DDrtWQ"
+    "related-products"
   ]
 }
