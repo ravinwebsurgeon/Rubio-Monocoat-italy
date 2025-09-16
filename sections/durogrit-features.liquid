@@ -113,4 +113,54 @@
 
 
 
+{% schema %}
+{
+  "name": "DuroGrit (Metafields)",
+  "tag": "section",
+  "class": "durogrit-features",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_section_heading",
+      "label": "Section Heading",
+      "default": "Key Features"
+    },
+    {
+      "type": "image_picker",
+      "id": "custom_center_image",
+      "label": "Center Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_item",
+      "name": "Feature Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Feature Title",
+          "default": "Feature Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Feature Description",
+          "default": "Feature description goes here."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DuroGrit (Metafields)",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}
+
+
+
+
 
