@@ -60,19 +60,29 @@
     {% endif %}
   {% endfor %}
 {% endfor %} {% endcomment %}
-<select name="colour-filter">
-  {% for block in section.blocks %}
-    {% assign tab_collection = block.settings.tab_collection %}
-    {% for product in tab_collection.products %}
-      {% assign colours = product.metafields.custom.colour_filter2  %}
-      {% if colours %}
-        {% for colour in colours %}
-          <option value="{{ colour }}">{{ colour }}</option>
-        {% endfor %}
-      {% endif %}
-    {% endfor %}
+{% assign all_colours = "" | split: "," %}
+
+{% for block in section.blocks %}
+  {% assign tab_collection = block.settings.tab_collection %}
+  {% for product in tab_collection.products %}
+    {% assign colours = product.metafields.custom.colour_filter2 | parse_json %}
+    {% if colours %}
+      {% for colour in colours %}
+        {% unless all_colours contains colour %}
+          {% assign all_colours = all_colours | push: colour %}
+        {% endunless %}
+      {% endfor %}
+    {% endif %}
   {% endfor %}
-</select>
+{% endfor %}
+
+{% if all_colours.size > 0 %}
+  <select name="colour-filter">
+    {% for colour in all_colours %}
+      <option value="{{ colour }}">{{ colour }}</option>
+    {% endfor %}
+  </select>
+{% endif %}
 
 
 
