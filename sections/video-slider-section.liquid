@@ -25,8 +25,10 @@
 
     <!-- Product Info -->
     <div class="inspired-product-info">
-      <img id="product-img" src="" alt="" width="" height="">
-      <p id="product-title"></p>
+      <div id="inspired-proouter">
+        <img id="product-img" src="" alt="" width="" height="">
+        <p id="product-title"></p>
+      </div>      
     </div>
   </div>
 </section>
@@ -187,7 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let img = centerSlide.getAttribute("data-product-img");
       let url = centerSlide.getAttribute("data-product-url");
 
-      document.getElementById("product-title").innerHTML = `<a href="${url}">${title}</a>`;
+      document.getElementById("inspired-proouter").innerHTML = `<a href="${url}">${title}</a>`;
       document.getElementById("product-img").src = img;
     }
   }

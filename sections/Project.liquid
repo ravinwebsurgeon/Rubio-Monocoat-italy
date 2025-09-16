@@ -50,13 +50,18 @@
                 <i>⚙️</i><span>Filter by</span>
               </button>
              <div class="filters-code">
-             {% if product.metafields.custom.colour_filter2 %}
+            {% if product.metafields.custom.colour_filter2 %}
   <ul>
-    {% for colour in product.metafields.custom.colour_filter2.value %}
-      <li>{{ colour }}</li>
+    {% for color in product.metafields.custom.colour_filter2 %}
+      <li>{{ color }}</li>
     {% endfor %}
   </ul>
+{% else %}
+  <p>No colours set.</p>
 {% endif %}
+
+
+
 
 
 
