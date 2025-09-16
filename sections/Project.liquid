@@ -72,23 +72,25 @@
           {% for block in section.blocks %}
             {% assign tab_collection = block.settings.tab_collection %}
             <div class="tab-products{% if forloop.first %} active{% endif %}" id="tab-{{ block.id }}">
-              <ul class="product-grid ">
-                {% for product in tab_collection.products %}
-                  <li class="product-item">
-                    <a href="{{ product.url }}">
-                      {% if product.featured_image %}
-                        {% if product.metafields.custom.cover_image != blank %}
-  <img src="{{ product.metafields.custom.cover_image | img_url: 'master' }}" alt="{{ product.title }}">
-{% endif %}
+           <ul class="product-grid">
+  {% for product in tab_collection.products %}
+    <li class="product-item">
+      <a href="{{ product.url }}">
+        {% if product.featured_image %}
+          <div class="product-image-wrapper">
+            {% if product.metafields.custom.cover_image != blank %}
+              <img class="cover-image" src="{{ product.metafields.custom.cover_image | img_url: 'master' }}" alt="{{ product.title }}">
+            {% endif %}
+            <img class="featured-image" src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title | escape }}">
+          </div>
+        {% endif %}
+        <h3>{{ product.title }}</h3>
+        <p class="price">{{ product.price | money }}</p>
+      </a>
+    </li>
+  {% endfor %}
+</ul>
 
-                        <img src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title | escape }}">
-                      {% endif %}
-                      <h3>{{ product.title }}</h3>
-                      <p class="price">{{ product.price | money }}</p>
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
             </div>
           {% endfor %}
         </div>
