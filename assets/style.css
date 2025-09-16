@@ -4497,7 +4497,7 @@ height: 40px;
 object-fit: contain;
 }
 .addon-title {
-flex-grow: 1;
+flex-grow: 1; 
 }
 .addon-price {
 font-weight: bold;
