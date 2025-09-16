@@ -527,18 +527,16 @@
 });
 document.querySelector('.color-ic').addEventListener('click', function() {
   document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
-    wrapper.classList.add('show-cover');
-    wrapper.classList.remove('show-featured');
-    // Add a class to track the current default view
+    // Remove all classes and use only data attribute
+    wrapper.classList.remove('show-cover', 'show-featured');
     wrapper.dataset.defaultView = 'cover';
   });
 });
 
 document.querySelector('.img-ic').addEventListener('click', function() {
   document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
-    wrapper.classList.add('show-featured');
-    wrapper.classList.remove('show-cover');
-    // Add a class to track the current default view
+    // Remove all classes and use only data attribute
+    wrapper.classList.remove('show-cover', 'show-featured');
     wrapper.dataset.defaultView = 'featured';
   });
 });
@@ -547,5 +545,4 @@ document.querySelector('.img-ic').addEventListener('click', function() {
 document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
   wrapper.dataset.defaultView = 'cover';
 });
-
 </script>
