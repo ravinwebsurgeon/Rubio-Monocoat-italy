@@ -196,6 +196,15 @@
         "heading": "Technical info",
         "image": "shopify://shop_images/Rectangle_146.png"
       }
+    },
+    "custom_visit_faq_section_bdtKGx": {
+      "type": "custom-visit-faq-section",
+      "name": "Visit FAQ Sec",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "button_label": "Visit FAQ",
+        "button_link": "#"
+      }
     }
   },
   "order": [
@@ -204,6 +213,7 @@
     "durogrit_features_V8Cdig",
     "video_product_QCpLrH",
     "how_to_use_faq_metafield_7LfmP7",
-    "technical_info_faq_rwNNkG"
+    "technical_info_faq_rwNNkG",
+    "custom_visit_faq_section_bdtKGx"
   ]
 }
