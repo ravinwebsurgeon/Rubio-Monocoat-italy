@@ -112,9 +112,8 @@
         <h3>{{ product.title }}</h3>
         <p class="price">{{ product.price | money }}</p>
       <ul>
-    {% for item in product.metafields.custom.colour_filter2 %}
-      <li>{{ item }}</li>
-    {% endfor %}
+    {{ product.metafields.custom.colour_filter2 }}  
+     
   </ul>
       </a>
     </li>
