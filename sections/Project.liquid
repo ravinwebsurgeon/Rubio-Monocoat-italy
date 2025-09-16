@@ -169,7 +169,7 @@
 
 </style>
 
-<script>
+{% comment %} <script>
 document.addEventListener('DOMContentLoaded', function () {
   /* circle tabs */
   document.querySelectorAll('.circle-tab').forEach(btn => {
@@ -208,5 +208,91 @@ document.addEventListener('DOMContentLoaded', function () {
  
 
 });
-</script>
+</script> {% endcomment %}
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+  /* circle tabs */
+  document.querySelectorAll('.circle-tab').forEach(btn => {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-products').forEach(c => c.classList.remove('active'));
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab).classList.add('active');
+    });
+  });
+
+  /* video modal */
+  const openBtn = document.getElementById('openVideo'),
+        modal = document.getElementById('videoModal'),
+        closeBtn = document.getElementById('closeVideo'),
+        video = document.getElementById('expertVideo');
+
+  if (openBtn && modal && closeBtn && video) {
+    openBtn.addEventListener('click', () => {
+      modal.classList.add('active');
+      video.currentTime = 0;
+      video.play();
+    });
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+      video.pause();
+    });
+    modal.addEventListener('click', e => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        video.pause();
+      }
+    });
+  }
+
+  /* Product grid layout slider functionality */
+  const gridLayoutInput = document.getElementById('gridLayout');
+  const minusBtn = document.querySelector('.range-button:first-child');
+  const plusBtn = document.querySelector('.range-button:last-child');
+  const productGrids = document.querySelectorAll('.product-grid');
+  
+  if (gridLayoutInput && minusBtn && plusBtn) {
+    // Set initial grid layout based on slider value
+    updateGridLayout(parseInt(gridLayoutInput.value));
+    
+    // Handle slider input
+    gridLayoutInput.addEventListener('input', function() {
+      updateGridLayout(parseInt(this.value));
+    });
+    
+    // Handle minus button click
+    minusBtn.addEventListener('click', function() {
+      if (parseInt(gridLayoutInput.value) > 0) {
+        gridLayoutInput.value = parseInt(gridLayoutInput.value) - 1;
+        updateGridLayout(parseInt(gridLayoutInput.value));
+      }
+    });
+    
+    // Handle plus button click
+    plusBtn.addEventListener('click', function() {
+      if (parseInt(gridLayoutInput.value) < 2) {
+        gridLayoutInput.value = parseInt(gridLayoutInput.value) + 1;
+        updateGridLayout(parseInt(gridLayoutInput.value));
+      }
+    });
+  }
+  
+  // Function to update grid layout based on slider value
+  function updateGridLayout(value) {
+    // Remove all column classes
+    productGrids.forEach(grid => {
+      grid.classList.remove('cols-3', 'cols-5', 'cols-7');
+      
+      // Add appropriate class based on value
+      if (value === 0) {
+        grid.classList.add('cols-3');
+      } else if (value === 1) {
+        grid.classList.add('cols-5');
+      } else if (value === 2) {
+        grid.classList.add('cols-7');
+      }
+    });
+  }
+});
+</script>
