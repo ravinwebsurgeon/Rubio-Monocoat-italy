@@ -383,31 +383,32 @@
   opacity: 1;
 }
 
-/* Hover effect — only works if no toggle class is applied */
-.product-image-wrapper:not(.show-cover):not(.show-featured):hover .cover-image {
+/* Toggle buttons set the default state */
+.product-image-wrapper.show-cover .cover-image {
   opacity: 1;
 }
 
-.product-image-wrapper:not(.show-cover):not(.show-featured):hover .featured-image {
+.product-image-wrapper.show-cover .featured-image {
   opacity: 0;
 }
 
-/* Toggle classes override hover */
-.product-image-wrapper.show-cover .cover-image {
-  opacity: 1 !important;
-}
-
-.product-image-wrapper.show-cover .featured-image {
-  opacity: 0 !important;
-}
-
 .product-image-wrapper.show-featured .cover-image {
-  opacity: 0 !important;
+  opacity: 0;
 }
 
 .product-image-wrapper.show-featured .featured-image {
-  opacity: 1 !important;
+  opacity: 1;
 }
+
+/* Hover always works on top of toggle */
+.product-image-wrapper:hover .cover-image {
+  opacity: 1;
+}
+
+.product-image-wrapper:hover .featured-image {
+  opacity: 0;
+}
+
 
 
 /* Responsive adjustments */
