@@ -15,6 +15,17 @@
     </div>
 <div class="pro-second">
 <h3 class="heading-pr">{{ section.settings.heading2 }}</h3>
+<ul class="tabs">
+    {% for block in section.blocks %}
+      <li data-tab="menu{{ forloop.index }}">{{ block.settings.tab }}</li>
+    {% endfor %}
+  </ul>
+
+  {% for block in section.blocks %}
+    <div class="tab-content" id="menu{{ forloop.index }}">
+      <div>{{ block.settings.tab-content }}</div>
+    </div>
+  {% endfor %}
 </div>
     </div>
     </div>
@@ -48,7 +59,24 @@
     },
    
   ],
-  
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Tabs",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "tab",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "tab-content",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
       "name": "Project",
@@ -57,7 +85,23 @@
   ]
 }
 {% endschema %}
+<script>
+  $(document).ready(function() {
+   
+    $(".tab-content:first").addClass("active");
+    $(".tabs li:first").addClass("active");
 
+    $(".tabs li").click(function() {
+      var tabId = $(this).data('tab');
+     
+      $(".tabs li").removeClass("active");
+      $(".tab-content").removeClass("active");
+   
+      $(this).addClass("active");
+      $("#" + tabId).addClass("active");
+    });
+  });
+</script>
 <style>
     .pro-first {
     display: flex;
@@ -125,5 +169,37 @@ h3.heading-pr {
     height: 350px;
     border-radius: 20px;
 }
+{% comment %} tabs {% endcomment %}
+ .tabs {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .tabs li {
+      margin-right: 20px;
+      cursor: pointer;
+      padding: 10px 20px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .tabs li.active {
+      background-color:#7ac74f;
+      color: white;
+    }
+
+    .tab-content {
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 0 0 5px 5px;
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
 </style>
 
