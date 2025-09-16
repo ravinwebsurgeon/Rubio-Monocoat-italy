@@ -61,7 +61,9 @@
   </ul>
 {% endif %}
 
-
+{% for color in product.metafields.custom.colour_filter2 %}
+  <span>{{ color }}</span>
+{% endfor %}
 
 
 
