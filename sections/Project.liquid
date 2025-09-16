@@ -49,6 +49,14 @@
               <button class="icon-btn filter">
                 <i>⚙️</i><span>Filter by</span>
               </button>
+              <label for="colour-filter">Colour</label>
+<select id="colour-filter" name="colour-filter">
+  {% assign colours = product.metafields.custom.colour_filter | split: ',' %}
+  {% for colour in colours %}
+    <option value="{{ colour | strip }}">{{ colour | strip }}</option>
+  {% endfor %}
+</select>
+
             </div>
 
             <button class="tips-link" id="openVideo">
