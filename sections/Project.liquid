@@ -79,13 +79,11 @@
     <li class="product-item">
       <a href="{{ product.url }}">
         {% if product.featured_image %}
-          <div class="product-image-wrapper" 
-               data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}" 
-               data-featured="{{ product.featured_image | img_url: '400x' }}">
-            <img class="featured-image" src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title | escape }}">
+          <div class="product-image-wrapper" data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}" data-featured="{{ product.featured_image | img_url: '400x' }}">
             {% if product.metafields.custom.cover_image != blank %}
               <img class="cover-image" src="{{ product.metafields.custom.cover_image | img_url: 'master' }}" alt="{{ product.title }}">
             {% endif %}
+            <img class="featured-image" src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title | escape }}">
           </div>
         {% endif %}
         <h3>{{ product.title }}</h3>
@@ -94,7 +92,6 @@
     </li>
   {% endfor %}
 </ul>
-
 
 
 
@@ -188,45 +185,40 @@
   display: block;
   width: 100%;
   transition: opacity 0.3s ease;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.featured-image {
-  z-index: 2; /* default on top */
-  opacity: 1;
 }
 
 .cover-image {
-  z-index: 1; /* underneath by default */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.featured-image {
+  z-index: 1;
+}
+
+/* Hover effect */
+.product-image-wrapper:not(.show-cover):not(.show-featured):hover .cover-image {
   opacity: 0;
 }
 
-/* Hover: fade featured-image to reveal cover-image */
-.product-image-wrapper:hover .featured-image {
-  opacity: 0;
+/* Button toggled classes */
+.product-image-wrapper.show-cover .cover-image {
+  opacity: 1 !important;
 }
 
-.product-image-wrapper:hover .cover-image {
-  opacity: 1;
-}
-/* Default: featured on top, hover shows cover */
-.product-image-wrapper.hover-cover:hover .featured-image {
-  opacity: 0;
-}
-.product-image-wrapper.hover-cover:hover .cover-image {
-  opacity: 1;
+.product-image-wrapper.show-cover .featured-image {
+  opacity: 0 !important;
 }
 
-/* Reverse: cover on top, hover shows featured */
-.product-image-wrapper.hover-featured:hover .cover-image {
-  opacity: 0;
-}
-.product-image-wrapper.hover-featured:hover .featured-image {
-  opacity: 1;
+.product-image-wrapper.show-featured .cover-image {
+  opacity: 0 !important;
 }
 
+.product-image-wrapper.show-featured .featured-image {
+  opacity: 1 !important;
+}
  /* product grid with dynamic cols */
 .product-grid {
   display: grid;
@@ -364,54 +356,18 @@
     });
   }
 });
-const colorBtn = document.querySelector('.color-ic');
-const imgBtn = document.querySelector('.img-ic');
-const products = document.querySelectorAll('.product-image-wrapper');
-
-colorBtn.addEventListener('click', () => {
-  products.forEach(wrapper => {
-    const coverImg = wrapper.querySelector('.cover-image');
-    const featuredImg = wrapper.querySelector('.featured-image');
-    if (coverImg) {
-      coverImg.style.zIndex = 2;
-      coverImg.style.opacity = 1;
-    }
-    if (featuredImg) {
-      featuredImg.style.zIndex = 1;
-    }
+document.querySelector('.color-ic').addEventListener('click', function() {
+  document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
+    wrapper.classList.add('show-cover');
+    wrapper.classList.remove('show-featured');
   });
 });
 
-imgBtn.addEventListener('click', () => {
-  products.forEach(wrapper => {
-    const coverImg = wrapper.querySelector('.cover-image');
-    const featuredImg = wrapper.querySelector('.featured-image');
-    if (featuredImg) {
-      featuredImg.style.zIndex = 2;
-      featuredImg.style.opacity = 1;
-    }
-    if (coverImg) {
-      coverImg.style.zIndex = 1;
-    }
+document.querySelector('.img-ic').addEventListener('click', function() {
+  document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
+    wrapper.classList.add('show-featured');
+    wrapper.classList.remove('show-cover');
   });
 });
-const colorBtn = document.querySelector('.color-ic');
-const imgBtn = document.querySelector('.img-ic');
-const products = document.querySelectorAll('.product-image-wrapper');
-
-colorBtn.addEventListener('click', () => {
-  products.forEach(wrapper => {
-    wrapper.classList.add('hover-cover');
-    wrapper.classList.remove('hover-featured');
-  });
-});
-
-imgBtn.addEventListener('click', () => {
-  products.forEach(wrapper => {
-    wrapper.classList.add('hover-featured');
-    wrapper.classList.remove('hover-cover');
-  });
-});
-
 
 </script>
