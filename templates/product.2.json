@@ -136,11 +136,59 @@
       "type": "durogrit-features",
       "name": "DuroGrit (Metafields)",
       "settings": {}
+    },
+    "video_product_QCpLrH": {
+      "type": "video-product",
+      "blocks": {
+        "product_block_cbtTpT": {
+          "type": "product_block",
+          "settings": {
+            "product": "oil-plus-part-a-20-ml",
+            "icon_1": "shopify://shop_images/Shopping_Bag.png",
+            "icon_1_link": "",
+            "icon_2": "shopify://shop_images/Rewind_double_arrows_outline.png",
+            "icon_2_link": ""
+          }
+        },
+        "product_block_XFeDaM": {
+          "type": "product_block",
+          "settings": {
+            "product": "oil-plus-2c-1-3-liter",
+            "icon_1": "shopify://shop_images/Shopping_Bag.png",
+            "icon_1_link": "",
+            "icon_2": "shopify://shop_images/Rewind_double_arrows_outline.png",
+            "icon_2_link": ""
+          }
+        },
+        "product_block_jQza6p": {
+          "type": "product_block",
+          "settings": {
+            "product": "oil-plus-part-a-20-ml-copy",
+            "icon_1": "shopify://shop_images/Shopping_Bag.png",
+            "icon_1_link": "",
+            "icon_2": "shopify://shop_images/Rewind_double_arrows_outline.png",
+            "icon_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_block_cbtTpT",
+        "product_block_XFeDaM",
+        "product_block_jQza6p"
+      ],
+      "name": "Video with Products",
+      "settings": {
+        "heading": "Cleaning has never been easier",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/d1ecb683406f4f61befd2623ad86a0e9.mp4",
+        "button_link": "shopify://collections/all",
+        "button_label": "View All Products"
+      }
     }
   },
   "order": [
     "main",
     "related-products",
-    "durogrit_features_V8Cdig"
+    "durogrit_features_V8Cdig",
+    "video_product_QCpLrH"
   ]
 }
