@@ -200,9 +200,28 @@
   z-index: 1;
 }
 
-.product-image-wrapper:hover .cover-image {
+/* Hover effect */
+.product-image-wrapper:not(.show-cover):not(.show-featured):hover .cover-image {
   opacity: 0;
 }
+
+/* Button toggled classes */
+.product-image-wrapper.show-cover .cover-image {
+  opacity: 1 !important;
+}
+
+.product-image-wrapper.show-cover .featured-image {
+  opacity: 0 !important;
+}
+
+.product-image-wrapper.show-featured .cover-image {
+  opacity: 0 !important;
+}
+
+.product-image-wrapper.show-featured .featured-image {
+  opacity: 1 !important;
+}
+
 
 </style>
 
@@ -332,6 +351,20 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+document.querySelector('.color-ic').addEventListener('click', function() {
+  document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
+    wrapper.classList.add('show-cover');
+    wrapper.classList.remove('show-featured');
+  });
+});
+
+document.querySelector('.img-ic').addEventListener('click', function() {
+  document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
+    wrapper.classList.add('show-featured');
+    wrapper.classList.remove('show-cover');
+  });
+});
+
 </script>
 <style>
     /* product grid with dynamic cols */
