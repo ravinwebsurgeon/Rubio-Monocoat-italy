@@ -70,11 +70,22 @@
           <!--- filter-code ---->
           <div class="filter-cs">
           <div class="colours-filter">
-  {% assign warm_tag = 'Undertones_Warm' %}
-  {% if product.tags contains warm_tag %}
-    <button class="colour-tab" data-filter="warm">Warm</button>
-  {% endif %}
+  {% assign undertone_tags = "" | split: "," %}
+
+  {% for tag in product.tags %}
+    {% if tag contains "Undertones_" %}
+      {% assign undertone_tags = undertone_tags | push: tag %}
+    {% endif %}
+  {% endfor %}
+
+  {% for tag in undertone_tags %}
+    {% assign display_name = tag | remove: "Undertones_" %}
+    <button class="colour-tab" data-filter="{{ display_name | handleize }}">
+      {{ display_name }}
+    </button>
+  {% endfor %}
 </div>
+
 
 </div>
 
