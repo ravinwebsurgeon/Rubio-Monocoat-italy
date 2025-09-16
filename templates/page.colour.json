@@ -69,11 +69,64 @@
     },
     "project_n8LMJf": {
       "type": "Project",
+      "blocks": {
+        "text_i7wdYU": {
+          "type": "text",
+          "settings": {
+            "tab": "Douglas",
+            "tab-content": ""
+          }
+        },
+        "text_mnjtde": {
+          "type": "text",
+          "settings": {
+            "tab": "Ipe",
+            "tab-content": ""
+          }
+        },
+        "text_RGCpGJ": {
+          "type": "text",
+          "settings": {
+            "tab": "",
+            "tab-content": ""
+          }
+        },
+        "text_iHFdNn": {
+          "type": "text",
+          "settings": {
+            "tab": "",
+            "tab-content": ""
+          }
+        },
+        "text_KnmXRU": {
+          "type": "text",
+          "settings": {
+            "tab": "",
+            "tab-content": ""
+          }
+        },
+        "text_qBmE8N": {
+          "type": "text",
+          "settings": {
+            "tab": "",
+            "tab-content": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_i7wdYU",
+        "text_mnjtde",
+        "text_RGCpGJ",
+        "text_iHFdNn",
+        "text_KnmXRU",
+        "text_qBmE8N"
+      ],
       "name": "Project",
       "settings": {
         "heading": "Choose your project:",
         "img1": "shopify://shop_images/Rectangle_241.png",
-        "img2": "shopify://shop_images/Rectangle_242.png"
+        "img2": "shopify://shop_images/Rectangle_242.png",
+        "heading2": "Choose your species:"
       }
     },
     "icons_section_Xa7jad": {
