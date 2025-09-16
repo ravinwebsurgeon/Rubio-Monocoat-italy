@@ -70,8 +70,12 @@
           <!--- filter-code ---->
           <div class="filter-cs">
           <div class="colours-filter">
-{{  tags }}
-            </div>
+  {% assign warm_tag = 'Undertones_Warm' %}
+  {% if product.tags contains warm_tag %}
+    <button class="colour-tab" data-filter="warm">Warm</button>
+  {% endif %}
+</div>
+
 </div>
 
           <h4 class="oil-head">Oil Plus 2C - Interior wood oil</h4>
