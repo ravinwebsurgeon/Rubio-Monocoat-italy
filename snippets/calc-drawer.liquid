@@ -159,16 +159,16 @@ document.addEventListener("DOMContentLoaded", function(){
     // Ceiling area (L*W)
     const ceilingArea = length * width;
 
-    // For now, just add both (user can choose)
+    // Total area
     const totalArea = wallArea + ceilingArea;
 
     const litersNeeded = (totalArea * coats) / coverage;
     const tins = Math.ceil(litersNeeded);
 
     resultBox.innerHTML = `
-      Total Area: ${totalArea.toFixed(2)} m² <br>
-      Liters Needed: ${litersNeeded.toFixed(1)} L <br>
-      Suggested Tins: ${tins} x 1L tins
+      <strong>Total Area:</strong> ${totalArea.toFixed(2)} m² <br>
+      <strong>Liters Needed:</strong> ${litersNeeded.toFixed(1)} L <br>
+      <strong>Suggested Tins:</strong> ${tins} x 1L tins
     `;
   });
 });
