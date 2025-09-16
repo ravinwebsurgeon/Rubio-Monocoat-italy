@@ -70,21 +70,6 @@
     "project_n8LMJf": {
       "type": "Project",
       "blocks": {
-        "collection_item_kdtgxD": {
-          "type": "collection_item",
-          "settings": {
-            "tab_group": "Douglas",
-            "tab_img": "shopify://shop_images/Ellipse_79.png",
-            "col": "douglas-wood"
-          }
-        },
-        "collection_item_C89jY9": {
-          "type": "collection_item",
-          "settings": {
-            "tab_group": "Ipe",
-            "col": "ash-wood"
-          }
-        },
         "tab_dTdLM6": {
           "type": "tab",
           "settings": {
@@ -92,12 +77,19 @@
             "tab_image": "shopify://shop_images/Ellipse_79.png",
             "tab_collection": "douglas-wood"
           }
+        },
+        "tab_qqLNqL": {
+          "type": "tab",
+          "settings": {
+            "tab_name": "Ipe",
+            "tab_image": "shopify://shop_images/Ellipse_80.png",
+            "tab_collection": "douglas-wood"
+          }
         }
       },
       "block_order": [
-        "collection_item_kdtgxD",
-        "collection_item_C89jY9",
-        "tab_dTdLM6"
+        "tab_dTdLM6",
+        "tab_qqLNqL"
       ],
       "name": "Project",
       "settings": {
