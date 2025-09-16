@@ -69,39 +69,9 @@
 
           <!--- filter-code ---->
           <div class="filter-cs">
-         <div class="colr-fil">
- <div class="colr-fil">
-  {% assign tags_array = "" | split: "," %}
 
-  {% for product in collections.all.products %}
-    {% for tag in product.tags %}
-      {% unless tags_array contains tag %}
-        {% assign tags_array = tags_array | push: tag %}
-      {% endunless %}
-    {% endfor %}
-  {% endfor %}
 
-  {% for tag in tags_array %}
-    <span class="product-tag">{{ tag }}</span>
-  {% endfor %}
-</div>
 
-</div>
-
-<div class="undertone-fil">
-            </div>
-            <div class="style-fil">
-              {% for tag in product.tags %}
-  {% if tag contains 'Style_' %}
-    <span class="product-tag">{{ tag | remove: 'Style_' }}</span>
-  {% endif %}
-{% endfor %}
-
-            </div>
-            <div class="brightnes-fil">
-            </div>
-            <div class="sortby-fil">
-            </div>
 </div>
 
           <h4 class="oil-head">Oil Plus 2C - Interior wood oil</h4>
