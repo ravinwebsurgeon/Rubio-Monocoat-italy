@@ -59,7 +59,7 @@
   {% for product in tab_collection.products %}
     {% assign colour_value = product.metafields.custom.colour_filter2 %}
     {% unless colour_options contains colour_value %}
-      {% assign colour_options = colour_options | push: colour_value %}
+      {% assign colour_options = colour_options  %}
     {% endunless %}
   {% endfor %}
 {% endfor %}
