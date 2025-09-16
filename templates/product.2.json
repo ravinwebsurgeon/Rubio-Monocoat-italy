@@ -131,10 +131,16 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "durogrit_features_V8Cdig": {
+      "type": "durogrit-features",
+      "name": "DuroGrit (Metafields)",
+      "settings": {}
     }
   },
   "order": [
     "main",
-    "related-products"
+    "related-products",
+    "durogrit_features_V8Cdig"
   ]
 }
