@@ -28,9 +28,11 @@
           "type": "description",
           "settings": {}
         },
-        "rating_HFTqVV": {
-          "type": "rating",
-          "settings": {}
+        "custom_review_LbVWKM": {
+          "type": "custom_review",
+          "settings": {
+            "custom_review": "<p>131 reviews</p>"
+          }
         },
         "product_features_UxLDqk": {
           "type": "product_features",
@@ -86,7 +88,7 @@
         "vendor",
         "title",
         "description",
-        "rating_HFTqVV",
+        "custom_review_LbVWKM",
         "product_features_UxLDqk",
         "price",
         "variant_picker",
