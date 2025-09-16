@@ -70,11 +70,22 @@
           <!--- filter-code ---->
           <div class="filter-cs">
          <div class="colr-fil">
-  {% if product.tags.size > 0 %}
+ <div class="colr-fil">
+  {% assign tags_array = "" | split: "," %}
+
+  {% for product in collections.all.products %}
     {% for tag in product.tags %}
-      <span class="product-tag">{{ tag }}</span>
+      {% unless tags_array contains tag %}
+        {% assign tags_array = tags_array | push: tag %}
+      {% endunless %}
     {% endfor %}
-  {% endif %}
+  {% endfor %}
+
+  {% for tag in tags_array %}
+    <span class="product-tag">{{ tag }}</span>
+  {% endfor %}
+</div>
+
 </div>
 
 <div class="undertone-fil">
