@@ -82,6 +82,21 @@
         "shipping_info_dQ4qci": {
           "type": "shipping_info",
           "settings": {}
+        },
+        "icon_with_text_496ywe": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "none",
+            "image_1": "shopify://shop_images/Express_delivery.png",
+            "heading_1": "Free shipping from €50",
+            "icon_2": "none",
+            "image_2": "shopify://shop_images/Box.png",
+            "heading_2": "Next day delivery",
+            "icon_3": "none",
+            "image_3": "shopify://shop_images/Pantone_2.png",
+            "heading_3": "100% secure payments"
+          }
         }
       },
       "block_order": [
@@ -95,7 +110,8 @@
         "quantity_selector",
         "buy_buttons",
         "share",
-        "shipping_info_dQ4qci"
+        "shipping_info_dQ4qci",
+        "icon_with_text_496ywe"
       ],
       "settings": {
         "enable_sticky_info": true,
