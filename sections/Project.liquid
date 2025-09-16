@@ -49,13 +49,15 @@
               <button class="icon-btn filter">
                 <i>⚙️</i><span>Filter by</span>
               </button>
-              <label for="colour-filter">Colour</label>
+             <div class="filters-code">
+             <label for="colour-filter">Colour</label>
 <select id="colour-filter" name="colour-filter">
-  {% assign colours = product.metafields.custom.colour_filter | split: ',' %}
-  {% for colour in colours %}
-    <option value="{{ colour | strip }}">{{ colour | strip }}</option>
-  {% endfor %}
+  <option value="{{ product.metafields.custom.colour_filter }}">
+    {{ product.metafields.custom.colour_filter }}
+  </option>
 </select>
+
+              </div>
 
             </div>
 
