@@ -15,17 +15,51 @@
     </div>
 <div class="pro-second">
 <h3 class="heading-pr">{{ section.settings.heading2 }}</h3>
-<ul class="tabs">
-    {% for block in section.blocks %}
-      <li data-tab="menu{{ forloop.index }}">{{ block.settings.tab }}</li>
+<div class="main-tabs">
+      {% assign tab_names = section.blocks | map: 'settings' | map: 'tab_group' | uniq %}
+
+      <!-- Tabs -->
+      <ul class="tabs">
+        {% for t in tab_names %}
+          <li data-tab="menu{{ forloop.index }}">{{ t }}</li>
+        {% endfor %}
+      </ul>
+
+      <!-- Tab Contents -->
+      {% for t in tab_names %}
+        <div class="tab-content" id="menu{{ forloop.index }}">
+  <ul class="collection-list">
+    {% for b in section.blocks %}
+      {% if b.settings.tab_group == t and b.settings.col %}
+        <li>
+           <a href="{{ b.settings.col.url }}">
+          <div class="tabbing-all-data">
+          <div class="img-col">
+            {% if b.settings.col.image %}
+              <img src="{{ b.settings.col.image | img_url: '400x' }}" alt="{{ b.settings.col.title | escape }}">
+            {% endif %}
+          </div>
+            <h3>{{ b.settings.col.title }}</h3>
+            <div class="tabbing-button">
+               <a href="{{ b.settings.col.url }}">Shop Now</a>
+            </div>
+          </div>
+          </a>
+        </li>
+      {% endif %}
     {% endfor %}
   </ul>
 
-  {% for block in section.blocks %}
-    <div class="tab-content" id="menu{{ forloop.index }}">
-      <div>{{ block.settings.tab-content }}</div>
+  <div class="tabbing-mobile">
+  <div class="tabbing-mobile-button">
+               <a href="{{ b.settings.all_col }}">Shop Now</a>
+            </div>
+            </div>
+
+</div>
+
+      {% endfor %}
     </div>
-  {% endfor %}
 </div>
     </div>
     </div>
@@ -59,20 +93,21 @@
     },
    
   ],
-  "blocks": [
+ "blocks": [
     {
-      "type": "text",
-      "name": "Tabs",
+      "type": "collection_item",
+      "name": "Collection Item",
       "settings": [
         {
-          "type": "inline_richtext",
-          "id": "tab",
-          "label": "Heading"
+          "type": "text",
+          "id": "tab_group",
+          "label": "Tab Name (group)",
+          "info": "Collections with the same Tab Name appear in the same tab."
         },
         {
-          "type": "richtext",
-          "id": "tab-content",
-          "label": "Description"
+          "type": "collection",
+          "id": "col",
+          "label": "Choose Collection"
         }
       ]
     }
@@ -86,17 +121,13 @@
 }
 {% endschema %}
 <script>
-  $(document).ready(function() {
-   
+  $(function(){
     $(".tab-content:first").addClass("active");
     $(".tabs li:first").addClass("active");
 
-    $(".tabs li").click(function() {
-      var tabId = $(this).data('tab');
-     
-      $(".tabs li").removeClass("active");
-      $(".tab-content").removeClass("active");
-   
+    $(".tabs li").on("click", function(){
+      var tabId = $(this).data("tab");
+      $(".tabs li, .tab-content").removeClass("active");
       $(this).addClass("active");
       $("#" + tabId).addClass("active");
     });
@@ -170,36 +201,7 @@ h3.heading-pr {
     border-radius: 20px;
 }
 {% comment %} tabs {% endcomment %}
- .tabs {
-      display: flex;
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    .tabs li {
-      margin-right: 20px;
-      cursor: pointer;
-      padding: 10px 20px;
-      background-color: #f0f0f0;
-      border: 1px solid #ccc;
-      border-radius: 5px 5px 0 0;
-    }
-
-    .tabs li.active {
-      background-color:#7ac74f;
-      color: white;
-    }
-
-    .tab-content {
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 0 0 5px 5px;
-      display: none;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
+  .tab-content { display:none; }
+  .tab-content.active { display:block; }
 </style>
 
