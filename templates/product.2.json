@@ -205,6 +205,63 @@
         "button_label": "Visit FAQ",
         "button_link": "#"
       }
+    },
+    "icons_section_XzMnLb": {
+      "type": "icons-section",
+      "blocks": {
+        "container_9cmhNM": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/Telephone.png",
+            "heading": "Telephone advice",
+            "subhead": "",
+            "subtext": "Available on +32 (0) 51 30 80 54",
+            "extra_text": "On weekdays 08:30 - 17:00"
+          }
+        },
+        "container_mX3fbe": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/Email_2.png",
+            "heading": "Send us an email",
+            "subhead": "",
+            "subtext": "Send us a rubio@monocoatusa.com",
+            "extra_text": "Response within 2 working days"
+          }
+        },
+        "container_VVjjxA": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/Headphones.png",
+            "heading": "Customized advice",
+            "subhead": "",
+            "subtext": "Fill out the form",
+            "extra_text": "Advice within 2 days"
+          }
+        },
+        "container_HCB7D4": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/Clipboard_with_check_marks.png",
+            "heading": "Take the Test",
+            "subhead": "",
+            "subtext": "Answer the questions",
+            "extra_text": "Direct Personal advice"
+          }
+        }
+      },
+      "block_order": [
+        "container_9cmhNM",
+        "container_mX3fbe",
+        "container_VVjjxA",
+        "container_HCB7D4"
+      ],
+      "name": "icons section",
+      "settings": {}
     }
   },
   "order": [
@@ -214,6 +271,7 @@
     "video_product_QCpLrH",
     "how_to_use_faq_metafield_7LfmP7",
     "technical_info_faq_rwNNkG",
-    "custom_visit_faq_section_bdtKGx"
+    "custom_visit_faq_section_bdtKGx",
+    "icons_section_XzMnLb"
   ]
 }
