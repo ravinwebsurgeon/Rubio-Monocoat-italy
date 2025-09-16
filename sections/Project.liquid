@@ -81,8 +81,8 @@
             </div>
             <div class="style-fil">
               {% for tag in product.tags %}
-  {% if tag contains 'Undertones_' %}
-    <span class="product-tag">{{ tag | remove: 'Undertones_' }}</span>
+  {% if tag contains 'Style_' %}
+    <span class="product-tag">{{ tag | remove: 'Style_' }}</span>
   {% endif %}
 {% endfor %}
 
