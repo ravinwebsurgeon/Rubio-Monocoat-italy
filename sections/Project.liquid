@@ -390,7 +390,7 @@
 }
 
 /* Toggle buttons set the default state */
-.product-image-wrapper[data-default-view="cover"] .cover-image {
+{% comment %} .product-image-wrapper[data-default-view="cover"] .cover-image {
   opacity: 1;
 }
 
@@ -404,16 +404,16 @@
 
 .product-image-wrapper[data-default-view="featured"] .featured-image {
   opacity: 1;
-}
+} {% endcomment %}
  
 /* Hover always overrides the default */
-{% comment %} .product-image-wrapper:hover .cover-image {
+ .product-image-wrapper:hover .cover-image {
   opacity: 1 !important;
 }
 
 .product-image-wrapper:hover .featured-image {
   opacity: 0 !important;
-} {% endcomment %}
+} 
 
 
 /* Responsive adjustments */
