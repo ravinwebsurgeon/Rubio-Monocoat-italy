@@ -556,7 +556,35 @@ document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
     grid-template-columns: 1fr;
   }
 }
-
+.tab-products ul.product-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 25px;
+    height: 100%;
+}
+ 
+.tab-products ul.product-grid .product-item > a {
+    display: block;
+    height: auto;
+}
+ 
+.tab-products ul.product-grid .product-item .product-image-wrapper {
+    height: 100%;
+    width: 100%;
+}
+ 
+.tab-products ul.product-grid .product-item .product-image-wrapper img {
+    height: 100%;
+    object-fit: cover;
+    max-width: 100%;
+    aspect-ratio: 320 / 320;
+    border-radius: 20px;
+}
+ 
+.tab-products ul.product-grid li.product-item {
+    height: 100%;
+}
 </style>
 
 
