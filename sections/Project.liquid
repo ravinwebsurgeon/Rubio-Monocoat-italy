@@ -69,8 +69,14 @@
 
           <!--- filter-code ---->
           <div class="filter-cs">
-          <div class="colr-fil">
-            </div>
+         <div class="colr-fil">
+  {% if product.tags.size > 0 %}
+    {% for tag in product.tags %}
+      <span class="product-tag">{{ tag }}</span>
+    {% endfor %}
+  {% endif %}
+</div>
+
 <div class="undertone-fil">
             </div>
             <div class="style-fil">
