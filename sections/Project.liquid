@@ -336,13 +336,9 @@ document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
   const modalMeta = document.getElementById('quickViewMeta');
   const modalLink = document.getElementById('quickViewLink');
   const closeBtn = modal.querySelector('.close-quick-view');
-  const qtyInput = document.getElementById('quickViewQty');
-  const addToCartBtn = document.getElementById('quickViewAddToCart');
-
-  let currentProductId = null;
 
   document.querySelectorAll('.plus-show').forEach(button => {
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function(e) {
       const product = button.closest('.product-item');
       const featuredImg = product.querySelector('.featured-image').src;
       const title = product.querySelector('h3').innerText;
@@ -351,15 +347,11 @@ document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
       const products = product.dataset.products || '';
       const url = product.querySelector('a').href;
 
-      // Get Shopify product ID
-      currentProductId = product.dataset.productId; // <-- we need to add this in Liquid
-
       modalImage.src = featuredImg;
       modalTitle.textContent = title;
       modalPrice.textContent = price;
       modalMeta.textContent = `Colours: ${colours} | Types: ${products}`;
       modalLink.href = url;
-      qtyInput.value = 1;
 
       modal.style.display = 'flex';
     });
@@ -369,39 +361,13 @@ document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
     modal.style.display = 'none';
   });
 
+  // Close modal when clicking outside content
   modal.addEventListener('click', function(e) {
     if (e.target === modal) modal.style.display = 'none';
   });
-
-  // Add to Cart via AJAX
-  addToCartBtn.addEventListener('click', function() {
-    const quantity = parseInt(qtyInput.value, 10) || 1;
-
-    if (!currentProductId) return;
-
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        items: [{
-          id: currentProductId,
-          quantity: quantity
-        }]
-      })
-    })
-    .then(response => response.json())
-    .then(data => {
-      alert('Added to cart!');
-      modal.style.display = 'none';
-      // Optionally: open cart drawer if you have one
-    })
-    .catch(error => {
-      alert('Error adding to cart');
-      console.error(error);
-    });
-  });
 });
 
+});
 </script>
 <style>
 /* Layout */
