@@ -85,11 +85,47 @@
             "tab_image": "shopify://shop_images/Ellipse_80.png",
             "tab_collection": "pine-wood"
           }
+        },
+        "tab_GKEd3m": {
+          "type": "tab",
+          "settings": {
+            "tab_name": "Larch",
+            "tab_image": "shopify://shop_images/Ellipse_81.png",
+            "tab_collection": ""
+          }
+        },
+        "tab_nxrByy": {
+          "type": "tab",
+          "settings": {
+            "tab_name": "Pine",
+            "tab_image": "shopify://shop_images/Ellipse_79.png",
+            "tab_collection": ""
+          }
+        },
+        "tab_wP3TjH": {
+          "type": "tab",
+          "settings": {
+            "tab_name": "Teak",
+            "tab_image": "shopify://shop_images/Ellipse_83.png",
+            "tab_collection": ""
+          }
+        },
+        "tab_6VF4Hd": {
+          "type": "tab",
+          "settings": {
+            "tab_name": "Thermowood",
+            "tab_image": "shopify://shop_images/Ellipse_84.png",
+            "tab_collection": ""
+          }
         }
       },
       "block_order": [
         "tab_dTdLM6",
-        "tab_qqLNqL"
+        "tab_qqLNqL",
+        "tab_GKEd3m",
+        "tab_nxrByy",
+        "tab_wP3TjH",
+        "tab_6VF4Hd"
       ],
       "name": "Project",
       "settings": {
