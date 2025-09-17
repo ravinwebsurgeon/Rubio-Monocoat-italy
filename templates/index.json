@@ -350,7 +350,7 @@
       ],
       "name": "icons section",
       "settings": {
-        "show_on_desktop": true,
+        "show_on_desktop": false,
         "show_on_mobile": true
       }
     }
