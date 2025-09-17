@@ -4373,10 +4373,13 @@ body .custom-blog-section .blogss-imggg {
     transform: translateY(-50%);
 }
 
-.slick-arrow img {
-    width: 11px;
-    height: 11px;
-    display: block;
+.slick-arrow svg {
+    width: 12px;
+    height: 12px;
+}
+
+.slick-arrow svg path {
+    fill: #143d2d;
 }
 
 .slick-next.slick-arrow {
