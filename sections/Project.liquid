@@ -76,7 +76,11 @@
     {% endfor %}
   {% endfor %}
 </select>
-  
+  <label class="avail-toggle">
+  <input type="checkbox" id="available-filter">
+  <span>Available in Samples</span>
+</label>
+
 
 
 
@@ -115,6 +119,8 @@
    <li class="product-item"
     data-colours="{{ product.metafields.custom.colour_filter2.value | join: ',' }}"
     data-products="{{ product.metafields.custom.product_filter.value | join: ',' }}"
+     data-available="{{ product.available }}"
+
     data-product-id="{{ product.variants.first.id }}">
       <a href="{{ product.url }}">
         {% if product.featured_image %}
@@ -408,7 +414,28 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-  
+  const availableFilter = document.getElementById('available-filter');
+
+function filterProducts() {
+  const selectedColour = colourFilter.value;
+  const selectedProduct = productFilter.value;
+  const showAvailable = availableFilter.checked;
+
+  products.forEach(product => {
+    const productColours = product.dataset.colours.split(',');
+    const productProducts = product.dataset.products.split(',');
+    const productAvailable = product.dataset.available === 'true';
+
+    const colourMatch = !selectedColour || productColours.includes(selectedColour);
+    const productMatch = !selectedProduct || productProducts.includes(selectedProduct);
+    const availableMatch = !showAvailable || productAvailable;
+
+    product.style.display = (colourMatch && productMatch && availableMatch) ? '' : 'none';
+  });
+}
+
+availableFilter.addEventListener('change', filterProducts);
+
   
 </script>
 <style>
