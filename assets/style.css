@@ -2801,7 +2801,7 @@ a.header__icon.header__icon--account.link.focus-inset.small-hide span img {
 }
 
 .icon-columns {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     row-gap: 30px;
     column-gap: 27px;
     margin-top: 30px;
