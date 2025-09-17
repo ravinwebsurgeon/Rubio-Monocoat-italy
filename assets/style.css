@@ -4256,6 +4256,38 @@ body .video-banner-section .video-bg, section.video-banner-section {
 
 @media (max-width: 992px){
 
+     .custom-blog-section .slick-arrow {
+    border: 1px solid #00000033;
+    background-color: #fff;
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    top: 29%;
+    transform: translateY(-50%);
+}
+
+.custom-blog-section .slick-arrow svg {
+    width: 17px;
+    height: 17px;
+}
+
+.custom-blog-section .slick-arrow svg path {
+    fill: #143d2d;
+}
+
+.custom-blog-section .slick-next.slick-arrow {
+    right: -13px;
+}
+
+.custom-blog-section .slick-prev.slick-arrow {
+    left: -9px;
+}
+
          .custom-collections-section .slick-arrow {
     border: 1px solid #00000033;
     background-color: #fff;
@@ -4399,37 +4431,6 @@ body .custom-blog-section .blogss-imggg {
 
 @media (max-width: 767px) {
 
-    .custom-blog-section .slick-arrow {
-    border: 1px solid #00000033;
-    background-color: #fff;
-    width: 33px;
-    height: 33px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    z-index: 1;
-    top: 29%;
-    transform: translateY(-50%);
-}
-
-.custom-blog-section .slick-arrow svg {
-    width: 17px;
-    height: 17px;
-}
-
-.custom-blog-section .slick-arrow svg path {
-    fill: #143d2d;
-}
-
-.custom-blog-section .slick-next.slick-arrow {
-    right: -13px;
-}
-
-.custom-blog-section .slick-prev.slick-arrow {
-    left: -9px;
-}
 
 body .custom-blog-section .blog-posts-grid {
     display: block;
