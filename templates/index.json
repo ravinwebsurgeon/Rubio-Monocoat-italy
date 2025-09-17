@@ -332,7 +332,6 @@
         },
         "container_f8nFpf": {
           "type": "container",
-          "disabled": true,
           "settings": {
             "class": "",
             "icon": "shopify://shop_images/Clipboard_with_check_marks.png",
