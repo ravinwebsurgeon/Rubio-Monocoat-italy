@@ -1,27 +1,31 @@
 {% comment %}
 Section: Four Containers with Icon and Text
 {% endcomment %}
-<div class="four-containers_outer">
-<div class="four-containers">
-  {% for block in section.blocks %}
-    <div class="container-item {{ block.settings.class }}">
-      <div class="icon-part">
-        {% if block.settings.icon %}
-          <img src="{{ block.settings.icon | img_url: '64x64' }}" alt="Icon">
-        {% endif %}
-      </div>
-      <div class="text-part">
-        <h3>{{ block.settings.heading }}</h3>
-        <div class="available-and-text">
-          <span>{{  block.settings.subhead }}</span>
-        <p>{{ block.settings.subtext }}</p>
+<div class="four-containers_outer
+  {% unless section.settings.show_on_desktop %} hide-desktop {% endunless %}
+  {% unless section.settings.show_on_mobile %} hide-mobile {% endunless %}">
+  
+  <div class="four-containers">
+    {% for block in section.blocks %}
+      <div class="container-item {{ block.settings.class }}">
+        <div class="icon-part">
+          {% if block.settings.icon %}
+            <img src="{{ block.settings.icon | img_url: '64x64' }}" alt="Icon">
+          {% endif %}
         </div>
-        <p>{{ block.settings.extra_text }}</p>
+        <div class="text-part">
+          <h3>{{ block.settings.heading }}</h3>
+          <div class="available-and-text">
+            <span>{{ block.settings.subhead }}</span>
+            <p>{{ block.settings.subtext }}</p>
+          </div>
+          <p>{{ block.settings.extra_text }}</p>
+        </div>
       </div>
-    </div>
-  {% endfor %}
+    {% endfor %}
+  </div>
 </div>
-</div>
+
 <style>
 
   .four-containers_outer .first-container-sec .available-and-text {
@@ -67,6 +71,25 @@ Section: Four Containers with Icon and Text
   margin: 4px 0;
   font-size: 14px;
 }
+/* Hide on desktop */
+.hide-desktop {
+  display: none !important;
+}
+
+/* Hide on mobile */
+.hide-mobile {
+  display: block !important;
+}
+
+@media screen and (max-width: 767px) {
+  .hide-mobile {
+    display: none !important;
+  }
+  .hide-desktop {
+    display: block !important;
+  }
+}
+
 </style>
 
 {% schema %}
