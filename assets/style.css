@@ -4358,6 +4358,33 @@ body .custom-blog-section .blogss-imggg {
 
 @media (max-width: 767px) {
 
+    .slick-arrow {
+    border: 1px solid #00000033;
+    background-color: #fff;
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    top: 29%;
+    transform: translateY(-50%);
+}
+
+.slick-arrow img {
+    width: 12px;
+    height: 12px;
+}
+
+.slick-next.slick-arrow {
+    right: -13px;
+}
+
+.slick-prev.slick-arrow {
+    left: -9px;
+}
 
 body .custom-blog-section .blog-posts-grid {
     display: block;
