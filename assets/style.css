@@ -1702,6 +1702,7 @@ a.header__icon.header__icon--account.link.focus-inset.small-hide span img {
 .icon-image-wrap {
     max-width: 64px;
     height: 64px;
+    margin: 0;
 }
 
 .icon-image-wrap img {
