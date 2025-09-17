@@ -4292,6 +4292,7 @@ body.templateproduct-2 .Advise_\&_Test:hover {
 
 .two-column-colour-grid .left-column {
     padding: 35px 20px;
+    display: block;
 }
 
      .custom-blog-section .slick-arrow {
