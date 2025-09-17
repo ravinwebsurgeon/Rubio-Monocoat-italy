@@ -350,7 +350,7 @@ section.icon-columns-section {
 .icon-columns {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    margin-top: 50px;
+    margin-top: 90px;
 }
 
 .icon-image-wrap img {
