@@ -1722,6 +1722,15 @@ a.header__icon.header__icon--account.link.focus-inset.small-hide span img {
     margin: 0 0 5px;
 }
 
+.icon-columns-section .icon-column {
+    display: flex;
+    gap: 15px;
+}
+
+.icon-columns-section .icon-column:nth-child(2) .icon-columns-section .icon-text, .icon-column:nth-child(1) .icon-text {
+    max-width: none;
+}
+
 .icon-text {
     font-family: Frutiger Neue LT W1G;
     font-weight: 400;
