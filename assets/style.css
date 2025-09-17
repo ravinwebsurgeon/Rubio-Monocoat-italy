@@ -4165,6 +4165,9 @@ section.video-products-section{
     .product-features-section .product-features p {
         font-size: 16px;
     }
+    .product-features-section .feature-image img {
+        height: 500px;
+    }
 }
 @media(max-width:1199px){
     .header__icons {
