@@ -1,9 +1,10 @@
-{% comment %}
-Section: Four Containers with Icon and Text
-{% endcomment %}
 <div class="four-containers_outer
-  {% unless section.settings.show_on_desktop %} hide-desktop {% endunless %}
-  {% unless section.settings.show_on_mobile %} hide-mobile {% endunless %}">
+  {% if section.settings.show_on_desktop %}
+    {% unless section.settings.show_on_mobile %} desktop-only {% endunless %}
+  {% endif %}
+  {% if section.settings.show_on_mobile %}
+    {% unless section.settings.show_on_desktop %} mobile-only {% endunless %}
+  {% endif %}">
   
   <div class="four-containers">
     {% for block in section.blocks %}
@@ -71,24 +72,33 @@ Section: Four Containers with Icon and Text
   margin: 4px 0;
   font-size: 14px;
 }
-/* Hide on desktop */
-.hide-desktop {
-  display: none !important;
+/* Default: show on both */
+/* Default: show on both */
+.four-containers_outer {
+  display: block;
 }
 
-/* Hide on mobile */
-.hide-mobile {
-  display: block !important;
+/* Desktop only */
+.desktop-only {
+  display: block;
 }
-
 @media screen and (max-width: 767px) {
-  .hide-mobile {
+  .desktop-only {
     display: none !important;
   }
-  .hide-desktop {
+}
+
+/* Mobile only */
+.mobile-only {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  .mobile-only {
     display: block !important;
   }
 }
+
+
 
 </style>
 

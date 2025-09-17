@@ -4359,6 +4359,38 @@ body .custom-blog-section .blogss-imggg {
 
 @media (max-width: 767px) {
 
+     .custom-collections-section .slick-arrow {
+    border: 1px solid #00000033;
+    background-color: #fff;
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    top: 45%;
+    transform: translateY(-50%);
+}
+
+.custom-collections-section .slick-arrow svg {
+    width: 17px;
+    height: 17px;
+}
+
+.custom-collections-section .slick-arrow svg path {
+    fill: #143d2d;
+}
+
+.custom-collections-section .slick-next.slick-arrow {
+    right: -16px;
+}
+
+.custom-collections-section .slick-prev.slick-arrow {
+    left: -14px;
+}
+
     .custom-blog-section .slick-arrow {
     border: 1px solid #00000033;
     background-color: #fff;
