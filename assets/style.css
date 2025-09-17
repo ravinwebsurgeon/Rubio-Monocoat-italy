@@ -4374,8 +4374,9 @@ body .custom-blog-section .blogss-imggg {
 }
 
 .slick-arrow img {
-    width: 12px;
-    height: 12px;
+    width: 11px;
+    height: 11px;
+    display: block;
 }
 
 .slick-next.slick-arrow {
