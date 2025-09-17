@@ -249,24 +249,22 @@ jQuery(document).ready(function ($) {
     let answer = item.find(".faq-answer");
 
     if (item.hasClass("active")) {
-      // Close current
       item.removeClass("active");
-      answer.stop(true, true).slideUp(300);
+      answer.stop(true).animate({ height: "0px", opacity: 0 }, 400);
     } else {
-      // Close others
-      $(".faq-item").removeClass("active");
-      $(".faq-answer").stop(true, true).slideUp(300);
+      $(".faq-item").removeClass("active").find(".faq-answer").stop(true).animate({ height: "0px", opacity: 0 }, 400);
 
-      // Open current
       item.addClass("active");
-      answer.stop(true, true).slideDown(300);
+      answer.css("display", "block").stop(true).animate({ height: answer.get(0).scrollHeight, opacity: 1 }, 400, function () {
+        $(this).css("height", "auto"); // reset for content resizing
+      });
     }
   });
 
-  // ✅ Default open first active
-  $(".faq-item.active .faq-answer").show();
+  $(".faq-item.active .faq-answer").css("display", "block");
 });
 </script>
+
 
 
 {% schema %}
