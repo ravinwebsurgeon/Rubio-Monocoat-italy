@@ -9,7 +9,6 @@
       <p class="color_text">{{ section.settings.subtext }}</p>
      
       <div class="colour-grid">
-        <div class="mobile-color-slider">
         {% for block in section.blocks %}
           <div class="colour-item"
                data-full="{{ block.settings.full_image | img_url: 'master' }}">
@@ -26,7 +25,7 @@
             <p class="color-inner-text">{{ block.settings.text }}</p>
           </div>
         {% endfor %}
-        </div>
+    
       </div>
  
       <a href="{{ section.settings.button_link }}" class="colour-button">
