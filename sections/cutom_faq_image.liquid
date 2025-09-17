@@ -249,19 +249,60 @@ jQuery(document).ready(function ($) {
     let answer = item.find(".faq-answer");
 
     if (item.hasClass("active")) {
+      // Close
       item.removeClass("active");
-      answer.stop(true).animate({ height: "0px", opacity: 0 }, 400);
+      answer
+        .stop(true, true)
+        .animate(
+          { height: 0, opacity: 0, paddingTop: 0, paddingBottom: 0 },
+          400,
+          function () {
+            $(this).css("display", "none");
+          }
+        );
     } else {
-      $(".faq-item").removeClass("active").find(".faq-answer").stop(true).animate({ height: "0px", opacity: 0 }, 400);
+      // Close others first
+      $(".faq-item.active .faq-answer")
+        .stop(true, true)
+        .animate(
+          { height: 0, opacity: 0, paddingTop: 0, paddingBottom: 0 },
+          400,
+          function () {
+            $(this).css("display", "none");
+          }
+        );
+      $(".faq-item").removeClass("active");
 
+      // Open this
       item.addClass("active");
-      answer.css("display", "block").stop(true).animate({ height: answer.get(0).scrollHeight, opacity: 1 }, 400, function () {
-        $(this).css("height", "auto"); // reset for content resizing
-      });
+      answer
+        .css({
+          display: "block",
+          height: "0",
+          opacity: 0,
+          paddingTop: "0",
+          paddingBottom: "0",
+        })
+        .stop(true, true)
+        .animate(
+          {
+            height: answer.get(0).scrollHeight,
+            opacity: 1,
+            paddingTop: "10px",
+            paddingBottom: "10px",
+          },
+          400,
+          function () {
+            $(this).css("height", "auto");
+          }
+        );
     }
   });
 
-  $(".faq-item.active .faq-answer").css("display", "block");
+  // Default active open
+  $(".faq-item.active .faq-answer").each(function () {
+    $(this).css({ display: "block", height: "auto", opacity: 1 });
+  });
 });
 </script>
 
