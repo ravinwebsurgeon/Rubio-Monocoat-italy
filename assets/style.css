@@ -1718,8 +1718,8 @@ a.header__icon.header__icon--account.link.focus-inset.small-hide span img {
     leading-trim: NONE;
     line-height: 22px;
     letter-spacing: 0;
-    text-align: center;
-    margin: 10px 0 5px;
+    text-align: left;
+    margin: 0 0 5px;
 }
 
 .icon-text {
@@ -1730,7 +1730,7 @@ a.header__icon.header__icon--account.link.focus-inset.small-hide span img {
     leading-trim: NONE;
     line-height: 20px;
     letter-spacing: 0;
-    text-align: center;
+    text-align: left;
 }
 
 .cart-count-bubble {
