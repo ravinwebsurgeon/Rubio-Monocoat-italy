@@ -117,8 +117,8 @@ $(document).ready(function () {
 $(document).ready(function(){
   function initSlick() {
     if ($(window).width() < 990) {
-      if (!$('.blog-posts-grid').hasClass('slick-initialized')) {
-        $('.blog-posts-grid').slick({
+      if (!$('.mobile-color-slider').hasClass('slick-initialized')) {
+        $('.mobile-color-slider').slick({
           slidesToShow: 2,
           slidesToScroll: 1,
           dots: false,
@@ -136,8 +136,8 @@ $(document).ready(function(){
         });
       }
     } else {
-      if ($('.blog-posts-grid').hasClass('slick-initialized')) {
-        $('.blog-posts-grid').slick('unslick');
+      if ($('.mobile-color-slider').hasClass('slick-initialized')) {
+        $('.mobile-color-slider').slick('unslick');
       }
     }
   }
