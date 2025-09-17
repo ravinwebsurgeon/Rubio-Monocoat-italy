@@ -42,8 +42,7 @@
         <img 
           src="{{ product.metafields.custom.right_image | image_url: width: 800 }}" 
           alt="{{ section.settings.faq_heading | escape }}" 
-          class="faq-image"
-        >
+          class="faq-image" width="" height="">
       {% endif %}
     </div>
 
@@ -112,7 +111,7 @@
   display: flex;
   align-items: center;
   color: #fff;
-      justify-content: space-between;
+  justify-content: space-between;
 }
 
 .faq-question .arrow {
