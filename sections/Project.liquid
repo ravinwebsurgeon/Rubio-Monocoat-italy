@@ -126,7 +126,7 @@
           </div>
         {% endif %}
         <h3>{{ product.title }}</h3>
-        <p class="price">{{ product.price | money }}</p>
+        {% comment %} <p class="price">{{ product.price | money }}</p> {% endcomment %}
       
       </a>
       <div class="plus-show">{% render 'Cs-plus-icon' %}</div>
