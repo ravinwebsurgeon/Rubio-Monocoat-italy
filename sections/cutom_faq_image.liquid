@@ -5,7 +5,7 @@
     <div class="faq-column">
       {% if section.settings.faq_heading != blank %}
         <h2 class="faq-heading">{{ section.settings.faq_heading }}</h2>
-      {% endif %}
+      {% endif %} 
 
       {% assign faq_questions = product.metafields.custom.faq_questions.value %}
       {% assign faq_answers = product.metafields.custom.faq_answers.value %}
