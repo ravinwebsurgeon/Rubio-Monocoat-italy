@@ -4171,6 +4171,10 @@ section.video-products-section{
     .product-features-section .product-features li {
         padding: 1rem 0;
     }
+    .faq-heading {
+        font-size: 28px;
+        line-height: normal;
+    }
 }
 @media(max-width:1199px){
     .header__icons {
