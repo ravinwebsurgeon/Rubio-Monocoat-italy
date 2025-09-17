@@ -72,7 +72,20 @@ Section: Four Containers with Icon and Text
 {% schema %}
 {
   "name": "icons section",
-  "settings": [],
+  "settings": [
+     {
+      "type": "checkbox",
+      "id": "show_on_desktop",
+      "label": "Show on Desktop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_on_mobile",
+      "label": "Show on Mobile",
+      "default": true
+    }
+  ],
   "blocks": [
     {
       "type": "container",
