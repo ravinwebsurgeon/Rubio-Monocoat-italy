@@ -4285,7 +4285,15 @@ body .video-banner-section .video-bg, section.video-banner-section {
 }
 
 .custom-collections-section .slick-prev.slick-arrow {
-    left: -14px;
+    left: 1px;
+}
+
+.custom-collections-section .collection-item {
+    margin-left: 15px;
+}
+
+.custom-collections-section .collections-grid.slick-initialized.slick-slider {
+    margin-left: -15px;
 }
 
 body .custom-blog-section .blog-posts-grid {
