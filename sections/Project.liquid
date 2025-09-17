@@ -332,10 +332,6 @@ document.querySelector('.img-ic').addEventListener('click', function() {
 document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
   wrapper.dataset.defaultView = 'cover';
 
-
-
-
-
 });
 
 
@@ -840,17 +836,45 @@ availableFilter.addEventListener('change', filterProducts);
 li.product-item {
     position: relative;
 }
+
+
+{% comment %} vail-togle {% endcomment %}
+/* --- Pretty toggle switch --- */
 .avail-toggle {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  margin-left: 12px;
+  gap: 10px;
   font-size: 14px;
   cursor: pointer;
+  user-select: none;
 }
 .avail-toggle input[type="checkbox"] {
+  appearance: none;
+  width: 42px;
+  height: 22px;
+  background: #ccc;
+  border-radius: 22px;
+  position: relative;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.avail-toggle input[type="checkbox"]::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
   width: 18px;
   height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+.avail-toggle input[type="checkbox"]:checked {
+  background: #4caf50;         /* active color */
+}
+.avail-toggle input[type="checkbox"]:checked::before {
+  transform: translateX(20px); /* slide the knob */
 }
 
 </style>
