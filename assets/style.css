@@ -1647,8 +1647,8 @@ a.header__icon.header__icon--account.link.focus-inset.small-hide span img {
 }
 
 .custom-banner__buttons a {
-    max-width: 100px;
-    height: 36px;
+    max-width: 90px;
+    height: 30px;
     font-family: Frutiger Neue LT W1G;
     font-weight: 700;
     font-style: Bold;
