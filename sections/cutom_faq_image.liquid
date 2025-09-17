@@ -162,9 +162,11 @@
 }
 
 .faq-answer {
-  height: 0;
+  display: none; /* jQuery slideDown ke liye */
   overflow: hidden;
-  transition: height 0.4s ease;
+}
+.faq-item.active .faq-answer {
+  display: block; /* open hone par dikhai de */
 }
 .faq-image {
     max-width: 100%;
