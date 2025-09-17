@@ -4362,6 +4362,8 @@ body .custom-blog-section .blogss-imggg {
 body .custom-blog-section .blog-posts-grid {
     display: block;
     margin-top: 15px;
+            position: relative;
+        margin-left: -5px;
 }
 
 body .custom-blog-section {
