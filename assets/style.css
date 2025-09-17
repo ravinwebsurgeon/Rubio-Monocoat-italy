@@ -4155,9 +4155,12 @@ section.video-products-section{
         padding: 50px 0 50px;
     }
     section.product-features-section .section-heading {
-        font-size: 36px;
+        font-size: 28px;
         line-height: normal;
         margin-bottom: 30px;
+    }
+    .product-features-section .product-features strong {
+        font-size: 22px;
     }
 }
 @media(max-width:1199px){
