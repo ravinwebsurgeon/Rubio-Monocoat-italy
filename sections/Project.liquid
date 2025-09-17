@@ -120,7 +120,6 @@
     data-colours="{{ product.metafields.custom.colour_filter2.value | join: ',' }}"
     data-products="{{ product.metafields.custom.product_filter.value | join: ',' }}"
      data-available="{{ product.available }}"
-
     data-product-id="{{ product.variants.first.id }}">
       <a href="{{ product.url }}">
         {% if product.featured_image %}
@@ -196,6 +195,37 @@
   "presets": [{ "name": "Project", "category": "Custom" }]
 }
 {% endschema %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const colourFilter   = document.getElementById('colour-filter');
+  const productFilter  = document.getElementById('product-filter');
+  const availableFilter= document.getElementById('available-filter');
+  const products       = document.querySelectorAll('.product-item');
+
+  function filterProducts() {
+    const selectedColour = colourFilter.value;
+    const selectedProduct= productFilter.value;
+    const showAvailable  = availableFilter.checked;
+
+    products.forEach(product => {
+      const productColours   = product.dataset.colours.split(',');
+      const productProducts  = product.dataset.products.split(',');
+      const productAvailable = product.dataset.available === 'true';
+
+      const colourMatch    = !selectedColour || productColours.includes(selectedColour);
+      const productMatch   = !selectedProduct || productProducts.includes(selectedProduct);
+      const availableMatch = !showAvailable || productAvailable;
+
+      product.style.display = (colourMatch && productMatch && availableMatch) ? '' : 'none';
+    });
+  }
+
+  colourFilter.addEventListener('change', filterProducts);
+  productFilter.addEventListener('change', filterProducts);
+  availableFilter.addEventListener('change', filterProducts);
+});
+</script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
   /* circle tabs */
@@ -412,27 +442,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 //available-filters
-  const availableFilter = document.getElementById('available-filter');
-
-function filterProducts() {
-  const selectedColour = colourFilter.value;
-  const selectedProduct = productFilter.value;
-  const showAvailable = availableFilter.checked;
-
-  products.forEach(product => {
-    const productColours = product.dataset.colours.split(',');
-    const productProducts = product.dataset.products.split(',');
-    const productAvailable = product.dataset.available === 'true';
-
-    const colourMatch = !selectedColour || productColours.includes(selectedColour);
-    const productMatch = !selectedProduct || productProducts.includes(selectedProduct);
-    const availableMatch = !showAvailable || productAvailable;
-
-    product.style.display = (colourMatch && productMatch && availableMatch) ? '' : 'none';
-  });
-}
-
-availableFilter.addEventListener('change', filterProducts);
+ 
 
   
 </script>
