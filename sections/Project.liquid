@@ -414,7 +414,32 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+const samplesFilter = document.getElementById('samples-filter');
+  
+  function filterProducts() {
+    const selectedColour = colourFilter.value;
+    const selectedProduct = productFilter.value;
+    const showSamplesOnly = samplesFilter.checked;
 
+    products.forEach(product => {
+      const productColours = product.dataset.colours.split(',');
+      const productProducts = product.dataset.products.split(',');
+      const hasSamples = product.dataset.hasSamples === 'true';
+
+      const colourMatch = !selectedColour || productColours.includes(selectedColour);
+      const productMatch = !selectedProduct || productProducts.includes(selectedProduct);
+      const samplesMatch = !showSamplesOnly || hasSamples;
+
+      if (colourMatch && productMatch && samplesMatch) {
+        product.style.display = '';
+      } else {
+        product.style.display = 'none';
+      }
+    });
+  }
+
+  // Add event listener for samples filter
+  samplesFilter.addEventListener('change', filterProducts);
 </script>
 <style>
 /* Layout */
