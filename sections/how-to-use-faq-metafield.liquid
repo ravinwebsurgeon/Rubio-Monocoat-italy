@@ -56,9 +56,6 @@
 .custom-faq-icon svg { transition: transform 0.3s ease; }
 .arrow-up { display: none; }
 .custom-faq-answer { display: none; color:#fff; margin-top: 10px; }
-/* Responsive */
-@media(max-width: 768px) { .custom-faq-inner { flex-direction: column; } }
-
 .custom-faq-item h3 {
     margin: 0;
     font-family: Frutiger Neue LT W1G;
@@ -71,6 +68,22 @@
     padding: 15px 30px;
     border-radius: 50px;
 }
+
+@media(max-width: 1900px) { 
+  .custom-faq-wrapper {
+      max-width: 1745px;
+      margin: 0 auto;
+      padding: 50px 30px;
+  }
+}
+
+@media(max-width: 768px) { 
+  .custom-faq-inner { 
+    flex-direction: column; 
+  } 
+}
+
+
 
 </style>
 
