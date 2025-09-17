@@ -166,11 +166,8 @@
   overflow: hidden;
   transition: height 0.4s ease;
 }
-{% comment %} .faq-item.active .faq-answer {
-  max-height: 200px;
-} {% endcomment %}
 .faq-image {
-      max-width: 100%;
+    max-width: 100%;
     height: 100%;
     display: block;
     width: 100%;
@@ -244,54 +241,28 @@ document.addEventListener("DOMContentLoaded", function () {
 </script> {% endcomment %}
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const faqItems = document.querySelectorAll(".faq-item");
+jQuery(document).ready(function ($) {
+  $(".faq-question").on("click", function () {
+    let item = $(this).closest(".faq-item");
+    let answer = item.find(".faq-answer");
 
-  faqItems.forEach((item) => {
-    const question = item.querySelector(".faq-question");
-    const answer = item.querySelector(".faq-answer");
+    if (item.hasClass("active")) {
+      // Close current
+      item.removeClass("active");
+      answer.stop(true, true).slideUp(300);
+    } else {
+      // Close others
+      $(".faq-item").removeClass("active");
+      $(".faq-answer").stop(true, true).slideUp(300);
 
-    // OPEN default active
-    if (item.classList.contains("active")) {
-      answer.style.height = answer.scrollHeight + "px";
+      // Open current
+      item.addClass("active");
+      answer.stop(true, true).slideDown(300);
     }
-
-    question.addEventListener("click", () => {
-      const isActive = item.classList.contains("active");
-
-      // CLOSE all other items
-      faqItems.forEach((otherItem) => {
-        if (otherItem !== item) {
-          otherItem.classList.remove("active");
-          const otherAnswer = otherItem.querySelector(".faq-answer");
-          otherAnswer.style.height = "0px";
-        }
-      });
-
-      if (isActive) {
-        // CLOSE this one
-        item.classList.remove("active");
-        answer.style.height = answer.scrollHeight + "px";
-        requestAnimationFrame(() => {
-          answer.style.height = "0px";
-        });
-      } else {
-        // OPEN this one
-        item.classList.add("active");
-        answer.style.height = "0px";
-        requestAnimationFrame(() => {
-          answer.style.height = answer.scrollHeight + "px";
-        });
-      }
-    });
-
-    // reset to auto height after open
-    answer.addEventListener("transitionend", () => {
-      if (item.classList.contains("active")) {
-        answer.style.height = "auto";
-      }
-    });
   });
+
+  // ✅ Default open first active
+  $(".faq-item.active .faq-answer").show();
 });
 </script>
 
