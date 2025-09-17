@@ -114,7 +114,7 @@ $(document).ready(function () {
 
 
 
-$(document).ready(function(){
+{% comment %} $(document).ready(function(){
   function initSlick() {
     if ($(window).width() < 990) {
       if (!$('.colour-grid').hasClass('slick-initialized')) {
@@ -146,7 +146,7 @@ $(document).ready(function(){
   $(window).on('resize', function(){
     initSlick();
   });
-});
+}); {% endcomment %}
 
 </script>
 
