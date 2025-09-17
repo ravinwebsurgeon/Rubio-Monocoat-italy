@@ -4162,6 +4162,9 @@ section.video-products-section{
     .product-features-section .product-features strong {
         font-size: 22px;
     }
+    .product-features-section .product-features p {
+        font-size: 16px;
+    }
 }
 @media(max-width:1199px){
     .header__icons {
