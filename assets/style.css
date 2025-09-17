@@ -4174,6 +4174,9 @@ section.video-products-section{
     footer .footer__content-bottom.scroll-trigger.animate--slide-in {
         padding: 30px 0 30px;
     }
+    .four-containers_outer {
+        margin-top: 70px;
+    }
 }
 @media(max-width:1199px){
     .header__icons {
