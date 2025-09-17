@@ -349,7 +349,10 @@
         "container_f8nFpf"
       ],
       "name": "icons section",
-      "settings": {}
+      "settings": {
+        "show_on_desktop": false,
+        "show_on_mobile": true
+      }
     }
   },
   "order": [
