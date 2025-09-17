@@ -1986,6 +1986,7 @@ img {}
     leading-trim: NONE;
     line-height: 11px;
     letter-spacing: 0;
+    display: none;
 }
 
 .colour-grid {
