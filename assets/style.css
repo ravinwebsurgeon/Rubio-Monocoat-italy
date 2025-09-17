@@ -4150,6 +4150,10 @@ section.video-products-section{
     .header__menu-item span {
         font-size: 17px;
     }
+    section.product-features-section {
+        background-color: #f5f5f5;
+        padding: 50px 0 50px;
+    }
 }
 @media(max-width:1199px){
     .header__icons {
