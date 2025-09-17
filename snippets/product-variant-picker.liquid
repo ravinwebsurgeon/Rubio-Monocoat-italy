@@ -48,11 +48,10 @@
           </defs>
         </svg>
          {% if product.selected_or_first_available_variant.metafields.custom.color_info != blank %}
-  <div class="color-tooltip">
-    {{ product.selected_or_first_available_variant.metafields.custom.color_info }}
-  </div>
-{% endif %}
- 
+            <div class="color-tooltip">
+              {{ product.selected_or_first_available_variant.metafields.custom.color_info }}
+            </div>
+          {% endif %} 
       </div>
 
       <!-- Tooltip (content from metafield) -->
