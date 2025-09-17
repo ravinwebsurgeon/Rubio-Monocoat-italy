@@ -414,6 +414,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+
+//available-filters
   const availableFilter = document.getElementById('available-filter');
 
 function filterProducts() {
@@ -837,6 +839,18 @@ availableFilter.addEventListener('change', filterProducts);
 
 li.product-item {
     position: relative;
+}
+.avail-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.avail-toggle input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
 }
 
 </style>
