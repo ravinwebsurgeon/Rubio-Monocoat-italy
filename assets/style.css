@@ -4462,6 +4462,7 @@ body .custom-blog-section .blogss-imggg {
 
    body .two-column-colour-grid .right-column img {
     object-fit: cover;
+    height: 400px;
 }
 
 body .two-column-colour-grid .colour-grid {
