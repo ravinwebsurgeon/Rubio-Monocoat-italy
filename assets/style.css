@@ -1587,13 +1587,13 @@ header.header {
 }
 
 .header__icon .svg-wrapper {
-    width: 16px !important;
-    height: 16px !important;
+    width: 20px !important;
+    height: 20px !important;
 }
 
 .header__icon, .header__icon--cart .icon {
-    width: 16px !important;
-    height: 16px !important;
+    width: 20px !important;
+    height: 20px !important;
 }
 
 .header__icons {
