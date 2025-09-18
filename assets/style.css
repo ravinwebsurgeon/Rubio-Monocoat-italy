@@ -302,7 +302,7 @@ a.btn {
 a.btn.btn-secondary {
     background-color: transparent;
     color: #fff;
-    border: 2px solid #183029;
+    border: 1px solid #fff;
 }
 
 .custom-banner__buttons {
