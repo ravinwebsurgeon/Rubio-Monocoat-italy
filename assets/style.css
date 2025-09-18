@@ -466,7 +466,7 @@ section.custom-collections-section .container {
     flex-wrap: wrap;
     column-gap: 20px;
     grid-template-columns: repeat(3, 1fr);
-    max-width: 460px;
+    max-width: 520px;
     row-gap: 30px;
     margin-bottom: 50px;
 }
@@ -517,8 +517,8 @@ section.custom-collections-section .container {
 }
 
 .colour-item img {
-    max-width: 95px;
-    height: 95px;
+    max-width: 110px;
+    height: 110px;
     display: block;
     border-radius: 20px;
 }
