@@ -4450,7 +4450,10 @@ body .custom-blog-section .blogss-imggg {
     align-items: center;
     justify-content: center;
 }
-
+.review-hediing-right svg {
+    width: 17px;
+    height: 17px;
+}
 .blog .title-wrapper-with-link.title-wrapper--self-padded-tablet-down {
     align-items: center;
 }
