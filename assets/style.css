@@ -1638,9 +1638,9 @@ a.header__icon.header__icon--account.link.focus-inset.small-hide span img {
     font-family: Frutiger Neue LT W1G;
     font-weight: 700;
     font-style: Bold;
-    font-size: 30px;
+    font-size: 36px;
     leading-trim: NONE;
-    line-height: 41px;
+    line-height: 46px;
     letter-spacing: 0;
     margin-bottom: 10px;
     max-width: 300px;
@@ -2742,7 +2742,7 @@ a.header__icon.header__icon--account.link.focus-inset.small-hide span img {
 }
 
 .banner-image {
-    height: 500px;
+    height: 70vh;
 }
 
 .custom-banner__content {
