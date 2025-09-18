@@ -4450,6 +4450,9 @@ body .custom-blog-section .blogss-imggg {
     align-items: center;
     justify-content: center;
 }
+.container-cloor-com .slick-track {
+    padding-top: 10px;
+}
 .review-hediing-right svg {
     width: 17px;
     height: 17px;
