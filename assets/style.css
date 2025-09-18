@@ -1996,16 +1996,16 @@ img {}
 }
 
 a.colour-button {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
-    font-style: Bold;
-    font-size: 12px;
-    leading-trim: NONE;
-    line-height: 100%;
-    letter-spacing: 0;
-    text-align: center;
-    max-width: 125px;
-    height: 33px;
+        font-family: Frutiger Neue LT W1G;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 16px;
+        leading-trim: NONE;
+        line-height: 100%;
+        letter-spacing: 0;
+        text-align: center;
+        max-width: 177px;
+        height: 49px;
 }
 
 .main-heading {
