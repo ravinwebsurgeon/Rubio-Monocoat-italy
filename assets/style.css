@@ -4597,14 +4597,17 @@ body .two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
     section.product-features-section .section-heading {
         font-size: 24px;
     }
-   .product-features-section .product-features{
+   .product-features-section .features-wrapper {
         padding: 0 20px;
         gap: 20px;
         flex-direction: column;
+    }
+    .product-features-section .product-features {
+        gap: 20px;
         justify-content: flex-start;
         align-items: flex-start;
         order: 2;
-    }   
+    }
     .product-features-section .product-features li {
         padding: 0;
         text-align: left;
