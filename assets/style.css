@@ -1513,7 +1513,9 @@ section.product-features-section .section-heading {
 .search-modal__content.search-modal__content-bottom {
     top: 40px;
 }
-
+.header__icon--menu .icon path {
+    filter: invert(1);
+}
 .templateindex .header__icon--menu .icon path {
     filter: inherit;
 }
