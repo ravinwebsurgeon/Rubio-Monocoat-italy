@@ -1462,6 +1462,7 @@ section.product-features-section .section-heading {
     display: flex;
     flex-direction: column;
     gap: 100px;
+    flex:1;
 }
 
 .product-features-section .product-features li {
