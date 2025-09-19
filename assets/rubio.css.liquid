@@ -1087,3 +1087,21 @@ body:not(.templateindex) .shopify-section-header-sticky.scrolled-past-header .co
         font-size: 14px;
     }
 }
+/* Mobile par slider ko grid banane ke liye */
+@media screen and (max-width: 749px) {
+  .product__media-list.slider--mobile {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr); /* 2 images per row */
+    gap: 10px; /* space between images */
+    overflow: visible !important; /* scroll hatao */
+  }
+
+  .product__media-list.slider--mobile .slider__slide {
+    width: 100% !important;  /* force full width in grid */
+    flex: unset !important; 
+  }
+
+  .slider-buttons {
+    display: none !important; /* prev/next arrows hatado */
+  }
+}
