@@ -96,7 +96,6 @@
 }
 </style>
 
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   function initSlick() {
@@ -108,9 +107,17 @@ document.addEventListener("DOMContentLoaded", function () {
           dots: true,
           arrows: false,
           infinite: false,
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
-          adaptiveHeight: true
+          adaptiveHeight: true,
+          responsive: [
+            {
+              breakpoint: 750,
+              settings: {
+                slidesToShow: 1
+              }
+            }
+          ]
         });
       }
     } else {
@@ -126,3 +133,4 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
+
