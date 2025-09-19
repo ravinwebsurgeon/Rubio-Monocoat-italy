@@ -4485,7 +4485,10 @@ body .custom-blog-section .blogss-imggg {
         gap: 40px;
     }
    .product-features-section .product-features strong {
-        font-size: 18px;
+        font-size: 17px;
+    }
+    .product-features-section .product-features p {
+        font-size: 14px;
     }
 }
 
