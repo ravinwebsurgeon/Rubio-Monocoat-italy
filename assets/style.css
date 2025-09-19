@@ -4481,6 +4481,10 @@ body .custom-blog-section .blogss-imggg {
         object-fit: contain;
     }
 
+    .product-features-section .product-features {
+        gap: 40px;
+    }
+
 }
 
 @media (max-width: 767px) {
