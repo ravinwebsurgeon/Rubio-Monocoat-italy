@@ -95,3 +95,34 @@
   color: #555;
 }
 </style>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  function initSlick() {
+    var $grid = jQuery(".features-grid");
+
+    if (window.innerWidth < 768) {
+      if (!$grid.hasClass("slick-initialized")) {
+        $grid.slick({
+          dots: true,
+          arrows: false,
+          infinite: false,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          adaptiveHeight: true
+        });
+      }
+    } else {
+      if ($grid.hasClass("slick-initialized")) {
+        $grid.slick("unslick");
+      }
+    }
+  }
+
+  initSlick();
+  window.addEventListener("resize", function () {
+    initSlick();
+  });
+});
+</script>
