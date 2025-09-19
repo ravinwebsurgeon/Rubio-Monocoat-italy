@@ -4168,7 +4168,7 @@ section.video-products-section{
 }
 @media(max-width:1900px){
     ul.list-menu.list-menu--inline {
-        gap: 20px;
+        gap: 15px;
     }
     .header__menu-item span {
         font-size: 17px;
