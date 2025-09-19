@@ -1513,6 +1513,12 @@ section.product-features-section .section-heading {
 .search-modal__content.search-modal__content-bottom {
     top: 40px;
 }
+
+.templateindex .header__icon--menu .icon path {
+    filter: inherit;
+}
+
+
 /* ==========Media Css ========== */
 
 
@@ -3220,7 +3226,7 @@ a.read-more-btn {
 }
 
 .blog .article-card__image-wrapper.card__media {
-    --ratio-percent: 100% !important;!i;!;
+    --ratio-percent: 100% !important;
 }
 
 .blog .blog__posts .ratio:before {
