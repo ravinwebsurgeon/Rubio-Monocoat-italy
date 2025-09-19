@@ -4484,7 +4484,9 @@ body .custom-blog-section .blogss-imggg {
     .product-features-section .product-features {
         gap: 40px;
     }
-
+   .product-features-section .product-features strong {
+        font-size: 18px;
+    }
 }
 
 @media (max-width: 767px) {
