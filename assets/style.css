@@ -4624,10 +4624,11 @@ body .two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
         order: 2;
     }
     .product-features-section .product-features li {
-        padding: 0 0 0 30px;
+       padding: 0 0 0 30px;
         text-align: left;
         width: 100%;
         position: relative;
+        max-width: 100%;
     }
     .product-features-section .feature-image {
         order: 1;        
