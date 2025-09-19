@@ -4619,6 +4619,10 @@ body .two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
     .product-features-section .product-features strong {
         font-size: 14px;
     }
+    .product-features-section .product-features p {
+        font-size: 12px;
+        opacity: 1;
+    }
 }
 
 @media only screen and (max-width: 1100px) and (min-width: 767px) {
