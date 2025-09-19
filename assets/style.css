@@ -4594,6 +4594,9 @@ body .two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
 .four-containers_outer .container-item .text-part h3 {
     font-size: 17px;
 }
+    section.product-features-section .section-heading {
+        font-size: 24px;
+    }
 
 }
 
