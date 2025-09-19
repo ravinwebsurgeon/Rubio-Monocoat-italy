@@ -459,6 +459,18 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 
 </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  if (window.innerWidth < 750) {
+    const gallery = document.querySelector(".product__media-list.slider--mobile");
+    if (gallery) {
+      gallery.classList.remove("slider--mobile");
+    }
+  }
+});
+
+</script>
+
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
