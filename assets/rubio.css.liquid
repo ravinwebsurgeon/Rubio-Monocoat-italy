@@ -900,6 +900,9 @@ body:not(.templateindex) .shopify-section-header-sticky.scrolled-past-header .co
     .product-section .product__media-wrapper .product__column-sticky {
         display: block !important;
     }
+    .product--thumbnail .product__media-item:not(.is-active), .product--thumbnail_slider .product__media-item:not(.is-active){
+        display:none;
+    }
 }
 @media (max-width: 767px){
     section.product-features-section {
