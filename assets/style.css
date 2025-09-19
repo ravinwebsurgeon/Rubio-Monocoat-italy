@@ -4619,7 +4619,8 @@ body .two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
         position: relative;
     }
     .product-features-section .feature-image {
-        order: 1;
+        order: 1;        
+        margin: 0 auto;
     }
     .product-features-section .product-features strong {
         font-size: 14px;
