@@ -4638,6 +4638,9 @@ body .two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
         position: absolute;
         left: 0;
     }
+    .product-features-section .feature-image img {
+        height:360px;
+    }
 }
 
 @media only screen and (max-width: 1100px) and (min-width: 767px) {
