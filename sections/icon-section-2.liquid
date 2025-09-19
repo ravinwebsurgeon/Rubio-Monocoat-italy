@@ -137,10 +137,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (window.innerWidth < 992) {
       if (!$grid.hasClass("slick-initialized")) {
         $grid.slick({
-          dots: true,
+          dots: false,
           arrows: false,
           infinite: false,
           slidesToShow: 2,
+          autoplay:true,
           slidesToScroll: 1,
           adaptiveHeight: true,
           responsive: [
