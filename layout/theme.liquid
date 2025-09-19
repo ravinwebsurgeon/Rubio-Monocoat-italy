@@ -460,14 +460,93 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 </script>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-  if (window.innerWidth < 750) {
-    const gallery = document.querySelector(".product__media-list.slider--mobile");
-    if (gallery) {
-      gallery.classList.remove("slider--mobile");
+<script>
+(function() {
+  const MOBILE_MAX = 749;
+
+  function applyGridTo(el) {
+    if (!el) return;
+    // throttle re-applications
+    if (el._lastApplied && Date.now() - el._lastApplied < 400) return;
+    el._lastApplied = Date.now();
+
+    // remove known slider classes that JS uses
+    el.classList.remove("slider", "slider--mobile", "slick-slider", "slick-initialized");
+
+    // force grid via inline styles (fallback if CSS not loaded yet)
+    el.style.setProperty("display", "grid", "important");
+    el.style.setProperty("grid-template-columns", "repeat(auto-fit, minmax(100px, 1fr))", "important");
+    el.style.setProperty("gap", "12px", "important");
+    el.style.setProperty("overflow", "visible", "important");
+    el.style.removeProperty("transform");
+    el.style.removeProperty("transition");
+    el.style.removeProperty("width");
+    el.style.removeProperty("left");
+
+    // clean up slides (remove slider inline styles/attrs)
+    const slideSelectors = [".slider__slide", ".product__media-item", ".thumbnail-list__item", ".thumbnail"];
+    const slides = el.querySelectorAll(slideSelectors.join(","));
+    slides.forEach(s => {
+      s.classList.remove("slider__slide", "slick-slide", "is-active");
+      s.style.removeProperty("width");
+      s.style.removeProperty("transform");
+      s.style.removeProperty("left");
+      s.style.removeProperty("position");
+      s.style.setProperty("display", "block", "important");
+      s.style.setProperty("min-width", "0", "important");
+      s.removeAttribute("aria-hidden");
+      s.removeAttribute("tabindex");
+    });
+
+    // ensure images behave
+    const imgs = el.querySelectorAll("img");
+    imgs.forEach(img => {
+      img.style.setProperty("width", "100%", "important");
+      img.style.setProperty("height", "auto", "important");
+      img.style.setProperty("object-fit", "cover", "important");
+    });
+
+    // hide slider buttons in the same slider-component if present
+    const sliderComp = el.closest("slider-component");
+    if (sliderComp) {
+      const buttons = sliderComp.querySelectorAll(".slider-buttons, .slider-button, .slider-button--prev, .slider-button--next");
+      buttons.forEach(b => b.style.setProperty("display", "none", "important"));
     }
   }
-});
+
+  function run() {
+    if (window.innerWidth > MOBILE_MAX) return;
+    // select all gallery lists that might be initialized as sliders
+    const galleries = document.querySelectorAll(".product__media-list, .thumbnail-list, .product__media-list.contains-media");
+    galleries.forEach(el => applyGridTo(el));
+  }
+
+  // Try immediately and after short delays (Shopify may init later)
+  document.addEventListener("DOMContentLoaded", () => {
+    run();
+    setTimeout(run, 500);
+    setTimeout(run, 1200);
+  });
+
+  // re-run on resize
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(run, 150);
+  });
+
+  // Watch DOM changes (theme / Shopify may re-initialize slider)
+  const observer = new MutationObserver(() => {
+    // debounce
+    if (observer._timeout) clearTimeout(observer._timeout);
+    observer._timeout = setTimeout(() => {
+      run();
+    }, 120);
+  });
+  observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["class", "style"] });
+})();
+</script>
+
 
 </script>
 
