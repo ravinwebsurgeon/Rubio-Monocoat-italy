@@ -4494,7 +4494,9 @@ body .custom-blog-section .blogss-imggg {
 
 @media (max-width: 767px) {
 
-
+    .four-containers_outer {
+        margin-top: 30px;
+    }
 body .custom-blog-section .blog-posts-grid {
     display: block;
     margin-top: 15px;
