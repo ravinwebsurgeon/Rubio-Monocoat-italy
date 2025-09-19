@@ -4597,7 +4597,11 @@ body .two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
     section.product-features-section .section-heading {
         font-size: 24px;
     }
-
+   .product-features-section .features-wrapper {
+        padding: 0 20px;
+        gap: 20px;
+        flex-direction: column;
+    }
 }
 
 @media only screen and (max-width: 1100px) and (min-width: 767px) {
