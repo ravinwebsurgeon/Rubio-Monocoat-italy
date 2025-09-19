@@ -1516,8 +1516,11 @@ section.product-features-section .section-heading {
 .header__icon--menu .icon path {
     filter: invert(1);
 }
+.scrolled-past-header .header__icon--menu .icon path{
+   filter: none;
+}
 .templateindex .header__icon--menu .icon path {
-    filter: inherit;
+    filter: none;
 }
 
 
