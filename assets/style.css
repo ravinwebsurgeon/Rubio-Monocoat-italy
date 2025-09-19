@@ -4599,10 +4599,12 @@ body .two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
     section.product-features-section .section-heading {
         font-size: 24px;
     }
-   .product-features-section .features-wrapper {
+       .product-features-section .features-wrapper {
         padding: 0 20px;
         gap: 20px;
+        justify-content: flex-start;
         flex-direction: column;
+        align-items: flex-start;
     }
     .product-features-section .product-features {
         gap: 20px;
