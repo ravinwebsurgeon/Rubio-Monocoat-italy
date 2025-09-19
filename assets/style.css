@@ -4622,6 +4622,8 @@ body .two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
         justify-content: flex-start;
         align-items: flex-start;
         order: 2;
+        flex: 100%;
+        width: 100%;
     }
     .product-features-section .product-features li {
        padding: 0 0 0 30px;
