@@ -1523,7 +1523,9 @@ section.product-features-section .section-heading {
 .templateindex .header__icon--menu .icon path {
     filter: none;
 }
-
+.available-and-text a {
+    color: #000;
+}
 
 /* ==========Media Css ========== */
 
