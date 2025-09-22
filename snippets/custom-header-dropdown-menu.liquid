@@ -54,6 +54,15 @@
                   {% for childlink in link.links %}
                     <div class="sub-main-lnk">
                       <div class="both-li">
+                        <div class="let-im">
+                          {% if block.type == 'Custom_images' %}
+                             {% assign menu-t = block.settings.sub-menu_title | handle %}
+                            
+                           {% if menu-t == childlink.title %}
+                           <img src="{{ block.settings.menu_image | img_url:"thumbnail" }}">
+                           {% endif %}
+                          {% endif %}
+                        </div>
                   <li class="main-sub-child_menu_item">
                     <a href="{{- childlink.url -}}">
                       {{- childlink.title -}}
@@ -63,6 +72,7 @@
                 </div>
                    {% for grandchildlink in childlink.links %}
                      <div class="both-li">
+                       <div class="let-im"></div>
                             <li class="child_menu_item">
                     <a href="{{- grandchildlink.url -}}">
                       {{- grandchildlink.title -}}
