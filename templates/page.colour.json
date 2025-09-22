@@ -190,9 +190,11 @@
         "container_9gjW6p",
         "container_ViGxtE"
       ],
-      "disabled": true,
       "name": "icons section",
-      "settings": {}
+      "settings": {
+        "show_on_desktop": true,
+        "show_on_mobile": true
+      }
     }
   },
   "order": [
