@@ -53,20 +53,23 @@
   {% assign menu_t = block.settings.sub-menu_title | handle %}
 
   {% for childlink in link.links %}
+    {% assign child_title_handle = childlink.title | handle %}
+
     <li class="main-sub-child_menu_item">
       <a href="{{ childlink.url }}">{{ childlink.title }}</a>
 
-      {% if block.type == 'Custom_images' and menu_t == childlink.title | handle %}
+      {% if block.type == 'Custom_images' and menu_t == child_title_handle %}
         <img src="{{ block.settings.menu_image | img_url: 'thumbnail' }}" alt="">
       {% endif %}
 
       {% if childlink.links %}
         <ul>
           {% for grandchildlink in childlink.links %}
+            {% assign grand_title_handle = grandchildlink.title | handle %}
             <li class="child_menu_item">
               <a href="{{ grandchildlink.url }}">{{ grandchildlink.title }}</a>
 
-              {% if block.type == 'Custom_images' and menu_t == grandchildlink.title | handle %}
+              {% if block.type == 'Custom_images' and menu_t == grand_title_handle %}
                 <img src="{{ block.settings.menu_image | img_url: 'thumbnail' }}" alt="">
               {% endif %}
             </li>
