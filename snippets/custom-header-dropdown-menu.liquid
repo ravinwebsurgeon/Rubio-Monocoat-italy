@@ -383,13 +383,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.querySelectorAll('.main_menu_item').forEach((item) => {
   item.addEventListener('mouseenter', () => {
-    document.querySelector('.section-header').classList.add('mega-open');
+    if (item.querySelector('.mega_menu_items_wrapper')) {
+      document.querySelector('.section-header').classList.add('mega-open');
+    }
   });
 
   item.addEventListener('mouseleave', () => {
-    document.querySelector('.section-header').classList.remove('mega-open');
+    if (item.querySelector('.mega_menu_items_wrapper')) {
+      document.querySelector('.section-header').classList.remove('mega-open');
+    }
   });
 });
+
 
 
 
