@@ -43,8 +43,8 @@
               </div>
 
               <ul class="child_menu_links">
+                  <div class="sub-main-lnk">
                   {% for childlink in link.links %}
-                    <div class="sub-main-lnk">
                   <li class="main-sub-child_menu_item">
                     <a href="{{- childlink.url -}}">
                       {{- childlink.title -}}
@@ -58,9 +58,9 @@
                       
                     </a>
                   </li>
-                </div>
-                   {% endfor %}
                 {% endfor %}
+            {% endfor %}
+        </div>
                 
               </ul>
 
