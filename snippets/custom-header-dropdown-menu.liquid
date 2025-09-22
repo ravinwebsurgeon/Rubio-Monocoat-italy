@@ -354,3 +354,22 @@ li.main_menu_item.unhovered >a {
     opacity: 0.5;
 }
 </style>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const video = document.getElementById('myVideo');
+  const playButton = document.getElementById('playButton');
+
+  playButton.addEventListener('click', () => {
+    if (video.paused) {
+      video.play();
+      playButton.textContent = 'Pause'; // optional
+    } else {
+      video.pause();
+      playButton.textContent = 'Play';
+    }
+  });
+});
+
+</script>
