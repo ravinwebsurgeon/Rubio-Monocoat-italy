@@ -49,57 +49,56 @@
                 {% endfor %}
               </div>
 
-         <ul class="child_menu_links">
-                 <div class="shown-link">
-                  {% for childlink in link.links %}
-                    <div class="sub-main-lnk">
-                      <div class="both-li">
-                        {% for block in section.blocks %}
-                        <div class="let-im">
-                          {% if block.type == 'Custom_images' %}
-                             {% assign menu-t = block.settings.sub-menu_title  %}
-                             {% assign chil = childlink.title | handle %}
-                           {% if menu-t == chil %}
-                           <img src="{{ block.settings.menu_image | img_url:"thumbnail" }}">
-                           {% endif %}
-                          {% endif %}
-                        </div>
-                      {% endfor %}
-                  <li class="main-sub-child_menu_item">
-                    <a href="{{- childlink.url -}}">
-                      {{- childlink.title -}}
-                      
-                    </a>
-                  </li>
-                </div>
-                   {% for grandchildlink in childlink.links %}
-                     <div class="both-li">
-                      {% for block in section.blocks %}
-                       <div class="let-im">
+        <ul class="child_menu_links">
+  <div class="shown-link">
+    {% for childlink in link.links %}
+      <div class="sub-main-lnk">
+        <div class="both-li">
+          {%- assign child_handle = childlink.title | handle -%}
 
-                         {% if block.type == 'Custom_images' %}
-                          
-                             {% assign menu-t = block.settings.sub-menu_title  %}
-                             {% assign gran = grandchildlink.title | handle %}
-                           {% if menu-t == gran %}
-                           <img src="{{ block.settings.menu_image | img_url:"thumbnail" }}">
-                           {% endif %}
-                          {% endif %}
-                       </div>
-                      {% endfor %}
-                            <li class="child_menu_item">
-                    <a href="{{- grandchildlink.url -}}">
-                      {{- grandchildlink.title -}}
-                      
-                    </a>
-                  </li>
+          {% for block in section.blocks %}
+            {% if block.type == 'Custom_images' %}
+              {% assign menu_t = block.settings.sub-menu_title | handle %}
+              {% if menu_t == child_handle %}
+                <div class="let-im">
+                  <img src="{{ block.settings.menu_image | img_url:'thumbnail' }}" alt="{{ childlink.title }}">
                 </div>
-                {% endfor %}
-            </div>
-            {% endfor %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+
+          <li class="main-sub-child_menu_item">
+            <a href="{{ childlink.url }}">{{ childlink.title }}</a>
+          </li>
         </div>
-                
-              </ul>
+
+        {% if childlink.links %}
+          {% for grandchildlink in childlink.links %}
+            <div class="both-li">
+              {%- assign grand_handle = grandchildlink.title | handle -%}
+
+              {% for block in section.blocks %}
+                {% if block.type == 'Custom_images' %}
+                  {% assign menu_t = block.settings.sub-menu_title | handle %}
+                  {% if menu_t == grand_handle %}
+                    <div class="let-im">
+                      <img src="{{ block.settings.menu_image | img_url:'thumbnail' }}" alt="{{ grandchildlink.title }}">
+                    </div>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+
+              <li class="child_menu_item">
+                <a href="{{ grandchildlink.url }}">{{ grandchildlink.title }}</a>
+              </li>
+            </div>
+          {% endfor %}
+        {% endif %}
+
+      </div>
+    {% endfor %}
+  </div>
+</ul>
 
 
 
