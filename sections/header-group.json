@@ -82,6 +82,26 @@
             "block_link": "#"
           }
         },
+        "mega_menu_tFTCKH": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_title": "Colours & Samples",
+            "block_heading": "",
+            "video": "shopify://files/videos/10559933-hd_1920_1080_25fps.mp4",
+            "block_subtext": "",
+            "block_link": ""
+          }
+        },
+        "mega_menu_wimkN7": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_title": "Exterior",
+            "block_heading": "",
+            "video": "shopify://files/videos/5895457-uhd_3840_2160_30fps.mp4",
+            "block_subtext": "",
+            "block_link": ""
+          }
+        },
         "custom_images_HHqDm6": {
           "type": "Custom_images",
           "settings": {
@@ -101,6 +121,8 @@
         "mega_menu_t3nHxE",
         "mega_menu_83cerV",
         "mega_menu_Ctxmmn",
+        "mega_menu_tFTCKH",
+        "mega_menu_wimkN7",
         "custom_images_HHqDm6",
         "custom_images_cAhKzJ"
       ],
