@@ -157,6 +157,13 @@
             "sub-menu_title": "Floors",
             "menu_image": "shopify://shop_images/vector-square.png"
           }
+        },
+        "custom_images_YqQTYn": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Wood oil",
+            "menu_image": "shopify://shop_images/brush-cleaning.png"
+          }
         }
       },
       "block_order": [
@@ -172,7 +179,8 @@
         "custom_images_wnVmdD",
         "custom_images_MzyewX",
         "custom_images_ALbzXQ",
-        "custom_images_g3JF7t"
+        "custom_images_g3JF7t",
+        "custom_images_YqQTYn"
       ],
       "settings": {
         "btn_link": "",
