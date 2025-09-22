@@ -6,50 +6,7 @@
       <a href="{{- link.url -}}">{{- link.title -}}</a>
       <div class="mega_menu_items_wrapper item_{{- link.title -}}">
         <div class="mega_menu_items_blocks">
-          <div class="menu_custom_block_wrappper">
-            {% for block in section.blocks %}
-              {% if block.type == 'mega_menu' %}
-                {% assign menutitle = block.settings.menu_title | handle %}
-                {% assign menulinktitle = link.title | handle %}
-                {% if menulinktitle == menutitle %}
-                  <div class="menu_custom_block">
-                    {% if block.settings.block_image %}
-                        <div class="menu_custom_block_img">
-                      <img
-                        loading="lazy"
-                        height="auto"
-                        width="auto"
-                        src="{{- block.settings.block_image |img_url:'350x350' -}}"
-                        alt="{{- block.settings.block_image.alt -}}"
-                      >
-                          </div>
-                      {% else %}
-                        {% if block.settings.video != blank %}
-                            <div class="video-chose">
-{{ block.settings.video | video_tag: controls: false, autoplay: false, loop: false, muted: true, id: "myVideo" }}
-<button id="playButton" class="video-play-btn">Play</button>
-</div>
-
-                            {% endif %}
-                          {% endif %}
-                    
-                    {% if block.settings.block_subtext != blank or block.settings.block_heading != blank or block.settings.block_subtext-h != blank %}
-                      <div class="menu_custom_block_content">
-                        <p class="menu_custom_block_heading">{{- block.settings.block_heading -}}</p>
-                        <span class="menu_custom_block_subtext">
-                          {{- block.settings.block_subtext -}}
-                        </span>
-
-                      </div>
-                    {% endif %}
-                  {% if block.settings.block_link != blank %}
-                    <a href="{{- block.settings.block_link -}}"></a>
-                  {% endif %}
-                  </div>
-                {% endif %}
-              {% endif %}
-            {% endfor %}
-          </div>
+          
 
     <ul class="child_menu_links">
 <div class="shown-link">
@@ -102,6 +59,50 @@
 
   </div>
 {% endfor %}
+<div class="menu_custom_block_wrappper">
+            {% for block in section.blocks %}
+              {% if block.type == 'mega_menu' %}
+                {% assign menutitle = block.settings.menu_title | handle %}
+                {% assign menulinktitle = link.title | handle %}
+                {% if menulinktitle == menutitle %}
+                  <div class="menu_custom_block">
+                    {% if block.settings.block_image %}
+                        <div class="menu_custom_block_img">
+                      <img
+                        loading="lazy"
+                        height="auto"
+                        width="auto"
+                        src="{{- block.settings.block_image |img_url:'350x350' -}}"
+                        alt="{{- block.settings.block_image.alt -}}"
+                      >
+                          </div>
+                      {% else %}
+                        {% if block.settings.video != blank %}
+                            <div class="video-chose">
+{{ block.settings.video | video_tag: controls: false, autoplay: false, loop: false, muted: true, id: "myVideo" }}
+<button id="playButton" class="video-play-btn">Play</button>
+</div>
+
+                            {% endif %}
+                          {% endif %}
+                    
+                    {% if block.settings.block_subtext != blank or block.settings.block_heading != blank or block.settings.block_subtext-h != blank %}
+                      <div class="menu_custom_block_content">
+                        <p class="menu_custom_block_heading">{{- block.settings.block_heading -}}</p>
+                        <span class="menu_custom_block_subtext">
+                          {{- block.settings.block_subtext -}}
+                        </span>
+
+                      </div>
+                    {% endif %}
+                  {% if block.settings.block_link != blank %}
+                    <a href="{{- block.settings.block_link -}}"></a>
+                  {% endif %}
+                  </div>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
 </div>
 </ul>
 
