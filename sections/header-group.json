@@ -51,6 +51,21 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "mega_menu_t3nHxE": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_title": "Interior",
+            "block_heading": "",
+            "block_subtext": "",
+            "block_subtext-h": "",
+            "block_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_t3nHxE"
+      ],
       "settings": {
         "btn_link": "",
         "btn_text": "Advise & Test",
