@@ -1,134 +1,134 @@
 <nav class="custom_header__inline-menu header__inline-menu">
-  <ul class="custom_list-menu">
-    {%- for link in section.settings.menu.links -%}
-      <li class="main_menu_item">
-        {%- if link.links != blank -%}
-          <a href="{{- link.url -}}">{{- link.title -}}</a>
-          <div class="mega_menu_items_wrapper item_{{- link.title -}}">
-            <div class="mega_menu_items_blocks">
-              <div class="menu_custom_block_wrappper">
-                {% for block in section.blocks %}
-                  {% if block.type == 'mega_menu' %}
-                    {% assign menutitle = block.settings.menu_title | handle %}
-                    {% assign menulinktitle = link.title | handle %}
-                    {% if menulinktitle == menutitle %}
-                      <div class="menu_custom_block">
-                        {% if block.settings.block_image %}
-                            <div class="menu_custom_block_img">
-                          <img
-                            loading="lazy"
-                            height="auto"
-                            width="auto"
-                            src="{{- block.settings.block_image |img_url:'350x350' -}}"
-                            alt="{{- block.settings.block_image.alt -}}"
-                          >
-                             </div>
-                          {% else %}
-                            {% if block.settings.video != blank %}
-                                <div class="video-chose">
-  {{ block.settings.video | video_tag: controls: false, autoplay: false, loop: false, muted: true, id: "myVideo" }}
-  <button id="playButton" class="video-play-btn">Play</button>
+<ul class="custom_list-menu">
+{%- for link in section.settings.menu.links -%}
+  <li class="main_menu_item">
+    {%- if link.links != blank -%}
+      <a href="{{- link.url -}}">{{- link.title -}}</a>
+      <div class="mega_menu_items_wrapper item_{{- link.title -}}">
+        <div class="mega_menu_items_blocks">
+          <div class="menu_custom_block_wrappper">
+            {% for block in section.blocks %}
+              {% if block.type == 'mega_menu' %}
+                {% assign menutitle = block.settings.menu_title | handle %}
+                {% assign menulinktitle = link.title | handle %}
+                {% if menulinktitle == menutitle %}
+                  <div class="menu_custom_block">
+                    {% if block.settings.block_image %}
+                        <div class="menu_custom_block_img">
+                      <img
+                        loading="lazy"
+                        height="auto"
+                        width="auto"
+                        src="{{- block.settings.block_image |img_url:'350x350' -}}"
+                        alt="{{- block.settings.block_image.alt -}}"
+                      >
+                          </div>
+                      {% else %}
+                        {% if block.settings.video != blank %}
+                            <div class="video-chose">
+{{ block.settings.video | video_tag: controls: false, autoplay: false, loop: false, muted: true, id: "myVideo" }}
+<button id="playButton" class="video-play-btn">Play</button>
 </div>
 
-                                {% endif %}
-                              {% endif %}
-                       
-                        {% if block.settings.block_subtext != blank or block.settings.block_heading != blank or block.settings.block_subtext-h != blank %}
-                          <div class="menu_custom_block_content">
-                            <p class="menu_custom_block_heading">{{- block.settings.block_heading -}}</p>
-                            <span class="menu_custom_block_subtext">
-                              {{- block.settings.block_subtext -}}
-                            </span>
+                            {% endif %}
+                          {% endif %}
+                    
+                    {% if block.settings.block_subtext != blank or block.settings.block_heading != blank or block.settings.block_subtext-h != blank %}
+                      <div class="menu_custom_block_content">
+                        <p class="menu_custom_block_heading">{{- block.settings.block_heading -}}</p>
+                        <span class="menu_custom_block_subtext">
+                          {{- block.settings.block_subtext -}}
+                        </span>
 
-                          </div>
-                        {% endif %}
-                      {% if block.settings.block_link != blank %}
-                        <a href="{{- block.settings.block_link -}}"></a>
-                      {% endif %}
                       </div>
                     {% endif %}
+                  {% if block.settings.block_link != blank %}
+                    <a href="{{- block.settings.block_link -}}"></a>
                   {% endif %}
-                {% endfor %}
-              </div>
+                  </div>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
 
-        <ul class="child_menu_links">
-  <div class="shown-link">
-    {% for childlink in link.links %}
-      <div class="sub-main-lnk">
+    <ul class="child_menu_links">
+<div class="shown-link">
+{% for childlink in link.links %}
+  <div class="sub-main-lnk">
+    <div class="both-li">
+      {%- assign child_handle = childlink.title | handle -%}
+
+      {% for block in section.blocks %}
+        {% if block.type == 'Custom_images' %}
+          {% assign menu_t = block.settings.sub-menu_title | handle %}
+          {% if menu_t == child_handle %}
+            <div class="let-im">
+              <img src="{{ block.settings.menu_image | img_url:'thumbnail' }}" alt="{{ childlink.title }}">
+            </div>
+          {% endif %}
+          
+        {% endif %}
+      {% endfor %}
+
+      <li class="main-sub-child_menu_item">
+        <a href="{{ childlink.url }}">{{ childlink.title }}</a>
+      </li>
+      
+    </div>
+
+    {% if childlink.links %}
+      {% for grandchildlink in childlink.links %}
         <div class="both-li">
-          {%- assign child_handle = childlink.title | handle -%}
+          {%- assign grand_handle = grandchildlink.title | handle -%}
 
           {% for block in section.blocks %}
             {% if block.type == 'Custom_images' %}
               {% assign menu_t = block.settings.sub-menu_title | handle %}
-              {% if menu_t == child_handle %}
+              {% if menu_t == grand_handle %}
                 <div class="let-im">
-                  <img src="{{ block.settings.menu_image | img_url:'thumbnail' }}" alt="{{ childlink.title }}">
+                  <img src="{{ block.settings.menu_image | img_url:'thumbnail' }}" alt="{{ grandchildlink.title }}">
                 </div>
+                  <div class="tag-text">{{ block.settings.tag_title }}</div>
               {% endif %}
-             
             {% endif %}
           {% endfor %}
 
-          <li class="main-sub-child_menu_item">
-            <a href="{{ childlink.url }}">{{ childlink.title }}</a>
+          <li class="child_menu_item">
+            <a href="{{ grandchildlink.url }}">{{ grandchildlink.title }}</a>
           </li>
-         
         </div>
+      {% endfor %}
+    {% endif %}
 
-        {% if childlink.links %}
-          {% for grandchildlink in childlink.links %}
-            <div class="both-li">
-              {%- assign grand_handle = grandchildlink.title | handle -%}
-
-              {% for block in section.blocks %}
-                {% if block.type == 'Custom_images' %}
-                  {% assign menu_t = block.settings.sub-menu_title | handle %}
-                  {% if menu_t == grand_handle %}
-                    <div class="let-im">
-                      <img src="{{ block.settings.menu_image | img_url:'thumbnail' }}" alt="{{ grandchildlink.title }}">
-                    </div>
-                      <div class="tag-text">{{ block.settings.tag_title }}</div>
-                  {% endif %}
-                {% endif %}
-              {% endfor %}
-
-              <li class="child_menu_item">
-                <a href="{{ grandchildlink.url }}">{{ grandchildlink.title }}</a>
-              </li>
-            </div>
-          {% endfor %}
-        {% endif %}
-
-      </div>
-    {% endfor %}
   </div>
+{% endfor %}
+</div>
 </ul>
 
 
 
 
 
-            </div>
+        </div>
 {% unless link.title == "Products" %}
 <div class="register-menu">
 <a href="{{ section.settings.btn-link }}"><div class="reg-btn">{{ section.settings.btn }}</div></a>
 </div>
 {% endunless %}
-          </div>
-        {% else %}
-          <a href="{{- link.url -}}">{{- link.title -}}</a>
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
+      </div>
+    {% else %}
+      <a href="{{- link.url -}}">{{- link.title -}}</a>
+    {% endif %}
+  </li>
+{% endfor %}
+</ul>
 </nav>
 
 
 
 
 <style>
-    .shown-link {
+.shown-link {
     display: flex;
 }
 .custom_header__inline-menu ul.custom_list-menu {
