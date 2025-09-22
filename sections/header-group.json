@@ -150,6 +150,13 @@
             "sub-menu_title": "Douglas wood",
             "menu_image": "shopify://shop_images/Screenshot_7.png"
           }
+        },
+        "custom_images_g3JF7t": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Floors",
+            "menu_image": "shopify://shop_images/vector-square.png"
+          }
         }
       },
       "block_order": [
@@ -164,7 +171,8 @@
         "custom_images_4abKUQ",
         "custom_images_wnVmdD",
         "custom_images_MzyewX",
-        "custom_images_ALbzXQ"
+        "custom_images_ALbzXQ",
+        "custom_images_g3JF7t"
       ],
       "settings": {
         "btn_link": "",
