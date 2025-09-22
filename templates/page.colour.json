@@ -136,10 +136,10 @@
         "video_url": "https://cdn.shopify.com/videos/c/o/v/34803a8d2ef04246bbcf01f47ba29801.mp4"
       }
     },
-    "icons_section_Xa7jad": {
+    "icons_section_cF3FEP": {
       "type": "icons-section",
       "blocks": {
-        "container_ffQwGP": {
+        "container_qQf4Pj": {
           "type": "container",
           "settings": {
             "class": "first-container-sec",
@@ -150,7 +150,7 @@
             "extra_text": "On weekdays 08:30 - 17:00"
           }
         },
-        "container_tfjbbz": {
+        "container_38U4GC": {
           "type": "container",
           "settings": {
             "class": "",
@@ -161,7 +161,7 @@
             "extra_text": "Response within 2 working days"
           }
         },
-        "container_9gjW6p": {
+        "container_piA8hi": {
           "type": "container",
           "settings": {
             "class": "",
@@ -172,7 +172,7 @@
             "extra_text": "Advice within 2 days"
           }
         },
-        "container_ViGxtE": {
+        "container_VUVw74": {
           "type": "container",
           "settings": {
             "class": "",
@@ -185,10 +185,10 @@
         }
       },
       "block_order": [
-        "container_ffQwGP",
-        "container_tfjbbz",
-        "container_9gjW6p",
-        "container_ViGxtE"
+        "container_qQf4Pj",
+        "container_38U4GC",
+        "container_piA8hi",
+        "container_VUVw74"
       ],
       "name": "icons section",
       "settings": {
@@ -202,6 +202,6 @@
     "custom_vedio_banner_QUJ4t6",
     "custom_multicolumn_xzf9Vw",
     "project_n8LMJf",
-    "icons_section_Xa7jad"
+    "icons_section_cF3FEP"
   ]
 }
