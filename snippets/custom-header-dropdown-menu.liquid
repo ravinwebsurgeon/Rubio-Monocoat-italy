@@ -381,7 +381,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-document.querySelectorAll('.section-header li.has-mega').forEach((item) => {
+document.querySelectorAll('.main_menu_item').forEach((item) => {
   item.addEventListener('mouseenter', () => {
     document.querySelector('.section-header').classList.add('mega-open');
   });
@@ -390,6 +390,7 @@ document.querySelectorAll('.section-header li.has-mega').forEach((item) => {
     document.querySelector('.section-header').classList.remove('mega-open');
   });
 });
+
 
 
 </script>
