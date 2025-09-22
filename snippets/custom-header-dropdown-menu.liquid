@@ -49,47 +49,56 @@
                 {% endfor %}
               </div>
 
-        <ul class="child_menu_links">
-  {% for childlink in link.links %}
-    <li class="main-sub-child_menu_item">
-      <div class="both-li">
-        <div class="let-im">
-             {% for block in section.blocks %}
-          {% if block.type == 'Custom_images' %}
-            {% assign menu_t = block.settings.sub_menu_title | handle %}
-            {% assign chil = childlink.title | handle %}
-            {% if menu_t == chil %}
-              <img src="{{ block.settings.menu_image | img_url: 'thumbnail' }}" alt="">
-            {% endif %}
-          {% endif %}
-        {% endfor %}
-        </div>
-
-        <a href="{{ childlink.url }}">{{ childlink.title }}</a>
-      </div>
-
-      {% if childlink.links.size > 0 %}
-        <ul>
-          {% for grandchildlink in childlink.links %}
-            <li class="child_menu_item">
-              <div class="both-li">
-                <div class="let-im">
-                  {% if block.type == 'Custom_images' %}
-                    {% assign gran = grandchildlink.title | handle %}
-                    {% if menu_t == gran %}
-                      <img src="{{ block.settings.menu_image | img_url: 'thumbnail' }}" alt="">
-                    {% endif %}
-                  {% endif %}
+         <ul class="child_menu_links">
+                 <div class="shown-link">
+                  {% for childlink in link.links %}
+                    <div class="sub-main-lnk">
+                      <div class="both-li">
+                        <div class="let-im">
+                          {% if block.type == 'Custom_images' %}
+                             {% assign menu-t = block.settings.sub-menu_title  %}
+                             {% assign chil = childlink.title | handle %}
+                           {% if menu-t == chil %}
+                           <img src="{{ block.settings.menu_image | img_url:"thumbnail" }}">
+                           {% endif %}
+                          {% endif %}
+                        </div>
+                  <li class="main-sub-child_menu_item">
+                    <a href="{{- childlink.url -}}">
+                      {{- childlink.title -}}
+                      
+                    </a>
+                  </li>
                 </div>
-                <a href="{{ grandchildlink.url }}">{{ grandchildlink.title }}</a>
-              </div>
-            </li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    </li>
-  {% endfor %}
-</ul>
+                   {% for grandchildlink in childlink.links %}
+                     <div class="both-li">
+                       <div class="let-im">
+
+                         {% if block.type == 'Custom_images' %}
+                          
+                             {% assign menu-t = block.settings.sub-menu_title  %}
+                             {% assign gran = grandchildlink.title | handle %}
+                           {% if menu-t == gran %}
+                           <img src="{{ block.settings.menu_image | img_url:"thumbnail" }}">
+                           {% endif %}
+                          {% endif %}
+                       </div>
+                            <li class="child_menu_item">
+                    <a href="{{- grandchildlink.url -}}">
+                      {{- grandchildlink.title -}}
+                      
+                    </a>
+                  </li>
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+                
+              </ul>
+
+
+why it not work
 
 
             </div>
