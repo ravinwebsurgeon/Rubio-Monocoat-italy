@@ -7,7 +7,7 @@
 }
 body .header__icon:hover .icon {
     transform: inherit;
-}
+} 
 .announcement-bar-slider.slider-buttons button.slider-button {
     display: none;
 }
