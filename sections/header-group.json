@@ -61,10 +61,18 @@
             "block_subtext": "",
             "block_link": ""
           }
+        },
+        "custom_images_HHqDm6": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Application",
+            "menu_image": "shopify://shop_images/Ellipse_41_487536b1-c882-4635-9dc5-6f2bb54a7a3f.png"
+          }
         }
       },
       "block_order": [
-        "mega_menu_t3nHxE"
+        "mega_menu_t3nHxE",
+        "custom_images_HHqDm6"
       ],
       "settings": {
         "btn_link": "",
