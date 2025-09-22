@@ -677,7 +677,65 @@
   "blocks": [
     {
       "type": "@app"
+    },
+    {
+      "type": "Custom_images",
+      "name": "Custom Images",
+      "settings":[
+        {
+        "type": "text",
+        "id": "menu_title",
+        "label": "Menu Title"
+        },
+        {
+        "type": "image_picker",
+        "id": "menu_image",
+        "label": "Image"
+        },
+        {
+        "type": "text",
+        "id": "menu_subtext",
+        "label": "Menu Subtext"
+        }
+      ]
+    },
+       {
+      "type": "mega_menu",
+      "name": "Mega Menu",
+      "settings":[
+        {
+        "type": "text",
+        "id": "menu_title",
+        "label": "Menu Title"
+        },
+          {
+        "type": "text",
+        "id": "block_heading",
+        "label": "Block Heading"
+        },
+        {
+        "type": "image_picker",
+        "id": "block_image",
+        "label": "Block Image"
+        },
+        {
+        "type": "text",
+        "id": "block_subtext",
+        "label": "Block Subtext"
+        },
+ {
+        "type": "text",
+        "id": "block_subtext-h",
+        "label": "Block Info"
+        },
+         {
+        "type": "url",
+        "id": "block_link",
+        "label": "Block Link"
+        }
+      ]
     }
+
   ]
 }
 {% endschema %}
