@@ -73,12 +73,12 @@
                    {% for grandchildlink in childlink.links %}
                      <div class="both-li">
                        <div class="let-im">
-uu
+
                          {% if block.type == 'Custom_images' %}
-                          zz
+                          
                              {% assign menu-t = block.settings.sub-menu_title  %}
-                            
-                           {% if menu-t == grandchildlink.title %}
+                             {% assign gran = grandchildlink.title %}
+                           {% if menu-t == gran %}
                            <img src="{{ block.settings.menu_image | img_url:"thumbnail" }}">
                            {% endif %}
                           {% endif %}
