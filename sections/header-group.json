@@ -136,6 +136,20 @@
             "sub-menu_title": "Wood type",
             "menu_image": "shopify://shop_images/container_1.png"
           }
+        },
+        "custom_images_MzyewX": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Teak wood",
+            "menu_image": "shopify://shop_images/Screenshot_6.png"
+          }
+        },
+        "custom_images_ALbzXQ": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Douglas wood",
+            "menu_image": "shopify://shop_images/Screenshot_7.png"
+          }
         }
       },
       "block_order": [
@@ -148,7 +162,9 @@
         "custom_images_cAhKzJ",
         "custom_images_7dUwaR",
         "custom_images_4abKUQ",
-        "custom_images_wnVmdD"
+        "custom_images_wnVmdD",
+        "custom_images_MzyewX",
+        "custom_images_ALbzXQ"
       ],
       "settings": {
         "btn_link": "",
