@@ -518,6 +518,27 @@ document.querySelectorAll('.main_menu_item').forEach((item) => {
 });
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  if (!window.menuBlocks) return;
 
+  window.menuBlocks.forEach(block => {
+    const parent = document.querySelector(`.shown-link .item_${block.handle}`);
+    if (!parent) return;
+
+    const div = document.createElement("div");
+    div.className = "menu_custom_block";
+    div.innerHTML = `
+      <div class="menu_custom_block_img">
+        <img src="${block.img}" loading="lazy" alt="">
+      </div>
+      <div class="menu_custom_block_content">
+        <p class="menu_custom_block_heading">${block.heading}</p>
+        <span class="menu_custom_block_subtext">${block.subtext}</span>
+      </div>
+      <a href="${block.link}"></a>
+    `;
+    parent.appendChild(div);
+  });
+});
 
 </script>
