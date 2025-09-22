@@ -87,14 +87,14 @@
               {% if menu_t == grand_handle %}
                 <div class="let-im">
                   <img src="{{ block.settings.menu_image | img_url:'thumbnail' }}" alt="{{ grandchildlink.title }}">
-                </div>                 
+                </div>
+                  <div class="tag-text">{{ block.settings.tag_title }}</div>
               {% endif %}
             {% endif %}
           {% endfor %}
 
           <li class="child_menu_item">
             <a href="{{ grandchildlink.url }}">{{ grandchildlink.title }}</a>
-             <div class="tag-text">{{ settings.tag_title }}</div>
           </li>
         </div>
       {% endfor %}
