@@ -26,8 +26,10 @@
                           {% else %}
                             {% if block.settings.video != blank %}
                                 <div class="video-chose">
-                                  {{ block.settings.video | video_tag: controls: false, autoplay: true, loop: true, muted: true }}  
-                                </div>
+  {{ block.settings.video | video_tag: controls: false, autoplay: false, loop: true, muted: true, id: "myVideo" }}
+  <button id="playButton" class="video-play-btn">Play</button>
+</div>
+
                                 {% endif %}
                               {% endif %}
                        
