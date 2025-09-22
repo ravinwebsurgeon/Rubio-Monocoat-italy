@@ -13,8 +13,8 @@
                     {% assign menulinktitle = link.title | handle %}
                     {% if menulinktitle == menutitle %}
                       <div class="menu_custom_block">
-                        <div class="menu_custom_block_img">
-                          {% if block.settings.block_image %}
+                        {% if block.settings.block_image %}
+                            <div class="menu_custom_block_img">
                           <img
                             loading="lazy"
                             height="auto"
@@ -22,6 +22,7 @@
                             src="{{- block.settings.block_image |img_url:'350x350' -}}"
                             alt="{{- block.settings.block_image.alt -}}"
                           >
+                             </div>
                           {% else %}
                             {% if block.settings.video != blank %}
   <div class="video-chose">
@@ -29,7 +30,7 @@
   </div>
   {% endif %}
 {% endif %}
-                        </div>
+                       
                         {% if block.settings.block_subtext != blank or block.settings.block_heading != blank or block.settings.block_subtext-h != blank %}
                           <div class="menu_custom_block_content">
                             <p class="menu_custom_block_heading">{{- block.settings.block_heading -}}</p>
