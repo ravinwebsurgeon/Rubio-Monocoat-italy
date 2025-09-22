@@ -62,6 +62,26 @@
             "block_link": ""
           }
         },
+        "mega_menu_83cerV": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_title": "Tools",
+            "block_heading": "Apply oil easier",
+            "block_image": "shopify://shop_images/Rectangle_241.png",
+            "block_subtext": "Shop Now",
+            "block_link": "#"
+          }
+        },
+        "mega_menu_Ctxmmn": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_title": "Tools",
+            "block_heading": "Keep your wood intop condition",
+            "block_image": "shopify://shop_images/DSC05232.jpg",
+            "block_subtext": "Shop Now",
+            "block_link": "#"
+          }
+        },
         "custom_images_HHqDm6": {
           "type": "Custom_images",
           "settings": {
@@ -79,6 +99,8 @@
       },
       "block_order": [
         "mega_menu_t3nHxE",
+        "mega_menu_83cerV",
+        "mega_menu_Ctxmmn",
         "custom_images_HHqDm6",
         "custom_images_cAhKzJ"
       ],
