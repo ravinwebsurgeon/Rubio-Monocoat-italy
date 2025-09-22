@@ -54,6 +54,7 @@
                   {% for childlink in link.links %}
                     <div class="sub-main-lnk">
                       <div class="both-li">
+                        {% for block in section.blocks %}
                         <div class="let-im">
                           {% if block.type == 'Custom_images' %}
                              {% assign menu-t = block.settings.sub-menu_title  %}
@@ -63,6 +64,7 @@
                            {% endif %}
                           {% endif %}
                         </div>
+                      {% endfor %}
                   <li class="main-sub-child_menu_item">
                     <a href="{{- childlink.url -}}">
                       {{- childlink.title -}}
@@ -72,6 +74,7 @@
                 </div>
                    {% for grandchildlink in childlink.links %}
                      <div class="both-li">
+                      {% for block in section.blocks %}
                        <div class="let-im">
 
                          {% if block.type == 'Custom_images' %}
@@ -83,6 +86,7 @@
                            {% endif %}
                           {% endif %}
                        </div>
+                      {% endfor %}
                             <li class="child_menu_item">
                     <a href="{{- grandchildlink.url -}}">
                       {{- grandchildlink.title -}}
