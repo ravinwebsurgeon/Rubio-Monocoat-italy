@@ -57,7 +57,7 @@
                         <div class="let-im">
                           {% if block.type == 'Custom_images' %}
                              {% assign menu-t = block.settings.sub-menu_title  %}
-                             {% assign chil = childlink.title %}
+                             {% assign chil = childlink.title | handle %}
                            {% if menu-t == chil %}
                            <img src="{{ block.settings.menu_image | img_url:"thumbnail" }}">
                            {% endif %}
@@ -77,7 +77,7 @@
                          {% if block.type == 'Custom_images' %}
                           
                              {% assign menu-t = block.settings.sub-menu_title  %}
-                             {% assign gran = grandchildlink.title %}
+                             {% assign gran = grandchildlink.title | handle %}
                            {% if menu-t == gran %}
                            <img src="{{ block.settings.menu_image | img_url:"thumbnail" }}">
                            {% endif %}
