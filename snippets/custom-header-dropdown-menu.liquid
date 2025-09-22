@@ -357,15 +357,9 @@
 li.main_menu_item.unhovered >a {
     opacity: 0.5;
 }
-document.querySelectorAll('.section-header li.has-mega').forEach((item) => {
-  item.addEventListener('mouseenter', () => {
-    document.querySelector('.section-header').classList.add('mega-open');
-  });
-
-  item.addEventListener('mouseleave', () => {
-    document.querySelector('.section-header').classList.remove('mega-open');
-  });
-});
+.section-header.mega-open {
+  background: #f9f9f9; /* Example style */
+}
 
 </style>
 
