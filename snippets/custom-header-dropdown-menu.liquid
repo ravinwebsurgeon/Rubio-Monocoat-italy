@@ -66,12 +66,14 @@
                   <img src="{{ block.settings.menu_image | img_url:'thumbnail' }}" alt="{{ childlink.title }}">
                 </div>
               {% endif %}
+               <div class="tag-text">{{ block.settings.tag_title }}</div>
             {% endif %}
           {% endfor %}
 
           <li class="main-sub-child_menu_item">
             <a href="{{ childlink.url }}">{{ childlink.title }}</a>
           </li>
+         
         </div>
 
         {% if childlink.links %}
