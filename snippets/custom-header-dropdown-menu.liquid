@@ -25,11 +25,11 @@
                              </div>
                           {% else %}
                             {% if block.settings.video != blank %}
-  <div class="video-chose">
-    {{ block.settings.video | video_tag: controls: false, autoplay: true, loop: true, muted: true }}  
-  </div>
-  {% endif %}
-{% endif %}
+                                <div class="video-chose">
+                                  {{ block.settings.video | video_tag: controls: false, autoplay: true, loop: true, muted: true }}  
+                                </div>
+                                {% endif %}
+                              {% endif %}
                        
                         {% if block.settings.block_subtext != blank or block.settings.block_heading != blank or block.settings.block_subtext-h != blank %}
                           <div class="menu_custom_block_content">
@@ -54,6 +54,7 @@
     <li class="main-sub-child_menu_item">
       <div class="both-li">
         <div class="let-im">
+             {% for block in section.blocks %}
           {% if block.type == 'Custom_images' %}
             {% assign menu_t = block.settings.sub_menu_title | handle %}
             {% assign chil = childlink.title | handle %}
@@ -61,6 +62,7 @@
               <img src="{{ block.settings.menu_image | img_url: 'thumbnail' }}" alt="">
             {% endif %}
           {% endif %}
+        {% endfor %}
         </div>
 
         <a href="{{ childlink.url }}">{{ childlink.title }}</a>
