@@ -395,12 +395,11 @@ li.main_menu_item.unhovered >a {
 }
 
 .sub-main-lnk .both-li li {
-    width: calc(100% - 20px);
+    {% comment %} width: calc(100% - 20px); {% endcomment %}
 }
 
 .sub-main-lnk .both-li .tag-text {
-    position: absolute;
-    left: 34%;
+    order: 3;
 }
 .sub-main-lnk .both-li:last-child {
     padding-top: 0;
