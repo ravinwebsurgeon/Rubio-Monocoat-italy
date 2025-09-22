@@ -115,6 +115,13 @@
             "sub-menu_title": "Preparation",
             "menu_image": "shopify://shop_images/notepad-text.png"
           }
+        },
+        "custom_images_7dUwaR": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Pre-treatment",
+            "menu_image": "shopify://shop_images/paintbrush.png"
+          }
         }
       },
       "block_order": [
@@ -124,7 +131,8 @@
         "mega_menu_tFTCKH",
         "mega_menu_wimkN7",
         "custom_images_HHqDm6",
-        "custom_images_cAhKzJ"
+        "custom_images_cAhKzJ",
+        "custom_images_7dUwaR"
       ],
       "settings": {
         "btn_link": "",
