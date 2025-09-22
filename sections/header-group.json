@@ -140,14 +140,14 @@
         "custom_images_MzyewX": {
           "type": "Custom_images",
           "settings": {
-            "sub-menu_title": "Teak wood",
+            "sub-menu_title": "Oak wood",
             "menu_image": "shopify://shop_images/Screenshot_6.png"
           }
         },
         "custom_images_ALbzXQ": {
           "type": "Custom_images",
           "settings": {
-            "sub-menu_title": "Douglas wood",
+            "sub-menu_title": "Beech wood",
             "menu_image": "shopify://shop_images/Screenshot_7.png"
           }
         },
