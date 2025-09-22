@@ -53,19 +53,23 @@
                  <div class="shown-link">
                   {% for childlink in link.links %}
                     <div class="sub-main-lnk">
+                      <div class="both-li">
                   <li class="main-sub-child_menu_item">
                     <a href="{{- childlink.url -}}">
                       {{- childlink.title -}}
                       
                     </a>
                   </li>
+                </div>
                    {% for grandchildlink in childlink.links %}
+                     <div class="both-li">
                             <li class="child_menu_item">
                     <a href="{{- grandchildlink.url -}}">
                       {{- grandchildlink.title -}}
                       
                     </a>
                   </li>
+                </div>
                 {% endfor %}
             </div>
             {% endfor %}
