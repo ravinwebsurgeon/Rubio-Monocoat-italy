@@ -1537,7 +1537,7 @@ section.product-features-section .section-heading {
     flex: 0 auto;
 }
 .wood_colorss .icon-columns .icon-column .icon-heading {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     margin: 10px 0;
     line-height: normal;
@@ -1552,7 +1552,7 @@ section.product-features-section .section-heading {
     height: 30px;
 }
 .wood_colorss .icon-columns .icon-column .icon-image-wrap + div {
-    max-width: 190px;
+    max-width: 160px;
     margin: 0 auto;
     text-align: center;
 }
