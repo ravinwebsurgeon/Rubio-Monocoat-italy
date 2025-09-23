@@ -91,32 +91,32 @@
                 <span>Filter by</span>
               </button>
              <div class="filters-code">
-              <select name="colour-filter" id="colour-filter">
-                <option value="" disabled selected>Colour</option>
-                {% for block in section.blocks %}
-                  {% assign tab_collection = block.settings.tab_collection %}
-                  {% for product in tab_collection.products %}
-                    {% for colour in product.metafields.custom.colour_filter2.value %}
-                      <option value="{{ colour }}">{{ colour }}</option>
+                <select name="colour-filter" id="colour-filter">
+                  <option value="" disabled selected>Colour</option>
+                  {% for block in section.blocks %}
+                    {% assign tab_collection = block.settings.tab_collection %}
+                    {% for product in tab_collection.products %}
+                      {% for colour in product.metafields.custom.colour_filter2.value %}
+                        <option value="{{ colour }}">{{ colour }}</option>
+                      {% endfor %}
                     {% endfor %}
                   {% endfor %}
-                {% endfor %}
-              </select>
-              <select name="product-filter" id="product-filter">
-                <option value="" disabled selected>Product</option>
-                {% for block in section.blocks %}
-                  {% assign tab_collection = block.settings.tab_collection %}
-                  {% for product in tab_collection.products %}
-                    {% for pro in product.metafields.custom.product_filter.value %}
-                      <option value="{{ pro }}">{{ pro }}</option>
+                </select>
+                <select name="product-filter" id="product-filter">
+                  <option value="" disabled selected>Product</option>
+                  {% for block in section.blocks %}
+                    {% assign tab_collection = block.settings.tab_collection %}
+                    {% for product in tab_collection.products %}
+                      {% for pro in product.metafields.custom.product_filter.value %}
+                        <option value="{{ pro }}">{{ pro }}</option>
+                      {% endfor %}
                     {% endfor %}
                   {% endfor %}
-                {% endfor %}
-              </select>
-                <label class="avail-toggle">
-                <input type="checkbox" id="available-filter">
-                <span>Available in Samples</span>
-              </label>
+                </select>
+                  <label class="avail-toggle">
+                  <input type="checkbox" id="available-filter">
+                  <span>Available in Samples</span>
+                </label>
               </div>
             </div>
             <button class="tips-link" id="openVideo">
