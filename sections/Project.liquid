@@ -1059,57 +1059,6 @@ button.circle-tab.active span.circle-tab-ing:after {
     outline: none;
     box-shadow: none;
 }
-
-/* Responsive adjustments */
-@media (max-width: 1480px) {
-  .heading-pr,.oil-head {
-      font-size: 28px;
-  }
-  .product-item-conts h3 {
-      font-size: 14px;
-      margin: 10px 0 5px;
-  }
-  .tab-products ul.product-grid {
-      gap: 15px;
-  }
-  .circle-tab img,span.circle-tab-ing {
-    width: 100px;
-    height: 100px;
-  }
-  .circle-tabs {
-    max-width: 960px;
-  }
-}
-
-
-@media (max-width: 1200px) {
-  .product-grid.cols-7 {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-
-@media (max-width: 992px) {
-  .product-grid.cols-7,
-  .product-grid.cols-5 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .product-grid.cols-7,
-  .product-grid.cols-5,
-  .product-grid.cols-3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .product-grid.cols-7,
-  .product-grid.cols-5,
-  .product-grid.cols-3 {
-    grid-template-columns: 1fr;
-  }
-}
 .tab-products ul.product-grid {
     list-style: none;
     margin: 0;
@@ -1285,6 +1234,58 @@ li.product-item {
 .avail-toggle input[type="checkbox"]:checked::before {
   transform: translateX(16px); 
 }
+
+/* Responsive adjustments */
+@media (max-width: 1480px) {
+  .heading-pr,.oil-head {
+      font-size: 28px;
+  }
+  .product-item-conts h3 {
+      font-size: 14px;
+      margin: 10px 0 5px;
+  }
+  .tab-products ul.product-grid {
+      gap: 15px;
+  }
+  .circle-tab img,span.circle-tab-ing {
+    width: 100px;
+    height: 100px;
+  }
+  .circle-tabs {
+    max-width: 960px;
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .product-grid.cols-7 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .product-grid.cols-7,
+  .product-grid.cols-5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-grid.cols-7,
+  .product-grid.cols-5,
+  .product-grid.cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid.cols-7,
+  .product-grid.cols-5,
+  .product-grid.cols-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 </style>
 
