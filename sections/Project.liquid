@@ -20,11 +20,11 @@
           </div>
         </div>   
         <!-- Tabs + Products -->
-        <div class="circle-tabs-section">   
-          {% if section.settings.heading2 != blank %}
-            <h3 class="tabs-heading heading-pr">{{ section.settings.heading2 }}</h3>
-          {% endif %}
+        <div class="circle-tabs-section">             
           <div class="circle-tabs-outer">
+            {% if section.settings.heading2 != blank %}
+              <h3 class="tabs-heading heading-pr">{{ section.settings.heading2 }}</h3>
+            {% endif %}
             <div class="circle-tabs">
               {% for block in section.blocks %}
                 <button class="circle-tab{% if forloop.first %} active{% endif %}" data-tab="tab-{{ block.id }}">
@@ -491,19 +491,20 @@ document.addEventListener('DOMContentLoaded', function() {
   text-align: center;
 }
 .circle-tabs-outer {
-  padding: 0 30px;
+  padding: 0 0;
+  max-width: 1700px;
+  background-color: #f5f5f5;
+  width:95%;
+  padding: 45px;
+  border-radius: 20px;
+  margin:0 auto;
 }
 
 .circle-tabs {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
-  max-width: 1700px;
-  background-color: #f5f5f5;
-  margin: 0 auto;
-  border-radius: 20px;
-  padding: 45px
+  gap: 1.5rem;  
 }
 
 .circle-tab {
