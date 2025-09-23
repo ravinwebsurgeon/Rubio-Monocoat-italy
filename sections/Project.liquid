@@ -110,12 +110,16 @@
                             {% endif %}
                             <img class="featured-image" src="{{ product.featured_image | img_url: ' ' }}" alt="{{ product.title | escape }}" width="" height="">
                           </div>
-                          {% endif %}
-                          <h3>{{ product.title }}</h3>
-                          <p class="price hidden">{{ product.price | money }}</p>    
+                          {% endif %} 
                           </a>
                           <div class="plus-show">{% render 'Cs-plus-icon' %}</div>
                         </div>  
+                        <div class="product-item-conts">
+                          <a href="{{ product.url }}">
+                            <h3>{{ product.title }}</h3>
+                            <p class="price hidden">{{ product.price | money }}</p>    
+                          </a>                         
+                        </div>
                       </li>                      
                     {% endfor %}
                   </ul>
