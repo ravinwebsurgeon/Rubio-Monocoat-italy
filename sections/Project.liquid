@@ -922,6 +922,22 @@ button.icon-btn.filter span {
 .product-image-wrapper[data-default-view="featured"] .featured-image {
   opacity: 1;
 } 
+
+.product-image-wrapper[data-default-view="featured"]:hover .cover-image {
+  opacity: 1;
+}
+
+.product-image-wrapper[data-default-view="featured"]:hover .featured-image {
+  opacity: 0;
+} 
+
+.product-image-wrapper[data-default-view="cover"]:hover .cover-image {
+  opacity: 0;
+}
+
+.product-image-wrapper[data-default-view="cover"]:hover .featured-image {
+  opacity: 1;
+}
  
 /* Hover always overrides the default */
  {% comment %} .product-image-wrapper:hover .cover-image {
