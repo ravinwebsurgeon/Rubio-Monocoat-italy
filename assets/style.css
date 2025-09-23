@@ -1527,6 +1527,36 @@ section.product-features-section .section-heading {
     color: #000;
 }
 
+.icon-columns-section.wood_colorss .icon-columns {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+}
+.icon-columns-section.wood_colorss .icon-columns .icon-column {
+    flex: 0 auto;
+}
+.wood_colorss .icon-columns .icon-column .icon-heading {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 10px 0;
+    line-height: normal;
+    color: rgba(0,0,0,0.7);
+}
+.wood_colorss .icon-columns .icon-column .icon-image-wrap {
+    width: 60px;
+    height: 60px;
+}
+.wood_colorss .icon-columns .icon-column .icon-image-wrap .icon-image {
+    width: 30px;
+    height: 30px;
+}
+.wood_colorss .icon-columns .icon-column .icon-image-wrap + div {
+    max-width: 190px;
+    margin: 0 auto;
+    text-align: center;
+}
+
 /* ==========Media Css ========== */
 
 
