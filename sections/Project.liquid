@@ -1089,12 +1089,13 @@ button.circle-tab.active span.circle-tab-ing:after {
   z-index:9999;
 }
 .quick-view-content {
-  background:#fff;
-  padding:20px;
-  max-width:600px;
-  width:90%;
-  position:relative;
-  border-radius:10px;
+  background: #fff;
+  padding: 0;
+  max-width: 640px;
+  width: 95%;
+  position: relative;
+  border-radius: 10px;
+  display: flex;
 }
 .quick-view-image img {
   width: 100%;
@@ -1102,6 +1103,16 @@ button.circle-tab.active span.circle-tab-ing:after {
   display: block;
   object-fit: cover;
   border-radius: 12px 0 0 12px;
+}
+.quick-view-content .quick-view-details {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 40%;
+}
+.quick-view-content .quick-view-image {
+    width: 60%;
 }
 .quick-view-details h3 {
   margin-top:10px;
