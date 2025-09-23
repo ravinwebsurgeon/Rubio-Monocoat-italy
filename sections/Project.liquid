@@ -807,6 +807,60 @@ document.addEventListener('DOMContentLoaded', function() {
     margin: 0 auto;
 }
 
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100px;
+  height: 2px;
+  background: #ccc;
+  border-radius: 50px;
+  outline: none;
+}
+
+/* Track styling */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  background: #bfbfbf;
+  border-radius: 5px;
+}
+input[type="range"]::-moz-range-track {
+  height: 6px;
+  background: #bfbfbf;
+  border-radius: 5px;
+}
+input[type="range"]::-ms-track {
+  height: 6px;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+/* Thumb styling */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #122c28; /* Dark Green */
+  cursor: pointer;
+  margin-top: -9px; /* thumb को सेंटर में align करने के लिए */
+}
+input[type="range"]::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #122c28;
+  cursor: pointer;
+}
+input[type="range"]::-ms-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #122c28;
+  cursor: pointer;
+}
+
+
 
 /* Responsive adjustments */
 @media (max-width: 1200px) {
