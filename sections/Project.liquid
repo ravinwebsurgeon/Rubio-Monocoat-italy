@@ -20,12 +20,10 @@
           </div>
         </div>   
         <!-- Tabs + Products -->
-        <div class="circle-tabs-section">
+        <div class="circle-tabs-section">   
           {% if section.settings.heading2 != blank %}
             <h3 class="tabs-heading heading-pr">{{ section.settings.heading2 }}</h3>
           {% endif %}
-
-          <!-- Circle Tabs -->
           <div class="circle-tabs-outer">
             <div class="circle-tabs">
               {% for block in section.blocks %}
