@@ -311,6 +311,21 @@
     bottom: 20px;
     left: 20px;
 }
+.custom_header__inline-menu .menu_custom_block_content:after {
+    content: "";
+    background-color: #000;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0.2;
+}
+
+.custom_header__inline-menu .menu_custom_block_content * {
+    position: relative;
+    z-index: 1;
+}
 
 .custom_header__inline-menu li.child_menu_item>a {
     border-radius: 10px;
