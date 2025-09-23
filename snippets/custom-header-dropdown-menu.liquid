@@ -6,7 +6,7 @@
       <a href="{{- link.url -}}">{{- link.title -}}</a>
       <div class="mega_menu_items_wrapper item_{{- link.title -}}">
         <div class="mega_menu_items_blocks">
-          <div class="menu_custom_block_wrappper">
+          {% comment %} <div class="menu_custom_block_wrappper">
             {% for block in section.blocks %}
               {% if block.type == 'mega_menu' %}
                 {% assign menutitle = block.settings.menu_title | handle %}
@@ -60,7 +60,7 @@
                 {% endif %}
               {% endif %}
             {% endfor %}
-          </div>
+          </div> {% endcomment %}
 
     <ul class="child_menu_links">
 <div class="shown-link">
