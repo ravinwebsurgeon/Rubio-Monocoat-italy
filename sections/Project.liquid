@@ -42,52 +42,39 @@
             <div class="filter-left">
               <button class="icon-btn color-ic"><i>🎨</i></button>
               <button class="icon-btn img-ic"><i>🖼️</i></button>
-
               <div class="range-input-section slider-wrap" data-v-56cf893a=""><button class="range-button base-button type-button size-small theme-primary" data-v-2f7a1a36="" data-v-56cf893a=""><div class="btn-content" data-v-2f7a1a36=""><svg width="14" height="2" viewBox="0 0 14 2" xmlns="http://www.w3.org/2000/svg" class="ic-minus range-input-icon" data-v-2f7a1a36="" data-v-56cf893a=""><path fill-rule="evenodd" clip-rule="evenodd" d="M14 1C14 1.55228 13.5523 2 13 2L1 2C0.447715 2 -6.78525e-08 1.55228 -4.37114e-08 0.999999C-1.95703e-08 0.447715 0.447715 -5.92389e-07 1 -5.68248e-07L13 -4.37114e-08C13.5523 -1.95703e-08 14 0.447715 14 1Z" data-v-2f7a1a36="" data-v-56cf893a=""></path></svg></div></button> <input id="gridLayout" type="range" name="gridLayout" min="0" max="2" step="1" value="1" data-v-56cf893a=""> <button class="range-button base-button type-button size-small theme-primary" data-v-2f7a1a36="" data-v-56cf893a=""><div class="btn-content" data-v-2f7a1a36=""><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" class="ic-plus range-input-icon" data-v-2f7a1a36="" data-v-56cf893a=""><path fill-rule="evenodd" clip-rule="evenodd" d="M7 0C7.55228 0 8 0.447715 8 1V13C8 13.5523 7.55228 14 7 14C6.44772 14 6 13.5523 6 13V1C6 0.447715 6.44772 0 7 0Z" class="vert-line" data-v-2f7a1a36="" data-v-56cf893a=""></path><path fill-rule="evenodd" clip-rule="evenodd" d="M14 7C14 7.55228 13.5523 8 13 8L1 8C0.447715 8 -2.41411e-08 7.55228 0 7C2.41411e-08 6.44771 0.447715 6 1 6L13 6C13.5523 6 14 6.44772 14 7Z" class="horz-line" data-v-2f7a1a36="" data-v-56cf893a=""></path></svg></div></button></div>
-
               <button class="icon-btn filter">
                 <i>⚙️</i><span>Filter by</span>
               </button>
              <div class="filters-code">
-              
-          
-
-
-<select name="colour-filter" id="colour-filter">
-  <option value="" disabled selected>Colour</option>
-  {% for block in section.blocks %}
-    {% assign tab_collection = block.settings.tab_collection %}
-    {% for product in tab_collection.products %}
-      {% for colour in product.metafields.custom.colour_filter2.value %}
-        <option value="{{ colour }}">{{ colour }}</option>
-      {% endfor %}
-    {% endfor %}
-  {% endfor %}
-</select>
-<select name="product-filter" id="product-filter">
-  <option value="" disabled selected>Product</option>
-  {% for block in section.blocks %}
-    {% assign tab_collection = block.settings.tab_collection %}
-    {% for product in tab_collection.products %}
-      {% for pro in product.metafields.custom.product_filter.value %}
-        <option value="{{ pro }}">{{ pro }}</option>
-      {% endfor %}
-    {% endfor %}
-  {% endfor %}
-</select>
-  <label class="avail-toggle">
-  <input type="checkbox" id="available-filter">
-  <span>Available in Samples</span>
-</label>
-
-
-
-
-
+              <select name="colour-filter" id="colour-filter">
+                <option value="" disabled selected>Colour</option>
+                {% for block in section.blocks %}
+                  {% assign tab_collection = block.settings.tab_collection %}
+                  {% for product in tab_collection.products %}
+                    {% for colour in product.metafields.custom.colour_filter2.value %}
+                      <option value="{{ colour }}">{{ colour }}</option>
+                    {% endfor %}
+                  {% endfor %}
+                {% endfor %}
+              </select>
+              <select name="product-filter" id="product-filter">
+                <option value="" disabled selected>Product</option>
+                {% for block in section.blocks %}
+                  {% assign tab_collection = block.settings.tab_collection %}
+                  {% for product in tab_collection.products %}
+                    {% for pro in product.metafields.custom.product_filter.value %}
+                      <option value="{{ pro }}">{{ pro }}</option>
+                    {% endfor %}
+                  {% endfor %}
+                {% endfor %}
+              </select>
+                <label class="avail-toggle">
+                <input type="checkbox" id="available-filter">
+                <span>Available in Samples</span>
+              </label>
               </div>
-
             </div>
-
             <button class="tips-link" id="openVideo">
               <span class="play">▶</span>
               <span class="tips-link-txt"> Not sure which colour to choose? Check out our expert tips! </span>
@@ -104,45 +91,41 @@
             </div>
           </div>
 
-          
-
-          <h4 class="oil-head">Oil Plus 2C - Interior wood oil</h4>
-
-          {% for block in section.blocks %}
-            {% assign tab_collection = block.settings.tab_collection %}
-            <div class="tab-products{% if forloop.first %} active{% endif %}" id="tab-{{ block.id }}">
-    
-
-<ul class="product-grid">
-  {% for product in tab_collection.products %}
-   <li class="product-item"
-    data-colours="{{ product.metafields.custom.colour_filter2.value | join: ',' }}"
-    data-products="{{ product.metafields.custom.product_filter.value | join: ',' }}"
-     data-available="{{ product.available }}"
-    data-product-id="{{ product.variants.first.id }}">
-      <a href="{{ product.url }}">
-        {% if product.featured_image %}
-          <div class="product-image-wrapper" data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}" data-featured="{{ product.featured_image | img_url: '400x' }}">
-            {% if product.metafields.custom.cover_image != blank %}
-              <img class="cover-image" src="{{ product.metafields.custom.cover_image | img_url: ' ' }}" alt="{{ product.title }}">
-            {% endif %}
-            <img class="featured-image" src="{{ product.featured_image | img_url: ' ' }}" alt="{{ product.title | escape }}">
-          </div>
-        {% endif %}
-        <h3>{{ product.title }}</h3>
-        <p class="price hidden">{{ product.price | money }}</p>
-      
-      </a>
-      <div class="plus-show">{% render 'Cs-plus-icon' %}</div>
-    </li>
-    
-  {% endfor %}
-</ul>
-
-
-
-            </div>
-          {% endfor %}
+          <div class="tab-products-outer">
+             <div class="tab-products-wrap">
+                <h4 class="oil-head">Oil Plus 2C - Interior wood oil</h4>
+                {% for block in section.blocks %}
+                {% assign tab_collection = block.settings.tab_collection %}
+                <div class="tab-products{% if forloop.first %} active{% endif %}" id="tab-{{ block.id }}">
+                  <ul class="product-grid">
+                    {% for product in tab_collection.products %}
+                    <li class="product-item"
+                      data-colours="{{ product.metafields.custom.colour_filter2.value | join: ',' }}"
+                      data-products="{{ product.metafields.custom.product_filter.value | join: ',' }}"
+                      data-available="{{ product.available }}"
+                      data-product-id="{{ product.variants.first.id }}">
+                        <a href="{{ product.url }}">
+                          {% if product.featured_image %}
+                            <div class="product-image-wrapper" data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}" data-featured="{{ product.featured_image | img_url: '400x' }}">
+                              {% if product.metafields.custom.cover_image != blank %}
+                                <img class="cover-image" src="{{ product.metafields.custom.cover_image | img_url: ' ' }}" alt="{{ product.title }}">
+                              {% endif %}
+                              <img class="featured-image" src="{{ product.featured_image | img_url: ' ' }}" alt="{{ product.title | escape }}">
+                            </div>
+                          {% endif %}
+                          <h3>{{ product.title }}</h3>
+                          <p class="price hidden">{{ product.price | money }}</p>
+                        
+                        </a>
+                        <div class="plus-show">{% render 'Cs-plus-icon' %}</div>
+                      </li>
+                      
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endfor %}
+             </div>
+          </div>   
         </div>
       </div>
     </div>
