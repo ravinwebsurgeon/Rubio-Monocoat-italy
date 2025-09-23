@@ -488,6 +488,7 @@ document.addEventListener('DOMContentLoaded', function() {
   font-family: Frutiger Neue LT W1G;
   margin:0 0 50px;
   line-height:normal;
+  letter-spacing:0;
 }
 
 .circle-tabs-section {
@@ -507,14 +508,20 @@ document.addEventListener('DOMContentLoaded', function() {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;  
+  gap: 1.5rem;
+  max-width: 1120px;
+  margin: 0 auto; 
 }
 
 .circle-tab {
+  flex: 1;
+  padding: 0;
   background: none;
   border: none;
   cursor: pointer;
   text-align: center;
+  outline: none;
+  box-shadow: none;
 }
 
 .circle-tab img {
