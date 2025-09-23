@@ -306,10 +306,16 @@
 }
 
 .custom_header__inline-menu .menu_custom_block_content {
-    padding: 0 10px 0 0;
     position: absolute;
-    bottom: 20px;
-    left: 20px;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    padding: 15px;
 }
 .custom_header__inline-menu .menu_custom_block_content:after {
     content: "";
