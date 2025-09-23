@@ -1,17 +1,14 @@
-<!-- sections/icon-columns.liquid -->
 <section class="icon-columns-section">
   <div class="container" data-aos="fade-up">
-    <!-- Main Heading -->
     <h2 class="main-headingsds" >{{ section.settings.main_heading }}</h2>
     <p class="main-subtext" >{{ section.settings.main_text }}</p>
 
-    <!-- 4 Column Layout -->
     <div class="icon-columns">
       {% for block in section.blocks %}
         <div class="icon-column">
             <div class="icon-image-wrap">
           {% if block.settings.icon != blank %}
-            <img src="{{ block.settings.icon | img_url: '100x100' }}" alt="{{ block.settings.heading }}" class="icon-image">
+            <img src="{{ block.settings.icon | img_url: '100x100' }}" alt="{{ block.settings.heading }}" class="icon-image" width="" height="">
           {% endif %}
         </div>
          <div>
@@ -29,6 +26,11 @@
 {
   "name": "custom multicolumn",
   "settings": [
+    {
+      "type": "text",
+      "id": "class_add",
+      "label": "Custom Class"
+    },
     {
       "type": "text",
       "id": "main_heading",
