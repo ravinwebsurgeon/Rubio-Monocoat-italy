@@ -311,7 +311,6 @@
 
 .custom_header__inline-menu li.child_menu_item>a {
     border-radius: 10px;
-    /* background: #FFF; */
     display: flex;
     padding: 10px 10px 10px 20px;
     justify-content: space-between;
@@ -321,7 +320,7 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: 22px; /* 157.143% */
+    line-height: 22px;
     letter-spacing: 0.14px;
     text-decoration: none;
 }
@@ -344,10 +343,10 @@
   max-width: calc(100% - 65.289%);
 }
 
-.custom_header__inline-menu .mega_menu_items_wrapper.item_Ontdek .menu_custom_block_wrappper {
+{% comment %} .custom_header__inline-menu .mega_menu_items_wrapper.item_Ontdek .menu_custom_block_wrappper {
     gap: 12px;
     max-width: 65.289%;
-}
+} {% endcomment %}
 
 .custom_header__inline-menu .menu_custom_block>a {
     position: absolute;
@@ -377,9 +376,9 @@
     margin: 0;
 }
 
-.custom_header__inline-menu .mega_menu_items_wrapper.item_Support .menu_custom_block_wrappper {
+{% comment %} .custom_header__inline-menu .mega_menu_items_wrapper.item_Support .menu_custom_block_wrappper {
     max-width: 35.28%;
-}
+} {% endcomment %}
 
 .custom_header__inline-menu .mega_menu_items_wrapper.item_Support .menu_custom_block_img {
     padding-bottom: 58.66%;
@@ -493,7 +492,7 @@ li.main_menu_item.unhovered >a {
     background-position: center;
     display: inline-block;
 }
-.custom_header__inline-menu .menu_custom_block_wrappper .video-chose Video {
+.custom_header__inline-menu .menu_custom_block .video-chose Video {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -504,7 +503,7 @@ li.main_menu_item.unhovered >a {
     height: 100%;
 }
 
-.custom_header__inline-menu .menu_custom_block_wrappper button#playButton {
+.custom_header__inline-menu .menu_custom_block button#playButton {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -540,7 +539,7 @@ li.main_menu_item.unhovered >a {
 .mega_menu_items_wrapper.item_Colours .mega_menu_items_blocks {
     max-width: 1500px;
 }
-.custom_header__inline-menu .mega_menu_items_wrapper.item_Colours .menu_custom_block_wrappper .menu_custom_block {
+.custom_header__inline-menu .mega_menu_items_wrapper.item_Colours .menu_custom_block .menu_custom_block {
     aspect-ratio: 1;
 }
 </style>
