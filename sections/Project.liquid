@@ -35,8 +35,7 @@
                 </button>
               {% endfor %}
             </div>
-          </div>          
-
+          </div> 
           <!-- Filter bar with slider -->
           <div class="filter-bar">
             <div class="filter-left">
@@ -80,7 +79,6 @@
               <span class="tips-link-txt"> Not sure which colour to choose? Check out our expert tips! </span>
             </button>
           </div>
-
           <!-- Video modal -->
           <div class="video-modal" id="videoModal">
             <div class="modal-content">
@@ -90,7 +88,6 @@
               </video>
             </div>
           </div>
-
           <div class="tab-products-outer">
              <div class="tab-products-wrap">
                 <h4 class="oil-head">Oil Plus 2C - Interior wood oil</h4>
@@ -114,12 +111,10 @@
                             </div>
                           {% endif %}
                           <h3>{{ product.title }}</h3>
-                          <p class="price hidden">{{ product.price | money }}</p>
-                        
+                          <p class="price hidden">{{ product.price | money }}</p>                        
                         </a>
                         <div class="plus-show">{% render 'Cs-plus-icon' %}</div>
-                      </li>
-                      
+                      </li>                      
                     {% endfor %}
                   </ul>
                 </div>
@@ -747,6 +742,12 @@ document.addEventListener('DOMContentLoaded', function() {
 .product-image-wrapper:hover .featured-image {
   opacity: 1 !important;
 } 
+
+.tab-products-wrap {
+    max-width: 1760px;
+    padding: 0 30px;
+    margin: 0 auto;
+}
 
 
 /* Responsive adjustments */
