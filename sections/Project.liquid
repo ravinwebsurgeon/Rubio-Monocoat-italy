@@ -7,13 +7,13 @@
            <div class="pro-first">
             <div class="Interio">
               {% if section.settings.img1 %}
-                <img src="{{ section.settings.img1 | img_url: 'master' }}" alt="Interior">
+                <img src="{{ section.settings.img1 | img_url: 'master' }}" alt="Interior" width="" height=""> 
               {% endif %}
               <div class="inter-btn" id="interior">Interior</div>
             </div>
             <div class="exterior">
               {% if section.settings.img2 %}
-                <img src="{{ section.settings.img2 | img_url: 'master' }}" alt="Exterior">
+                <img src="{{ section.settings.img2 | img_url: 'master' }}" alt="Exterior" width="" height="">
               {% endif %}
               <div class="exter-btn" id="exterior">Exterior</div>
             </div>
@@ -26,16 +26,18 @@
           {% endif %}
 
           <!-- Circle Tabs -->
-          <div class="circle-tabs">
-            {% for block in section.blocks %}
-              <button class="circle-tab{% if forloop.first %} active{% endif %}" data-tab="tab-{{ block.id }}">
-                {% if block.settings.tab_image %}
-                  <img src="{{ block.settings.tab_image | img_url: '200x200' }}" alt="{{ block.settings.tab_name | escape }}">
-                {% endif %}
-                <span>{{ block.settings.tab_name }}</span>
-              </button>
-            {% endfor %}
-          </div>
+          <div class="circle-tabs-outer">
+            <div class="circle-tabs">
+              {% for block in section.blocks %}
+                <button class="circle-tab{% if forloop.first %} active{% endif %}" data-tab="tab-{{ block.id }}">
+                  {% if block.settings.tab_image %}
+                    <img src="{{ block.settings.tab_image | img_url: '200x200' }}" alt="{{ block.settings.tab_name | escape }}" width="" height="">
+                  {% endif %}
+                  <span>{{ block.settings.tab_name }}</span>
+                </button>
+              {% endfor %}
+            </div>
+          </div>          
 
           <!-- Filter bar with slider -->
           <div class="filter-bar">
