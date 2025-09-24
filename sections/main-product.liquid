@@ -922,6 +922,85 @@
 </product-info>
 
 {% render 'calc-drawer' %}
+<div id="sticky-add-to-cart">
+  <div class="sticky-inner">
+    <!-- Product Info -->
+    <div class="sticky-product-info">
+      <img src="{{ product.featured_image | img_url: '100x100' }}" alt="{{ product.title }}">
+      <div class="sticky-details">
+        <span class="sticky-title">{{ product.title }}</span>
+        <span class="sticky-price" id="sticky-price">
+          {{ product.selected_or_first_available_variant.price | money }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Add to Cart -->
+    <form method="post" action="/cart/add" class="sticky-form">
+      <input type="hidden" 
+             name="id" 
+             id="sticky-variant-id" 
+             value="{{ product.selected_or_first_available_variant.id }}">
+      <button type="submit" class="sticky-btn">Add to Cart</button>
+    </form>
+  </div>
+</div>
+{% stylesheet %}
+  #sticky-add-to-cart {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-top: 1px solid #eee;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+  padding: 10px 15px;
+  z-index: 9999;
+  display: none; /* hidden by default */
+  align-items: center;
+  justify-content: space-between;
+}
+
+#sticky-add-to-cart .sticky-inner {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.sticky-product-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sticky-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.sticky-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sticky-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: #d32f2f; /* red price color */
+}
+
+.sticky-btn {
+  background: #000;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+{% endstylesheet %}
 
 {% schema %}
 {
