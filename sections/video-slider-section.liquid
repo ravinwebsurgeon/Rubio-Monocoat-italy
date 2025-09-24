@@ -288,8 +288,12 @@
   transition: transform 0.3s ease;
   z-index: 1;
 }
-.inspired-slider .slick-slide {
-  margin: 0 -10px;
+.inspired-slider .slick-center + .slick-slide,
+.inspired-slider .slick-center ~ .slick-slide {
+  transform: scale(0.9); /* thoda chhota karke gap kam karein */
+  margin-left: -10px;    /* tweak these values */
+  margin-right: -10px;
+}
 </style>
 
 <script>
