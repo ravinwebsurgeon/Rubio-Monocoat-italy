@@ -141,7 +141,7 @@
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
-        "collection": "wood-oil",
+        "collection": "frontpage",
         "products_to_show": 4,
         "title": "Featured collection",
         "heading_size": "h1",
