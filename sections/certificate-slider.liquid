@@ -293,6 +293,7 @@ document.addEventListener("DOMContentLoaded", function(){
 }
 {% endschema %} {% endcomment %}
 
+
 <section class="certificates-slider">
   <div class="certificates-header">
     <h2>{{ section.settings.section_heading }}</h2>
@@ -338,7 +339,14 @@ document.addEventListener("DOMContentLoaded", function(){
     {% endfor %}
   </div>
 
-  
+  <!-- Popup Modal -->
+  <div class="cert-popup" id="cert-popup">
+    <div class="cert-popup-content">
+      <span class="cert-close">&times;</span>
+      <p id="cert-popup-text"></p>
+      <div id="cert-popup-pdf"></div>
+    </div>
+  </div>
 </section>
 
 <style>
@@ -623,6 +631,12 @@ document.addEventListener("DOMContentLoaded", function(){
           "id": "certificate_description",
           "label": "Certificate Description",
           "default": "Details about the certificate."
+        },
+        {
+          "type": "url",
+          "id": "certificate_pdf",
+          "label": "Certificate PDF URL",
+          "info": "Upload your PDF to Shopify Files and paste the link here."
         }
       ]
     }
@@ -633,226 +647,4 @@ document.addEventListener("DOMContentLoaded", function(){
     }
   ]
 }
-{% endschema %}  
-
-{% comment %} <section class="certificates-slider">
-  <div class="certificates-header">
-    <h2>{{ section.settings.section_heading }}</h2>
-    <div class="certificates-arrows">
-      <div class="prev-btn">
-        <button type="button" class="cert-prev">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M169.4 297.4C156.9 309.9 156.9 330.2 169.4 342.7L361.4 534.7C373.9 547.2 394.2 547.2 406.7 534.7C419.2 522.2 419.2 501.9 406.7 489.4L237.3 320L406.6 150.6C419.1 138.1 419.1 117.8 406.6 105.3C394.1 92.8 373.8 92.8 361.3 105.3L169.3 297.3z"/></svg>
-        </button>
-      </div>
-      <div class="next-btn">
-        <button type="button" class="cert-next">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"/></svg>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <div class="certificates-carousel">
-    {% for block in section.blocks %}
-      <div class="certificate-card" {{ block.shopify_attributes }}>
-        <!-- Image / Accordion Content -->
-        <div class="certificates-img">
-          {% if block.settings.certificate_image %}
-            <img 
-              src="{{ block.settings.certificate_image | img_url:'master' }}" 
-              alt="{{ block.settings.certificate_title | escape }}">
-          {% endif %}
-          <div class="certificate-desc">
-            <p>{{ block.settings.certificate_description }}</p>
-          </div>
-        </div>
-
-        <div class="certificate-all-content">
-          <h3>{{ block.settings.certificate_title }}</h3>
-          <div class="ctificte-btn--pulsss">
-            <div class="certificate-puls-btn"> 
-              <button class="cert-plus" type="button">+</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    {% endfor %}
-  </div>
-</section>
-
-<style>
-  .certificate-card {
-    border-radius: 20px;
-    text-align: center;
-    margin: 0 10px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-  }
-  .certificate-card .certificates-img {
-    background-color: #E1E9E4;
-    position: relative;
-    padding-bottom: 316px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    overflow: hidden;
-  }
-  .certificate-card img {
-    max-width: 277px;
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    display: block;
-    position: absolute;
-    top: 0; bottom: 0; left: 0; right: 0;
-    object-fit: contain;
-    transition: opacity 0.3s ease;
-  }
-  .certificate-card .certificate-desc {
-    position: absolute;
-    inset: 0;
-    background: #2D46C4;
-    color: #fff;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transform: translateY(100%);
-    transition: all 0.3s ease;
-    text-align: left;
-  }
-  .certificate-card.active img {
-    opacity: 0;
-  }
-  .certificate-card.active .certificate-desc {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .certificate-all-content {
-    border: 1px solid #000;
-    border-top: 0;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    padding: 40px 30px 30px;
-    background: #fff;
-  }
-  .certificate-card h3 {
-    margin: 0;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 30px;
-    text-align: left;
-    min-height: 65px;
-  }
-  .ctificte-btn--pulsss {
-    justify-content: end;
-    display: flex;
-    margin-top: 18px;
-  }
-  .certificate-puls-btn {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #000;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-  .certificate-puls-btn button.cert-plus {
-    background: 0;
-    border: 0;
-    font-size: 26px;
-    padding: 0;
-    cursor: pointer;
-    color: #000;
-    line-height: 1;
-  }
-  {% comment %} .certificate-card.active .cert-plus {
-    content: "×";
-  } {% endcomment %}
-  {% comment %} .certificate-card.active .cert-plus::after {
-    content: "×";
-  } {% endcomment %}
-</style>
-
-<script>
-document.addEventListener("DOMContentLoaded", function(){
-  // Init Slick
-  $('.certificates-carousel').slick({
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    infinite: false,
-    prevArrow: $('.cert-prev'),
-    nextArrow: $('.cert-next'),
-    responsive: [
-      { breakpoint: 1200, settings: { slidesToShow: 3 }},
-      { breakpoint: 768, settings: { slidesToShow: 2 }},
-      { breakpoint: 480, settings: { slidesToShow: 1 }}
-    ]
-  });
-
-  // Accordion toggle
-  document.querySelectorAll(".certificate-card .cert-plus").forEach(btn => {
-    btn.addEventListener("click", function(){
-      const card = this.closest(".certificate-card");
-      if(card.classList.contains("active")){
-        card.classList.remove("active");
-        this.textContent = "+";
-      } else {
-        document.querySelectorAll(".certificate-card").forEach(c => {
-          c.classList.remove("active");
-          c.querySelector(".cert-plus").textContent = "+";
-        });
-        card.classList.add("active");
-        this.textContent = "×";
-      }
-    });
-  });
-});
-</script>
-
-{% schema %}
-{
-  "name": "Certificates Slider",
-  "settings": [
-    {
-      "type": "text",
-      "id": "section_heading",
-      "label": "Section Heading",
-      "default": "International product certificates"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "certificate",
-      "name": "Certificate",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "certificate_image",
-          "label": "Certificate Image"
-        },
-        {
-          "type": "text",
-          "id": "certificate_title",
-          "label": "Certificate Title",
-          "default": "Certificate name"
-        },
-        {
-          "type": "textarea",
-          "id": "certificate_description",
-          "label": "Certificate Description",
-          "default": "Details about the certificate."
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Certificates Slider"
-    }
-  ]
-}
-{% endschema %} {% endcomment %}
+{% endschema %}
