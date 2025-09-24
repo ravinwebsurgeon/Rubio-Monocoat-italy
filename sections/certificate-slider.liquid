@@ -676,6 +676,9 @@ document.addEventListener("DOMContentLoaded", function(){
               src="{{ block.settings.certificate_image | img_url:'master' }}" 
               alt="{{ block.settings.certificate_title | escape }}">
           {% endif %}
+          <div class="certificate-desc">
+            <p>{{ block.settings.certificate_description }}</p>
+          </div>
         </div>
         <div class="certificate-all-content">
           <h3>{{ block.settings.certificate_title }}</h3>
@@ -683,10 +686,6 @@ document.addEventListener("DOMContentLoaded", function(){
             <div class="certificate-puls-btn"> 
               <button class="cert-plus" type="button">+</button>
             </div>
-          </div>
-          <!-- Accordion description -->
-          <div class="certificate-desc">
-            <p>{{ block.settings.certificate_description }}</p>
           </div>
         </div>
       </div>
@@ -701,8 +700,6 @@ document.addEventListener("DOMContentLoaded", function(){
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     padding: 40px 30px 30px;
-    background: #fff;
-    position: relative;
   }
   .certificates-slider .ctificte-btn--pulsss {
     justify-content: end;
@@ -759,6 +756,7 @@ document.addEventListener("DOMContentLoaded", function(){
     text-align: center;
     margin: 0 10px;
     overflow: hidden;
+    position: relative;
   }
   .certificate-card .certificates-img {
     background-color: #E1E9E4;
@@ -766,6 +764,7 @@ document.addEventListener("DOMContentLoaded", function(){
     padding-bottom: 316px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    overflow: hidden;
   }
   .certificate-card img {
     max-width: 277px;
@@ -776,6 +775,7 @@ document.addEventListener("DOMContentLoaded", function(){
     position: absolute;
     top: 0; bottom: 0; left: 0; right: 0;
     object-fit: contain;
+    transition: opacity 0.3s ease;
   }
   .certificate-card h3 {
     margin: 0;
@@ -805,19 +805,29 @@ document.addEventListener("DOMContentLoaded", function(){
     cursor: pointer;
   }
 
-  /* Accordion styles */
+  /* Accordion effect (expand upward into image area) */
   .certificate-desc {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.3s ease;
+    position: absolute;
+    inset: 0;
+    background: #2D46C4;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: left;
     font-size: 14px;
     line-height: 22px;
-    color: #333;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.4s ease;
   }
   .certificate-card.active .certificate-desc {
-    max-height: 200px; /* adjust based on content */
-    padding-top: 15px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .certificate-card.active img {
+    opacity: 0;
   }
 
   @media(max-width:1900px){
@@ -904,20 +914,11 @@ document.addEventListener("DOMContentLoaded", function(){
   });
 
   // Accordion toggle
-  document.querySelectorAll(".certificate-card .cert-plus").forEach(btn => {
+  document.querySelectorAll(".cert-plus").forEach(btn => {
     btn.addEventListener("click", function(){
       const card = this.closest(".certificate-card");
-      if(card.classList.contains("active")){
-        card.classList.remove("active");
-        this.textContent = "+";
-      } else {
-        document.querySelectorAll(".certificate-card").forEach(c => {
-          c.classList.remove("active");
-          c.querySelector(".cert-plus").textContent = "+";
-        });
-        card.classList.add("active");
-        this.textContent = "×";
-      }
+      card.classList.toggle("active");
+      this.textContent = card.classList.contains("active") ? "×" : "+";
     });
   });
 });
@@ -966,3 +967,4 @@ document.addEventListener("DOMContentLoaded", function(){
   ]
 }
 {% endschema %}
+
