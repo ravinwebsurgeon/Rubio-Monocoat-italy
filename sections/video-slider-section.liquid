@@ -2,349 +2,6 @@
   <div class="container">
     <h2 class="slider-heading">{{ section.settings.heading }}</h2>    
   </div>
-  <!-- Slider -->
-    <div class="inspired-slider" id="inspiration">
-      {% for block in section.blocks %}
-        <div class="inspired-slide" 
-             data-product-title="{{ block.settings.product.title }}" 
-             data-product-img="{{ block.settings.product.featured_image | img_url: '200x200' }}" 
-             data-product-url="{{ block.settings.product.url }}">
-          <div class="slide-media" data-video-url="{{ block.settings.video_url }}">
-            {% if block.settings.video_url != blank %}
-              <div class="video-wrapper">
-                <img class="video-thumb" src="{{ block.settings.thumbnail | img_url: '600x700' }}" alt="Video Thumbnail" width="" height="">
-                <div class="play-button">
-                  <svg fill="#fff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-                    width="80px" height="80px" viewBox="0 0 390 390" xml:space="preserve">
-                  <g>
-                    <g>
-                      <path d="M195,0C87.303,0,0,87.303,0,195c0,107.697,87.303,195,195,195c107.697,0,195-87.303,195-195C390,87.303,302.697,0,195,0z
-                        M253.871,211.921l-66.328,66.326c-4.578,4.577-10.702,7.011-16.927,7.011c-3.085,0-6.189-0.594-9.152-1.82
-                        c-8.94-3.704-14.774-12.431-14.774-22.106V128.669c0-9.676,5.834-18.403,14.774-22.108c8.94-3.701,19.23-1.654,26.079,5.191
-                        l66.328,66.328C263.215,187.424,263.215,202.576,253.871,211.921z"/>
-                    </g>
-                  </g>
-                  </svg>
-                  </div>
-              </div>
-            {% else %}
-              <img src="{{ block.settings.image | img_url: '600x600' }}" alt="Slide Image" width="" height="">
-            {% endif %}
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-
-    <!-- Product Info -->
-    <div class="inspired-product-info">
-      <div id="inspired-proouter">
-        <img id="product-img" src="" alt="" width="" height="">
-        <p id="product-title"></p>
-      </div>      
-    </div>
-</section>
-
-<style>
-  .slide-media iframe {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    min-height: 100%;
-    min-width: 100%;
-    aspect-ratio: 6 / 7;
-}
-.inspired-slider-section {
-  padding: 100px 0;
-  text-align: center;
-  overflow:hidden;
-}
-.inspired-slider-section .container {
-    padding: 0 20px;
-    max-width: 1740px;
-}
-.slider-heading {
-  font-size: 40px;
-  font-weight: 700;
-  margin-bottom: 50px;
-  text-align:left;
-  color:#000;
-  font-family: Frutiger Neue LT W1G;
-}
-.inspired-slider {
-  margin: 0 0 30px;
-}
-.inspired-slide {
-  position: relative;
-  padding: 10px;
-}
-.inspired-slide img {
-  width: 100%;
-  border-radius: 12px;
-}
-.play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  cursor: pointer;
-}
-.video-wrapper {
-  position: relative;
-}
-.inspired-product-info div#inspired-proouter a {
-    display: inline-flex;
-    align-items: center;
-    gap: 50px;
-    padding: 18px 35px 13px;
-    border: 1px solid #183029;
-    border-radius: 12px;
-    background: #fff;
-    max-width: 520px;
-    width: 98%;
-    background-color: #F5F5F5;
-    color: #000;
-    font-size: 24px;
-    text-decoration: none;
-    line-height: normal;
-    letter-spacing: 0;
-    font-weight: bold;
-    text-align:left;
-}
-.inspired-product-info img {
-    width: 83px;
-    height: 100%;
-    object-fit: cover;
-    aspect-ratio: 0.9;
-    display: block;
-}
-.inspired-product-info #product-title {
-    margin: 0;
-}
-.inspired-product-info #product-title a {
-    font-size: 24px;
-    text-decoration: none;
-    line-height: normal;
-    letter-spacing: 0;
-    color: #000;
-    font-weight: bold;
-}
-.inspired-slider .slick-slide {
-  transition: all 0.4s ease;
-  transform: scale(0.95);
-  padding: 0 px;
-}
-.inspired-slider .slick-center {
-  opacity: 1;
-  transform: scale(1.1);
-  z-index: 2;
-}
-.inspired-slider .slick-list .slick-track {
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-.custom-prev, .custom-next {
-  background: none;
-  border: none;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-  cursor: pointer;
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
-  background-color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.custom-prev { left: 70px; }
-.custom-next { right: 70px; }
-.inspired-slider .slick-arrow svg {
-    display: block;
-    height: 30px;
-    width: 30px;
-}
-
-.slide-media iframe {
-  width: 100%;
-  height: 100%;
-  min-height: 300px;
-  border-radius: 12px;
-}
-.play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
-}
-
-/* When active (center slide) */
-.inspired-slide.slick-center .play-button {
-  opacity: 1;
-  visibility: visible;
-}
-.play-button svg {
-    display: block;
-    width: 80px;
-    height: 80px;
-}
-.inspired-slider .slick-list,.inspired-slider .slick-list .slick-track {
-    display: flex;
-    align-items: center;
-}
-@media(max-width: 1900px) { 
-  .inspired-slider-section .container {
-    padding: 0 30px;
-  }
-  .play-button svg {
-    display: block;
-    width: 58px;
-    height: 58px;
-}
-  .inspired-slider-section {
-    padding: 50px 0;
-  } 
-  .inspired-product-info div#inspired-proouter a {
-    gap: 20px;
-    padding: 15px 20px 15px;
-    max-width: 450px;
-    font-size:18px;
-  }
-  .inspired-slider .slick-arrow svg {
-    height: 18px;
-    width: 18px;
-  }
-  .custom-prev, .custom-next{
-    width:36px;
-    height:36px;
-  }
-}
-@media(max-width: 1199px) {
-    .inspired-product-info div#inspired-proouter a {
-      max-width: 360px;
-    }
-}
-@media(max-width: 767px) {
-  .inspired-slider-section {
-      padding: 30px 0;
-  }
-  .inspired-slider-section .container {
-      padding: 0 20px;
-  }
-  .inspired-slider-section .container .slider-heading {
-    font-size: 24px;
-    text-align: left;
-    margin: 0 0 20px;
-  }
-  .inspired-slider .slick-list .slick-track{
-    padding-top:0;
-    padding-bottom:0;
-  }
-  .inspired-slider .slick-slide {
-    transform: scale(1);
-     padding: 0 0px;
-  }
-  .inspired-slider .slick-center {
-   transform: scale(1);
-  }
-  .inspired-slider .slick-list {
-    padding: 0 !important;
-  }
-  .inspired-slider {
-    margin: 0 0px 20px;
-  }
-  .custom-prev, .custom-next {
-    width: 24px;
-    height: 24px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-  }
-  .custom-prev {
-    left: -13px;
-  }
-  .custom-next{
-    right: -13px;
-  }
-  .play-button svg {
-    width: 30px;
-    height: 30px;
-}
-}
-</style>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  $('.inspired-slider').slick({
-    centerMode: true,
-    centerPadding: '180px',
-    slidesToShow: 3,
-    autoplay: true,
-    arrows: true,
-    dots: false,
-    prevArrow: `<button type="button" class="slick-prev custom-prev">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 640 640" fill="currentColor">
-        <path d="M169.4 297.4C156.9 309.9 156.9 330.2 169.4 342.7L361.4 534.7C373.9 547.2 394.2 547.2 406.7 534.7C419.2 522.2 419.2 501.9 406.7 489.4L237.3 320 406.6 150.6C419.1 138.1 419.1 117.8 406.6 105.3C394.1 92.8 373.8 92.8 361.3 105.3L169.3 297.3z"/>
-      </svg>
-    </button>`,
-    nextArrow: `<button type="button" class="slick-next custom-next">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 640 640" fill="currentColor">
-        <path d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320 233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"/>
-      </svg>
-    </button>`,
-    responsive: [
-      { breakpoint: 768, settings: { slidesToShow: 1, centerPadding: '40px' } }
-    ]
-  });
-
-  // Update product info when slide changes
-  function updateProductInfo() {
-    let centerSlide = document.querySelector(".inspired-slide.slick-center");
-    if (centerSlide) {
-    let title = centerSlide.getAttribute("data-product-title");
-    let img = centerSlide.getAttribute("data-product-img");
-    let url = centerSlide.getAttribute("data-product-url");
-
-      document.getElementById("inspired-proouter").innerHTML = `
-        <a href="${url}">
-          <img id="product-img" src="${img}" alt="${title}">
-          <p id="product-title">${title}</p>
-        </a>
-      `;
-    }
-  }
-  $('.inspired-slider').on('afterChange', updateProductInfo);
-  updateProductInfo();
-
-  // Inline video playback
-  document.querySelectorAll(".slide-media").forEach(slide => {
-    const btn = slide.querySelector(".play-button");
-    if (btn) {
-      btn.addEventListener("click", function(e) {
-        e.stopPropagation();
-        let url = slide.getAttribute("data-video-url");
-        if (url) {
-          if (url.includes("youtube") || url.includes("youtu.be")) {
-            url += (url.includes("?") ? "&" : "?") + "autoplay=1";
-          } else if (url.includes("vimeo")) {
-            url += (url.includes("?") ? "&" : "?") + "autoplay=1";
-          }
-          slide.innerHTML = `<iframe src="${url}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
-        }
-      });
-    }
-  });
-});
-</script>
-
-<section class="inspired-slider-section">
-  <div class="container">
-    <h2 class="slider-heading">{{ section.settings.heading }}</h2>    
-  </div>
 
   <!-- Swiper Slider -->
   <div class="swiper inspired-slider" id="inspiration">
@@ -393,30 +50,63 @@ document.addEventListener("DOMContentLoaded", function () {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 <style>
-/* Keep all your existing styles mostly intact */
 .inspired-slider-section { padding: 100px 0; text-align:center; overflow:hidden; }
-.slider-heading { font-size: 40px; font-weight:700; text-align:left; margin-bottom:50px; color:#000; font-family: Frutiger Neue LT W1G; }
+.inspired-slider-section .container { padding:0 20px; max-width:1740px; }
+.slider-heading { font-size:40px; font-weight:700; text-align:left; margin-bottom:50px; color:#000; font-family:Frutiger Neue LT W1G; }
+
 .inspired-slide img, .video-wrapper img { width:100%; border-radius:12px; }
+
 .play-button { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); cursor:pointer; opacity:0; visibility:hidden; transition:0.4s; }
 .swiper-slide-active .play-button { opacity:1; visibility:visible; }
-/* Add other styles from your original CSS as needed */
+
+.inspired-product-info div#inspired-proouter a { display:flex; align-items:center; gap:50px; padding:18px 35px; border:1px solid #183029; border-radius:12px; background:#F5F5F5; text-decoration:none; color:#000; max-width:520px; width:98%; font-size:24px; font-weight:bold; text-align:left; }
+.inspired-product-info img { width:83px; height:100%; object-fit:cover; aspect-ratio:0.9; display:block; }
+.inspired-product-info #product-title { margin:0; }
+.inspired-product-info #product-title a { font-size:24px; text-decoration:none; color:#000; font-weight:bold; }
+
+.swiper-slide { transition: transform 0.4s ease, opacity 0.4s ease; transform:scale(0.95); }
+.swiper-slide-active { transform:scale(1.1); z-index:2; }
+
+.custom-prev, .custom-next { background:#fff; border:none; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; position:absolute; top:50%; transform:translateY(-50%); cursor:pointer; z-index:10; }
+.custom-prev { left:70px; }
+.custom-next { right:70px; }
+.custom-prev::after, .custom-next::after { display:none; }
+
+@media(max-width: 1900px) { 
+  .inspired-slider-section .container { padding:0 30px; }
+  .play-button svg { width:58px; height:58px; }
+  .inspired-product-info div#inspired-proouter a { gap:20px; padding:15px 20px; max-width:450px; font-size:18px; }
+  .custom-prev, .custom-next{ width:36px; height:36px; }
+}
+@media(max-width: 1199px) { .inspired-product-info div#inspired-proouter a { max-width:360px; } }
+@media(max-width: 767px) { 
+  .inspired-slider-section { padding:30px 0; }
+  .inspired-slider-section .container { padding:0 20px; }
+  .slider-heading { font-size:24px; margin:0 0 20px; text-align:left; }
+  .swiper-slide { transform:scale(1); }
+  .swiper-slide-active { transform:scale(1); }
+  .custom-prev { left:-13px; }
+  .custom-next { right:-13px; }
+  .play-button svg { width:30px; height:30px; }
+}
 </style>
 
 <!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"> </script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const swiper = new Swiper('.inspired-slider', {
     slidesPerView: 3,
     centeredSlides: true,
-    spaceBetween: 30,
     loop: true,
+    spaceBetween: 30,
     autoplay: { delay: 3000 },
     navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
     breakpoints: { 768: { slidesPerView: 1, spaceBetween: 20 } }
   });
 
+  // Update Product Info
   function updateProductInfo() {
     let centerSlide = document.querySelector(".swiper-slide-active");
     if (centerSlide) {
@@ -432,11 +122,10 @@ document.addEventListener("DOMContentLoaded", function () {
       `;
     }
   }
-
   swiper.on('slideChange', updateProductInfo);
   updateProductInfo();
 
-  // Video Play
+  // Video play
   document.querySelectorAll(".slide-media").forEach(slide => {
     const btn = slide.querySelector(".play-button");
     if (btn) {
@@ -470,37 +159,15 @@ document.addEventListener("DOMContentLoaded", function () {
       "type": "slide",
       "name": "Slide",
       "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Slide Image (if no video)"
-        },
-        {
-          "type": "image_picker",
-          "id": "thumbnail",
-          "label": "Video Thumbnail"
-        },
-        {
-          "type": "url",
-          "id": "video_url",
-          "label": "Video URL"
-        },
-        {
-          "type": "product",
-          "id": "product",
-          "label": "Linked Product"
-        }
+        { "type": "image_picker", "id": "image", "label": "Slide Image (if no video)" },
+        { "type": "image_picker", "id": "thumbnail", "label": "Video Thumbnail" },
+        { "type": "url", "id": "video_url", "label": "Video URL" },
+        { "type": "product", "id": "product", "label": "Linked Product" }
       ]
     }
   ],
   "presets": [
-    {
-      "name": "Inspired Video Slider",
-      "category": "Custom"
-    }
+    { "name": "Inspired Video Slider", "category": "Custom" }
   ]
 }
 {% endschema %}
-
-
-
