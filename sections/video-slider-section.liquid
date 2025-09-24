@@ -71,11 +71,11 @@
   font-family: Frutiger Neue LT W1G;
 }
 .inspired-slider {
-  margin: 0 0 30px;
+  margin: 0 -48px 30px;
 }
 .inspired-slide {
   position: relative;
-  padding: 0 50px;
+  padding: 10px;
 }
 .inspired-slide img {
   width: 100%;
@@ -132,11 +132,11 @@
 .inspired-slider .slick-slide {
   transition: all 0.4s ease;
   transform: scale(1);
-  padding: 0 25px;
+  padding: 0 52px;
 }
 .inspired-slider .slick-center {
   opacity: 1;
-  {% comment %} transform: scale(1.14); {% endcomment %}
+  transform: scale(1.14);
   z-index: 2;
 }
 .inspired-slider .slick-list .slick-track {
@@ -194,10 +194,10 @@
     width: 80px;
     height: 80px;
 }
-{% comment %} .inspired-slider .slick-list,.inspired-slider .slick-list .slick-track {
+.inspired-slider .slick-list,.inspired-slider .slick-list .slick-track {
     display: flex;
     align-items: center;
-} {% endcomment %}
+}
 @media(max-width: 1900px) { 
   .inspired-slider-section .container {
     padding: 0 30px;
@@ -217,7 +217,7 @@
     font-size:18px;
   }
   .inspired-slider .slick-slide {
-      padding: 0;
+      padding: 0 32px;
   }
   .inspired-slider .slick-arrow svg {
     height: 18px;
@@ -278,28 +278,17 @@
     height: 30px;
 }
 }
-.inspired-slider .slick-center {
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
-  z-index: 2;
-}
-
-.inspired-slider .slick-slide {
-  transition: transform 0.3s ease;
-  z-index: 1;
-}
 </style>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
- $('.inspired-slider').slick({
-  centerMode: true,
-  slidesToShow: 3,
-  autoplay: true,
-  arrows: true,
-  dots: false,
-  infinite: true,
-  centerPadding: '200px',
+  $('.inspired-slider').slick({
+    centerMode: true,
+    centerPadding: '0',
+    slidesToShow: 3,
+    autoplay: true,
+    arrows: true,
+    dots: false,
     prevArrow: `<button type="button" class="slick-prev custom-prev">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 640 640" fill="currentColor">
         <path d="M169.4 297.4C156.9 309.9 156.9 330.2 169.4 342.7L361.4 534.7C373.9 547.2 394.2 547.2 406.7 534.7C419.2 522.2 419.2 501.9 406.7 489.4L237.3 320 406.6 150.6C419.1 138.1 419.1 117.8 406.6 105.3C394.1 92.8 373.8 92.8 361.3 105.3L169.3 297.3z"/>
