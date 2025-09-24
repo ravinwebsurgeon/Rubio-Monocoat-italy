@@ -227,12 +227,22 @@
         "show_on_mobile": true
       }
     },
-    "custom_featured_coll_xYzW3c": {
-      "type": "custom-featured-coll",
-      "name": "Custom Featured Products",
+    "exterior_collection_8e6Tp4": {
+      "type": "Exterior-collection",
+      "blocks": {
+        "exterior_collection_LHfW8G": {
+          "type": "Exterior-collection",
+          "settings": {
+            "tab_collection": "exterior-protection"
+          }
+        }
+      },
+      "block_order": [
+        "exterior_collection_LHfW8G"
+      ],
+      "name": "Exterior-collection",
       "settings": {
-        "custom_collection": "cleaning-maintenance",
-        "products_limit": 8
+        "heading": ""
       }
     }
   },
@@ -243,6 +253,6 @@
     "project_n8LMJf",
     "featured_collection_QYGftz",
     "icons_section_cF3FEP",
-    "custom_featured_coll_xYzW3c"
+    "exterior_collection_8e6Tp4"
   ]
 }
