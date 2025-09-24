@@ -294,7 +294,7 @@ document.addEventListener("DOMContentLoaded", function(){
 {% endschema %} {% endcomment %}
 
 
-<section class="certificates-slider">
+{% comment %} <section class="certificates-slider">
   <div class="certificates-header">
     <h2>{{ section.settings.section_heading }}</h2>
     <div class="certificates-arrows">
@@ -647,4 +647,141 @@ document.addEventListener("DOMContentLoaded", function(){
     }
   ]
 }
-{% endschema %}
+{% endschema %} {% endcomment %}
+<!-- sticky-add-to-cart.liquid -->
+<div class="sticky-add-to-cart">
+  <div class="sticky-inner">
+    <!-- Product Info -->
+    <div class="sticky-info">
+      <span class="sticky-title">{{ product.title }}</span>
+      <span class="sticky-price">{{ product.selected_or_first_available_variant.price | money }}</span>
+    </div>
+
+    <!-- Add to Cart Button -->
+    <button class="sticky-btn" id="stickyAddToCart">
+      Add to Cart
+    </button>
+
+    <!-- Accordion Toggle -->
+    <button class="sticky-toggle" id="stickyToggle">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Accordion Content -->
+  <div class="sticky-accordion" id="stickyAccordion">
+    <div class="accordion-content">
+      {{ product.description | strip_html | truncatewords: 50 }}
+    </div>
+  </div>
+</div>
+
+<style>
+/* Sticky Bar */
+.sticky-add-to-cart {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-top: 1px solid #eee;
+  z-index: 9999;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+  font-family: inherit;
+}
+
+.sticky-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+}
+
+.sticky-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.sticky-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sticky-price {
+  font-size: 16px;
+  color: #e60023;
+  font-weight: bold;
+}
+
+.sticky-btn {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sticky-btn:hover {
+  background: #333;
+}
+
+.sticky-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 12px;
+}
+
+/* Accordion */
+.sticky-accordion {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background: #f9f9f9;
+  border-top: 1px solid #ddd;
+}
+
+.sticky-accordion.active {
+  max-height: 200px; /* adjust as needed */
+}
+
+.accordion-content {
+  padding: 15px;
+  font-size: 14px;
+  color: #444;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const toggleBtn = document.getElementById("stickyToggle");
+  const accordion = document.getElementById("stickyAccordion");
+  const addToCartBtn = document.getElementById("stickyAddToCart");
+
+  // Accordion toggle
+  toggleBtn.addEventListener("click", function() {
+    accordion.classList.toggle("active");
+  });
+
+  // Add to cart functionality
+  addToCartBtn.addEventListener("click", function() {
+    fetch("/cart/add.js", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: {{ product.selected_or_first_available_variant.id }},
+        quantity: 1
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      window.location.href = "/cart"; // redirect to cart
+    })
+    .catch(error => console.error("Error:", error));
+  });
+});
+</script>
