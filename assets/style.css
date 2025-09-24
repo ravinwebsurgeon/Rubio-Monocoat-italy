@@ -4821,6 +4821,7 @@ font-weight: bold;
     display: flex;
     flex-direction: column;
     line-height: 1.4;
+        font-size: 14px;
   }
 
   .oil-calculator-text a {
@@ -4831,6 +4832,7 @@ font-weight: bold;
   }
   .oil-calculator-text span {
     display: block;
+        font-size: 14px;
 }
 
 .oil-calculator-text a:after {
