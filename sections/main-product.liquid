@@ -1001,6 +1001,42 @@
 }
 
 {% endstylesheet %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const productForm = document.querySelector('form[action="/cart/add"]');
+  const stickyBar = document.getElementById("sticky-add-to-cart");
+  const stickyPrice = document.getElementById("sticky-price");
+  const stickyVariantId = document.getElementById("sticky-variant-id");
+
+  if (!productForm) return;
+
+  // Show/Hide sticky bar on scroll
+  window.addEventListener("scroll", function() {
+    let rect = productForm.getBoundingClientRect();
+    if (rect.bottom < 0) {
+      stickyBar.style.display = "flex";
+    } else {
+      stickyBar.style.display = "none";
+    }
+  });
+
+  // Update sticky bar when variant changes
+  document.querySelectorAll('[name="id"]').forEach(function(input) {
+    input.addEventListener("change", function(e) {
+      let selected = e.target.value;
+
+      // Update hidden variant ID
+      stickyVariantId.value = selected;
+
+      // Get updated price from dataset (Shopify outputs variant data)
+      const variant = window.meta?.product?.variants.find(v => v.id == selected);
+      if (variant) {
+        stickyPrice.innerHTML = Shopify.formatMoney(variant.price, window.meta.money_format);
+      }
+    });
+  });
+});
+</script>
 
 {% schema %}
 {
