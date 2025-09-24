@@ -288,12 +288,6 @@
   transition: transform 0.3s ease;
   z-index: 1;
 }
-.inspired-slider .slick-center + .slick-slide,
-.inspired-slider .slick-center ~ .slick-slide {
-  transform: scale(0.9); /* thoda chhota karke gap kam karein */
-  margin-left: -10px;    /* tweak these values */
-  margin-right: -10px;
-}
 </style>
 
 <script>
@@ -305,7 +299,7 @@ document.addEventListener("DOMContentLoaded", function () {
   arrows: true,
   dots: false,
   infinite: true,
-  centerPadding: '0px',
+  centerPadding: '50px',
     prevArrow: `<button type="button" class="slick-prev custom-prev">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 640 640" fill="currentColor">
         <path d="M169.4 297.4C156.9 309.9 156.9 330.2 169.4 342.7L361.4 534.7C373.9 547.2 394.2 547.2 406.7 534.7C419.2 522.2 419.2 501.9 406.7 489.4L237.3 320 406.6 150.6C419.1 138.1 419.1 117.8 406.6 105.3C394.1 92.8 373.8 92.8 361.3 105.3L169.3 297.3z"/>
