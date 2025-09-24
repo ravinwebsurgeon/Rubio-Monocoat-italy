@@ -3178,6 +3178,9 @@ a.colour-button {
     height: 450px !important;
     object-fit: cover;
 }
+body:not(.templateindex) header.header img.another-pages-logo {
+    height: 38px !important;
+}
 
 .overlay-content {
     transform: none !important;
