@@ -4811,11 +4811,11 @@ font-weight: bold;
     color: #000;
   }
 
-  .oil-calculator-box svg {
-    width: 25px;
-    height: 25px;
+ .oil-calculator-box svg {
+    width: 20px;
+    height: 20px;
     flex-shrink: 0;
-  }
+}
 
   .oil-calculator-text {
     display: flex;
