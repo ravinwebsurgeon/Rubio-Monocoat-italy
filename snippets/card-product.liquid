@@ -41,7 +41,6 @@
     endif
   -%}
   <div class="card-wrapper product-card-wrapper underline-links-hover">
-    
     <div
       class="
         card card--{{ settings.card_style }}
@@ -108,7 +107,6 @@
           </div>
         {%- endif -%}
         <div class="card__content">
-          <div class="plus-show">{% render 'Cs-plus-icon' %}</div>dsdsds
           <div class="card__information">
             <h3
               class="card__heading"
@@ -142,11 +140,10 @@
                 {{- 'products.product.on_sale' | t -}}
               </span>
             {%- endif -%}
-          </div>          
+          </div>
         </div>
       </div>
       <div class="card__content">
-        
         <div class="card__information">
           <h3
             class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
@@ -625,30 +622,3 @@
     </div>
   </div>
 {%- endif -%}
-<script>
-
-    document.querySelectorAll('.plus-show').forEach(button => {
-    button.addEventListener('click', function() {
-      const product = button.closest('.product-item');
-      const featuredImg = product.querySelector('.featured-image').src;
-      const title = product.querySelector('h3').innerText;
-      const price = product.querySelector('.price').innerText;
-      const colours = product.dataset.colours || '';
-      const products = product.dataset.products || '';
-      const url = product.querySelector('a').href;
-
-      // Get Shopify product ID
-      currentProductId = product.dataset.productId; // <-- we need to add this in Liquid
-
-      modalImage.src = featuredImg;
-      modalTitle.textContent = title;
-      modalPrice.textContent = price;
-      modalMeta.textContent = `Colours: ${colours} | Types: ${products}`;
-      modalLink.href = url;
-      qtyInput.value = 1;
-
-      modal.style.display = 'flex';
-    });
-  });
-
-  </script>
