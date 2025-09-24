@@ -325,6 +325,14 @@
             "video_url": "https://cdn.shopify.com/videos/c/o/v/e9187465675742ac8a58a7331877ea98.mp4",
             "product": "oil-plus-part-a-20-ml-copy"
           }
+        },
+        "slide_pNiYg6": {
+          "type": "slide",
+          "settings": {
+            "thumbnail": "shopify://shop_images/Rectangle_137.png",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/e9187465675742ac8a58a7331877ea98.mp4",
+            "product": "oil-plus-part-a-20-ml-copy"
+          }
         }
       },
       "block_order": [
@@ -332,7 +340,8 @@
         "slide_dmed9Y",
         "slide_9j7nh3",
         "slide_UJ7HGY",
-        "slide_JFrfXQ"
+        "slide_JFrfXQ",
+        "slide_pNiYg6"
       ],
       "name": "Inspired Video Slider",
       "settings": {
