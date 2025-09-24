@@ -225,6 +225,14 @@
         "show_on_desktop": true,
         "show_on_mobile": true
       }
+    },
+    "custom_featured_coll_xYzW3c": {
+      "type": "custom-featured-coll",
+      "name": "Custom Featured Products",
+      "settings": {
+        "custom_collection": "cleaning-maintenance",
+        "products_limit": 8
+      }
     }
   },
   "order": [
@@ -233,6 +241,7 @@
     "custom_multicolumn_xzf9Vw",
     "project_n8LMJf",
     "featured_collection_QYGftz",
-    "icons_section_cF3FEP"
+    "icons_section_cF3FEP",
+    "custom_featured_coll_xYzW3c"
   ]
 }
