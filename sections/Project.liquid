@@ -242,7 +242,7 @@
   "presets": [{ "name": "Project", "category": "Custom" }]
 }
 {% endschema %}
-<script>
+{% comment %} <script>
 document.addEventListener('DOMContentLoaded', function() {
   const colourFilter   = document.getElementById('colour-filter');
   const productFilter  = document.getElementById('product-filter');
@@ -271,9 +271,51 @@ document.addEventListener('DOMContentLoaded', function() {
   productFilter.addEventListener('change', filterProducts);
   availableFilter.addEventListener('change', filterProducts);
 });
-</script>
+</script> {% endcomment %}
 
 <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const colourFilter = document.getElementById('colour-filter');
+  const productFilter = document.getElementById('product-filter');
+  const availableFilter = document.getElementById('available-filter');
+
+  function filterProducts() {
+    const selectedColour = colourFilter.value;
+    const selectedProduct = productFilter.value;
+    const showAvailable = availableFilter.checked;
+
+    // Get ALL products from ALL tabs (including hidden ones)
+    const allProducts = document.querySelectorAll('.product-item');
+    
+    allProducts.forEach(product => {
+      const productColours = product.dataset.colours.split(',');
+      const productProducts = product.dataset.products.split(',');
+      const productAvailable = product.dataset.available === 'true';
+
+      const colourMatch = !selectedColour || productColours.includes(selectedColour);
+      const productMatch = !selectedProduct || productProducts.includes(selectedProduct);
+      const availableMatch = !showAvailable || productAvailable;
+
+      product.style.display = (colourMatch && productMatch && availableMatch) ? '' : 'none';
+    });
+  }
+
+  colourFilter.addEventListener('change', filterProducts);
+  productFilter.addEventListener('change', filterProducts);
+  availableFilter.addEventListener('change', filterProducts);
+
+  // Re-apply filters whenever a tab is clicked
+  document.querySelectorAll('.circle-tab').forEach(btn => {
+    btn.addEventListener('click', function() {
+      // Wait a tiny bit for the tab content to switch, then re-apply filters
+      setTimeout(filterProducts, 50);
+    });
+  });
+
+  // Apply filters on page load
+  filterProducts();
+});
+
     document.addEventListener('DOMContentLoaded', function () {
   /* circle tabs */
   document.querySelectorAll('.circle-tab').forEach(btn => {
