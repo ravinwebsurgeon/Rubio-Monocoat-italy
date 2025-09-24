@@ -338,14 +338,7 @@ document.addEventListener("DOMContentLoaded", function(){
     {% endfor %}
   </div>
 
-  <!-- Popup Modal -->
-  <div class="cert-popup" id="cert-popup">
-    <div class="cert-popup-content">
-      <span class="cert-close">&times;</span>
-      <p id="cert-popup-text"></p>
-      <div id="cert-popup-pdf"></div>
-    </div>
-  </div>
+  
 </section>
 
 <style>
@@ -630,12 +623,6 @@ document.addEventListener("DOMContentLoaded", function(){
           "id": "certificate_description",
           "label": "Certificate Description",
           "default": "Details about the certificate."
-        },
-        {
-          "type": "url",
-          "id": "certificate_pdf",
-          "label": "Certificate PDF URL",
-          "info": "Upload your PDF to Shopify Files and paste the link here."
         }
       ]
     }
