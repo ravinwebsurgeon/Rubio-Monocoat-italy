@@ -1458,14 +1458,13 @@ li.product-item {
     height: 14px;
     background-size: 14px;
   }
-  
-}
-
-@media (max-width: 536px) {
   .circle-tabs-outer .tabs-heading.heading-pr {
     padding-left: 23px;
     padding-right: 23px;
 }
+}
+@media (max-width: 640px) {
+
   .circle-tabs {
     max-width: 960px;
     flex-wrap: nowrap;
@@ -1473,9 +1472,12 @@ li.product-item {
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
     cursor: grab;
-    padding-left: 110px;
+    padding-left: 50px;
     padding-top: 10px;
 }
+}
+@media (max-width: 536px) {
+  
   .product-grid.cols-7,
   .product-grid.cols-5,
   .product-grid.cols-3 {
