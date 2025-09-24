@@ -1,0 +1,48 @@
+  <ul class="product-grid">
+                    {% for product in tab_collection.products %}
+                    <li class="product-item"
+                      data-colours="{{ product.metafields.custom.colour_filter2.value | join: ',' }}"
+                      data-products="{{ product.metafields.custom.product_filter.value | join: ',' }}"
+                      data-available="{{ product.available }}"
+                      data-product-id="{{ product.variants.first.id }}">                        
+                        <div class="product-item-img-col">
+                          <a href="{{ product.url }}">
+                          {% if product.featured_image %}
+                          <div class="product-image-wrapper" data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}" data-featured="{{ product.featured_image | img_url: '400x' }}">
+                            {% if product.metafields.custom.cover_image != blank %}
+                              <img class="cover-image" src="{{ product.metafields.custom.cover_image | img_url: ' ' }}" alt="{{ product.title }}" width="" height="">
+                            {% endif %}
+                            <img class="featured-image" src="{{ product.featured_image | img_url: ' ' }}" alt="{{ product.title | escape }}" width="" height="">
+                          </div>
+                          {% endif %} 
+                          </a>
+                          <div class="plus-show">{% render 'Cs-plus-icon' %}</div>
+                        </div>  
+                        <div class="product-item-conts">
+                          <a href="{{ product.url }}">
+                            <h3>{{ product.title }}</h3>
+                            <p class="price hidden">{{ product.price | money }}</p>    
+                          </a>                         
+                        </div>
+                      </li>                      
+                    {% endfor %}
+                  </ul>
+
+                  {% schema %}
+{
+  "name": "Custom-feaProducts",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "custom_collection",
+      "label": "Select Collection"
+    },
+    {
+      "type": "number",
+      "id": "products_limit",
+      "label": "Number of products",
+      "default": 8
+    }
+  ]
+}
+{% endschema %}
