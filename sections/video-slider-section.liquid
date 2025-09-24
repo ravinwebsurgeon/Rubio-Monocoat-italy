@@ -341,58 +341,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-
-
-{% schema %}
-{
-  "name": "Inspired Video Slider",
-  "settings": [
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Section Heading",
-      "default": "Get inspired.."
-    }
-  ],
-  "blocks": [
-    {
-      "type": "slide",
-      "name": "Slide",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Slide Image (if no video)"
-        },
-        {
-          "type": "image_picker",
-          "id": "thumbnail",
-          "label": "Video Thumbnail"
-        },
-        {
-          "type": "url",
-          "id": "video_url",
-          "label": "Video URL"
-        },
-        {
-          "type": "product",
-          "id": "product",
-          "label": "Linked Product"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Inspired Video Slider",
-      "category": "Custom"
-    }
-  ]
-}
-{% endschema %}
-
-
-
 <section class="inspired-slider-section">
   <div class="container">
     <h2 class="slider-heading">{{ section.settings.heading }}</h2>    
@@ -505,3 +453,54 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
+
+{% schema %}
+{
+  "name": "Inspired Video Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Get inspired.."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Slide Image (if no video)"
+        },
+        {
+          "type": "image_picker",
+          "id": "thumbnail",
+          "label": "Video Thumbnail"
+        },
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "Video URL"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Linked Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Inspired Video Slider",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+
+
