@@ -167,6 +167,24 @@
         "padding_bottom": 36
       }
     },
+    "exterior_collection_8e6Tp4": {
+      "type": "Exterior-collection",
+      "blocks": {
+        "exterior_collection_LHfW8G": {
+          "type": "Exterior-collection",
+          "settings": {
+            "tab_collection": "exterior-protection"
+          }
+        }
+      },
+      "block_order": [
+        "exterior_collection_LHfW8G"
+      ],
+      "name": "Exterior-collection",
+      "settings": {
+        "heading": "Durogit - Exterior wood oil"
+      }
+    },
     "icons_section_cF3FEP": {
       "type": "icons-section",
       "blocks": {
@@ -226,24 +244,6 @@
         "show_on_desktop": true,
         "show_on_mobile": true
       }
-    },
-    "exterior_collection_8e6Tp4": {
-      "type": "Exterior-collection",
-      "blocks": {
-        "exterior_collection_LHfW8G": {
-          "type": "Exterior-collection",
-          "settings": {
-            "tab_collection": "exterior-protection"
-          }
-        }
-      },
-      "block_order": [
-        "exterior_collection_LHfW8G"
-      ],
-      "name": "Exterior-collection",
-      "settings": {
-        "heading": "Durogit - Exterior wood oil"
-      }
     }
   },
   "order": [
@@ -252,7 +252,7 @@
     "custom_multicolumn_xzf9Vw",
     "project_n8LMJf",
     "featured_collection_QYGftz",
-    "icons_section_cF3FEP",
-    "exterior_collection_8e6Tp4"
+    "exterior_collection_8e6Tp4",
+    "icons_section_cF3FEP"
   ]
 }
