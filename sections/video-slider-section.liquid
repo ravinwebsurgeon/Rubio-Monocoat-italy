@@ -282,7 +282,7 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
- $('.inspired-slider').slick({
+ {% comment %} $('.inspired-slider').slick({
     centerMode: true,
     centerPadding: '50px',
     slidesToShow: 4,
@@ -302,9 +302,28 @@ document.addEventListener("DOMContentLoaded", function () {
     responsive: [
       { breakpoint: 768, settings: { slidesToShow: 1, centerPadding: '40px' } }
     ]
-  });
+  }); {% endcomment %}
+  const inspiredSwiper = new Swiper('.inspired-slider', {
+  slidesPerView: 4,           // slidesToShow: 4
+  centeredSlides: true,       // centerMode: true
+  spaceBetween: 50,           // centerPadding: '50px'
+  loop: true,                 // continuous loop
+  autoplay: {
+    delay: 3000,              // same as autoplay
+    disableOnInteraction: false
+  },
+  navigation: {
+    nextEl: '.custom-next',   // your custom next button
+    prevEl: '.custom-prev'    // your custom prev button
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 1,
+      spaceBetween: 40
+    }
+  }
+});
 
-  // Update product info when slide changes
   function updateProductInfo() {
     let centerSlide = document.querySelector(".inspired-slide.slick-center");
     if (centerSlide) {
