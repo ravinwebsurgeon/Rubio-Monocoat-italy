@@ -103,12 +103,11 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const swiper = new Swiper('.inspired-slider', {
-    spaceBetween: 1,
-    slidesPerView: 3,
     centeredSlides: true,
-    roundLengths: true,
     loop: true,
-    loopAdditionalSlides: 30,
+    speed: 500,
+    slidesPerView: 1.5,
+    spaceBetween: 40,
     navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
     breakpoints: {
       1200: { slidesPerView:6, spaceBetween: 30 },
