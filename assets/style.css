@@ -4693,14 +4693,19 @@ body .two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
         height:360px;
     }
     .icon-columns-section.wood_colorss .icon-columns .icon-column .icon-image-wrap {
-    margin: 0 auto;
-    width: 40px;
-    height: 40px;
-  }
-  .icon-columns-section.wood_colorss .icon-columns .icon-column {
-    display: block;
-    text-align: center;
-  }
+        margin: 0 auto;
+        width: 40px;
+        height: 40px;
+    }
+    .icon-columns-section.wood_colorss .icon-columns .icon-column {
+        display: block;
+        text-align: center;
+    }
+    .wood_colorss .icon-columns .icon-column .icon-heading {
+        font-size: 12px;
+        margin: 5px 0;
+        text-align:center;
+    }
 }
 
 @media only screen and (max-width: 1100px) and (min-width: 767px) {
