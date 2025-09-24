@@ -1438,6 +1438,9 @@ li.product-item {
   .tab-products ul.product-grid {
     gap: 10px;
   }
+  .tab-products ul.product-grid .product-item .product-image-wrapper img {
+    border-radius: 10px;
+}
 }
 
 @media (max-width: 536px) {
@@ -1447,7 +1450,7 @@ li.product-item {
     grid-template-columns: 1fr;
   }
   .product-grid.cols-7{
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
   .product-grid.cols-5{
     grid-template-columns: repeat(2, 1fr);
@@ -1458,9 +1461,7 @@ li.product-item {
   .oil-head {
       margin-bottom: 10px;
   }
-  .tab-products ul.product-grid .product-item .product-image-wrapper img {
-    border-radius: 10px;
-}
+  
 }
 @media (max-width: 415px) {
   .tab-products-wrap {
