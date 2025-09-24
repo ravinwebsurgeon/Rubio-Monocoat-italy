@@ -625,3 +625,30 @@
     </div>
   </div>
 {%- endif -%}
+<script>
+
+    document.querySelectorAll('.plus-show').forEach(button => {
+    button.addEventListener('click', function() {
+      const product = button.closest('.product-item');
+      const featuredImg = product.querySelector('.featured-image').src;
+      const title = product.querySelector('h3').innerText;
+      const price = product.querySelector('.price').innerText;
+      const colours = product.dataset.colours || '';
+      const products = product.dataset.products || '';
+      const url = product.querySelector('a').href;
+
+      // Get Shopify product ID
+      currentProductId = product.dataset.productId; // <-- we need to add this in Liquid
+
+      modalImage.src = featuredImg;
+      modalTitle.textContent = title;
+      modalPrice.textContent = price;
+      modalMeta.textContent = `Colours: ${colours} | Types: ${products}`;
+      modalLink.href = url;
+      qtyInput.value = 1;
+
+      modal.style.display = 'flex';
+    });
+  });
+
+  </script>
