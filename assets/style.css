@@ -1556,7 +1556,7 @@ section.product-features-section .section-heading {
     margin: 0 auto;
     text-align: center;
 }
-.utility-bar button.disclosure__button,.utility-bar button.disclosure__button span {
+.utility-bar button.disclosure__button,.utility-bar button.disclosure__button span,.templateindex button.disclosure__button,.templateindex button.disclosure__button span {
     color: #fff;
 }
 button.disclosure__button span,.disclosure__button{
