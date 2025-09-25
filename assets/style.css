@@ -1569,6 +1569,7 @@ section.product-features-section .section-heading {
 button.disclosure__button span,.disclosure__button{
     font-family: Frutiger Neue LT W1G;
     font-weight: 500;
+    letter-spacing:normal;
 }
 .header-localization .disclosure .localization-form__select:hover{
   text-decoration:none !important;
