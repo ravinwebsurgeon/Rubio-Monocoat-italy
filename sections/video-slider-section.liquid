@@ -302,7 +302,7 @@
 </style>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+{% comment %} document.addEventListener("DOMContentLoaded", function () {
   $('.inspired-slider').slick({
     centerMode: true,
     centerPadding: '220px',
@@ -323,8 +323,52 @@ document.addEventListener("DOMContentLoaded", function () {
     responsive: [
       { breakpoint: 768, settings: { slidesToShow: 1, centerPadding: '40px' } }
     ]
-  });
-
+  }); {% endcomment %}
+window.addEventListener("load", function () {
+    var swiper = new Swiper(".inspired-slider", {
+      slidesPerView: 5,
+      centeredSlides: false,
+      loop: true,
+      speed: 600,
+      loopedSlides: 5,
+      spaceBetween: 8,
+      grabCursor: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 'auto',
+          centeredSlides: true,
+          spaceBetween: 16,
+        },
+        750: {
+          slidesPerView: 3,
+          centeredSlides: true,
+          spaceBetween: 8,
+        },
+        1024: {
+          slidesPerView: 5,
+          centeredSlides: true,
+          spaceBetween: 8,
+        },
+        1200: {
+          slidesPerView: 5,
+          centeredSlides: true,
+          spaceBetween: 8,
+          pagination: {
+            el: null,
+          }
+        }
+      }
+    });
+ 
+    setTimeout(() => {
+      swiper.update();
+      swiper.slideToLoop(0, 0);
+    }, 300);
+  })
   // Update product info when slide changes
 function updateProductInfo() {
   let centerSlide = document.querySelector(".inspired-slide.slick-center");
