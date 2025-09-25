@@ -53,7 +53,7 @@
             </div>
           {% endif %} 
       </div>  {% endcomment %}
- <div class="color-info-btn" aria-label="More info">
+<div class="color-info-btn" aria-label="More info">
   <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <rect width="25" height="25" fill="url(#pattern0_794_625)"/>
     <defs>
@@ -65,15 +65,37 @@
   </svg>
 
   {% if product.selected_or_first_available_variant.metafields.custom.color_info != blank %}
-    <div class="color-tooltip">
-      {{ product.selected_or_first_available_variant.metafields.custom.color_info }}
-      <!-- X Close Button -->
-      <button type="button" class="close-tooltip" aria-label="Close">&times;</button>
+    <div class="color-tooltip" role="dialog" aria-hidden="true">
+      <div class="tooltip-inner">
+        {{ product.selected_or_first_available_variant.metafields.custom.color_info }}
+        <button type="button" class="close-tooltip" aria-label="Close">&times;</button>
+      </div>
     </div>
   {% endif %} 
 </div>
 
 <style>
+/* keep wrapper stable so SVG never disappears */
+.color-info-btn { position: relative; display: inline-block; }
+
+/* float the tooltip so layout won't shift when hidden */
+.color-tooltip { position: absolute; top: calc(100% + 8px); left: 0; z-index: 9999; }
+
+/* the actual content we show/hide */
+.tooltip-inner {
+  position: relative;
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  max-width: 300px;
+}
+
+/* forced hide (use !important so other scripts/styles can't easily override) */
+.tooltip-inner.hidden { display: none !important; }
+
+/* X button styling */
 .close-tooltip {
   background: none;
   border: none;
@@ -81,25 +103,52 @@
   font-weight: bold;
   cursor: pointer;
   position: absolute;
-  top: 5px;
+  top: 6px;
   right: 8px;
   line-height: 1;
-  color:#fff;
-}
-.color-tooltip {
-  position: relative;
+  padding: 0;
 }
 </style>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  document.querySelectorAll(".close-tooltip").forEach(btn => {
-    btn.addEventListener("click", function() {
-      this.parentElement.style.display = "none";
+  document.querySelectorAll('.color-info-btn').forEach(function(wrapper){
+    const svg = wrapper.querySelector('svg');
+    const tooltipInner = wrapper.querySelector('.tooltip-inner');
+    const colorTooltip = wrapper.querySelector('.color-tooltip');
+    const closeBtn = wrapper.querySelector('.close-tooltip');
+
+    if (!tooltipInner || !colorTooltip) return;
+
+    // Toggle tooltip when SVG is clicked
+    if (svg) {
+      svg.addEventListener('click', function(e){
+        e.stopPropagation();
+        tooltipInner.classList.toggle('hidden');
+        colorTooltip.setAttribute('aria-hidden', tooltipInner.classList.contains('hidden') ? 'true' : 'false');
+      });
+    }
+
+    // Close button — hide only .tooltip-inner and stop propagation
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function(e){
+        e.stopPropagation();
+        tooltipInner.classList.add('hidden');
+        colorTooltip.setAttribute('aria-hidden', 'true');
+      });
+    }
+
+    // Clicking anywhere outside closes the tooltip
+    document.addEventListener('click', function(e){
+      if (!wrapper.contains(e.target)) {
+        tooltipInner.classList.add('hidden');
+        colorTooltip.setAttribute('aria-hidden', 'true');
+      }
     });
   });
 });
 </script>
+
 
 
 
