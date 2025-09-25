@@ -1577,7 +1577,7 @@ button.disclosure__button span,.disclosure__button{
 .shopify-section-header-sticky.scrolled-past-header button.disclosure__button.localization-form__select {
     color: #fff;
 }
-.shopify-section-header-sticky.mega-open.scrolled-past-header button.disclosure__button.localization-form__select {
+.shopify-section-header-sticky.scrolled-past-header .mega-open button.disclosure__button.localization-form__select.localization-selector, .mega-open button.disclosure__button.localization-form__select.localization-selector span {
     color: #000;
 }
 
