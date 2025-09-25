@@ -362,7 +362,7 @@
 }
 </style>
 
-<script>
+{% comment %} <script>
 document.addEventListener("DOMContentLoaded", function () {
   $('.inspired-slider').slick({
     centerMode: true,
@@ -456,6 +456,110 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initial run
   updateProductInfo();
   autoplayCenterVideo();
+});
+</script> {% endcomment %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  $('.inspired-slider').slick({
+    centerMode: true,
+    centerPadding: '220px',
+    slidesToShow: 3,
+    arrows: true,
+    dots: false,
+    prevArrow: `<button type="button" class="slick-prev custom-prev">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 640 640" fill="currentColor">
+        <path d="M169.4 297.4C156.9 309.9 156.9 330.2 169.4 342.7L361.4 534.7C373.9 547.2 394.2 547.2 406.7 534.7C419.2 522.2 419.2 501.9 406.7 489.4L237.3 320 406.6 150.6C419.1 138.1 419.1 117.8 406.6 105.3C394.1 92.8 373.8 92.8 361.3 105.3L169.3 297.3z"/>
+      </svg>
+      </button>`,
+    nextArrow: `<button type="button" class="slick-next custom-next">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 640 640" fill="currentColor">
+        <path d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320 233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"/>
+      </svg>
+    </button>`,
+    responsive: [
+      { breakpoint: 768, settings: { slidesToShow: 1, centerPadding: '40px' } }
+    ]
+  });
+
+  // Update product info for center slide
+  function updateProductInfo() {
+    const centerSlide = document.querySelector(".inspired-slide.slick-center");
+    if (!centerSlide) return;
+
+    const title = centerSlide.getAttribute("data-product-title");
+    const img = centerSlide.getAttribute("data-product-img");
+    const url = centerSlide.getAttribute("data-product-url");
+    const vendor = centerSlide.getAttribute("data-product-vendor");
+    const price = centerSlide.getAttribute("data-product-price");
+    const variantId = centerSlide.getAttribute("data-variant-id");
+
+    document.getElementById("inspired-proouter").innerHTML = `
+      <div class="product-image-wrap">
+        <a href="${url}">
+          <img id="product-img" src="${img}" alt="${title}">
+          <div class="product-info-wrap">
+            <p id="product-vendor" class="vendor">${vendor}</p>
+            <p id="product-title" class="title">${title}</p>
+            <p id="product-price" class="price">${price}</p>
+          </div>        
+        </a>
+        <div class="atc-btn-wrap">
+          <a href="#" class="add-to-cart-btn" data-variant-id="${variantId}">
+            <img src="{{ 'icon-cart.svg' | asset_url }}" alt="Cart Icon">
+          </a>
+        </div>
+      </div>
+    `;
+  }
+
+  // Autoplay video on center slide and reset others
+  function autoplayCenterVideo() {
+    document.querySelectorAll(".inspired-slide").forEach(slide => {
+      const videoUrl = slide.getAttribute("data-video-url");
+      const thumb = slide.querySelector(".video-thumb");
+      const slideMedia = slide.querySelector(".slide-media");
+
+      if (!slide.classList.contains("slick-center") && thumb && videoUrl) {
+        // Reset non-center slides to thumbnail
+        slideMedia.innerHTML = `
+          <div class="video-wrapper">
+            <img class="video-thumb" src="${thumb.src}" alt="Video Thumbnail">
+          </div>`;
+      }
+    });
+
+    const centerSlide = document.querySelector(".inspired-slide.slick-center");
+    if (!centerSlide) return;
+
+    const url = centerSlide.getAttribute("data-video-url");
+    const thumb = centerSlide.querySelector(".video-thumb");
+    const slideMedia = centerSlide.querySelector(".slide-media");
+
+    if (url && thumb) {
+      let autoplayUrl = url;
+      if (url.includes("youtube") || url.includes("youtu.be")) {
+        autoplayUrl += (url.includes("?") ? "&" : "?") + "autoplay=1&mute=1&controls=0";
+      } else if (url.includes("vimeo")) {
+        autoplayUrl += (url.includes("?") ? "&" : "?") + "autoplay=1&muted=1&background=1";
+      }
+      slideMedia.innerHTML = `<iframe src="${autoplayUrl}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+    }
+  }
+
+  // On slider init
+  $('.inspired-slider').on('init', function () {
+    updateProductInfo();
+    autoplayCenterVideo();
+  });
+
+  // On slide change
+  $('.inspired-slider').on('afterChange', function () {
+    updateProductInfo();
+    autoplayCenterVideo();
+  });
+
+  // Trigger Slick init manually
+  $('.inspired-slider').slick('setPosition');
 });
 </script>
 
