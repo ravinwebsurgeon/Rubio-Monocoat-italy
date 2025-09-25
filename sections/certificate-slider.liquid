@@ -820,7 +820,7 @@ document.addEventListener("DOMContentLoaded", function(){
   }
 
   /* Accordion effect (expand upward into image area) */
-  .certificate-desc {
+ .certificate-desc {
     position: absolute;
     inset: 0;
     background: #183029;
@@ -835,11 +835,12 @@ document.addEventListener("DOMContentLoaded", function(){
     opacity: 0;
     transform: translateY(100%);
     transition: all 0.4s ease;
-    height: 90%;
+    height: 96%;
     top: auto;
     overflow: auto;
     flex-direction: column;
-  }
+    border-radius: 20px 20px 0 0;
+}
   .certificate-card.active .certificate-desc {
     opacity: 1;
     transform: translateY(0);
