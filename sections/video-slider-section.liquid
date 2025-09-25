@@ -459,38 +459,45 @@ document.addEventListener("DOMContentLoaded", function () {
 }); {% endcomment %}
 
 function autoplayCenterVideo() {
-  // Loop through all slides
-  document.querySelectorAll(".inspired-slide").forEach(slide => {
-    let thumb = slide.querySelector(".video-thumb");
-    let videoUrl = slide.getAttribute("data-video-url");
+  const slides = document.querySelectorAll(".inspired-slide");
 
-    // Reset all slides except the center to thumbnail
-    if (!slide.classList.contains("slick-center") && thumb && videoUrl) {
-      slide.querySelector(".slide-media").innerHTML = `
-        <div class="video-wrapper">
-          <img class="video-thumb" src="${thumb.src}" alt="Video Thumbnail">
-        </div>`;
+  slides.forEach(slide => {
+    const videoWrapper = slide.querySelector(".slide-media");
+    const thumb = slide.querySelector(".video-thumb");
+    const videoUrl = slide.getAttribute("data-video-url");
+
+    if (!slide.classList.contains("slick-center")) {
+      // If not center, show thumbnail
+      if (videoWrapper && thumb) {
+        videoWrapper.innerHTML = ''; // clear video iframe
+        videoWrapper.appendChild(thumb.cloneNode(true)); // keep the original thumbnail
+      }
     }
   });
 
-  // Play video only for the center slide
-  let centerSlide = document.querySelector(".inspired-slide.slick-center");
+  // Center slide
+  const centerSlide = document.querySelector(".inspired-slide.slick-center");
   if (centerSlide) {
-    let url = centerSlide.getAttribute("data-video-url");
-    if (url) {
-      // Add autoplay/mute params
+    const videoWrapper = centerSlide.querySelector(".slide-media");
+    const videoUrl = centerSlide.getAttribute("data-video-url");
+
+    if (videoWrapper && videoUrl) {
+      let url = videoUrl;
+
       if (url.includes("youtube") || url.includes("youtu.be")) {
         url += (url.includes("?") ? "&" : "?") + "autoplay=1&mute=1";
       } else if (url.includes("vimeo")) {
         url += (url.includes("?") ? "&" : "?") + "autoplay=1&muted=1";
       }
 
-      // Inject iframe
-      centerSlide.querySelector(".slide-media").innerHTML = `
-        <iframe src="${url}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+      // Only inject iframe if it's not already present
+      if (!videoWrapper.querySelector("iframe")) {
+        videoWrapper.innerHTML = `<iframe src="${url}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+      }
     }
   }
 }
+
 </script>
 
 
