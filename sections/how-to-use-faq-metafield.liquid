@@ -4,42 +4,44 @@
 
       <!-- Left Image -->
       <div class="cust-image-faq">
-      <div class="custom-faq-image">
-        {% if product.metafields.custom.how_to_use_faq_image %}
-          <img src="{{ product.metafields.custom.how_to_use_faq_image | img_url: '800x' }}" alt="How to use" loading="lazy">
-        {% endif %}
-      </div>
-      </div>
-
- <!-- Right FAQ Accordion -->
-<div class="cust-faq-content" id="how-to-apply">
-  <div class="custom-faq-section">
-    {% assign faq_questions = product.metafields.custom.how_to_use_faq_question.value %}
-    {% assign faq_answers = product.metafields.custom.how_to_use_faq_answer.value %}
-
-    {% if faq_questions and faq_answers %}
-      {% for question in faq_questions %}
-        {% assign answer = faq_answers[forloop.index0] %}
-        <div class="custom-faq-item {% if forloop.first %}active{% endif %}">
-          <button type="button" class="custom-faq-question">
-            <h3>{{ question }}</h3>
-            <span class="custom-faq-icon">
-              <!-- Single Arrow SVG -->
-              <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 9l6 6 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-          </button>
-
-          <div class="custom-faq-answer" style="{% if forloop.first %}display:block{% else %}display:none{% endif %}">
-            <p>{{ answer }}</p>
-          </div>
+        <div class="custom-faq-image">
+          {% assign faq_images = product.metafields.custom.how_to_use_faq_image.value %}
+          {% if faq_images and faq_images.size > 0 %}
+            <img id="faq-left-image" src="{{ faq_images[0] | img_url: '800x' }}" alt="How to use" loading="lazy">
+          {% endif %}
         </div>
-      {% endfor %}
-    {% endif %}
-  </div>
-</div>
+      </div>
+
+      <!-- Right FAQ Accordion -->
+      <div class="cust-faq-content" id="how-to-apply">
+        <div class="custom-faq-section">
+          {% assign faq_questions = product.metafields.custom.how_to_use_faq_question.value %}
+          {% assign faq_answers = product.metafields.custom.how_to_use_faq_answer.value %}
+
+          {% if faq_questions and faq_answers %}
+            {% for question in faq_questions %}
+              {% assign answer = faq_answers[forloop.index0] %}
+              {% assign image = faq_images[forloop.index0] %}
+              <div class="custom-faq-item {% if forloop.first %}active{% endif %}" data-image="{{ image }}">
+                <button type="button" class="custom-faq-question">
+                  <h3>{{ question }}</h3>
+                  <span class="custom-faq-icon">
+                    <!-- Single Arrow SVG -->
+                    <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6 9l6 6 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </button>
+
+                <div class="custom-faq-answer" style="{% if forloop.first %}display:block{% else %}display:none{% endif %}">
+                  <p>{{ answer }}</p>
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
 
     </div>
   </div>
