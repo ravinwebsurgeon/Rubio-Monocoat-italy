@@ -39,38 +39,25 @@
     </div>
 
     <!-- Product Info -->
-<!-- Product Info -->
-<div class="inspired-product-info">
-  <div id="inspired-proouter">
-    
-    <!-- Product Image -->
-    <div class="product-image-wrap">
-      <a href="#" class="product-link">
-        <img class="product-img" src="" alt="Product image">
-      </a>
+    <div class="inspired-product-info">
+      <div id="inspired-proouter">
+        <div class="product-image-wrap">
+        <img id="product-img" src="" alt="" width="" height="">
+        </div>
+        <div class="product-info-wrap">
+        <p id="product-vendor"></p>
+        <p id="product-title"></p>
+        <p id="product-price"></p>
+        </div>
+        <div class="atc-btn-wrap">
+          {% if block.settings.icon_1 %}
+                  <a href="#" class="add-to-cart-btn" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+                    <img src="{{ 'icon-cart.svg' | asset_url }}" alt="Cart Icon">
+                  </a>
+                {% endif %}
+        </div>
+      </div>      
     </div>
-    
-    <!-- Product Details -->
-    <div class="product-info-wrap">
-      <p class="product-vendor"></p>
-      <a href="#" class="product-link">
-        <p class="product-title"></p>
-      </a>
-      <p class="product-price"></p>
-    </div>
-    
-    <!-- Add to Cart Button -->
-    <div class="atc-btn-wrap">
-      {% if block.settings.icon_1 %}
-        <a href="#" class="add-to-cart-btn" data-variant-id="">
-          <img src="{{ 'icon-cart.svg' | asset_url }}" alt="Cart Icon">
-        </a>
-      {% endif %}
-    </div>
-    
-  </div>      
-</div>
-
 </section>
 
 <style>
