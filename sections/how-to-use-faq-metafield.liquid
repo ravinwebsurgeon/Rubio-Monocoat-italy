@@ -154,27 +154,23 @@ $(document).ready(function() {
   $(".custom-faq-question").on("click", function() {
     var $item = $(this).closest(".custom-faq-item");
     var $answer = $item.find(".custom-faq-answer");
-    var $downArrow = $item.find(".arrow-down");
-    var $upArrow = $item.find(".arrow-up");
 
     if ($item.hasClass("active")) {
-      // If already open, close it
       $item.removeClass("active");
       $answer.slideUp(300);
-      $downArrow.show();
-      $upArrow.hide();
     } else {
-      // Close all other items first
-      $(".custom-faq-item").removeClass("active")
-        .find(".custom-faq-answer").slideUp(300);
-      $(".arrow-down").show();
-      $(".arrow-up").hide();
+      // Close all other items
+      $(".custom-faq-item").removeClass("active").find(".custom-faq-answer").slideUp(300);
 
-      // Open the clicked one
+      // Open clicked
       $item.addClass("active");
       $answer.slideDown(300);
-      $downArrow.hide();
-      $upArrow.show();
+
+      // Change left image
+      var newImage = $item.data("image");
+      if(newImage) {
+        $("#faq-left-image").attr("src", newImage);
+      }
     }
   });
 });
