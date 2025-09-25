@@ -1559,6 +1559,10 @@ section.product-features-section .section-heading {
 .utility-bar button.disclosure__button,.utility-bar button.disclosure__button span {
     color: #fff;
 }
+button.disclosure__button span,.disclosure__button{
+    font-family: Frutiger Neue LT W1G;
+    font-weight: 500;
+}
 
 /* ==========Media Css ========== */
 @media screen and (min-width: 990px) {
