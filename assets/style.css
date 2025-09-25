@@ -71,8 +71,9 @@ footer .footer__content-bottom-wrapper.page-width {
 }
 .annouce-wrapper {
     display: flex;
-    gap: 30px;
+    gap: 20px;
     align-items: center;
+    margin-right: 5px;
 }
 span.announce-svg svg {
     display: block;
