@@ -460,46 +460,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function autoplayCenterVideo() {
   document.querySelectorAll(".inspired-slide").forEach(slide => {
-    const thumb = slide.querySelector(".video-thumb");
-    const overlay = slide.querySelector(".video-overlay iframe");
-    const videoUrl = slide.getAttribute("data-video-url");
+    const video = slide.querySelector("video"); // assume your slides use <video> elements
+    if (!video) return;
 
-    if (!slide.classList.contains("slick-center")) {
-      // Pause non-center slides and show thumbnail
-      if (overlay) {
-        overlay.src = ""; // stop the video
-        overlay.parentElement.style.display = "none"; // hide overlay
-      }
-      if (thumb) {
-        thumb.style.display = "block"; // show thumbnail
-      }
+    if (slide.classList.contains("slick-center")) {
+      // Play center slide from start
+      video.currentTime = 0;
+      video.play();
+    } else {
+      // Pause non-center slides
+      video.pause();
+      video.currentTime = 0; // reset timer
     }
   });
-
-  // Play video only for center slide
-  const centerSlide = document.querySelector(".inspired-slide.slick-center");
-  if (centerSlide) {
-    const overlay = centerSlide.querySelector(".video-overlay iframe");
-    const thumb = centerSlide.querySelector(".video-thumb");
-    let url = centerSlide.getAttribute("data-video-url");
-
-    if (overlay && url) {
-      // Hide thumbnail
-      if (thumb) thumb.style.display = "none";
-
-      // Add autoplay parameters
-      if (url.includes("youtube") || url.includes("youtu.be")) {
-        url += (url.includes("?") ? "&" : "?") + "autoplay=1&mute=1";
-      } else if (url.includes("vimeo")) {
-        url += (url.includes("?") ? "&" : "?") + "autoplay=1&muted=1";
-      }
-
-      overlay.src = url; // play video
-      overlay.parentElement.style.display = "block"; // show overlay
-    }
-  }
 }
 
+// On slide change
+$('.inspired-slider').on('afterChange', function () {
+  updateProductInfo();
+  autoplayCenterVideo();
+});
+
+// Initial run
+updateProductInfo();
+autoplayCenterVideo();
 
 </script>
 
