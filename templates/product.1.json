@@ -131,8 +131,7 @@
           "settings": {
             "certificate_image": "shopify://shop_images/b0479ee1316d092d84404988ec6c7d2018953117_1.png",
             "certificate_title": "Eurofins Food Contact Compliance",
-            "certificate_description": "Details about the certificate.",
-            "certificate_pdf": "https://cdn.shopify.com/s/files/1/0680/7647/0314/files/Shopify_New_Design_Webshop.pdf?v=1758113982"
+            "certificate_description": "Details about the certificate."
           }
         },
         "certificate_BUTCPj": {
@@ -140,8 +139,7 @@
           "settings": {
             "certificate_image": "shopify://shop_images/8b92c7180f5a54bfbcb91902b0b94621228979aa_2.png",
             "certificate_title": "0% VOC",
-            "certificate_description": "Details about the certificate.",
-            "certificate_pdf": "https://cdn.shopify.com/s/files/1/0680/7647/0314/files/Shopify_New_Design_Webshop.pdf?v=1758113982"
+            "certificate_description": "Details about the certificate."
           }
         },
         "certificate_UhNxNf": {
@@ -149,8 +147,7 @@
           "settings": {
             "certificate_image": "shopify://shop_images/91ec1ee3f3b7b4f15e7264576166cef058336e4c_1.png",
             "certificate_title": "Greenguard Gold",
-            "certificate_description": "Details about the certificate.",
-            "certificate_pdf": ""
+            "certificate_description": "Details about the certificate."
           }
         },
         "certificate_BVniyg": {
@@ -158,8 +155,7 @@
           "settings": {
             "certificate_image": "shopify://shop_images/f9e032e9883b23ad203be8b370cc6caf70d8b351_1.png",
             "certificate_title": "EN 71-3 (toys)",
-            "certificate_description": "Details about the certificate.",
-            "certificate_pdf": "https://cdn.shopify.com/s/files/1/0680/7647/0314/files/Shopify_New_Design_Webshop.pdf?v=1758113982"
+            "certificate_description": "Details about the certificate."
           }
         },
         "certificate_y8BJBM": {
@@ -167,8 +163,7 @@
           "settings": {
             "certificate_image": "shopify://shop_images/b0479ee1316d092d84404988ec6c7d2018953117_1.png",
             "certificate_title": "Eurofins Food Contact Compliance",
-            "certificate_description": "Details about the certificate.",
-            "certificate_pdf": ""
+            "certificate_description": "Details about the certificate."
           }
         },
         "certificate_cxgpeN": {
@@ -176,8 +171,7 @@
           "settings": {
             "certificate_image": "shopify://shop_images/8b92c7180f5a54bfbcb91902b0b94621228979aa_2.png",
             "certificate_title": "0% VOC",
-            "certificate_description": "Details about the certificate.",
-            "certificate_pdf": ""
+            "certificate_description": "Details about the certificate."
           }
         },
         "certificate_GEmWBb": {
@@ -185,8 +179,7 @@
           "settings": {
             "certificate_image": "shopify://shop_images/91ec1ee3f3b7b4f15e7264576166cef058336e4c_1.png",
             "certificate_title": "Greenguard Gold",
-            "certificate_description": "Details about the certificate.",
-            "certificate_pdf": ""
+            "certificate_description": "Details about the certificate."
           }
         }
       },
@@ -279,8 +272,7 @@
       "type": "technical-info-faq",
       "name": "Technical Info FAQ",
       "settings": {
-        "heading": "Technical info",
-        "image": "shopify://shop_images/Rectangle_146.png"
+        "heading": "Technical info"
       }
     },
     "video_slider_section_dQyWeG": {
