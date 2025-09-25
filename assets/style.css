@@ -1556,6 +1556,9 @@ section.product-features-section .section-heading {
     margin: 0 auto;
     text-align: center;
 }
+.utility-bar button.disclosure__button,.utility-bar button.disclosure__button span {
+    color: #fff;
+}
 
 /* ==========Media Css ========== */
 @media screen and (min-width: 990px) {
