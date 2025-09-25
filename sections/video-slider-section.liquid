@@ -416,7 +416,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  {% comment %} function autoplayCenterVideo() {
+ {% comment %} function autoplayCenterVideo() {
     document.querySelectorAll(".inspired-slide").forEach(slide => {
       let thumb = slide.querySelector(".video-thumb");
       let videoUrl = slide.getAttribute("data-video-url");
@@ -456,46 +456,35 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initial run
   updateProductInfo();
   autoplayCenterVideo();
-}); {% endcomment %}
+});  {% endcomment %}
 
 function autoplayCenterVideo() {
   const slides = document.querySelectorAll(".inspired-slide");
 
   slides.forEach(slide => {
-    const videoWrapper = slide.querySelector(".slide-media");
-    const thumb = slide.querySelector(".video-thumb");
+    const overlay = slide.querySelector(".video-overlay iframe");
     const videoUrl = slide.getAttribute("data-video-url");
 
-    if (!slide.classList.contains("slick-center")) {
-      // If not center, show thumbnail
-      if (videoWrapper && thumb) {
-        videoWrapper.innerHTML = ''; // clear video iframe
-        videoWrapper.appendChild(thumb.cloneNode(true)); // keep the original thumbnail
+    if (slide.classList.contains("slick-center")) {
+      // Play center video
+      if (videoUrl) {
+        let url = videoUrl;
+
+        if (url.includes("youtube") || url.includes("youtu.be")) {
+          url += (url.includes("?") ? "&" : "?") + "autoplay=1&mute=1";
+        } else if (url.includes("vimeo")) {
+          url += (url.includes("?") ? "&" : "?") + "autoplay=1&muted=1";
+        }
+
+        overlay.src = url;
+        overlay.parentElement.style.display = "block"; // show overlay
       }
+    } else {
+      // Pause non-center videos
+      overlay.src = "";
+      overlay.parentElement.style.display = "none"; // hide overlay
     }
   });
-
-  // Center slide
-  const centerSlide = document.querySelector(".inspired-slide.slick-center");
-  if (centerSlide) {
-    const videoWrapper = centerSlide.querySelector(".slide-media");
-    const videoUrl = centerSlide.getAttribute("data-video-url");
-
-    if (videoWrapper && videoUrl) {
-      let url = videoUrl;
-
-      if (url.includes("youtube") || url.includes("youtu.be")) {
-        url += (url.includes("?") ? "&" : "?") + "autoplay=1&mute=1";
-      } else if (url.includes("vimeo")) {
-        url += (url.includes("?") ? "&" : "?") + "autoplay=1&muted=1";
-      }
-
-      // Only inject iframe if it's not already present
-      if (!videoWrapper.querySelector("iframe")) {
-        videoWrapper.innerHTML = `<iframe src="${url}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
-      }
-    }
-  }
 }
 
 </script>
