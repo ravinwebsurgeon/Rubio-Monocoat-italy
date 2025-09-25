@@ -49,7 +49,7 @@
         <div class="atc-btn-wrap">
           {% if block.settings.icon_1 %}
                   <a href="#" class="add-to-cart-btn" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
-                    <img src="{{ block.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
+                    <img src="{{ 'icon-cart.svg' | asset_url }}" alt="Cart Icon">
                   </a>
                 {% endif %}
         </div>
