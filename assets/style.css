@@ -3075,6 +3075,7 @@ a.view-button {
 }
 .view-button:hover,.view-button:focus,.view-button:active {
     background: #1b3a27ad !important;
+    color:#fff !important;
 }
 section.video-products-section {
     margin-bottom: 0;
