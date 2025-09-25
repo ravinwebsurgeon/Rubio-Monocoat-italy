@@ -1122,6 +1122,9 @@ small.copyright__content {
 .scrolled-past-header .header__menu-item span{
     color:#fff;
 }
+.js .header-localization:not(.menu-drawer__localization) .localization-form__select{
+    height:auto !important;
+}
 .language-selector {
   display: flex;
   align-items: center;
