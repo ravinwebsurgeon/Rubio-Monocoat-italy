@@ -494,41 +494,47 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function autoplayVideo() {
-    // Reset all video slides to thumbnail
-    document.querySelectorAll(".inspired-slide").forEach(slide => {
-      let thumb = slide.querySelector(".video-thumb");
-      let videoUrl = slide.getAttribute("data-video-url");
-      if (thumb && videoUrl) {
-        slide.querySelector(".slide-media").innerHTML =
-          `<div class="video-wrapper"><img class="video-thumb" src="${thumb.src}" alt="Video Thumbnail"></div>`;
-      }
-    });
+function autoplayVideo() {
+  document.querySelectorAll(".inspired-slide").forEach(slide => {
+    let thumb = slide.querySelector(".video-thumb");
+    let videoUrl = slide.getAttribute("data-video-url");
 
-    // Autoplay only for center slide
-    let centerSlide = document.querySelector(".inspired-slide.slick-center");
-    if (centerSlide) {
-      let url = centerSlide.getAttribute("data-video-url");
-      if (url) {
-        if (url.includes("youtube") || url.includes("youtu.be")) {
-          url += (url.includes("?") ? "&" : "?") + "autoplay=1&mute=1";
-        } else if (url.includes("vimeo")) {
-          url += (url.includes("?") ? "&" : "?") + "autoplay=1&muted=1";
-        }
-        centerSlide.querySelector(".slide-media").innerHTML =
-          `<iframe src="${url}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
-      }
+    if (!slide.classList.contains("slick-center") && thumb && videoUrl) {
+      // Reset slide to its initial state (thumbnail)
+      slide.querySelector(".slide-media").innerHTML =
+        `<div class="video-wrapper">
+           <img class="video-thumb" src="${thumb.src}" alt="Video Thumbnail">
+         </div>`;
     }
-  }
-
-  $('.inspired-slider').on('afterChange', function () {
-    updateProductInfo();
-    autoplayVideo();
   });
 
+  // Autoplay only center slide
+  let centerSlide = document.querySelector(".inspired-slide.slick-center");
+  if (centerSlide) {
+    let url = centerSlide.getAttribute("data-video-url");
+    if (url) {
+      if (url.includes("youtube") || url.includes("youtu.be")) {
+        url += (url.includes("?") ? "&" : "?") + "autoplay=1&mute=1";
+      } else if (url.includes("vimeo")) {
+        url += (url.includes("?") ? "&" : "?") + "autoplay=1&muted=1";
+      }
+
+      centerSlide.querySelector(".slide-media").innerHTML =
+        `<iframe src="${url}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+    }
+  }
+}
+
+// Trigger on slide change
+$('.inspired-slider').on('afterChange', function () {
   updateProductInfo();
   autoplayVideo();
 });
+
+// Initial run
+updateProductInfo();
+autoplayVideo();
+
 </script>
 
 {% schema %}
