@@ -1563,6 +1563,9 @@ button.disclosure__button span,.disclosure__button{
     font-family: Frutiger Neue LT W1G;
     font-weight: 500;
 }
+button.disclosure__button:hover span,.disclosure__button:hover{
+  text-decoration:none;
+}
 
 /* ==========Media Css ========== */
 @media screen and (min-width: 990px) {
