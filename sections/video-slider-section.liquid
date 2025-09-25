@@ -8,7 +8,10 @@
         <div class="inspired-slide" 
              data-product-title="{{ block.settings.product.title }}" 
              data-product-img="{{ block.settings.product.featured_image | img_url: '200x200' }}" 
-             data-product-url="{{ block.settings.product.url }}">
+             data-product-url="{{ block.settings.product.url }}"
+             data-product-vendor="{{ product.vendor }}"
+  data-product-price="{{ product.price | money }}"
+  data-variant-id="{{ product.selected_or_first_available_variant.id }}">
           <div class="slide-media" data-video-url="{{ block.settings.video_url }}">
             {% if block.settings.video_url != blank %}
               <div class="video-wrapper">
