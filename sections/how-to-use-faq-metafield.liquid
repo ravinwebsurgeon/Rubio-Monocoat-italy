@@ -202,6 +202,32 @@ $(document).ready(function() {
   });
 });
 </script> {% endcomment %}
+{% comment %} <script>
+$(document).ready(function() {
+  $(".custom-faq-question").on("click", function() {
+    var $item = $(this).closest(".custom-faq-item");
+    var $answer = $item.find(".custom-faq-answer");
+
+    if ($item.hasClass("active")) {
+      $item.removeClass("active");
+      $answer.slideUp(300);
+    } else {
+      // Close all other items
+      $(".custom-faq-item").removeClass("active").find(".custom-faq-answer").slideUp(300);
+
+      // Open clicked
+      $item.addClass("active");
+      $answer.slideDown(300);
+
+      // Change left image
+      var newImage = $item.data("image");
+      if(newImage) {
+        $("#faq-left-image").attr("src", newImage);
+      }
+    }
+  });
+});
+</script> {% endcomment %}
 <script>
 $(document).ready(function() {
   $(".custom-faq-question").on("click", function() {
@@ -228,7 +254,6 @@ $(document).ready(function() {
   });
 });
 </script>
-
 
 {% schema %}
 {
