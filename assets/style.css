@@ -1125,8 +1125,11 @@ small.copyright__content {
 .js .header-localization:not(.menu-drawer__localization) .localization-form__select{
     height:auto !important;
 }
+.annouce_menu {
+    align-self: center;
+}
 .language-selector {
-  display: flex;
+  display: none;
   align-items: center;
   border: 1px solid white;
   border-radius: 50px;
