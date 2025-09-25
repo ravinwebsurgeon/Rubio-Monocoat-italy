@@ -3073,7 +3073,9 @@ a.view-button {
     text-align: center;
     padding: 0;
 }
-
+.view-button:hover,.view-button:focus,.view-button:active {
+    background: #1b3a27ad !important;
+}
 section.video-products-section {
     margin-bottom: 0;
 }
