@@ -1574,6 +1574,12 @@ button.disclosure__button span,.disclosure__button{
 .header-localization .disclosure .localization-form__select:hover{
   text-decoration:none !important;
 }
+.shopify-section-header-sticky button.disclosure__button.localization-form__select {
+    color: #fff;
+}
+.shopify-section-header-sticky.mega-open button.disclosure__button.localization-form__select {
+    color: #000;
+}
 
 /* ==========Media Css ========== */
 @media screen and (min-width: 990px) {
