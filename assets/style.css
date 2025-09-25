@@ -4638,7 +4638,11 @@ body .custom-blog-section .blogss-imggg {
 }
 
 @media (max-width: 767px) {
-
+.sticky-btn {
+    font-size: 12px;
+    padding: 8px 15px;
+    width: 120px;
+}
     .four-containers_outer {
         margin-top: 30px;
     }
