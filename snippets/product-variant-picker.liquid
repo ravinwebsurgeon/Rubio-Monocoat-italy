@@ -53,7 +53,8 @@
             </div>
           {% endif %} 
       </div>  {% endcomment %}
- <div class="color-info-btn" aria-label="More info">
+<div class="color-info-btn" aria-label="More info">
+  <!-- SVG stays always visible -->
   <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <rect width="25" height="25" fill="url(#pattern0_794_625)"/>
     <defs>
@@ -66,14 +67,29 @@
 
   {% if product.selected_or_first_available_variant.metafields.custom.color_info != blank %}
     <div class="color-tooltip">
-      {{ product.selected_or_first_available_variant.metafields.custom.color_info }}
-      <!-- X Close Button -->
-      <button type="button" class="close-tooltip" aria-label="Close">&times;</button>
+      <div class="tooltip-inner">
+        {{ product.selected_or_first_available_variant.metafields.custom.color_info }}
+        <!-- X Close Button -->
+        <button type="button" class="close-tooltip" aria-label="Close">&times;</button>
+      </div>
     </div>
-  {% endif %} 
+  {% endif %}
 </div>
 
 <style>
+.color-tooltip {
+  position: relative;
+}
+.tooltip-inner {
+  position: relative;
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+.tooltip-inner.hidden {
+  display: none;
+}
 .close-tooltip {
   background: none;
   border: none;
@@ -85,20 +101,18 @@
   right: 8px;
   line-height: 1;
 }
-.color-tooltip {
-  position: relative;
-}
 </style>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   document.querySelectorAll(".close-tooltip").forEach(btn => {
     btn.addEventListener("click", function() {
-      this.parentElement.style.display = "none";
+      this.closest(".tooltip-inner").classList.add("hidden");
     });
   });
 });
 </script>
+
 
 
 
