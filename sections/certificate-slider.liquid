@@ -705,12 +705,20 @@ document.addEventListener("DOMContentLoaded", function(){
     align-items: center;
     display:flex;
     background-color:#183029;
+    position: relative;
   }
-  .certificates-slider .ctificte-btn--pulsss {
+.certificates-slider .ctificte-btn--pulsss {
     justify-content: end;
     display: flex;
     margin-top: 0;
-  }
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    align-items: center;
+    padding: 0 10px;
+}
   .certificates-slider {
     padding: 100px 30px;
     max-width: 1745px;
@@ -790,6 +798,7 @@ document.addEventListener("DOMContentLoaded", function(){
     line-height: normal;
     text-align: left;
     color:#fff;
+    padding-right: 36px;
   }
   .certificates-slider .certificate-puls-btn button.cert-plus {
     background: 0;
