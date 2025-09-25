@@ -1564,7 +1564,7 @@ button.disclosure__button span,.disclosure__button{
     font-weight: 500;
 }
 .header-localization .disclosure .localization-form__select:hover{
-  text-decoration:none;
+  text-decoration:none !important;
 }
 
 /* ==========Media Css ========== */
