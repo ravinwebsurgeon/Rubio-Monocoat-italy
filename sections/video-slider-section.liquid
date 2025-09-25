@@ -341,8 +341,7 @@ function updateProductInfo() {
         <a href="${url}">
           <img id="product-img" src="${img}" alt="${title}">
         </a>
-      </div>
-      <div class="product-info-wrap">
+        <div class="product-info-wrap">
         <p id="product-vendor" class="vendor">${vendor}</p>
         <a href="${url}"><p id="product-title" class="title">${title}</p></a>
         <p id="product-price" class="price">${price}</p>
@@ -352,6 +351,8 @@ function updateProductInfo() {
           <img src="{{ 'icon-cart.svg' | asset_url }}" alt="Cart Icon">
         </a>
       </div>
+      </div>
+      
     `;
   }
 }
