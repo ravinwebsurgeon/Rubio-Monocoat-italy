@@ -67,6 +67,13 @@
 </div>
 
 <style>
+/* keep wrapper stable so SVG never disappears if tooltip is hidden */
+.color-info-btn { position: relative; display: inline-block; }
+
+/* hide tooltip via class so code is consistent for dynamic content */
+.color-tooltip.hidden { display: none !important; }
+
+/* keep your X styling (you can keep your existing rules as well) */
 .close-tooltip {
   background: none;
   border: none;
@@ -77,20 +84,44 @@
   top: 5px;
   right: 8px;
   line-height: 1;
-  color:#fff;
+  color: #fff;
 }
-.color-tooltip {
-  position: relative;
-}
+.color-tooltip { position: relative; }
 </style>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  document.querySelectorAll(".close-tooltip").forEach(btn => {
-    btn.addEventListener("click", function() {
-      this.parentElement.style.display = "none";
+document.addEventListener('click', function (e) {
+  // 1) Close button (delegated) — works for buttons added later too
+  const closeBtn = e.target.closest('.close-tooltip');
+  if (closeBtn) {
+    e.stopPropagation();
+    const tooltip = closeBtn.closest('.color-tooltip');
+    if (tooltip) {
+      tooltip.classList.add('hidden');
+      tooltip.setAttribute('aria-hidden', 'true');
+    }
+    return;
+  }
+
+  // 2) Toggle tooltip when the SVG inside .color-info-btn is clicked
+  const clickedSvg = e.target.closest('svg');
+  if (clickedSvg && clickedSvg.closest('.color-info-btn')) {
+    const wrapper = clickedSvg.closest('.color-info-btn');
+    const tooltip = wrapper.querySelector('.color-tooltip');
+    if (tooltip) {
+      const nowHidden = tooltip.classList.toggle('hidden');
+      tooltip.setAttribute('aria-hidden', nowHidden ? 'true' : 'false');
+    }
+    return;
+  }
+
+  // 3) Clicking outside any .color-info-btn closes all tooltips
+  if (!e.target.closest('.color-info-btn')) {
+    document.querySelectorAll('.color-tooltip:not(.hidden)').forEach(tt => {
+      tt.classList.add('hidden');
+      tt.setAttribute('aria-hidden', 'true');
     });
-  });
+  }
 });
 </script>
 
