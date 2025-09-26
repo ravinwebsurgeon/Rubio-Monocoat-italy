@@ -948,7 +948,7 @@ button.icon-btn.filter span {
 .product-image-wrapper:hover .featured-image {
   opacity: 1 !important;
 }  {% endcomment %}
-.tab-products ul.product-grid .product-item .product-image-wrapper:after {
+.tab-products ul.product-grid .product-item .product-image-wrapper:after,.tab-productss ul.product-grid .product-item .product-image-wrapper:after{
     content: "";
     background-color: rgba(0,0,0,0.2);
     position: absolute;
@@ -1060,7 +1060,7 @@ button.circle-tab.active span.circle-tab-ing:after {
     outline: none;
     box-shadow: none;
 }
-.tab-products ul.product-grid {
+.tab-products ul.product-grid,.tab-productss ul.product-grid {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -1068,17 +1068,17 @@ button.circle-tab.active span.circle-tab-ing:after {
     height: 100%;
 }
  
-.tab-products ul.product-grid .product-item > a {
+.tab-products ul.product-grid .product-item > a,.tab-productss ul.product-grid .product-item > a {
     display: block;
     height: auto;
 }
  
-.tab-products ul.product-grid .product-item .product-image-wrapper {
+.tab-products ul.product-grid .product-item .product-image-wrapper,.tab-productss ul.product-grid .product-item .product-image-wrapper  {
     height: 100%;
     width: 100%;
 }
  
-.tab-products ul.product-grid .product-item .product-image-wrapper img {
+.tab-products ul.product-grid .product-item .product-image-wrapper img,.tab-productss ul.product-grid .product-item .product-image-wrapper img {
     height: 100%;
     object-fit: cover;
     max-width: 100%;
@@ -1086,11 +1086,11 @@ button.circle-tab.active span.circle-tab-ing:after {
     border-radius: 20px;
 }
  
-.tab-products ul.product-grid li.product-item {
+.tab-products ul.product-grid li.product-item,.tab-productss ul.product-grid li.product-item {
     height: 100%;
     text-align:left;
 }
-.tab-products .product-item a{
+.tab-products .product-item a,.tab-productss .product-item a{
   text-decoration:none;
   color:#000;
 }
@@ -1253,7 +1253,7 @@ li.product-item {
       font-size: 14px;
       margin: 10px 0 5px;
   }
-  .tab-products ul.product-grid {
+  .tab-products ul.product-grid,.tab-productss ul.product-grid {
       gap: 15px;
   }
   .circle-tab img,span.circle-tab-ing {
@@ -1273,7 +1273,7 @@ li.product-item {
   .tab-products .product-grid.cols-7 {
     grid-template-columns: repeat(5, 1fr);
   }
-  .tab-products .product-grid.cols-5 {
+  .tab-products .product-grid.cols-5,.tab-productss .product-grid.cols-5 {
     grid-template-columns: repeat(4, 1fr);
   }
 }
@@ -1321,7 +1321,7 @@ li.product-item {
 
 @media (max-width: 991px) {
   .tab-products .product-grid.cols-7,
-  .tab-products .product-grid.cols-5 {
+  .tab-products .product-grid.cols-5,.tab-productss .product-grid.cols-5 {
     grid-template-columns: repeat(3, 1fr);
   }
   .tab-products .product-grid.cols-7{
@@ -1346,7 +1346,7 @@ li.product-item {
 @media (max-width: 767px) {
   .tab-products .product-grid.cols-7,
   .tab-products .product-grid.cols-5,
-  .tab-products .product-grid.cols-3 {
+  .tab-products .product-grid.cols-3,.tab-productss .product-grid.cols-5 {
     grid-template-columns: repeat(2, 1fr);
   }
   .avail-toggle {
@@ -1435,10 +1435,10 @@ li.product-item {
   .filters-code{
     top:28px;
   }
-  .tab-products ul.product-grid {
+  .tab-products ul.product-grid,.tab-productss ul.product-grid {
     gap: 10px;
   }
-  .tab-products ul.product-grid .product-item .product-image-wrapper img {
+  .tab-products ul.product-grid .product-item .product-image-wrapper img,.tab-productss ul.product-grid .product-item .product-image-wrapper img {
     border-radius: 10px;
   }
   .circle-tabs-outer {
@@ -1492,13 +1492,13 @@ li.product-item {
   }
   .tab-products .product-grid.cols-7,
   .tab-products .product-grid.cols-5,
-  .tab-products .product-grid.cols-3 {
+  .tab-products .product-grid.cols-3,.tab-productss .product-grid.cols-5 {
     grid-template-columns: 1fr;
   }
   .tab-products .product-grid.cols-7{
     grid-template-columns: repeat(2, 1fr);
   }
-  .tab-products .product-grid.cols-5{
+  .tab-products .product-grid.cols-5,.tab-productss .product-grid.cols-5{
     grid-template-columns: repeat(2, 1fr);
   }
   .tips-link {
