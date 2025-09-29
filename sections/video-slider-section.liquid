@@ -405,11 +405,16 @@ document.addEventListener("DOMContentLoaded", function () {
     on: {
       slideChangeTransitionEnd: function () {
         updateProductInfo();
-        autoplayCenterVideo();
+        playCenterVideo(this);
+      },
+      init: function () {
+        updateProductInfo();
+        playCenterVideo(this);
       }
     }
   });
 
+  // ✅ Product Info Update
   function updateProductInfo() {
     let centerSlide = document.querySelector(".inspired-slide.swiper-slide-active");
     if (centerSlide) {
@@ -439,58 +444,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function autoplayCenterVideo() {
-    let allSlides = document.querySelectorAll(".inspired-slide");
-    let centerSlide = document.querySelector(".inspired-slide.swiper-slide-active");
-
-    allSlides.forEach(slide => {
-      let iframe = slide.querySelector("iframe");
-      let url = slide.getAttribute("data-video-url");
-
-      if (!url) return;
-
-      if (slide === centerSlide) {
-        // PLAY video
-        if (!iframe) {
-          let playUrl = url;
-          if (url.includes("youtube") || url.includes("youtu.be")) {
-            playUrl += (url.includes("?") ? "&" : "?") + "enablejsapi=1&autoplay=1&mute=1";
-          } else if (url.includes("vimeo")) {
-            playUrl += (url.includes("?") ? "&" : "?") + "autoplay=1&muted=1";
-          }
-          slide.querySelector(".slide-media").innerHTML =
-            `<iframe src="${playUrl}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
-        } else {
-          // Resume play if iframe already exists
-          iframe.contentWindow.postMessage(
-            '{"event":"command","func":"playVideo","args":""}',
-            "*"
-          );
-        }
-      } else {
-        // PAUSE video if iframe exists
-        if (iframe) {
-          if (url.includes("youtube") || url.includes("youtu.be")) {
-            iframe.contentWindow.postMessage(
-              '{"event":"command","func":"pauseVideo","args":""}',
-              "*"
-            );
-          } else if (url.includes("vimeo")) {
-            iframe.contentWindow.postMessage(
-              '{"method":"pause"}',
-              "*"
-            );
-          }
-        }
-      }
+  // ✅ Pause all non-center videos, play only center one
+  function playCenterVideo(swiper) {
+    swiper.slides.forEach(slide => {
+      let video = slide.querySelector("video");
+      if (video) video.pause();
     });
+
+    let centerSlide = swiper.slides[swiper.activeIndex];
+    let centerVideo = centerSlide.querySelector("video");
+    if (centerVideo) {
+      centerVideo.currentTime = 0; // restart
+      let playPromise = centerVideo.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(err => {
+          console.log("Autoplay prevented:", err);
+        });
+      }
+    }
   }
 
-  // Initial run
-  updateProductInfo();
-  autoplayCenterVideo();
+  // ✅ Ensure correct video plays after full page load
+  window.addEventListener("load", () => {
+    playCenterVideo(swiper);
+  });
 });
 </script>
+
 
 
 {% schema %}
