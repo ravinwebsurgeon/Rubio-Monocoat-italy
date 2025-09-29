@@ -59,20 +59,15 @@
     <h2>{{ section.settings.heading }}</h2>
     <p>{{ section.settings.subheading }}</p>
     <div class="floor-steps-wrapper">
-  {% for block in section.blocks %}
-    <a href="{{ block.settings.link }}" class="floor-step {% if block.settings.highlight %}highlight{% endif %}">
-      {% if block.settings.image != blank %}
-        {% assign image_url = block.settings.image %}
-        {% if block.settings.image.src %}
-          {% assign image_url = block.settings.image.src %}
-        {% endif %}
-        <img src="{{ image_url | image_url: 'medium' }}" alt="{{ block.settings.label }}">
-      {% endif %}
-      <p>{{ block.settings.label }}</p>
-    </a>
-  {% endfor %}
-</div>
-
+      {% for block in section.blocks %}
+        <a href="{{ block.settings.link }}" class="floor-step {% if block.settings.highlight %}highlight{% endif %}">
+          {% if block.settings.image != blank %}
+            <img src="{{ block.settings.image | img_url: '300x' }}" alt="{{ block.settings.label }}">
+          {% endif %}
+          <p>{{ block.settings.label }}</p>
+        </a>
+      {% endfor %}
+    </div>
   </div>
 </div>
 
@@ -86,8 +81,10 @@
 
 .floor-step {
   text-align: center;
-  text-decoration: none; /* removes underline for links */
-  color: inherit; /* keeps text color same as normal */
+  text-decoration: none;
+  color: inherit;
+  flex: 1 1 120px; /* makes steps responsive */
+  max-width: 150px;
 }
 
 .floor-step img {
@@ -95,14 +92,21 @@
   width: 100px;
   height: 100px;
   object-fit: cover;
+  transition: transform 0.3s;
 }
 
 .floor-step.highlight img {
-  border: 3px solid #5A5AFC; /* example highlight color */
+  border: 3px solid #5A5AFC;
   padding: 3px;
+}
+
+.floor-step:hover img {
+  transform: scale(1.05);
 }
 
 .floor-step p {
   margin-top: 10px;
+  font-weight: bold;
+  font-size: 14px;
 }
 </style>
