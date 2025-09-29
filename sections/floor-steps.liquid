@@ -59,15 +59,16 @@
     <h2>{{ section.settings.heading }}</h2>
     <p>{{ section.settings.subheading }}</p>
     <div class="floor-steps-wrapper">
-      {% for block in section.blocks %}
-        <a href="{{ block.settings.link }}" class="floor-step {% if block.settings.highlight %}highlight{% endif %}">
-          {% if block.settings.image %}
-            <img src="{{ block.settings.image | image_url: 'medium' }}" alt="{{ block.settings.label }}">
-          {% endif %}
-          <p>{{ block.settings.label }}</p>
-        </a>
-      {% endfor %}
-    </div>
+  {% for block in section.blocks %}
+    <a href="{{ block.settings.link }}" class="floor-step {% if block.settings.highlight %}highlight{% endif %}">
+      {% if block.settings.image != blank %}
+        <img src="{{ block.settings.image.src | image_url: 'medium' }}" alt="{{ block.settings.label }}">
+      {% endif %}
+      <p>{{ block.settings.label }}</p>
+    </a>
+  {% endfor %}
+</div>
+
   </div>
 </div>
 
