@@ -386,7 +386,93 @@
 </style>
 
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var swiper = new Swiper(".inspired-slider", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    centeredSlides: true,
+    loop: true,
+    navigation: {
+      nextEl: ".custom-next",
+      prevEl: ".custom-prev",
+    },
+    breakpoints: {
+      0: { slidesPerView: 1, spaceBetween: 10 },
+      768: { slidesPerView: 1, spaceBetween: 40, centeredSlides: true },
+      1024: { slidesPerView: 3, spaceBetween: 30, centeredSlides: true }
+    },
+    on: {
+      slideChangeTransitionEnd: function () {
+        updateProductInfo();
+        autoplayCenterVideo();
+      }
+    }
+  });
 
+  function updateProductInfo() {
+    let centerSlide = document.querySelector(".inspired-slide.swiper-slide-active");
+    if (centerSlide) {
+      let title = centerSlide.getAttribute("data-product-title");
+      let img = centerSlide.getAttribute("data-product-img");
+      let url = centerSlide.getAttribute("data-product-url");
+      let vendor = centerSlide.getAttribute("data-product-vendor");
+      let price = centerSlide.getAttribute("data-product-price");
+      let variantId = centerSlide.getAttribute("data-variant-id");
+
+      document.getElementById("inspired-proouter").innerHTML = `
+        <div class="product-image-wrap">
+          <a href="${url}">
+            <img id="product-img" src="${img}" alt="${title}">
+            <div class="product-info-wrap">
+              <p id="product-vendor" class="vendor">${vendor}</p>
+              <p id="product-title" class="title">${title}</p>
+              <p id="product-price" class="price">${price}</p>
+            </div>
+          </a>
+          <div class="atc-btn-wrap">
+            <a href="#" class="add-to-cart-btn" data-variant-id="${variantId}">
+              <img src="{{ 'icon-cart.svg' | asset_url }}" alt="Cart Icon">
+            </a>
+          </div>
+        </div>`;
+    }
+  }
+
+  function autoplayCenterVideo() {
+    // Reset all non-active slides to thumbnail
+    document.querySelectorAll(".inspired-slide").forEach(slide => {
+      let thumb = slide.querySelector(".video-thumb");
+      let videoUrl = slide.getAttribute("data-video-url");
+      if (!slide.classList.contains("swiper-slide-active") && thumb && videoUrl) {
+        slide.querySelector(".slide-media").innerHTML = `
+          <div class="video-wrapper">
+            <img class="video-thumb" src="${thumb.src}" alt="Video Thumbnail">
+          </div>`;
+      }
+    });
+
+    // Load and autoplay video in active slide
+    let centerSlide = document.querySelector(".inspired-slide.swiper-slide-active");
+    if (centerSlide) {
+      let url = centerSlide.getAttribute("data-video-url");
+      if (url) {
+        if (url.includes("youtube") || url.includes("youtu.be")) {
+          url += (url.includes("?") ? "&" : "?") + "autoplay=1&mute=1";
+        } else if (url.includes("vimeo")) {
+          url += (url.includes("?") ? "&" : "?") + "autoplay=1&muted=1";
+        }
+        centerSlide.querySelector(".slide-media").innerHTML = `
+          <iframe src="${url}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+      }
+    }
+  }
+
+  // Init on load
+  updateProductInfo();
+  autoplayCenterVideo();
+});
+</script>
 
 {% schema %}
 {
