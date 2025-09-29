@@ -41,20 +41,6 @@
     },
     "floor_steps_Kad3y3": {
       "type": "floor-steps",
-      "blocks": {
-        "step_3HcPbB": {
-          "type": "step",
-          "settings": {
-            "image": "shopify://shop_images/Ellipse_66.png",
-            "label": "PREPARATION",
-            "link": "",
-            "highlight": false
-          }
-        }
-      },
-      "block_order": [
-        "step_3HcPbB"
-      ],
       "name": "Floor Steps",
       "settings": {
         "heading": "What you’ll need to oil your wooden floor",
