@@ -110,11 +110,72 @@
         "heading": "What you’ll need to oil your wooden floor",
         "subheading": "Frutiger Condensed"
       }
+    },
+    "icons_section_Xkpj3L": {
+      "type": "icons-section",
+      "blocks": {
+        "container_DPXEyH": {
+          "type": "container",
+          "settings": {
+            "class": "first-container-sec",
+            "icon": "shopify://shop_images/Telephone.png",
+            "heading": "Telephone advice",
+            "subhead": "Available on",
+            "subtext": "+32 (0) 51 30 80 54",
+            "extra_text": "On weekdays 08:30 - 17:00"
+          }
+        },
+        "container_wYBQzj": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/Email_2.png",
+            "heading": "Send us an email",
+            "subhead": "",
+            "subtext": "Send us a rubio@monocoatusa.com",
+            "extra_text": "Response within 2 working days"
+          }
+        },
+        "container_tejXeP": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/Headphones.png",
+            "heading": "Customized advice",
+            "subhead": "",
+            "subtext": "Fill out the form",
+            "extra_text": "Advice within 2 days"
+          }
+        },
+        "container_qmrjc4": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/Clipboard_with_check_marks.png",
+            "heading": "Take the Test",
+            "subhead": "",
+            "subtext": "Answer the questions",
+            "extra_text": "Direct Personal advice"
+          }
+        }
+      },
+      "block_order": [
+        "container_DPXEyH",
+        "container_wYBQzj",
+        "container_tejXeP",
+        "container_qmrjc4"
+      ],
+      "name": "icons section",
+      "settings": {
+        "show_on_desktop": true,
+        "show_on_mobile": true
+      }
     }
   },
   "order": [
     "banner",
     "product-grid",
-    "floor_steps_Kad3y3"
+    "floor_steps_Kad3y3",
+    "icons_section_Xkpj3L"
   ]
 }
