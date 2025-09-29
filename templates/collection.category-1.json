@@ -11,6 +11,7 @@
   "sections": {
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
@@ -19,9 +20,11 @@
     },
     "product-grid": {
       "type": "main-collection-product-grid",
+      "disabled": true,
       "settings": {
         "products_per_page": 16,
         "columns_desktop": 4,
+        "columns_mobile": "2",
         "color_scheme": "scheme-1",
         "image_ratio": "adapt",
         "image_shape": "default",
@@ -32,14 +35,36 @@
         "enable_filtering": true,
         "filter_type": "horizontal",
         "enable_sorting": true,
-        "columns_mobile": "2",
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "floor_steps_Kad3y3": {
+      "type": "floor-steps",
+      "blocks": {
+        "step_3HcPbB": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Ellipse_66.png",
+            "label": "PREPARATION",
+            "link": "",
+            "highlight": false
+          }
+        }
+      },
+      "block_order": [
+        "step_3HcPbB"
+      ],
+      "name": "Floor Steps",
+      "settings": {
+        "heading": "What you’ll need to oil your wooden floor",
+        "subheading": "Frutiger Condensed"
       }
     }
   },
   "order": [
     "banner",
-    "product-grid"
+    "product-grid",
+    "floor_steps_Kad3y3"
   ]
 }
