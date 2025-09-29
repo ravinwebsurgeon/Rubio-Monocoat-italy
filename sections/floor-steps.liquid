@@ -62,7 +62,11 @@
   {% for block in section.blocks %}
     <a href="{{ block.settings.link }}" class="floor-step {% if block.settings.highlight %}highlight{% endif %}">
       {% if block.settings.image != blank %}
-        <img src="{{ block.settings.image.src | image_url: 'medium' }}" alt="{{ block.settings.label }}">
+        {% assign image_url = block.settings.image %}
+        {% if block.settings.image.src %}
+          {% assign image_url = block.settings.image.src %}
+        {% endif %}
+        <img src="{{ image_url | image_url: 'medium' }}" alt="{{ block.settings.label }}">
       {% endif %}
       <p>{{ block.settings.label }}</p>
     </a>
