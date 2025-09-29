@@ -1634,17 +1634,18 @@ button.disclosure__button span,.disclosure__button{
 }
 
 .sticky-btn {
-background: #FEC110;
+    background: #FEC110;
     cursor: pointer;
     font-weight: 600;
     color: #0f2d1c;
     border-radius: 50px;
     font-size: 14px;
-    padding: 10px 20px;
+    padding: 10px;
     border: 1px solid #0f2d1c;
     transition: all ease 0.3s;
     font-family: Frutiger Neue LT W1G;
     text-transform: uppercase;
+    width:140px;
 }
 .sticky-btn:hover, .sticky-btn:focus {
     background: #FEC110;
