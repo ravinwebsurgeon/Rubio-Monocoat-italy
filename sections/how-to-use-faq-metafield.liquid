@@ -53,18 +53,9 @@
       <!-- Left Image -->
       <div class="cust-image-faq">
         <div class="custom-faq-image">
-          <!-- Default image is first FAQ image -->
-          {% if product.metafields.custom.how_to_use_faq_image1 %}
-            <img id="faq-left-image" src="{{ product.metafields.custom.how_to_use_faq_image1 | img_url: '800x' }}" alt="How to use" loading="lazy">
-          {% endif %}
-          {% if product.metafields.custom.how_to_use_faq_image2 %}
-            <img id="faq-left-image" src="{{ product.metafields.custom.how_to_use_faq_image2 | img_url: '800x' }}" alt="How to use" loading="lazy">
-          {% endif %}
-          {% if product.metafields.custom.how_to_use_faq_image3 %}
-            <img id="faq-left-image" src="{{ product.metafields.custom.how_to_use_faq_image3 | img_url: '800x' }}" alt="How to use" loading="lazy">
-          {% endif %}
-          {% if product.metafields.custom.how_to_use_faq_image4 %}
-            <img id="faq-left-image" src="{{ product.metafields.custom.how_to_use_faq_image4 | img_url: '800x' }}" alt="How to use" loading="lazy">
+          {% assign default_image = product.metafields.custom.how_to_use_faq_image1 %}
+          {% if default_image %}
+            <img id="faq-left-image" src="{{ default_image | img_url: '800x' }}" alt="How to use" loading="lazy">
           {% endif %}
         </div>
       </div>
@@ -86,7 +77,7 @@
               {% if forloop.index0 == 2 %} {% assign image = product.metafields.custom.how_to_use_faq_image3 %} {% endif %}
               {% if forloop.index0 == 3 %} {% assign image = product.metafields.custom.how_to_use_faq_image4 %} {% endif %}
 
-              <div class="custom-faq-item {% if forloop.first %}active{% endif %}" data-image="{{ image }}">
+              <div class="custom-faq-item {% if forloop.first %}active{% endif %}" data-image="{{ image | img_url: '800x' }}">
                 <button type="button" class="custom-faq-question">
                   <h3>{{ question }}</h3>
                   <span class="custom-faq-icon">
@@ -256,7 +247,7 @@ $(document).ready(function() {
 
       // Change left image
       var newImage = $item.data("image");
-      if(newImage) {
+      if (newImage) {
         $("#faq-left-image").attr("src", newImage);
       }
     }
