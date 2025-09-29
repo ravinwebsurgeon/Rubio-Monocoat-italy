@@ -1,0 +1,103 @@
+{% schema %}
+{
+  "name": "Floor Oil Steps",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "What you’ll need to oil your wooden floor"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Frutiger Condensed"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Step Image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Step Label",
+          "default": "PREPARATION"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Step Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "highlight",
+          "label": "Highlight this step"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Floor Steps",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="floor-steps-section">
+  <div class="container">
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.subheading }}</p>
+    <div class="floor-steps-wrapper">
+      {% for block in section.blocks %}
+        <a href="{{ block.settings.link }}" class="floor-step {% if block.settings.highlight %}highlight{% endif %}">
+          {% if block.settings.image %}
+            <img src="{{ block.settings.image | image_url: 'medium' }}" alt="{{ block.settings.label }}">
+          {% endif %}
+          <p>{{ block.settings.label }}</p>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+.floor-steps-wrapper {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.floor-step {
+  text-align: center;
+  text-decoration: none; /* removes underline for links */
+  color: inherit; /* keeps text color same as normal */
+}
+
+.floor-step img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.floor-step.highlight img {
+  border: 3px solid #5A5AFC; /* example highlight color */
+  padding: 3px;
+}
+
+.floor-step p {
+  margin-top: 10px;
+}
+</style>
