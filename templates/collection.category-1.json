@@ -41,6 +41,70 @@
     },
     "floor_steps_Kad3y3": {
       "type": "floor-steps",
+      "blocks": {
+        "step_Vr7Lgp": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Ellipse_66.png",
+            "label": "PREPARATION",
+            "link": "",
+            "highlight": false
+          }
+        },
+        "step_nn3VUD": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Ellipse_67.png",
+            "label": "PRE-TREATMENT",
+            "link": "",
+            "highlight": false
+          }
+        },
+        "step_M78VCD": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Ellipse_68.png",
+            "label": "OILING",
+            "link": "",
+            "highlight": false
+          }
+        },
+        "step_mDHFiD": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Ellipse_69.png",
+            "label": "TOOLS",
+            "link": "",
+            "highlight": false
+          }
+        },
+        "step_Bjtp3D": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Ellipse_70.png",
+            "label": "CLEANING",
+            "link": "",
+            "highlight": false
+          }
+        },
+        "step_rPR77f": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Ellipse_71.png",
+            "label": "MAINTENANCE",
+            "link": "",
+            "highlight": false
+          }
+        }
+      },
+      "block_order": [
+        "step_Vr7Lgp",
+        "step_nn3VUD",
+        "step_M78VCD",
+        "step_mDHFiD",
+        "step_Bjtp3D",
+        "step_rPR77f"
+      ],
       "name": "Floor Steps",
       "settings": {
         "heading": "What you’ll need to oil your wooden floor",
