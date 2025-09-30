@@ -111,6 +111,20 @@
         "subheading": "Frutiger Condensed"
       }
     },
+    "custom_two_product_col_rFJaUY": {
+      "type": "custom-two-product-col",
+      "name": "custom two product col",
+      "settings": {
+        "main_heading": "Featured Products",
+        "main_subheading": "Pick the right product for your needs",
+        "product1": "woodcream-softener",
+        "product1_heading": "Protection in one single layer",
+        "product1_subheading": "Quicker drying & stronger end result",
+        "product2": "woodprep",
+        "product2_heading": "SheenPlus",
+        "product2_subheading": "For an oiled look with extra sheen"
+      }
+    },
     "icons_section_Xkpj3L": {
       "type": "icons-section",
       "blocks": {
@@ -176,6 +190,7 @@
     "banner",
     "product-grid",
     "floor_steps_Kad3y3",
+    "custom_two_product_col_rFJaUY",
     "icons_section_Xkpj3L"
   ]
 }
