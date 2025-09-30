@@ -125,6 +125,44 @@
         "product2_subheading": "For an oiled look with extra sheen"
       }
     },
+    "other_surfaces_slider_qy7XcP": {
+      "type": "other-surfaces-slider",
+      "blocks": {
+        "slide_wqDXY9": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/aa62a9d8b76bf83cf45b55405d96c568c062b03e.png",
+            "title": "Furniture",
+            "link": ""
+          }
+        },
+        "slide_3GYKFQ": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/247143080d2fca4a4cf531b53a1ca2fbdfa3d1d2.png",
+            "title": "Worktops",
+            "link": ""
+          }
+        },
+        "slide_Aea6FM": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/38bbd82fb3e73d9fd0a721fb641fb7b2f14e0e47.png",
+            "title": "Stairs",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_wqDXY9",
+        "slide_3GYKFQ",
+        "slide_Aea6FM"
+      ],
+      "name": "Other Surfaces Slider",
+      "settings": {
+        "main_heading": "Oiling other surfaces?"
+      }
+    },
     "icons_section_Xkpj3L": {
       "type": "icons-section",
       "blocks": {
@@ -191,6 +229,7 @@
     "product-grid",
     "floor_steps_Kad3y3",
     "custom_two_product_col_rFJaUY",
+    "other_surfaces_slider_qy7XcP",
     "icons_section_Xkpj3L"
   ]
 }
