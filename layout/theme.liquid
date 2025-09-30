@@ -315,17 +315,23 @@
 
 
 
- {% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    Fancybox.bind("[data-fancybox^='product-gallery']", {
-      Thumbs: true,
-      Toolbar: true,
-      Carousel: { infinite: true }
+document.addEventListener("DOMContentLoaded", function () {
+  const thumbs = document.querySelectorAll(".product__media[data-media-index]");
+  const popup = document.getElementById("ProductMediaPopup");
+
+  thumbs.forEach((thumb) => {
+    thumb.addEventListener("click", () => {
+      const index = parseInt(thumb.getAttribute("data-media-index"));
+      popup.style.display = "block";
+      $(".media-popup-slider").slick("slickGoTo", index);
     });
   });
-</script>  {% endcomment %}
+});
+
+</script>  
+
   </head>
 
   <body class="template{{ template | handle }} gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
