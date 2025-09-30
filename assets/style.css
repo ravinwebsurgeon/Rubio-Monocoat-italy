@@ -2792,7 +2792,9 @@ footer .footer__content-bottom-wrapper.page-width {
         margin-left:auto;
         margin-right:auto;
     }
-    
+        .two-column-colour-grid .left-column {
+        margin-right: 0;
+    }
 }
 @media screen and (min-width: 750px) and (max-width: 989px) {
     
