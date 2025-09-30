@@ -2788,6 +2788,10 @@ footer .footer__content-bottom-wrapper.page-width {
         margin-left:auto;
         margin-right:auto;
     }
+    .colour-item img {
+        margin-left:auto;
+        margin-right:auto;
+    }
 }
 @media screen and (min-width: 750px) and (max-width: 989px) {
     
