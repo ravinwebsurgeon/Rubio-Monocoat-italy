@@ -260,6 +260,15 @@
         "subheading": "Create a bedroom worth staying awake for with these inspiring ideas."
       }
     },
+    "blog_sectio_coll_page_DEqbMg": {
+      "type": "blog-sectio-coll-page",
+      "name": "Blog Slider",
+      "settings": {
+        "heading": "Easy guides to get your wood finish just right",
+        "blog": "collection",
+        "post_limit": 6
+      }
+    },
     "other_surfaces_slider_qy7XcP": {
       "type": "other-surfaces-slider",
       "blocks": {
@@ -393,6 +402,7 @@
     "custom_two_product_col_rFJaUY",
     "top_picks_col_efrz3X",
     "inspired_wooden_floor_LmDtKW",
+    "blog_sectio_coll_page_DEqbMg",
     "other_surfaces_slider_qy7XcP",
     "icons_section_Xkpj3L"
   ]
