@@ -476,7 +476,81 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 });
 
 </script>
+<!-- Styles (simplified) -->
+<style>
+.product-gallery-wrapper { display:flex; gap:20px; max-width:900px; margin:auto; }
+.main-image img { width:100%; border-radius:10px; cursor:pointer; }
+.thumbs-column { display:flex; flex-direction:column; gap:10px; max-height:500px; overflow-y:auto; }
+.thumbs-column img { width:80px; height:80px; object-fit:cover; border-radius:8px; cursor:pointer; border:2px solid transparent; }
+.thumbs-column img.active { border:2px solid #000; }
+.color-swatch { width:30px; height:30px; border-radius:50%; border:1px solid #ccc; margin-right:5px; cursor:pointer; }
+.modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:1000; }
+.modal-content { width:90%; max-width:600px; background:#fff; padding:20px; border-radius:10px; position:relative; }
+.close-modal { position:absolute; top:10px; right:15px; font-size:24px; cursor:pointer; }
+.swiper-slide img { width:100%; border-radius:10px; }
+</style>
 
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script>
+const modalSwiper = new Swiper('.modal-swiper', {
+  navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+  loop: true
+});
+
+const modal = document.getElementById('galleryModal');
+const closeBtn = document.getElementById('closeModal');
+const mainImg = document.getElementById('mainProductImage');
+const thumbsColumn = document.getElementById('thumbsColumn');
+
+// Handle thumbnail click
+function setActiveThumbnail(index) {
+  const thumbs = thumbsColumn.querySelectorAll('img');
+  thumbs.forEach((t,i) => t.classList.toggle('active', i===index));
+  mainImg.src = thumbs[index].src;
+}
+
+// Open modal at specific index
+function openModal(index) { modal.style.display='flex'; modalSwiper.slideToLoop(index); }
+
+thumbsColumn.querySelectorAll('img').forEach((thumb,i) => {
+  thumb.addEventListener('click', () => { setActiveThumbnail(i); openModal(i); });
+});
+
+// Main image click opens modal
+mainImg.addEventListener('click', () => {
+  const activeIndex = Array.from(thumbsColumn.querySelectorAll('img')).findIndex(t => t.classList.contains('active'));
+  openModal(activeIndex);
+});
+
+// Close modal
+closeBtn.addEventListener('click', () => modal.style.display='none');
+window.addEventListener('click', e => { if(e.target===modal) modal.style.display='none'; });
+
+// Color swatches click
+document.querySelectorAll('.color-swatch').forEach(swatch => {
+  swatch.addEventListener('click', () => {
+    const variantId = swatch.dataset.variantId;
+    // Find variant in JS
+    const variant = {{ product.variants | json }}.find(v => v.id == variantId);
+    if(!variant) return;
+    
+    // Update main image & thumbnails
+    mainImg.src = variant.featured_image ? variant.featured_image.src : mainImg.src;
+    
+    thumbsColumn.innerHTML = '';
+    variant.media.forEach((media, i) => {
+      if(media.media_type==='image'){
+        const img = document.createElement('img');
+        img.src = media.preview_image.src;
+        if(i===0) img.classList.add('active');
+        img.addEventListener('click', () => { setActiveThumbnail(i); openModal(i); });
+        thumbsColumn.appendChild(img);
+      }
+    });
+  });
+});
+</script>
 
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
