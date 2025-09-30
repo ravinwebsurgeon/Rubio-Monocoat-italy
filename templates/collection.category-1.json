@@ -139,60 +139,69 @@
         "certificate_H8gHyp": {
           "type": "certificate",
           "settings": {
-            "certificate_image": "shopify://shop_images/UMO_pure.jpg",
+            "certificate_image": "shopify://shop_images/dc0c2839921f5d6e61fa84b0afbb4212d773e7a6.png",
             "certificate_title": "Dunes",
             "certificate_subtitle": "Soft, warm white"
           }
         },
-        "certificate_mmQ9Xr": {
+        "certificate_wcQEAD": {
           "type": "certificate",
           "settings": {
-            "certificate_image": "shopify://shop_images/UMO_pure.jpg",
-            "certificate_title": "Certificate name",
-            "certificate_subtitle": "Subtitle here"
+            "certificate_image": "shopify://shop_images/18f1ee7a05a6773840ee463d841a02df8026d400.png",
+            "certificate_title": "Cotton White",
+            "certificate_subtitle": "Soft, warm white"
           }
         },
-        "certificate_Hpt978": {
+        "certificate_VyDUJQ": {
           "type": "certificate",
           "settings": {
-            "certificate_image": "shopify://shop_images/UMO_pure.jpg",
-            "certificate_title": "Certificate name",
-            "certificate_subtitle": "Subtitle here"
+            "certificate_image": "shopify://shop_images/fd836807055dec44dd59dfaf5eaccf48758cf35c.png",
+            "certificate_title": "Cotton White",
+            "certificate_subtitle": "Soft, warm white"
           }
         },
-        "certificate_FCxBjk": {
+        "certificate_ipmqdY": {
           "type": "certificate",
           "settings": {
-            "certificate_image": "shopify://shop_images/UMO_pure.jpg",
-            "certificate_title": "Certificate name",
-            "certificate_subtitle": "Subtitle here"
+            "certificate_image": "shopify://shop_images/dc0c2839921f5d6e61fa84b0afbb4212d773e7a6.png",
+            "certificate_title": "Dunes",
+            "certificate_subtitle": "Soft, warm white"
           }
         },
-        "certificate_WdyhBy": {
+        "certificate_mVperN": {
           "type": "certificate",
           "settings": {
-            "certificate_image": "shopify://shop_images/UMO_pure.jpg",
-            "certificate_title": "Certificate name",
-            "certificate_subtitle": "Subtitle here"
+            "certificate_image": "shopify://shop_images/fd836807055dec44dd59dfaf5eaccf48758cf35c.png",
+            "certificate_title": "Cotton White",
+            "certificate_subtitle": "Soft, warm white"
           }
         },
-        "certificate_HKiDhx": {
+        "certificate_wFFwFf": {
           "type": "certificate",
           "settings": {
-            "certificate_image": "shopify://shop_images/UMO_pure.jpg",
-            "certificate_title": "Certificate name",
-            "certificate_subtitle": "Subtitle here"
+            "certificate_image": "shopify://shop_images/dc0c2839921f5d6e61fa84b0afbb4212d773e7a6.png",
+            "certificate_title": "Dunes",
+            "certificate_subtitle": "Soft, warm white"
+          }
+        },
+        "certificate_8Cg4PE": {
+          "type": "certificate",
+          "settings": {
+            "certificate_image": "shopify://shop_images/fd836807055dec44dd59dfaf5eaccf48758cf35c.png",
+            "certificate_title": "Cotton White",
+            "certificate_subtitle": "Soft, warm white"
           }
         }
       },
       "block_order": [
         "certificate_nDcHck",
         "certificate_H8gHyp",
-        "certificate_mmQ9Xr",
-        "certificate_Hpt978",
-        "certificate_FCxBjk",
-        "certificate_WdyhBy",
-        "certificate_HKiDhx"
+        "certificate_wcQEAD",
+        "certificate_VyDUJQ",
+        "certificate_ipmqdY",
+        "certificate_mVperN",
+        "certificate_wFFwFf",
+        "certificate_8Cg4PE"
       ],
       "name": "Top Picks Slider col",
       "settings": {
