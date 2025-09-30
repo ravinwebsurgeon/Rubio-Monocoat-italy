@@ -208,6 +208,58 @@
         "section_heading": "Our top picks for a natural looking floor"
       }
     },
+    "inspired_wooden_floor_LmDtKW": {
+      "type": "inspired-wooden-floor",
+      "blocks": {
+        "product_block_BnhqwN": {
+          "type": "product_block",
+          "settings": {
+            "product": "oil-plus-2c",
+            "background_image": "shopify://shop_images/9ab11b42d1e1277c22d314cc9cbd19b344112ab6.jpg"
+          }
+        },
+        "product_block_kf9tGc": {
+          "type": "product_block",
+          "settings": {
+            "product": "universal-soap",
+            "background_image": "shopify://shop_images/a67dabd60b503bdd7476c7425908e511bba091d3.jpg"
+          }
+        },
+        "product_block_ARh87z": {
+          "type": "product_block",
+          "settings": {
+            "product": "deep-cleaner",
+            "background_image": "shopify://shop_images/e38938e351b93c7f6cbd73efcdf71b6d9cfe33ef.jpg"
+          }
+        },
+        "product_block_DCbct9": {
+          "type": "product_block",
+          "settings": {
+            "product": "oil-plus-2c-1-3-liter",
+            "background_image": "shopify://shop_images/48e73f1b94dec98fa6a623b58542f1fe6ac195c6.jpg"
+          }
+        },
+        "product_block_8UNP34": {
+          "type": "product_block",
+          "settings": {
+            "product": "surface-care",
+            "background_image": "shopify://shop_images/e5624f9fa274d9c761c6e640fe62e760d60b2c58.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "product_block_BnhqwN",
+        "product_block_kf9tGc",
+        "product_block_ARh87z",
+        "product_block_DCbct9",
+        "product_block_8UNP34"
+      ],
+      "name": "Inspired Wooden Floors",
+      "settings": {
+        "heading": "Get inspired by wooden floors",
+        "subheading": "Create a bedroom worth staying awake for with these inspiring ideas."
+      }
+    },
     "other_surfaces_slider_qy7XcP": {
       "type": "other-surfaces-slider",
       "blocks": {
@@ -340,6 +392,7 @@
     "floor_steps_Kad3y3",
     "custom_two_product_col_rFJaUY",
     "top_picks_col_efrz3X",
+    "inspired_wooden_floor_LmDtKW",
     "other_surfaces_slider_qy7XcP",
     "icons_section_Xkpj3L"
   ]
