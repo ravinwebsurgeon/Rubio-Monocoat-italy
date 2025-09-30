@@ -127,6 +127,73 @@
     },
     "top_picks_col_efrz3X": {
       "type": "top-picks-col",
+      "blocks": {
+        "certificate_nDcHck": {
+          "type": "certificate",
+          "settings": {
+            "certificate_image": "shopify://shop_images/UMO_pure.jpg",
+            "certificate_title": "Certificate name",
+            "certificate_subtitle": "Subtitle here"
+          }
+        },
+        "certificate_H8gHyp": {
+          "type": "certificate",
+          "settings": {
+            "certificate_image": "shopify://shop_images/UMO_pure.jpg",
+            "certificate_title": "Certificate name",
+            "certificate_subtitle": "Subtitle here"
+          }
+        },
+        "certificate_mmQ9Xr": {
+          "type": "certificate",
+          "settings": {
+            "certificate_image": "shopify://shop_images/UMO_pure.jpg",
+            "certificate_title": "Certificate name",
+            "certificate_subtitle": "Subtitle here"
+          }
+        },
+        "certificate_Hpt978": {
+          "type": "certificate",
+          "settings": {
+            "certificate_image": "shopify://shop_images/UMO_pure.jpg",
+            "certificate_title": "Certificate name",
+            "certificate_subtitle": "Subtitle here"
+          }
+        },
+        "certificate_FCxBjk": {
+          "type": "certificate",
+          "settings": {
+            "certificate_image": "shopify://shop_images/UMO_pure.jpg",
+            "certificate_title": "Certificate name",
+            "certificate_subtitle": "Subtitle here"
+          }
+        },
+        "certificate_WdyhBy": {
+          "type": "certificate",
+          "settings": {
+            "certificate_image": "shopify://shop_images/UMO_pure.jpg",
+            "certificate_title": "Certificate name",
+            "certificate_subtitle": "Subtitle here"
+          }
+        },
+        "certificate_HKiDhx": {
+          "type": "certificate",
+          "settings": {
+            "certificate_image": "shopify://shop_images/UMO_pure.jpg",
+            "certificate_title": "Certificate name",
+            "certificate_subtitle": "Subtitle here"
+          }
+        }
+      },
+      "block_order": [
+        "certificate_nDcHck",
+        "certificate_H8gHyp",
+        "certificate_mmQ9Xr",
+        "certificate_Hpt978",
+        "certificate_FCxBjk",
+        "certificate_WdyhBy",
+        "certificate_HKiDhx"
+      ],
       "name": "Top Picks Slider col",
       "settings": {
         "section_heading": "Our top picks for a natural looking floor"
