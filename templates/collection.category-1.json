@@ -261,7 +261,7 @@
       }
     },
     "blog_sectio_coll_page_DEqbMg": {
-      "type": "blog-sectio-coll-page",
+      "type": "blog-section-coll-page",
       "name": "Blog Slider",
       "settings": {
         "heading": "Easy guides to get your wood finish just right",
