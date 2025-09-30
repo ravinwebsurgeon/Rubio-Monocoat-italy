@@ -78,7 +78,7 @@
       {% endcase %}
     </span>
     {%- render 'loading-spinner' -%}
-    <div class="product__media media media--transparent">
+    <div class="product__media media media--transparent" data-media-index="{{ forloop.index0 }}">
       
       {{
         media.preview_image
