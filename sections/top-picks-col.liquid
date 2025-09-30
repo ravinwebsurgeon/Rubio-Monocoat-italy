@@ -20,9 +20,7 @@
       <div class="product-card" {{ block.shopify_attributes }}>
         <div class="product-img">
           {% if block.settings.product_image %}
-            <img 
-              src="{{ block.settings.product_image | img_url:'master' }}" 
-              alt="{{ block.settings.product_title | escape }}">
+            <img src="{{ block.settings.product_image | img_url:'master' }}" alt="{{ block.settings.product_title | escape }}">
           {% else %}
             <div class="product-image-placeholder"></div>
           {% endif %}
@@ -47,7 +45,7 @@
 </section>
 
 <style>
-  .products-slider .product-all-content {
+    .products-slider .product-all-content {
     border: 1px solid #183029;
     border-top: 0;
     border-bottom-left-radius: 20px;
@@ -315,21 +313,25 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function(){
-  // Init Slick
-  $('.products-carousel').slick({
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    infinite: false,
-    prevArrow: $('.prod-prev'),
-    nextArrow: $('.prod-next'),
-    responsive: [
-      { breakpoint: 1200, settings: { slidesToShow: 3 }},
-      { breakpoint: 768, settings: { slidesToShow: 2 }},
-      { breakpoint: 480, settings: { slidesToShow: 1 }}
-    ]
-  });
+  if (typeof $ === "undefined") return;
 
-  // Accordion toggle
+  
+  if ($('.products-carousel').length) {
+    $('.products-carousel').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      infinite: false,
+      prevArrow: $('.prod-prev'),
+      nextArrow: $('.prod-next'),
+      responsive: [
+        { breakpoint: 1200, settings: { slidesToShow: 3 }},
+        { breakpoint: 768, settings: { slidesToShow: 2 }},
+        { breakpoint: 480, settings: { slidesToShow: 1 }}
+      ]
+    });
+  }
+
+  
   document.querySelectorAll(".prod-plus").forEach(btn => {
     btn.addEventListener("click", function(){
       const card = this.closest(".product-card");
@@ -342,7 +344,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 {% schema %}
 {
-  "name": "top picks col",
+  "name": "Products Slider",
   "settings": [
     {
       "type": "text",
@@ -353,7 +355,7 @@ document.addEventListener("DOMContentLoaded", function(){
   ],
   "blocks": [
     {
-      "type": "product",
+      "type": "product_block",
       "name": "Product",
       "settings": [
         {
@@ -377,7 +379,7 @@ document.addEventListener("DOMContentLoaded", function(){
           "type": "textarea",
           "id": "product_description",
           "label": "Product Description",
-          "default": "Soft, warm white with subtle texture that creates a cozy and inviting atmosphere. Perfect for creating a natural, organic feel in any room."
+          "default": "Soft, warm white with subtle texture that creates a cozy and inviting atmosphere."
         }
       ]
     }
@@ -385,23 +387,10 @@ document.addEventListener("DOMContentLoaded", function(){
   "presets": [
     {
       "name": "Products Slider",
+      "category": "Sections",
       "blocks": [
-        {
-          "type": "product",
-          "settings": {
-            "product_title": "Cotton White",
-            "product_subtitle": "Soft, warm white",
-            "product_description": "Soft, warm white with subtle texture that creates a cozy and inviting atmosphere."
-          }
-        },
-        {
-          "type": "product",
-          "settings": {
-            "product_title": "Dunes",
-            "product_subtitle": "Soft, warm white",
-            "product_description": "Earthy tones inspired by desert landscapes. This warm, sandy color brings a natural, calming energy."
-          }
-        }
+        { "type": "product_block" },
+        { "type": "product_block" }
       ]
     }
   ]
