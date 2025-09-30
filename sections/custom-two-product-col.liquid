@@ -1,0 +1,197 @@
+```liquid
+{% schema %}
+{
+  "name": "custom two product col",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main Heading",
+      "default": "Featured Products"
+    },
+    {
+      "type": "text",
+      "id": "main_subheading",
+      "label": "Subheading",
+      "default": "Pick the right product for your needs"
+    },
+    {
+      "type": "product",
+      "id": "product1",
+      "label": "Left Product"
+    },
+    {
+      "type": "text",
+      "id": "product1_heading",
+      "label": "Left Product Heading",
+      "default": "Protection in one single layer"
+    },
+    {
+      "type": "text",
+      "id": "product1_subheading",
+      "label": "Left Product Subheading",
+      "default": "Quicker drying & stronger end result"
+    },
+    {
+      "type": "product",
+      "id": "product2",
+      "label": "Right Product"
+    },
+    {
+      "type": "text",
+      "id": "product2_heading",
+      "label": "Right Product Heading",
+      "default": "SheenPlus"
+    },
+    {
+      "type": "text",
+      "id": "product2_subheading",
+      "label": "Right Product Subheading",
+      "default": "For an oiled look with extra sheen"
+    }
+  ],
+  "presets": [
+    {
+      "name": "custom two product col"
+    }
+  ]
+}
+{% endschema %}
+
+{% assign product1 = all_products[section.settings.product1] %}
+{% assign product2 = all_products[section.settings.product2] %}
+
+<section class="custom-collection-featured">
+  <div class="custom-featured-header">
+    <h2>{{ section.settings.main_heading }}</h2>
+    <p>{{ section.settings.main_subheading }}</p>
+  </div>
+
+  <div class="custom-featured-inner">
+
+    {% if product1 %}
+      <div class="product-box">
+        <h3 class="product-title">{{ section.settings.product1_heading }}</h3>
+        <p class="product-subtitle">{{ section.settings.product1_subheading }}</p>
+
+        <a href="{{ product1.url }}">
+          <img src="{{ product1.featured_image | img_url: '400x400' }}" alt="{{ product1.title }}">
+        </a>
+
+        <form method="post" action="/cart/add" class="add-to-cart-form">
+          <select name="id" class="variant-select">
+            {% for variant in product1.variants %}
+              <option value="{{ variant.id }}">{{ variant.title }}</option>
+            {% endfor %}
+          </select>
+
+          <div class="product-actions">
+            <a href="{{ product1.url }}" class="btn btn-secondary">More Info</a>
+            <button type="submit" class="btn btn-primary">Add to Cart</button>
+          </div>
+        </form>
+      </div>
+    {% endif %}
+
+    {% if product2 %}
+      <div class="product-box">
+        <h3 class="product-title">{{ section.settings.product2_heading }}</h3>
+        <p class="product-subtitle">{{ section.settings.product2_subheading }}</p>
+
+        <a href="{{ product2.url }}">
+          <img src="{{ product2.featured_image | img_url: '400x400' }}" alt="{{ product2.title }}">
+        </a>
+
+        <form method="post" action="/cart/add" class="add-to-cart-form">
+          <select name="id" class="variant-select">
+            {% for variant in product2.variants %}
+              <option value="{{ variant.id }}">{{ variant.title }}</option>
+            {% endfor %}
+          </select>
+
+          <div class="product-actions">
+            <a href="{{ product2.url }}" class="btn btn-secondary">More Info</a>
+            <button type="submit" class="btn btn-primary">Add to Cart</button>
+          </div>
+        </form>
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<style>
+.custom-collection-featured {
+  background: #f8f8f8;
+  padding: 40px;
+  border-radius: 12px;
+  margin: 40px auto;
+  max-width: 1200px;
+}
+.custom-featured-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.custom-featured-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+.custom-featured-header p {
+  font-size: 16px;
+  color: #666;
+}
+.custom-featured-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+.product-box {
+  flex: 1 1 45%;
+  text-align: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+}
+.product-title {
+  font-weight: 600;
+  font-size: 18px;
+}
+.product-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+.variant-select {
+  margin-top: 10px;
+  padding: 6px;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+.product-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+.btn {
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-primary {
+  background: #f0a500;
+  color: #fff;
+  border: none;
+}
+.btn-secondary {
+  background: #003300;
+  color: #fff;
+  border: none;
+}
+</style>
+
