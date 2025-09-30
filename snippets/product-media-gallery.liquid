@@ -51,19 +51,7 @@
   aria-label="{{ 'products.product.media.gallery_viewer' | t }}"
   data-desktop-layout="{{ section.settings.gallery_layout }}"
 >
-  <!-- Product Media Popup -->
-<div id="ProductMediaPopup" class="media-popup" style="display:none;">
-  <div class="media-popup-inner">
-    <button class="media-popup-close">&times;</button>
-    <div class="media-popup-slider">
-      {% for media in product.media %}
-        <div class="media-popup-slide">
-          {{ media | image_url: width: 2000 | image_tag }}
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-</div>
+
 
   <div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>
   <slider-component id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter">
