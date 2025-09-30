@@ -123,11 +123,7 @@
           </span>
         {%- endif -%}
       </span>
-      <a
-    href="{{ media | image_url: width: 1600 }}"
-    data-fancybox="product-gallery-{{ section.id }}"
-    data-caption="{{ media.alt | escape }}"
-  >
+      
       {{
         media.preview_image
         | image_url: width: 1946
@@ -136,7 +132,6 @@
           sizes: sizes,
           widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
       }}
-    </a>
     </button>
     <template>
       {%- liquid
