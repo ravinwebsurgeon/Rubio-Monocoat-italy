@@ -1,340 +1,224 @@
-<section class="products-slider">
-  <div class="products-header">
+<section class="custom-certificates-slider">
+  <div class="custom-certificates-header">
     <h2>{{ section.settings.section_heading }}</h2>
-    <div class="products-arrows">
+    <div class="custom-certificates-arrows">
       <div class="prev-btn">
-        <button type="button" class="prod-prev">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M169.4 297.4C156.9 309.9 156.9 330.2 169.4 342.7L361.4 534.7C373.9 547.2 394.2 547.2 406.7 534.7C419.2 522.2 419.2 501.9 406.7 489.4L237.3 320L406.6 150.6C419.1 138.1 419.1 117.8 406.6 105.3C394.1 92.8 373.8 92.8 361.3 105.3L169.3 297.3z"/></svg>
+        <button type="button" class="custom-cert-prev">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+            <path d="M169.4 297.4C156.9 309.9 156.9 330.2 169.4 342.7L361.4 534.7C373.9 547.2 394.2 547.2 406.7 534.7C419.2 522.2 419.2 501.9 406.7 489.4L237.3 320L406.6 150.6C419.1 138.1 419.1 117.8 406.6 105.3C394.1 92.8 373.8 92.8 361.3 105.3L169.3 297.3z"/>
+          </svg>
         </button>
       </div>
       <div class="next-btn">
-        <button type="button" class="prod-next">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"/></svg>
+        <button type="button" class="custom-cert-next">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+            <path d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"/>
+          </svg>
         </button>
       </div>
     </div>
   </div>
 
-  <div class="products-carousel">
+  <div class="custom-certificates-carousel">
     {% for block in section.blocks %}
-      <div class="product-card" {{ block.shopify_attributes }}>
-        <div class="product-img">
-          {% if block.settings.product_image %}
-            <img src="{{ block.settings.product_image | img_url:'master' }}" alt="{{ block.settings.product_title | escape }}">
-          {% else %}
-            <div class="product-image-placeholder"></div>
-          {% endif %}
-          <div class="product-desc">
-            <p>{{ block.settings.product_description }}</p>
-          </div>
-        </div>
-        <div class="product-all-content">
-          <div class="product-text-content">
-            <h3>{{ block.settings.product_title }}</h3>
-            <p class="product-subtitle">{{ block.settings.product_subtitle }}</p>
-          </div>
-          <div class="product-btn--pulsss">
-            <div class="product-puls-btn"> 
-              <button class="prod-plus" type="button">+</button>
-            </div>
-          </div>
+    <div class="custom-certificate-card" {{ block.shopify_attributes }}>
+      <div class="custom-certificates-img">
+        {% if block.settings.certificate_image %}
+          <img src="{{ block.settings.certificate_image | img_url:'master' }}" alt="{{ block.settings.certificate_title | escape }}">
+        {% endif %}
+        <div class="custom-certificate-desc">
+          <p>{{ block.settings.certificate_description }}</p>
         </div>
       </div>
+      <div class="custom-certificate-all-content">
+        <div class="custom-cert-info">
+          <h3>{{ block.settings.certificate_title }}</h3>
+          <span class="custom-cert-subtitle">{{ block.settings.certificate_subtitle }}</span>
+        </div>
+        <div class="custom-certificate-puls-btn">
+          <button class="custom-cert-plus" type="button">+</button>
+        </div>
+      </div>
+    </div>
     {% endfor %}
   </div>
 </section>
 
 <style>
-    .products-slider .product-all-content {
-    border: 1px solid #183029;
-    border-top: 0;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    padding: 15px;
-    gap: 10px;
-    justify-content: space-between;
-    align-items: center;
-    display:flex;
-    background-color:#183029;
-    position: relative;
-  }
-  
-  .products-slider .product-btn--pulsss {
-    justify-content: end;
-    display: flex;
-    margin-top: 0;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    align-items: center;
-    padding: 0 10px;
-  }
-  
-  .products-slider {
-    padding: 100px 30px;
-    max-width: 1745px;
-    margin: 0 auto;
-  }
-  
-  .products-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 50px;
-  }
-  
-  .products-header h2 {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 45px;
-    margin: 0;
-    color: #183029;
-  }
-  
-  .products-slider .products-arrows button {
-    background: transparent;
-    border: 0;
-    padding: 0;
-  }
-  
-  .products-slider .products-arrows button svg {
-    width: 20px;
-    height: 20px;
-    display: block;
-    cursor: pointer;
-    fill: #183029;
-  }
-  
-  .products-slider .products-arrows .prev-btn, 
-  .products-slider .products-arrows .next-btn {
-    width: 40px;
-    height: 40px;
-    border: 1px solid #183029;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-  
-  .products-slider .products-arrows {
-    display: flex;
-    gap: 10px;
-    cursor: pointer;
-  }
-  
-  .product-card {
-    border-radius: 20px;
-    text-align: center;
-    margin: 0 10px;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .product-card .product-img {
-    background-color: #E1E9E4;
-    position: relative;
-    padding-bottom: 316px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    overflow: hidden;
-  }
-  
-  .product-image-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  
-  .product-card img {
-    max-width: 277px;
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    display: block;
-    position: absolute;
-    top: 0; bottom: 0; left: 0; right: 0;
-    object-fit: contain;
-    transition: opacity 0.3s ease;
-  }
-  
-  .product-card h3 {
-    margin: 0;
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: normal;
-    text-align: left;
-    color:#fff;
-  }
-  
-  .product-subtitle {
-    margin: 5px 0 0 0;
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: normal;
-    text-align: left;
-    color: #e0e0e0;
-  }
-  
-  .product-text-content {
-    flex: 1;
-    padding-right: 36px;
-  }
-  
-  .products-slider .product-puls-btn button.prod-plus {
-    background: 0;
-    border: 0;
-    font-size: 18px;
-    padding: 0;
-    cursor: pointer;
-    color:#fff;
-  }
-  
-  .products-slider .product-puls-btn {
-    width: 24px;
-    height: 24px;
-    border: 1px solid #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
+.custom-certificates-slider {
+  padding: 100px 30px;
+  max-width: 1745px;
+  margin: 0 auto;
+}
+.custom-certificates-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.custom-certificates-header h2 {
+  font-family: Frutiger Neue LT W1G;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 45px;
+  margin: 0;
+}
+.custom-certificates-arrows {
+  display: flex;
+  gap: 10px;
+}
+.custom-certificates-arrows button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.custom-certificates-arrows button svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+.custom-certificates-arrows .prev-btn,
+.custom-certificates-arrows .next-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  /* Accordion effect (expand upward into image area) */
-  .product-desc {
-    position: absolute;
-    inset: 0;
-    background: #183029;
-    color: #fff;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: left;
-    font-size: 14px;
-    line-height: 22px;
-    opacity: 0;
-    transform: translateY(100%);
-    transition: all 0.4s ease;
-    height: 96%;
-    top: auto;
-    overflow: auto;
-    flex-direction: column;
-    border-radius: 20px 20px 0 0;
-  }
-  
-  .product-card.active .product-desc {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .product-card.active img {
-    opacity: 0;
-  }
-  
-  .products-slider .product-puls-btn button.prod-plus:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-  }
+.custom-certificate-card {
+  border-radius: 20px;
+  text-align: center;
+  margin: 0 10px;
+  overflow: hidden;
+  position: relative;
+  width: 320px;
+  height: 420px;
+  background: #183029;
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  @media(max-width:1900px){
-    .products-slider {
-      padding: 50px 30px;
-    }
-    .products-header h2 {
-      font-size: 28px;
-      line-height: normal;
-    }
-    .products-header {
-      margin-bottom: 30px;
-    }
-  }
-  
-  @media(max-width:991px){
-    .products-slider {
-        padding: 50px 20px;
-    }
-    .products-slider .product-card .product-img {
-        padding-bottom: 190px;
-    }
-  }
-  
-  @media(max-width:767px){
-    .products-header h2 {
-        font-size: 24px;
-    }
-    .products-slider {
-        padding: 30px 20px;
-        position: relative;
-    }
-    .products-slider .products-arrows {
-        position: absolute;
-        z-index: 1;
-        top: 53%;
-        transform: translateY(-40%);
-        left: 18px;
-        right: 18px;
-    }
-    .products-slider .products-arrows button svg {
-      width: 12px;
-      height: 12px;
-    }
-    .products-slider .products-arrows .prev-btn, .products-slider .products-arrows .next-btn {
-      width: 24px;
-      height: 24px;
-      border: 1px solid rgba(24, 48, 41, 0.2);
-    }
-    .products-slider .products-arrows .next-btn{
-      margin-left:auto;
-    }
-   
-    .products-slider .product-puls-btn {
-      width: 24px;
-      height: 24px;
-    }
-    .products-slider .product-puls-btn button.prod-plus {
-      font-size: 18px;
-    }
-  }
+.custom-certificates-img {
+  background-color: #E1E9E4;
+  position: relative;
+  border-radius: 20px;
+  flex: 1;
+  overflow: hidden;
+}
+.custom-certificate-card img {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+}
+
+.custom-certificate-all-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  position: relative;
+}
+.custom-cert-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: #fff;
+}
+.custom-cert-info h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+.custom-cert-subtitle {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.custom-certificate-puls-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.custom-cert-plus {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Accordion effect */
+.custom-certificate-desc {
+  position: absolute;
+  inset: 0;
+  background: #183029;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  font-size: 14px;
+  line-height: 22px;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.4s ease;
+  border-radius: 20px;
+}
+.custom-certificate-card.active .custom-certificate-desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+.custom-certificate-card.active img {
+  opacity: 0;
+}
+
+@media(max-width:991px){
+  .custom-certificate-card { width: 280px; height: auto; }
+}
+@media(max-width:767px){
+  .custom-certificates-header h2 { font-size: 24px; }
+  .custom-certificates-arrows button svg { width: 12px; height: 12px; }
+  .custom-certificates-arrows .prev-btn,
+  .custom-certificates-arrows .next-btn { width: 24px; height: 24px; border: 1px solid rgba(0,0,0,0.2); }
+}
 </style>
 
 <script>
 document.addEventListener("DOMContentLoaded", function(){
-  if (typeof $ === "undefined") return;
+  $('.custom-certificates-carousel').slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    infinite: false,
+    prevArrow: $('.custom-cert-prev'),
+    nextArrow: $('.custom-cert-next'),
+    responsive: [
+      { breakpoint: 1200, settings: { slidesToShow: 3 }},
+      { breakpoint: 768, settings: { slidesToShow: 2 }},
+      { breakpoint: 480, settings: { slidesToShow: 1 }}
+    ]
+  });
 
-  
-  if ($('.products-carousel').length) {
-    $('.products-carousel').slick({
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      infinite: false,
-      prevArrow: $('.prod-prev'),
-      nextArrow: $('.prod-next'),
-      responsive: [
-        { breakpoint: 1200, settings: { slidesToShow: 3 }},
-        { breakpoint: 768, settings: { slidesToShow: 2 }},
-        { breakpoint: 480, settings: { slidesToShow: 1 }}
-      ]
-    });
-  }
-
-  
-  document.querySelectorAll(".prod-plus").forEach(btn => {
+  document.querySelectorAll(".custom-cert-plus").forEach(btn => {
     btn.addEventListener("click", function(){
-      const card = this.closest(".product-card");
+      const card = this.closest(".custom-certificate-card");
       card.classList.toggle("active");
       this.textContent = card.classList.contains("active") ? "×" : "+";
     });
@@ -344,55 +228,22 @@ document.addEventListener("DOMContentLoaded", function(){
 
 {% schema %}
 {
-  "name": "Top Picks Slider col",
+  "name": "top picks Slider",
   "settings": [
-    {
-      "type": "text",
-      "id": "section_heading",
-      "label": "Section Heading",
-      "default": "Our top picks for a natural looking floor"
-    }
+    { "type": "text", "id": "section_heading", "label": "Section Heading", "default": "International product certificates" }
   ],
   "blocks": [
     {
-      "type": "product_block",
-      "name": "Product",
+      "type": "certificate",
+      "name": "Certificate",
       "settings": [
-        {
-          "type": "image_picker",
-          "id": "product_image",
-          "label": "Product Image"
-        },
-        {
-          "type": "text",
-          "id": "product_title",
-          "label": "Product Title",
-          "default": "Cotton White"
-        },
-        {
-          "type": "text",
-          "id": "product_subtitle",
-          "label": "Product Subtitle",
-          "default": "Soft, warm white"
-        },
-        {
-          "type": "textarea",
-          "id": "product_description",
-          "label": "Product Description",
-          "default": "Soft, warm white with subtle texture that creates a cozy and inviting atmosphere."
-        }
+        { "type": "image_picker", "id": "certificate_image", "label": "Certificate Image" },
+        { "type": "text", "id": "certificate_title", "label": "Certificate Title", "default": "Certificate name" },
+        { "type": "text", "id": "certificate_subtitle", "label": "Certificate Subtitle", "default": "Subtitle here" },
+        { "type": "textarea", "id": "certificate_description", "label": "Certificate Description", "default": "Details about the certificate." }
       ]
     }
   ],
-  "presets": [
-    {
-      "name": "Top Picks Slider col",
-      "category": "Sections",
-      "blocks": [
-        { "type": "product_block" },
-        { "type": "product_block" }
-      ]
-    }
-  ]
+  "presets": [ { "name": "Custom Certificates Slider" } ]
 }
 {% endschema %}
