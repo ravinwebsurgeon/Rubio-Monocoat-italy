@@ -125,6 +125,13 @@
         "product2_subheading": "For an oiled look with extra sheen"
       }
     },
+    "top_picks_col_efrz3X": {
+      "type": "top-picks-col",
+      "name": "Top Picks Slider col",
+      "settings": {
+        "section_heading": "Our top picks for a natural looking floor"
+      }
+    },
     "other_surfaces_slider_qy7XcP": {
       "type": "other-surfaces-slider",
       "blocks": {
@@ -256,6 +263,7 @@
     "product-grid",
     "floor_steps_Kad3y3",
     "custom_two_product_col_rFJaUY",
+    "top_picks_col_efrz3X",
     "other_surfaces_slider_qy7XcP",
     "icons_section_Xkpj3L"
   ]
