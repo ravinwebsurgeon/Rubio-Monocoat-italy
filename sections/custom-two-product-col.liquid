@@ -73,9 +73,9 @@
         <h3 class="product-title">{{ section.settings.product1_heading }}</h3>
         <p class="product-subtitle">{{ section.settings.product1_subheading }}</p>
 
-        <a href="{{ product1.url }}">
+        {% comment %} <a href="{{ product1.url }}"> {% endcomment %}
           <img src="{{ product1.featured_image | img_url: '400x400' }}" alt="{{ product1.title }}">
-        </a>
+        {% comment %} </a> {% endcomment %}
 
         <form method="post" action="/cart/add" class="add-to-cart-form">
           <select name="id" class="variant-select">
