@@ -1684,7 +1684,11 @@ button.disclosure__button span,.disclosure__button{
     .localization-wrapper {
     display: none !important;
 }
-
+    .two-column-colour-grid .left-column {
+        display: block;
+        text-align: center;
+        margin: -20px auto 0 !important;
+    }
 p.announcement-bar__message.h5 {
     padding: 0;
     display: flex;
