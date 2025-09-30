@@ -6,7 +6,7 @@ Metafields:
 - custom.visit_faq_ques
 - custom.visit_faq_answers
 {% endcomment %}
-
+{% if product.metafields.custom.visit_faq_ques.value != blank and product.metafields.custom.visit_faq_answers.value != blank %}
 <section class="visit-faq-section" id="faqs">
   <div class="faq-container">
     <!-- Left Column -->
@@ -44,7 +44,7 @@ Metafields:
     </div>
   </div>
 </section>
-
+{% endif %}
 <style>
 .visit-faq-section {
     padding: 85px 89px;
