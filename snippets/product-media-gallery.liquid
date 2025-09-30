@@ -83,7 +83,7 @@
           data-media-id="{{ section.id }}-{{ featured_media.id }}"
         >
           {%- assign media_position = 1 -%}
-          {% render 'product-thumbnail',
+          {% comment %} {% render 'product-thumbnail',
             media: featured_media,
             media_count: media_count,
             position: media_position,
@@ -96,7 +96,7 @@
             media_fit: section.settings.media_fit,
             constrain_to_viewport: section.settings.constrain_to_viewport,
             lazy_load: false
-          %}
+          %} {% endcomment %}
         </li>
       {%- endif -%}
       {%- for media in product.media -%}
@@ -121,7 +121,7 @@
                 assign lazy_load = true
               endif
             -%}
-            {% render 'product-thumbnail',
+            {% comment %} {% render 'product-thumbnail',
               media: media,
               media_count: media_count,
               position: media_position,
@@ -134,7 +134,7 @@
               media_fit: section.settings.media_fit,
               constrain_to_viewport: section.settings.constrain_to_viewport,
               lazy_load: lazy_load
-            %} 
+            %}  {% endcomment %}
              
           </li>
         {%- endunless -%}
