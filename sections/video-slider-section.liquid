@@ -82,9 +82,8 @@
           data-variant-id="{{ block.settings.product.selected_or_first_available_variant.id }}"
           data-video-url="{{ block.settings.video_url }}"
         >
-          <div class="slide-media">
+      
   {% if block.settings.video_url != blank %}
-    <div class="video-wrapper">
       <video 
         muted 
         playsinline 
@@ -94,14 +93,12 @@
         <source src="{{ block.settings.video_url }}" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-    </div>
   {% else %}
     <img 
       src="{{ block.settings.image | img_url: '600x600' }}" 
       alt="Slide Image"
     >
   {% endif %}
-</div>
 
         </div>
       {% endfor %}
