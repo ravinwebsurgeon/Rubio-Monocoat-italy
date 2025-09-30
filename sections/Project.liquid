@@ -343,14 +343,14 @@ document.addEventListener('DOMContentLoaded', function() {
   function updateGridLayout(value) {
     
     productGrids.forEach(grid => {
-      grid.classList.remove('cols-3', 'cols-5', 'cols-7');
+      grid.classList.remove('cols-7', 'cols-5', 'cols-3');
      
       if (value === 0) {
-        grid.classList.add('cols-3');
+        grid.classList.add('cols-7');
       } else if (value === 1) {
         grid.classList.add('cols-5');
       } else if (value === 2) {
-        grid.classList.add('cols-7');
+        grid.classList.add('cols-3');
       }
     });
   }
