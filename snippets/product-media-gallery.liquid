@@ -107,7 +107,7 @@
                 assign lazy_load = true
               endif
             -%}
-            {% comment %} {% render 'product-thumbnail',
+            {% render 'product-thumbnail',
               media: media,
               media_count: media_count,
               position: media_position,
@@ -120,7 +120,7 @@
               media_fit: section.settings.media_fit,
               constrain_to_viewport: section.settings.constrain_to_viewport,
               lazy_load: lazy_load
-            %} {% endcomment %}
+            %} 
              
           </li>
         {%- endunless -%}
