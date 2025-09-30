@@ -175,3 +175,14 @@
     {%- endif -%}
   {%- endif -%}
 </div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    Fancybox.bind("[data-fancybox^='product-gallery']", {
+      Thumbs: true,
+      Toolbar: true,
+      Carousel: { infinite: true }
+    });
+  });
+</script>
