@@ -46,6 +46,7 @@
     </div>
   </div>
 </div> {% endcomment %}
+{% if product.metafields.custom.how_to_use_faq_question.value != blank and product.metafields.custom.how_to_use_faq_answer.value != blank %}
 <div class="faq-main-container">
   <div class="custom-faq-wrapper">
     <div class="custom-faq-inner">
@@ -100,6 +101,7 @@
     </div>
   </div>
 </div>
+{% endif %}
 <style>
 .faq-main-container { background: #183029; }
 .custom-faq-wrapper { max-width: 1745px; margin: 0 auto; padding: 100px 30px; }
