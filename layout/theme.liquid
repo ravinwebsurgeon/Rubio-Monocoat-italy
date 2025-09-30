@@ -463,21 +463,6 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 
 </script>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const thumbs = document.querySelectorAll(".product__media[data-media-index]");
-  const popup = document.getElementById("ProductMediaPopup");
-
-  thumbs.forEach((thumb) => {
-    thumb.addEventListener("click", () => {
-      const index = parseInt(thumb.getAttribute("data-media-index"));
-      popup.style.display = "block";
-      $(".media-popup-slider").slick("slickGoTo", index);
-    });
-  });
-});
-
-</script> 
 
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
