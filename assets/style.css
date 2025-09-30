@@ -2781,6 +2781,9 @@ footer .footer__content-bottom-wrapper.page-width {
     .blog__post.article {
         margin: 0 8px !important;
     }
+    section.two-column-colour-grid .colour-grid {
+    max-width: 100%;
+}
 }
 @media screen and (min-width: 750px) and (max-width: 989px) {
     
