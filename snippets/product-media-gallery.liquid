@@ -299,7 +299,7 @@
                 %}
                   aria-current="true"
                 {% endif %}
-                aria-controls="GalleryViewer-{{ section.id }}"
+                {% comment %} aria-controls="GalleryViewer-{{ section.id }}" {% endcomment %}
                 aria-describedby="{{ thumbnail_id }}"
               >
                 {{
