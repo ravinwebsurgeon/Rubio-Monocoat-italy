@@ -1545,6 +1545,7 @@ section.product-features-section .section-heading {
     margin-right: auto;
     display: flex;
     justify-content: center;
+    margin-top:25px;
 }
 .icon-columns-section.wood_colorss .icon-columns .icon-column {
     flex: 0 auto;
