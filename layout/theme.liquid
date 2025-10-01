@@ -468,24 +468,71 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const lightbox = GLightbox({
+document.addEventListener("DOMContentLoaded", function () {
+  let lightbox = GLightbox({
     selector: '.glightbox',
     loop: true,
     zoomable: true,
-    touchNavigation: true,
+    touchNavigation: true
   });
 
-  // Slick for thumbnails
-  if ($('.thumbnails-slider').length) {
-    $('.thumbnails-slider').slick({
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      arrows: true,
-      infinite: false,
+  function filterGalleryByVariant(variantId) {
+    const product = window.productData;
+    const variant = product?.variants?.find(v => v.id == variantId);
+    if (!variant) return;
+
+    // Use variant option or title to match alt (example: color "Red")
+    const variantKeyword = variant.title.toLowerCase();
+
+    // Loop through gallery items
+    document.querySelectorAll('.custom-media-gallery .thumbnail-item, .custom-media-gallery .main-image-wrapper').forEach(item => {
+      const img = item.querySelector("img");
+      if (!img) return;
+
+      const altText = (img.getAttribute("alt") || "").toLowerCase();
+
+      if (altText.includes(variantKeyword)) {
+        item.style.display = "block"; // show matching images
+      } else {
+        item.style.display = "none"; // hide others
+      }
+    });
+
+    // Re-init GLightbox
+    lightbox.destroy();
+    lightbox = GLightbox({
+      selector: '.glightbox',
+      loop: true,
+      zoomable: true,
+      touchNavigation: true
     });
   }
+
+  // ✅ Initial variant from URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const variantId = urlParams.get("variant");
+  if (variantId) {
+    setTimeout(() => {
+      filterGalleryByVariant(variantId);
+    }, 500);
+  }
+
+  // ✅ Shopify variant change event
+  document.addEventListener("variant:change", function (event) {
+    const newVariant = event.detail.variant;
+    if (newVariant) {
+      filterGalleryByVariant(newVariant.id);
+    }
+  });
+
+  // ✅ Fallback for radio buttons
+  document.querySelectorAll('input[name="id"]').forEach((radio) => {
+    radio.addEventListener("change", function () {
+      filterGalleryByVariant(this.value);
+    });
+  });
 });
+
 
 </script>
 
