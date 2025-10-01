@@ -467,38 +467,15 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 </script>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function() {
+  const lightbox = GLightbox({
+    selector: '.glightbox',
+    loop: true,
+    zoomable: true,
+    touchNavigation: true,
+  });
 
-  // Function to bind Fancybox and open at clicked image
-  function bindGallery() {
-    const galleryLinks = document.querySelectorAll('.custom-media-gallery .gallery-link');
-
-    galleryLinks.forEach((link, index) => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        Fancybox.show(
-          Array.from(galleryLinks).map(l => ({
-            src: l.getAttribute('href'),
-            type: "image"
-          })),
-          {
-            Thumbs: true,
-            Toolbar: true,
-            dragToClose: true,
-            infinite: true,
-            animated: true
-          },
-          index // start at clicked image
-        );
-      });
-    });
-  }
-
-  // Initialize gallery
-  bindGallery();
-
-  // Initialize thumbnail slider
+  // Slick for thumbnails
   if ($('.thumbnails-slider').length) {
     $('.thumbnails-slider').slick({
       slidesToShow: 4,
@@ -507,62 +484,6 @@ document.addEventListener('DOMContentLoaded', function() {
       infinite: false,
     });
   }
-
-  // Variant-aware gallery
-  {% if product.variants.size > 1 %}
-    const variantImages = {
-      {% for variant in product.variants %}
-        "{{ variant.id }}": [
-          {% for media in variant.media %}
-            "{{ media.preview_image | img_url: '2048x2048' }}"{% unless forloop.last %}, {% endunless %}
-          {% endfor %}
-        ]{% unless forloop.last %}, {% endunless %}
-      {% endfor %}
-    };
-
-    document.querySelectorAll('[name="id"]').forEach(select => {
-      select.addEventListener('change', function() {
-        const selectedVariant = this.value;
-        if (variantImages[selectedVariant] && variantImages[selectedVariant].length > 0) {
-
-          const mainImage = document.getElementById('main-product-image');
-          const thumbWrapper = document.querySelector('.thumbnails-slider');
-          const images = variantImages[selectedVariant];
-
-          // Update main image
-          mainImage.src = images[0];
-
-          // Clear old thumbnails
-          thumbWrapper.innerHTML = '';
-
-          // Add thumbnails (exclude main image)
-          images.forEach((src, i) => {
-            if(i === 0) return; // skip main image
-            const div = document.createElement('div');
-            div.className = 'thumbnail-item';
-            div.innerHTML = `<a class="gallery-link" data-fancybox="product-gallery" href="${src}">
-                              <img src="${src}" alt="Variant image">
-                             </a>`;
-            thumbWrapper.appendChild(div);
-          });
-
-          // Rebind Fancybox for new images
-          bindGallery();
-
-          // Re-initialize Slick
-          if ($('.thumbnails-slider').length) {
-            $('.thumbnails-slider').slick('unslick');
-            $('.thumbnails-slider').slick({
-              slidesToShow: 4,
-              slidesToScroll: 1,
-              arrows: true,
-              infinite: false,
-            });
-          }
-        }
-      });
-    });
-  {% endif %}
 });
 
 </script>
