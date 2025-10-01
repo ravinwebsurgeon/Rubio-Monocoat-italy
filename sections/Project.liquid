@@ -115,7 +115,8 @@
                       {% assign tab_collection = block.settings.tab_collection %}
                       {% for product in tab_collection.products %}
                         {% for colour in product.metafields.custom.colour_filter2.value %}
-                        <button class="colour-btn" value="{{ colour }}" id="colour-filter">
+                        <button class="colour-btn" data-colour="{{ colour }}" 
+                                style="background-color: {{ colour | downcase }};" id="colour-filter">
                           {{ colour }}
                         </button>
                          {% endfor %}
