@@ -347,7 +347,7 @@
     {% for media in product.media %}
       {% if media.media_type == 'image' and media.id != product.featured_image.id %}
         <div class="thumbnail-item">
-          <a data-fancybox="product-gallery" href="{{ media.preview_image | img_url: 'master' }}">
+          <a data-fancybox="product-gallery" href="{{ media.preview_image | img_url: '2048x2048' }}">
             <img src="{{ media.preview_image | img_url: '150x150' }}" alt="{{ media.alt | escape }}">
           </a>
         </div>
