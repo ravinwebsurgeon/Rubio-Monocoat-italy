@@ -97,25 +97,40 @@
 document.addEventListener("DOMContentLoaded", function() {
   const swatches = document.querySelectorAll(".colour-item");
   const mainImage = document.getElementById("main-colour-image");
- 
+
+  if (swatches.length > 0) {
+    // ✅ Default select the first swatch
+    const firstSwatch = swatches[0];
+    const firstImg = firstSwatch.getAttribute("data-full");
+    const firstWrapper = firstSwatch.querySelector(".image-wrapper");
+
+    // Add active class to first wrapper
+    document.querySelectorAll(".image-wrapper").forEach(wrapper => wrapper.classList.remove("active"));
+    if (firstWrapper) firstWrapper.classList.add("active");
+
+    // Set main image
+    if (firstImg && mainImage) {
+      mainImage.src = firstImg;
+    }
+  }
+
+  // ✅ Handle clicks on swatches
   swatches.forEach((swatch) => {
     swatch.addEventListener("click", () => {
       const fullImg = swatch.getAttribute("data-full");
+      const wrapper = swatch.querySelector(".image-wrapper");
+
+      // Update main image
       if (fullImg && mainImage) {
         mainImage.src = fullImg;
       }
+
+      // Toggle active class on image wrappers
+      document.querySelectorAll(".image-wrapper").forEach(wrapper => wrapper.classList.remove("active"));
+      if (wrapper) wrapper.classList.add("active");
     });
   });
 });
- 
- 
- 
-$(document).ready(function () {
-    $(".image-wrapper").on("click", function () {
-      $(".image-wrapper").removeClass("active"); // remove from all
-      $(this).addClass("active"); // add to clicked one
-    });
-  });
 
 
  $(document).ready(function(){
