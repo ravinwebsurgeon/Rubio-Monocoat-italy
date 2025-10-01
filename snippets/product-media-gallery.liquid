@@ -337,8 +337,8 @@
 
   <!-- Main Image -->
   <div class="main-image-wrapper">
-    <a data-fancybox="product-gallery" href="{{ product.featured_image | img_url: 'master' }}">
-      <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}">
+    <a data-fancybox="product-gallery" href="{{ product.featured_image | img_url: '2048x2048' }}">
+      <img src="{{ product.featured_image | img_url: '1024x1024' }}" alt="{{ product.title }}">
     </a>
   </div>
 
@@ -348,7 +348,7 @@
       {% if media.media_type == 'image' and media.id != product.featured_image.id %}
         <div class="thumbnail-item">
           <a data-fancybox="product-gallery" href="{{ media.preview_image | img_url: 'master' }}">
-            <img src="{{ media.preview_image | img_url: 'master' }}" alt="{{ media.alt | escape }}">
+            <img src="{{ media.preview_image | img_url: '150x150' }}" alt="{{ media.alt | escape }}">
           </a>
         </div>
       {% endif %}
