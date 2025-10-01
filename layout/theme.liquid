@@ -489,44 +489,46 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 </script>
+
 {% if template == 'product' %}
 <script>
 $(document).ready(function() {
 
-    function filterGalleryByVariant(variantTitle) {
-        var variantHandle = variantTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  function showImagesForVariant(variantTitle) {
+    // Convert variant title to handle format (lowercase, hyphens)
+    var variantHandle = variantTitle.toLowerCase().replace(/\s+/g, '-');
 
-        // Hide all images
-        $(".custom-media-gallery img[data-value]").closest('div, a').hide();
+    // Hide all images
+    $(".custom-media-gallery img[data-value]").closest('div, a').hide();
 
-        // Show only images that match the selected variant
-        var matchedImages = $(".custom-media-gallery img[data-value='" + variantHandle + "']");
-        if (matchedImages.length > 0) {
-            matchedImages.closest('div, a').show();
+    // Show images that match the selected variant
+    var matchedImages = $(".custom-media-gallery img[data-value='" + variantHandle + "']");
+    if (matchedImages.length > 0) {
+      matchedImages.closest('div, a').show();
 
-            // Update main image to the first matching one
-            var firstImg = matchedImages.first();
-            $("#main-product-image")
-                .attr("src", firstImg.attr("src"))
-                .attr("alt", firstImg.attr("alt"))
-                .attr("data-value", firstImg.attr("data-value"));
+      // Update main image to first matched
+      var firstImg = matchedImages.first();
+      $("#main-product-image")
+        .attr("src", firstImg.attr("src"))
+        .attr("alt", firstImg.attr("alt"))
+        .attr("data-value", firstImg.attr("data-value"));
 
-            $(".main-image-wrapper a.glightbox")
-                .attr("href", firstImg.closest('a').attr("href"));
-        }
+      $(".main-image-wrapper a.glightbox")
+        .attr("href", firstImg.closest('a').attr("href"));
     }
+  }
 
-    // On page load
-    var initialVariant = '{{ product.selected_or_first_available_variant.title | escape }}';
-    filterGalleryByVariant(initialVariant);
+  // Initial load
+  var initialVariant = $('input[name="Color-1"]:checked').val();
+  if(initialVariant){
+    showImagesForVariant(initialVariant);
+  }
 
-    // Listen for variant changes (radio buttons or dropdown)
-    $(document).on('change', 'input[name="id"], select[name="id"]', function() {
-        var newVariant = $(this).find('option:selected').data('title') || $(this).data('title') || $(this).val();
-        if (newVariant) {
-            filterGalleryByVariant(newVariant);
-        }
-    });
+  // Listen for variant radio changes
+  $('input[name="Color-1"]').on('change', function() {
+    var selectedVariant = $(this).val();
+    showImagesForVariant(selectedVariant);
+  });
 
 });
 </script>
