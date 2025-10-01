@@ -469,16 +469,33 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
-  // Bind Fancybox correctly to your gallery
-  Fancybox.bind('[data-fancybox="product-gallery"]', {
-    Thumbs: true,      // Show thumbnails in popup
-    Toolbar: true,     // Show zoom, next/prev, close
-    dragToClose: true,
-    infinite: true,
-    animated: true
+  // Collect all gallery links
+  const galleryLinks = document.querySelectorAll('[data-fancybox="product-gallery"]');
+
+  // Bind click event to each link
+  galleryLinks.forEach((link, index) => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      // Open Fancybox at the clicked index
+      Fancybox.show(
+        Array.from(galleryLinks).map(l => ({
+          src: l.getAttribute('href'),
+          type: "image"
+        })),
+        {
+          Thumbs: true,
+          Toolbar: true,
+          dragToClose: true,
+          infinite: true,
+          animated: true
+        },
+        index // start at the clicked image
+      );
+    });
   });
 
-  // Optional: make thumbnails scrollable
+  // Initialize Slick for thumbnails
   if ($('.thumbnails-slider').length) {
     $('.thumbnails-slider').slick({
       slidesToShow: 4,
