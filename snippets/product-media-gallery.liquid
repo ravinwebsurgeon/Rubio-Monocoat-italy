@@ -337,18 +337,18 @@
 
   <!-- Main Image -->
   <div class="main-image-wrapper">
-    <a class="gallery-link" data-fancybox="product-gallery" href="{{ product.featured_image | img_url: '2048x2048' }}">
+    <a class="glightbox" href="{{ product.featured_image | img_url: '2048x2048' }}">
       <img id="main-product-image" src="{{ product.featured_image | img_url: '1024x1024' }}" alt="{{ product.title }}">
     </a>
   </div>
 
-  <!-- Thumbnails (exclude main image) -->
+  <!-- Thumbnails -->
   <div class="thumbnails-slider">
     {% assign main_id = product.featured_image.id %}
     {% for media in product.media %}
       {% if media.media_type == 'image' and media.id != main_id %}
         <div class="thumbnail-item">
-          <a class="gallery-link" data-fancybox="product-gallery" href="{{ media.preview_image | img_url: '2048x2048' }}">
+          <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
             <img src="{{ media.preview_image | img_url: '150x150' }}" alt="{{ media.alt | escape }}">
           </a>
         </div>
@@ -357,6 +357,7 @@
   </div>
 
 </div>
+
 
 
 <style>
