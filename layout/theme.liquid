@@ -489,6 +489,48 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 </script>
+{% if template == 'product' %}
+<script>
+$(document).ready(function() {
+
+    function filterGalleryByVariant(variantTitle) {
+        var variantHandle = variantTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+
+        // Hide all images
+        $(".custom-media-gallery img[data-value]").closest('div, a').hide();
+
+        // Show only images that match the selected variant
+        var matchedImages = $(".custom-media-gallery img[data-value='" + variantHandle + "']");
+        if (matchedImages.length > 0) {
+            matchedImages.closest('div, a').show();
+
+            // Update main image to the first matching one
+            var firstImg = matchedImages.first();
+            $("#main-product-image")
+                .attr("src", firstImg.attr("src"))
+                .attr("alt", firstImg.attr("alt"))
+                .attr("data-value", firstImg.attr("data-value"));
+
+            $(".main-image-wrapper a.glightbox")
+                .attr("href", firstImg.closest('a').attr("href"));
+        }
+    }
+
+    // On page load
+    var initialVariant = '{{ product.selected_or_first_available_variant.title | escape }}';
+    filterGalleryByVariant(initialVariant);
+
+    // Listen for variant changes (radio buttons or dropdown)
+    $(document).on('change', 'input[name="id"], select[name="id"]', function() {
+        var newVariant = $(this).find('option:selected').data('title') || $(this).data('title') || $(this).val();
+        if (newVariant) {
+            filterGalleryByVariant(newVariant);
+        }
+    });
+
+});
+</script>
+{% endif %}
 
 
 
