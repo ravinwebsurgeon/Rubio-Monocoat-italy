@@ -334,11 +334,11 @@
   {%- endif -%}
 </media-gallery> {% endcomment %}
 <div class="custom-media-gallery">
+
   <!-- Main Image -->
   <div class="main-image-wrapper">
-    {% assign featured_image = product.featured_image %}
-    <a data-fancybox="gallery" href="{{ featured_image | img_url: '1024x1024' }}">
-      <img id="main-product-image" src="{{ featured_image | img_url: '1024x1024' }}" alt="{{ product.title }}">
+    <a data-fancybox="product-gallery" href="{{ product.featured_image | img_url: '1024x1024' }}">
+      <img src="{{ product.featured_image | img_url: '1024x1024' }}" alt="{{ product.title }}">
     </a>
   </div>
 
@@ -346,12 +346,14 @@
   <div class="thumbnails-slider">
     {% for media in product.media %}
       {% if media.media_type == 'image' %}
-        <div class="thumbnail-item" data-image="{{ media.preview_image | img_url: '1024x1024' }}">
-          <a data-fancybox="gallery" href="{{ media.preview_image | img_url: '1024x1024' }}">
+        <div class="thumbnail-item">
+          <a data-fancybox="product-gallery" href="{{ media.preview_image | img_url: '1024x1024' }}">
             <img src="{{ media.preview_image | img_url: '150x150' }}" alt="{{ media.alt | escape }}">
           </a>
         </div>
       {% endif %}
     {% endfor %}
   </div>
+
 </div>
+
