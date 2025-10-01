@@ -91,16 +91,22 @@
       }}
    
     </div>
-    <button
+    {% comment %} <button
       class="product__media-toggle quick-add-hidden product__media-zoom-{{ section.settings.image_zoom }}"
       type="button"
       aria-haspopup="dialog"
       data-media-id="{{ media.id }}"
-    >
+    > {% endcomment %}
+      <a 
+    href="{{ media.preview_image | image_url: width: 1946 }}" 
+    data-fancybox="product-gallery-{{ section.id }}"
+    data-caption="{{ media.alt | escape }}"
+  >
        <span class="visually-hidden">
         {{ 'products.product.media.open_media' | t: index: position }}
       </span> 
-    </button>
+      </a>
+    {% comment %} </button> {% endcomment %}
   </modal-opener>
 
   {%- if media.media_type != 'image' -%}
