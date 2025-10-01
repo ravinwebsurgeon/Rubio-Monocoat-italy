@@ -145,11 +145,11 @@
           <div class="slider-nav slider-nav--floating desktop-only js-only">
             <button type="button" class="slider-nav__btn slider-nav__btn--style-2 has-ltr-icon" name="prev" aria-controls="slider-{{ section.id }}">
               <span class="visually-hidden">{{ 'general.slider.previous' | t }}</span>
-              {% render 'icon-chevron-left' %}
+              {% comment %} {% render 'icon-chevron-left' %} {% endcomment %}
             </button>
             <button type="button" class="slider-nav__btn slider-nav__btn--style-2 has-ltr-icon" name="next" aria-controls="slider-{{ section.id }}">
               <span class="visually-hidden">{{ 'general.slider.next' | t }}</span>
-              {% render 'icon-chevron-right' %}
+              {% comment %} {% render 'icon-chevron-right' %} {% endcomment %}
             </button>
           </div>
         {%- endif -%}
