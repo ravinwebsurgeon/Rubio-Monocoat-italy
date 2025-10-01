@@ -386,7 +386,7 @@
 
 
 <script>
-{% comment %} document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
   var swiper = new Swiper(".inspired-slider", {
     slidesPerView: 5,
     spaceBetween: 20,
@@ -413,28 +413,7 @@
         playCenterVideo(this);
       }
     }
-  }); {% endcomment %}
-document.addEventListener("DOMContentLoaded", function () {
-  var swiper = new Swiper(".inspired-slider", {
-  slidesPerView: 'auto',
-  spaceBetween: 0,
-  centeredSlides: true,
-  preventClicks:true,
-  loop:true,  
-  on: {
-    init: function () {
-      $('.swiper-slide').addClass('changed');
-    },
-    slideChangeTransitionStart : function() {
-      $('.swiper-slide').addClass('changing');
-      $('.swiper-slide').removeClass('changed');
-    },
-    slideChangeTransitionEnd : function() {
-      $('.swiper-slide').removeClass('changing');
-      $('.swiper-slide').addClass('changed');
-    }
-  },
-});
+  });
 
   // ✅ Product Info Update
   function updateProductInfo() {
