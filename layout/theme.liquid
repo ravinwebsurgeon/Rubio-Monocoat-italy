@@ -312,6 +312,26 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script> 
 
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"/>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+<script>
+  Fancybox.bind("[data-fancybox^='product-gallery']", {
+    Thumbs: true,
+    Toolbar: {
+      display: [
+        { id: "counter", position: "center" },
+        "zoom",
+        "slideshow",
+        "download",
+        "thumbs",
+        "close",
+      ],
+    },
+  });
+</script>
+
   </head>
 
   <body class="template{{ template | handle }} gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
