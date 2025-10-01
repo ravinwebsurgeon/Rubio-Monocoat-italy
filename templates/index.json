@@ -65,6 +65,7 @@
       ],
       "name": "custom multicolumn",
       "settings": {
+        "class_add": "",
         "main_heading": "The Power of One",
         "main_text": "At Rubio Monocoat, we understand what truly matters when treating wood: durability, simplicity, and a flawless result. Our products are designed with quality and ease of use in mind, so you can protect and enhance your wood with confidence, in just one single layer."
       }
@@ -161,7 +162,7 @@
         "color_item_NXwrqq": {
           "type": "color_item",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_62.png",
+            "image": "shopify://shop_images/Oil_Plus_2C_Oak_Pure.jpg",
             "full_image": "shopify://shop_images/Oil_Plus_2C_130ml_RedVelvet_2fdf2650-1d54-40b2-a72f-ec61329b15a4.png",
             "title": "Dunes",
             "text": "Natuurlijke,witte tint"
