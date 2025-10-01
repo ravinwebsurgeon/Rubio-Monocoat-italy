@@ -233,13 +233,13 @@
             {%- capture thumbnail_id -%}
               Thumbnail-{{ section.id }}-0
             {%- endcapture -%}
-            <button
+            {% comment %} <button
               class="thumbnail global-media-settings global-media-settings--no-shadow"
               aria-label="{%- if featured_media.media_type == 'image' -%}{{ 'products.product.media.load_image' | t: index: media_index }}{%- elsif featured_media.media_type == 'model' -%}{{ 'products.product.media.load_model' | t: index: media_index }}{%- elsif featured_media.media_type == 'video' or featured_media.media_type == 'external_video' -%}{{ 'products.product.media.load_video' | t: index: media_index }}{%- endif -%}"
               aria-current="true"
               aria-controls="GalleryViewer-{{ section.id }}"
               aria-describedby="{{ thumbnail_id }}"
-            >
+            > {% endcomment %}
               {{
                 featured_media.preview_image
                 | image_url: width: 416
