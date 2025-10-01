@@ -468,67 +468,42 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  let lightbox = GLightbox({
-    selector: '.glightbox',
+document.addEventListener("DOMContentLoaded", function() {
+  // Init Lightbox
+  const lightbox = GLightbox({
+    selector: ".glightbox",
+    touchNavigation: true,
     loop: true,
-    zoomable: true,
-    touchNavigation: true
   });
 
-  function filterGalleryByVariant(variantId) {
-    const product = window.productData;
-    const variant = product?.variants?.find(v => v.id == variantId);
-    if (!variant) return;
-
-    // Use variant option or title to match alt (example: color "Red")
-    const variantKeyword = variant.title.toLowerCase();
-
-    // Loop through gallery items
-    document.querySelectorAll('.custom-media-gallery .thumbnail-item, .custom-media-gallery .main-image-wrapper').forEach(item => {
-      const img = item.querySelector("img");
-      if (!img) return;
-
-      const altText = (img.getAttribute("alt") || "").toLowerCase();
-
-      if (altText.includes(variantKeyword)) {
-        item.style.display = "block"; // show matching images
-      } else {
-        item.style.display = "none"; // hide others
-      }
+  function updateGallery(variantHandle) {
+    // Hide all
+    document.querySelectorAll('.custom-media-gallery [data-value]').forEach(el => {
+      el.style.display = 'none';
     });
 
-    // Re-init GLightbox
-    lightbox.destroy();
-    lightbox = GLightbox({
-      selector: '.glightbox',
-      loop: true,
-      zoomable: true,
-      touchNavigation: true
-    });
-  }
-
-  // ✅ Initial variant from URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const variantId = urlParams.get("variant");
-  if (variantId) {
-    setTimeout(() => {
-      filterGalleryByVariant(variantId);
-    }, 500);
-  }
-
-  // ✅ Shopify variant change event
-  document.addEventListener("variant:change", function (event) {
-    const newVariant = event.detail.variant;
-    if (newVariant) {
-      filterGalleryByVariant(newVariant.id);
+    // Show matching images
+    const matched = document.querySelectorAll('.custom-media-gallery [data-value="' + variantHandle + '"]');
+    if (matched.length) {
+      matched.forEach(el => el.style.display = 'block');
+    } else {
+      // fallback → if no alt match, show everything
+      document.querySelectorAll('.custom-media-gallery [data-value]').forEach(el => {
+        el.style.display = 'block';
+      });
     }
-  });
+  }
 
-  // ✅ Fallback for radio buttons
-  document.querySelectorAll('input[name="id"]').forEach((radio) => {
-    radio.addEventListener("change", function () {
-      filterGalleryByVariant(this.value);
+  // Get current selected variant
+  let currentVariant = "{{ product.selected_or_first_available_variant.title | handle }}";
+  updateGallery(currentVariant);
+
+  // Watch for variant changes
+  document.querySelectorAll('input[name="id"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+      const selectedTitle = this.closest('form').querySelector('option:checked, input:checked')?.dataset?.title || this.value;
+      const variantHandle = selectedTitle ? selectedTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-') : '';
+      updateGallery(variantHandle);
     });
   });
 });
