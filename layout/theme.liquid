@@ -467,56 +467,16 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
-  // Initialize Slick for thumbnails
-  $('.thumbnails-slider').slick({
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    arrows: true,
-    focusOnSelect: true,
-    infinite: false,
-    asNavFor: '.main-image-wrapper'
-  });
-
-  // Change main image on thumbnail click
-  $('.thumbnail-item img').on('click', function(e){
-    e.preventDefault();
-    var imgSrc = $(this).parent().attr('href');
-    $('#main-product-image').attr('src', imgSrc);
-  });
-
-  // Variant change - update main image
-  {% if product.variants.size > 1 %}
-    var variantImages = {
-      {% for variant in product.variants %}
-        "{{ variant.id }}": [
-          {% for media in variant.media %}
-            "{{ media.preview_image | img_url: '1024x1024' }}"{% unless forloop.last %}, {% endunless %}
-          {% endfor %}
-        ]{% unless forloop.last %}, {% endunless %}
-      {% endfor %}
-    };
-
-    $('[name="id"]').on('change', function(){
-      var selectedVariant = $(this).val();
-      if (variantImages[selectedVariant] && variantImages[selectedVariant].length > 0) {
-        $('#main-product-image').attr('src', variantImages[selectedVariant][0]);
-        // update Fancybox links
-        $('.thumbnails-slider a').each(function(index){
-          $(this).attr('href', variantImages[selectedVariant][index]);
-        });
-      }
-    });
-  {% endif %}
-
-  // Fancybox zoom & carousel
-  Fancybox.bind('[data-fancybox="gallery"]', {
-    Thumbs: true,
-    Toolbar: true,
-    dragToClose: false,
+  // Initialize Fancybox for gallery popup
+  Fancybox.bind('[data-fancybox="product-gallery"]', {
+    Thumbs: true,          // Show thumbnails inside popup
+    Toolbar: true,         // Show zoom, close, next/prev buttons
+    dragToClose: true,
     infinite: true
   });
 
 });
+
 </script>
 
     {%- if settings.predictive_search_enabled -%}
