@@ -173,44 +173,44 @@
           "settings": {
             "image": "shopify://shop_images/Oil_Plus_2C_Oak_Natural.jpg",
             "full_image": "shopify://shop_images/Oil_Plus_2C_1_3L_Mist_4bc7fd37-015e-42b3-a9e5-999dd4b4c62b.png",
-            "title": "Dunes",
+            "title": "Natural",
             "text": "Natuurlijke,witte tint"
           }
         },
         "color_item_a6e4XY": {
           "type": "color_item",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_64_1.png",
+            "image": "shopify://shop_images/Oil_Plus_2C_Oak_Charcoal.jpg",
             "full_image": "shopify://shop_images/Oil_Plus_2C_1.3L_MidnightSky_eafd0e77-1148-41cd-8a14-1e542bcb9ba9.png",
-            "title": "Dunes",
+            "title": "Charcoal",
             "text": "Natuurlijke,witte tint"
           }
         },
         "color_item_D4jTci": {
           "type": "color_item",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_65_1.png",
+            "image": "shopify://shop_images/Oil_Plus_2C_Oak_White5.jpg",
             "full_image": "shopify://shop_images/Oil_Plus_2C_130ml_RedVelvet_1.png",
-            "title": "Dunes",
+            "title": "White 5%",
             "text": "Natuurlijke,witte tint"
           }
         },
         "color_item_9L8db7": {
           "type": "color_item",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_66_1.png",
+            "image": "shopify://shop_images/Oil_Plus_2C_Oak_Chocolate.jpg",
             "full_image": "shopify://shop_images/Oil_Plus_2C_3.50L_MidnightSky_fdc8a719-4892-45a6-ba64-bcf064d71778.png",
-            "title": "Dunes",
+            "title": "Chocolate",
             "text": "Natuurlijke,witte tint"
           }
         },
         "color_item_JDDP8d": {
           "type": "color_item",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_67.png",
+            "image": "shopify://shop_images/Oil_Plus_2C_Oak_Dunes.jpg",
             "full_image": "shopify://shop_images/Oil_Plus_2C_1.3L_Fern_e91137a9-88af-4380-a9ef-d73daa7f8021.png",
             "title": "Dunes",
-            "text": "Natuurlijke,witte tint"
+            "text": "Natuurlijke, witte tint"
           }
         }
       },
