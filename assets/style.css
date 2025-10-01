@@ -1730,7 +1730,9 @@ div#shopify-section-sections--18199009624106__announcement-bar {}
         width: 64px !important;
         height: auto;
 }
-
+.header__heading-logo {
+    height: 36px !important;
+}
 header.header {
     padding: 10px 25px !important;
 }
