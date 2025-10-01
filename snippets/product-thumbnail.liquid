@@ -109,6 +109,7 @@
     {% comment %} </button> {% endcomment %}
   </modal-opener> {% endcomment %}
 
+  <div class="product__media media" data-media-index="{{ forloop.index0 }}">
   <a 
   href="{{ media.preview_image | image_url: width: 1946 }}" 
   data-fancybox="product-gallery-{{ section.id }}"
@@ -123,6 +124,8 @@
       widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
   }}
 </a>
+
+</div>
 
 
   {%- if media.media_type != 'image' -%}
