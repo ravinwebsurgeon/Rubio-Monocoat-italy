@@ -344,6 +344,32 @@
     display: flex;
     align-items: center;
 }
+
+.inspired-slider .swiper-button-prev.custom-prev {
+    transform: translate(-120%, -50%);
+    transition: all ease 00.3s;
+    opacity:0;
+}
+
+.inspired-slider .swiper-button-next.custom-next {
+    transform: translate(120%, -50%);
+    transition: all ease 00.3s;
+     opacity:0;
+}
+
+.inspired-slider:hover .swiper-button-next.custom-next {
+    transform: translate(-10%, -50%);
+     opacity:1;
+}
+.inspired-slider:hover .swiper-button-prev.custom-prev {
+    transform: translate(10%, -50%);
+    opacity:1;
+}
+
+
+
+
+
 @media(max-width: 1900px) { 
   .inspired-slider-section .container {
     padding: 0 30px;
