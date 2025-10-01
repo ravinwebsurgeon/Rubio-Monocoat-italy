@@ -131,7 +131,7 @@
                   else
                     assign loading = 'lazy'
                   endif
-                  render 'media', media: media, product: product, min_aspect_ratio: min_aspect_ratio, loading: loading
+                  render 'product-media-gallery', media: media, product: product, min_aspect_ratio: min_aspect_ratio, loading: loading
                 -%}
 
                 {%- if media.media_type == 'image' and section.settings.enable_zoom -%} </a> {%- endif -%}
