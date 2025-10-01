@@ -387,7 +387,7 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  {% comment %} var swiper = new Swiper(".inspired-slider", {
+  var swiper = new Swiper(".inspired-slider", {
     slidesPerView: 3,
   centeredSlides: true,
   loop: true,
@@ -399,7 +399,7 @@ document.addEventListener("DOMContentLoaded", function () {
     breakpoints: {
       0: { slidesPerView: 1, spaceBetween: 10 },
       768: { slidesPerView: 1, spaceBetween: 20, centeredSlides: true },
-      1024: { slidesPerView: 3, spaceBetween: 20, centeredSlides: true }
+      1024: { slidesPerView: 3.2, spaceBetween: 20, centeredSlides: true }
     },
     on: {
       slideChangeTransitionEnd: function () {
@@ -411,37 +411,7 @@ document.addEventListener("DOMContentLoaded", function () {
         playCenterVideo(this);
       }
     }
-  }); {% endcomment %}
-  const swiper = new Swiper('.inspired-slider', {
-    centeredSlides: true,
-    loop: true,
-    speed: 500,
-    slidesPerView: 3.2,
-    spaceBetween: 20,
-    autoplay: {
-        delay: 2000,
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-
-        640: {
-            slidesPerView: 1.2,
-        },
-        768: {
-            slidesPerView: 2.5,
-        },
-        1080: {
-            slidesPerView: 2.8,
-        },
-        1280: {
-            slidesPerView: 3.2,
-        },
-    },
-});
-});
+  });
 
   // ✅ Product Info Update
   function updateProductInfo() {
