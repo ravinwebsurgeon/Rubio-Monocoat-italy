@@ -1727,8 +1727,8 @@ div#shopify-section-sections--18199009624106__announcement-bar {}
 }
 
 .header__heading-logo-wrapper {
-        width: 64px !important;
-        height: auto;
+    width: 64px !important;
+    height: auto;
 }
 .header__heading-logo {
     height: 36px !important;
@@ -1750,7 +1750,10 @@ header.header {
     width: 24px !important;
     height: 24px !important;
 }
-
+.header__icon account-icon span.svg-wrapper {
+    height: 26px !important;
+    width: 26px !important;
+}
 .header__icons {
     gap: 20px;
 }
