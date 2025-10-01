@@ -110,7 +110,7 @@
                       {% endfor %}
                     {% endfor %}
                   </select> {% endcomment %}
-                  <div class="colour-buttons" id="colour-filter">
+                  <div class="colour-buttons">
                       {% assign all_colours = "" | split: "," %}
 
                       {% for block in section.blocks %}
@@ -125,7 +125,7 @@
 
                       {% for colour in all_colours %}
                         <button class="colour-btn" data-colour="{{ colour }}" 
-                                style="background-color: {{ colour | downcase }};">
+                                style="background-color: {{ colour | downcase }};" id="colour-filter">
                           {{ colour }}
                         </button>
                       {% endfor %}
