@@ -99,7 +99,7 @@
                 </button>
                 <div class="filters-code">
 
-                  {% comment %} <select name="colour-filter" id="colour-filter">
+                <select name="colour-filter" id="colour-filter">
                     <option value="" disabled selected>Colour</option>
                     {% for block in section.blocks %}
                       {% assign tab_collection = block.settings.tab_collection %}
@@ -109,8 +109,8 @@
                         {% endfor %}
                       {% endfor %}
                     {% endfor %}
-                  </select> {% endcomment %}
-                  <div class="colour-buttons">
+                  </select> 
+                  {% comment %} <div class="colour-buttons">
                        {% for block in section.blocks %}
                       {% assign tab_collection = block.settings.tab_collection %}
                       {% for product in tab_collection.products %}
@@ -122,7 +122,7 @@
                          {% endfor %}
                       {% endfor %}
                     {% endfor %}
-                  </div>
+                  </div> {% endcomment %}
                   <select name="product-filter" id="product-filter">
                     <option value="" disabled selected>Product</option>
                     {% for block in section.blocks %}
