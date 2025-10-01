@@ -285,7 +285,7 @@
 }
 {% endschema %}
 <script>
- document.addEventListener('DOMContentLoaded', function() {
+ {% comment %} document.addEventListener('DOMContentLoaded', function() {
   const colourFilter   = document.getElementById('colour-filter');
   const productFilter  = document.getElementById('product-filter');
   const availableFilter= document.getElementById('available-filter');
@@ -311,6 +311,52 @@
 
   colourFilter.addEventListener('change', filterProducts);
   productFilter.addEventListener('change', filterProducts);
+  availableFilter.addEventListener('change', filterProducts);
+}); {% endcomment %}
+document.addEventListener('DOMContentLoaded', function() {
+  const colourButtons = document.querySelectorAll('.colour-btn');
+  const productFilter = document.getElementById('product-filter');
+  const availableFilter = document.getElementById('available-filter');
+  const products = document.querySelectorAll('.product-item');
+
+  let selectedColour = null;
+
+  function filterProducts() {
+    const selectedProduct = productFilter.value;
+    const showAvailable = availableFilter.checked;
+
+    products.forEach(product => {
+      const productColours = product.dataset.colours.split(',');
+      const productProducts = product.dataset.products.split(',');
+      const productAvailable = product.dataset.available === 'true';
+
+      const colourMatch = !selectedColour || productColours.includes(selectedColour);
+      const productMatch = !selectedProduct || productProducts.includes(selectedProduct);
+      const availableMatch = !showAvailable || productAvailable;
+
+      product.style.display = (colourMatch && productMatch && availableMatch) ? '' : 'none';
+    });
+  }
+
+  // Colour buttons click
+  colourButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (selectedColour === btn.dataset.colour) {
+        selectedColour = null; // toggle off
+        btn.classList.remove('active');
+      } else {
+        selectedColour = btn.dataset.colour;
+        colourButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+      filterProducts();
+    });
+  });
+
+  // Product dropdown change
+  productFilter.addEventListener('change', filterProducts);
+
+  // Available checkbox change
   availableFilter.addEventListener('change', filterProducts);
 });
 
