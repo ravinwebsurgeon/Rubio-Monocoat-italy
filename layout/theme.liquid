@@ -469,44 +469,25 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  // Init Lightbox
   const lightbox = GLightbox({
-    selector: ".glightbox",
-    touchNavigation: true,
+    selector: '.glightbox',
     loop: true,
+    zoomable: true,
+    touchNavigation: true,
+    autoplayVideos: false
   });
 
-  function updateGallery(variantHandle) {
-    // Hide all
-    document.querySelectorAll('.custom-media-gallery [data-value]').forEach(el => {
-      el.style.display = 'none';
+  // Thumbnails slider (optional slick)
+  if ($('.thumbnails-slider').length) {
+    $('.thumbnails-slider').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      arrows: true,
+      infinite: false,
     });
-
-    // Show matching images
-    const matched = document.querySelectorAll('.custom-media-gallery [data-value="' + variantHandle + '"]');
-    if (matched.length) {
-      matched.forEach(el => el.style.display = 'block');
-    } else {
-      // fallback → if no alt match, show everything
-      document.querySelectorAll('.custom-media-gallery [data-value]').forEach(el => {
-        el.style.display = 'block';
-      });
-    }
   }
-
-  // Get current selected variant
-  let currentVariant = "{{ product.selected_or_first_available_variant.title | handle }}";
-  updateGallery(currentVariant);
-
-  // Watch for variant changes
-  document.querySelectorAll('input[name="id"]').forEach(radio => {
-    radio.addEventListener('change', function() {
-      const selectedTitle = this.closest('form').querySelector('option:checked, input:checked')?.dataset?.title || this.value;
-      const variantHandle = selectedTitle ? selectedTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-') : '';
-      updateGallery(variantHandle);
-    });
-  });
 });
+
 </script>
 
     {%- if settings.predictive_search_enabled -%}
