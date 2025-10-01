@@ -392,24 +392,25 @@ document.addEventListener("DOMContentLoaded", function () {
     spaceBetween: 20,
     centeredSlides: true,
     loop: true,
+    loopedSlides: 4, // important: match slidesPerView
+    watchSlidesProgress: true, // helps with centered calculation
     navigation: {
       nextEl: ".custom-next",
       prevEl: ".custom-prev",
     },
     breakpoints: {
-      0: { slidesPerView: 1, spaceBetween: 10 },
-      768: { slidesPerView: 1, spaceBetween: 20, centeredSlides: true },
-      1024: { slidesPerView: 4, spaceBetween: 20, centeredSlides: true }
+      0: { slidesPerView: 1, spaceBetween: 10, loopedSlides: 1 },
+      768: { slidesPerView: 1, spaceBetween: 20, centeredSlides: true, loopedSlides: 1 },
+      1024: { slidesPerView: 4, spaceBetween: 20, centeredSlides: true, loopedSlides: 4 }
     },
     on: {
       init: function () {
         var swiperInstance = this;
-        // Slight delay to allow looped slides to fully render
         setTimeout(function () {
           swiperInstance.slideToLoop(0, 0); // go to first real slide
           updateProductInfo();
           playCenterVideo(swiperInstance);
-        }, 50); // 50ms is usually enough
+        }, 50);
       },
       slideChangeTransitionEnd: function () {
         updateProductInfo();
@@ -417,6 +418,8 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
+});
+
 
 
   // ✅ Product Info Update
