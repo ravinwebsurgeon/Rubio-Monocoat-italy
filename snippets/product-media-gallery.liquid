@@ -337,8 +337,11 @@
 
   <!-- Main Image -->
   <div class="main-image-wrapper">
-    <a class="glightbox" href="{{ product.featured_image | img_url: '2048x2048' }}">
-      <img id="main-product-image" src="{{ product.featured_image | img_url: '1024x1024' }}" alt="{{ product.title }}">
+    <a class="glightbox" href="{{ product.featured_image | img_url: '2048x2048' }}" 
+       data-value="{{ product.featured_image.alt | handle }}">
+      <img id="main-product-image" 
+           src="{{ product.featured_image | img_url: '1024x1024' }}" 
+           alt="{{ product.featured_image.alt | escape }}">
     </a>
   </div>
 
@@ -347,9 +350,10 @@
     {% assign main_id = product.featured_image.id %}
     {% for media in product.media %}
       {% if media.media_type == 'image' and media.id != main_id %}
-        <div class="thumbnail-item">
+        <div class="thumbnail-item" data-value="{{ media.alt | handle }}">
           <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
-            <img src="{{ media.preview_image | img_url: '150x150' }}" alt="{{ media.alt | escape }}">
+            <img src="{{ media.preview_image | img_url: '150x150' }}" 
+                 alt="{{ media.alt | escape }}">
           </a>
         </div>
       {% endif %}

@@ -85,6 +85,47 @@
                 <span>Available in Samples</span>
               </label>
               <div class="filter-wrap">
+                <button class="icon-btn filter">
+                  <span>Filter by</span>
+                </button>
+                
+                <div class="filters-code">
+                  <div class="colour-buttons">
+                    <button class="colour-btn" data-colour="White" style="background-color:#F5F5F5;">White</button>
+                    <button class="colour-btn" data-colour="Beige" style="background-color:#E3DCCF;">Beige</button>
+                    <button class="colour-btn" data-colour="Greige" style="background-color:#D6D1C9;">Greige</button>
+                    <button class="colour-btn" data-colour="Grey" style="background-color:#A9A9A9;">Grey</button>
+                    <button class="colour-btn" data-colour="Blue" style="background-color:#A3B8E0;">Blue</button>
+                    <button class="colour-btn" data-colour="Green" style="background-color:#8CA57A;">Green</button>
+                    <button class="colour-btn" data-colour="Purple" style="background-color:#D2A6D8;">Purple</button>
+                    <button class="colour-btn" data-colour="Pink" style="background-color:#F6D5D8;">Pink</button>
+                    <button class="colour-btn" data-colour="Red" style="background-color:#D23232;">Red</button>
+                    <button class="colour-btn" data-colour="Yellow" style="background-color:#F5D76E;">Yellow</button>
+                    <button class="colour-btn" data-colour="Orange" style="background-color:#F5A663;">Orange</button>
+                    <button class="colour-btn" data-colour="Teal" style="background-color:#3C8D8D;">Teal</button>
+                    <button class="colour-btn" data-colour="Black" style="background-color:#333333;">Black</button>
+                    <button class="colour-btn" data-colour="Brown" style="background-color:#8B5E3C;">Brown</button>
+                  </div>
+
+                  <select name="product-filter" id="product-filter">
+                    <option value="" disabled selected>Product</option>
+                    {% for block in section.blocks %}
+                      {% assign tab_collection = block.settings.tab_collection %}
+                      {% for product in tab_collection.products %}
+                        {% for pro in product.metafields.custom.product_filter.value %}
+                          <option value="{{ pro }}">{{ pro }}</option>
+                        {% endfor %}
+                      {% endfor %}
+                    {% endfor %}
+                  {% comment %} </select>
+
+                  <label class="avail-toggle">
+                    <input type="checkbox" id="available-filter">
+                    <span>Available in Samples</span>
+                  </label> {% endcomment %}
+                </div>
+              </div>
+              {% comment %} <div class="filter-wrap">
                 <button class="icon-btn filter">                
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <rect width="24" height="24" fill="url(#pattern0_1547_77)" fill-opacity="0.3"/>
@@ -121,7 +162,7 @@
                     {% endfor %}
                   </select>                  
                 </div>
-              </div>                
+              </div>                 {% endcomment %}
             </div>
             <button class="tips-link" id="openVideo">
               <span class="play">                
