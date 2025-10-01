@@ -388,10 +388,10 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   var swiper = new Swiper(".inspired-slider", {
-    slidesPerView: 4,
+    slidesPerView: 3,
     spaceBetween: 20,
     centeredSlides: true,
-    loop: false, // No loop
+    loop: true,
     navigation: {
       nextEl: ".custom-next",
       prevEl: ".custom-prev",
@@ -399,42 +399,19 @@ document.addEventListener("DOMContentLoaded", function () {
     breakpoints: {
       0: { slidesPerView: 1, spaceBetween: 10 },
       768: { slidesPerView: 1, spaceBetween: 20, centeredSlides: true },
-      1024: { slidesPerView: 4, spaceBetween: 20, centeredSlides: true }
+      1024: { slidesPerView: 3, spaceBetween: 20, centeredSlides: true }
     },
     on: {
-      init: function () {
-        updateProductInfo();
-        playCenterVideo(this);
-        fixEdges(this); // fix first/last slide spacing
-      },
       slideChangeTransitionEnd: function () {
         updateProductInfo();
         playCenterVideo(this);
-        fixEdges(this);
       },
-      resize: function () {
-        fixEdges(this);
+      init: function () {
+        updateProductInfo();
+        playCenterVideo(this);
       }
     }
   });
-
-  // Helper function to mimic Slick centerMode for first/last slides
-  function fixEdges(swiper) {
-    let slides = swiper.slides;
-    let slideWidth = slides[0].offsetWidth;
-    let containerWidth = swiper.width;
-    let offset = (containerWidth - slideWidth) / 2;
-
-    slides.forEach((slide, index) => {
-      if (index === 0) slide.style.marginLeft = offset + "px";
-      else slide.style.marginLeft = "";
-      if (index === slides.length - 1) slide.style.marginRight = offset + "px";
-      else slide.style.marginRight = "";
-    });
-  }
-});
-
-
 
   // ✅ Product Info Update
   function updateProductInfo() {
