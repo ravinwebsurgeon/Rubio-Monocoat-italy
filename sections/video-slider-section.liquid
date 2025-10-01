@@ -388,12 +388,10 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   var swiper = new Swiper(".inspired-slider", {
-    slidesPerView: 5,
-    spaceBetween: 20,
-    centeredSlides: true,
-    speed: 500,
-    slidesPerView: 1.5,
-    spaceBetween: 40,
+    slidesPerView: 3,
+  centeredSlides: true,
+  loop: true,
+  spaceBetween: 20,
     navigation: {
       nextEl: ".custom-next",
       prevEl: ".custom-prev",
@@ -401,7 +399,7 @@ document.addEventListener("DOMContentLoaded", function () {
     breakpoints: {
       0: { slidesPerView: 1, spaceBetween: 10 },
       768: { slidesPerView: 1, spaceBetween: 20, centeredSlides: true },
-      1024: { slidesPerView: 5, spaceBetween: 20, centeredSlides: true }
+      1024: { slidesPerView: 3, spaceBetween: 20, centeredSlides: true }
     },
     on: {
       slideChangeTransitionEnd: function () {
