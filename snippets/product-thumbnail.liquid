@@ -54,7 +54,7 @@
   style="--ratio: {{ media.aspect_ratio | default: 1.0 }}; --preview-ratio: {{ media.preview_image.aspect_ratio | default: 1.0 }};"
 >
 
-  <modal-opener
+  {% comment %} <modal-opener
     class="product__modal-opener product__modal-opener--{{ media.media_type }}"
     data-modal="#ProductModal-{{ modal_id }}"
   >
@@ -107,7 +107,27 @@
       </span> 
       </a>
     {% comment %} </button> {% endcomment %}
-  </modal-opener>
+  </modal-opener> {% endcomment %}
+
+  <modal-opener
+  class="product__modal-opener product__modal-opener--{{ media.media_type }}"
+  data-modal="#ProductModal-{{ modal_id }}"
+>
+  ...
+  <div class="product__media media media--transparent" data-media-index="{{ forloop.index0 }}">
+    {{ media.preview_image | image_url: width: 1946 | image_tag: ... }}
+  </div>
+  <a 
+    href="{{ media.preview_image | image_url: width: 1946 }}" 
+    data-fancybox="product-gallery-{{ section.id }}"
+    data-caption="{{ media.alt | escape }}"
+  >
+    <span class="visually-hidden">
+      {{ 'products.product.media.open_media' | t: index: position }}
+    </span> 
+  </a>
+</modal-opener>
+
 
   {%- if media.media_type != 'image' -%}
     {%- if media.media_type == 'model' -%}
