@@ -1461,6 +1461,7 @@ section.product-features-section .section-heading {
     gap: 2rem;
     justify-content:center;
     position:relative;
+    z-index:1;
 }
 
 .product-features-section .product-features {
@@ -1471,6 +1472,8 @@ section.product-features-section .section-heading {
     flex-direction: column;
     gap: 100px;
     flex:1;
+    position:relative;
+    z-index:1;
 }
 
 .product-features-section .product-features li {
