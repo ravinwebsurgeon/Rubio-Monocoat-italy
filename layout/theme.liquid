@@ -464,7 +464,31 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 
 </script>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
 
+  // Initialize Fancybox for all gallery images
+  Fancybox.bind('[data-fancybox="product-gallery"]', {
+    Thumbs: true,
+    Toolbar: true,
+    dragToClose: true,
+    infinite: true
+  });
+
+  // Initialize Slick for thumbnails if you want scrolling
+  if ($('.thumbnails-slider').length > 0) {
+    $('.thumbnails-slider').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      arrows: true,
+      infinite: false,
+    });
+  }
+
+});
+
+
+</script>
 
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
