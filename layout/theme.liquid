@@ -469,37 +469,24 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
-  function initFancybox() {
-    Fancybox.bind('[data-fancybox="product-gallery"]', {
-      Thumbs: true,
-      Toolbar: true,
-      dragToClose: true,
-      infinite: true,
-      animated: true
-    });
-  }
-
-  // Wait until all gallery images are loaded
-  const galleryImages = document.querySelectorAll('.custom-media-gallery a img');
-  let loadedCount = 0;
-
-  galleryImages.forEach(img => {
-    if (img.complete) {
-      loadedCount++;
-    } else {
-      img.addEventListener('load', () => {
-        loadedCount++;
-        if (loadedCount === galleryImages.length) initFancybox();
-      });
-      img.addEventListener('error', () => {
-        loadedCount++;
-        if (loadedCount === galleryImages.length) initFancybox();
-      });
-    }
+  // Bind Fancybox correctly to your gallery
+  Fancybox.bind('[data-fancybox="product-gallery"]', {
+    Thumbs: true,      // Show thumbnails in popup
+    Toolbar: true,     // Show zoom, next/prev, close
+    dragToClose: true,
+    infinite: true,
+    animated: true
   });
 
-  // If all images already loaded
-  if (loadedCount === galleryImages.length) initFancybox();
+  // Optional: make thumbnails scrollable
+  if ($('.thumbnails-slider').length) {
+    $('.thumbnails-slider').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      arrows: true,
+      infinite: false,
+    });
+  }
 
 });
 
