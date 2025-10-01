@@ -469,20 +469,16 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
-  // Prevent default navigation and initialize Fancybox
+  // Initialize Fancybox
   Fancybox.bind('[data-fancybox="product-gallery"]', {
-    Thumbs: true,          // show thumbnails in popup
-    Toolbar: true,         // show zoom/close/next/prev
+    Thumbs: true,       // show thumbnails inside popup
+    Toolbar: true,      // zoom, close, next/prev buttons
     dragToClose: true,
     infinite: true,
-    on: {
-      ready: (fancybox) => {
-        console.log('Fancybox ready');
-      }
-    }
+    animated: true
   });
 
-  // Optional: Slick slider for scrolling thumbnails
+  // Initialize Slick for thumbnail scroll (optional)
   if ($('.thumbnails-slider').length > 0) {
     $('.thumbnails-slider').slick({
       slidesToShow: 4,
