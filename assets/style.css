@@ -1460,6 +1460,7 @@ section.product-features-section .section-heading {
     align-items: center;
     gap: 2rem;
     justify-content:center;
+    position:relative;
 }
 
 .product-features-section .product-features {
