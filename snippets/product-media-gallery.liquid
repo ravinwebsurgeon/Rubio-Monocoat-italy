@@ -337,24 +337,27 @@
 
   <!-- Main Image -->
   <div class="main-image-wrapper">
-    <a data-fancybox="product-gallery" href="{{ product.featured_image | img_url: '2048x2048' }}">
-      <img src="{{ product.featured_image | img_url: '1024x1024' }}" alt="{{ product.title }}">
+    <a class="gallery-link" data-fancybox="product-gallery" href="{{ product.featured_image | img_url: '2048x2048' }}">
+      <img id="main-product-image" src="{{ product.featured_image | img_url: '1024x1024' }}" alt="{{ product.title }}">
     </a>
   </div>
 
   <!-- Thumbnails (exclude main image) -->
   <div class="thumbnails-slider">
+    {% assign main_id = product.featured_image.id %}
     {% for media in product.media %}
-      {% if media.media_type == 'image' and media.id != product.featured_image.id %}
+      {% if media.media_type == 'image' and media.id != main_id %}
         <div class="thumbnail-item">
-          <a data-fancybox="product-gallery" href="{{ media.preview_image | img_url: '2048x2048' }}">
+          <a class="gallery-link" data-fancybox="product-gallery" href="{{ media.preview_image | img_url: '2048x2048' }}">
             <img src="{{ media.preview_image | img_url: '150x150' }}" alt="{{ media.alt | escape }}">
           </a>
         </div>
       {% endif %}
     {% endfor %}
   </div>
+
 </div>
+
 
 <style>
   div.fancybox__track:empty {
