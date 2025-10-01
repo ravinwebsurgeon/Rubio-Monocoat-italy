@@ -98,7 +98,8 @@
                   <span>Filter by</span>
                 </button>
                 <div class="filters-code">
-                  <select name="colour-filter" id="colour-filter">
+
+                  {% comment %} <select name="colour-filter" id="colour-filter">
                     <option value="" disabled selected>Colour</option>
                     {% for block in section.blocks %}
                       {% assign tab_collection = block.settings.tab_collection %}
@@ -108,7 +109,12 @@
                         {% endfor %}
                       {% endfor %}
                     {% endfor %}
-                  </select>
+                  </select> {% endcomment %}
+                  <div class="colour-buttons">
+                    <button class="colour-btn" data-colour="White" style="background-color:#F5F5F5;">
+                      {{ colour }}
+                    </button>
+                  </div>
                   <select name="product-filter" id="product-filter">
                     <option value="" disabled selected>Product</option>
                     {% for block in section.blocks %}
