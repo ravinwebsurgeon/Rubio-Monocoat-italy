@@ -468,23 +468,96 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const lightbox = GLightbox({
+document.addEventListener("DOMContentLoaded", function () {
+  let lightbox = GLightbox({
     selector: '.glightbox',
     loop: true,
     zoomable: true,
-    touchNavigation: true,
+    touchNavigation: true
   });
 
-  // Slick for thumbnails
-  if ($('.thumbnails-slider').length) {
-    $('.thumbnails-slider').slick({
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      arrows: true,
-      infinite: false,
+  function updateGalleryToVariant(variantId) {
+    const product = window.productData;
+    const variant = product?.variants?.find(v => v.id == variantId);
+
+    if (!variant) {
+      console.warn("Variant not found:", variantId);
+      return;
+    }
+
+    const mediaId = variant.featured_media?.id;
+    if (!mediaId) {
+      console.warn("Variant has no featured_media");
+      return;
+    }
+
+    const galleryContainer = document.getElementById("custom-media-gallery");
+    if (!galleryContainer) return;
+
+    // Clear gallery
+    galleryContainer.innerHTML = "";
+
+    // Main Image
+    let mainImageHTML = "";
+    const mainMedia = product.media.find(m => m.id == mediaId);
+    if (mainMedia) {
+      mainImageHTML = `
+        <div class="main-image-wrapper">
+          <a href="${mainMedia.preview_image.src}" class="glightbox" data-gallery="product-gallery">
+            <img src="${mainMedia.preview_image.src}" alt="${variant.title}">
+          </a>
+        </div>`;
+    }
+
+    // Thumbnails (exclude main image)
+    let thumbsHTML = '<div class="thumbnails-slider">';
+    product.media.forEach(media => {
+      if (media.media_type === "image" && media.id != mediaId) {
+        thumbsHTML += `
+          <div class="thumbnail-item">
+            <a href="${media.preview_image.src}" class="glightbox" data-gallery="product-gallery">
+              <img src="${media.preview_image.src}" alt="${media.alt || ''}">
+            </a>
+          </div>`;
+      }
+    });
+    thumbsHTML += "</div>";
+
+    galleryContainer.innerHTML = mainImageHTML + thumbsHTML;
+
+    // Re-init GLightbox
+    lightbox.destroy();
+    lightbox = GLightbox({
+      selector: '.glightbox',
+      loop: true,
+      zoomable: true,
+      touchNavigation: true
     });
   }
+
+  // ✅ Initial variant from URL (?variant=ID)
+  const urlParams = new URLSearchParams(window.location.search);
+  const variantId = urlParams.get("variant");
+  if (variantId) {
+    setTimeout(() => {
+      updateGalleryToVariant(variantId);
+    }, 500);
+  }
+
+  // ✅ Listen for Shopify variant change
+  document.addEventListener("variant:change", function (event) {
+    const newVariant = event.detail.variant;
+    if (newVariant) {
+      updateGalleryToVariant(newVariant.id);
+    }
+  });
+
+  // ✅ Also listen for radio change (if theme doesn’t trigger variant:change)
+  document.querySelectorAll('input[name="id"]').forEach((radio) => {
+    radio.addEventListener("change", function () {
+      updateGalleryToVariant(this.value);
+    });
+  });
 });
 
 </script>
