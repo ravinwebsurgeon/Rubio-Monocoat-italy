@@ -468,7 +468,15 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
 <script>
+<script>
 document.addEventListener("DOMContentLoaded", function () {
+
+  // --- Helper: ensure product JSON is available
+  if (!window.productData) {
+    console.warn("window.productData is missing. Add `window.productData = {{ product | json }}` in your Liquid.");
+  }
+
+  // --- Init lightbox and simple flag for slick init
   let lightbox = GLightbox({
     selector: '.glightbox',
     loop: true,
@@ -476,63 +484,194 @@ document.addEventListener("DOMContentLoaded", function () {
     touchNavigation: true
   });
 
-  function filterGalleryByVariant(variantId) {
-    const product = window.productData;
-    const variant = product?.variants?.find(v => v.id == variantId);
-    if (!variant) return;
+  // initialize thumbnails slick safely
+  function initThumbnailsSlick() {
+    const $slider = $('.thumbnails-slider');
+    if (!$slider.length) return;
+    if ($slider.hasClass('slick-initialized')) $slider.slick('unslick');
+    $slider.slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      arrows: true,
+      infinite: false,
+      responsive: [{ breakpoint: 480, settings: { slidesToShow: 3 }}]
+    });
+  }
 
-    // Use variant option or title to match alt (example: color "Red")
-    const variantKeyword = variant.title.toLowerCase();
+  // --- Get selected variant id robustly (URL / radio / select / options matching)
+  function getSelectedVariantId() {
+    try {
+      // 1) URL param ?variant=ID
+      const params = new URLSearchParams(window.location.search);
+      const urlVariant = params.get('variant');
+      if (urlVariant) return urlVariant;
 
-    // Loop through gallery items
-    document.querySelectorAll('.custom-media-gallery .thumbnail-item, .custom-media-gallery .main-image-wrapper').forEach(item => {
-      const img = item.querySelector("img");
-      if (!img) return;
+      // 2) radio input checked (common in some themes)
+      const radio = document.querySelector('input[name="id"]:checked');
+      if (radio && radio.value) return radio.value;
 
-      const altText = (img.getAttribute("alt") || "").toLowerCase();
+      // 3) select element value (some themes use select[name="id"])
+      const select = document.querySelector('select[name="id"]');
+      if (select && select.value) return select.value;
 
-      if (altText.includes(variantKeyword)) {
-        item.style.display = "block"; // show matching images
+      // 4) try to build selected options from single-option selectors or selects named option...
+      const optionEls = Array.from(document.querySelectorAll(
+        '.single-option-selector, select[name*="option"], select[name*="Options"], select[name*="options"], input[name*="option"]'
+      ));
+
+      if (optionEls.length) {
+        const selected = [];
+        const seenNames = new Set();
+        optionEls.forEach(el => {
+          // for selects
+          if (el.tagName === 'SELECT') {
+            selected.push(el.value);
+            seenNames.add(el.name);
+            return;
+          }
+          // radios/inputs grouped by name
+          if ((el.type === 'radio' || el.type === 'checkbox')) {
+            if (seenNames.has(el.name)) return; // already processed that group
+            const checked = document.querySelector(`input[name="${el.name}"]:checked`);
+            if (checked) selected.push(checked.value);
+            seenNames.add(el.name);
+            return;
+          }
+          // fallback: element with data-option-index or data-option-name
+          if (el.dataset && el.dataset.optionIndex !== undefined) {
+            selected.push(el.value || el.getAttribute('value') || '');
+            seenNames.add(el.dataset.optionIndex);
+          }
+        });
+
+        if (selected.length) {
+          // find a matching variant by comparing options (case-insensitive)
+          const variants = window.productData?.variants || [];
+          for (const v of variants) {
+            const vOptions = (v.options && v.options.length) ? v.options : [v.option1, v.option2, v.option3].filter(Boolean);
+            if (vOptions.length === 0) continue;
+            const matched = vOptions.length === selected.length &&
+              vOptions.every((opt, i) => String(opt).toLowerCase() === String(selected[i]).toLowerCase());
+            if (matched) return v.id;
+          }
+        }
+      }
+
+      // nothing found
+      return null;
+    } catch (err) {
+      console.error('getSelectedVariantId error', err);
+      return null;
+    }
+  }
+
+  // --- Main: filter gallery by variant id using image alt text matching
+  function filterGalleryByVariantId(variantId) {
+    if (!window.productData || !variantId) {
+      console.warn('filterGalleryByVariantId: missing productData or variantId', variantId);
+      return;
+    }
+
+    const variant = (window.productData.variants || []).find(v => String(v.id) === String(variantId));
+    if (!variant) {
+      console.warn('Variant not found in productData for id', variantId);
+      return;
+    }
+
+    // build keywords to match in image alt: try all variant option values
+    const variantKeywords = (variant.options || []).map(s => String(s).toLowerCase().trim()).filter(Boolean);
+    // fallback: use variant title if no options
+    if (!variantKeywords.length && variant.title) variantKeywords.push(String(variant.title).toLowerCase());
+
+    const galleryContainer = document.getElementById('custom-media-gallery');
+    if (!galleryContainer) return;
+
+    const items = Array.from(galleryContainer.querySelectorAll('.main-image-wrapper, .thumbnail-item'));
+
+    let matchedCount = 0;
+    items.forEach(item => {
+      const a = item.querySelector('a');
+      const img = item.querySelector('img');
+      const alt = (img?.getAttribute('alt') || '').toLowerCase();
+
+      // decide if this item should be visible (match any keyword)
+      const isMatch = variantKeywords.some(k => k && alt.includes(k));
+
+      if (isMatch) {
+        item.style.display = '';                 // show
+        if (a) a.classList.add('glightbox');     // ensure it has glightbox class so re-init includes it
+        matchedCount++;
       } else {
-        item.style.display = "none"; // hide others
+        item.style.display = 'none';             // hide
+        if (a) a.classList.remove('glightbox');  // remove class so re-init doesn't include it
       }
     });
 
-    // Re-init GLightbox
-    lightbox.destroy();
-    lightbox = GLightbox({
-      selector: '.glightbox',
-      loop: true,
-      zoomable: true,
-      touchNavigation: true
-    });
-  }
-
-  // ✅ Initial variant from URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const variantId = urlParams.get("variant");
-  if (variantId) {
-    setTimeout(() => {
-      filterGalleryByVariant(variantId);
-    }, 500);
-  }
-
-  // ✅ Shopify variant change event
-  document.addEventListener("variant:change", function (event) {
-    const newVariant = event.detail.variant;
-    if (newVariant) {
-      filterGalleryByVariant(newVariant.id);
+    // If nothing matched, fallback: show all and re-add classes
+    if (matchedCount === 0) {
+      console.info('No images matched variant keywords, falling back to show all images.');
+      items.forEach(item => {
+        const a = item.querySelector('a');
+        item.style.display = '';
+        if (a) a.classList.add('glightbox');
+      });
     }
+
+    // Destroy + re-init GLightbox bound only to visible anchors (.glightbox)
+    try { lightbox.destroy(); } catch (e) { /* ignore */ }
+    lightbox = GLightbox({ selector: '.glightbox', loop: true, zoomable: true, touchNavigation: true });
+
+    // Re-init thumbnails slider (unslick if necessary)
+    if ($('.thumbnails-slider').length) {
+      const $slider = $('.thumbnails-slider');
+      if ($slider.hasClass('slick-initialized')) $slider.slick('unslick');
+      initThumbnailsSlick();
+    }
+
+    console.log('Gallery filtered for variant', variantId, 'keywords', variantKeywords, 'matches', matchedCount);
+  }
+
+  // --- Initial run: try to filter immediately
+  const initialVariant = getSelectedVariantId();
+  if (initialVariant) {
+    setTimeout(() => filterGalleryByVariantId(initialVariant), 250);
+  } else {
+    // init thumbnails & lightbox if no variant selected
+    initThumbnailsSlick();
+  }
+
+  // --- Listen for common events to detect variant changes:
+  // 1) Shopify theme custom event
+  document.addEventListener('variant:change', function (e) {
+    const vid = e?.detail?.variant?.id || getSelectedVariantId();
+    console.log('Event variant:change detected ->', vid);
+    if (vid) filterGalleryByVariantId(vid);
   });
 
-  // ✅ Fallback for radio buttons
-  document.querySelectorAll('input[name="id"]').forEach((radio) => {
-    radio.addEventListener("change", function () {
-      filterGalleryByVariant(this.value);
-    });
+  // 2) global change listener for selects / radios (fallback)
+  document.addEventListener('change', function (e) {
+    const name = e.target && e.target.name ? e.target.name.toLowerCase() : '';
+    if (name === 'id' || name.indexOf('option') !== -1 || e.target.classList?.contains('single-option-selector')) {
+      // small delay to let theme scripts update values
+      setTimeout(function() {
+        const vid = getSelectedVariantId();
+        console.log('change event detected ->', vid);
+        if (vid) filterGalleryByVariantId(vid);
+      }, 50);
+    }
+  }, true);
+
+  // 3) watch for mutations on form area in case theme replaces nodes
+  const formEl = document.querySelector('form[action*="/cart/add"], form.product-form') || document.body;
+  const mo = new MutationObserver(function () {
+    // re-run filter in case elements changed
+    const vid = getSelectedVariantId();
+    if (vid) filterGalleryByVariantId(vid);
   });
+  mo.observe(formEl, { childList: true, subtree: true });
+
 });
-
+</script>
 
 </script>
 
