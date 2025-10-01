@@ -403,11 +403,13 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     on: {
       init: function () {
-        // Force Swiper to update sizes & positions
-        this.update();
-        this.slideTo(this.activeIndex, 0); // ensure active slide is centered
-        updateProductInfo();
-        playCenterVideo(this);
+        var swiperInstance = this;
+        // Slight delay to allow looped slides to fully render
+        setTimeout(function () {
+          swiperInstance.slideToLoop(0, 0); // go to first real slide
+          updateProductInfo();
+          playCenterVideo(swiperInstance);
+        }, 50); // 50ms is usually enough
       },
       slideChangeTransitionEnd: function () {
         updateProductInfo();
