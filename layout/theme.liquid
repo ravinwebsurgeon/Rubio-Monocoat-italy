@@ -469,17 +469,17 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
-  // Initialize Fancybox
+  // Bind Fancybox correctly to your gallery
   Fancybox.bind('[data-fancybox="product-gallery"]', {
-    Thumbs: true,       // show thumbnails inside popup
-    Toolbar: true,      // zoom, close, next/prev buttons
+    Thumbs: true,      // Show thumbnails in popup
+    Toolbar: true,     // Show zoom, next/prev, close
     dragToClose: true,
     infinite: true,
     animated: true
   });
 
-  // Initialize Slick for thumbnail scroll (optional)
-  if ($('.thumbnails-slider').length > 0) {
+  // Optional: make thumbnails scrollable
+  if ($('.thumbnails-slider').length) {
     $('.thumbnails-slider').slick({
       slidesToShow: 4,
       slidesToScroll: 1,
