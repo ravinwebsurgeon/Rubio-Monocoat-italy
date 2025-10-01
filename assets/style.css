@@ -1130,7 +1130,7 @@ small.copyright__content {
     align-self: center;
 }
 .language-selector {
-  display: none;
+  display: flex;
   align-items: center;
   border: 1px solid white;
   border-radius: 50px;
