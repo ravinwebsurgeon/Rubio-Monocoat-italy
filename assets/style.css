@@ -1655,7 +1655,19 @@ button.disclosure__button span,.disclosure__button{
     outline: none;
     transform: scale(1.05);
 }
-
+.custom-sv-animate {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+}
+.custom-sv-animate svg {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    max-width: 520px;
+}
 
 /* ==========Media Css ========== */
 @media screen and (min-width: 990px) {
