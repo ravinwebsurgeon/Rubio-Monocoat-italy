@@ -311,7 +311,19 @@
 {% comment %} Swiper js+css {% endcomment %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script> 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // remove default thumbnail → main image swap
+  document.querySelectorAll('.product__media-toggle').forEach(btn => {
+    btn.addEventListener("click", function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      // your own popup/slider logic goes here instead
+    }, true);
+  });
+});
 
+  </script>
   </head>
 
   <body class="template{{ template | handle }} gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
