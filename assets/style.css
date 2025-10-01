@@ -1514,6 +1514,8 @@ section.product-features-section .section-heading {
   max-width: 320px;
   height: 674px;
   object-fit: cover;
+   position:relative;
+    z-index:1;
 }
 
 
