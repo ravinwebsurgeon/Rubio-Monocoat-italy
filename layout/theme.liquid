@@ -490,6 +490,48 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </script>
 
+{% if template == 'product' %}
+<script>
+  $(document).ready(function () {
+    function updateGallery(variantHandle) {
+      // Hide all gallery images
+      $('.custom-media-gallery [data-value]').hide();
+
+      // Show only images that match the variant handle
+      var matched = $('.custom-media-gallery [data-value="' + variantHandle + '"]');
+      if (matched.length > 0) {
+        matched.show();
+
+        // Update main product image to the first matched image
+        var firstImg = matched.first().find('img').attr('src');
+        var firstHref = matched.first().find('a').attr('href');
+        if (firstImg) {
+          $('#main-product-image').attr('src', firstImg);
+          $('.main-image-wrapper a').attr('href', firstHref);
+        }
+      } else {
+        // If no match, show all images
+        $('.custom-media-gallery [data-value]').show();
+      }
+    }
+
+    // ✅ On page load
+    var currentVariant = '{{ product.selected_or_first_available_variant.title | handle }}';
+    updateGallery(currentVariant);
+
+    // ✅ On variant change (radio or dropdown)
+    $(document).on('change', 'input[name="id"], select[name="id"]', function () {
+      var newVariant = $(this).find('option:selected').data('title') || $(this).data('title') || $(this).val();
+      if (newVariant) {
+        var variantHandle = newVariant.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+        updateGallery(variantHandle);
+      }
+    });
+  });
+</script>
+{% endif %}
+
+
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
