@@ -490,48 +490,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </script>
 
-{% if template == 'product' %}
-<script>
-$(document).ready(function() {
-    // Get the current variant handle (safe lowercased)
-    var currentVariant = '{{ product.selected_or_first_available_variant.title | handle }}';
-
-    // Loop through gallery images
-    $(".custom-media-gallery img[data-value]").each(function() {
-        var dataValue = $(this).attr("data-value");
-        var thisImg = $(this);
-
-        if (dataValue && currentVariant === dataValue.toLowerCase()) {
-            setTimeout(function() {
-                // Replace main image src + alt
-                $("#main-product-image")
-                    .attr("src", thisImg.attr("src"))
-                    .attr("alt", thisImg.attr("alt"))
-                    .attr("data-value", thisImg.attr("data-value"));
-
-                // Update Lightbox link if exists
-                $(".main-image-wrapper a.glightbox")
-                    .attr("href", thisImg.closest("a").attr("href"));
-            }, 500);
-        }
-    });
-
-    // Also update main image when user clicks a thumbnail
-    $(".thumbnails-slider img[data-value]").on("click", function(e) {
-        e.preventDefault();
-        var clickedImg = $(this);
-
-        $("#main-product-image")
-            .attr("src", clickedImg.attr("src"))
-            .attr("alt", clickedImg.attr("alt"))
-            .attr("data-value", clickedImg.attr("data-value"));
-
-        $(".main-image-wrapper a.glightbox")
-            .attr("href", clickedImg.closest("a").attr("href"));
-    });
-});
-</script>
-{% endif %}
 
 
     {%- if settings.predictive_search_enabled -%}
