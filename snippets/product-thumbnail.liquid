@@ -109,24 +109,20 @@
     {% comment %} </button> {% endcomment %}
   </modal-opener> {% endcomment %}
 
-  <modal-opener
-  class="product__modal-opener product__modal-opener--{{ media.media_type }}"
-  data-modal="#ProductModal-{{ modal_id }}"
->
-  ...
-  <div class="product__media media media--transparent" data-media-index="{{ forloop.index0 }}">
-    {{ media.preview_image | image_url: width: 1946 | image_tag:  }}
-  </div>
   <a 
-    href="{{ media.preview_image | image_url: width: 1946 }}" 
-    data-fancybox="product-gallery-{{ section.id }}"
-    data-caption="{{ media.alt | escape }}"
-  >
-    <span class="visually-hidden">
-      {{ 'products.product.media.open_media' | t: index: position }}
-    </span> 
-  </a>
-</modal-opener>
+  href="{{ media.preview_image | image_url: width: 1946 }}" 
+  data-fancybox="product-gallery-{{ section.id }}"
+  data-caption="{{ media.alt | escape }}"
+>
+  {{
+    media.preview_image
+    | image_url: width: 1946
+    | image_tag: 
+      class: 'product-gallery-image',
+      loading: 'lazy',
+      widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
+  }}
+</a>
 
 
   {%- if media.media_type != 'image' -%}
