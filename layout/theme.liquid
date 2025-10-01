@@ -469,7 +469,6 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
-  // Wait until all images are loaded before initializing Fancybox
   function initFancybox() {
     Fancybox.bind('[data-fancybox="product-gallery"]', {
       Thumbs: true,
@@ -480,7 +479,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Check if all images in gallery are loaded
+  // Wait until all gallery images are loaded
   const galleryImages = document.querySelectorAll('.custom-media-gallery a img');
   let loadedCount = 0;
 
@@ -499,20 +498,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // If all images were already loaded
-  if (loadedCount === galleryImages.length) {
-    initFancybox();
-  }
-
-  // Initialize Slick for thumbnails scroll
-  if ($('.thumbnails-slider').length) {
-    $('.thumbnails-slider').slick({
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      arrows: true,
-      infinite: false,
-    });
-  }
+  // If all images already loaded
+  if (loadedCount === galleryImages.length) initFancybox();
 
 });
 
