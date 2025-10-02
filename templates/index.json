@@ -236,7 +236,7 @@
       "name": "Video Banner with Overlay",
       "settings": {
         "video_url": "https://cdn.shopify.com/videos/c/o/v/6956ee1757f94674817c8a05dcd62987.mp4",
-        "subheading": "Giving back",
+        "subheading": "",
         "heading": "Environmentally friendly wood protection",
         "button_link": "#",
         "button_label": "Read More"
