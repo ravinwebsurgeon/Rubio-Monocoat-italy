@@ -297,6 +297,7 @@
       "blocks": {
         "container_hRecTF": {
           "type": "container",
+          "disabled": true,
           "settings": {
             "class": "first-container-sec",
             "icon": "shopify://shop_images/Telephone.png",
