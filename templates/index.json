@@ -266,7 +266,6 @@
         "review_eUMA87": {
           "type": "review",
           "settings": {
-            "image": "shopify://shop_images/Ellipse_5.png",
             "name": "John Doe",
             "designation": "Designer",
             "stars": "shopify://shop_images/44cfefb3be4bc3b95389869e7b4625d61f393764.png",
@@ -276,7 +275,6 @@
         "review_Yqg7H6": {
           "type": "review",
           "settings": {
-            "image": "shopify://shop_images/Ellipse_6.png",
             "name": "Max Alice",
             "designation": "Designer",
             "stars": "shopify://shop_images/44cfefb3be4bc3b95389869e7b4625d61f393764.png",
