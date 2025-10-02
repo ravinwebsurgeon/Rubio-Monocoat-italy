@@ -320,6 +320,7 @@
         },
         "container_rBbnjT": {
           "type": "container",
+          "disabled": true,
           "settings": {
             "class": "",
             "icon": "shopify://shop_images/Headphones.png",
