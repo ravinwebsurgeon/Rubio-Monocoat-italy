@@ -297,7 +297,6 @@
       "blocks": {
         "container_hRecTF": {
           "type": "container",
-          "disabled": true,
           "settings": {
             "class": "first-container-sec",
             "icon": "shopify://shop_images/Telephone.png",
@@ -320,7 +319,6 @@
         },
         "container_rBbnjT": {
           "type": "container",
-          "disabled": true,
           "settings": {
             "class": "",
             "icon": "shopify://shop_images/Headphones.png",
