@@ -416,7 +416,24 @@
   </div>
 
 </div>
+{% style %}
+  
+.desktop-gallery { display: block; }
+.mobile-gallery { display: none; }
 
+
+@media (max-width: 1023px) {
+  .desktop-gallery { display: none; }
+  .mobile-gallery { display: block; }
+}
+
+
+.swiper-pagination {
+  text-align: center;
+  margin-top: 10px;
+}
+
+{% endstyle %}
 
 
 
