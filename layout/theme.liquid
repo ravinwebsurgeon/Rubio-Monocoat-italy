@@ -494,19 +494,23 @@ document.addEventListener("DOMContentLoaded", function() {
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
-  // Function to handle swatch change
+  function normalizeValue(val) {
+    return val?.trim().toLowerCase().replace(/\s+/g, '-');
+  }
+
   function updateGalleryForColor(colorValue) {
     if (!colorValue) return;
 
-    const selectedHandle = colorValue.trim().toLowerCase().replace(/\s+/g, '-'); 
+    const selectedHandle = normalizeValue(colorValue);
+
     const mainImage = document.getElementById('main-product-image');
     const thumbnails = document.querySelectorAll('.thumbnails-slider .thumbnail-item img');
 
     let anyMatched = false;
 
-    // Update main image first
+    // Main image
     if (mainImage) {
-      const mainVal = mainImage.getAttribute('data-value');
+      const mainVal = normalizeValue(mainImage.getAttribute('alt'));
       if (mainVal === selectedHandle) {
         mainImage.closest('.main-image-wrapper').style.display = 'block';
         anyMatched = true;
@@ -515,9 +519,9 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    // Loop through thumbnails
+    // Thumbnails
     thumbnails.forEach(img => {
-      const thumbVal = img.getAttribute('data-value');
+      const thumbVal = normalizeValue(img.getAttribute('alt'));
       if (thumbVal === selectedHandle) {
         img.closest('.thumbnail-item').style.display = 'block';
         anyMatched = true;
@@ -526,25 +530,22 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // If no matched images, show everything as fallback
+    // If nothing matches, show all
     if (!anyMatched) {
-      if (mainImage) {
-        mainImage.closest('.main-image-wrapper').style.display = 'block';
-      }
-      thumbnails.forEach(img => {
-        img.closest('.thumbnail-item').style.display = 'block';
-      });
+      if (mainImage) mainImage.closest('.main-image-wrapper').style.display = 'block';
+      thumbnails.forEach(img => img.closest('.thumbnail-item').style.display = 'block');
     }
   }
 
   // Listen to swatch change
-  document.querySelectorAll('.swatch-input__input[name^="Color"]').forEach(input => {
+  const swatches = document.querySelectorAll('.swatch-input__input[name^="Color"]');
+  swatches.forEach(input => {
     input.addEventListener('change', function () {
       updateGalleryForColor(this.value);
     });
   });
 
-  // Initialize with the default checked swatch on page load
+  // Initialize on page load
   const checkedSwatch = document.querySelector('.swatch-input__input[name^="Color"]:checked');
   if (checkedSwatch) {
     updateGalleryForColor(checkedSwatch.value);
@@ -552,6 +553,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 </script>
+
 
 {% endif %}
 
