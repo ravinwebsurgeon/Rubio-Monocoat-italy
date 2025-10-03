@@ -554,6 +554,62 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script> {% endcomment %}
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  function normalizeValue(val) {
+    return val?.trim().toLowerCase().replace(/\s+/g, '-');
+  }
+
+  function filterGalleryForColor(colorValue) {
+    if (!colorValue) return;
+
+    const selectedHandle = normalizeValue(colorValue);
+
+    // Main image
+    const mainImages = document.querySelectorAll('.main-image-wrapper img');
+    mainImages.forEach(img => {
+      const wrapper = img.closest('.main-image-wrapper');
+      wrapper.style.display = normalizeValue(img.alt) === selectedHandle ? 'block' : 'none';
+    });
+
+    // Thumbnails (Slick)
+    const slider = document.querySelector('.thumbnails-slider');
+    if (!slider) return;
+
+    const slides = slider.querySelectorAll('.thumbnail-item');
+    slides.forEach(slide => {
+      const img = slide.querySelector('img');
+      if (!img) return;
+
+      if (normalizeValue(img.alt) === selectedHandle) {
+        slide.style.display = 'block';
+      } else {
+        slide.style.display = 'none';
+      }
+    });
+
+    // Reinitialize Slick (refresh to fix hidden slides issue)
+    if ($(slider).hasClass('slick-initialized')) {
+      $(slider).slick('refresh');
+    }
+  }
+
+  // Swatch change listener
+  document.querySelectorAll('.swatch-input__input[name^="Color"]').forEach(input => {
+    input.addEventListener('change', function () {
+      filterGalleryForColor(this.value);
+    });
+  });
+
+  // Initialize on page load with default checked swatch
+  const checkedSwatch = document.querySelector('.swatch-input__input[name^="Color"]:checked');
+  if (checkedSwatch) {
+    setTimeout(() => filterGalleryForColor(checkedSwatch.value), 100);
+  }
+
+});
+</script>
 
 
     {%- if settings.predictive_search_enabled -%}
