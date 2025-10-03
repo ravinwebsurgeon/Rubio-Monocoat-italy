@@ -472,10 +472,8 @@
         {% for media in product.media %}
           {% if media.media_type == 'image' %}
             {% assign color_handle = media.alt | handle %}
-            <div class="swiper-slide" data-color="{{ color_handle }}">
-              <a class="glightboxs" href="{{ media.preview_image | img_url: '2048x2048' }}">
+            <div class="swiper-slide" data-color="{{ color_handle }}">              
                 <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}" width="" height="">
-              </a>
             </div>
           {% endif %}
         {% endfor %}
