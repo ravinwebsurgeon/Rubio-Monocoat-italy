@@ -571,20 +571,36 @@ document.addEventListener('DOMContentLoaded', function () {
   function updateGalleryForColor(colorValue) {
     const selectedHandle = normalizeValue(colorValue);
 
-    // Show only main image for this color
+    // Handle main image (show only the first one for this color)
+    let shownMain = false;
     document.querySelectorAll('.main-image-item').forEach(item => {
       const itemColor = normalizeValue(item.getAttribute('data-color'));
-      item.style.display = (itemColor === selectedHandle) ? 'block' : 'none';
+      if (itemColor === selectedHandle && !shownMain) {
+        item.style.display = 'block';
+        shownMain = true; // only first image stays
+      } else {
+        item.style.display = 'none';
+      }
     });
 
-    // Show only thumbnails for this color
+    // Handle thumbnails (show all except the first one used as main)
+    let skippedFirst = false;
     document.querySelectorAll('.thumbnail-item').forEach(item => {
       const itemColor = normalizeValue(item.getAttribute('data-color'));
-      item.style.display = (itemColor === selectedHandle) ? 'inline-block' : 'none';
+      if (itemColor === selectedHandle) {
+        if (!skippedFirst) {
+          item.style.display = 'none'; // skip first (main)
+          skippedFirst = true;
+        } else {
+          item.style.display = 'inline-block';
+        }
+      } else {
+        item.style.display = 'none';
+      }
     });
   }
 
-  // Event delegation for dynamic swatch change
+  // Event delegation for swatch/select changes
   document.body.addEventListener('change', function(e) {
     const target = e.target;
     if (target.matches('.swatch-input__input[name^="Color"]') || target.matches('select[name="Color"]')) {
@@ -592,13 +608,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Click thumbnails to update main image
+  // Click thumbnails → update main image
   document.querySelectorAll('.thumbnail-item img').forEach(img => {
     img.addEventListener('click', function() {
       const color = this.closest('.thumbnail-item').getAttribute('data-color');
       const mainImages = document.querySelectorAll('.main-image-item');
+      let swapped = false;
       mainImages.forEach(item => {
-        item.style.display = (item.getAttribute('data-color') === color) ? 'block' : 'none';
+        if (item.getAttribute('data-color') === color && !swapped) {
+          item.style.display = 'block';
+          swapped = true;
+        } else {
+          item.style.display = 'none';
+        }
       });
     });
   });
@@ -611,8 +633,25 @@ document.addEventListener('DOMContentLoaded', function () {
   } else if (initSelect) {
     updateGalleryForColor(initSelect.value);
   } else {
-    document.querySelectorAll('.main-image-item').forEach(item => item.style.display = 'block');
-    document.querySelectorAll('.thumbnail-item').forEach(item => item.style.display = 'inline-block');
+    // Default: show first main image, hide duplicate thumbnail
+    let firstMainSet = false;
+    document.querySelectorAll('.main-image-item').forEach(item => {
+      if (!firstMainSet) {
+        item.style.display = 'block';
+        firstMainSet = true;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+    let firstThumbSkipped = false;
+    document.querySelectorAll('.thumbnail-item').forEach(item => {
+      if (!firstThumbSkipped) {
+        item.style.display = 'none';
+        firstThumbSkipped = true;
+      } else {
+        item.style.display = 'inline-block';
+      }
+    });
   }
 
 });
