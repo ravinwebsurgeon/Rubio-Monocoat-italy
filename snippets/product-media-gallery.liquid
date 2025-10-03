@@ -436,7 +436,7 @@
   <!-- Desktop Gallery -->
   <div class="desktop-gallery">
     <div class="main-image-wrapper">
-      <div class="cus-sticky">
+      <div class="cus-sticky slick-slider">
         {% for media in product.media %}
         {% if media.media_type == 'image' %}
           {% assign color_handle = media.alt | handle %}
