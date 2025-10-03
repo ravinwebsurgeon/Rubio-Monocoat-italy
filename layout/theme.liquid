@@ -737,24 +737,29 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 </script>
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  new Swiper(".mobile-gallery .swiper", {
-    slidesPerView: 1,
-    spaceBetween: 10,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    loop: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-  });
+  setTimeout(() => {
+    const swiperEl = document.querySelector(".mobile-gallery .swiper");
+    if (swiperEl) {
+      new Swiper(swiperEl, {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+      });
+    }
+  }, 300); // slight delay ensures slides exist before init
 });
 </script>
+
 
 
 
