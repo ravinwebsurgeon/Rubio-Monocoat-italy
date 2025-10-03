@@ -469,7 +469,6 @@
   <!-- Mobile Gallery (Slider) -->
   <div class="mobile-gallery">
     <div class="slick-slider">
-      <div class="swiper-wrapper">
         {% for media in product.media %}
           {% if media.media_type == 'image' %}
             {% assign color_handle = media.alt | handle %}
@@ -480,8 +479,6 @@
             </div>
           {% endif %}
         {% endfor %}
-      </div>
-      <div class="swiper-pagination"></div>
     </div>
   </div>
 
