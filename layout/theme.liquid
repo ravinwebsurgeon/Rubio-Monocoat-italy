@@ -590,7 +590,7 @@ document.addEventListener('DOMContentLoaded', function () {
 }); 
 </script> {% endcomment %}
 
-{% comment %} <script>
+<script>
 document.addEventListener('DOMContentLoaded', function () {
   let lightbox = null;
   let mobileSwiper = null;
@@ -736,143 +736,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (firstColor) updateGalleryForColor(firstColor);
   }
 });
-</script> {% endcomment %}
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  let lightbox = null;
-  let mobileSwiper = null;
-
-  function normalizeValue(val) {
-    return val?.toString().trim().toLowerCase().replace(/\s+/g, '-') || '';
-  }
-
-  function initLightbox() {
-    if (lightbox && typeof lightbox.destroy === 'function') {
-      lightbox.destroy();
-    }
-    lightbox = GLightbox({
-      selector: '.glightbox.glightbox-active',
-      loop: true,
-      zoomable: true,
-      touchNavigation: true,
-      autoplayVideos: false
-    });
-  }
-
-  function initMobileSlider() {
-    if (mobileSwiper) {
-      mobileSwiper.destroy(true, true);
-    }
-    const swiperEl = document.querySelector('.mobile-gallery .swiper');
-    if (swiperEl) {
-      mobileSwiper = new Swiper(swiperEl, {
-        slidesPerView: 1,
-        spaceBetween: 10,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-      });
-    }
-  }
-
-  function updateGlightboxActive() {
-    document.querySelectorAll('a.glightbox').forEach(anchor => {
-      const parentItem = anchor.closest('.main-image-item, .swiper-slide');
-      const visible = parentItem && getComputedStyle(parentItem).display !== 'none';
-      if (visible) {
-        anchor.classList.add('glightbox-active');
-      } else {
-        anchor.classList.remove('glightbox-active');
-      }
-    });
-  }
-
-  function updateGalleryForColor(colorValue) {
-    const selectedHandle = normalizeValue(colorValue);
-
-    // ---------- DESKTOP ----------
-    let shownMain = false;
-    document.querySelectorAll('.main-image-item').forEach(item => {
-      const itemColor = normalizeValue(item.getAttribute('data-color'));
-      if (itemColor === selectedHandle && !shownMain) {
-        item.style.display = 'flex';
-        shownMain = true;
-      } else {
-        item.style.display = 'none';
-      }
-    });
-
-    // ❌ थंबनेल को बिल्कुल छुपा दो (क्योंकि मोबाइल पर हमें नहीं चाहिए)
-    document.querySelectorAll('.thumbnail-item').forEach(item => {
-      item.style.display = 'none';
-    });
-
-    // ---------- MOBILE (SLIDER REBUILD) ----------
-    const swiperWrapper = document.querySelector('.mobile-gallery .swiper-wrapper');
-    if (swiperWrapper) {
-      swiperWrapper.innerHTML = ''; // clear slides
-
-      // Get all images of this color
-      const allMedia = document.querySelectorAll('.mobile-gallery .swiper-slide[data-color]');
-      const matchedMedia = Array.from(allMedia).filter(slide => normalizeValue(slide.getAttribute('data-color')) === selectedHandle);
-
-      matchedMedia.forEach(slide => {
-        const clone = slide.cloneNode(true);
-        clone.style.display = 'block';
-        swiperWrapper.appendChild(clone);
-      });
-    }
-
-    updateGlightboxActive();
-    initLightbox();
-    initMobileSlider();
-  }
-
-  // Variant change listener
-  document.body.addEventListener('change', function (e) {
-    const target = e.target;
-    if (target.matches('.swatch-input__input[name^="Color"]') || target.matches('select[name="Color"]')) {
-      updateGalleryForColor(target.value);
-    }
-  });
-
-  // Lightbox open on mobile slide click
-  document.body.addEventListener('click', function (e) {
-    const thumbAnchor = e.target.closest('.swiper-slide a.glightbox');
-    if (thumbAnchor && thumbAnchor.classList.contains('glightbox-active')) {
-      e.preventDefault();
-      const galleryLinks = Array.from(document.querySelectorAll('.glightbox.glightbox-active'));
-      const index = galleryLinks.indexOf(thumbAnchor);
-      if (lightbox && index >= 0) {
-        lightbox.openAt(index);
-      }
-    }
-  });
-
-  // ---------- INIT ON LOAD ----------
-  const initSwatch = document.querySelector('.swatch-input__input[name^="Color"]:checked');
-  const initSelect = document.querySelector('select[name="Color"]');
-  if (initSwatch) {
-    updateGalleryForColor(initSwatch.value);
-  } else if (initSelect) {
-    updateGalleryForColor(initSelect.value);
-  } else {
-    const firstMain = document.querySelector('.main-image-item');
-    const allMain = document.querySelectorAll('.main-image-item');
-    allMain.forEach((item, i) => item.style.display = i === 0 ? 'block' : 'none');
-
-    // थंबनेल छुपा दो (default में भी)
-    document.querySelectorAll('.thumbnail-item').forEach(item => {
-      item.style.display = 'none';
-    });
-
-    const firstColor = allMain[0]?.getAttribute('data-color');
-    if (firstColor) updateGalleryForColor(firstColor);
-  }
-});
 </script>
+
 
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
