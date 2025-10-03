@@ -555,14 +555,20 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>  {% endcomment %}
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+  let lightbox; // store instance
 
-  const lightbox = GLightbox({
-    selector: '.glightbox',
-    loop: true,
-    zoomable: true,
-    touchNavigation: true,
-    autoplayVideos: false
-  });
+  function initLightbox() {
+    if (lightbox) {
+      lightbox.destroy(); // remove old instance
+    }
+    lightbox = GLightbox({
+      selector: '.glightbox:visible', // only visible images
+      loop: true,
+      zoomable: true,
+      touchNavigation: true,
+      autoplayVideos: false
+    });
+  }
 
   function normalizeValue(val) {
     return val?.trim().toLowerCase().replace(/\s+/g, '-');
@@ -571,19 +577,19 @@ document.addEventListener('DOMContentLoaded', function () {
   function updateGalleryForColor(colorValue) {
     const selectedHandle = normalizeValue(colorValue);
 
-    // Handle main image (show only the first one for this color)
+    // Handle main image
     let shownMain = false;
     document.querySelectorAll('.main-image-item').forEach(item => {
       const itemColor = normalizeValue(item.getAttribute('data-color'));
       if (itemColor === selectedHandle && !shownMain) {
         item.style.display = 'block';
-        shownMain = true; // only first image stays
+        shownMain = true;
       } else {
         item.style.display = 'none';
       }
     });
 
-    // Handle thumbnails (show all except the first one used as main)
+    // Handle thumbnails
     let skippedFirst = false;
     document.querySelectorAll('.thumbnail-item').forEach(item => {
       const itemColor = normalizeValue(item.getAttribute('data-color'));
@@ -598,6 +604,9 @@ document.addEventListener('DOMContentLoaded', function () {
         item.style.display = 'none';
       }
     });
+
+    // ✅ Re-init lightbox with only visible images
+    initLightbox();
   }
 
   // Event delegation for swatch/select changes
@@ -622,6 +631,9 @@ document.addEventListener('DOMContentLoaded', function () {
           item.style.display = 'none';
         }
       });
+
+      // ✅ Re-init lightbox again after thumbnail click
+      initLightbox();
     });
   });
 
@@ -633,7 +645,7 @@ document.addEventListener('DOMContentLoaded', function () {
   } else if (initSelect) {
     updateGalleryForColor(initSelect.value);
   } else {
-    // Default: show first main image, hide duplicate thumbnail
+    // Default: show first main, skip duplicate thumbnail
     let firstMainSet = false;
     document.querySelectorAll('.main-image-item').forEach(item => {
       if (!firstMainSet) {
@@ -654,6 +666,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Initial lightbox setup
+  initLightbox();
 });
 
 </script>
