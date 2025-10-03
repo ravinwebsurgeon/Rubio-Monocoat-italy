@@ -436,19 +436,22 @@
   <!-- Desktop Gallery -->
   <div class="desktop-gallery">
     <div class="main-image-wrapper">
-      {% for media in product.media %}
+      <div class="cus-sticky">
+        {% for media in product.media %}
         {% if media.media_type == 'image' %}
           {% assign color_handle = media.alt | handle %}
           <div class="main-image-item" data-color="{{ color_handle }}">
             <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
-              <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
+              <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}" width="" height="">
             </a>
           </div>
         {% endif %}
       {% endfor %}
+      </div>      
     </div>
 
     <div class="thumbnails-wrapper">
+      <div class="cus-sticky">
       {% for media in product.media %}
         {% if media.media_type == 'image' %}
           {% assign color_handle = media.alt | handle %}
@@ -459,6 +462,7 @@
           </div>
         {% endif %}
       {% endfor %}
+      </div>
     </div>
   </div>
 
