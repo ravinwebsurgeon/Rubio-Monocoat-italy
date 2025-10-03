@@ -571,20 +571,20 @@ document.addEventListener('DOMContentLoaded', function () {
   function updateGalleryForColor(colorValue) {
     const selectedHandle = normalizeValue(colorValue);
 
-    // Show only main image for this variant
+    // Show only main image for this color
     document.querySelectorAll('.main-image-item').forEach(item => {
       const itemColor = normalizeValue(item.getAttribute('data-color'));
       item.style.display = (itemColor === selectedHandle) ? 'block' : 'none';
     });
 
-    // Show only thumbnails for this variant
+    // Show only thumbnails for this color
     document.querySelectorAll('.thumbnail-item').forEach(item => {
       const itemColor = normalizeValue(item.getAttribute('data-color'));
       item.style.display = (itemColor === selectedHandle) ? 'inline-block' : 'none';
     });
   }
 
-  // Event delegation for swatch changes
+  // Event delegation for dynamic swatch change
   document.body.addEventListener('change', function(e) {
     const target = e.target;
     if (target.matches('.swatch-input__input[name^="Color"]') || target.matches('select[name="Color"]')) {
@@ -603,7 +603,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Initialize gallery on page load
+  // Initialize on page load
   const initSwatch = document.querySelector('.swatch-input__input[name^="Color"]:checked');
   const initSelect = document.querySelector('select[name="Color"]');
   if (initSwatch) {
