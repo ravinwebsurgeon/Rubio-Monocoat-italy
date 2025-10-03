@@ -493,41 +493,40 @@ document.addEventListener("DOMContentLoaded", function() {
 {% if template == 'product' %}
 <script>
 $(document).ready(function() {
-
-  function showImagesForVariant(variantTitle) {
-    // Convert variant title to handle format (lowercase, hyphens)
-    var variantHandle = variantTitle.toLowerCase().replace(/\s+/g, '-');
+  
+  function filterGalleryByVariant(variantValue) {
+    if (!variantValue) return;
+    // Convert variant to handle format (lowercase, hyphen)
+    var variantHandle = variantValue.toLowerCase().replace(/\s+/g, '-');
 
     // Hide all thumbnails
     $(".custom-media-gallery .thumbnail-item").hide();
 
-    // Show only matching thumbnails
-    var matchedThumbs = $(".custom-media-gallery img[data-value='" + variantHandle + "']").closest('.thumbnail-item');
-    matchedThumbs.show();
+    // Show matching thumbnails
+    var matchingThumbs = $(".custom-media-gallery img[data-value='" + variantHandle + "']").closest(".thumbnail-item");
+    matchingThumbs.show();
 
-    // If matching images found, update main image to first matched
-    if (matchedThumbs.length > 0) {
-      var firstImg = matchedThumbs.first().find('img');
+    // If matches found, update the main image to first match
+    if (matchingThumbs.length > 0) {
+      var firstImg = matchingThumbs.first().find('img');
+      var newSrc = firstImg.attr('src').replace('150x150', '1024x1024');
+      var newHref = firstImg.closest('a').attr('href');
       $("#main-product-image")
-        .attr("src", firstImg.attr("src").replace('150x150', '1024x1024'))
-        .attr("alt", firstImg.attr("alt"))
-        .attr("data-value", firstImg.attr("data-value"));
-
-      $(".main-image-wrapper a.glightbox")
-        .attr("href", firstImg.closest('a').attr("href"));
+        .attr('src', newSrc)
+        .attr('alt', firstImg.attr('alt'))
+        .attr('data-value', firstImg.attr('data-value'));
+      $(".main-image-wrapper a.glightbox").attr('href', newHref);
     }
   }
 
-  // Initial load: if any variant is pre-selected
-  var initialVariant = $('input[name="Color-1"]:checked').val();
-    if (initialVariant) {
-      showImagesForVariant(initialVariant);
-    }
+  // 1️⃣ Initial Load
+  var initialVariant = $('input[name="Color-1"]').filter(':checked').val();
+  filterGalleryByVariant(initialVariant);
 
-  // Listen for variant radio changes
+  // 2️⃣ On Variant Change
   $('input[name="Color-1"]').on('change', function() {
     var selectedVariant = $(this).val();
-    showImagesForVariant(selectedVariant);
+    filterGalleryByVariant(selectedVariant);
   });
 
 });
