@@ -590,6 +590,7 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 }); {% endcomment %}
 
 
+<script>
 document.addEventListener('DOMContentLoaded', function () {
   let lightbox = null;
   let swiper = null;
@@ -598,7 +599,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return val?.toString().trim().toLowerCase().replace(/\s+/g, '-') || '';
   }
 
-  // Initialize lightbox
+  // Initialize GLightbox
   function initLightbox() {
     if (lightbox && typeof lightbox.destroy === 'function') lightbox.destroy();
     lightbox = GLightbox({
@@ -610,7 +611,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Update visible anchors
+  // Activate .glightbox-active for visible images
   function updateGlightboxActive() {
     document.querySelectorAll('a.glightbox').forEach(anchor => {
       const parent = anchor.closest('.main-image-item, .thumbnail-item, .swiper-slide');
@@ -622,29 +623,28 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Initialize Swiper for mobile (<1024px)
+  // Initialize mobile slider (≤991px)
   function initSwiper() {
-    if (window.innerWidth <= 1024 && !swiper) {
+    if (window.innerWidth <= 991) {
+      if (swiper) swiper.destroy(true, true);
       swiper = new Swiper('.mobile-gallery', {
         loop: false,
         pagination: {
           el: '.swiper-pagination',
           clickable: true
-        }
+        },
       });
-    } else if (window.innerWidth > 1024 && swiper) {
+    } else if (swiper) {
       swiper.destroy(true, true);
       swiper = null;
     }
   }
-  initSwiper();
-  window.addEventListener('resize', initSwiper);
 
-  // Update gallery by selected variant
+  // Update gallery by variant color
   function updateGalleryForColor(colorValue) {
     const selectedHandle = normalizeValue(colorValue);
 
-    // Desktop main & thumbnails
+    // --- Desktop main image ---
     let shownMain = false;
     document.querySelectorAll('.main-image-item').forEach(item => {
       const itemColor = normalizeValue(item.dataset.color);
@@ -654,6 +654,7 @@ document.addEventListener('DOMContentLoaded', function () {
       } else item.style.display = 'none';
     });
 
+    // --- Desktop thumbnails ---
     let skippedFirst = false;
     document.querySelectorAll('.thumbnail-item').forEach(item => {
       const itemColor = normalizeValue(item.dataset.color);
@@ -663,21 +664,23 @@ document.addEventListener('DOMContentLoaded', function () {
       } else item.style.display = 'none';
     });
 
-    // Mobile slider
-    if (swiper) {
-      swiper.removeAllSlides();
+    // --- Mobile slider ---
+    const wrapper = document.querySelector('.mobile-gallery .swiper-wrapper');
+    if(wrapper){
+      wrapper.innerHTML = ''; // clear all slides
       const slides = Array.from(document.querySelectorAll('.mobile-gallery .swiper-slide'))
         .filter(slide => normalizeValue(slide.dataset.color) === selectedHandle);
-      swiper.appendSlide(slides.map(slide => slide.outerHTML));
-      swiper.slideTo(0);
+      slides.forEach(slide => wrapper.appendChild(slide.cloneNode(true))); // clone so desktop not affected
+
+      initSwiper(); // re-init swiper after adding slides
     }
 
-    // Lightbox update
+    // --- Update Lightbox ---
     updateGlightboxActive();
     initLightbox();
   }
 
-  // Listen to variant changes
+  // Variant change listener
   document.body.addEventListener('change', function(e) {
     const target = e.target;
     if (target.matches('.swatch-input__input[name^="Color"]') || target.matches('select[name="Color"]')) {
@@ -685,7 +688,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Thumbnail/main click opens lightbox at that image
+  // Open lightbox on click
   document.body.addEventListener('click', function(e) {
     const anchor = e.target.closest('a.glightbox');
     if (anchor && anchor.classList.contains('glightbox-active')) {
@@ -696,7 +699,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Initialize on load
+  // Initialize on page load
   const initSwatch = document.querySelector('.swatch-input__input[name^="Color"]:checked');
   const initSelect = document.querySelector('select[name="Color"]');
   if (initSwatch) updateGalleryForColor(initSwatch.value);
@@ -711,30 +714,19 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.thumbnail-item').forEach(item => {
       item.style.display = firstThumbSkipped ? 'inline-block' : (firstThumbSkipped = true, 'none');
     });
-    updateGlightboxActive();
-    initLightbox();
+
+    // mobile slider
+    const defaultColor = document.querySelector('.main-image-item')?.dataset.color || '';
+    if(defaultColor) updateGalleryForColor(defaultColor);
   }
+
+  // Re-init Swiper on window resize
+  window.addEventListener('resize', () => {
+    initSwiper();
+  });
+
 });
-
-let swiper = null;
-
-function initSwiper() {
-  if (window.innerWidth <= 1024) {
-    if (swiper) swiper.destroy(true, true); // destroy previous instance
-    swiper = new Swiper('.mobile-gallery', {
-      loop: false,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
-  } else {
-    if (swiper) {
-      swiper.destroy(true, true);
-      swiper = null;
-    }
-  }
-}
+</script>
 
 </script>
 
