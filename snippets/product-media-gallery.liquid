@@ -368,23 +368,36 @@
 
   <div class="custom-media-gallery">
 
-  <!-- Gallery images -->
-  <div class="gallery-images">
+  <!-- Main Image -->
+  <div class="main-image-wrapper">
     {% for media in product.media %}
       {% if media.media_type == 'image' %}
-        <div class="gallery-item" data-color="{{ media.alt | handle }}">
+        <div class="main-image-item" data-color="{{ media.alt | handle }}">
           <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
             <img 
               src="{{ media.preview_image | img_url: '1024x1024' }}" 
-              alt="{{ media.alt | escape }}"
-            >
+              alt="{{ media.alt | escape }}">
           </a>
         </div>
       {% endif %}
     {% endfor %}
   </div>
 
+  <!-- Thumbnails -->
+  <div class="thumbnails-wrapper">
+    {% for media in product.media %}
+      {% if media.media_type == 'image' %}
+        <div class="thumbnail-item" data-color="{{ media.alt | handle }}">
+          <img 
+            src="{{ media.preview_image | img_url: '150x150' }}" 
+            alt="{{ media.alt | escape }}">
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
 </div>
+
 
 
 
