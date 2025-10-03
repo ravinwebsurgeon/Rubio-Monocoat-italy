@@ -368,40 +368,55 @@
 
 <div class="custom-media-gallery">
 
-  <!-- Main Image -->
-  <div class="main-image-wrapper">
-    {% for media in product.media %}
-      {% if media.media_type == 'image' %}
-        {% comment %}
-        Only use the image marked as "main" for each color
-        {% endcomment %}
-        {% assign color_handle = media.alt | handle %}
-        <div class="main-image-item" data-color="{{ color_handle }}">
-          <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
-            <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
-          </a>
-        </div>
-      {% endif %}
-    {% endfor %}
+  <!-- Desktop Gallery (>=1024px) -->
+  <div class="desktop-gallery">
+    <div class="main-image-wrapper">
+      {% for media in product.media %}
+        {% if media.media_type == 'image' %}
+          {% assign color_handle = media.alt | handle %}
+          <div class="main-image-item" data-color="{{ color_handle }}">
+            <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+              <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="thumbnails-wrapper">
+      {% for media in product.media %}
+        {% if media.media_type == 'image' %}
+          {% assign color_handle = media.alt | handle %}
+          <div class="thumbnail-item" data-color="{{ color_handle }}">
+            <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+              <img src="{{ media.preview_image | img_url: '150x150' }}" alt="{{ media.alt | escape }}">
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
 
-  <!-- Thumbnails -->
-<!-- Thumbnails -->
-<div class="thumbnails-wrapper">
-  {% for media in product.media %}
-    {% if media.media_type == 'image' %}
-      {% assign color_handle = media.alt | handle %}
-      <div class="thumbnail-item" data-color="{{ color_handle }}">
-        <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
-          <img src="{{ media.preview_image | img_url: '150x150' }}" alt="{{ media.alt | escape }}">
-        </a>
-      </div>
-    {% endif %}
-  {% endfor %}
+  <!-- Mobile Slider (<1024px) -->
+  <div class="mobile-gallery swiper">
+    <div class="swiper-wrapper">
+      {% for media in product.media %}
+        {% if media.media_type == 'image' %}
+          {% assign color_handle = media.alt | handle %}
+          <div class="swiper-slide" data-color="{{ color_handle }}">
+            <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+              <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <!-- Dots only -->
+    <div class="swiper-pagination"></div>
+  </div>
+
 </div>
 
-
-</div>
 
 
 
