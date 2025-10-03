@@ -212,12 +212,22 @@ document.addEventListener("DOMContentLoaded", function(){
   overlay.addEventListener("click", ()=>closeBtn.click());
 
   // Choice
-  choices.forEach(btn=>{
+  {% comment %} choices.forEach(btn=>{
     btn.addEventListener("click", ()=>{
       form.style.display="block";
       resultBox.innerHTML="";
     });
+  }); {% endcomment %}
+if (typeof choices !== 'undefined' && choices.forEach) {
+  choices.forEach(btn => {
+    btn.addEventListener("click", () => {
+      form.style.display = "block";
+      resultBox.innerHTML = "";
+    });
   });
+} else {
+  console.warn('choices is not defined, skipping choices click binding');
+}
 
   // Calculate
   calcBtn.addEventListener("click", e=>{
