@@ -716,6 +716,25 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
+let swiper = null;
+
+function initSwiper() {
+  if (window.innerWidth <= 1024) {
+    if (swiper) swiper.destroy(true, true); // destroy previous instance
+    swiper = new Swiper('.mobile-gallery', {
+      loop: false,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  } else {
+    if (swiper) {
+      swiper.destroy(true, true);
+      swiper = null;
+    }
+  }
+}
 
 </script>
 
