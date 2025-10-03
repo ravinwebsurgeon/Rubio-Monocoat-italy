@@ -649,7 +649,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.main-image-item').forEach(item => {
       const itemColor = normalizeValue(item.getAttribute('data-color'));
       if (itemColor === selectedHandle && !shownMain) {
-        item.style.display = 'block';
+        item.style.display = 'flex';
         shownMain = true;
       } else {
         item.style.display = 'none';
