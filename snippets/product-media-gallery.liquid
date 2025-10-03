@@ -457,7 +457,7 @@
           {% assign color_handle = media.alt | handle %}
           <div class="thumbnail-item" data-color="{{ color_handle }}">
             <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
-              <img src="{{ media.preview_image | img_url: '150x150' }}" alt="{{ media.alt | escape }}">
+              <img src="{{ media.preview_image | img_url: 'master' }}" alt="{{ media.alt | escape }}">
             </a>
           </div>
         {% endif %}
