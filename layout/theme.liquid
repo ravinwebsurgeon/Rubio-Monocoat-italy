@@ -612,7 +612,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  function initMobileSlider() {
+  {% comment %} function initMobileSlider() {
     if (mobileSwiper) {
       mobileSwiper.destroy(true, true);
     }
@@ -627,7 +627,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
       });
     }
-  }
+  } {% endcomment %}
 
   function updateGlightboxActive() {
     document.querySelectorAll('a.glightbox').forEach(anchor => {
@@ -754,12 +754,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // autoplaySpeed: 3000,
     });
 
-    // Optional: Lightbox trigger (if you want GLightbox)
-    if (typeof GLightbox !== 'undefined') {
-      GLightbox({
-        selector: '.glightboxs'
-      });
-    }
+
   }
 });
 
