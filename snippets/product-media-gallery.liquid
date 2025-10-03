@@ -368,7 +368,7 @@
 
 <div class="custom-media-gallery">
 
-  <!-- Desktop Gallery (>=1024px) -->
+  <!-- Desktop Gallery (≥1024px) -->
   <div class="desktop-gallery">
     <div class="main-image-wrapper">
       {% for media in product.media %}
@@ -416,23 +416,18 @@
   </div>
 
 </div>
+
 {% style %}
-  
 .desktop-gallery { display: block; }
 .mobile-gallery { display: none; }
 
-
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .desktop-gallery { display: none; }
   .mobile-gallery { display: block; }
 }
 
-
-.swiper-pagination {
-  text-align: center;
-  margin-top: 10px;
-}
-
+/* center dots */
+.swiper-pagination { text-align: center; margin-top: 10px; }
 {% endstyle %}
 
 
