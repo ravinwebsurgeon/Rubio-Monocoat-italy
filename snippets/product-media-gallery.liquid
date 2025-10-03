@@ -397,23 +397,23 @@
     </div>
   </div>
 
-  <!-- Mobile Slider (<1024px) -->
-  <div class="mobile-gallery swiper">
-    <div class="swiper-wrapper">
-      {% for media in product.media %}
-        {% if media.media_type == 'image' %}
-          {% assign color_handle = media.alt | handle %}
-          <div class="swiper-slide" data-color="{{ color_handle }}">
-            <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
-              <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
-            </a>
-          </div>
-        {% endif %}
-      {% endfor %}
+    <!-- Mobile Slider (<1024px) -->
+    <div class="mobile-gallery swiper">
+      <div class="swiper-wrapper">
+        {% for media in product.media %}
+          {% if media.media_type == 'image' %}
+            {% assign color_handle = media.alt | handle %}
+            <div class="swiper-slide" data-color="{{ color_handle }}">
+              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+                <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <!-- Dots only -->
+      <div class="swiper-pagination"></div>
     </div>
-    <!-- Dots only -->
-    <div class="swiper-pagination"></div>
-  </div>
 
 </div>
 
