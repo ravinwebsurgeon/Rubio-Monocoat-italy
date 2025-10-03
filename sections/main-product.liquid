@@ -977,24 +977,13 @@ document.addEventListener("DOMContentLoaded", function() {
       stickyVariantId.value = selected;
 
       // Get updated price from dataset (Shopify outputs variant data)
-      {% comment %} const variant = window.meta?.product?.variants.find(v => v.id == selected);
+      const variant = window.meta?.product?.variants.find(v => v.id == selected);
       if (variant) {
         stickyPrice.innerHTML = Shopify.formatMoney(variant.price, window.meta.money_format);
       }
     });
   });
-}); {% endcomment %}
-const variant = window.meta?.product?.variants.find(v => v.id == selected);
-
-if (variant) {
-  if (window.Shopify && Shopify.formatMoney && typeof Shopify.formatMoney === 'function') {
-    stickyPrice.innerHTML = Shopify.formatMoney(variant.price, window.meta.money_format);
-  } else {
-    // Fallback if formatMoney doesn't exist or isn't a function
-    stickyPrice.innerHTML = (variant.price / 100).toFixed(2);
-  }
-}
-
+});
 </script>
 
 {% schema %}
