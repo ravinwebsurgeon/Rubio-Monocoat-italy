@@ -817,11 +817,17 @@
 
 {% style %}
 .desktop-gallery { display: block; }
- .mobile-gallery { display: none; }
+.mobile-gallery, { display: none; }
+.grid__item.product__media-wrapper media-gallery.product__column-sticky {
+    display: none !important;
+}
 
 @media (max-width: 991px) {
   .desktop-gallery,.product .thumbnail-slider.slider-mobile-gutter { display: none; }
   .mobile-gallery { display: block; }
+  .grid__item.product__media-wrapper media-gallery.product__column-sticky {
+    display: block !important;
+}
 }
 
 .mobile-gallery .swiper-slide img {
