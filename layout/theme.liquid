@@ -582,20 +582,28 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Listen to variant changes dynamically
-  document.addEventListener('variant:change', function(event) {
-    const variant = event.detail.variant;
-    if (variant && variant.options) {
-      // Assuming color is the first option
-      const colorValue = variant.options[0]; 
-      updateGalleryForColor(colorValue);
-    }
+  // Listen to **swatch/radio input change**
+  const swatches = document.querySelectorAll('.swatch-input__input[name^="Color"]');
+  swatches.forEach(input => {
+    input.addEventListener('change', function () {
+      updateGalleryForColor(this.value);
+    });
   });
 
-  // Initialize on page load for default selected variant
+  // Fallback: If using <select> for variants
+  const colorSelect = document.querySelector('select[name="Color"]');
+  if (colorSelect) {
+    colorSelect.addEventListener('change', function() {
+      updateGalleryForColor(this.value);
+    });
+  }
+
+  // Initialize on page load
   const checkedSwatch = document.querySelector('.swatch-input__input[name^="Color"]:checked');
   if (checkedSwatch) {
     updateGalleryForColor(checkedSwatch.value);
+  } else if (colorSelect) {
+    updateGalleryForColor(colorSelect.value);
   } else {
     document.querySelectorAll('.gallery-item').forEach(item => item.style.display = 'block');
   }
