@@ -621,7 +621,6 @@ document.addEventListener('DOMContentLoaded', function () {
     updateGlightboxActive();
     initLightbox();
   }
-
   // Swatch/select change
   document.body.addEventListener('change', function (e) {
     const target = e.target;
@@ -629,7 +628,6 @@ document.addEventListener('DOMContentLoaded', function () {
       updateGalleryForColor(target.value);
     }
   });
-
   // Open lightbox directly on thumbnail click
   document.body.addEventListener('click', function (e) {
     const thumbAnchor = e.target.closest('.thumbnail-item a.glightbox');
