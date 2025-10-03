@@ -985,11 +985,12 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 }); {% endcomment %}
 const variant = window.meta?.product?.variants.find(v => v.id == selected);
+
 if (variant) {
-  if (window.Shopify && typeof Shopify.formatMoney === 'function') {
+  if (window.Shopify && Shopify.formatMoney && typeof Shopify.formatMoney === 'function') {
     stickyPrice.innerHTML = Shopify.formatMoney(variant.price, window.meta.money_format);
   } else {
-    // fallback if formatMoney doesn't exist
+    // Fallback if formatMoney doesn't exist or isn't a function
     stickyPrice.innerHTML = (variant.price / 100).toFixed(2);
   }
 }
