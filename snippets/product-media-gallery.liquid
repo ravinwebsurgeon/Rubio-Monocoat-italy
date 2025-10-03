@@ -366,17 +366,19 @@
   </div>
   {% endcomment %}
 
-  <div class="custom-media-gallery">
+<div class="custom-media-gallery">
 
   <!-- Main Image -->
   <div class="main-image-wrapper">
     {% for media in product.media %}
       {% if media.media_type == 'image' %}
-        <div class="main-image-item" data-color="{{ media.alt | handle }}">
+        {% comment %}
+        Only use the image marked as "main" for each color
+        {% endcomment %}
+        {% assign color_handle = media.alt | handle %}
+        <div class="main-image-item" data-color="{{ color_handle }}">
           <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
-            <img 
-              src="{{ media.preview_image | img_url: '1024x1024' }}" 
-              alt="{{ media.alt | escape }}">
+            <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
           </a>
         </div>
       {% endif %}
@@ -387,16 +389,19 @@
   <div class="thumbnails-wrapper">
     {% for media in product.media %}
       {% if media.media_type == 'image' %}
-        <div class="thumbnail-item" data-color="{{ media.alt | handle }}">
-          <img 
-            src="{{ media.preview_image | img_url: '150x150' }}" 
-            alt="{{ media.alt | escape }}">
+        {% assign color_handle = media.alt | handle %}
+        {% comment %}
+        Render in thumbnails only if NOT the main image for this color
+        {% endcomment %}
+        <div class="thumbnail-item" data-color="{{ color_handle }}">
+          <img src="{{ media.preview_image | img_url: '150x150' }}" alt="{{ media.alt | escape }}">
         </div>
       {% endif %}
     {% endfor %}
   </div>
 
 </div>
+
 
 
 
