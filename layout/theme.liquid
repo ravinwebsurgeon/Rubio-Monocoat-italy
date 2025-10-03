@@ -590,6 +590,7 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 }); {% endcomment %}
 
 
+<script>
 document.addEventListener('DOMContentLoaded', function () {
   let lightbox = null;
   let swiper = null;
@@ -624,7 +625,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Initialize Swiper for mobile (<1024px)
   function initSwiper() {
-    if (window.innerWidth <= 1024 && !swiper) {
+    if (window.innerWidth <= 1024) {
+      if (swiper) swiper.destroy(true, true);
       swiper = new Swiper('.mobile-gallery', {
         loop: false,
         pagination: {
@@ -632,19 +634,17 @@ document.addEventListener('DOMContentLoaded', function () {
           clickable: true
         }
       });
-    } else if (window.innerWidth > 1024 && swiper) {
+    } else if (swiper) {
       swiper.destroy(true, true);
       swiper = null;
     }
   }
-  initSwiper();
-  window.addEventListener('resize', initSwiper);
 
-  // Update gallery by selected variant
+  // Update gallery for selected variant
   function updateGalleryForColor(colorValue) {
     const selectedHandle = normalizeValue(colorValue);
 
-    // Desktop main & thumbnails
+    // Desktop main image
     let shownMain = false;
     document.querySelectorAll('.main-image-item').forEach(item => {
       const itemColor = normalizeValue(item.dataset.color);
@@ -654,6 +654,7 @@ document.addEventListener('DOMContentLoaded', function () {
       } else item.style.display = 'none';
     });
 
+    // Desktop thumbnails
     let skippedFirst = false;
     document.querySelectorAll('.thumbnail-item').forEach(item => {
       const itemColor = normalizeValue(item.dataset.color);
@@ -664,15 +665,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Mobile slider
-    if (swiper) {
-      swiper.removeAllSlides();
-      const slides = Array.from(document.querySelectorAll('.mobile-gallery .swiper-slide'))
-        .filter(slide => normalizeValue(slide.dataset.color) === selectedHandle);
-      swiper.appendSlide(slides.map(slide => slide.outerHTML));
-      swiper.slideTo(0);
-    }
+    const wrapper = document.querySelector('.mobile-gallery .swiper-wrapper');
+    wrapper.innerHTML = ''; // remove all slides first
+    const slides = Array.from(document.querySelectorAll('.mobile-gallery .swiper-slide'))
+      .filter(slide => normalizeValue(slide.dataset.color) === selectedHandle);
 
-    // Lightbox update
+    slides.forEach(slide => wrapper.appendChild(slide.cloneNode(true))); // clone so desktop unaffected
+
+    // Re-init swiper after slides are in DOM
+    initSwiper();
+
+    // Update lightbox
     updateGlightboxActive();
     initLightbox();
   }
@@ -702,7 +705,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (initSwatch) updateGalleryForColor(initSwatch.value);
   else if (initSelect) updateGalleryForColor(initSelect.value);
   else {
-    // default: first main & thumbnails
+    // default first main & thumbnails
     let firstMain = false;
     document.querySelectorAll('.main-image-item').forEach(item => {
       item.style.display = firstMain ? 'none' : (firstMain = true, 'block');
@@ -711,30 +714,19 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.thumbnail-item').forEach(item => {
       item.style.display = firstThumbSkipped ? 'inline-block' : (firstThumbSkipped = true, 'none');
     });
-    updateGlightboxActive();
-    initLightbox();
+    // default mobile
+    updateGalleryForColor(
+      document.querySelector('.main-image-item')?.dataset.color || ''
+    );
   }
+
+  // Re-init Swiper on window resize
+  window.addEventListener('resize', () => {
+    initSwiper();
+  });
+
 });
-
-let swiper = null;
-
-function initSwiper() {
-  if (window.innerWidth <= 1024) {
-    if (swiper) swiper.destroy(true, true); // destroy previous instance
-    swiper = new Swiper('.mobile-gallery', {
-      loop: false,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
-  } else {
-    if (swiper) {
-      swiper.destroy(true, true);
-      swiper = null;
-    }
-  }
-}
+</script>
 
 </script>
 
