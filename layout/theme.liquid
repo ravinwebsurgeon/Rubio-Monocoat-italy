@@ -498,18 +498,18 @@ $(document).ready(function() {
     // Convert variant title to handle format (lowercase, hyphens)
     var variantHandle = variantTitle.toLowerCase().replace(/\s+/g, '-');
 
-    // Hide all images
-    $(".custom-media-gallery img[data-value]").closest('div, a').hide();
+    // Hide all thumbnails
+    $(".custom-media-gallery .thumbnail-item").hide();
 
-    // Show images that match the selected variant
-    var matchedImages = $(".custom-media-gallery img[data-value='" + variantHandle + "']");
-    if (matchedImages.length > 0) {
-      matchedImages.closest('div, a').show();
+    // Show only matching thumbnails
+    var matchedThumbs = $(".custom-media-gallery img[data-value='" + variantHandle + "']").closest('.thumbnail-item');
+    matchedThumbs.show();
 
-      // Update main image to first matched
-      var firstImg = matchedImages.first();
+    // If matching images found, update main image to first matched
+    if (matchedThumbs.length > 0) {
+      var firstImg = matchedThumbs.first().find('img');
       $("#main-product-image")
-        .attr("src", firstImg.attr("src"))
+        .attr("src", firstImg.attr("src").replace('150x150', '1024x1024'))
         .attr("alt", firstImg.attr("alt"))
         .attr("data-value", firstImg.attr("data-value"));
 
@@ -518,11 +518,11 @@ $(document).ready(function() {
     }
   }
 
-  // Initial load
+  // Initial load: if any variant is pre-selected
   var initialVariant = $('input[name="Color-1"]:checked').val();
-  if(initialVariant){
-    showImagesForVariant(initialVariant);
-  }
+    if (initialVariant) {
+      showImagesForVariant(initialVariant);
+    }
 
   // Listen for variant radio changes
   $('input[name="Color-1"]').on('change', function() {
@@ -533,6 +533,7 @@ $(document).ready(function() {
 });
 </script>
 {% endif %}
+
 
 
 
