@@ -738,26 +738,31 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  setTimeout(() => {
-    const swiperEl = document.querySelector(".mobile-gallery .swiper");
-    if (swiperEl) {
-      new Swiper(swiperEl, {
-        slidesPerView: 1,
-        spaceBetween: 10,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        loop: true,
-        autoplay: {
-          delay: 3000,
-          disableOnInteraction: false,
-        },
+document.addEventListener('DOMContentLoaded', function() {
+  // Ensure jQuery and Slick are loaded
+  if (typeof jQuery !== 'undefined' && jQuery().slick) {
+    jQuery('.slick-slider').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: true,
+      arrows: false,
+      infinite: false,
+      adaptiveHeight: true,
+      mobileFirst: true,
+      // Optional: autoplay
+      // autoplay: true,
+      // autoplaySpeed: 3000,
+    });
+
+    // Optional: Lightbox trigger (if you want GLightbox)
+    if (typeof GLightbox !== 'undefined') {
+      GLightbox({
+        selector: '.glightboxs'
       });
     }
-  }, 300); // slight delay ensures slides exist before init
+  }
 });
+
 </script>
 
 
