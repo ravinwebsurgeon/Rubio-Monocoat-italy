@@ -554,45 +554,67 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>  {% endcomment %}
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  function updateGallery(variantValue) {
-    const allImages = document.querySelectorAll('.custom_product_images_main .image-wrap');
-    const mainContainer = document.querySelector('#main-product-image-container');
-    const thumbnailContainer = document.querySelector('#thumbnail-container');
+document.addEventListener('DOMContentLoaded', function () {
 
-    mainContainer.innerHTML = ''; // Clear previous main image
-    thumbnailContainer.innerHTML = ''; // Clear previous thumbnails
+  const lightbox = GLightbox({
+    selector: '.glightbox',
+    loop: true,
+    zoomable: true,
+    touchNavigation: true,
+    autoplayVideos: false
+  });
 
-    let mainImageSet = false;
+  function normalizeValue(val) {
+    return val?.trim().toLowerCase().replace(/\s+/g, '-');
+  }
 
-    allImages.forEach(imgWrap => {
-      const imgAlt = imgWrap.querySelector('img').alt.toLowerCase();
-      if (imgAlt.includes(variantValue.toLowerCase())) {
-        if (!mainImageSet) {
-          // Set the first matching image as main image
-          mainContainer.appendChild(imgWrap.cloneNode(true));
-          mainImageSet = true;
-        } else {
-          // Add the rest to thumbnail
-          thumbnailContainer.appendChild(imgWrap.cloneNode(true));
-        }
-      }
+  function updateGalleryForColor(colorValue) {
+    const selectedHandle = normalizeValue(colorValue);
+
+    // Show only main image for this color
+    document.querySelectorAll('.main-image-item').forEach(item => {
+      const itemColor = normalizeValue(item.getAttribute('data-color'));
+      item.style.display = (itemColor === selectedHandle) ? 'block' : 'none';
+    });
+
+    // Show only thumbnails for this color
+    document.querySelectorAll('.thumbnail-item').forEach(item => {
+      const itemColor = normalizeValue(item.getAttribute('data-color'));
+      item.style.display = (itemColor === selectedHandle) ? 'inline-block' : 'none';
     });
   }
 
-  // Initial load: use selected variant
-  const selectedVariant = document.querySelector('.swatch-input__input:checked');
-  if (selectedVariant) {
-    updateGallery(selectedVariant.value);
-  }
+  // Event delegation for dynamic swatch change
+  document.body.addEventListener('change', function(e) {
+    const target = e.target;
+    if (target.matches('.swatch-input__input[name^="Color"]') || target.matches('select[name="Color"]')) {
+      updateGalleryForColor(target.value);
+    }
+  });
 
-  // On variant change
-  const swatches = document.querySelectorAll('.swatch-input__input');
-  swatches.forEach(swatch => {
-    swatch.addEventListener('change', function() {
-      updateGallery(this.value);
+  // Click thumbnails to update main image
+  document.querySelectorAll('.thumbnail-item img').forEach(img => {
+    img.addEventListener('click', function() {
+      const color = this.closest('.thumbnail-item').getAttribute('data-color');
+      const mainImages = document.querySelectorAll('.main-image-item');
+      mainImages.forEach(item => {
+        item.style.display = (item.getAttribute('data-color') === color) ? 'block' : 'none';
+      });
     });
   });
+
+  // Initialize on page load
+  const initSwatch = document.querySelector('.swatch-input__input[name^="Color"]:checked');
+  const initSelect = document.querySelector('select[name="Color"]');
+  if (initSwatch) {
+    updateGalleryForColor(initSwatch.value);
+  } else if (initSelect) {
+    updateGalleryForColor(initSelect.value);
+  } else {
+    document.querySelectorAll('.main-image-item').forEach(item => item.style.display = 'block');
+    document.querySelectorAll('.thumbnail-item').forEach(item => item.style.display = 'inline-block');
+  }
+
 });
 
 </script>
