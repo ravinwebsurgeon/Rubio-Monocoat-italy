@@ -467,7 +467,7 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 </script>
 <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
-<script>
+{% comment %} <script>
 document.addEventListener('DOMContentLoaded', function () {
   let lightbox = null;
 
@@ -588,6 +588,159 @@ document.addEventListener('DOMContentLoaded', function () {
     initLightbox();
   }
 }); 
+</script> {% endcomment %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  let lightbox = null;
+  let mobileSwiper = null;
+
+  function normalizeValue(val) {
+    return val?.toString().trim().toLowerCase().replace(/\s+/g, '-') || '';
+  }
+
+  function initLightbox() {
+    if (lightbox && typeof lightbox.destroy === 'function') {
+      lightbox.destroy();
+    }
+    lightbox = GLightbox({
+      selector: '.glightbox.glightbox-active',
+      loop: true,
+      zoomable: true,
+      touchNavigation: true,
+      autoplayVideos: false
+    });
+  }
+
+  function initMobileSlider() {
+    if (mobileSwiper) {
+      mobileSwiper.destroy(true, true);
+    }
+    const swiperEl = document.querySelector('.mobile-gallery .swiper');
+    if (swiperEl) {
+      mobileSwiper = new Swiper(swiperEl, {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
+    }
+  }
+
+  function updateGlightboxActive() {
+    document.querySelectorAll('a.glightbox').forEach(anchor => {
+      const parentItem = anchor.closest('.main-image-item, .thumbnail-item, .swiper-slide');
+      const visible = parentItem && getComputedStyle(parentItem).display !== 'none';
+      if (visible) {
+        anchor.classList.add('glightbox-active');
+      } else {
+        anchor.classList.remove('glightbox-active');
+      }
+    });
+  }
+
+  function updateGalleryForColor(colorValue) {
+    const selectedHandle = normalizeValue(colorValue);
+
+    // ---------- DESKTOP ----------
+    let shownMain = false;
+    document.querySelectorAll('.main-image-item').forEach(item => {
+      const itemColor = normalizeValue(item.getAttribute('data-color'));
+      if (itemColor === selectedHandle && !shownMain) {
+        item.style.display = 'block';
+        shownMain = true;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    let skippedFirst = false;
+    document.querySelectorAll('.thumbnail-item').forEach(item => {
+      const itemColor = normalizeValue(item.getAttribute('data-color'));
+      if (itemColor === selectedHandle) {
+        if (!skippedFirst) {
+          item.style.display = 'none';
+          skippedFirst = true;
+        } else {
+          item.style.display = 'inline-block';
+        }
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    // ---------- MOBILE ----------
+    const allSlides = document.querySelectorAll('.mobile-gallery .swiper-slide');
+    let matchedSlides = [];
+    allSlides.forEach(slide => {
+      const itemColor = normalizeValue(slide.getAttribute('data-color'));
+      if (itemColor === selectedHandle) {
+        matchedSlides.push(slide);
+        slide.style.display = 'block';
+      } else {
+        slide.style.display = 'none';
+      }
+    });
+
+    // reorder slides: first match comes first
+    const swiperWrapper = document.querySelector('.mobile-gallery .swiper-wrapper');
+    if (swiperWrapper && matchedSlides.length > 0) {
+      matchedSlides.forEach(slide => swiperWrapper.appendChild(slide));
+    }
+
+    // ---------- REINIT ----------
+    updateGlightboxActive();
+    initLightbox();
+    initMobileSlider();
+  }
+
+  // Variant change listener
+  document.body.addEventListener('change', function (e) {
+    const target = e.target;
+    if (target.matches('.swatch-input__input[name^="Color"]') || target.matches('select[name="Color"]')) {
+      updateGalleryForColor(target.value);
+    }
+  });
+
+  // Lightbox open on thumbnail click (desktop)
+  document.body.addEventListener('click', function (e) {
+    const thumbAnchor = e.target.closest('.thumbnail-item a.glightbox, .swiper-slide a.glightbox');
+    if (thumbAnchor && thumbAnchor.classList.contains('glightbox-active')) {
+      e.preventDefault();
+      const galleryLinks = Array.from(document.querySelectorAll('.glightbox.glightbox-active'));
+      const index = galleryLinks.indexOf(thumbAnchor);
+      if (lightbox && index >= 0) {
+        lightbox.openAt(index);
+      }
+    }
+  });
+
+  // ---------- INIT ON LOAD ----------
+  const initSwatch = document.querySelector('.swatch-input__input[name^="Color"]:checked');
+  const initSelect = document.querySelector('select[name="Color"]');
+  if (initSwatch) {
+    updateGalleryForColor(initSwatch.value);
+  } else if (initSelect) {
+    updateGalleryForColor(initSelect.value);
+  } else {
+    // Default: show first image in both galleries
+    const firstMain = document.querySelector('.main-image-item');
+    const allMain = document.querySelectorAll('.main-image-item');
+    allMain.forEach((item, i) => item.style.display = i === 0 ? 'block' : 'none');
+
+    const allThumbs = document.querySelectorAll('.thumbnail-item');
+    allThumbs.forEach((item, i) => item.style.display = i === 0 ? 'none' : 'inline-block');
+
+    const allSlides = document.querySelectorAll('.mobile-gallery .swiper-slide');
+    allSlides.forEach((slide, i) => slide.style.display = i === 0 ? 'block' : 'block');
+
+    updateGlightboxActive();
+    initLightbox();
+    initMobileSlider();
+  }
+});
 </script>
 
     {%- if settings.predictive_search_enabled -%}
