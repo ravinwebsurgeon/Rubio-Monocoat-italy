@@ -563,17 +563,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function updateGalleryForColor(colorValue) {
     if (!colorValue) return;
-    const selectedHandle = normalizeValue(colorValue);
 
-    const mainImages = document.querySelectorAll('.main-image-wrapper img'); // all main images
+    const selectedHandle = normalizeValue(colorValue);
+    const mainImages = document.querySelectorAll('.main-image-wrapper img'); 
     const thumbnails = document.querySelectorAll('.thumbnails-slider .thumbnail-item img');
 
     let anyMatched = false;
 
-    // Show main image that matches selected variant
+    // Main images
     mainImages.forEach(img => {
-      const mainVal = normalizeValue(img.getAttribute('alt'));
       const wrapper = img.closest('.main-image-wrapper');
+      const mainVal = normalizeValue(img.getAttribute('alt'));
       if (mainVal === selectedHandle) {
         wrapper.style.display = 'block';
         anyMatched = true;
@@ -582,10 +582,10 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // Show thumbnails that match selected variant
+    // Thumbnails
     thumbnails.forEach(img => {
-      const thumbVal = normalizeValue(img.getAttribute('alt'));
       const wrapper = img.closest('.thumbnail-item');
+      const thumbVal = normalizeValue(img.getAttribute('alt'));
       if (thumbVal === selectedHandle) {
         wrapper.style.display = 'block';
       } else {
@@ -593,32 +593,28 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // If nothing matches, show all as fallback
+    // Fallback (show all) only if **nothing matches**
     if (!anyMatched) {
       mainImages.forEach(img => img.closest('.main-image-wrapper').style.display = 'block');
       thumbnails.forEach(img => img.closest('.thumbnail-item').style.display = 'block');
     }
   }
 
-  // Listen to swatch changes dynamically
-  const swatches = document.querySelectorAll('.swatch-input__input[name^="Color"]');
-  swatches.forEach(input => {
+  // Swatch change listener
+  document.querySelectorAll('.swatch-input__input[name^="Color"]').forEach(input => {
     input.addEventListener('change', function () {
       updateGalleryForColor(this.value);
     });
   });
 
-  // Initialize gallery for default checked swatch on page load
+  // Initialize on page load with default checked swatch
   const checkedSwatch = document.querySelector('.swatch-input__input[name^="Color"]:checked');
   if (checkedSwatch) {
-    updateGalleryForColor(checkedSwatch.value);
+    // delay slightly to ensure Slick has rendered thumbnails
+    setTimeout(() => {
+      updateGalleryForColor(checkedSwatch.value);
+    }, 50);
   }
-
-  // Optional: listen for Shopify variant change event (in case your theme triggers variant updates via JS)
-  document.addEventListener('variantChange', function (e) {
-    const variantColor = e.detail?.variant?.option1 || checkedSwatch.value;
-    updateGalleryForColor(variantColor);
-  });
 
 });
 </script>
