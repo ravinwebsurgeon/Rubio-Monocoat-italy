@@ -471,6 +471,9 @@
     <div class="swiper">
       <div class="swiper-wrapper">
         {% for media in product.media %}
+  <div>{{ media.media_type }}</div>
+{% endfor %}
+        {% for media in product.media %}
           {% if media.media_type == 'image' %}
             {% assign color_handle = media.alt | handle %}
             <div class="swiper-slide" data-color="{{ color_handle }}">
