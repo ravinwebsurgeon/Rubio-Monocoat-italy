@@ -562,16 +562,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function initLightbox() {
-    try {
-      if (lightbox && typeof lightbox.destroy === 'function') {
-        lightbox.destroy();
-      }
-    } catch (err) {
-      // ignore destroy errors
+    if (lightbox && typeof lightbox.destroy === 'function') {
+      lightbox.destroy();
     }
-
-    // Initialize GLightbox only for anchors that have both classes:
-    // .glightbox (existing) and .glightbox-active (we toggle)
     lightbox = GLightbox({
       selector: '.glightbox.glightbox-active',
       loop: true,
@@ -582,12 +575,14 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function updateGlightboxActive() {
-    // Toggle .glightbox-active on anchors that are inside currently visible items
     document.querySelectorAll('a.glightbox').forEach(anchor => {
       const parentItem = anchor.closest('.main-image-item, .thumbnail-item');
       const visible = parentItem && getComputedStyle(parentItem).display !== 'none';
-      if (visible) anchor.classList.add('glightbox-active');
-      else anchor.classList.remove('glightbox-active');
+      if (visible) {
+        anchor.classList.add('glightbox-active');
+      } else {
+        anchor.classList.remove('glightbox-active');
+      }
     });
   }
 
@@ -606,14 +601,13 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // Show thumbnails for this color, but skip the one used as main
+    // Thumbnails: show all for this color, but hide the first one (used as main)
     let skippedFirst = false;
     document.querySelectorAll('.thumbnail-item').forEach(item => {
       const itemColor = normalizeValue(item.getAttribute('data-color'));
       if (itemColor === selectedHandle) {
         if (!skippedFirst) {
-          // this thumbnail corresponds to the main image — hide it
-          item.style.display = 'none';
+          item.style.display = 'none'; // hide first = main
           skippedFirst = true;
         } else {
           item.style.display = 'inline-block';
@@ -623,12 +617,12 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // Ensure the glightbox-active class reflects current visible anchors, then init
+    // Rebuild lightbox selection
     updateGlightboxActive();
     initLightbox();
   }
 
-  // Delegated listener for swatch/select changes
+  // Swatch/select change
   document.body.addEventListener('change', function (e) {
     const target = e.target;
     if (target.matches('.swatch-input__input[name^="Color"]') || target.matches('select[name="Color"]')) {
@@ -636,46 +630,23 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Delegated thumbnail click (works for dynamically shown/hidden thumbnails)
+  // Open lightbox directly on thumbnail click
   document.body.addEventListener('click', function (e) {
-    const img = e.target.closest('.thumbnail-item img');
-    if (!img) return;
+    const thumbAnchor = e.target.closest('.thumbnail-item a.glightbox');
+    if (thumbAnchor && thumbAnchor.classList.contains('glightbox-active')) {
+      e.preventDefault(); // prevent normal navigation
 
-    // Prevent default in case the thumbnail is inside an anchor that would navigate.
-    e.preventDefault();
+      // Open lightbox at this image
+      const galleryLinks = Array.from(document.querySelectorAll('.glightbox.glightbox-active'));
+      const index = galleryLinks.indexOf(thumbAnchor);
 
-    const color = img.closest('.thumbnail-item').getAttribute('data-color');
-    // Switch main images to show the first main image that matches the clicked thumbnail color
-    const mainImages = document.querySelectorAll('.main-image-item');
-    let swapped = false;
-    mainImages.forEach(item => {
-      if (!swapped && normalizeValue(item.getAttribute('data-color')) === normalizeValue(color)) {
-        item.style.display = 'block';
-        swapped = true;
-      } else {
-        item.style.display = 'none';
+      if (lightbox && index >= 0) {
+        lightbox.openAt(index);
       }
-    });
-
-    // After swapping main image, update which anchors are active and re-init lightbox
-    updateGlightboxActive();
-    initLightbox();
+    }
   });
 
-  // Prevent anchor fallback for any glightbox anchors that are visible but GLightbox hasn't bound yet.
-  // (This is defensive — if GLightbox is initialized correctly, it will take over clicks.)
-  document.body.addEventListener('click', function (e) {
-    const anchor = e.target.closest('a.glightbox');
-    if (!anchor) return;
-    const parentItem = anchor.closest('.main-image-item, .thumbnail-item');
-    const visible = parentItem && getComputedStyle(parentItem).display !== 'none';
-    // If anchor is visible but not yet active (no glightbox-active), block default navigation.
-    if (visible && !anchor.classList.contains('glightbox-active')) {
-      e.preventDefault();
-    }
-  }, true); // use capture to block navigation early if needed
-
-  // Initial setup on page load
+  // Init on load
   const initSwatch = document.querySelector('.swatch-input__input[name^="Color"]:checked');
   const initSelect = document.querySelector('select[name="Color"]');
   if (initSwatch) {
@@ -683,7 +654,7 @@ document.addEventListener('DOMContentLoaded', function () {
   } else if (initSelect) {
     updateGalleryForColor(initSelect.value);
   } else {
-    // default: show first main, show thumbnails after skipping first
+    // Default: show first main + skip first thumbnail
     let firstMainSet = false;
     document.querySelectorAll('.main-image-item').forEach(item => {
       if (!firstMainSet) {
