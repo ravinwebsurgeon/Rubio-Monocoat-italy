@@ -570,24 +570,37 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function updateGalleryForColor(colorValue) {
     const selectedHandle = normalizeValue(colorValue);
-    const galleryItems = document.querySelectorAll('.gallery-item');
 
-    galleryItems.forEach(item => {
+    // Show only main image for this variant
+    document.querySelectorAll('.main-image-item').forEach(item => {
       const itemColor = normalizeValue(item.getAttribute('data-color'));
-      if (itemColor === selectedHandle) {
-        item.style.display = 'block';
-      } else {
-        item.style.display = 'none';
-      }
+      item.style.display = (itemColor === selectedHandle) ? 'block' : 'none';
+    });
+
+    // Show only thumbnails for this variant
+    document.querySelectorAll('.thumbnail-item').forEach(item => {
+      const itemColor = normalizeValue(item.getAttribute('data-color'));
+      item.style.display = (itemColor === selectedHandle) ? 'inline-block' : 'none';
     });
   }
 
-  // Event delegation for dynamic swatches
+  // Event delegation for swatch changes
   document.body.addEventListener('change', function(e) {
     const target = e.target;
     if (target.matches('.swatch-input__input[name^="Color"]') || target.matches('select[name="Color"]')) {
       updateGalleryForColor(target.value);
     }
+  });
+
+  // Click thumbnails to update main image
+  document.querySelectorAll('.thumbnail-item img').forEach(img => {
+    img.addEventListener('click', function() {
+      const color = this.closest('.thumbnail-item').getAttribute('data-color');
+      const mainImages = document.querySelectorAll('.main-image-item');
+      mainImages.forEach(item => {
+        item.style.display = (item.getAttribute('data-color') === color) ? 'block' : 'none';
+      });
+    });
   });
 
   // Initialize gallery on page load
@@ -598,10 +611,12 @@ document.addEventListener('DOMContentLoaded', function () {
   } else if (initSelect) {
     updateGalleryForColor(initSelect.value);
   } else {
-    document.querySelectorAll('.gallery-item').forEach(item => item.style.display = 'block');
+    document.querySelectorAll('.main-image-item').forEach(item => item.style.display = 'block');
+    document.querySelectorAll('.thumbnail-item').forEach(item => item.style.display = 'inline-block');
   }
 
 });
+
 </script>
 
     {%- if settings.predictive_search_enabled -%}
