@@ -671,32 +671,30 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // ---------- MOBILE ----------
-    const allSlides = document.querySelectorAll('.mobile-gallery .swiper-slide');
-    let matchedSlides = [];
-    allSlides.forEach(slide => {
-      const itemColor = normalizeValue(slide.getAttribute('data-color'));
-      if (itemColor === selectedHandle) {
-        matchedSlides.push(slide);
-        slide.style.display = 'block';
-      } else {
-        slide.style.display = 'none';
-      }
-    });
-
-    // reorder slides: first match comes first
+    // ---------- MOBILE (REBUILD SLIDER) ----------
     const swiperWrapper = document.querySelector('.mobile-gallery .swiper-wrapper');
-    if (swiperWrapper && matchedSlides.length > 0) {
-      matchedSlides.forEach(slide => swiperWrapper.appendChild(slide));
+    if (swiperWrapper) {
+      // Clear all existing slides
+      swiperWrapper.innerHTML = '';
+
+      // Get all images of this color from original markup
+      const allMedia = document.querySelectorAll('.mobile-gallery .swiper-slide[data-color]');
+      const matchedMedia = Array.from(allMedia).filter(slide => normalizeValue(slide.getAttribute('data-color')) === selectedHandle);
+
+      // Rebuild only matched slides
+      matchedMedia.forEach(slide => {
+        const clone = slide.cloneNode(true);
+        clone.style.display = 'block';
+        swiperWrapper.appendChild(clone);
+      });
     }
 
-    // ---------- REINIT ----------
     updateGlightboxActive();
     initLightbox();
     initMobileSlider();
   }
 
-  // Variant change listener
+  // Variant change
   document.body.addEventListener('change', function (e) {
     const target = e.target;
     if (target.matches('.swatch-input__input[name^="Color"]') || target.matches('select[name="Color"]')) {
@@ -704,7 +702,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Lightbox open on thumbnail click (desktop)
+  // Lightbox open on thumbnail / mobile slide click
   document.body.addEventListener('click', function (e) {
     const thumbAnchor = e.target.closest('.thumbnail-item a.glightbox, .swiper-slide a.glightbox');
     if (thumbAnchor && thumbAnchor.classList.contains('glightbox-active')) {
@@ -725,7 +723,7 @@ document.addEventListener('DOMContentLoaded', function () {
   } else if (initSelect) {
     updateGalleryForColor(initSelect.value);
   } else {
-    // Default: show first image in both galleries
+    // Default: first variant / first image
     const firstMain = document.querySelector('.main-image-item');
     const allMain = document.querySelectorAll('.main-image-item');
     allMain.forEach((item, i) => item.style.display = i === 0 ? 'block' : 'none');
@@ -733,15 +731,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const allThumbs = document.querySelectorAll('.thumbnail-item');
     allThumbs.forEach((item, i) => item.style.display = i === 0 ? 'none' : 'inline-block');
 
-    const allSlides = document.querySelectorAll('.mobile-gallery .swiper-slide');
-    allSlides.forEach((slide, i) => slide.style.display = i === 0 ? 'block' : 'block');
-
-    updateGlightboxActive();
-    initLightbox();
-    initMobileSlider();
+    // Mobile default: pick the first variant's first color
+    const firstColor = allMain[0]?.getAttribute('data-color');
+    if (firstColor) updateGalleryForColor(firstColor);
   }
 });
 </script>
+
 
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
