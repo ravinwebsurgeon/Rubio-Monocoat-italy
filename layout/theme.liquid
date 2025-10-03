@@ -467,7 +467,7 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 </script>
 <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
-<script>
+{% comment %} <script>
 document.addEventListener("DOMContentLoaded", function() {
   const lightbox = GLightbox({
     selector: '.glightbox',
@@ -552,9 +552,55 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 });
-</script> 
+</script>  {% endcomment %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
 
+  const lightbox = GLightbox({
+    selector: '.glightbox',
+    loop: true,
+    zoomable: true,
+    touchNavigation: true,
+    autoplayVideos: false
+  });
 
+  function normalizeValue(val) {
+    return val?.trim().toLowerCase().replace(/\s+/g, '-');
+  }
+
+  function updateGalleryForColor(colorValue) {
+    const selectedHandle = normalizeValue(colorValue);
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    galleryItems.forEach(item => {
+      const itemColor = normalizeValue(item.getAttribute('data-color'));
+      if (itemColor === selectedHandle) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  // Listen to swatch change
+  const swatches = document.querySelectorAll('.swatch-input__input[name^="Color"]');
+  swatches.forEach(input => {
+    input.addEventListener('change', function () {
+      updateGalleryForColor(this.value);
+    });
+  });
+
+  // Initialize on page load
+  const checkedSwatch = document.querySelector('.swatch-input__input[name^="Color"]:checked');
+  if (checkedSwatch) {
+    updateGalleryForColor(checkedSwatch.value);
+  } else {
+    // If no swatch selected, show all images
+    document.querySelectorAll('.gallery-item').forEach(item => item.style.display = 'block');
+  }
+
+});
+</script>
 
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
