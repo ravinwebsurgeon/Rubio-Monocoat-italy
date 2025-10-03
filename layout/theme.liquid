@@ -492,45 +492,67 @@ document.addEventListener("DOMContentLoaded", function() {
 
 {% if template == 'product' %}
 <script>
-$(document).ready(function() {
-  
-  function filterGalleryByVariant(variantValue) {
-    if (!variantValue) return;
-    // Convert variant to handle format (lowercase, hyphen)
-    var variantHandle = variantValue.toLowerCase().replace(/\s+/g, '-');
+document.addEventListener('DOMContentLoaded', function () {
 
-    // Hide all thumbnails
-    $(".custom-media-gallery .thumbnail-item").hide();
+  // Function to handle swatch change
+  function updateGalleryForColor(colorValue) {
+    if (!colorValue) return;
 
-    // Show matching thumbnails
-    var matchingThumbs = $(".custom-media-gallery img[data-value='" + variantHandle + "']").closest(".thumbnail-item");
-    matchingThumbs.show();
+    const selectedHandle = colorValue.trim().toLowerCase().replace(/\s+/g, '-'); 
+    const mainImage = document.getElementById('main-product-image');
+    const thumbnails = document.querySelectorAll('.thumbnails-slider .thumbnail-item img');
 
-    // If matches found, update the main image to first match
-    if (matchingThumbs.length > 0) {
-      var firstImg = matchingThumbs.first().find('img');
-      var newSrc = firstImg.attr('src').replace('150x150', '1024x1024');
-      var newHref = firstImg.closest('a').attr('href');
-      $("#main-product-image")
-        .attr('src', newSrc)
-        .attr('alt', firstImg.attr('alt'))
-        .attr('data-value', firstImg.attr('data-value'));
-      $(".main-image-wrapper a.glightbox").attr('href', newHref);
+    let anyMatched = false;
+
+    // Update main image first
+    if (mainImage) {
+      const mainVal = mainImage.getAttribute('data-value');
+      if (mainVal === selectedHandle) {
+        mainImage.closest('.main-image-wrapper').style.display = 'block';
+        anyMatched = true;
+      } else {
+        mainImage.closest('.main-image-wrapper').style.display = 'none';
+      }
+    }
+
+    // Loop through thumbnails
+    thumbnails.forEach(img => {
+      const thumbVal = img.getAttribute('data-value');
+      if (thumbVal === selectedHandle) {
+        img.closest('.thumbnail-item').style.display = 'block';
+        anyMatched = true;
+      } else {
+        img.closest('.thumbnail-item').style.display = 'none';
+      }
+    });
+
+    // If no matched images, show everything as fallback
+    if (!anyMatched) {
+      if (mainImage) {
+        mainImage.closest('.main-image-wrapper').style.display = 'block';
+      }
+      thumbnails.forEach(img => {
+        img.closest('.thumbnail-item').style.display = 'block';
+      });
     }
   }
 
-  // 1️⃣ Initial Load
-  var initialVariant = $('input[name="Color-1"]').filter(':checked').val();
-  filterGalleryByVariant(initialVariant);
-
-  // 2️⃣ On Variant Change
-  $('input[name="Color-1"]').on('change', function() {
-    var selectedVariant = $(this).val();
-    filterGalleryByVariant(selectedVariant);
+  // Listen to swatch change
+  document.querySelectorAll('.swatch-input__input[name^="Color"]').forEach(input => {
+    input.addEventListener('change', function () {
+      updateGalleryForColor(this.value);
+    });
   });
+
+  // Initialize with the default checked swatch on page load
+  const checkedSwatch = document.querySelector('.swatch-input__input[name^="Color"]:checked');
+  if (checkedSwatch) {
+    updateGalleryForColor(checkedSwatch.value);
+  }
 
 });
 </script>
+
 {% endif %}
 
 
