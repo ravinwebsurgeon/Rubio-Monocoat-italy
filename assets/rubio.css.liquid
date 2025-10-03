@@ -952,6 +952,19 @@ body:not(.templateindex) .shopify-section-header-sticky.scrolled-past-header .co
         flex-direction: column;
         gap: 15px;
     }
+    .custom-media-gallery .thumbnail-item > a {
+        display: block;
+    }
+
+    .custom-media-gallery .thumbnail-item img {
+        width: 100%;
+        border-radius: 20px;
+        height: auto;
+        aspect-ratio: auto 2000 / 2000;
+        backface-visibility: hidden;
+        object-fit: cover;
+        object-position: center center;
+    }
     .custom-media-gallery .main-image-wrapper .main-image-item img {
         display: block;
         object-fit: contain;
