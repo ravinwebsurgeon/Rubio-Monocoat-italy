@@ -366,6 +366,27 @@
   </div>
   {% endcomment %}
 
+  <div class="custom-media-gallery">
+
+  <!-- Gallery images -->
+  <div class="gallery-images">
+    {% for media in product.media %}
+      {% if media.media_type == 'image' %}
+        <div class="gallery-item" data-color="{{ media.alt | handle }}">
+          <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+            <img 
+              src="{{ media.preview_image | img_url: '1024x1024' }}" 
+              alt="{{ media.alt | escape }}"
+            >
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+</div>
+
+
 
 
 
