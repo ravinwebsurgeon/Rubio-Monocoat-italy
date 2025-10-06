@@ -1,4 +1,4 @@
-{% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+
 {% comment %}
   Renders a product thumbnail with a modal-opener
 
@@ -53,7 +53,8 @@
   class="product-media-container media-type-{{ media.media_type }} media-fit-{{ media_fit }} global-media-settings gradient{% if constrain_to_viewport %} constrain-height{% endif %}"
   style="--ratio: {{ media.aspect_ratio | default: 1.0 }}; --preview-ratio: {{ media.preview_image.aspect_ratio | default: 1.0 }};"
 >
-  <modal-opener
+
+   <modal-opener
     class="product__modal-opener product__modal-opener--{{ media.media_type }}"
     data-modal="#ProductModal-{{ modal_id }}"
   >
@@ -77,7 +78,8 @@
       {% endcase %}
     </span>
     {%- render 'loading-spinner' -%}
-    <div class="product__media media media--transparent">
+    <div class="product__media media media--transparent" data-media-index="{{ forloop.index0 }}">
+      
       {{
         media.preview_image
         | image_url: width: 1946
@@ -87,18 +89,40 @@
           sizes: sizes,
           widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
       }}
+   
     </div>
     <button
       class="product__media-toggle quick-add-hidden product__media-zoom-{{ section.settings.image_zoom }}"
       type="button"
       aria-haspopup="dialog"
       data-media-id="{{ media.id }}"
-    >
-      <span class="visually-hidden">
+    > 
+      
+       <span class="visually-hidden">
         {{ 'products.product.media.open_media' | t: index: position }}
-      </span>
-    </button>
-  </modal-opener>
+      </span> 
+    
+     </button> 
+  </modal-opener> 
+
+  <div class="product__media media" data-media-index="{{ forloop.index0 }}">
+  <a 
+  href="{{ media.preview_image | image_url: width: 1946 }}" 
+  data-fancybox="product-gallery-{{ section.id }}"
+  data-caption="{{ media.alt | escape }}"
+>
+  {{
+    media.preview_image
+    | image_url: width: 1946
+    | image_tag: 
+      class: 'product-gallery-image',
+      loading: 'lazy',
+      widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
+  }}
+</a>
+
+</div>
+
 
   {%- if media.media_type != 'image' -%}
     {%- if media.media_type == 'model' -%}
@@ -120,14 +144,15 @@
           </span>
         {%- endif -%}
       </span>
-      {{
+      
+       {{
         media.preview_image
         | image_url: width: 1946
         | image_tag:
           loading: lazy,
           sizes: sizes,
           widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
-      }}
+      }} 
     </button>
     <template>
       {%- liquid
@@ -170,3 +195,4 @@
     {%- endif -%}
   {%- endif -%}
 </div>
+
