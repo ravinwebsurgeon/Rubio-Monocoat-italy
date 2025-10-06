@@ -1,4 +1,4 @@
-
+{% comment %}
   Renders a product media gallery. Should be used with 'media-gallery.js'
   Also see 'product-media-modal'
 
@@ -9,7 +9,7 @@
 
   Usage:
   {% render 'product-media-gallery' %}
-
+{% endcomment %}
 
  {%- liquid
   if section.settings.hide_variants and variant_images.size == product.media.size
@@ -332,7 +332,7 @@
     </slider-component>
   {%- endif -%}
 </media-gallery> 
-{% comment %} <div class="custom-media-gallery">
+<div class="custom-media-gallery">
 
   <!-- Main Image -->
   <div class="main-image-wrapper">
@@ -363,7 +363,7 @@
     {% endfor %}
   </div>
   </div>
-  {% endcomment %}
+ 
 {% comment %} 
 <div class="custom-media-gallery">
 
