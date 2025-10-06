@@ -41,8 +41,7 @@
     assign media_width = 0.45
   endif
 -%} {% endcomment %}
-
-{% comment %} <media-gallery
+<media-gallery
   id="MediaGallery-{{ section.id }}"
   role="region"
   {% if section.settings.enable_sticky_info %}
@@ -332,7 +331,7 @@
       </button>
     </slider-component>
   {%- endif -%}
-</media-gallery> {% endcomment %}
+</media-gallery> 
 {% comment %} <div class="custom-media-gallery">
 
   <!-- Main Image -->
