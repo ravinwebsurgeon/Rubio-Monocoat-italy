@@ -11,7 +11,7 @@
   {% render 'product-media-gallery' %}
 {% endcomment %}
 
-{%- liquid
+{% comment %} {%- liquid
   if section.settings.hide_variants and variant_images.size == product.media.size
     assign single_media_visible = true
   endif
@@ -40,9 +40,9 @@
   elsif section.settings.media_size == 'small'
     assign media_width = 0.45
   endif
--%}
+-%} {% endcomment %}
 
-<media-gallery
+{% comment %} <media-gallery
   id="MediaGallery-{{ section.id }}"
   role="region"
   {% if section.settings.enable_sticky_info %}
@@ -51,6 +51,8 @@
   aria-label="{{ 'products.product.media.gallery_viewer' | t }}"
   data-desktop-layout="{{ section.settings.gallery_layout }}"
 >
+
+
   <div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>
   <slider-component id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter">
     <a class="skip-to-content-link button visually-hidden quick-add-hidden" href="#ProductInfo-{{ section.id }}">
@@ -82,7 +84,7 @@
             media_fit: section.settings.media_fit,
             constrain_to_viewport: section.settings.constrain_to_viewport,
             lazy_load: false
-          %}
+          %} 
         </li>
       {%- endif -%}
       {%- for media in product.media -%}
@@ -120,7 +122,8 @@
               media_fit: section.settings.media_fit,
               constrain_to_viewport: section.settings.constrain_to_viewport,
               lazy_load: lazy_load
-            %}
+            %} 
+             
           </li>
         {%- endunless -%}
       {%- endfor -%}
@@ -329,4 +332,201 @@
       </button>
     </slider-component>
   {%- endif -%}
-</media-gallery>
+</media-gallery> {% endcomment %}
+{% comment %} <div class="custom-media-gallery">
+
+  <!-- Main Image -->
+  <div class="main-image-wrapper">
+    <a class="glightbox" href="{{ product.featured_image | img_url: '2048x2048' }}">
+      <img 
+        id="main-product-image" 
+        src="{{ product.featured_image | img_url: '1024x1024' }}" 
+        alt="{{ product.featured_image.alt | escape }}" 
+        data-value="{{ product.featured_image.alt | handle }}"
+      >
+    </a>
+  </div>
+
+  <!-- Thumbnails -->
+  <div class="thumbnails-slider">
+    {% assign main_id = product.featured_image.id %}
+    {% for media in product.media %}
+      {% if media.media_type == 'image' and media.id != main_id %}
+        <div class="thumbnail-item">
+          <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+            <img 
+              src="{{ media.preview_image | img_url: '150x150' }}" 
+              alt="{{ media.alt | escape }}" 
+              data-value="{{ media.alt | handle }}">
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  </div>
+  {% endcomment %}
+{% comment %} 
+<div class="custom-media-gallery">
+
+  <!-- Desktop Gallery (≥1024px) -->
+  <div class="desktop-gallery">
+    <div class="main-image-wrapper">
+      {% for media in product.media %}
+        {% if media.media_type == 'image' %}
+          {% assign color_handle = media.alt | handle %}
+          <div class="main-image-item" data-color="{{ color_handle }}">
+            <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+              <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="thumbnails-wrapper">
+      {% for media in product.media %}
+        {% if media.media_type == 'image' %}
+          {% assign color_handle = media.alt | handle %}
+          <div class="thumbnail-item" data-color="{{ color_handle }}">
+            <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+              <img src="{{ media.preview_image | img_url: '150x150' }}" alt="{{ media.alt | escape }}">
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+    <!-- Mobile Slider (<1024px) -->
+    <div class="mobile-gallery swiper">
+      <div class="swiper-wrapper">
+        {% for media in product.media %}
+          {% if media.media_type == 'image' %}
+            {% assign color_handle = media.alt | handle %}
+            <div class="swiper-slide" data-color="{{ color_handle }}">
+              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+                <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <!-- Dots only -->
+      <div class="swiper-pagination"></div>
+    </div>
+
+</div>
+
+{% style %}
+.desktop-gallery { display: block; }
+.mobile-gallery { display: none; }
+
+@media (max-width: 991px) {
+  .desktop-gallery { display: none; }
+  .mobile-gallery { display: block; }
+}
+
+/* center dots */
+.swiper-pagination { text-align: center; }
+{% endstyle %} {% endcomment %}
+
+
+<div class="custom-media-gallery">
+
+  <!-- Desktop Gallery -->
+  <div class="desktop-gallery">
+    <div class="main-image-wrapper">
+      <div class="cus-sticky">
+        {% for media in product.media %}
+        {% if media.media_type == 'image' %}
+          {% assign color_handle = media.alt | handle %}
+          <div class="main-image-item" data-color="{{ color_handle }}">
+            <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+              <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}" width="" height="">
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+      </div>      
+    </div>
+
+    <div class="thumbnails-wrapper">
+      <div class="cus-sticky">
+      {% for media in product.media %}
+        {% if media.media_type == 'image' %}
+          {% assign color_handle = media.alt | handle %}
+          <div class="thumbnail-item" data-color="{{ color_handle }}">
+            <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+              <img src="{{ media.preview_image | img_url: 'master' }}" alt="{{ media.alt | escape }}" width="" height="">
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Gallery (Slider) -->
+  <div class="mobile-gallery">
+    <div class="slick-slider">
+        {% for media in product.media %}
+          {% if media.media_type == 'image' %}
+            {% assign color_handle = media.alt | handle %}
+            <div class="swiper-slide" data-color="{{ color_handle }}">              
+                <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}" width="" height="">
+            </div>
+          {% endif %}
+        {% endfor %}
+    </div>
+  </div>
+
+</div>
+
+{% style %}
+.desktop-gallery { display: block; }
+ .mobile-gallery { display: none; }
+
+@media (max-width: 991px) {
+  .desktop-gallery { display: none; }
+  .mobile-gallery { display: block; }
+}
+
+.mobile-gallery .swiper-slide img {
+  width: 100%;
+  display: block;
+}
+.swiper-pagination { text-align: center; }
+.mobile-gallery .slick-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin: 18px 0;
+    padding: 0;
+    flex-wrap:wrap;
+    gap: 7px;
+}
+
+.mobile-gallery .slick-dots li button {
+    width: 12px;
+    height: 12px;
+    background-color: #000;
+    opacity: 0.5;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    padding: 0;
+    display: block;
+    font-size: 0;
+}
+
+.mobile-gallery .slick-dots li.slick-active button {
+    opacity: 1;
+}
+{% endstyle %}
+
+
+
+
+
+
