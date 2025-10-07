@@ -101,7 +101,7 @@
                   </svg>
                   <span>Filter by</span>
                 </button>
-                {% comment %} <div class="filters-code">
+                 <div class="filters-code">
 
                 <select name="colour-filter" id="colour-filter">
                     <option value="" disabled selected>Colour</option>
@@ -126,7 +126,7 @@
                       {% endfor %}
                     {% endfor %}
                   </select>                  
-                </div>    {% endcomment %}                
+                </div>                 
               </div>                
             </div>
             <button class="tips-link" id="openVideo">
@@ -549,104 +549,6 @@ document.querySelector('.filter-wrap button.icon-btn')
     });
   });
 
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const filterByBtn = document.querySelector('.filter-by-btn');
-  const filterPanel = document.getElementById('custom-filter-panel');
-  const closeBtn = document.querySelector('.close-filter-btn');
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const sections = document.querySelectorAll('.filter-section');
-  const clearAllBtn = document.querySelector('.clear-all-btn');
-  const filterOptions = document.querySelectorAll('.filter-option');
-
-  const colourFilter   = document.getElementById('colour-filter');
-  const productFilter  = document.getElementById('product-filter');
-  const availableFilter= document.getElementById('available-filter');
-  const products       = document.querySelectorAll('.product-item');
-
-  // ✅ Product Filtering Function (reused)
-  function filterProducts() {
-    const selectedColour = colourFilter.value;
-    const selectedProduct = productFilter.value;
-    const showAvailable = availableFilter ? availableFilter.checked : false;
-
-    products.forEach(product => {
-      const productColours = product.dataset.colours.split(',');
-      const productProducts = product.dataset.products.split(',');
-      const productAvailable = product.dataset.available === 'true';
-
-      const colourMatch = !selectedColour || productColours.includes(selectedColour);
-      const productMatch = !selectedProduct || productProducts.includes(selectedProduct);
-      const availableMatch = !showAvailable || productAvailable;
-
-      product.style.display = (colourMatch && productMatch && availableMatch) ? '' : 'none';
-    });
-  }
-
-  // ✅ Show / hide panel
-  if (filterByBtn && filterPanel) {
-    filterByBtn.addEventListener('click', () => {
-      filterPanel.style.display = filterPanel.style.display === 'block' ? 'none' : 'block';
-    });
-  }
-
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-      filterPanel.style.display = 'none';
-    });
-  }
-
-  // ✅ Tab switching between Color / Sort By
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      sections.forEach(sec => {
-        sec.style.display = sec.id === btn.dataset.target ? 'block' : 'none';
-      });
-    });
-  });
-
-  // ✅ Handle selecting a filter option (color or sort)
-  filterOptions.forEach(option => {
-    option.addEventListener('click', () => {
-      const targetSelect = option.closest('.filter-section').dataset.filterTarget; 
-      const value = option.dataset.value;
-
-      // set value into actual hidden <select> or <input>
-      if (targetSelect === 'colour-filter') {
-        colourFilter.value = value;
-      } else if (targetSelect === 'product-filter') {
-        productFilter.value = value;
-      }
-
-      // update UI
-      option.classList.toggle('selected');
-      updateClearAllVisibility();
-
-      // ✅ Trigger actual filtering
-      filterProducts();
-    });
-  });
-
-  // ✅ Clear all button
-  if (clearAllBtn) {
-    clearAllBtn.addEventListener('click', () => {
-      filterOptions.forEach(o => o.classList.remove('selected'));
-      if (colourFilter) colourFilter.value = '';
-      if (productFilter) productFilter.value = '';
-      if (availableFilter) availableFilter.checked = false;
-      filterProducts();
-      updateClearAllVisibility();
-    });
-  }
-
-  function updateClearAllVisibility() {
-    const selectedCount = document.querySelectorAll('.filter-option.selected').length;
-    clearAllBtn.style.display = selectedCount > 0 ? 'inline-block' : 'none';
-  }
-});
 </script>
 
 <style>
