@@ -146,37 +146,42 @@
             </button>
           </div>
           
-        <!-- Hidden Filter Panel -->
-<div id="custom-filter-panel" class="custom-filter-panel" style="display: none;">
-  <div class="filter-header">
-    <button class="tab-btn active" data-target="colour-section">Colours</button>
-    <button class="tab-btn" data-target="sortby-section">Sort By</button>
-    <button class="close-filter-btn" type="button">✕</button>
+<!-- Filter Panel (hidden by default) -->
+<div id="custom-filter-panel" style="display: none;">
+  <div class="filter-panel-header">
+    <button class="tab-btn active" data-target="colour-section">Colour</button>
+    <button class="tab-btn" data-target="sort-section">Sort by</button>
+    <button class="close-filter-btn" aria-label="Close">✕</button>
   </div>
 
   <!-- Colour Section -->
-  <div id="colour-section" class="filter-section">
-    {% for block in section.blocks %}
-      {% assign tab_collection = block.settings.tab_collection %}
-      {% for product in tab_collection.products %}
-        {% for colour in product.metafields.custom.colour_filter2.value %}
-          <button class="filter-option colour-option" data-colour="{{ colour }}">{{ colour }}</button>
+  <div id="colour-section" class="filter-section" style="display: block;">
+    <div class="filter-options colour-options">
+      {% for block in section.blocks %}
+        {% assign tab_collection = block.settings.tab_collection %}
+        {% for product in tab_collection.products %}
+          {% for colour in product.metafields.custom.colour_filter2.value %}
+            <button class="filter-option" data-colour="{{ colour }}">{{ colour }}</button>
+          {% endfor %}
         {% endfor %}
       {% endfor %}
-    {% endfor %}
+    </div>
   </div>
 
-  <!-- Sort By Section -->
-  <div id="sortby-section" class="filter-section" style="display: none;">
-    <button class="filter-option sort-option" data-sort="price-asc">Price Low to High</button>
-    <button class="filter-option sort-option" data-sort="price-desc">Price High to Low</button>
-    <button class="filter-option sort-option" data-sort="newest">Newest</button>
+  <!-- Sort Section -->
+  <div id="sort-section" class="filter-section" style="display: none;">
+    <div class="filter-options sort-options">
+      <button class="filter-option" data-sort="best-selling">Best Selling</button>
+      <button class="filter-option" data-sort="price-low-high">Price: Low to High</button>
+      <button class="filter-option" data-sort="price-high-low">Price: High to Low</button>
+    </div>
   </div>
 
-  <div class="filter-footer">
-    <button class="clear-all-btn" type="button" style="display: none;">Clear All</button>
+  <div class="filter-panel-footer">
+    <button class="clear-all-btn" style="display: none;">Clear All</button>
   </div>
 </div>
+
           
           <!-- Video modal -->
           <div class="video-modal" id="videoModal">
