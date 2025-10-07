@@ -467,18 +467,25 @@
   </div>
 
   <!-- Mobile Gallery (Slider) -->
-  <div class="mobile-gallery">
-    <div class="slick-slider">
-        {% for media in product.media %}
-          {% if media.media_type == 'image' %}
-            {% assign color_handle = media.alt | handle %}
-            <div class="swiper-slide" data-color="{{ color_handle }}">              
-                <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}" width="" height="">
-            </div>
-          {% endif %}
-        {% endfor %}
+ <!-- Mobile Gallery (Slider) -->
+<div class="mobile-gallery">
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      {% for media in product.media %}
+        {% if media.media_type == 'image' %}
+          {% assign color_handle = media.alt | handle %}
+          <div class="swiper-slide" data-color="{{ color_handle }}">
+            <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+              <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
     </div>
+    <div class="swiper-pagination"></div>
   </div>
+</div>
+
 
 </div>
 
