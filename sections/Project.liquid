@@ -101,7 +101,7 @@
                   </svg>
                   <span>Filter by</span>
                 </button>
-                <div class="filters-code">
+                {% comment %} <div class="filters-code">
 
                 <select name="colour-filter" id="colour-filter">
                     <option value="" disabled selected>Colour</option>
@@ -126,7 +126,52 @@
                       {% endfor %}
                     {% endfor %}
                   </select>                  
-                </div>
+                </div> {% endcomment %}
+                <div class="filters-code" id="filterPanel">
+  <div class="filter-tabs">
+    <button class="filter-tab active" data-tab="colour-tab">Colours</button>
+    <button class="filter-tab" data-tab="sort-tab">Sort by</button>
+  </div>
+
+  <!-- Colours Tab -->
+  <div class="filter-tab-content active" id="colour-tab">
+    <div class="colour-options">
+      {% assign all_colours = '' %}
+      {% for block in section.blocks %}
+        {% assign tab_collection = block.settings.tab_collection %}
+        {% for product in tab_collection.products %}
+          {% for colour in product.metafields.custom.colour_filter2.value %}
+            {% unless all_colours contains colour %}
+              {% assign all_colours = all_colours | append: colour | append: ',' %}
+              <button class="colour-btn" data-colour="{{ colour }}">
+                <span class="colour-circle"></span>
+                {{ colour }}
+              </button>
+            {% endunless %}
+          {% endfor %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Sort Tab -->
+  <div class="filter-tab-content" id="sort-tab">
+    <div class="sort-options">
+      <button class="sort-btn" data-sort="default">Default</button>
+      <button class="sort-btn" data-sort="hue">Hue</button>
+      <button class="sort-btn" data-sort="light-dark">Light → Dark</button>
+      <button class="sort-btn" data-sort="dark-light">Dark → Light</button>
+      <button class="sort-btn" data-sort="best-sellers">Best sellers</button>
+      <button class="sort-btn" data-sort="favourites">Favourites</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="filter-footer">
+    <button id="clearAllFilters" class="clear-btn">CLEAR ALL</button>
+  </div>
+</div>
+
               </div>                
             </div>
             <button class="tips-link" id="openVideo">
