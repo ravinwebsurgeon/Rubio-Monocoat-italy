@@ -413,7 +413,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-{% comment %} //for filters
+//for filters
 document.addEventListener('DOMContentLoaded', function() {
   const colourFilter = document.getElementById('colour-filter');
   const productFilter = document.getElementById('product-filter');
@@ -441,36 +441,8 @@ document.addEventListener('DOMContentLoaded', function() {
   colourFilter.addEventListener('change', filterProducts);
   productFilter.addEventListener('change', filterProducts);
 });
- {% endcomment %}
 
-let selectedColour = '';
-let selectedProduct = '';
 
-document.querySelectorAll('#colour-options .option-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    selectedColour = btn.textContent; // or use data attribute if you want
-    filterProducts();
-  });
-});
-
-document.querySelectorAll('#product-options .option-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    selectedProduct = btn.textContent;
-    filterProducts();
-  });
-});
-
-function filterProducts() {
-  products.forEach(product => {
-    const productColours = product.dataset.colours.split(',');
-    const productProducts = product.dataset.products.split(',');
-
-    const colourMatch = !selectedColour || productColours.includes(selectedColour);
-    const productMatch = !selectedProduct || productProducts.includes(selectedProduct);
-
-    product.style.display = (colourMatch && productMatch) ? '' : 'none';
-  });
-}
 
 
 document.querySelector('.color-ic').addEventListener('click', function() {
