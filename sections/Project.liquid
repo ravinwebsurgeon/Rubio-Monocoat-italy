@@ -1700,7 +1700,6 @@ li.product-item {
 }
 
 {% comment %}  {% endcomment %}
-/* Filter Bar */
 .filters-panel {
   display: none;
   padding: 15px;
@@ -1709,21 +1708,32 @@ li.product-item {
   background-color: #f9f9f9;
 }
 
-.filters-panel label,
-.filters-panel select,
-.filters-panel input {
-  display: block;
+.filter-buttons {
+  display: flex;
+  gap: 10px;
   margin-bottom: 10px;
 }
 
+.filter-btn,
+.option-btn,
 .clear-all {
-  margin-top: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+.option-btn {
+  margin: 5px 5px 0 0;
+}
+
+.clear-all {
+  margin-top: 15px;
   background-color: #e74c3c;
   color: white;
   border: none;
-  padding: 8px 12px;
-  cursor: pointer;
 }
+
 
 
 </style>
