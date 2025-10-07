@@ -541,14 +541,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //available-filters
  
-document.querySelector('.filter-wrap button.icon-btn')
+{% comment %} document.querySelector('.filter-wrap button.icon-btn')
 .addEventListener('click', function() {
   document.querySelector('.filters-code').classList.toggle('active');
-});
+}); {% endcomment %}
 
  
-
-
+</script>
+<script>
 document.addEventListener('DOMContentLoaded', function () {
   const filterPanel = document.getElementById('filterPanel');
   const filterToggle = document.querySelector('.filter-wrap .filter');
