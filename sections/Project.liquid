@@ -527,7 +527,17 @@ document.querySelector('.filter-wrap button.icon-btn')
   document.querySelector('.filters-code').classList.toggle('active');
 });
 
- 
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('filterToggle');
+    const filtersPanel = document.getElementById('filtersPanel');
+
+    toggleBtn.addEventListener('click', () => {
+      filtersPanel.classList.toggle('active');
+    });
+  });
+
+
 </script>
 
 
