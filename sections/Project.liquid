@@ -145,48 +145,44 @@
               <span class="tips-link-txt tips-link-mobs"> Check out our expert tips! </span>
             </button>
           </div>
-          
-
-<div id="filtersPanel" class="filters-panel" style="display: none;">
-  <div class="filters-code">
-    <!-- Colour Filter -->
-    <select name="colour-filter" id="colour-filter">
-      <option value="" disabled selected>Colour</option>
-      {% for block in section.blocks %}
-        {% assign tab_collection = block.settings.tab_collection %}
-        {% for product in tab_collection.products %}
-          {% for colour in product.metafields.custom.colour_filter2.value %}
-            <option value="{{ colour }}">{{ colour }}</option>
-          {% endfor %}
-        {% endfor %}
-      {% endfor %}
-    </select>
-
-    <!-- Product Filter -->
-    <select name="product-filter" id="product-filter">
-      <option value="" disabled selected>Product</option>
-      {% for block in section.blocks %}
-        {% assign tab_collection = block.settings.tab_collection %}
-        {% for product in tab_collection.products %}
-          {% for pro in product.metafields.custom.product_filter.value %}
-            <option value="{{ pro }}">{{ pro }}</option>
-          {% endfor %}
-        {% endfor %}
-      {% endfor %}
-    </select>
-
-    <!-- Sort By -->
-    <select name="sort-by" id="sort-by">
-      <option value="" disabled selected>Sort By</option>
-      <option value="price-asc">Price: Low to High</option>
-      <option value="price-desc">Price: High to Low</option>
-      <option value="title-asc">Title: A to Z</option>
-      <option value="title-desc">Title: Z to A</option>
-    </select>
-
-    <!-- Clear All Button -->
-    <button id="clearFilters" class="button clear-all">Clear All</button>
+          <div id="filtersPanel" class="filters-panel" style="display: none;">
+  <div class="filter-buttons">
+    <button class="filter-btn" data-target="colour-options">Colour</button>
+    <button class="filter-btn" data-target="product-options">Product</button>
+    <button class="filter-btn" data-target="sort-options">Sort By</button>
   </div>
+
+  <!-- Options containers (hidden by default) -->
+  <div id="colour-options" class="filter-options" style="display:none;">
+    {% for block in section.blocks %}
+      {% assign tab_collection = block.settings.tab_collection %}
+      {% for product in tab_collection.products %}
+        {% for colour in product.metafields.custom.colour_filter2.value %}
+          <button class="option-btn" data-value="{{ colour }}" data-type="colour">{{ colour }}</button>
+        {% endfor %}
+      {% endfor %}
+    {% endfor %}
+  </div>
+
+  <div id="product-options" class="filter-options" style="display:none;">
+    {% for block in section.blocks %}
+      {% assign tab_collection = block.settings.tab_collection %}
+      {% for product in tab_collection.products %}
+        {% for pro in product.metafields.custom.product_filter.value %}
+          <button class="option-btn" data-value="{{ pro }}" data-type="product">{{ pro }}</button>
+        {% endfor %}
+      {% endfor %}
+    {% endfor %}
+  </div>
+
+  <div id="sort-options" class="filter-options" style="display:none;">
+    <button class="option-btn" data-value="price-asc" data-type="sort">Price: Low to High</button>
+    <button class="option-btn" data-value="price-desc" data-type="sort">Price: High to Low</button>
+    <button class="option-btn" data-value="title-asc" data-type="sort">Title: A to Z</button>
+    <button class="option-btn" data-value="title-desc" data-type="sort">Title: Z to A</button>
+  </div>
+
+  <button id="clearFilters" class="button clear-all">Clear All</button>
 </div>
 
 
