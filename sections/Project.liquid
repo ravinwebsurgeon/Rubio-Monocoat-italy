@@ -146,6 +146,50 @@
             </button>
           </div>
           
+
+<div id="filtersPanel" class="filters-panel" style="display: none;">
+  <div class="filters-code">
+    <!-- Colour Filter -->
+    <select name="colour-filter" id="colour-filter">
+      <option value="" disabled selected>Colour</option>
+      {% for block in section.blocks %}
+        {% assign tab_collection = block.settings.tab_collection %}
+        {% for product in tab_collection.products %}
+          {% for colour in product.metafields.custom.colour_filter2.value %}
+            <option value="{{ colour }}">{{ colour }}</option>
+          {% endfor %}
+        {% endfor %}
+      {% endfor %}
+    </select>
+
+    <!-- Product Filter -->
+    <select name="product-filter" id="product-filter">
+      <option value="" disabled selected>Product</option>
+      {% for block in section.blocks %}
+        {% assign tab_collection = block.settings.tab_collection %}
+        {% for product in tab_collection.products %}
+          {% for pro in product.metafields.custom.product_filter.value %}
+            <option value="{{ pro }}">{{ pro }}</option>
+          {% endfor %}
+        {% endfor %}
+      {% endfor %}
+    </select>
+
+    <!-- Sort By -->
+    <select name="sort-by" id="sort-by">
+      <option value="" disabled selected>Sort By</option>
+      <option value="price-asc">Price: Low to High</option>
+      <option value="price-desc">Price: High to Low</option>
+      <option value="title-asc">Title: A to Z</option>
+      <option value="title-desc">Title: Z to A</option>
+    </select>
+
+    <!-- Clear All Button -->
+    <button id="clearFilters" class="button clear-all">Clear All</button>
+  </div>
+</div>
+
+
           <!-- Video modal -->
           <div class="video-modal" id="videoModal">
             <div class="modal-content">
