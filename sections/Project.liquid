@@ -101,7 +101,7 @@
                   </svg>
                   <span>Filter by</span>
                 </button>
-                 {% comment %} <div class="filters-code">
+                 <div class="filters-code">
 
                 <select name="colour-filter" id="colour-filter">
                     <option value="" disabled selected>Colour</option>
@@ -126,7 +126,7 @@
                       {% endfor %}
                     {% endfor %}
                   </select>                  
-                </div>                  {% endcomment %}
+                </div>
               </div>                
             </div>
             <button class="tips-link" id="openVideo">
@@ -146,7 +146,7 @@
             </button>
           </div>
           
-<!-- Filters Panel (hidden by default) -->
+{% comment %} <!-- Filters Panel (hidden by default) -->
 <div id="filtersPanel" class="filters-panel" style="display: none; margin-top: 10px;">
   <!-- Buttons -->
   <div class="filter-buttons">
@@ -192,7 +192,7 @@
 
   <!-- Clear All Button -->
   <button id="clearFilters" class="button clear-all" style="margin-top: 10px;">Clear All</button>
-</div>
+</div> {% endcomment %}
 
 
           <!-- Video modal -->
