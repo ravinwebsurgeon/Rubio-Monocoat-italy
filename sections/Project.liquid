@@ -552,88 +552,43 @@ document.querySelector('.filter-wrap button.icon-btn')
 
 
 
-
-
 document.addEventListener('DOMContentLoaded', function() {
-  const filterToggle = document.getElementById('filterToggle');
+  const filterByBtn = document.getElementById('filterByBtn');
   const filtersPanel = document.getElementById('filtersPanel');
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const optionBtns = document.querySelectorAll('.option-btn');
-  const clearBtn = document.getElementById('clearFilters');
-  const products = Array.from(document.querySelectorAll('.product-item'));
 
-  let selectedColour = '';
-  let selectedProduct = '';
-  let selectedSort = '';
-
-  // Toggle main filter panel
-  filterToggle.addEventListener('click', () => {
-    filtersPanel.style.display = (filtersPanel.style.display === 'none' || !filtersPanel.style.display) ? 'block' : 'none';
+  // Show/hide filters panel
+  filterByBtn.addEventListener('click', () => {
+    filtersPanel.style.display = (filtersPanel.style.display === 'block') ? 'none' : 'block';
   });
 
-  // Toggle individual option panels
+  // Tab buttons functionality
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const filterOptions = document.querySelectorAll('.filter-options');
+
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const targetId = btn.dataset.target;
-      document.querySelectorAll('.filter-options').forEach(opt => {
-        if (opt.id === targetId) {
-          opt.style.display = (opt.style.display === 'none' || !opt.style.display) ? 'block' : 'none';
-        } else {
-          opt.style.display = 'none';
-        }
+
+      // Set active class on clicked button
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Show corresponding panel
+      filterOptions.forEach(panel => {
+        panel.style.display = (panel.id === targetId) ? 'block' : 'none';
       });
     });
   });
 
-  // Filter products when option clicked
-  optionBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const type = btn.dataset.type;
-      const value = btn.dataset.value;
-
-      if (type === 'colour') selectedColour = value;
-      if (type === 'product') selectedProduct = value;
-      if (type === 'sort') selectedSort = value;
-
-      filterProducts();
-    });
-  });
-
-  // Clear all filters
+  // Clear All button (just reset active and show colour panel)
+  const clearBtn = document.getElementById('clearFilters');
   clearBtn.addEventListener('click', () => {
-    selectedColour = '';
-    selectedProduct = '';
-    selectedSort = '';
-    filterProducts();
-  });
-
-  function filterProducts() {
-    let filteredProducts = products.filter(product => {
-      const colours = product.dataset.colours.split(',');
-      const prods = product.dataset.products.split(',');
-
-      const colourMatch = !selectedColour || colours.includes(selectedColour);
-      const productMatch = !selectedProduct || prods.includes(selectedProduct);
-
-      return colourMatch && productMatch;
+    filterBtns.forEach(b => b.classList.remove('active'));
+    filterBtns[0].classList.add('active'); // Colour button active
+    filterOptions.forEach(panel => {
+      panel.style.display = (panel.id === 'colour-options') ? 'block' : 'none';
     });
-
-    // Hide all products first
-    products.forEach(p => p.style.display = 'none');
-
-    // Sort filtered products
-    if (selectedSort) {
-      filteredProducts.sort((a, b) => {
-        if (selectedSort === 'price-asc') return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
-        if (selectedSort === 'price-desc') return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
-        if (selectedSort === 'title-asc') return a.dataset.title.localeCompare(b.dataset.title);
-        if (selectedSort === 'title-desc') return b.dataset.title.localeCompare(a.dataset.title);
-      });
-    }
-
-    // Show filtered products
-    filteredProducts.forEach(p => p.style.display = '');
-  }
+  });
 });
 
 </script>
