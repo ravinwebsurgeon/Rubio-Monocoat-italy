@@ -567,43 +567,7 @@ document.querySelector('.filter-wrap button.icon-btn')
 
 
 </script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const tabs = document.querySelectorAll('.filter-tab');
-    const panels = document.querySelectorAll('.filter-panel');
-    const filterPanelWrap = document.querySelector('.filters-code');
-    const closeBtn = document.getElementById('filter-close');
-    const clearAllBtn = document.getElementById('clear-all');
 
-    // Tab switching
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-
-        const target = tab.getAttribute('data-target');
-        panels.forEach(panel => {
-          panel.classList.toggle('active', panel.id === target);
-        });
-
-        filterPanelWrap.classList.add('active');
-      });
-    });
-
-    // Close button
-    closeBtn.addEventListener('click', () => {
-      filterPanelWrap.classList.remove('active');
-    });
-
-    // Clear All button
-    clearAllBtn.addEventListener('click', () => {
-      // Clear selected filters (customize if needed)
-      document.querySelectorAll('.swatch-btn.active').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.sort-btn.active').forEach(b => b.classList.remove('active'));
-      // Also trigger your filter reset logic here if needed
-    });
-  });
-</script>
 
 
 <style>
