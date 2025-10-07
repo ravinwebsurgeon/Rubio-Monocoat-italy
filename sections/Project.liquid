@@ -556,6 +556,78 @@ document.querySelector('.filter-wrap button.icon-btn')
     });
   });
 
+
+
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+  const toggleBtn = document.getElementById('filterToggle');
+  const filtersPanel = document.getElementById('filtersPanel');
+  const colourFilter = document.getElementById('colour-filter');
+  const productFilter = document.getElementById('product-filter');
+  const availableFilter = document.getElementById('available-filter');
+  const sortBy = document.getElementById('sort-by');
+  const clearBtn = document.getElementById('clearFilters');
+  const products = Array.from(document.querySelectorAll('.product-item'));
+
+  // Toggle filter panel
+  toggleBtn.addEventListener('click', () => {
+    filtersPanel.style.display = (filtersPanel.style.display === 'none' || !filtersPanel.style.display) ? 'block' : 'none';
+  });
+
+  // Filter and Sort Function
+  function filterProducts() {
+    const selectedColour = colourFilter.value;
+    const selectedProduct = productFilter.value;
+    const showAvailable = availableFilter.checked;
+
+    let filteredProducts = products.filter(product => {
+      const productColours = product.dataset.colours.split(',');
+      const productProducts = product.dataset.products.split(',');
+      const productAvailable = product.dataset.available === 'true';
+
+      const colourMatch = !selectedColour || productColours.includes(selectedColour);
+      const productMatch = !selectedProduct || productProducts.includes(selectedProduct);
+      const availableMatch = !showAvailable || productAvailable;
+
+      return colourMatch && productMatch && availableMatch;
+    });
+
+    // Hide all products first
+    products.forEach(p => p.style.display = 'none');
+
+    // Sort products
+    if (sortBy.value) {
+      filteredProducts.sort((a, b) => {
+        if (sortBy.value === 'price-asc') {
+          return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+        } else if (sortBy.value === 'price-desc') {
+          return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+        } else if (sortBy.value === 'title-asc') {
+          return a.dataset.title.localeCompare(b.dataset.title);
+        } else if (sortBy.value === 'title-desc') {
+          return b.dataset.title.localeCompare(a.dataset.title);
+        }
+      });
+    }
+
+    // Show filtered products
+    filteredProducts.forEach(p => p.style.display = '');
+  }
+
+  // Event listeners
+  [colourFilter, productFilter, availableFilter, sortBy].forEach(el => el.addEventListener('change', filterProducts));
+
+  // Clear All button
+  clearBtn.addEventListener('click', () => {
+    colourFilter.value = '';
+    productFilter.value = '';
+    availableFilter.checked = false;
+    sortBy.value = '';
+    filterProducts();
+  });
+});
+
 </script>
 
 <style>
