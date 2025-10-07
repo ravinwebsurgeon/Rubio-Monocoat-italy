@@ -149,56 +149,7 @@
             </button>
           </div>
 
-          <div class="filter-bar">
-  <div class="filter-tabs">
-    <button class="filter-tab active" data-target="colours-panel">Colours</button>
-    <button class="filter-tab" data-target="sortby-panel">Sort by</button>
-  </div>
-</div>
-
-<div class="filters-code">
-  <button class="filter-close" id="filter-close">×</button>
-
-  <!-- Colours Panel -->
-  <div id="colours-panel" class="filter-panel active">
-    <div class="filter-swatches">
-      {% assign all_colours = '' %}
-      {% for block in section.blocks %}
-        {% assign tab_collection = block.settings.tab_collection %}
-        {% for product in tab_collection.products %}
-          {% for colour in product.metafields.custom.colour_filter2.value %}
-            {% unless all_colours contains colour %}
-              <button class="swatch-btn" data-colour="{{ colour | escape }}">
-                <span class="swatch-circle" style="background-color: {{ colour | downcase }};"></span>
-                {{ colour }}
-              </button>
-              {% assign all_colours = all_colours | append: colour | append: ',' %}
-            {% endunless %}
-          {% endfor %}
-        {% endfor %}
-      {% endfor %}
-    </div>
-  </div>
-
-  <!-- Sort By Panel -->
-  <div id="sortby-panel" class="filter-panel">
-    <div class="sort-options">
-      <button class="sort-btn" data-sort="manual">Featured</button>
-      <button class="sort-btn" data-sort="best-selling">Best Selling</button>
-      <button class="sort-btn" data-sort="title-ascending">A–Z</button>
-      <button class="sort-btn" data-sort="title-descending">Z–A</button>
-      <button class="sort-btn" data-sort="price-ascending">Low → High</button>
-      <button class="sort-btn" data-sort="price-descending">High → Low</button>
-      <button class="sort-btn" data-sort="created-descending">New → Old</button>
-      <button class="sort-btn" data-sort="created-ascending">Old → New</button>
-    </div>
-  </div>
-
-  <div class="filter-footer">
-    <button class="clear-all-btn" id="clear-all">Clear All</button>
-  </div>
-</div>
-
+         
           <!-- Video modal -->
           <div class="video-modal" id="videoModal">
             <div class="modal-content">
