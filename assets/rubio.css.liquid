@@ -933,6 +933,7 @@ body:not(.templateindex) .shopify-section-header-sticky.scrolled-past-header .co
 }
 
 }
+
 @media (min-width: 992px){
    .custom-media-gallery .desktop-gallery {
         display: flex;
@@ -991,15 +992,26 @@ body:not(.templateindex) .shopify-section-header-sticky.scrolled-past-header .co
         height: 100%;
     }
 }
-
+@media (max-width: 1280px){
+    .custom-media-gallery .desktop-gallery {
+        gap: 15px;
+    }
+    .product-section .grid__item.product__media-wrapper {
+        max-width: 58% !important;
+        width: 58% !important;
+    }
+    .product-section .product__info-wrapper.grid__item.scroll-trigger.animate--slide-in {
+        width: 42%;
+        max-width: 42%;
+        padding-left: 3rem;
+    }
+}
 @media (max-width: 991px){
     .custom-faq-wrapper .custom-faq-inner>div {
         width: 100%;
         max-width: 100%;
     }
-   .custom-media-gallery .desktop-gallery {
-        gap: 15px;
-    }
+   
     body:not(.templateindex) header.header img.another-pages-logo {
         height: 36px !important;
     }
