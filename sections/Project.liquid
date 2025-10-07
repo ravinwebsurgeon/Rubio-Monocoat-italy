@@ -146,7 +146,8 @@
             </button>
           </div>
           
-          <div id="filtersPanel" class="filters-panel" style="display: none; margin-top: 10px;">
+          <!-- Filters Panel (hidden by default) -->
+<div id="filtersPanel" class="filters-panel" style="display: none; margin-top: 10px;">
   <!-- Buttons -->
   <div class="filter-buttons">
     <button class="filter-btn active" data-target="colour-options">Colour</button>
@@ -155,23 +156,20 @@
   </div>
 
   <!-- Options Panels -->
-  <div class="filter-options-container">
-    <div id="colour-options" class="filter-options" style="display: block; margin-top: 10px;">
-      <!-- Replace with metafield values -->
+  <div class="filter-options-container" style="margin-top: 10px;">
+    <div id="colour-options" class="filter-options">
       <button class="option-btn">Red</button>
       <button class="option-btn">Blue</button>
       <button class="option-btn">Green</button>
     </div>
 
-    <div id="product-options" class="filter-options" style="display: none; margin-top: 10px;">
-      <!-- Replace with metafield values -->
+    <div id="product-options" class="filter-options" style="display: none;">
       <button class="option-btn">Shirt</button>
       <button class="option-btn">Pants</button>
       <button class="option-btn">Shoes</button>
     </div>
 
-    <div id="sort-options" class="filter-options" style="display: none; margin-top: 10px;">
-      <!-- Sort functionality -->
+    <div id="sort-options" class="filter-options" style="display: none;">
       <button class="option-btn">Price: Low to High</button>
       <button class="option-btn">Price: High to Low</button>
       <button class="option-btn">Title: A to Z</button>
@@ -182,7 +180,6 @@
   <!-- Clear All Button -->
   <button id="clearFilters" class="button clear-all" style="margin-top: 10px;">Clear All</button>
 </div>
-
 
           <!-- Video modal -->
           <div class="video-modal" id="videoModal">
