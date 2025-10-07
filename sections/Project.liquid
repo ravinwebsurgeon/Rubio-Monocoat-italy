@@ -532,7 +532,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //available-filters
  
-document.querySelector('.filter-wrap button.icon-btn')
+{% comment %} document.querySelector('.filter-wrap button.icon-btn')
 .addEventListener('click', function() {
   document.querySelector('.filters-code').classList.toggle('active');
 });
@@ -545,48 +545,10 @@ document.querySelector('.filter-wrap button.icon-btn')
     toggleBtn.addEventListener('click', () => {
       filtersPanel.classList.toggle('active');
     });
-  });
+  }); {% endcomment %}
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
-  const filterByBtn = document.getElementById('filterByBtn');
-  const filtersPanel = document.getElementById('filtersPanel');
-
-  // Show/hide filters panel
-  filterByBtn.addEventListener('click', () => {
-    filtersPanel.style.display = (filtersPanel.style.display === 'block') ? 'none' : 'block';
-  });
-
-  // Tab buttons functionality
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const filterOptions = document.querySelectorAll('.filter-options');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetId = btn.dataset.target;
-
-      // Set active class on clicked button
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      // Show corresponding panel
-      filterOptions.forEach(panel => {
-        panel.style.display = (panel.id === targetId) ? 'block' : 'none';
-      });
-    });
-  });
-
-  // Clear All button (just reset active and show colour panel)
-  const clearBtn = document.getElementById('clearFilters');
-  clearBtn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    filterBtns[0].classList.add('active'); // Colour button active
-    filterOptions.forEach(panel => {
-      panel.style.display = (panel.id === 'colour-options') ? 'block' : 'none';
-    });
-  });
-});
 
 </script>
 
