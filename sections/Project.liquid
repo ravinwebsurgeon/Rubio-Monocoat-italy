@@ -557,7 +557,11 @@ document.addEventListener('DOMContentLoaded', function () {
   const clearAllBtn = document.querySelector('.clear-all-btn');
   const filterOptions = document.querySelectorAll('.filter-option');
 
-  // Toggle filter panel
+  if (!filterByBtn || !filterPanel) return; // Prevent errors if not present
+
+  // ✅ Toggle filter panel visibility
+  filterPanel.style.display = 'none'; // ensure it's hidden initially
+
   filterByBtn.addEventListener('click', () => {
     filterPanel.style.display = 'block';
   });
@@ -566,7 +570,7 @@ document.addEventListener('DOMContentLoaded', function () {
     filterPanel.style.display = 'none';
   });
 
-  // Tab switch (Colour / Sort By)
+  // ✅ Tab switch (Colour / Sort By)
   tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       tabButtons.forEach(b => b.classList.remove('active'));
@@ -578,27 +582,28 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Select filter option
+  // ✅ Select filter option
   filterOptions.forEach(option => {
     option.addEventListener('click', () => {
       option.classList.toggle('selected');
       updateClearAllVisibility();
-      // 👉 Add your actual filtering logic here if needed
+      // 👉 Hook into your actual filter logic here if needed
     });
   });
 
-  // Clear All
-    clearAllBtn.addEventListener('click', () => {
-      filterOptions.forEach(option => option.classList.remove('selected'));
-      updateClearAllVisibility();
-      // 👉 Add your actual "clear all filters" logic here
-    });
+  // ✅ Clear All filters
+  clearAllBtn.addEventListener('click', () => {
+    filterOptions.forEach(option => option.classList.remove('selected'));
+    updateClearAllVisibility();
+    // 👉 Hook into your actual "clear all" logic here if needed
+  });
 
   function updateClearAllVisibility() {
     const hasSelected = document.querySelectorAll('.filter-option.selected').length > 0;
     clearAllBtn.style.display = hasSelected ? 'inline-block' : 'none';
   }
 });
+
 </script>
 
 <style>
