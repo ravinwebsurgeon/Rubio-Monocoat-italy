@@ -519,6 +519,69 @@ document.querySelector('.filter-wrap button.icon-btn')
 
 </script>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterToggle = document.getElementById('filterByToggle');
+    const filterPanel = document.getElementById('filtersPanel');
+    const filterClose = document.getElementById('filterClose');
+    const topBtns = document.querySelectorAll('.filter-top-btn');
+    const contents = document.querySelectorAll('.filter-content');
+    const clearAllBtn = document.getElementById('clearAllFilters');
+
+    // Toggle panel
+    filterToggle.addEventListener('click', () => {
+      filterPanel.classList.toggle('active');
+    });
+
+    // Close panel
+    filterClose.addEventListener('click', () => {
+      filterPanel.classList.remove('active');
+    });
+
+    // Switch between Colours & Sort By
+    topBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        topBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const target = btn.getAttribute('data-target');
+        contents.forEach(content => {
+          content.classList.toggle('active', content.id === target);
+        });
+      });
+    });
+
+    // Color filter functionality
+    document.querySelectorAll('.swatch-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.swatch-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const colorValue = btn.dataset.colour;
+        // 🔸 Hook your existing colour filter function here
+        console.log('Filter by colour:', colorValue);
+      });
+    });
+
+    // Sort filter functionality
+    document.querySelectorAll('.sort-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const sortValue = btn.dataset.sort;
+        // 🔸 Hook your existing sort filter function here
+        console.log('Sort by:', sortValue);
+      });
+    });
+
+    // Clear All
+    clearAllBtn.addEventListener('click', () => {
+      document.querySelectorAll('.swatch-btn.active').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.sort-btn.active').forEach(b => b.classList.remove('active'));
+      // 🔸 Reset your product list or collection filter here
+      console.log('All filters cleared');
+    });
+  });
+</script>
 
 <style>
 .cust-project{
@@ -1594,6 +1657,136 @@ li.product-item {
 }
 
 {% comment %}  {% endcomment %}
+/* Filter Bar */
+.filter-bar {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px 15px;
+  background: #f5f6fb;
+}
+
+.filter-by-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Panel */
+.filters-panel {
+  display: none;
+  background: #f5f6fb;
+  padding: 20px;
+  position: relative;
+  margin-top: 0;
+}
+
+.filters-panel.active {
+  display: block;
+}
+
+.filter-close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Top Buttons */
+.filter-top-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.filter-top-btn {
+  background: transparent;
+  border: none;
+  padding: 6px 12px;
+  font-size: 15px;
+  color: #7c7c7c;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.filter-top-btn.active {
+  background: #e3e6f5;
+  color: #3b3b7d;
+}
+
+/* Content Panels */
+.filter-content {
+  display: none;
+}
+
+.filter-content.active {
+  display: block;
+}
+
+/* Swatches */
+.filter-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.swatch-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.swatch-circle {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+/* Sort */
+.sort-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sort-btn {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Footer */
+.filter-footer {
+  margin-top: 15px;
+  text-align: right;
+}
+
+.clear-all-btn {
+  background: transparent;
+  color: #3b3b7d;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
 
 </style>
 
