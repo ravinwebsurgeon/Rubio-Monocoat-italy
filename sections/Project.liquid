@@ -564,55 +564,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 </script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const filterByBtn = document.getElementById('filterByBtn');
-  const filtersPanel = document.getElementById('filtersPanel');
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const filterOptions = document.querySelectorAll('.filter-options');
-  const clearBtn = document.getElementById('clearFilters');
 
-  if (!filterByBtn || !filtersPanel || !filterBtns.length || !filterOptions.length || !clearBtn) return;
-
-  // Toggle filters panel on "Filter By" click
-  filterByBtn.addEventListener('click', () => {
-    filtersPanel.style.display = (filtersPanel.style.display === 'block') ? 'none' : 'block';
-
-    // Reset default active tab to Colour
-    filterBtns.forEach(btn => btn.classList.remove('active'));
-    filterBtns[0].classList.add('active');
-
-    filterOptions.forEach(panel => {
-      panel.style.display = (panel.id === 'colour-options') ? 'block' : 'none';
-    });
-  });
-
-  // Switch between tabs
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetId = btn.dataset.target;
-
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      filterOptions.forEach(panel => {
-        panel.style.display = (panel.id === targetId) ? 'block' : 'none';
-      });
-    });
-  });
-
-  // Clear All button
-  clearBtn.addEventListener('click', () => {
-    // Reset to Colour tab
-    filterBtns.forEach(b => b.classList.remove('active'));
-    filterBtns[0].classList.add('active');
-
-    filterOptions.forEach(panel => {
-      panel.style.display = (panel.id === 'colour-options') ? 'block' : 'none';
-    });
-  });
-});
-</script>
 
 <style>
 .cust-project{
