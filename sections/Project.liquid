@@ -145,44 +145,42 @@
               <span class="tips-link-txt tips-link-mobs"> Check out our expert tips! </span>
             </button>
           </div>
-          <div id="filtersPanel" class="filters-panel" style="display: none;">
+          
+          <div id="filtersPanel" class="filters-panel" style="display: none; margin-top: 10px;">
+  <!-- Buttons -->
   <div class="filter-buttons">
-    <button class="filter-btn" data-target="colour-options">Colour</button>
+    <button class="filter-btn active" data-target="colour-options">Colour</button>
     <button class="filter-btn" data-target="product-options">Product</button>
     <button class="filter-btn" data-target="sort-options">Sort By</button>
   </div>
 
-  <!-- Options containers (hidden by default) -->
-  <div id="colour-options" class="filter-options" style="display:none;">
-    {% for block in section.blocks %}
-      {% assign tab_collection = block.settings.tab_collection %}
-      {% for product in tab_collection.products %}
-        {% for colour in product.metafields.custom.colour_filter2.value %}
-          <button class="option-btn" data-value="{{ colour }}" data-type="colour">{{ colour }}</button>
-        {% endfor %}
-      {% endfor %}
-    {% endfor %}
+  <!-- Options Panels -->
+  <div class="filter-options-container">
+    <div id="colour-options" class="filter-options" style="display: block; margin-top: 10px;">
+      <!-- Replace with metafield values -->
+      <button class="option-btn">Red</button>
+      <button class="option-btn">Blue</button>
+      <button class="option-btn">Green</button>
+    </div>
+
+    <div id="product-options" class="filter-options" style="display: none; margin-top: 10px;">
+      <!-- Replace with metafield values -->
+      <button class="option-btn">Shirt</button>
+      <button class="option-btn">Pants</button>
+      <button class="option-btn">Shoes</button>
+    </div>
+
+    <div id="sort-options" class="filter-options" style="display: none; margin-top: 10px;">
+      <!-- Sort functionality -->
+      <button class="option-btn">Price: Low to High</button>
+      <button class="option-btn">Price: High to Low</button>
+      <button class="option-btn">Title: A to Z</button>
+      <button class="option-btn">Title: Z to A</button>
+    </div>
   </div>
 
-  <div id="product-options" class="filter-options" style="display:none;">
-    {% for block in section.blocks %}
-      {% assign tab_collection = block.settings.tab_collection %}
-      {% for product in tab_collection.products %}
-        {% for pro in product.metafields.custom.product_filter.value %}
-          <button class="option-btn" data-value="{{ pro }}" data-type="product">{{ pro }}</button>
-        {% endfor %}
-      {% endfor %}
-    {% endfor %}
-  </div>
-
-  <div id="sort-options" class="filter-options" style="display:none;">
-    <button class="option-btn" data-value="price-asc" data-type="sort">Price: Low to High</button>
-    <button class="option-btn" data-value="price-desc" data-type="sort">Price: High to Low</button>
-    <button class="option-btn" data-value="title-asc" data-type="sort">Title: A to Z</button>
-    <button class="option-btn" data-value="title-desc" data-type="sort">Title: Z to A</button>
-  </div>
-
-  <button id="clearFilters" class="button clear-all">Clear All</button>
+  <!-- Clear All Button -->
+  <button id="clearFilters" class="button clear-all" style="margin-top: 10px;">Clear All</button>
 </div>
 
 
