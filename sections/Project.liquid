@@ -550,10 +550,9 @@ document.querySelector('.filter-wrap button.icon-btn')
   });
 
 
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const filterByBtn = document.querySelector('.filter-by-btn'); // ← use your existing Filter by button
+
+  document.addEventListener('DOMContentLoaded', function () {
+  const filterByBtn = document.querySelector('.filter-by-btn');
   const filterPanel = document.getElementById('custom-filter-panel');
   const closeBtn = document.querySelector('.close-filter-btn');
   const tabBtns = document.querySelectorAll('.tab-btn');
@@ -561,16 +560,20 @@ document.addEventListener('DOMContentLoaded', function () {
   const clearAllBtn = document.querySelector('.clear-all-btn');
   const filterOptions = document.querySelectorAll('.filter-option');
 
-  // Toggle panel
-  filterByBtn.addEventListener('click', () => {
-    filterPanel.style.display = filterPanel.style.display === 'block' ? 'none' : 'block';
-  });
+  if (filterByBtn && filterPanel) {
+    // Toggle panel
+    filterByBtn.addEventListener('click', () => {
+      filterPanel.style.display = filterPanel.style.display === 'block' ? 'none' : 'block';
+    });
+  }
 
-  closeBtn.addEventListener('click', () => {
-    filterPanel.style.display = 'none';
-  });
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      filterPanel.style.display = 'none';
+    });
+  }
 
-  // Switch tabs (Colour / Sort by)
+  // Tab switching
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       tabBtns.forEach(b => b.classList.remove('active'));
@@ -581,28 +584,29 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Filter options selection
+  // Filter option toggle
   filterOptions.forEach(option => {
     option.addEventListener('click', () => {
       option.classList.toggle('selected');
       updateClearAllVisibility();
-      // 👉 You can trigger your product filter function here too
     });
   });
 
-  // Clear All
-  clearAllBtn.addEventListener('click', () => {
-    filterOptions.forEach(o => o.classList.remove('selected'));
-    updateClearAllVisibility();
-    // 👉 Reset actual filters here too
-  });
+  if (clearAllBtn) {
+    clearAllBtn.addEventListener('click', () => {
+      filterOptions.forEach(o => o.classList.remove('selected'));
+      updateClearAllVisibility();
+    });
+  }
 
   function updateClearAllVisibility() {
     const selectedCount = document.querySelectorAll('.filter-option.selected').length;
     clearAllBtn.style.display = selectedCount > 0 ? 'inline-block' : 'none';
   }
 });
+
 </script>
+
 <style>
 .cust-project{
   font-family: Frutiger Neue LT W1G;
