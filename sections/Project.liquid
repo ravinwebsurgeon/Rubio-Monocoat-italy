@@ -146,7 +146,7 @@
             </button>
           </div>
           
-          <!-- Filters Panel (hidden by default) -->
+<!-- Filters Panel (hidden by default) -->
 <div id="filtersPanel" class="filters-panel" style="display: none; margin-top: 10px;">
   <!-- Buttons -->
   <div class="filter-buttons">
@@ -157,29 +157,43 @@
 
   <!-- Options Panels -->
   <div class="filter-options-container" style="margin-top: 10px;">
+    <!-- Colour Options -->
     <div id="colour-options" class="filter-options">
-      <button class="option-btn">Red</button>
-      <button class="option-btn">Blue</button>
-      <button class="option-btn">Green</button>
+      {% for block in section.blocks %}
+        {% assign tab_collection = block.settings.tab_collection %}
+        {% for product in tab_collection.products %}
+          {% for colour in product.metafields.custom.colour_filter2.value %}
+            <button class="option-btn" data-value="{{ colour }}">{{ colour }}</button>
+          {% endfor %}
+        {% endfor %}
+      {% endfor %}
     </div>
 
+    <!-- Product Options -->
     <div id="product-options" class="filter-options" style="display: none;">
-      <button class="option-btn">Shirt</button>
-      <button class="option-btn">Pants</button>
-      <button class="option-btn">Shoes</button>
+      {% for block in section.blocks %}
+        {% assign tab_collection = block.settings.tab_collection %}
+        {% for product in tab_collection.products %}
+          {% for pro in product.metafields.custom.product_filter.value %}
+            <button class="option-btn" data-value="{{ pro }}">{{ pro }}</button>
+          {% endfor %}
+        {% endfor %}
+      {% endfor %}
     </div>
 
+    <!-- Sort By Options -->
     <div id="sort-options" class="filter-options" style="display: none;">
-      <button class="option-btn">Price: Low to High</button>
-      <button class="option-btn">Price: High to Low</button>
-      <button class="option-btn">Title: A to Z</button>
-      <button class="option-btn">Title: Z to A</button>
+      <button class="option-btn" data-value="price-asc">Price: Low to High</button>
+      <button class="option-btn" data-value="price-desc">Price: High to Low</button>
+      <button class="option-btn" data-value="title-asc">Title: A to Z</button>
+      <button class="option-btn" data-value="title-desc">Title: Z to A</button>
     </div>
   </div>
 
   <!-- Clear All Button -->
   <button id="clearFilters" class="button clear-all" style="margin-top: 10px;">Clear All</button>
 </div>
+
 
           <!-- Video modal -->
           <div class="video-modal" id="videoModal">
