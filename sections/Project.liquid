@@ -547,7 +547,53 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }); {% endcomment %}
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const filterByBtn = document.getElementById('filterByBtn');
+  const filtersPanel = document.getElementById('filtersPanel');
 
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const filterOptions = document.querySelectorAll('.filter-options');
+  const clearBtn = document.getElementById('clearFilters');
+
+  // Show/hide filters panel
+  filterByBtn.addEventListener('click', () => {
+    filtersPanel.style.display = (filtersPanel.style.display === 'block') ? 'none' : 'block';
+    
+    // Ensure default active panel is shown
+    filterOptions.forEach(panel => {
+      panel.style.display = (panel.id === 'colour-options') ? 'block' : 'none';
+    });
+    filterBtns.forEach(btn => btn.classList.remove('active'));
+    filterBtns[0].classList.add('active'); // Colour button active
+  });
+
+  // Tab buttons functionality
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.target;
+
+      // Set active class on clicked button
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Show corresponding panel
+      filterOptions.forEach(panel => {
+        panel.style.display = (panel.id === targetId) ? 'block' : 'none';
+      });
+    });
+  });
+
+  // Clear All button
+  clearBtn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    filterBtns[0].classList.add('active'); // Colour button active
+    filterOptions.forEach(panel => {
+      panel.style.display = (panel.id === 'colour-options') ? 'block' : 'none';
+    });
+  });
+});
+</script>
 
 
 </script>
