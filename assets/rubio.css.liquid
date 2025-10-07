@@ -1025,8 +1025,13 @@ body:not(.templateindex) .shopify-section-header-sticky.scrolled-past-header .co
     }
     .mobile-gallery .swiper-slide.swiper-slide-active video, .mobile-gallery .swiper-slide.swiper-slide-active {
         height: 100;
-        aspect-ratio: 1.5;
+        aspect-ratio: none;
     }
+    .mobile-gallery .swiper-slide img {
+    height: 100%;
+    object-fit: contain;
+    aspect-ratio: 1.5;
+}
     body:not(.templateindex) header.header img.another-pages-logo {
         height: 36px !important;
     }
