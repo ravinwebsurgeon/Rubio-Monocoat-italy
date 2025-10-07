@@ -552,64 +552,56 @@ document.querySelector('.filter-wrap button.icon-btn')
 
 </script>
 
-<script>
 document.addEventListener('DOMContentLoaded', function () {
-  const filterByBtn = document.querySelector('.filter-by-btn');
+  const filterByBtn = document.querySelector('.filter-by-btn'); // ← use your existing Filter by button
   const filterPanel = document.getElementById('custom-filter-panel');
-  const closeFilterBtn = document.querySelector('.close-filter-btn');
-  const tabButtons = document.querySelectorAll('.tab-btn');
-  const filterSections = document.querySelectorAll('.filter-section');
+  const closeBtn = document.querySelector('.close-filter-btn');
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const sections = document.querySelectorAll('.filter-section');
   const clearAllBtn = document.querySelector('.clear-all-btn');
   const filterOptions = document.querySelectorAll('.filter-option');
 
-  if (!filterByBtn || !filterPanel) return; // Prevent errors if not present
-
-  // ✅ Toggle filter panel visibility
-  filterPanel.style.display = 'none'; // ensure it's hidden initially
-
+  // Toggle panel
   filterByBtn.addEventListener('click', () => {
-    filterPanel.style.display = 'block';
+    filterPanel.style.display = filterPanel.style.display === 'block' ? 'none' : 'block';
   });
 
-  closeFilterBtn.addEventListener('click', () => {
+  closeBtn.addEventListener('click', () => {
     filterPanel.style.display = 'none';
   });
 
-  // ✅ Tab switch (Colour / Sort By)
-  tabButtons.forEach(btn => {
+  // Switch tabs (Colour / Sort by)
+  tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      tabButtons.forEach(b => b.classList.remove('active'));
+      tabBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-
-      filterSections.forEach(section => {
-        section.style.display = section.id === btn.dataset.target ? 'block' : 'none';
+      sections.forEach(sec => {
+        sec.style.display = sec.id === btn.dataset.target ? 'block' : 'none';
       });
     });
   });
 
-  // ✅ Select filter option
+  // Filter options selection
   filterOptions.forEach(option => {
     option.addEventListener('click', () => {
       option.classList.toggle('selected');
       updateClearAllVisibility();
-      // 👉 Hook into your actual filter logic here if needed
+      // 👉 You can trigger your product filter function here too
     });
   });
 
-  // ✅ Clear All filters
+  // Clear All
   clearAllBtn.addEventListener('click', () => {
-    filterOptions.forEach(option => option.classList.remove('selected'));
+    filterOptions.forEach(o => o.classList.remove('selected'));
     updateClearAllVisibility();
-    // 👉 Hook into your actual "clear all" logic here if needed
+    // 👉 Reset actual filters here too
   });
 
   function updateClearAllVisibility() {
-    const hasSelected = document.querySelectorAll('.filter-option.selected').length > 0;
-    clearAllBtn.style.display = hasSelected ? 'inline-block' : 'none';
+    const selectedCount = document.querySelectorAll('.filter-option.selected').length;
+    clearAllBtn.style.display = selectedCount > 0 ? 'inline-block' : 'none';
   }
 });
-
-</script>
 
 <style>
 .cust-project{
