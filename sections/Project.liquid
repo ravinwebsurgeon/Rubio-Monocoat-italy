@@ -413,7 +413,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-//for filters
+{% comment %} //for filters
 document.addEventListener('DOMContentLoaded', function() {
   const colourFilter = document.getElementById('colour-filter');
   const productFilter = document.getElementById('product-filter');
@@ -440,7 +440,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   colourFilter.addEventListener('change', filterProducts);
   productFilter.addEventListener('change', filterProducts);
-});
+}); {% endcomment %}
 
 
 
