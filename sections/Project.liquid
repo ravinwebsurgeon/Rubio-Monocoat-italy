@@ -1615,6 +1615,44 @@ li.product-item {
 }
 
 {% comment %}  {% endcomment %}
+.filter-wrap {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.icon-btn.filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+}
+
+.filters-code {
+  display: none;
+  width: 100%;
+  background: #f7f7f7;
+  padding: 15px;
+  margin-top: 10px;
+  border-top: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.filters-code.active {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filters-code select {
+  flex: 1;
+  min-width: 200px;
+  padding: 8px;
+  font-size: 14px;
+}
 
 </style>
 
