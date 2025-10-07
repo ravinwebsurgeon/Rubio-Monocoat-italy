@@ -413,7 +413,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-{% comment %} //for filters
+ //for filters
 document.addEventListener('DOMContentLoaded', function() {
   const colourFilter = document.getElementById('colour-filter');
   const productFilter = document.getElementById('product-filter');
@@ -440,7 +440,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   colourFilter.addEventListener('change', filterProducts);
   productFilter.addEventListener('change', filterProducts);
-}); {% endcomment %}
+}); 
 
 
 
@@ -563,7 +563,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 </script>
-<script>
+{% comment %} <script>
 document.addEventListener('DOMContentLoaded', function() {
   // --- Elements ---
   const filterByBtn = document.getElementById('filterByBtn');
@@ -663,7 +663,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // You can implement selectedSort here later
   }
 });
-</script>
+</script> {% endcomment %}
 
 
 <style>
