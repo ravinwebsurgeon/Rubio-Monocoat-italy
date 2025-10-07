@@ -101,7 +101,7 @@
                   </svg>
                   <span>Filter by</span>
                 </button>
-                 <div class="filters-code">
+                 {% comment %} <div class="filters-code">
 
                 <select name="colour-filter" id="colour-filter">
                     <option value="" disabled selected>Colour</option>
@@ -126,7 +126,7 @@
                       {% endfor %}
                     {% endfor %}
                   </select>                  
-                </div>
+                </div> {% endcomment %}
               </div>                
             </div>
             <button class="tips-link" id="openVideo">
@@ -146,7 +146,7 @@
             </button>
           </div>
           
-{% comment %} <!-- Filters Panel (hidden by default) -->
+ <!-- Filters Panel (hidden by default) -->
 <div id="filtersPanel" class="filters-panel" style="display: none; margin-top: 10px;">
   <!-- Buttons -->
   <div class="filter-buttons">
@@ -192,7 +192,7 @@
 
   <!-- Clear All Button -->
   <button id="clearFilters" class="button clear-all" style="margin-top: 10px;">Clear All</button>
-</div> {% endcomment %}
+</div> 
 
 
           <!-- Video modal -->
@@ -413,7 +413,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
- //for filters
+ {% comment %} //for filters
 document.addEventListener('DOMContentLoaded', function() {
   const colourFilter = document.getElementById('colour-filter');
   const productFilter = document.getElementById('product-filter');
@@ -436,7 +436,7 @@ document.addEventListener('DOMContentLoaded', function() {
         product.style.display = 'none';
       }
     });
-  }
+  } {% endcomment %}
 
   colourFilter.addEventListener('change', filterProducts);
   productFilter.addEventListener('change', filterProducts);
@@ -563,7 +563,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 </script>
-{% comment %} <script>
+<script>
 document.addEventListener('DOMContentLoaded', function() {
   // --- Elements ---
   const filterByBtn = document.getElementById('filterByBtn');
@@ -658,12 +658,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
       product.style.display = (colourMatch && productMatch) ? '' : 'none';
     });
-
-    // Optional: Add sorting logic if needed
-    // You can implement selectedSort here later
   }
 });
-</script> {% endcomment %}
+</script> 
 
 
 <style>
