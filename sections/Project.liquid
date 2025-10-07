@@ -565,19 +565,25 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // --- Elements ---
   const filterByBtn = document.getElementById('filterByBtn');
   const filtersPanel = document.getElementById('filtersPanel');
   const filterBtns = document.querySelectorAll('.filter-btn');
   const filterOptions = document.querySelectorAll('.filter-options');
   const clearBtn = document.getElementById('clearFilters');
+  const products = document.querySelectorAll('.product-item');
 
-  if (!filterByBtn || !filtersPanel || !filterBtns.length || !filterOptions.length || !clearBtn) return;
+  let selectedColour = null;
+  let selectedProduct = null;
+  let selectedSort = null;
 
-  // Toggle filters panel on "Filter By" click
+  if (!filterByBtn || !filtersPanel || !filterBtns.length || !filterOptions.length) return;
+
+  // --- Show/Hide Filters Panel ---
   filterByBtn.addEventListener('click', () => {
     filtersPanel.style.display = (filtersPanel.style.display === 'block') ? 'none' : 'block';
 
-    // Reset default active tab to Colour
+    // Reset default tab to Colour
     filterBtns.forEach(btn => btn.classList.remove('active'));
     filterBtns[0].classList.add('active');
 
@@ -586,7 +592,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Switch between tabs
+  // --- Switch Tabs ---
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const targetId = btn.dataset.target;
@@ -600,18 +606,65 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Clear All button
+  // --- Click on Filter Option (Colour/Product/Sort) ---
+  document.querySelectorAll('.filter-options .option-btn').forEach(option => {
+    option.addEventListener('click', () => {
+      const parentPanel = option.closest('.filter-options');
+      const value = option.dataset.value;
+
+      if (parentPanel.id === 'colour-options') {
+        selectedColour = value;
+      } else if (parentPanel.id === 'product-options') {
+        selectedProduct = value;
+      } else if (parentPanel.id === 'sort-options') {
+        selectedSort = value;
+      }
+
+      // Highlight active option
+      parentPanel.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
+      option.classList.add('active');
+
+      filterProducts();
+    });
+  });
+
+  // --- Clear All ---
   clearBtn.addEventListener('click', () => {
-    // Reset to Colour tab
+    selectedColour = null;
+    selectedProduct = null;
+    selectedSort = null;
+
+    // Reset active tab to Colour
     filterBtns.forEach(b => b.classList.remove('active'));
     filterBtns[0].classList.add('active');
 
     filterOptions.forEach(panel => {
       panel.style.display = (panel.id === 'colour-options') ? 'block' : 'none';
+      panel.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
     });
+
+    // Show all products
+    products.forEach(p => p.style.display = '');
   });
+
+  // --- Filter Products Function ---
+  function filterProducts() {
+    products.forEach(product => {
+      const productColours = (product.dataset.colours || '').split(',');
+      const productProducts = (product.dataset.products || '').split(',');
+
+      const colourMatch = !selectedColour || productColours.includes(selectedColour);
+      const productMatch = !selectedProduct || productProducts.includes(selectedProduct);
+
+      product.style.display = (colourMatch && productMatch) ? '' : 'none';
+    });
+
+    // Optional: Add sorting logic if needed
+    // You can implement selectedSort here later
+  }
 });
 </script>
+
 
 <style>
 .cust-project{
