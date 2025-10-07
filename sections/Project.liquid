@@ -564,34 +564,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 </script>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const filterByBtn = document.getElementById('filterByBtn');
+  const filterByBtn = document.getElementById('filterByBtn'); // Button to show/hide panel
   const filtersPanel = document.getElementById('filtersPanel');
 
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const filterOptions = document.querySelectorAll('.filter-options');
-  const clearBtn = document.getElementById('clearFilters');
+  const filterBtns = document.querySelectorAll('.filter-btn'); // Colour/Product/Sort buttons
+  const filterOptions = document.querySelectorAll('.filter-options'); // Panels for each tab
+  const clearBtn = document.getElementById('clearFilters'); // Clear All button
 
-  // Show/hide filters panel
+  // Show/hide filters panel on "Filter By" click
   filterByBtn.addEventListener('click', () => {
-    filtersPanel.style.display = (filtersPanel.style.display === 'block') ? 'none' : 'block';
-    
-    // Ensure default active panel is shown
-    filterOptions.forEach(panel => {
-      panel.style.display = (panel.id === 'colour-options') ? 'block' : 'none';
-    });
-    filterBtns.forEach(btn => btn.classList.remove('active'));
-    filterBtns[0].classList.add('active'); // Colour button active
+    if (filtersPanel.style.display === 'block') {
+      filtersPanel.style.display = 'none';
+    } else {
+      filtersPanel.style.display = 'block';
+      
+      // Reset to default: Colour active
+      filterBtns.forEach(btn => btn.classList.remove('active'));
+      filterBtns[0].classList.add('active');
+      filterOptions.forEach(panel => {
+        panel.style.display = (panel.id === 'colour-options') ? 'block' : 'none';
+      });
+    }
   });
 
-  // Tab buttons functionality
+  // Switch between tabs
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const targetId = btn.dataset.target;
 
-      // Set active class on clicked button
+      // Set active button
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
@@ -602,16 +605,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Clear All button
+  // Clear All button resets view
   clearBtn.addEventListener('click', () => {
+    // Reset to Colour active
     filterBtns.forEach(b => b.classList.remove('active'));
-    filterBtns[0].classList.add('active'); // Colour button active
+    filterBtns[0].classList.add('active');
+
+    // Show only Colour panel
     filterOptions.forEach(panel => {
       panel.style.display = (panel.id === 'colour-options') ? 'block' : 'none';
     });
   });
 });
 </script>
+
 <style>
 .cust-project{
   font-family: Frutiger Neue LT W1G;
