@@ -541,104 +541,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //available-filters
  
-{% comment %} document.querySelector('.filter-wrap button.icon-btn')
+document.querySelector('.filter-wrap button.icon-btn')
 .addEventListener('click', function() {
   document.querySelector('.filters-code').classList.toggle('active');
-}); {% endcomment %}
+});
 
  
 </script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const filterPanel = document.getElementById('filterPanel');
-  const filterToggle = document.querySelector('.filter-wrap .filter');
-  const tabs = document.querySelectorAll('.filter-tab');
-  const tabContents = document.querySelectorAll('.filter-tab-content');
-  const clearAllBtn = document.getElementById('clearAllFilters');
-  const selectedCountEl = document.getElementById('selectedCount');
 
-  let selectedColours = [];
-  let selectedSort = null;
-
-  // Toggle filter panel
-  filterToggle.addEventListener('click', () => {
-    filterPanel.classList.toggle('active');
-  });
-
-  // Tabs switching
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
-      tabContents.forEach(c => c.classList.remove('active'));
-      document.getElementById(tab.dataset.tab).classList.add('active');
-    });
-  });
-
-  // Colour filtering
-  document.querySelectorAll('.colour-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const colour = btn.dataset.colour;
-      if (selectedColours.includes(colour)) {
-        selectedColours = selectedColours.filter(c => c !== colour);
-        btn.classList.remove('selected');
-      } else {
-        selectedColours.push(colour);
-        btn.classList.add('selected');
-      }
-      updateSelectedCount();
-      applyFilters();
-    });
-  });
-
-  // Sort buttons
-  document.querySelectorAll('.sort-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('selected'));
-      btn.classList.add('selected');
-      selectedSort = btn.dataset.sort;
-      applySorting();
-    });
-  });
-
-  // Clear All
-  clearAllBtn.addEventListener('click', () => {
-    selectedColours = [];
-    selectedSort = null;
-
-    document.querySelectorAll('.colour-btn').forEach(b => b.classList.remove('selected'));
-    document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('selected'));
-
-    updateSelectedCount();
-    applyFilters(true);
-  });
-
-  function updateSelectedCount() {
-    selectedCountEl.textContent = `${selectedColours.length} selected`;
-  }
-
-  function applyFilters(reset = false) {
-    const products = document.querySelectorAll('.product-item');
-    products.forEach(product => {
-      const productColours = product.dataset.colours ? product.dataset.colours.split(',') : [];
-      const matchesColour = selectedColours.length === 0 || selectedColours.some(c => productColours.includes(c));
-      product.style.display = matchesColour ? '' : 'none';
-    });
-
-    if (reset) {
-      products.forEach(p => (p.style.display = ''));
-    }
-  }
-
-  function applySorting() {
-    // Add your product grid sorting logic here
-    // For now, just console.log
-    console.log('Sorting by:', selectedSort);
-  }
-});
-
-</script>
 
 <style>
 .cust-project{
