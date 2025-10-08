@@ -41,8 +41,7 @@ $(document).ready(function () {
   function initSlick() {
     if ($(window).width() < 989) {
       if (!$('.reviews-grid').hasClass('slick-initialized')) {
-        $('.reviews-grid').slick({       
-          centerMode:true,
+        $('.reviews-grid').slick({  
           dots:  true,
           arrows: false,
           appendArrows: $('.review-hediing-right'),
@@ -59,8 +58,6 @@ $(document).ready(function () {
               breakpoint: 749, // < 749px
               settings: {
                 slidesToShow: 1,
-                centerMode:true,
-                centerPadding: '40px'
               }
             }
           ]
