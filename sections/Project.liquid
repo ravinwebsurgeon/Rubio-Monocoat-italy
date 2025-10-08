@@ -688,7 +688,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // --- Elements ---
   const filterByBtn = document.getElementById('filterByBtn');
   const filtersPanel = document.getElementById('filtersPanel');
   const filterBtns = document.querySelectorAll('.filter-btn');
@@ -702,7 +701,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (!filterByBtn || !filtersPanel || !filterBtns.length || !filterOptions.length) return;
 
-  // ✅ Make sure all products are visible by default
+  // ✅ Show ALL products immediately on page load
   products.forEach(product => {
     product.style.display = '';
   });
@@ -718,8 +717,6 @@ document.addEventListener('DOMContentLoaded', function() {
     filterOptions.forEach(panel => {
       panel.style.display = (panel.id === 'colour-options') ? 'block' : 'none';
     });
-
-    filterProducts();
   });
 
   // --- Switch Tabs ---
@@ -736,7 +733,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // --- Click on Filter Option (Colour/Product/Sort) ---
+  // --- Click on Filter Option ---
   document.querySelectorAll('.filter-options .option-btn').forEach(option => {
     option.addEventListener('click', () => {
       const parentPanel = option.closest('.filter-options');
@@ -774,7 +771,7 @@ document.addEventListener('DOMContentLoaded', function() {
     products.forEach(p => p.style.display = '');
   });
 
-  // --- Filter Products Function ---
+  // --- Filtering ---
   function filterProducts() {
     products.forEach(product => {
       const productColours = (product.dataset.colours || '').split(',');
@@ -787,13 +784,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // ✅ Run once after everything is set up
-  setTimeout(() => {
-    products.forEach(product => product.style.display = '');
-    filterProducts();
-  }, 0);
+  // ✅ Run filter once on load to ensure all products are visible
+  filterProducts();
 });
 </script>
+
 
 
 
