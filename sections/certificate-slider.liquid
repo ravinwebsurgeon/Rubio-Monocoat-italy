@@ -674,7 +674,7 @@ document.addEventListener("DOMContentLoaded", function(){
           {% if block.settings.certificate_image %}
             <img 
               src="{{ block.settings.certificate_image | img_url:'master' }}" 
-              alt="{{ block.settings.certificate_title | escape }}">
+              alt="{{ block.settings.certificate_title | escape }}" width="" height="">
           {% endif %}
           <div class="certificate-desc">
             <p>{{ block.settings.certificate_description }}</p>
