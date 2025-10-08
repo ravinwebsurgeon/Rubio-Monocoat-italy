@@ -659,22 +659,30 @@ section.product-features-section {
     gap: 9px;
 }
 
- .product-section .product-addons-wrapper .addons-list {
+.product-section .product-addons-wrapper .addons-list {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease;
-    padding: 0 0; /* reset */
+    transition: max-height .4s ease;
+    padding: 0;
+    position: absolute;
+    overflow: auto;
+    z-index: 99999;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background-color: #fff;
   }
 
- .product-section .product-addons-wrapper .addons-list.open {
-    max-height: 800px; /* large enough to fit contents */
-    padding: 25px 0 0;
+.product-section .product-addons-wrapper .addons-list.open {
+    max-height: 330px;
+    padding: 25px 15px 0;
   }
 
 .product-section .product-addons-wrapper .addon-item {
     background-color: #fff;
     padding: 12px 15px;
     margin-bottom: 10px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
 }
 
 .product-section .product-addons-wrapper span.addon-title {
