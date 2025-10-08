@@ -709,14 +709,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // --- Show/Hide Filters Panel ---
   filterByBtn.addEventListener('click', () => {
-    filtersPanel.style.display = (filtersPanel.style.display === 'block') ? 'none' : 'block';
+    filtersPanel.style.display = (filtersPanel.style.display === 'block') ? 'none' : 'flex';
 
     // Reset default tab to Colour
     filterBtns.forEach(btn => btn.classList.remove('active'));
     filterBtns[0].classList.add('active');
 
     filterOptions.forEach(panel => {
-      panel.style.display = (panel.id === 'colour-options') ? 'block' : 'none';
+      panel.style.display = (panel.id === 'colour-options') ? 'flex' : 'none';
     });
   });
 
