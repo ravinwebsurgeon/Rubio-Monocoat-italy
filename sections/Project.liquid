@@ -640,8 +640,8 @@ document.addEventListener('DOMContentLoaded', function() {
         selectedColour = value;
       } else if (parentPanel.id === 'product-options') {
         selectedProduct = value;
-      } else if (parentPanel.id === 'sort-options') {
-        selectedSort = value;
+      {% comment %} } else if (parentPanel.id === 'sort-options') {
+        selectedSort = value; {% endcomment %}
       }
 
       // Highlight active option
