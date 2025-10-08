@@ -804,6 +804,30 @@ body:not(.templateindex) .shopify-section-header-sticky.scrolled-past-header .co
     margin: 0 10px 10px 0px;
 }
 
+button.filter-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    border: 1px solid;
+    background-color: #fff;
+    border-radius: 5px;
+    outline: none;
+    padding: 7px 10px;
+    cursor: pointer;
+}
+
+button.filter-item .color {
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 35px;
+}
+
+.color.capitalized[style="background-color: clear"] {
+    display: none;
+}
+
 
 @media (max-width: 1900px ){
    
