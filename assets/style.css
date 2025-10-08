@@ -4743,6 +4743,7 @@ body section.custom-blog-section .page-width {
 body .custom-blog-section p.blog-description {
     font-size: 14px;
     line-height: 21px;
+    padding: 0 25px;
 }
 
 body .custom-blog-section p.blog-date {
