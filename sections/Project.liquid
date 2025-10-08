@@ -702,6 +702,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (!filterByBtn || !filtersPanel || !filterBtns.length || !filterOptions.length) return;
 
+  // ✅ Make sure all products are visible by default
+  products.forEach(product => {
+    product.style.display = '';
+  });
+
   // --- Show/Hide Filters Panel ---
   filterByBtn.addEventListener('click', () => {
     filtersPanel.style.display = (filtersPanel.style.display === 'block') ? 'none' : 'block';
@@ -714,8 +719,7 @@ document.addEventListener('DOMContentLoaded', function() {
       panel.style.display = (panel.id === 'colour-options') ? 'block' : 'none';
     });
 
-    // ✅ Show all products when opening the filter panel
-     filterProducts(); 
+    filterProducts();
   });
 
   // --- Switch Tabs ---
@@ -746,7 +750,6 @@ document.addEventListener('DOMContentLoaded', function() {
         selectedSort = value;
       }
 
-      // Highlight active option
       parentPanel.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
       option.classList.add('active');
 
@@ -755,12 +758,11 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // --- Clear All ---
-  clearBtn.addEventListener('click', () => {
+  clearBtn?.addEventListener('click', () => {
     selectedColour = null;
     selectedProduct = null;
     selectedSort = null;
 
-    // Reset active tab to Colour
     filterBtns.forEach(b => b.classList.remove('active'));
     filterBtns[0].classList.add('active');
 
@@ -769,7 +771,6 @@ document.addEventListener('DOMContentLoaded', function() {
       panel.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
     });
 
-    // Show all products
     products.forEach(p => p.style.display = '');
   });
 
@@ -786,10 +787,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // ✅ Run once on initial page load to show all products by default
-  filterProducts();
+  // ✅ Run once after everything is set up
+  setTimeout(() => {
+    products.forEach(product => product.style.display = '');
+    filterProducts();
+  }, 0);
 });
 </script>
+
 
 
 <style>
