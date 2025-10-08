@@ -205,14 +205,14 @@
       {% endfor %}
     </div>
 
-    <!-- Sort By Options -->
+    {% comment %} <!-- Sort By Options -->
     <div id="sort-options" class="filter-options" style="display: none;">
       <button class="option-btn" data-value="price-asc">Price: Low to High</button>
       <button class="option-btn" data-value="price-desc">Price: High to Low</button>
       <button class="option-btn" data-value="title-asc">Title: A to Z</button>
       <button class="option-btn" data-value="title-desc">Title: Z to A</button>
     </div>
-  </div>
+  </div> {% endcomment %}
 
   <!-- Clear All Button -->
   <button id="clearFilters" class="button clear-all" style="margin-top: 10px;">Clear All</button>
