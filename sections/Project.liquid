@@ -574,7 +574,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //available-filters
  
- document.querySelector('.filter-wrap button.icon-btn')
+ {% comment %} document.querySelector('.filter-wrap button.icon-btn')
 .addEventListener('click', function() {
   document.querySelector('.filters-code').classList.toggle('active');
 });
@@ -587,7 +587,7 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleBtn.addEventListener('click', () => {
       filtersPanel.classList.toggle('active');
     });
-  });  
+  });  {% endcomment %}
 
  
 </script>
