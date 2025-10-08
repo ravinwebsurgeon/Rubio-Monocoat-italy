@@ -4983,6 +4983,9 @@ font-weight: bold;
     flex-wrap: wrap;
     line-height: 1.4;
     font-size: 14px;
+    flex: 1;
+    justify-content: space-between;
+    gap: 10px;
   }
 
   .oil-calculator-text a {
