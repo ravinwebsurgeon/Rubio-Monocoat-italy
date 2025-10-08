@@ -222,8 +222,7 @@ $(document).ready(function(){
       if (!$('.blog-posts-grid').hasClass('slick-initialized')) {
         $('.blog-posts-grid').slick({
           slidesToShow: 2,
-          slidesToScroll: 1.1,
-          centerPadding: '20px',
+          slidesToScroll: 1,          
           centermode:true,
           dots: true,
           arrows: false,
@@ -233,7 +232,8 @@ $(document).ready(function(){
             {
               breakpoint: 768,
               settings: {
-                slidesToShow: 2
+                slidesToShow: 2,
+                centerPadding: '20px',
               }
             }
           ]
