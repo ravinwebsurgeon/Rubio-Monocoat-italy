@@ -4597,6 +4597,7 @@ body .custom-blog-section .blog-hhheadiing {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding:0 20px;
 }
 
 body .custom-blog-section .blog-hediing-right {
@@ -4606,7 +4607,7 @@ body .custom-blog-section .blog-hediing-right {
 }
 
 body section.custom-blog-section .page-width {
-    padding: 0 25px;
+    padding: 0 ;
 }
 
 body .custom-blog-section p.blog-description {
