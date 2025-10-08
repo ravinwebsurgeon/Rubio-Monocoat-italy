@@ -158,7 +158,7 @@
   <!-- Options Panels -->
   <div class="filter-options-container" style="margin-top: 10px;">
     <!-- Colour Options -->
-    {% comment %} <div id="colour-options" class="filter-options">
+     <div id="colour-options" class="filter-options">
       {% for block in section.blocks %}
         {% assign tab_collection = block.settings.tab_collection %}
         {% for product in tab_collection.products %}
@@ -167,9 +167,9 @@
           {% endfor %}
         {% endfor %}
       {% endfor %}
-    </div> {% endcomment %}
+    </div> 
 
-    <div id="colour-options" class="filter-options">
+    {% comment %} <div id="colour-options" class="filter-options">
   {% assign unique_colours = '' %}
   {% for block in section.blocks %}
     {% assign tab_collection = block.settings.tab_collection %}
@@ -190,7 +190,7 @@
       {% endfor %}
     {% endfor %}
   {% endfor %}
-</div>
+</div> {% endcomment %}
 
 
     <!-- Product Options -->
