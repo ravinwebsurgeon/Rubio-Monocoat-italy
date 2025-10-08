@@ -4570,7 +4570,7 @@ body.templateproduct-2 .Advise_\&_Test:hover {
 }
 
 .custom-collections-section .collections-grid.slick-initialized.slick-slider {
-    margin-left: -15px;
+    margin: 0 -25px;
 }
 
 body .custom-blog-section .blog-posts-grid {
