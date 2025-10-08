@@ -765,7 +765,7 @@ document.addEventListener('DOMContentLoaded', function() {
     filterBtns[0].classList.add('active');
 
     filterOptions.forEach(panel => {
-      panel.style.display = (panel.id === 'colour-options') ? 'block' : 'none';
+      panel.style.display = (panel.id === 'colour-options') ? 'flex' : 'none';
       panel.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
     });
 
