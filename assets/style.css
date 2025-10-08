@@ -474,7 +474,7 @@ section.custom-collections-section .container {
     flex-wrap: wrap;
     column-gap: 20px;
     grid-template-columns: repeat(3, 1fr);
-    max-width: 460px;
+    max-width: 560px;
     row-gap: 30px;
     margin-bottom: 50px;
 }
@@ -4105,7 +4105,7 @@ p.color-inner-text {
     font-size: 15px;
 }
 
-.colour-grid {column-gap: 10px;row-gap: 26px;margin-bottom: 30px;max-width: 450px;}
+.colour-grid {column-gap: 10px;row-gap: 26px;margin-bottom: 30px;max-width: 350px;}
 
 a.colour-button {
         font-size: 14px;
