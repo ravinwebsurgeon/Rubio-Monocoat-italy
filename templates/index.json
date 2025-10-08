@@ -247,6 +247,8 @@
       "name": "Csutom Blog Section",
       "settings": {
         "heading": "Our Blogs",
+        "view_all_label": "View All",
+        "view_all_link": "shopify://blogs/news",
         "blog": "news",
         "post_limit": 3
       }
