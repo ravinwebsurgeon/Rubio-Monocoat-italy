@@ -21,7 +21,7 @@
           {% if article.image %}
             <a href="{{ article.url }}" class="blog-post-image">
               <div class="blogss-imggg">
-              <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.title }}">
+                <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.title }}" width="" height="">
               </div>
             </a>
           {% endif %}
@@ -29,8 +29,8 @@
           <div class="blog-post-meta">
             <p class="blog-date">{{ article.published_at | date: "%B %d, %Y" }}</p>
             <h3 class="blog-title"><a href="{{ article.url }}">{{ article.title }}</a></h3>
-<p class="blog-description">{{ article.content | strip_html | truncate: 200 }}</p>
-<a href="{{ article.url }}" class="blog-readmore">Read More</a>
+            <p class="blog-description">{{ article.content | strip_html | truncate: 200 }}</p>
+            <a href="{{ article.url }}" class="blog-readmore">Read More</a>
 
           </div>
         </div>
