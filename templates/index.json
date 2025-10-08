@@ -301,7 +301,7 @@
             "class": "first-container-sec",
             "icon": "shopify://shop_images/Telephone.png",
             "heading": "Telephone advice",
-            "subhead": "Available on",
+            "subhead": "",
             "subtext": "<a href=\"tel:+32%20(0)%2051%2030%2080%2054\">+32 (0) 51 30 80 54</a>",
             "extra_text": "On weekdays 08:30 - 17:00"
           }
