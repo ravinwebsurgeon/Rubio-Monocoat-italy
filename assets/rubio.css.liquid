@@ -824,6 +824,30 @@ body:not(.templateindex) .shopify-section-header-sticky.scrolled-past-header .co
 .filter-options-container .color.capitalized[style="background-color: clear"] {
     display: none;
 }
+.circle-tabs-section .filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.circle-tabs-section .filter-buttons .filter-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    border: none;
+    background-color: #fff;
+    border-radius: 5px;
+    outline: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #f5f5f5;
+}
+
+.circle-tabs-section .filter-buttons .filter-btn.active,.circle-tabs-section .filter-buttons .filter-btn:hover {
+    background-color: #183029;
+    color: #fff;
+}
 
 
 @media (max-width: 1900px ){
