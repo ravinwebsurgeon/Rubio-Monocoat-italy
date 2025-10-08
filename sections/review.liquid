@@ -14,7 +14,7 @@
           <div class="review-header">
             <div class="profile-info">
               {% if block.settings.image %}
-                <img src="{{ block.settings.image | img_url: '90x90' }}" alt="{{ block.settings.name }}">
+                <img src="{{ block.settings.image | img_url: '90x90' }}" alt="{{ block.settings.name }}" width="" height="">
               {% endif %}
               <div>
                 <h3 class="name">{{ block.settings.name }}</h3>
@@ -23,7 +23,7 @@
             </div>
             <div class="star-rating">
               {% if block.settings.stars %}
-                <img src="{{ block.settings.stars | img_url: '80x' }}" alt="Star rating">
+                <img src="{{ block.settings.stars | img_url: '80x' }}" alt="Star rating" width="" height="">
               {% endif %}
             </div>
           </div>
