@@ -764,12 +764,12 @@ document.addEventListener("DOMContentLoaded", function(){
     display: flex;
     gap: 10px;
     cursor: pointer;
-    opacity:0;
+    {% comment %} opacity:0; {% endcomment %}
     transition:all ease 0.3s;
   }
-  .certificates-slider:hover .certificates-arrows {
+  {% comment %} .certificates-slider:hover .certificates-arrows {
     opacity: 1;
-}
+} {% endcomment %}
 
    .certificates-slider .certificate-card {
     border-radius: 20px;
