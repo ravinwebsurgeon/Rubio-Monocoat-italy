@@ -1537,7 +1537,8 @@ section.product-features-section .section-heading {
     filter: none;
 }
 .available-and-text a {
-    color: #000;
+    color: #000000b2 ;
+    text-decoration: none;
 }
 
 .icon-columns-section.wood_colorss .icon-columns {
