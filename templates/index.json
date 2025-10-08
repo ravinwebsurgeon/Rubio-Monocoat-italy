@@ -313,7 +313,7 @@
             "icon": "shopify://shop_images/Email_2.png",
             "heading": "Send us an email",
             "subhead": "",
-            "subtext": "Send us a rubio@monocoatusa.com",
+            "subtext": "<a href=\"mailtio:rubio@monocoatusa.com\">rubio@monocoatusa.com</a>",
             "extra_text": "Response within 2 working days"
           }
         },
