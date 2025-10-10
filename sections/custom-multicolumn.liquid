@@ -115,7 +115,7 @@
             {% if block.settings.icon != blank %}
               <img src="{{ block.settings.icon | img_url: '100x100' }}" 
                    alt="{{ block.settings.heading }}" 
-                   style="width: {{ block.settings.icon_width }};
+                   style="width: {{ block.settings.icon_width }}; max-width: {{ block.settings.icon_width }};
                           height: {{ block.settings.icon_height }};
                           @media(max-width: 767px) { width: {{ block.settings.icon_width_mobile }}; max-width: {{ block.settings.icon_width_mobile }};
                                                    height: {{ block.settings.icon_height_mobile }}; }">
