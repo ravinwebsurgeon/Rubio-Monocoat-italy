@@ -4676,10 +4676,10 @@ body .custom-blog-section .blogss-imggg {
     margin: 7px 0 0 !important;
 }
 
-    .right-column img {
+    /* .right-column img {
         height: 500px;
         object-fit: contain;
-    }
+    } */
 
     .product-features-section .product-features {
         gap: 40px;
