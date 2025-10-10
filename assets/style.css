@@ -20,11 +20,10 @@ body .header__icon:hover .icon {
 details[open] .modal-overlay:after {
     BACKGROUND-COLOR: #000000cf !important;
 }
-.image-wrapper img {
-    border: 2px solid transparent;
+.image-wrapper img {    
     display: block;
     border-radius: 20px;
-    padding: 3px;
+    padding: 0;
     cursor: pointer;
 }
 
