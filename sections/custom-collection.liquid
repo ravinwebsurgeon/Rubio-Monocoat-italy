@@ -35,7 +35,7 @@
         $('.collections-grid').slick({
           slidesToShow: 2,
           slidesToScroll: 1,  
-
+          infinite: false,
           {% comment %} centerMode:true, {% endcomment %}
           dots:  true,
           autoplay: true,
@@ -47,6 +47,7 @@
               breakpoint: 768,
               settings: {
                 autoplay: true,
+                infinite: false,
                 slidesToShow: 1.2,
                 {% comment %} centerMode:true, {% endcomment %}
                 centerPadding: '40px'
