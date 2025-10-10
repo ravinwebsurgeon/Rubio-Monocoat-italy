@@ -304,7 +304,7 @@
             "icon": "shopify://shop_images/Telephone.png",
             "heading": "Telephone advice",
             "subhead": "",
-            "subtext": "<a href=\"tel:+32%20(0)%2051%2030%2080%2054\">+32 (0) 51 30 80 54</a>",
+            "subtext": "+32 (0) 51 30 80 54",
             "extra_text": "On weekdays 08:30 - 17:00"
           }
         },
@@ -315,7 +315,7 @@
             "icon": "shopify://shop_images/Email_2.png",
             "heading": "Send us an email",
             "subhead": "",
-            "subtext": "<a href=\"mailtio:rubio@monocoatusa.com\">rubio@monocoatusa.com</a>",
+            "subtext": "<ahref> rubio@monocoatusa.com </ahref>",
             "extra_text": "Response within 2 working days"
           }
         },
