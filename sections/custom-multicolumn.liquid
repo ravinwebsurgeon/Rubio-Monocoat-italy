@@ -110,7 +110,7 @@
                style="background-color: {{ block.settings.icon_bg_color }};
                       width: {{ block.settings.icon_wrap_width }};
                       height: {{ block.settings.icon_wrap_height }};
-                      @media(max-width: 767px) { width: {{ block.settings.icon_wrap_width_mobile }};
+                      @media(max-width: 767px) { width: {{ block.settings.icon_wrap_width_mobile }};max-width: {{ block.settings.icon_wrap_width_mobile }};
                                                height: {{ block.settings.icon_wrap_height_mobile }}; }">
             {% if block.settings.icon != blank %}
               <img src="{{ block.settings.icon | img_url: '100x100' }}" 
