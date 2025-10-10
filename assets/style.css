@@ -555,7 +555,7 @@ section.custom-collections-section .container {
 }
 .colour-item .image-wrapper img {
     padding: 0;
-    transition: all ease 0.3s;
+    /* transition: all ease 0.3s; */
 }
 a.colour-button {
     max-width: 192px;
