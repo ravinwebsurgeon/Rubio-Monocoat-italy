@@ -2146,7 +2146,10 @@ img {}
 .left-column .color_text {
     display: none;
 }
-
+body .two-column-colour-grid .colour-item .image-wrapper {
+    width: 90px !important;
+    max-width: 90px !important;
+}
 .colour-item img {
     width: 90px;
     height: 90px;
