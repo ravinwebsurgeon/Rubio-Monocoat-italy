@@ -89,51 +89,31 @@
 <section class="icon-columns-section {{ section.settings.class_add }}" 
          style="background-color: {{ section.settings.section_bg_color }};">
   <div class="container" data-aos="fade-up">
-    <h2 class="main-headingsds" 
-        style="color: {{ section.settings.heading_color }}; 
-               font-size: {{ section.settings.heading_font_size }};
-               @media(max-width: 767px) { font-size: {{ section.settings.heading_font_size_mobile }}; }">
+    <h2 class="main-headingsds section-heading-{{ section.id }}" >
       {{ section.settings.main_heading }}
     </h2>
 
-    <p class="main-subtext" 
-       style="color: {{ section.settings.text_color }};
-              font-size: {{ section.settings.text_font_size }};
-              @media(max-width: 767px) { font-size: {{ section.settings.text_font_size_mobile }}; }">
+    <p class="main-subtext section-text-{{ section.id }}">
       {{ section.settings.main_text }}
     </p>
 
     <div class="icon-columns">
       {% for block in section.blocks %}
         <div class="icon-column">
-          <div class="icon-image-wrap" 
-               style="background-color: {{ block.settings.icon_bg_color }};
-                      width: {{ block.settings.icon_wrap_width }};
-                      height: {{ block.settings.icon_wrap_height }};
-                      @media(max-width: 767px) { width: {{ block.settings.icon_wrap_width_mobile }};max-width: {{ block.settings.icon_wrap_width_mobile }};
-                                               height: {{ block.settings.icon_wrap_height_mobile }}; }">
+          <div class="icon-image-wrap block-wrap-{{ block.id }}">
             {% if block.settings.icon != blank %}
               <img src="{{ block.settings.icon | img_url: '100x100' }}" 
                    alt="{{ block.settings.heading }}" 
-                   style="width: {{ block.settings.icon_width }}; max-width: {{ block.settings.icon_width }};
-                          height: {{ block.settings.icon_height }};
-                          @media(max-width: 767px) { width: {{ block.settings.icon_width_mobile }}; max-width: {{ block.settings.icon_width_mobile }};
-                                                   height: {{ block.settings.icon_height_mobile }}; }">
+                   class="icon-img-{{ block.id }}">
             {% endif %}
           </div>
 
           <div>
-            <h3 class="icon-heading" 
-                style="color: {{ block.settings.heading_color }}; 
-                       font-size: {{ block.settings.heading_font_size }};
-                       @media(max-width: 767px) { font-size: {{ block.settings.heading_font_size_mobile }}; }">
+            <h3 class="icon-heading icon-heading-{{ block.id }}">
               {{ block.settings.heading }}
             </h3>
 
-            <p class="icon-text" 
-               style="color: {{ block.settings.text_color }};
-                      font-size: {{ block.settings.text_font_size }};
-                      @media(max-width: 767px) { font-size: {{ block.settings.text_font_size_mobile }}; }">
+            <p class="icon-text icon-text-{{ block.id }}">
               {{ block.settings.text }}
             </p>
           </div>
@@ -142,6 +122,75 @@
     </div>
   </div>
 </section>
+
+<style>
+/* Section heading/text */
+.section-heading-{{ section.id }} {
+  color: {{ section.settings.heading_color }};
+  font-size: {{ section.settings.heading_font_size }};
+}
+.section-text-{{ section.id }} {
+  color: {{ section.settings.text_color }};
+  font-size: {{ section.settings.text_font_size }};
+}
+
+/* Responsive for section */
+@media (max-width: 767px) {
+  .section-heading-{{ section.id }} {
+    font-size: {{ section.settings.heading_font_size_mobile }};
+  }
+  .section-text-{{ section.id }} {
+    font-size: {{ section.settings.text_font_size_mobile }};
+  }
+}
+
+/* Blocks */
+{% for block in section.blocks %}
+.block-wrap-{{ block.id }} {
+  background-color: {{ block.settings.icon_bg_color }};
+  width: {{ block.settings.icon_wrap_width }};
+  height: {{ block.settings.icon_wrap_height }};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-img-{{ block.id }} {
+  width: {{ block.settings.icon_width }};
+  max-width: {{ block.settings.icon_width }};
+  height: {{ block.settings.icon_height }};
+}
+
+/* Headings & text */
+.icon-heading-{{ block.id }} {
+  color: {{ block.settings.heading_color }};
+  font-size: {{ block.settings.heading_font_size }};
+}
+.icon-text-{{ block.id }} {
+  color: {{ block.settings.text_color }};
+  font-size: {{ block.settings.text_font_size }};
+}
+
+/* Mobile responsive */
+@media (max-width: 767px) {
+  .block-wrap-{{ block.id }} {
+    width: {{ block.settings.icon_wrap_width_mobile }};
+    max-width: {{ block.settings.icon_wrap_width_mobile }};
+    height: {{ block.settings.icon_wrap_height_mobile }};
+  }
+  .icon-img-{{ block.id }} {
+    width: {{ block.settings.icon_width_mobile }};
+    max-width: {{ block.settings.icon_width_mobile }};
+    height: {{ block.settings.icon_height_mobile }};
+  }
+  .icon-heading-{{ block.id }} {
+    font-size: {{ block.settings.heading_font_size_mobile }};
+  }
+  .icon-text-{{ block.id }} {
+    font-size: {{ block.settings.text_font_size_mobile }};
+  }
+}
+{% endfor %}
+</style>
 
 {% schema %}
 {
@@ -171,8 +220,8 @@
         { "type": "text", "id": "icon_wrap_height_mobile", "label": "Icon Wrapper Height (mobile)", "default": "64px" },
         { "type": "text", "id": "icon_width", "label": "Icon Width (desktop)", "default": "50px" },
         { "type": "text", "id": "icon_height", "label": "Icon Height (desktop)", "default": "50px" },
-        { "type": "text", "id": "icon_width_mobile", "label": "Icon Width (mobile)", "default": "26.25px" },
-        { "type": "text", "id": "icon_height_mobile", "label": "Icon Height (mobile)", "default": "26.25px" },
+        { "type": "text", "id": "icon_width_mobile", "label": "Icon Width (mobile)", "default": "26px" },
+        { "type": "text", "id": "icon_height_mobile", "label": "Icon Height (mobile)", "default": "26px" },
         { "type": "text", "id": "heading", "label": "Heading", "default": "Feature Title" },
         { "type": "color", "id": "heading_color", "label": "Heading Color", "default": "#000000" },
         { "type": "text", "id": "heading_font_size", "label": "Heading Font Size (desktop)", "default": "20px" },
@@ -199,4 +248,5 @@
   ]
 }
 {% endschema %}
+
 
