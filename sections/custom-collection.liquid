@@ -48,7 +48,7 @@
               settings: {
                 autoplay: true,
                 infinite: false,
-                slidesToShow: 1.2,
+                slidesToShow: 1.1,
                 centerMode:true,
                 centerPadding: '10px'
               }
@@ -69,7 +69,12 @@
   });
 
 </script>
-
+<style>
+  .custom-collections-section .slick-list.draggable {
+    padding-left: 20px !important;
+    padding-right: 0 !important;
+}
+  </style>
 {% schema %}
 {
   "name": "custom collection",
