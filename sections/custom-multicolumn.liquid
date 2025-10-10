@@ -1,4 +1,4 @@
-<section class="icon-columns-section {{ section.settings.class_add }}">
+{% comment %} <section class="icon-columns-section {{ section.settings.class_add }}">
   <div class="container" data-aos="fade-up">
     <h2 class="main-headingsds" >{{ section.settings.main_heading }}</h2>
     <p class="main-subtext" >{{ section.settings.main_text }}</p>
@@ -83,4 +83,120 @@
     }
   ]
 }
+{% endschema %} {% endcomment %}
+
+
+<section class="icon-columns-section {{ section.settings.class_add }}" 
+         style="background-color: {{ section.settings.section_bg_color }};">
+  <div class="container" data-aos="fade-up">
+    <h2 class="main-headingsds" 
+        style="color: {{ section.settings.heading_color }}; 
+               font-size: {{ section.settings.heading_font_size }};
+               @media(max-width: 767px) { font-size: {{ section.settings.heading_font_size_mobile }}; }">
+      {{ section.settings.main_heading }}
+    </h2>
+
+    <p class="main-subtext" 
+       style="color: {{ section.settings.text_color }};
+              font-size: {{ section.settings.text_font_size }};
+              @media(max-width: 767px) { font-size: {{ section.settings.text_font_size_mobile }}; }">
+      {{ section.settings.main_text }}
+    </p>
+
+    <div class="icon-columns">
+      {% for block in section.blocks %}
+        <div class="icon-column">
+          <div class="icon-image-wrap" 
+               style="background-color: {{ block.settings.icon_bg_color }};
+                      width: {{ block.settings.icon_wrap_width }};
+                      height: {{ block.settings.icon_wrap_height }};
+                      @media(max-width: 767px) { width: {{ block.settings.icon_wrap_width_mobile }};
+                                               height: {{ block.settings.icon_wrap_height_mobile }}; }">
+            {% if block.settings.icon != blank %}
+              <img src="{{ block.settings.icon | img_url: '100x100' }}" 
+                   alt="{{ block.settings.heading }}" 
+                   style="width: {{ block.settings.icon_width }};
+                          height: {{ block.settings.icon_height }};
+                          @media(max-width: 767px) { width: {{ block.settings.icon_width_mobile }};
+                                                   height: {{ block.settings.icon_height_mobile }}; }">
+            {% endif %}
+          </div>
+
+          <div>
+            <h3 class="icon-heading" 
+                style="color: {{ block.settings.heading_color }}; 
+                       font-size: {{ block.settings.heading_font_size }};
+                       @media(max-width: 767px) { font-size: {{ block.settings.heading_font_size_mobile }}; }">
+              {{ block.settings.heading }}
+            </h3>
+
+            <p class="icon-text" 
+               style="color: {{ block.settings.text_color }};
+                      font-size: {{ block.settings.text_font_size }};
+                      @media(max-width: 767px) { font-size: {{ block.settings.text_font_size_mobile }}; }">
+              {{ block.settings.text }}
+            </p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "custom multicolumn",
+  "settings": [
+    { "type": "text", "id": "class_add", "label": "Custom Class" },
+    { "type": "color", "id": "section_bg_color", "label": "Section Background Color", "default": "#ffffff" },
+    { "type": "text", "id": "main_heading", "label": "Main Heading", "default": "Our Features" },
+    { "type": "color", "id": "heading_color", "label": "Heading Color", "default": "#000000" },
+    { "type": "text", "id": "heading_font_size", "label": "Heading Font Size (desktop)", "default": "32px" },
+    { "type": "text", "id": "heading_font_size_mobile", "label": "Heading Font Size (mobile)", "default": "24px" },
+    { "type": "text", "id": "main_text", "label": "Subtext", "default": "What makes us special" },
+    { "type": "color", "id": "text_color", "label": "Subtext Color", "default": "#333333" },
+    { "type": "text", "id": "text_font_size", "label": "Subtext Font Size (desktop)", "default": "16px" },
+    { "type": "text", "id": "text_font_size_mobile", "label": "Subtext Font Size (mobile)", "default": "14px" }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+        { "type": "image_picker", "id": "icon", "label": "Icon Image" },
+        { "type": "color", "id": "icon_bg_color", "label": "Icon Wrapper Background Color", "default": "#f5f5f5" },
+        { "type": "text", "id": "icon_wrap_width", "label": "Icon Wrapper Width (desktop)", "default": "100px" },
+        { "type": "text", "id": "icon_wrap_height", "label": "Icon Wrapper Height (desktop)", "default": "100px" },
+        { "type": "text", "id": "icon_wrap_width_mobile", "label": "Icon Wrapper Width (mobile)", "default": "80px" },
+        { "type": "text", "id": "icon_wrap_height_mobile", "label": "Icon Wrapper Height (mobile)", "default": "80px" },
+        { "type": "text", "id": "icon_width", "label": "Icon Width (desktop)", "default": "60px" },
+        { "type": "text", "id": "icon_height", "label": "Icon Height (desktop)", "default": "60px" },
+        { "type": "text", "id": "icon_width_mobile", "label": "Icon Width (mobile)", "default": "50px" },
+        { "type": "text", "id": "icon_height_mobile", "label": "Icon Height (mobile)", "default": "50px" },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Feature Title" },
+        { "type": "color", "id": "heading_color", "label": "Heading Color", "default": "#000000" },
+        { "type": "text", "id": "heading_font_size", "label": "Heading Font Size (desktop)", "default": "20px" },
+        { "type": "text", "id": "heading_font_size_mobile", "label": "Heading Font Size (mobile)", "default": "16px" },
+        { "type": "textarea", "id": "text", "label": "Description", "default": "Short description of the feature." },
+        { "type": "color", "id": "text_color", "label": "Text Color", "default": "#333333" },
+        { "type": "text", "id": "text_font_size", "label": "Text Font Size (desktop)", "default": "14px" },
+        { "type": "text", "id": "text_font_size_mobile", "label": "Text Font Size (mobile)", "default": "12px" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "custom multicolumn",
+      "category": "Custom Sections",
+      "blocks": [
+        { "type": "column" },
+        { "type": "column" },
+        { "type": "column" },
+        { "type": "column" }
+      ]
+    }
+  ]
+}
 {% endschema %}
+
