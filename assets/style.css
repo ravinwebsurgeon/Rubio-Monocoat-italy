@@ -4788,8 +4788,8 @@ body .two-column-colour-grid .colour-grid {
 }
 
 body .two-column-colour-grid .colour-item .image-wrapper {
-    width: 90px;
-    max-width: 90px;
+    width: 110px;
+    max-width: 110px;
 }
 
 body .two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
