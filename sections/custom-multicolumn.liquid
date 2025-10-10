@@ -146,7 +146,7 @@
 
 /* Blocks */
 {% for block in section.blocks %}
-.block-wrap-{{ block.id }} {
+.icon-columns-section .block-wrap-{{ block.id }} {
   background-color: {{ block.settings.icon_bg_color }};
   width: {{ block.settings.icon_wrap_width }};
   height: {{ block.settings.icon_wrap_height }};
@@ -154,38 +154,38 @@
   align-items: center;
   justify-content: center;
 }
-.icon-img-{{ block.id }} {
+.icon-columns-section .icon-img-{{ block.id }} {
   width: {{ block.settings.icon_width }};
   max-width: {{ block.settings.icon_width }};
   height: {{ block.settings.icon_height }};
 }
 
 /* Headings & text */
-.icon-heading-{{ block.id }} {
+.icon-columns-section .icon-heading-{{ block.id }} {
   color: {{ block.settings.heading_color }};
   font-size: {{ block.settings.heading_font_size }};
 }
-.icon-text-{{ block.id }} {
+.icon-columns-section .icon-text-{{ block.id }} {
   color: {{ block.settings.text_color }};
   font-size: {{ block.settings.text_font_size }};
 }
 
 /* Mobile responsive */
 @media (max-width: 767px) {
-  .block-wrap-{{ block.id }} {
+  .icon-columns-section .block-wrap-{{ block.id }} {
     width: {{ block.settings.icon_wrap_width_mobile }};
     max-width: {{ block.settings.icon_wrap_width_mobile }};
     height: {{ block.settings.icon_wrap_height_mobile }};
   }
-  .icon-img-{{ block.id }} {
+  .icon-columns-section .icon-img-{{ block.id }} {
     width: {{ block.settings.icon_width_mobile }};
     max-width: {{ block.settings.icon_width_mobile }};
     height: {{ block.settings.icon_height_mobile }};
   }
-  .icon-heading-{{ block.id }} {
+  .icon-columns-section .icon-heading-{{ block.id }} {
     font-size: {{ block.settings.heading_font_size_mobile }};
   }
-  .icon-text-{{ block.id }} {
+  .icon-columns-section .icon-text-{{ block.id }} {
     font-size: {{ block.settings.text_font_size_mobile }};
   }
 }
