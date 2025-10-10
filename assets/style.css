@@ -554,7 +554,9 @@ section.custom-collections-section .container {
     color: #000;
     margin: 0;
 }
-
+.colour-item .image-wrapper img {
+    padding: 0;
+}
 a.colour-button {
     max-width: 192px;
     width: 100%;
