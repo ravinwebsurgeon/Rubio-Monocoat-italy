@@ -431,7 +431,7 @@
 {% endstyle %} {% endcomment %}
 
 
-<div class="custom-media-gallery">
+{% comment %} <div class="custom-media-gallery">
 
   <!-- Desktop Gallery -->
   <div class="desktop-gallery">
@@ -530,8 +530,143 @@
 .mobile-gallery .slick-dots li.slick-active button {
     opacity: 1;
 }
-{% endstyle %}
+{% endstyle %} {% endcomment %}
 
+<div class="custom-media-gallery">
+
+  <!-- Desktop Gallery -->
+  <div class="desktop-gallery">
+    <div class="main-image-wrapper">
+      <div class="cus-sticky">
+        {% for media in product.media %}
+          {% assign color_handle = media.alt | handle %}
+          
+          {% if media.media_type == 'image' %}
+            <div class="main-image-item" data-color="{{ color_handle }}">
+              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+                <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
+              </a>
+            </div>
+
+          {% elsif media.media_type == 'video' %}
+            <div class="main-image-item" data-color="{{ color_handle }}">
+              <a class="glightbox" href="{{ media.sources[0].url }}" data-type="video">
+                <video width="100%" controls>
+                  <source src="{{ media.sources[0].url }}" type="{{ media.sources[0].mime_type }}">
+                  Your browser does not support the video tag.
+                </video>
+              </a>
+            </div>
+          {% endif %}
+          
+        {% endfor %}
+      </div>      
+    </div>
+
+    <div class="thumbnails-wrapper">
+      <div class="cus-sticky">
+        {% for media in product.media %}
+          {% assign color_handle = media.alt | handle %}
+
+          {% if media.media_type == 'image' %}
+            <div class="thumbnail-item" data-color="{{ color_handle }}">
+              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+                <img src="{{ media.preview_image | img_url: 'master' }}" alt="{{ media.alt | escape }}">
+              </a>
+            </div>
+
+          {% elsif media.media_type == 'video' %}
+            <div class="thumbnail-item" data-color="{{ color_handle }}">
+              <a class="glightbox" href="{{ media.sources[0].url }}" data-type="video">
+                <video width="100%" muted>
+                  <source src="{{ media.sources[0].url }}" type="{{ media.sources[0].mime_type }}">
+                </video>
+              </a>
+            </div>
+          {% endif %}
+
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Gallery (Slider) -->
+  <div class="mobile-gallery">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        {% for media in product.media %}
+          {% assign color_handle = media.alt | handle %}
+
+          {% if media.media_type == 'image' %}
+            <div class="swiper-slide" data-color="{{ color_handle }}">
+              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+                <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
+              </a>
+            </div>
+
+          {% elsif media.media_type == 'video' %}
+            <div class="swiper-slide" data-color="{{ color_handle }}">
+              <a class="glightbox" href="{{ media.sources[0].url }}" data-type="video">
+                <video width="100%" controls>
+                  <source src="{{ media.sources[0].url }}" type="{{ media.sources[0].mime_type }}">
+                </video>
+              </a>
+            </div>
+          {% endif %}
+
+        {% endfor %}
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+</div>
+
+{% style %}
+.desktop-gallery { display: block; }
+.mobile-gallery { display: none; }
+
+@media (max-width: 991px) {
+  .desktop-gallery { display: none; }
+  .mobile-gallery { display: block; }
+}
+
+.mobile-gallery .swiper-slide img,
+.mobile-gallery .swiper-slide video {
+  width: 100%;
+  display: block;
+}
+
+.swiper-pagination { text-align: center; }
+
+.mobile-gallery .slick-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  margin: 18px 0;
+  padding: 0;
+  flex-wrap:wrap;
+  gap: 7px;
+}
+
+.mobile-gallery .slick-dots li button {
+  width: 12px;
+  height: 12px;
+  background-color: #000;
+  opacity: 0.5;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  padding: 0;
+  display: block;
+  font-size: 0;
+}
+
+.mobile-gallery .slick-dots li.slick-active button {
+  opacity: 1;
+}
+{% endstyle %}
 
 
 
