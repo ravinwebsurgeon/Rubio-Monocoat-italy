@@ -1,31 +1,33 @@
+<div class="product-features">
+  {% for i in (1..5) %}
+    {% assign svg_key = "feature_svg" | append: i %}
+    {% assign text_key = "feature_text" | append: i %}
+    
+    {% assign feature_svg = product.metafields.custom[svg_key] %}
+    {% assign feature_text = product.metafields.custom[text_key] %}
+    
+    {% if feature_svg or feature_text %}
+      <div class="feature-item">
+        <div class="feature-icon">
+          {{ feature_svg }}
+        </div>
+        <div class="feature-text">
+          {{ feature_text }}
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
 {% schema %}
 {
   "name": "Product Features",
   "settings": [
     {
       "type": "header",
-      "content": "Feature Icons"
+      "content": "Features from product metafields"
     }
   ],
-  "blocks": [
-    {
-      "type": "feature",
-      "name": "Feature",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "icon_svg",
-          "label": "SVG Code"
-        },
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Feature Text"
-        }
-      ]
-    }
-  ],
-  "max_blocks": 5,
   "presets": [
     {
       "name": "Product Features",
@@ -35,18 +37,9 @@
 }
 {% endschema %}
 
-<div class="product-features">
-  {% for block in section.blocks %}
-    <div class="feature-item">
-      <div class="feature-icon">
-        {{ block.settings.icon_svg }}
-      </div>
-      <div class="feature-text">
-        {{ block.settings.text }}
-      </div>
-    </div>
-  {% endfor %}
-</div>
+
+
+
 
 <style>
 .product-features {
