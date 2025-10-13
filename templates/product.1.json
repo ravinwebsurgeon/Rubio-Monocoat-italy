@@ -20,12 +20,6 @@
           "type": "description",
           "settings": {}
         },
-        "custom_review_67AyU4": {
-          "type": "custom_review",
-          "settings": {
-            "custom_review": "<p>131 reviews</p>"
-          }
-        },
         "product_features_8xTHk7": {
           "type": "product_features",
           "settings": {
@@ -86,7 +80,6 @@
       "block_order": [
         "title",
         "description",
-        "custom_review_67AyU4",
         "product_features_8xTHk7",
         "price",
         "variant_picker",
