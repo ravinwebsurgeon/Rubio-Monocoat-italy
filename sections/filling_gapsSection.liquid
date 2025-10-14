@@ -14,8 +14,8 @@
             <div class="product-data">
                 {% assign product = section.settings.add_product %}
                 {% if product %}
-                    <form method="post" action="/cart/add">
-                <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                    {% comment %} <form method="post" action="/cart/add"> {% endcomment %}
+                {% comment %} <input type="hidden" name="id" value="{{ product.variants.first.id }}"> {% endcomment %}
                     <div class="product-block">
                         <a href="{{ product.url }}">
                             {% if product.featured_image %}
@@ -39,7 +39,7 @@
                         <button type="submit" class="add_to_cart">Add To cart</button>
                     </div>
                     </div>
-                    </form>
+                    {% comment %} </form> {% endcomment %}
                 {% endif %}
             </div>
         </div>
