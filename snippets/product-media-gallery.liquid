@@ -344,20 +344,19 @@
           {% assign color_handle = media.alt | handle %}
           <div class="main-image-item" data-color="{{ color_handle }}">
             {% if media.media_type == 'image' %}
-              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}" data-type="image">
                 <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
               </a>
             {% elsif media.media_type == 'video' %}
-              <a class="glightbox" href="{{ media | media_url }}">
-                <video width="100%" controls muted preload="none">
+              <a class="glightbox" href="{{ media | media_url }}" data-type="video">
+                <video width="100%" muted preload="none">
                   <source src="{{ media | media_url }}" type="video/mp4">
-                  Your browser does not support the video tag.
                 </video>
               </a>
             {% endif %}
           </div>
         {% endfor %}
-      </div>      
+      </div>
     </div>
 
     <div class="thumbnails-wrapper">
@@ -366,11 +365,11 @@
           {% assign color_handle = media.alt | handle %}
           <div class="thumbnail-item" data-color="{{ color_handle }}">
             {% if media.media_type == 'image' %}
-              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}" data-type="image">
                 <img src="{{ media.preview_image | img_url: 'master' }}" alt="{{ media.alt | escape }}">
               </a>
             {% elsif media.media_type == 'video' %}
-              <a class="glightbox" href="{{ media | media_url }}">
+              <a class="glightbox" href="{{ media | media_url }}" data-type="video">
                 <video width="50" height="50" muted preload="none">
                   <source src="{{ media | media_url }}" type="video/mp4">
                 </video>
@@ -390,12 +389,12 @@
           {% assign color_handle = media.alt | handle %}
           <div class="swiper-slide" data-color="{{ color_handle }}">
             {% if media.media_type == 'image' %}
-              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}" data-type="image">
                 <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
               </a>
             {% elsif media.media_type == 'video' %}
-              <a class="glightbox" href="{{ media | media_url }}">
-                <video width="100%" controls muted preload="none">
+              <a class="glightbox" href="{{ media | media_url }}" data-type="video">
+                <video width="100%" muted preload="none">
                   <source src="{{ media | media_url }}" type="video/mp4">
                 </video>
               </a>
@@ -423,10 +422,7 @@
   width: 100%;
   display: block;
 }
-
-.swiper-pagination { text-align: center; }
 {% endstyle %}
-
 
 
 
