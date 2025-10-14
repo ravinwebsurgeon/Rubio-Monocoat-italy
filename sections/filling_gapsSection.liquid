@@ -15,7 +15,7 @@
                 {% assign product = section.settings.add_product %}
                 {% if product %}
                     <form method="post" action="/cart/add">
-                    <input type="hidden" value="{{ product.selected_or_first_available_variant.id }}" name="product_id" class="product_id">
+                <input type="hidden" name="id" value="{{ product.variants.first.id }}">
                     <div class="product-block">
                         <a href="{{ product.url }}">
                             {% if product.featured_image %}
