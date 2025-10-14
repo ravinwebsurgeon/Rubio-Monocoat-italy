@@ -1,17 +1,23 @@
 <div class="filling_gap_section">
-    <div class="media_section">
-        <div class="custom_image">
-            <img src="{{ section.settings.image | img_url }}" />
+    <div class="filling_gap">
+        <div class="media_section">
+            <div class="custom_image">
+                <img src="{{ section.settings.image | img_url }}" />
+                <div class="content_section">
+                    <p class="heading">{{ section.settings.heading }}</p>
+                    <p class="subheading">{{ section.settings.subheading }}</p>
+                </div>
+            </div>
+            
         </div>
-        <div class="content_section">
-            <p class="heading">{{ section.settings.heading }}</p>
-            <p class="subheading">{{ section.settings.subheading }}</p>
+        <div class="selected_product_section">
+
         </div>
     </div>
-    <div class="selected_product_section"></div>
 </div>
 <style>
     .filling_gap_section{display:none;}
+    .filling_gap{display:flex;}
 </style>
 {% schema %}
     {
