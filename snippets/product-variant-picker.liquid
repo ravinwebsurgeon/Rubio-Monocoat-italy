@@ -151,7 +151,7 @@ document.addEventListener('click', function (e) {
         </fieldset>
       {%- elsif picker_type == 'button' -%}
         <fieldset class="js product-form__input product-form__input--pill">
-          <legend class="form__label">{{ option.name }} :
+          {% comment %} <legend class="form__label">{{ option.name }} :
              <span data-selected-size>
         {{- option.selected_value -}}
       </span>
@@ -174,7 +174,35 @@ document.addEventListener('click', function (e) {
         {% comment %} <a href="/pages/oil-calculator" id="openCalc">Try our Oil Calculator</a> {% endcomment %}
       </div>
     </div> 
-          </legend>
+          </legend> {% endcomment %}
+          <legend class="form__label variant-oil-row">
+  <div class="variant-size">
+    {{ option.name }} :
+    <span data-selected-size>
+      {{- option.selected_value -}}
+    </span>
+  </div>
+
+  <div class="oil-calculator-box">
+    <!-- Question mark SVG -->
+    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <rect width="25" height="25" fill="url(#pattern0_794_661)" />
+      <defs>
+        <pattern id="pattern0_794_661" patternContentUnits="objectBoundingBox" width="1" height="1">
+          <use xlink:href="#image0_794_661" transform="scale(0.0078125)" />
+        </pattern>
+        <image id="image0_794_661" width="128" height="128" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0K..." />
+      </defs>
+    </svg>
+
+    <!-- Text -->
+    <div class="oil-calculator-text">
+      <span>Not sure how much oil you need?</span>
+      {% comment %}<a href="/pages/oil-calculator" id="openCalc">Try our Oil Calculator</a>{% endcomment %}
+    </div>
+  </div>
+</legend>
+
           
           {% render 'product-variant-options',
             product: product,
