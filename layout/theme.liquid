@@ -474,10 +474,17 @@ document.addEventListener('DOMContentLoaded', function () {
   let mobileSwiper = null;
   let originalMobileSlides = [];
 
+  // Normalize values for comparison
   function normalizeValue(val) {
-    return val?.toString().trim().toLowerCase().replace(/\s+/g, '-').replace(/\./g,'-') || '';
+    return val?.toString()
+              .trim()
+              .toLowerCase()
+              .replace(/\s+/g,'-') // spaces to dash
+              .replace(/\./g,'-')  // dots to dash
+              || '';
   }
 
+  // Initialize GLightbox
   function initLightbox() {
     try { if(lightbox?.destroy) lightbox.destroy(); } catch(e){}
     lightbox = GLightbox({
@@ -494,6 +501,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Initialize Mobile Swiper
   function initMobileSlider() {
     if (mobileSwiper) {
       try { mobileSwiper.destroy(true,true); } catch(e){}
@@ -510,6 +518,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  // Toggle GLightbox active state
   function updateGlightboxActive() {
     document.querySelectorAll('a.glightbox').forEach(a=>{
       const parent = a.closest('.main-image-item,.thumbnail-item,.swiper-slide');
@@ -517,34 +526,29 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Update gallery based on color + size
   function updateGallery(selectedColor, selectedSize) {
     const colorHandle = normalizeValue(selectedColor);
     const sizeHandle = normalizeValue(selectedSize);
 
     // DESKTOP - main images
-    let shownMain = false;
     document.querySelectorAll('.main-image-item').forEach(item=>{
       const itemColor = normalizeValue(item.getAttribute('data-color'));
       const itemSize = normalizeValue(item.getAttribute('data-size'));
-      const show = (itemColor === colorHandle && itemSize === sizeHandle && !shownMain);
-      item.style.display = show ? 'flex' : 'none';
-      if(show) shownMain = true;
+      item.style.display = (itemColor === colorHandle && itemSize === sizeHandle) ? 'flex' : 'none';
     });
 
     // DESKTOP - thumbnails
-    let skipped = false;
+    let firstThumbSkipped = false;
     document.querySelectorAll('.thumbnail-item').forEach(item=>{
       const itemColor = normalizeValue(item.getAttribute('data-color'));
       const itemSize = normalizeValue(item.getAttribute('data-size'));
-      if(itemColor === colorHandle && itemSize === sizeHandle){
-        item.style.display = skipped ? 'inline-block' : 'none';
-        skipped = true;
-      } else {
-        item.style.display = 'none';
-      }
+      const show = (itemColor === colorHandle && itemSize === sizeHandle);
+      item.style.display = show ? (firstThumbSkipped ? 'inline-block' : 'none') : 'none';
+      if(show) firstThumbSkipped = true;
     });
 
-    // MOBILE
+    // MOBILE - swiper slides
     const swiperWrapper = document.querySelector('.mobile-gallery .swiper-wrapper');
     if(swiperWrapper){
       swiperWrapper.innerHTML = '';
@@ -571,25 +575,12 @@ document.addEventListener('DOMContentLoaded', function () {
   // Swatch / select change
   document.body.addEventListener('change', e=>{
     const t = e.target;
-
-    let colorVal, sizeVal;
-
-    // If color swatch changed
-    if(t.matches('.swatch-input__input[name^="Color"]')){
-      colorVal = t.value;
-      const selectedSizeEl = document.querySelector('.swatch-input__input[name^="Size"]:checked, select[name="Size"]');
-      sizeVal = selectedSizeEl ? selectedSizeEl.value : '';
-    }
-
-    // If size swatch changed
-    if(t.matches('.swatch-input__input[name^="Size"], select[name="Size"]')){
-      sizeVal = t.value;
-      const selectedColorEl = document.querySelector('.swatch-input__input[name^="Color"]:checked, select[name="Color"]');
-      colorVal = selectedColorEl ? selectedColorEl.value : '';
-    }
-
-    if(colorVal && sizeVal){
-      updateGallery(colorVal, sizeVal);
+    if(t.matches('.swatch-input__input[name^="Color"], select[name="Color"], .swatch-input__input[name^="Size"], select[name="Size"]')){
+      const color = document.querySelector('.swatch-input__input[name^="Color"]:checked')?.value
+                    || document.querySelector('select[name="Color"]')?.value;
+      const size = document.querySelector('.swatch-input__input[name^="Size"]:checked')?.value
+                   || document.querySelector('select[name="Size"]')?.value;
+      if(color && size) updateGallery(color, size);
     }
   });
 
@@ -600,34 +591,30 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault();
       const links = Array.from(document.querySelectorAll('a.glightbox.glightbox-active'));
       const idx = links.indexOf(anchor);
-      if(lightbox && idx>=0) lightbox.openAt(idx);
+      if(lightbox && idx >= 0) lightbox.openAt(idx);
     }
   });
 
-  // INIT - show first available combination
-  const initColor = document.querySelector('.swatch-input__input[name^="Color"]:checked, select[name="Color"]')?.value;
-  const initSize = document.querySelector('.swatch-input__input[name^="Size"]:checked, select[name="Size"]')?.value;
-
-  if(initColor && initSize){
-    updateGallery(initColor, initSize);
-  } else {
-    // fallback - show first main image
+  // INITIALIZE on page load
+  const initColor = document.querySelector('.swatch-input__input[name^="Color"]:checked')?.value
+                    || document.querySelector('select[name="Color"]')?.value;
+  const initSize = document.querySelector('.swatch-input__input[name^="Size"]:checked')?.value
+                   || document.querySelector('select[name="Size"]')?.value;
+  if(initColor && initSize) updateGallery(initColor, initSize);
+  else {
+    // fallback: show first media item
     const allMain = document.querySelectorAll('.main-image-item');
-    allMain.forEach((item,i)=>item.style.display = i===0 ? 'block' : 'none');
+    allMain.forEach((item,i)=>item.style.display=i===0?'flex':'none');
     const allThumb = document.querySelectorAll('.thumbnail-item');
-    allThumb.forEach((item,i)=>item.style.display = i===0 ? 'none' : 'inline-block');
+    allThumb.forEach((item,i)=>item.style.display=i===0?'none':'inline-block');
     const firstColor = allMain[0]?.getAttribute('data-color');
     const firstSize = allMain[0]?.getAttribute('data-size');
-    if(firstColor && firstSize){
-      updateGallery(firstColor, firstSize);
-    } else {
-      updateGlightboxActive();
-      initLightbox();
-      initMobileSlider();
-    }
+    if(firstColor && firstSize) updateGallery(firstColor, firstSize);
+    else { updateGlightboxActive(); initLightbox(); initMobileSlider(); }
   }
 });
 </script>
+
 
 
 
