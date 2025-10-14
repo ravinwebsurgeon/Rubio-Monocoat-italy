@@ -1009,6 +1009,43 @@
       });
     });
   });
+
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+  const variantIdInput = document.getElementById('sticky-variant-id');
+  const stickyPrice = document.getElementById('sticky-price');
+  const stickyTitle = document.getElementById('sticky-variant-title');
+  const stickyImage = document.getElementById('sticky-variant-image');
+  const stickyOptions = document.getElementById('sticky-variant-options');
+
+  document.addEventListener('variant:change', function(e) {
+    const variant = e.detail.variant;
+    if (!variant) return;
+
+    // Update hidden input
+    variantIdInput.value = variant.id;
+
+    // Update price
+    stickyPrice.textContent = Shopify.formatMoney(
+      variant.price,
+      window.shop_money_format || "${{amount}}"
+    );
+
+    // Update options display (e.g. "Red / Large")
+    let optionsText = variant.option1 || '';
+    if (variant.option2) {
+      optionsText += ' / ' + variant.option2;
+    }
+    stickyOptions.textContent = optionsText;
+
+    // Update image if available
+    if (variant.featured_image) {
+      stickyImage.src = variant.featured_image.src + '&width=100';
+    }
+  });
+});
+
 </script>
 
 {% schema %}
