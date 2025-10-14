@@ -111,8 +111,8 @@ document.addEventListener("DOMContentLoaded", function () {
             const productBlock = button.closest('.product-block');
             const variantId = productBlock.dataset.variantId;
             const quantity = productBlock.querySelector('.quantity-selector').value;
-
-            fetch('/cart/add.js', {
+            console.log(variantId,quantity)
+            {% comment %} fetch('/cart/add.js', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(error => {
                 console.error('Error adding to cart:', error);
                 alert("Something went wrong.");
-            });
+            }); {% endcomment %}
         });
     });
 });
