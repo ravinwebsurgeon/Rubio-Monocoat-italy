@@ -935,9 +935,24 @@
   <div class="sticky-inner">
     <!-- Product Info -->
     <div class="sticky-product-info">
-      <img src="{{ product.featured_image | img_url: '100x100' }}" alt="{{ product.title }}">
+      <img 
+        src="{{ product.featured_image | img_url: '100x100' }}" 
+        alt="{{ product.title }}" 
+        id="sticky-variant-image"
+      >
       <div class="sticky-details">
-        <span class="sticky-title">{{ product.title }}</span>
+        <span class="sticky-title" id="sticky-variant-title">{{ product.title }}</span>
+
+        <!-- ✅ Selected Options will appear here -->
+        <span class="sticky-variant-options" id="sticky-variant-options">
+          {% if product.selected_or_first_available_variant %}
+            {{ product.selected_or_first_available_variant.option1 }}
+            {% if product.selected_or_first_available_variant.option2 %}
+              / {{ product.selected_or_first_available_variant.option2 }}
+            {% endif %}
+          {% endif %}
+        </span>
+
         <span class="sticky-price" id="sticky-price">
           {{ product.selected_or_first_available_variant.price | money }}
         </span>
@@ -956,6 +971,7 @@
     </form>
   </div>
 </div>
+
 {% stylesheet %}
 {% endstylesheet %}
 <script>
