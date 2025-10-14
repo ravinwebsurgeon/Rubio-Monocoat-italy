@@ -225,23 +225,24 @@
                   </div>
                 {%- endif -%}
              {% comment %} icon section code {% endcomment %}
-              {%- when 'product_features' -%}
-                <div class="product-features" {{ block.shopify_attributes }}>
-                  {% for i in (1..5) %}
-                    {% assign svg_key = 'feature_' | append: i | append: '_svg' %}
-                    {% assign text_key = 'feature_' | append: i | append: '_text' %}
+             {%- when 'product_features' -%}
+<div class="product-features" {{ block.shopify_attributes }}>
+  {% for i in (1..5) %}
+    {% assign svg_key = 'feature_svg' | append: i %}
+    {% assign text_key = 'feature_text' | append: i %}
 
-                    {% assign svg = block.settings[svg_key] %}
-                    {% assign text = block.settings[text_key] %}
+    {% assign svg = product.metafields.custom[svg_key] %}
+    {% assign text = product.metafields.custom[text_key] %}
 
-                    {% if svg != blank or text != blank %}
-                      <div class="feature-item">
-                        <div class="feature-icon">{{ svg }}</div>
-                        <div class="feature-text">{{ text }}</div>
-                      </div>
-                    {% endif %}
-                  {% endfor %}
-                </div>
+    {% if svg != blank or text != blank %}
+      <div class="feature-item">
+        <div class="feature-icon">{{ svg }}</div>
+        <div class="feature-text">{{ text }}</div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
 
                 {% comment %} icon section code end {% endcomment %}
 
