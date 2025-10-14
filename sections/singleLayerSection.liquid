@@ -2,7 +2,7 @@
 <div class="single-layer-section-main">
     <div class="single-layer">
         <div class="product_listed">
-            <p>{{ section.settings.main_heading }}</p>
+            <h2>{{ section.settings.main_heading }}</h2>
         </div>
         <div class="media_content">
             <div class="media content">
@@ -14,6 +14,7 @@
 <style>
     .product_listed{width:60%;}
     .media_content{width:40%;}
+    .product_listed h2{font-size:25px; font-weight:600;text-transform:capitalize;}
 {% schema %}
     {
         "name":"Filling Gap Section",
