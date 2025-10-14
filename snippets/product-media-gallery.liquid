@@ -341,8 +341,10 @@
     <div class="main-image-wrapper">
       <div class="cus-sticky">
         {% for media in product.media %}
-          {% assign color_handle = media.alt | handle %}
-          <div class="main-image-item" data-color="{{ color_handle }}">
+          {% assign parts = media.alt | split: '/' %}
+          {% assign color = parts[0] | strip %}
+          {% assign size = parts[1] | strip %}
+          <div class="main-image-item" data-color="{{ color | handle }}" data-size="{{ size | handle }}" style="display: none;">
             {% if media.media_type == 'image' %}
               <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}" data-type="image">
                 <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
@@ -366,8 +368,10 @@
     <div class="thumbnails-wrapper">
       <div class="cus-sticky">
         {% for media in product.media %}
-          {% assign color_handle = media.alt | handle %}
-          <div class="thumbnail-item" data-color="{{ color_handle }}">
+          {% assign parts = media.alt | split: '/' %}
+          {% assign color = parts[0] | strip %}
+          {% assign size = parts[1] | strip %}
+          <div class="thumbnail-item" data-color="{{ color | handle }}" data-size="{{ size | handle }}" style="display: none;">
             {% if media.media_type == 'image' %}
               <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}" data-type="image">
                 <img src="{{ media.preview_image | img_url: 'master' }}" alt="{{ media.alt | escape }}">
@@ -394,8 +398,10 @@
     <div class="swiper">
       <div class="swiper-wrapper">
         {% for media in product.media %}
-          {% assign color_handle = media.alt | handle %}
-          <div class="swiper-slide" data-color="{{ color_handle }}">
+          {% assign parts = media.alt | split: '/' %}
+          {% assign color = parts[0] | strip %}
+          {% assign size = parts[1] | strip %}
+          <div class="swiper-slide" data-color="{{ color | handle }}" data-size="{{ size | handle }}" style="display: none;">
             {% if media.media_type == 'image' %}
               <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}" data-type="image">
                 <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
@@ -419,6 +425,7 @@
   </div>
 
 </div>
+
 
 {% style %}
 .desktop-gallery { display: block; }
