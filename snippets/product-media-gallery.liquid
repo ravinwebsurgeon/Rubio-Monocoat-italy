@@ -341,79 +341,103 @@
     <div class="main-image-wrapper">
       <div class="cus-sticky">
         {% for media in product.media %}
-        {% if media.media_type == 'image' %}
-          {% assign color_handle = media.alt | handle %}
-          <div class="main-image-item" data-color="{{ color_handle }}">
-            <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
-              <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}" width="" height="">
-            </a>
-          </div>
-        {% endif %}
-      {% endfor %}
+          {% assign variant_handle = media.alt | handle %}
+          {% if media.media_type == 'image' %}
+            <div class="main-media-item" data-variant="{{ variant_handle }}">
+              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+                <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
+              </a>
+            </div>
+          {% elsif media.media_type == 'video' or media.media_type == 'external_video' %}
+            <div class="main-media-item" data-variant="{{ variant_handle }}">
+              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+                <video controls>
+                  <source src="{{ media.preview_image | img_url: '1024x1024' }}" type="video/mp4">
+                </video>
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
       </div>      
     </div>
 
     <div class="thumbnails-wrapper">
       <div class="cus-sticky">
-      {% for media in product.media %}
-        {% if media.media_type == 'image' %}
-          {% assign color_handle = media.alt | handle %}
-          <div class="thumbnail-item" data-color="{{ color_handle }}">
-            <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
-              <img src="{{ media.preview_image | img_url: 'master' }}" alt="{{ media.alt | escape }}" width="" height="">
-            </a>
-          </div>
-        {% endif %}
-      {% endfor %}
+        {% for media in product.media %}
+          {% assign variant_handle = media.alt | handle %}
+          {% if media.media_type == 'image' %}
+            <div class="thumbnail-item" data-variant="{{ variant_handle }}">
+              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+                <img src="{{ media.preview_image | img_url: 'master' }}" alt="{{ media.alt | escape }}">
+              </a>
+            </div>
+          {% elsif media.media_type == 'video' or media.media_type == 'external_video' %}
+            <div class="thumbnail-item" data-variant="{{ variant_handle }}">
+              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+                <video>
+                  <source src="{{ media.preview_image | img_url: '1024x1024' }}" type="video/mp4">
+                </video>
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
   </div>
 
   <!-- Mobile Gallery (Slider) -->
- <!-- Mobile Gallery (Slider) -->
-<div class="mobile-gallery">
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      {% for media in product.media %}
-        {% if media.media_type == 'image' %}
-          {% assign color_handle = media.alt | handle %}
-          <div class="swiper-slide" data-color="{{ color_handle }}">
-            <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
-              <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
-            </a>
-          </div>
-        {% endif %}
-      {% endfor %}
+  <div class="mobile-gallery">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        {% for media in product.media %}
+          {% assign variant_handle = media.alt | handle %}
+          {% if media.media_type == 'image' %}
+            <div class="swiper-slide" data-variant="{{ variant_handle }}">
+              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+                <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
+              </a>
+            </div>
+          {% elsif media.media_type == 'video' or media.media_type == 'external_video' %}
+            <div class="swiper-slide" data-variant="{{ variant_handle }}">
+              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+                <video controls>
+                  <source src="{{ media.preview_image | img_url: '1024x1024' }}" type="video/mp4">
+                </video>
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
-    <div class="swiper-pagination"></div>
   </div>
-</div>
-
 
 </div>
 
 {% style %}
 .desktop-gallery { display: block; }
- .mobile-gallery { display: none; }
+.mobile-gallery { display: none; }
 
 @media (max-width: 991px) {
   .desktop-gallery { display: none; }
   .mobile-gallery { display: block; }
 }
 
-.mobile-gallery .swiper-slide img {
+.mobile-gallery .swiper-slide img,
+.mobile-gallery .swiper-slide video {
   width: 100%;
   display: block;
 }
 .swiper-pagination { text-align: center; }
+
 .mobile-gallery .slick-dots {
-    display: f  lex;
+    display: flex;
     align-items: center;
     justify-content: center;
     list-style: none;
     margin: 18px 0;
     padding: 0;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     gap: 7px;
 }
 
@@ -436,7 +460,110 @@
 {% endstyle %}
 
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  let lightbox = null;
+  let mobileSwiper = null;
+  let originalMobileSlides = [];
 
+  function normalizeValue(val) {
+    return val?.toString().trim().toLowerCase().replace(/\s+/g, '-') || '';
+  }
+
+  function initLightbox() {
+    try { if (lightbox && typeof lightbox.destroy === 'function') lightbox.destroy(); } catch (err) {}
+    lightbox = GLightbox({ selector: '.glightbox.glightbox-active', loop: true, zoomable: true, touchNavigation: true, autoplayVideos: false });
+  }
+
+  function initMobileSlider() {
+    if (mobileSwiper) { try { mobileSwiper.destroy(true,true); } catch(err){} mobileSwiper=null; }
+    const swiperContainer = document.querySelector('.mobile-gallery .swiper');
+    const wrapper = document.querySelector('.mobile-gallery .swiper-wrapper');
+    if (swiperContainer && wrapper && wrapper.children.length > 0) {
+      mobileSwiper = new Swiper(swiperContainer, {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        pagination: { el: '.mobile-gallery .swiper-pagination', clickable: true }
+      });
+    }
+  }
+
+  function updateGlightboxActive() {
+    document.querySelectorAll('a.glightbox').forEach(anchor => {
+      const parent = anchor.closest('.main-media-item, .thumbnail-item, .swiper-slide');
+      const visible = parent && getComputedStyle(parent).display !== 'none';
+      if (visible) anchor.classList.add('glightbox-active'); else anchor.classList.remove('glightbox-active');
+    });
+  }
+
+  function updateGalleryForVariant(variantValue) {
+    const selectedHandle = normalizeValue(variantValue);
+
+    // Desktop
+    let shownMain=false;
+    document.querySelectorAll('.main-media-item').forEach(item=>{
+      const itemVariant = normalizeValue(item.getAttribute('data-variant'));
+      if(itemVariant===selectedHandle && !shownMain){ item.style.display='flex'; shownMain=true; } else { item.style.display='none'; }
+    });
+
+    let skippedFirst=false;
+    document.querySelectorAll('.thumbnail-item').forEach(item=>{
+      const itemVariant = normalizeValue(item.getAttribute('data-variant'));
+      if(itemVariant===selectedHandle){
+        if(!skippedFirst){ item.style.display='none'; skippedFirst=true; } else { item.style.display='inline-block'; }
+      } else { item.style.display='none'; }
+    });
+
+    // Mobile
+    const swiperWrapper = document.querySelector('.mobile-gallery .swiper-wrapper');
+    if(swiperWrapper){
+      swiperWrapper.innerHTML='';
+      const matchedSlides = originalMobileSlides.filter(slide=>normalizeValue(slide.getAttribute('data-variant'))===selectedHandle);
+      if(matchedSlides.length===0 && originalMobileSlides.length) swiperWrapper.appendChild(originalMobileSlides[0].cloneNode(true));
+      else matchedSlides.forEach(slide=>{ const clone=slide.cloneNode(true); clone.style.display='block'; swiperWrapper.appendChild(clone); });
+    }
+
+    updateGlightboxActive();
+    initLightbox();
+    initMobileSlider();
+  }
+
+  // Capture original mobile slides
+  (function(){ const slides=document.querySelectorAll('.mobile-gallery .swiper-slide'); originalMobileSlides=Array.from(slides).map(n=>n.cloneNode(true)); })();
+
+  // Variant change listener
+  document.body.addEventListener('change', function(e){
+    const target=e.target;
+    if(target.matches('.swatch-input__input[name^="Color"], select[name^="Color"], input[name^="Size"], select[name^="Size"]')){
+      updateGalleryForVariant(target.value);
+    }
+  });
+
+  // Lightbox click
+  document.body.addEventListener('click', function(e){
+    const thumbAnchor = e.target.closest('.thumbnail-item a.glightbox, .swiper-slide a.glightbox, .main-media-item a.glightbox');
+    if(thumbAnchor && thumbAnchor.classList.contains('glightbox-active')){
+      e.preventDefault();
+      const galleryLinks = Array.from(document.querySelectorAll('.glightbox.glightbox-active'));
+      const index = galleryLinks.indexOf(thumbAnchor);
+      if(lightbox && index>=0) lightbox.openAt(index);
+    }
+  });
+
+  // Init on load
+  const initVariant = document.querySelector('.swatch-input__input:checked, input[name^="Size"]:checked, select');
+  if(initVariant) updateGalleryForVariant(initVariant.value);
+  else {
+    const allMain = document.querySelectorAll('.main-media-item');
+    allMain.forEach((item,i)=>item.style.display=i===0?'flex':'none');
+    const allThumbs = document.querySelectorAll('.thumbnail-item');
+    allThumbs.forEach((item,i)=>item.style.display=i===0?'none':'inline-block');
+    const firstVariant = allMain[0]?.getAttribute('data-variant');
+    if(firstVariant) updateGalleryForVariant(firstVariant);
+    else { updateGlightboxActive(); initLightbox(); initMobileSlider(); }
+  }
+});
+</script>
 
 
 
