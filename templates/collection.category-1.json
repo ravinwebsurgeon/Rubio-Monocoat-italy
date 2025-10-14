@@ -126,12 +126,6 @@
             "product": "oil-plus-2c-1-3-liter"
           }
         },
-        "text_t3TNLQ": {
-          "type": "text",
-          "settings": {
-            "product": "exterior-soap-1"
-          }
-        },
         "text_imbn9x": {
           "type": "text",
           "settings": {
@@ -142,7 +136,6 @@
       "block_order": [
         "text_Cb4JTV",
         "text_tEJQAM",
-        "text_t3TNLQ",
         "text_imbn9x"
       ],
       "name": "Filling Gap Section",
