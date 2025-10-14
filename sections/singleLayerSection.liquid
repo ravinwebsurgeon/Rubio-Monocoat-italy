@@ -3,6 +3,32 @@
     <div class="single-layer">
         <div class="product_listed">
             <h2>{{ section.settings.main_heading }}</h2>
+            <div class="product_detail">
+                {% assign product = section.settings.add_product %}
+                {% if product %}
+                    <div class="media_sec">
+                        <img src="{{ product.featured_image | image_url: width: 300  }}" />
+                    </div>
+                    <div class="pro_detail">
+                        <div class="pro_title">
+                            <h3>{{ product.title }}</h3>
+                            <p>{{ product.price | money_with_currency }}</p>
+                        </div>
+                        <div><p>Perfect all for your inside Surfaces</p></div>
+                        <div class="pro_variants">
+                            <select class="variant-selector" name="variant-selector">
+                                {% for variant in product.variants %}
+                                    <option value="{{ variant.id }}">{{ variant.title }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="pro_buttons">
+                            <a href="{{ product.url }}"><button class="more_info">More Info</button></a>
+                            <button type="submit" class="add_to_cart_ajax">Add To cart</button>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
         </div>
         <div class="media_content">
             <div class="media content">
