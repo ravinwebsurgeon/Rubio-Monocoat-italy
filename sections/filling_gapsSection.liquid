@@ -28,7 +28,8 @@
                 {% endif %}
             </div>
         </div>
-        {% comment %} <div class="product-data">
+        <div class="block-products">
+            <div class="product-data">
                 {% for block in section.blocks %}
                     {% assign product = block.settings.product %}
                     {% if product %}
@@ -43,7 +44,9 @@
                         </div>
                     {% endif %}
                 {% endfor %}
-            </div> {% endcomment %}
+            </div>
+        </div>
+        
     </div>
 </div>
 <style>
