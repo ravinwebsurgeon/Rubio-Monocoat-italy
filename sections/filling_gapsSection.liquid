@@ -12,20 +12,22 @@
         </div>
         <div class="selected_product_section">
             <div class="product_head"><p>{{ section.settings.main_heading }}</p></div>
-            {% for block in section.blocks %}
-                {% assign product = block.settings.product %}
-                {% if product %}
-                    <div class="product-block">
-                    <a href="{{ product.url }}">
-                        <img src="{{ product.featured_image | image_url: width: 300 }}" alt="{{ product.title }}">
-                    </a>
-                    <div class="product_title_price">
-                        <h3>{{ product.title }}</h3>
-                        <p>{{ product.price | money }}</p>
-                    </div>
-                    </div>
-                {% endif %}
+            </div class="product-data">
+                {% for block in section.blocks %}
+                    {% assign product = block.settings.product %}
+                    {% if product %}
+                        <div class="product-block">
+                        <a href="{{ product.url }}">
+                            <img src="{{ product.featured_image | image_url: width: 300 }}" alt="{{ product.title }}">
+                        </a>
+                        <div class="product_title_price">
+                            <h3>{{ product.title }}</h3>
+                            <p>{{ product.price | money }}</p>
+                        </div>
+                        </div>
+                    {% endif %}
                 {% endfor %}
+            </div>
         </div>
     </div>
 </div>
