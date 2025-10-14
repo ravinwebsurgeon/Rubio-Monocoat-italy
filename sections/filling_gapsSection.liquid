@@ -11,7 +11,7 @@
             
         </div>
         <div class="selected_product_section">
-
+            <div class="product_head"><p>{{ section.settings.main_heading }}</p></div>
         </div>
     </div>
 </div>
@@ -27,6 +27,11 @@
     {
         "name":"Filling Gap Section",
         "settings": [
+            {
+                "type": "text",
+                "id": "main_heading",
+                "label": "Main Heading"
+            },
             {
                 "type": "text",
                 "id": "heading",
