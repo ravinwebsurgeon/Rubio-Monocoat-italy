@@ -150,6 +150,17 @@
         "loop": false
       }
     },
+    "single_layer_section_Lxg43R": {
+      "type": "singleLayerSection",
+      "name": "Single Layer Section",
+      "settings": {
+        "main_heading": "Protection in one single layer",
+        "add_product": "durogrit-1",
+        "image": "shopify://shop_images/Rectangle_8.png",
+        "heading": "oiling",
+        "subheading": "perfect for your all inside surfaces"
+      }
+    },
     "custom_two_product_col_rFJaUY": {
       "type": "custom-two-product-col",
       "name": "custom two product col",
@@ -439,6 +450,7 @@
     "product-grid",
     "floor_steps_Kad3y3",
     "filling_gaps_section_cHjrWp",
+    "single_layer_section_Lxg43R",
     "custom_two_product_col_rFJaUY",
     "top_picks_col_efrz3X",
     "inspired_wooden_floor_LmDtKW",
