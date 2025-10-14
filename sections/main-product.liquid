@@ -76,7 +76,7 @@
   <div class="page-width product-section">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
-    {% render 'product-media-gallery', variant_images: variant_images %} 
+        {% render 'product-media-gallery', variant_images: variant_images %}
         {% render 'jump-to' %}
       </div>
 
@@ -160,14 +160,18 @@
                     {{ form | payment_terms }}
                   {%- endform -%}
                 </div>
-              
-                 {%- when 'custom_review' -%}
-              <div class="custom-review">
-                <span> <svg width="104" height="21" viewBox="0 0 104 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.4 0L12.7349 7.18622H20.291L14.178 11.6276L16.513 18.8138L10.4 14.3724L4.28703 18.8138L6.62198 11.6276L0.509012 7.18622H8.06505L10.4 0Z" fill="#183029"/><path d="M31.2008 0L33.5357 7.18622H41.0918L34.9788 11.6276L37.3137 18.8138L31.2008 14.3724L25.0878 18.8138L27.4228 11.6276L21.3098 7.18622H28.8658L31.2008 0Z" fill="#183029"/><path d="M51.9996 0L54.3346 7.18622H61.8906L55.7776 11.6276L58.1126 18.8138L51.9996 14.3724L45.8866 18.8138L48.2216 11.6276L42.1086 7.18622H49.6647L51.9996 0Z" fill="#183029"/><path d="M72.8004 0L75.1353 7.18622H82.6914L76.5784 11.6276L78.9134 18.8138L72.8004 14.3724L66.6874 18.8138L69.0224 11.6276L62.9094 7.18622H70.4654L72.8004 0Z" fill="#183029"/><path d="M93.5992 0L95.9342 7.18622H103.49L97.3772 11.6276L99.7122 18.8138L93.5992 14.3724L87.4863 18.8138L89.8212 11.6276L83.7082 7.18622H91.2643L93.5992 0Z" fill="#183029"/></svg> </span> {{ block.settings.custom_review }}
-              </div>
+
+              {%- when 'custom_review' -%}
+                <div class="custom-review">
+                  <span>
+                    <svg width="104" height="21" viewBox="0 0 104 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.4 0L12.7349 7.18622H20.291L14.178 11.6276L16.513 18.8138L10.4 14.3724L4.28703 18.8138L6.62198 11.6276L0.509012 7.18622H8.06505L10.4 0Z" fill="#183029"/><path d="M31.2008 0L33.5357 7.18622H41.0918L34.9788 11.6276L37.3137 18.8138L31.2008 14.3724L25.0878 18.8138L27.4228 11.6276L21.3098 7.18622H28.8658L31.2008 0Z" fill="#183029"/><path d="M51.9996 0L54.3346 7.18622H61.8906L55.7776 11.6276L58.1126 18.8138L51.9996 14.3724L45.8866 18.8138L48.2216 11.6276L42.1086 7.18622H49.6647L51.9996 0Z" fill="#183029"/><path d="M72.8004 0L75.1353 7.18622H82.6914L76.5784 11.6276L78.9134 18.8138L72.8004 14.3724L66.6874 18.8138L69.0224 11.6276L62.9094 7.18622H70.4654L72.8004 0Z" fill="#183029"/><path d="M93.5992 0L95.9342 7.18622H103.49L97.3772 11.6276L99.7122 18.8138L93.5992 14.3724L87.4863 18.8138L89.8212 11.6276L83.7082 7.18622H91.2643L93.5992 0Z" fill="#183029"/>
+                    </svg>
+                  </span>
+                  {{ block.settings.custom_review }}
+                </div>
 
               {%- when 'inventory' -%}
-                
                 <p
                   class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
                   {{ block.shopify_attributes }}
@@ -224,25 +228,24 @@
                     {{ product.description }}
                   </div>
                 {%- endif -%}
-             {% comment %} icon section code {% endcomment %}
-             {%- when 'product_features' -%}
-<div class="product-features" {{ block.shopify_attributes }}>
-  {% for i in (1..5) %}
-    {% assign svg_key = 'feature_svg' | append: i %}
-    {% assign text_key = 'feature_text' | append: i %}
+                {% comment %} icon section code {% endcomment %}
+              {%- when 'product_features' -%}
+                <div class="product-features" {{ block.shopify_attributes }}>
+                  {% for i in (1..5) %}
+                    {% assign svg_key = 'feature_svg' | append: i %}
+                    {% assign text_key = 'feature_text' | append: i %}
 
-    {% assign svg = product.metafields.custom[svg_key] %}
-    {% assign text = product.metafields.custom[text_key] %}
+                    {% assign svg = product.metafields.custom[svg_key] %}
+                    {% assign text = product.metafields.custom[text_key] %}
 
-    {% if svg != blank or text != blank %}
-      <div class="feature-item">
-        <div class="feature-icon">{{ svg }}</div>
-        <div class="feature-text">{{ text }}</div>
-      </div>
-    {% endif %}
-  {% endfor %}
-</div>
-
+                    {% if svg != blank or text != blank %}
+                      <div class="feature-item">
+                        <div class="feature-icon">{{ svg }}</div>
+                        <div class="feature-text">{{ text }}</div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
 
                 {% comment %} icon section code end {% endcomment %}
 
@@ -489,7 +492,8 @@
                               <li class="{%- if forloop.index >= 3 -%}show-more-item hidden{%- endif -%}">
                                 <span>
                                   {{- price_break.minimum_quantity -}}
-                                  <span aria-hidden="true">+</span></span>
+                                  <span aria-hidden="true">+</span></span
+                                >
                                 <span data-text="{{ 'products.product.volume_pricing.price_at_each_html' | t: price: price_break_price }}">
                                   {{- 'sections.quick_order_list.each' | t: money: price_break_price -}}
                                 </span>
@@ -545,125 +549,125 @@
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
-                
                 <div class="product-addons-wrapper">
-  <!-- Accordion Header -->
-  <div class="addons-header">
-    <span> 
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" height="20" width="20">
-        <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="black" d="M10.1 7.21667V1.25M10.1 7.21667L12.7917 4.6M10.1 7.21667L7.40833 4.6M16.5417 13.6583V17.5083L10.1083 19.075M3.66667 13.6583V17.5083L10.1 19.075V11.8M10.1 8.925L7.68333 12.8417L1.25 12.0583L3.66667 8.925H10.1ZM10.1 8.925L12.5167 12.8417L18.95 12.0583L16.5333 8.925H10.1Z"></path>
-      </svg>
-      Popular upgrades
-    </span>
-    <button type="button" class="addons-toggle" aria-label="Toggle">
-      <!-- Collapsed (down arrow) SVG -->
-      <span class="icon-collapsed" style="display:none;">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <path d="M5 7l5 5 5-5" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </span>
-      <!-- Expanded (cross) SVG -->
-      <span class="icon-expanded" style="display:inline-block;">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M12 4L4 12M4 4L12 12" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </span>
-    </button>
-  </div>
+                  <!-- Accordion Header -->
+                  <div class="addons-header">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" height="20" width="20">
+                        <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="black" d="M10.1 7.21667V1.25M10.1 7.21667L12.7917 4.6M10.1 7.21667L7.40833 4.6M16.5417 13.6583V17.5083L10.1083 19.075M3.66667 13.6583V17.5083L10.1 19.075V11.8M10.1 8.925L7.68333 12.8417L1.25 12.0583L3.66667 8.925H10.1ZM10.1 8.925L12.5167 12.8417L18.95 12.0583L16.5333 8.925H10.1Z"></path>
+                      </svg>
+                      Popular upgrades
+                    </span>
+                    <button type="button" class="addons-toggle" aria-label="Toggle">
+                      <!-- Collapsed (down arrow) SVG -->
+                      <span class="icon-collapsed" style="display:none;">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                          <path d="M5 7l5 5 5-5" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </span>
+                      <!-- Expanded (cross) SVG -->
+                      <span class="icon-expanded" style="display:inline-block;">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                          <path d="M12 4L4 12M4 4L12 12" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
 
-  <!-- Accordion Body -->
-  <div class="addons-list open"> <!-- Added 'open' class by default -->
-    {% if product.metafields.custom.product_addon.value %}
-      {% for addon_product in product.metafields.custom.product_addon.value %}
-        <div class="addon-item">
-          <label class="addon-label">
-            <input
-              type="checkbox"
-              class="addon-checkbox"
-              data-variant-id="{{ addon_product.variants.first.id }}"
-            >
-            <img
-              src="{{ addon_product.featured_image | img_url: '100x100' }}"
-              alt="{{ addon_product.title }}"
-            >
-            <span class="addon-title">{{ addon_product.title }}</span>
-            <span class="addon-price">{{ addon_product.price | money }}</span>
-          </label>
-        </div>
-      {% endfor %}
-    {% endif %}
-  </div>
-</div>
+                  <!-- Accordion Body -->
+                  <div class="addons-list open">
+                    <!-- Added 'open' class by default -->
+                    {% if product.metafields.custom.product_addon.value %}
+                      {% for addon_product in product.metafields.custom.product_addon.value %}
+                        <div class="addon-item">
+                          <label class="addon-label">
+                            <input
+                              type="checkbox"
+                              class="addon-checkbox"
+                              data-variant-id="{{ addon_product.variants.first.id }}"
+                            >
+                            <img
+                              src="{{ addon_product.featured_image | img_url: '100x100' }}"
+                              alt="{{ addon_product.title }}"
+                            >
+                            <span class="addon-title">{{ addon_product.title }}</span>
+                            <span class="addon-price">{{ addon_product.price | money }}</span>
+                          </label>
+                        </div>
+                      {% endfor %}
+                    {% endif %}
+                  </div>
+                </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.product-addons-wrapper').forEach((wrapper) => {
-    const toggleBtn = wrapper.querySelector('.addons-toggle');
-    const list = wrapper.querySelector('.addons-list');
-    const collapsed = wrapper.querySelector('.icon-collapsed');
-    const expanded = wrapper.querySelector('.icon-expanded');
+                <script>
+                  document.addEventListener('DOMContentLoaded', function () {
+                    document.querySelectorAll('.product-addons-wrapper').forEach((wrapper) => {
+                      const toggleBtn = wrapper.querySelector('.addons-toggle');
+                      const list = wrapper.querySelector('.addons-list');
+                      const collapsed = wrapper.querySelector('.icon-collapsed');
+                      const expanded = wrapper.querySelector('.icon-expanded');
 
-    function toggleAccordion() {
-      if (list.classList.contains('open')) {
-        // Collapse
-        list.classList.remove('open');
-        collapsed.style.display = 'inline-block';
-        expanded.style.display = 'none';
-      } else {
-        // Expand
-        list.classList.add('open');
-        collapsed.style.display = 'none';
-        expanded.style.display = 'inline-block';
-      }
-    }
+                      function toggleAccordion() {
+                        if (list.classList.contains('open')) {
+                          // Collapse
+                          list.classList.remove('open');
+                          collapsed.style.display = 'inline-block';
+                          expanded.style.display = 'none';
+                        } else {
+                          // Expand
+                          list.classList.add('open');
+                          collapsed.style.display = 'none';
+                          expanded.style.display = 'inline-block';
+                        }
+                      }
 
-    // Click on toggle button (X or arrow)
-    toggleBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      toggleAccordion();
-    });
+                      // Click on toggle button (X or arrow)
+                      toggleBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        toggleAccordion();
+                      });
 
-    // Optional: click on header (excluding items) to toggle
-    wrapper.addEventListener('click', (e) => {
-      if (!e.target.closest('.addon-item') && !e.target.closest('.addons-toggle')) {
-        toggleAccordion();
-      }
-    });
-  });
+                      // Optional: click on header (excluding items) to toggle
+                      wrapper.addEventListener('click', (e) => {
+                        if (!e.target.closest('.addon-item') && !e.target.closest('.addons-toggle')) {
+                          toggleAccordion();
+                        }
+                      });
+                    });
 
-  // Add to Cart handling
-  let mainForm = document.querySelector("form[action*='/cart/add']");
-  if (mainForm) {
-    mainForm.addEventListener('submit', function (e) {
-      e.preventDefault();
+                    // Add to Cart handling
+                    let mainForm = document.querySelector("form[action*='/cart/add']");
+                    if (mainForm) {
+                      mainForm.addEventListener('submit', function (e) {
+                        e.preventDefault();
 
-      let formData = new FormData(mainForm);
-      let items = [];
-      items.push({
-        id: formData.get('id'), // main product variant id
-        quantity: formData.get('quantity') || 1,
-      });
+                        let formData = new FormData(mainForm);
+                        let items = [];
+                        items.push({
+                          id: formData.get('id'), // main product variant id
+                          quantity: formData.get('quantity') || 1,
+                        });
 
-      document.querySelectorAll('.addon-checkbox:checked').forEach((cb) => {
-        items.push({
-          id: cb.getAttribute('data-variant-id'),
-          quantity: 1,
-        });
-      });
+                        document.querySelectorAll('.addon-checkbox:checked').forEach((cb) => {
+                          items.push({
+                            id: cb.getAttribute('data-variant-id'),
+                            quantity: 1,
+                          });
+                        });
 
-      fetch('/cart/add.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items: items }),
-      })
-        .then((res) => res.json())
-        .then(() => {
-          window.location.href = '/cart';
-        });
-    });
-  }
-});
-</script>
+                        fetch('/cart/add.js', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify({ items: items }),
+                        })
+                          .then((res) => res.json())
+                          .then(() => {
+                            window.location.href = '/cart';
+                          });
+                      });
+                    }
+                  });
+                </script>
 
                 {% comment %} product add on code end {% endcomment %}
               {%- when 'rating' -%}
@@ -942,53 +946,53 @@ document.addEventListener('DOMContentLoaded', function () {
 
     <!-- Add to Cart -->
     <form method="post" action="/cart/add" class="sticky-form">
-      <input type="hidden" 
-             name="id" 
-             id="sticky-variant-id" 
-             value="{{ product.selected_or_first_available_variant.id }}">
+      <input
+        type="hidden"
+        name="id"
+        id="sticky-variant-id"
+        value="{{ product.selected_or_first_available_variant.id }}"
+      >
       <button type="submit" class="sticky-btn">Add to Cart</button>
     </form>
   </div>
 </div>
 {% stylesheet %}
-
-
 {% endstylesheet %}
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const productForm = document.querySelector('form[action="/cart/add"]');
-  const stickyBar = document.getElementById("sticky-add-to-cart");
-  const stickyPrice = document.getElementById("sticky-price");
-  const stickyVariantId = document.getElementById("sticky-variant-id");
+  document.addEventListener('DOMContentLoaded', function () {
+    const productForm = document.querySelector('form[action="/cart/add"]');
+    const stickyBar = document.getElementById('sticky-add-to-cart');
+    const stickyPrice = document.getElementById('sticky-price');
+    const stickyVariantId = document.getElementById('sticky-variant-id');
 
-  if (!productForm) return;
+    if (!productForm) return;
 
-  // Show/Hide sticky bar on scroll
-  window.addEventListener("scroll", function() {
-    let rect = productForm.getBoundingClientRect();
-    if (rect.bottom < 0) {
-      stickyBar.style.display = "flex";
-    } else {
-      stickyBar.style.display = "none";
-    }
-  });
-
-  // Update sticky bar when variant changes
-  document.querySelectorAll('[name="id"]').forEach(function(input) {
-    input.addEventListener("change", function(e) {
-      let selected = e.target.value;
-
-      // Update hidden variant ID
-      stickyVariantId.value = selected;
-
-      // Get updated price from dataset (Shopify outputs variant data)
-      const variant = window.meta?.product?.variants.find(v => v.id == selected);
-      if (variant) {
-        stickyPrice.innerHTML = Shopify.formatMoney(variant.price, window.meta.money_format);
+    // Show/Hide sticky bar on scroll
+    window.addEventListener('scroll', function () {
+      let rect = productForm.getBoundingClientRect();
+      if (rect.bottom < 0) {
+        stickyBar.style.display = 'flex';
+      } else {
+        stickyBar.style.display = 'none';
       }
     });
+
+    // Update sticky bar when variant changes
+    document.querySelectorAll('[name="id"]').forEach(function (input) {
+      input.addEventListener('change', function (e) {
+        let selected = e.target.value;
+
+        // Update hidden variant ID
+        stickyVariantId.value = selected;
+
+        // Get updated price from dataset (Shopify outputs variant data)
+        const variant = window.meta?.product?.variants.find((v) => v.id == selected);
+        if (variant) {
+          stickyPrice.innerHTML = Shopify.formatMoney(variant.price, window.meta.money_format);
+        }
+      });
+    });
   });
-});
 </script>
 
 {% schema %}
@@ -1205,62 +1209,62 @@ document.addEventListener("DOMContentLoaded", function() {
       ]
     },
     {
-  "type": "product_features",
-  "name": "Product Features",
-  "limit": 1,
-  "settings": [
-    {
-      "type": "textarea",
-      "id": "feature_1_svg",
-      "label": "Feature 1 SVG code"
+      "type": "product_features",
+      "name": "Product Features",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "feature_1_svg",
+          "label": "Feature 1 SVG code"
+        },
+        {
+          "type": "text",
+          "id": "feature_1_text",
+          "label": "Feature 1 text"
+        },
+        {
+          "type": "textarea",
+          "id": "feature_2_svg",
+          "label": "Feature 2 SVG code"
+        },
+        {
+          "type": "text",
+          "id": "feature_2_text",
+          "label": "Feature 2 text"
+        },
+        {
+          "type": "textarea",
+          "id": "feature_3_svg",
+          "label": "Feature 3 SVG code"
+        },
+        {
+          "type": "text",
+          "id": "feature_3_text",
+          "label": "Feature 3 text"
+        },
+        {
+          "type": "textarea",
+          "id": "feature_4_svg",
+          "label": "Feature 4 SVG code"
+        },
+        {
+          "type": "text",
+          "id": "feature_4_text",
+          "label": "Feature 4 text"
+        },
+        {
+          "type": "textarea",
+          "id": "feature_5_svg",
+          "label": "Feature 5 SVG code"
+        },
+        {
+          "type": "text",
+          "id": "feature_5_text",
+          "label": "Feature 5 text"
+        }
+      ]
     },
-    {
-      "type": "text",
-      "id": "feature_1_text",
-      "label": "Feature 1 text"
-    },
-    {
-      "type": "textarea",
-      "id": "feature_2_svg",
-      "label": "Feature 2 SVG code"
-    },
-    {
-      "type": "text",
-      "id": "feature_2_text",
-      "label": "Feature 2 text"
-    },
-    {
-      "type": "textarea",
-      "id": "feature_3_svg",
-      "label": "Feature 3 SVG code"
-    },
-    {
-      "type": "text",
-      "id": "feature_3_text",
-      "label": "Feature 3 text"
-    },
-    {
-      "type": "textarea",
-      "id": "feature_4_svg",
-      "label": "Feature 4 SVG code"
-    },
-    {
-      "type": "text",
-      "id": "feature_4_text",
-      "label": "Feature 4 text"
-    },
-    {
-      "type": "textarea",
-      "id": "feature_5_svg",
-      "label": "Feature 5 SVG code"
-    },
-    {
-      "type": "text",
-      "id": "feature_5_text",
-      "label": "Feature 5 text"
-    }
-  ]
-},
     {
       "type": "share",
       "name": "t:sections.main-product.blocks.share.name",
