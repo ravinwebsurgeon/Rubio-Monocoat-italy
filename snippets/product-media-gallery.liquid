@@ -340,33 +340,41 @@
   <div class="desktop-gallery">
     <div class="main-image-wrapper">
       <div class="cus-sticky">
-        {% for media in product.media %}
-          {% if media.media_type == 'image' %}
-            {% assign option_handle = media.alt | handle %}
-            <div class="main-image-item" data-option="{{ option_handle }}">
-              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
-                <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
-              </a>
-            </div>
-          {% endif %}
-        {% endfor %}
-      </div>
-    </div>
+    {% for media in product.media %}
+  {% assign variant_handle = media.alt | handle %} 
+  <div class="main-image-item" data-variant="{{ variant_handle }}">
+    {% if media.media_type == 'image' %}
+      <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+        <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
+      </a>
+    {% elsif media.media_type == 'video' %}
+      <a class="glightbox" href="{{ media.sources[0].url }}" data-type="video">
+        <video muted preload="metadata">
+          <source src="{{ media.sources[0].url }}" type="video/mp4">
+        </video>
+      </a>
+    {% endif %}
+  </div>
+{% endfor %}
 
-    <div class="thumbnails-wrapper">
-      <div class="cus-sticky">
-        {% for media in product.media %}
-          {% if media.media_type == 'image' %}
-            {% assign option_handle = media.alt | handle %}
-            <div class="thumbnail-item" data-option="{{ option_handle }}">
-              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
-                <img src="{{ media.preview_image | img_url: 'master' }}" alt="{{ media.alt | escape }}">
-              </a>
-            </div>
-          {% endif %}
-        {% endfor %}
-      </div>
-    </div>
+<!-- Thumbnails -->
+{% for media in product.media %}
+  {% assign variant_handle = media.alt | handle %}
+  <div class="thumbnail-item" data-variant="{{ variant_handle }}">
+    {% if media.media_type == 'image' %}
+      <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}">
+        <img src="{{ media.preview_image | img_url: 'master' }}" alt="{{ media.alt | escape }}">
+      </a>
+    {% elsif media.media_type == 'video' %}
+      <a class="glightbox" href="{{ media.sources[0].url }}" data-type="video">
+        <video muted preload="metadata">
+          <source src="{{ media.sources[0].url }}" type="video/mp4">
+        </video>
+      </a>
+    {% endif %}
+  </div>
+{% endfor %}
+
   </div>
 
   <!-- ================= Mobile Gallery (Swiper Slider) ================= -->
