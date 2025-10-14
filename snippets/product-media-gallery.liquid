@@ -369,11 +369,14 @@
                 <img src="{{ media.preview_image | img_url: 'master' }}" alt="{{ media.alt | escape }}">
               </a>
             {% elsif media.media_type == 'video' %}
-              <a class="glightbox" href="{{ media | media_url }}" data-type="video">
-                <video width="50" height="50" muted preload="none">
-                  <source src="{{ media | media_url }}" type="video/mp4">
-                </video>
-              </a>
+              <a class="glightbox" 
+   href="{{ media | media_url }}" 
+   data-type="video">
+  <video width="50" height="50" muted preload="none">
+    <source src="{{ media | media_url }}" type="video/mp4">
+  </video>
+</a>
+
             {% endif %}
           </div>
         {% endfor %}
