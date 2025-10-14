@@ -1659,7 +1659,7 @@ button.disclosure__button span,.disclosure__button{
 .sticky-btn:hover, .sticky-btn:focus {
     background: #FEC110;
     color: #0f2d1c;
-    border: 1px solid #0f2d1c;
+    border: 1px solid #FEC110;
     box-shadow: none;
     outline: none;
     transform: scale(1.05);

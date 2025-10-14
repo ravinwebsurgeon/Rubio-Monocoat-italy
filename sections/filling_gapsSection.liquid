@@ -46,12 +46,7 @@
     {% if section.settings.background_video %}
       {% comment %} {{ section.settings.background_video | media_tag: autoplay: section.settings.autoplay, loop: 
 section.settings.video_looping_custom }} {% endcomment %}
- {{ section.settings.background_video | media_tag: 
-      autoplay: section.settings.autoplay, 
-      loop: section.settings.loop,
-      controls: true,
-      muted: true
-    }}
+
   {% endif %}
 </div>
     <div class="block-products">
