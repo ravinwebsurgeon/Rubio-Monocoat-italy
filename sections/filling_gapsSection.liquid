@@ -16,7 +16,6 @@
                 {% if product %}
                         <form action="/cart/add" method="post" id="product-form-{{ product.id }}">
                             <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                                     <input type="number" id="quantity" name="quantity" value="1" min="1">
                     <div class="product-block">
                         <a href="{{ product.url }}">
                             {% if product.featured_image %}
@@ -29,6 +28,8 @@
                         </div>
                     <div class='pro_subheading'><span>{{ section.settings.subheading }}</span></div>
                     <div class="pro_quantity">
+                        <input type="number" id="quantity" name="quantity" value="1" min="1" hidden>
+
                          <select id="myDropdown" name="myDropdown">
                             <option value="option1">20ml</option>
                             <option value="option2">40ml</option>
