@@ -349,7 +349,10 @@
               </a>
             {% elsif media.media_type == 'video' %}
               {% assign video_cover = media.preview_image | img_url: '1024x1024' %}
-              <a class="glightbox" href="{{ media | media_url }}" data-type="video">
+              <a class="glightbox" 
+                 href="{{ media | media_url }}" 
+                 data-type="video" 
+                 data-source="local">
                 <img src="{{ video_cover }}" alt="{{ media.alt | escape }}">
                 <span class="play-icon">&#9658;</span>
               </a>
@@ -370,7 +373,10 @@
               </a>
             {% elsif media.media_type == 'video' %}
               {% assign video_cover = media.preview_image | img_url: '200x200' %}
-              <a class="glightbox" href="{{ media | media_url }}" data-type="video">
+              <a class="glightbox" 
+                 href="{{ media | media_url }}" 
+                 data-type="video" 
+                 data-source="local">
                 <img src="{{ video_cover }}" alt="{{ media.alt | escape }}">
                 <span class="play-icon">&#9658;</span>
               </a>
@@ -394,7 +400,10 @@
               </a>
             {% elsif media.media_type == 'video' %}
               {% assign video_cover = media.preview_image | img_url: '1024x1024' %}
-              <a class="glightbox" href="{{ media | media_url }}" data-type="video">
+              <a class="glightbox" 
+                 href="{{ media | media_url }}" 
+                 data-type="video" 
+                 data-source="local">
                 <img src="{{ video_cover }}" alt="{{ media.alt | escape }}">
                 <span class="play-icon">&#9658;</span>
               </a>
@@ -432,6 +441,7 @@
   pointer-events: none;
 }
 {% endstyle %}
+
 
 
 
