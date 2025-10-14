@@ -44,7 +44,10 @@
 <div class="filling_gap_next">
 <div class="video_section">
     {% if section.settings.background_video %}
-    {{ section.settings.background_video }}
+    {% comment %} {{ section.settings.background_video }} {% endcomment %}
+      {{ 
+section.settings.background_video | media_tag: autoplay: section.settings.autoplay, loop: 
+section.settings.video_looping_custom }}
   {% endif %}
 </div>
     <div class="block-products">
