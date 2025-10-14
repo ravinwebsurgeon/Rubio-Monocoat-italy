@@ -1,6 +1,633 @@
+{% doc %}
+  @prompt
+    A product card that includes the product image at the top, then the price and title below. Add a smooth holographic shimmer effect and a shadow.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-product-card-{{ ai_gen_id }} {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: {{ block.settings.card_background_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    overflow: hidden;
+    box-shadow: 
+      0 {{ block.settings.shadow_vertical_offset }}px {{ block.settings.shadow_blur }}px 
+      rgba(0, 0, 0, {{ block.settings.shadow_opacity | divided_by: 100.0 }});
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ai-product-card-{{ ai_gen_id }}:hover {
+    transform: translateY(-{{ block.settings.hover_lift }}px);
+    box-shadow: 
+      0 {{ block.settings.shadow_vertical_offset | plus: block.settings.hover_lift }}px {{ block.settings.shadow_blur | plus: 5 }}px 
+      rgba(0, 0, 0, {{ block.settings.shadow_opacity | divided_by: 100.0 | plus: 0.1 }});
+  }
+
+  .ai-product-card-image-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    aspect-ratio: {{ block.settings.image_aspect_ratio }};
+    overflow: hidden;
+  }
+
+  .ai-product-card-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .ai-product-card-{{ ai_gen_id }}:hover .ai-product-card-image-{{ ai_gen_id }} {
+    transform: scale(1.05);
+  }
+
+  .ai-product-card-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-product-card-placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  .ai-product-card-shimmer-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2) 20%,
+      rgba(255, 255, 255, 0.5) 40%,
+      rgba(255, 255, 255, 0.8) 50%,
+      rgba(255, 255, 255, 0.5) 60%,
+      rgba(255, 255, 255, 0.2) 80%,
+      transparent
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .ai-product-card-{{ ai_gen_id }}:hover .ai-product-card-shimmer-{{ ai_gen_id }} {
+    opacity: 1;
+    animation: ai-shimmer-{{ ai_gen_id }} {{ block.settings.shimmer_duration }}s ease-in-out;
+  }
+
+  @keyframes ai-shimmer-{{ ai_gen_id }} {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  .ai-product-card-holographic-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(255, 0, 150, 0.1) 35%,
+      rgba(0, 255, 255, 0.1) 40%,
+      rgba(255, 255, 0, 0.1) 45%,
+      rgba(255, 0, 150, 0.1) 50%,
+      rgba(0, 255, 255, 0.1) 55%,
+      rgba(255, 255, 0, 0.1) 60%,
+      transparent 70%
+    );
+    background-size: 200% 200%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .ai-product-card-{{ ai_gen_id }}:hover .ai-product-card-holographic-{{ ai_gen_id }} {
+    opacity: {{ block.settings.holographic_intensity | divided_by: 100.0 }};
+    animation: ai-holographic-{{ ai_gen_id }} {{ block.settings.holographic_duration }}s ease-in-out infinite;
+  }
+
+  @keyframes ai-holographic-{{ ai_gen_id }} {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .ai-product-card-content-{{ ai_gen_id }} {
+    padding: {{ block.settings.content_padding }}px;
+    text-align: {{ block.settings.text_alignment }};
+  }
+
+  .ai-product-card-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.title_font_size }}px;
+    font-weight: {{ block.settings.title_font_weight }};
+    color: {{ block.settings.title_color }};
+    margin: 0 0 {{ block.settings.title_margin_bottom }}px 0;
+    line-height: 1.3;
+  }
+
+  .ai-product-card-price-{{ ai_gen_id }} {
+    font-size: {{ block.settings.price_font_size }}px;
+    font-weight: {{ block.settings.price_font_weight }};
+    color: {{ block.settings.price_color }};
+    margin: 0;
+  }
+
+  .ai-product-card-compare-price-{{ ai_gen_id }} {
+    font-size: {{ block.settings.price_font_size | times: 0.9 }}px;
+    color: {{ block.settings.compare_price_color }};
+    text-decoration: line-through;
+    margin-left: 8px;
+  }
+
+  .ai-product-card-sale-badge-{{ ai_gen_id }} {
+    position: absolute;
+    top: {{ block.settings.badge_top_offset }}px;
+    right: {{ block.settings.badge_right_offset }}px;
+    background-color: {{ block.settings.sale_badge_color }};
+    color: {{ block.settings.sale_badge_text_color }};
+    padding: 4px 8px;
+    border-radius: {{ block.settings.badge_border_radius }}px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 2;
+  }
+
+  .ai-product-card-sold-out-badge-{{ ai_gen_id }} {
+    position: absolute;
+    top: {{ block.settings.badge_top_offset }}px;
+    right: {{ block.settings.badge_right_offset }}px;
+    background-color: {{ block.settings.sold_out_badge_color }};
+    color: {{ block.settings.sold_out_badge_text_color }};
+    padding: 4px 8px;
+    border-radius: {{ block.settings.badge_border_radius }}px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 2;
+  }
+
+  .ai-product-card-empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 16px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 4px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-product-card-title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.title_font_size | times: 0.9 }}px;
+    }
+    
+    .ai-product-card-price-{{ ai_gen_id }} {
+      font-size: {{ block.settings.price_font_size | times: 0.9 }}px;
+    }
+    
+    .ai-product-card-content-{{ ai_gen_id }} {
+      padding: {{ block.settings.content_padding | times: 0.8 }}px;
+    }
+  }
+{% endstyle %}
+
+<a
+  href="{% if block.settings.product %}{{ block.settings.product.url }}{% else %}#{% endif %}"
+  class="ai-product-card-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-product-card-image-wrapper-{{ ai_gen_id }}">
+    {% if block.settings.product and block.settings.product.featured_image %}
+      <img
+        src="{{ block.settings.product.featured_image | image_url: width: 600 }}"
+        alt="{{ block.settings.product.featured_image.alt | escape }}"
+        class="ai-product-card-image-{{ ai_gen_id }}"
+        loading="lazy"
+        width="{{ block.settings.product.featured_image.width }}"
+        height="{{ block.settings.product.featured_image.height }}"
+      >
+    {% else %}
+      <div class="ai-product-card-placeholder-{{ ai_gen_id }}">
+        {{ 'product-1' | placeholder_svg_tag }}
+        {% unless block.settings.product %}
+          <div class="ai-product-card-empty-state-{{ ai_gen_id }}">
+            Next, add a product
+          </div>
+        {% endunless %}
+      </div>
+    {% endif %}
+
+    <div class="ai-product-card-shimmer-{{ ai_gen_id }}"></div>
+    <div class="ai-product-card-holographic-{{ ai_gen_id }}"></div>
+
+    {% if block.settings.product %}
+      {% if block.settings.product.compare_at_price > block.settings.product.price %}
+        <div class="ai-product-card-sale-badge-{{ ai_gen_id }}">
+          {{ block.settings.sale_badge_text }}
+        </div>
+      {% elsif block.settings.product.available == false %}
+        <div class="ai-product-card-sold-out-badge-{{ ai_gen_id }}">
+          {{ block.settings.sold_out_badge_text }}
+        </div>
+      {% endif %}
+    {% endif %}
+  </div>
+
+  <div class="ai-product-card-content-{{ ai_gen_id }}">
+    {% if block.settings.product %}
+      <h3 class="ai-product-card-title-{{ ai_gen_id }}">
+        {{ block.settings.product.title }}
+      </h3>
+      <div class="ai-product-card-price-{{ ai_gen_id }}">
+        {{ block.settings.product.price | money }}
+        {% if block.settings.product.compare_at_price > block.settings.product.price %}
+          <span class="ai-product-card-compare-price-{{ ai_gen_id }}">
+            {{ block.settings.product.compare_at_price | money }}
+          </span>
+        {% endif %}
+      </div>
+    {% else %}
+      <h3 class="ai-product-card-title-{{ ai_gen_id }}">
+        Product title
+      </h3>
+      <div class="ai-product-card-price-{{ ai_gen_id }}">
+        €29.99
+      </div>
+    {% endif %}
+  </div>
+</a>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Holographic product card",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Product"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "header",
+      "content": "Card style"
+    },
+    {
+      "type": "color",
+      "id": "card_background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 12
+    },
+    {
+      "type": "select",
+      "id": "image_aspect_ratio",
+      "label": "Image aspect ratio",
+      "options": [
+        {
+          "value": "1/1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "3/4",
+          "label": "Portrait (3:4)"
+        },
+        {
+          "value": "16/9",
+          "label": "Wide (16:9)"
+        }
+      ],
+      "default": "4/3"
+    },
+    {
+      "type": "header",
+      "content": "Shadow"
+    },
+    {
+      "type": "range",
+      "id": "shadow_vertical_offset",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Vertical offset",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "shadow_blur",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Blur",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "shadow_opacity",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "%",
+      "label": "Opacity",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "hover_lift",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Hover lift",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Holographic effect"
+    },
+    {
+      "type": "range",
+      "id": "holographic_intensity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Intensity",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "holographic_duration",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "unit": "s",
+      "label": "Animation duration",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "shimmer_duration",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "unit": "s",
+      "label": "Shimmer duration",
+      "default": 1
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "range",
+      "id": "content_padding",
+      "min": 8,
+      "max": 32,
+      "step": 4,
+      "unit": "px",
+      "label": "Content padding",
+      "default": 20
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Title"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "title_font_weight",
+      "label": "Font weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi-bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Color",
+      "default": "#121212"
+    },
+    {
+      "type": "range",
+      "id": "title_margin_bottom",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom margin",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Price"
+    },
+    {
+      "type": "range",
+      "id": "price_font_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "price_font_weight",
+      "label": "Font weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi-bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "500"
+    },
+    {
+      "type": "color",
+      "id": "price_color",
+      "label": "Color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "compare_price_color",
+      "label": "Compare price color",
+      "default": "#999999"
+    },
+    {
+      "type": "header",
+      "content": "Badges"
+    },
+    {
+      "type": "text",
+      "id": "sale_badge_text",
+      "label": "Sale badge text",
+      "default": "Sale"
+    },
+    {
+      "type": "text",
+      "id": "sold_out_badge_text",
+      "label": "Sold out badge text",
+      "default": "Sold out"
+    },
+    {
+      "type": "color",
+      "id": "sale_badge_color",
+      "label": "Sale badge background",
+      "default": "#ff4444"
+    },
+    {
+      "type": "color",
+      "id": "sale_badge_text_color",
+      "label": "Sale badge text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "sold_out_badge_color",
+      "label": "Sold out badge background",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "sold_out_badge_text_color",
+      "label": "Sold out badge text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "badge_top_offset",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Badge top offset",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "badge_right_offset",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Badge right offset",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "badge_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Badge border radius",
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Holographic product card"
+    }
+  ]
+}
 {% endschema %}
