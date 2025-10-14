@@ -465,8 +465,6 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 });
 
 </script>
-<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   let lightbox = null;
@@ -478,13 +476,19 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function initLightbox() {
-    try { if (lightbox?.destroy) lightbox.destroy(); } catch(e){}
+    try { if(lightbox?.destroy) lightbox.destroy(); } catch(e){}
+
     lightbox = GLightbox({
       selector: '.glightbox.glightbox-active',
       loop: true,
       zoomable: true,
       touchNavigation: true,
-      autoplayVideos: true
+      autoplayVideos: true,
+      plyr: {
+        ratio: '16:9',
+        hideControls: false,
+        fullscreen: { enabled: true }
+      }
     });
   }
 
