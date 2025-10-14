@@ -133,41 +133,7 @@ document.addEventListener('click', function (e) {
 });
 </script>
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  
-  document.querySelectorAll('.product-form__input--swatch').forEach(fieldset => {
-    const selectedValueEl = fieldset.querySelector('[data-selected-value]');
-    const swatchInputs = fieldset.querySelectorAll('input[type="radio"]');
 
-    if (!selectedValueEl || !swatchInputs.length) return;
-
-    
-    let originalText = selectedValueEl.textContent.trim();
-
-    swatchInputs.forEach(input => {
-      const label = input.closest('label');
-      if (!label) return;
-
-      
-      label.addEventListener('mouseenter', () => {
-        selectedValueEl.textContent = input.value;
-      });
-
-      
-      label.addEventListener('mouseleave', () => {
-        selectedValueEl.textContent = originalText;
-      });
-
-      
-      input.addEventListener('change', () => {
-        originalText = input.value;
-        selectedValueEl.textContent = originalText;
-      });
-    });
-  });
-});
-</script>
 
 
       <!-- Tooltip (content from metafield) -->
