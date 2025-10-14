@@ -86,9 +86,9 @@
                         </div>
                         <div class="pro_variant">
                          <select class="variant-selector" name="variant-selector">
-                            <option value="option1">20ml</option>
-                            <option value="option2">40ml</option>
-                            <option value="option3">60ml</option>
+                             {% for variant in product.variants %}
+                                <option value="{{ variant.id }}">{{ variant.title }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                     <div class="pro_buttons">
