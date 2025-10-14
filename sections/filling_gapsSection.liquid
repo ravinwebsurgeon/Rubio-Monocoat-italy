@@ -44,8 +44,8 @@
 <div class="filling_gap_next">
 <div class="video_section">
     {% if section.settings.video_link %}
-      {% comment %} {{ section.settings.video_link | media_tag: autoplay: section.settings.autoplay, loop: 
-section.settings.video_looping_custom }} {% endcomment %}
+      {{ section.settings.video_link | media_tag: autoplay: section.settings.autoplay, loop: 
+section.settings.video_looping_custom }}
         {% comment %} <video width="320" height="240" controls>
   <source src="{{ section.settings.video_link }}" type="video/mp4">
   <source src="{{ section.settings.video_link }}" type="video/mp4">
