@@ -10,7 +10,7 @@
                         <img src="{{ product.featured_image | image_url: width: 300  }}" />
                     </div>
                     <div class="pro_detail">
-                        <div class="pro_title">
+                        <div class="product_title_price">
                             <h3>{{ product.title }}</h3>
                             <p>{{ product.price | money_with_currency }}</p>
                         </div>
@@ -42,7 +42,7 @@
     .media_content{width:40%;}
     .single-layer{width:95%;margin:auto;}
     .product_listed h2{font-size:25px; font-weight:600;text-transform:capitalize;}
-    .product_detail , .pro_title{display:flex;}
+    .product_detail , .product_title_price{display:flex;}
 {% schema %}
     {
         "name":"Filling Gap Section",
