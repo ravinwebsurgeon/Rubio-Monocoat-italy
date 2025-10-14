@@ -43,15 +43,15 @@
     </div>
 <div class="filling_gap_next">
 <div class="video_section">
-    {% if section.settings.background_video %}
-      {% comment %} {{ section.settings.background_video | media_tag: autoplay: section.settings.autoplay, loop: 
+    {% if section.settings.video_link %}
+      {% comment %} {{ section.settings.video_link | media_tag: autoplay: section.settings.autoplay, loop: 
 section.settings.video_looping_custom }} {% endcomment %}
         {% comment %} <video width="320" height="240" controls>
-  <source src="{{ section.settings.background_video }}" type="video/mp4">
-  <source src="{{ section.settings.background_video }}" type="video/mp4">
+  <source src="{{ section.settings.video_link }}" type="video/mp4">
+  <source src="{{ section.settings.video_link }}" type="video/mp4">
   Your browser does not support the video tag.
 </video> {% endcomment %}
-
+{{ section.settings.video_link | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
 {% endif %}
 </div>
     <div class="block-products">
@@ -145,7 +145,7 @@ section.settings.video_looping_custom }} {% endcomment %}
             },
             {
                 "type": "video",
-                "id": "background_video",
+                "id": "video_link",
                 "label": "Video",
             },
             {
