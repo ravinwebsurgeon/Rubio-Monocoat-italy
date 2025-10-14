@@ -1,7 +1,18 @@
 <div class="filling_gap_section">
-    
+    <div class="media_section">
+        <div class="custom_image">
+            <img src="{{ section.settings.image }}" />
+        </div>
+        <div class="content_section">
+            <p class="heading">{{ section.settings.heading }}</p>
+            <p class="subheading">{{ section.settings.heading }}</p>
+        </div>
+    </div>
+    <div class="selected_product_section"></div>
 </div>
-
+<style>
+    .filling_gap_section{display:none;}
+</style>
 {% schema %}
     {
         "name":"Filling Gap Section",
