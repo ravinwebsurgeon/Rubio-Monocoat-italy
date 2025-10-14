@@ -131,11 +131,8 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.json())
             .then(data => {
                 console.log('Added to cart:', data);
-                const message = productBlock.querySelector('.cart-message');
-                if (message) {
-                    message.style.display = 'block';
-                    setTimeout(() => message.style.display = 'none', 3000);
-                }
+                {% comment %} updateCartCount(totalQuantityAdded); {% endcomment %}
+                 refreshCartDrawer();
             })
             .catch(error => {
                 console.error('Error adding to cart:', error);
@@ -144,6 +141,47 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+{% comment %} function updateCartCount(totalQuantityAdded) {
+  const cartCounts = document.querySelectorAll('.cart-count-bubble > span');
+  if (cartCounts.length > 0) {
+    cartCounts.forEach(count => {
+      const currentNumberMatch = count.textContent.match(/\d+/);
+      const currentNumber = currentNumberMatch ? parseInt(currentNumberMatch[0]) : 0;
+      const newNumber = currentNumber + totalQuantityAdded;
+      count.textContent = count.textContent.replace(/\d+/, newNumber);
+
+      // Remove custom count bubble if any
+      const customCount = document.querySelector('.custom-cart-count-bubble > span');
+      if (customCount) customCount.remove();
+    });
+  } else {
+    const customCount = document.querySelector('.custom-cart-count-bubble > span');
+    if (customCount) {
+      customCount.textContent = totalQuantityAdded;
+      customCount.parentNode.style.display = 'block';
+    }
+  }
+} {% endcomment %}
+
+function refreshCartDrawer() {
+  const cartDrawer = document.querySelector('cart-drawer');
+
+  fetch(`${routes.cart_url}?sections=cart-drawer`)
+    .then(response => response.json())
+    .then(sections => {
+      const newCartDrawerHtml = sections['cart-drawer'];
+      const newDocument = new DOMParser().parseFromString(newCartDrawerHtml, 'text/html');
+      const newCartDrawer = newDocument.querySelector('cart-drawer');
+
+      if (cartDrawer && newCartDrawer) {
+        cartDrawer.replaceWith(newCartDrawer);
+        document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
+      }
+    })
+    .catch((error) => { console.error('Error refreshing cart drawer:', error); });
+}
+
 </script>
 
 
