@@ -147,7 +147,7 @@
         "add_product": "woodprep",
         "background_video": "shopify://files/videos/5895457-uhd_3840_2160_30fps.mp4",
         "autoplay": true,
-        "loop": true
+        "loop": false
       }
     },
     "custom_two_product_col_rFJaUY": {
