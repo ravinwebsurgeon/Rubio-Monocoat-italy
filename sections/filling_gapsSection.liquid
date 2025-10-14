@@ -8,7 +8,6 @@
                     <p class="subheading">{{ section.settings.subheading }}</p>
                 </div>
             </div>
-            
         </div>
         <div class="selected_product_section">
             <div class="product_head"><p>{{ section.settings.main_heading }}</p></div>
@@ -16,19 +15,20 @@
                 {% assign product = section.settings.add_product %}
                 {% if product %}
                     <div class="product-block">
-                    <a href="{{ product.url }}">
-                        {% if product.featured_image %}
-                        <img src="{{ product.featured_image | image_url: width: 300 }}" alt="{{ product.title }}">
-                        {% endif %}
-                    </a>
-                    <div class="product_title_price">
-                        <h3>{{ product.title }}</h3>
-                        <p>{{ product.price | money_with_currency }}</p>
-                    </div>
+                        <a href="{{ product.url }}">
+                            {% if product.featured_image %}
+                            <img src="{{ product.featured_image | image_url: width: 300 }}" alt="{{ product.title }}">
+                            {% endif %}
+                        </a>
+                        <div class="product_title_price">
+                            <h3>{{ product.title }}</h3>
+                            <p>{{ product.price | money_with_currency }}</p>
+                        </div>
                     </div>
                 {% endif %}
-                </div>
-            {% comment %} <div class="product-data">
+            </div>
+        </div>
+        {% comment %} <div class="product-data">
                 {% for block in section.blocks %}
                     {% assign product = block.settings.product %}
                     {% if product %}
@@ -44,7 +44,6 @@
                     {% endif %}
                 {% endfor %}
             </div> {% endcomment %}
-        </div>
     </div>
 </div>
 <style>
