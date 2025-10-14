@@ -68,14 +68,24 @@
                 }}
             <a href="{{ section.settings.background_video.sources[1].url }}" class="watch_link"><p>Watch Video</p></a>
         {% endif %}
-        <svg width="50" height="20" viewBox="0 0 50 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {% comment %} <svg width="50" height="20" viewBox="0 0 50 20" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="0" refY="2" orient="auto">
       <path d="M0,0 L6,2 L0,4 Z" fill="currentColor" />
     </marker>
   </defs>
   <path d="M5 15 C 15 5, 35 5, 45 15" stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+</svg> {% endcomment %}
+<svg width="50" height="20" viewBox="0 0 50 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="0" refY="2" orient="auto">
+      <path d="M0,0 L6,2 L0,4 Z" fill="currentColor" />
+    </marker>
+  </defs>
+  <!-- Changed control points to make the curve dip down -->
+  <path d="M5 5 C 15 15, 35 15, 45 5" stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
 </svg>
+
         </div>
     </div>
     <div class="block-products">
