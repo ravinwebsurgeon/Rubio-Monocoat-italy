@@ -25,6 +25,13 @@
                             <p>{{ product.price | money_with_currency }}</p>
                         </div>
                     <div class='pro_subheading'><span>{{ section.settings.subheading }}</span></div>
+                    <div class="pro_quantity">
+                         <select id="myDropdown" name="myDropdown">
+                            <option value="option1">20ml</option>
+                            <option value="option2">40ml</option>
+                            <option value="option3">60ml</option>
+                        </select>
+                    </div>
                     <div class="pro_buttons">
                         <button class="more_info">More Info</button>
                         <button class="add_to_cart">Add To cart</button>
