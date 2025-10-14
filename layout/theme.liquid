@@ -474,11 +474,8 @@ document.addEventListener('DOMContentLoaded', function () {
   let mobileSwiper = null;
   let originalMobileSlides = [];
 
-  let selectedColor = '';
-  let selectedSize = '';
-
   function normalizeValue(val) {
-    return val?.toString().trim().toLowerCase().replace(/\s+/g, '-') || '';
+    return val?.toString().trim().toLowerCase().replace(/\s+/g, '-').replace(/\./g,'-') || '';
   }
 
   function initLightbox() {
@@ -520,25 +517,26 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  function updateGalleryForVariant() {
+  function updateGallery(selectedColor, selectedSize) {
     const colorHandle = normalizeValue(selectedColor);
     const sizeHandle = normalizeValue(selectedSize);
 
-    // DESKTOP main images
+    // DESKTOP - main images
     let shownMain = false;
     document.querySelectorAll('.main-image-item').forEach(item=>{
-      const c = normalizeValue(item.dataset.color);
-      const s = normalizeValue(item.dataset.size);
-      item.style.display = (c === colorHandle && s === sizeHandle && !shownMain) ? 'flex' : 'none';
-      if(c === colorHandle && s === sizeHandle) shownMain = true;
+      const itemColor = normalizeValue(item.getAttribute('data-color'));
+      const itemSize = normalizeValue(item.getAttribute('data-size'));
+      const show = (itemColor === colorHandle && itemSize === sizeHandle && !shownMain);
+      item.style.display = show ? 'flex' : 'none';
+      if(show) shownMain = true;
     });
 
-    // DESKTOP thumbnails
+    // DESKTOP - thumbnails
     let skipped = false;
     document.querySelectorAll('.thumbnail-item').forEach(item=>{
-      const c = normalizeValue(item.dataset.color);
-      const s = normalizeValue(item.dataset.size);
-      if(c === colorHandle && s === sizeHandle){
+      const itemColor = normalizeValue(item.getAttribute('data-color'));
+      const itemSize = normalizeValue(item.getAttribute('data-size'));
+      if(itemColor === colorHandle && itemSize === sizeHandle){
         item.style.display = skipped ? 'inline-block' : 'none';
         skipped = true;
       } else {
@@ -546,14 +544,14 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // MOBILE slides
+    // MOBILE
     const swiperWrapper = document.querySelector('.mobile-gallery .swiper-wrapper');
     if(swiperWrapper){
       swiperWrapper.innerHTML = '';
-      const matched = originalMobileSlides.filter(slide=>{
-        const c = normalizeValue(slide.dataset.color);
-        const s = normalizeValue(slide.dataset.size);
-        return c === colorHandle && s === sizeHandle;
+      const matched = originalMobileSlides.filter(slide => {
+        const itemColor = normalizeValue(slide.getAttribute('data-color'));
+        const itemSize = normalizeValue(slide.getAttribute('data-size'));
+        return itemColor === colorHandle && itemSize === sizeHandle;
       });
       (matched.length ? matched : [originalMobileSlides[0]]).forEach(slide=>{
         const clone = slide.cloneNode(true);
@@ -573,13 +571,25 @@ document.addEventListener('DOMContentLoaded', function () {
   // Swatch / select change
   document.body.addEventListener('change', e=>{
     const t = e.target;
-    if(t.matches('.swatch-input__input[name^="Color"], select[name="Color"]')){
-      selectedColor = t.value;
-      updateGalleryForVariant();
+
+    let colorVal, sizeVal;
+
+    // If color swatch changed
+    if(t.matches('.swatch-input__input[name^="Color"]')){
+      colorVal = t.value;
+      const selectedSizeEl = document.querySelector('.swatch-input__input[name^="Size"]:checked, select[name="Size"]');
+      sizeVal = selectedSizeEl ? selectedSizeEl.value : '';
     }
+
+    // If size swatch changed
     if(t.matches('.swatch-input__input[name^="Size"], select[name="Size"]')){
-      selectedSize = t.value;
-      updateGalleryForVariant();
+      sizeVal = t.value;
+      const selectedColorEl = document.querySelector('.swatch-input__input[name^="Color"]:checked, select[name="Color"]');
+      colorVal = selectedColorEl ? selectedColorEl.value : '';
+    }
+
+    if(colorVal && sizeVal){
+      updateGallery(colorVal, sizeVal);
     }
   });
 
@@ -594,17 +604,31 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // INIT
-  const initSwatchColor = document.querySelector('.swatch-input__input[name^="Color"]:checked');
-  const initSelectColor = document.querySelector('select[name="Color"]');
-  const initSwatchSize = document.querySelector('.swatch-input__input[name^="Size"]:checked');
-  const initSelectSize = document.querySelector('select[name="Size"]');
+  // INIT - show first available combination
+  const initColor = document.querySelector('.swatch-input__input[name^="Color"]:checked, select[name="Color"]')?.value;
+  const initSize = document.querySelector('.swatch-input__input[name^="Size"]:checked, select[name="Size"]')?.value;
 
-  selectedColor = initSwatchColor?.value || initSelectColor?.value || '';
-  selectedSize = initSwatchSize?.value || initSelectSize?.value || '';
-  updateGalleryForVariant();
+  if(initColor && initSize){
+    updateGallery(initColor, initSize);
+  } else {
+    // fallback - show first main image
+    const allMain = document.querySelectorAll('.main-image-item');
+    allMain.forEach((item,i)=>item.style.display = i===0 ? 'block' : 'none');
+    const allThumb = document.querySelectorAll('.thumbnail-item');
+    allThumb.forEach((item,i)=>item.style.display = i===0 ? 'none' : 'inline-block');
+    const firstColor = allMain[0]?.getAttribute('data-color');
+    const firstSize = allMain[0]?.getAttribute('data-size');
+    if(firstColor && firstSize){
+      updateGallery(firstColor, firstSize);
+    } else {
+      updateGlightboxActive();
+      initLightbox();
+      initMobileSlider();
+    }
+  }
 });
 </script>
+
 
 
     {%- if settings.predictive_search_enabled -%}
