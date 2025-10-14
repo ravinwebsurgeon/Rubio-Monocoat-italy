@@ -30,7 +30,11 @@
         </div>
     </div>
 <div class="filling_gap_next">
-<div class="video_section"></div>
+<div class="video_section">
+    {% if section.settings.background_video %}
+    {{ section.settings.background_video }}
+  {% endif %}
+</div>
     <div class="block-products">
             <div class="product-data">
                 {% for block in section.blocks %}
