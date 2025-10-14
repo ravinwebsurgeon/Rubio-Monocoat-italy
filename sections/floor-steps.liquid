@@ -56,8 +56,8 @@
 
 <div class="floor-steps-section">
   <div class="containers">
-    <h2>{{ section.settings.heading }}</h2>
-    <p>{{ section.settings.subheading }}</p>
+    <h2 class="floor_steps_heading">{{ section.settings.heading }}</h2>
+    <p class="floor_step_subheading">{{ section.settings.subheading }}</p>
     <div class="floor-steps-wrapper">
       {% for block in section.blocks %}
         <a href="{{ block.settings.link }}" class="floor-step {% if block.settings.highlight %}highlight{% endif %}">
@@ -73,6 +73,8 @@
 
 <style>
 .floor-steps-section{width:97%;margin:auto;}
+.floor_steps_heading{font-size:35px;font-weight:600;margin-bottom:0;}
+.floor_step_subheading{font-size:17px;font-weight:600;}
 .floor-steps-wrapper {
   display: flex;
   gap: 20px;
