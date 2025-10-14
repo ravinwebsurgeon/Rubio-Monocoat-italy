@@ -46,12 +46,12 @@
     {% if section.settings.background_video %}
       {% comment %} {{ section.settings.background_video | media_tag: autoplay: section.settings.autoplay, loop: 
 section.settings.video_looping_custom }} {% endcomment %}
- {% comment %} {{ section.settings.background_video | media_tag: 
+ {{ section.settings.background_video | media_tag: 
       autoplay: section.settings.autoplay, 
       loop: section.settings.loop,
       controls: true,
       muted: true
-    }} {% endcomment %}
+    }}
   {% endif %}
 </div>
     <div class="block-products">
@@ -113,6 +113,7 @@ section.settings.video_looping_custom }} {% endcomment %}
     .pro_buttons button{color:white;border:none;padding:10px;border-radius:33px;font-size:14px;}
     .pro_quantity{width: 95%;margin:15px auto;}
     .pro_quantity select{width: 100%;padding: 8px;border-radius: 19px;}
+    .video_section video{width:300px;}
 </style>
 {% schema %}
     {
