@@ -974,66 +974,146 @@
 
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const productForm = document.querySelector('form[action="/cart/add"]');
-    const stickyBar = document.getElementById('sticky-add-to-cart');
-    const stickyPrice = document.getElementById('sticky-price');
-    const stickyVariantId = document.getElementById('sticky-variant-id');
-    const stickyVariantOptions = document.getElementById('sticky-variant-options');
-    const stickyVariantImage = document.getElementById('sticky-variant-image');
+document.addEventListener('DOMContentLoaded', function () {
+  const productForm = document.querySelector('form[action="/cart/add"]') || document.querySelector('form[action*="/cart/add"]');
+  const stickyBar = document.getElementById('sticky-add-to-cart');
+  const stickyPrice = document.getElementById('sticky-price');
+  const stickyVariantId = document.getElementById('sticky-variant-id');
+  const stickyVariantOptions = document.getElementById('sticky-variant-options');
+  const stickyVariantImage = document.getElementById('sticky-variant-image');
 
-    if (!productForm) return;
+  if (!stickyVariantId) {
+    console.warn('sticky-variant-id not found - please check HTML id.');
+    return;
+  }
 
-    // ✅ Show/Hide sticky bar on scroll
+  // Utility: try multiple ways to get currently selected variant id
+  function getCurrentVariantId() {
+    // 1) select dropdown commonly used by Shopify
+    const select = document.querySelector('select[name="id"], form[action="/cart/add"] select[name="id"], form[action*="/cart/add"] select[name="id"]');
+    if (select && select.value) return select.value;
+
+    // 2) radio inputs (swatches implemented as radios)
+    const checked = document.querySelector('input[name="id"]:checked');
+    if (checked && checked.value) return checked.value;
+
+    // 3) some themes use input[name="variant"] or input[name="variantId"]
+    const alt = document.querySelector('input[name="variant"], input[name="variantId"], input[name="variant-id"]');
+    if (alt && alt.value) return alt.value;
+
+    // 4) hidden input inside the product form
+    if (productForm) {
+      const hidden = productForm.querySelector('input[name="id"][type="hidden"], input[type="hidden"][name*="variant"]');
+      if (hidden && hidden.value) return hidden.value;
+    }
+
+    // 5) elements using data-attribute to mark the selected variant (buttons/swatches)
+    const activeData = document.querySelector('[data-variant-id].active, [data-variant-id][aria-pressed="true"]');
+    if (activeData) return activeData.getAttribute('data-variant-id');
+
+    return null;
+  }
+
+  // Update sticky UI using variant data if available in window.meta.product.variants
+  function updateStickyBar(variantId) {
+    if (!variantId) return;
+
+    // Avoid repeated updates (caller should handle lastVariantId check)
+    // Try to find variant in window.meta.product.variants (Shopify theme JSON)
+    const metaVariants = window.meta?.product?.variants || window.product?.variants || null;
+    let variantObj = null;
+
+    if (Array.isArray(metaVariants)) {
+      // match both numeric string and number
+      variantObj = metaVariants.find(v => String(v.id) === String(variantId));
+    }
+
+    if (variantObj) {
+      // Price (use Shopify.formatMoney if available and meta.money_format exists)
+      try {
+        if (typeof Shopify !== 'undefined' && window.meta?.money_format) {
+          stickyPrice.innerHTML = Shopify.formatMoney(variantObj.price, window.meta.money_format);
+        } else if (typeof Shopify !== 'undefined' && window.shop_money_format) {
+          stickyPrice.innerHTML = Shopify.formatMoney(variantObj.price, window.shop_money_format);
+        } else {
+          // fallback: raw price (divide if needed) — assume variantObj.price is in cents
+          stickyPrice.textContent = (variantObj.price / 100).toFixed(2);
+        }
+      } catch (e) {
+        // safe fallback
+        stickyPrice.textContent = (variantObj.price / 100).toFixed(2);
+      }
+
+      // Options string e.g. "Red / Large"
+      const o1 = variantObj.option1 || '';
+      const o2 = variantObj.option2 || '';
+      const o3 = variantObj.option3 || '';
+      const optionsArr = [o1, o2, o3].filter(Boolean);
+      if (stickyVariantOptions) stickyVariantOptions.textContent = optionsArr.join(' / ');
+
+      // Image: try variant.featured_image.src
+      if (variantObj.featured_image && variantObj.featured_image.src && stickyVariantImage) {
+        // request a small size - Shopify stores often accept _100x100 suffix; keep safe:
+        const src = variantObj.featured_image.src;
+        // If the src already contains a size token, let it be; otherwise try adding _100x100 before extension
+        const newSrc = src.includes('_') ? src : src.replace(/(\.[^/.]+)$/, '_100x100$1');
+        stickyVariantImage.src = newSrc;
+      }
+    } else {
+      // If we can't find variant in meta, try to pull price from DOM (common selectors)
+      const priceEl = document.querySelector('.product__price, .price, .price__current, [data-product-price], [data-price]');
+      if (priceEl && stickyPrice) stickyPrice.textContent = priceEl.textContent.trim();
+
+      // Options fallback: try reading option labels from selected elements
+      const optEls = [];
+      const selectedOptionEls = document.querySelectorAll('.swatch .swatch__value.selected, .swatch__value.is-active, [data-option-selected="true"], select[name^="option"]');
+      selectedOptionEls.forEach(el => {
+        const txt = el.value || el.textContent || el.getAttribute('aria-label');
+        if (txt) optEls.push(txt.trim());
+      });
+      if (optEls.length && stickyVariantOptions) stickyVariantOptions.textContent = optEls.join(' / ');
+    }
+
+    // finally ensure hidden sticky input has the current variant id
+    stickyVariantId.value = variantId;
+  }
+
+  // initial seed
+  let lastVariantId = getCurrentVariantId() || (stickyVariantId.value ? String(stickyVariantId.value) : null);
+  if (lastVariantId) {
+    updateStickyBar(lastVariantId);
+  }
+
+  // Instant update listening (works for native selects/radios)
+  document.addEventListener('change', function (e) {
+    const target = e.target;
+    if (!target) return;
+    if (target.matches('select[name="id"], input[name="id"], input[name="variant"], input[name="variantId"], input[name="variant-id"]')) {
+      const id = getCurrentVariantId();
+      if (id && id !== lastVariantId) {
+        lastVariantId = id;
+        updateStickyBar(id);
+      }
+    }
+  }, true);
+
+  // Fallback polling every 2 seconds to catch theme-driven changes that don't emit events
+  setInterval(function () {
+    const currentId = getCurrentVariantId();
+    if (currentId && String(currentId) !== String(lastVariantId)) {
+      lastVariantId = currentId;
+      updateStickyBar(currentId);
+    }
+  }, 2000);
+
+  // Optional: show/hide sticky bar based on product form visibility (keep your original behavior)
+  if (productForm && stickyBar) {
     window.addEventListener('scroll', function () {
       const rect = productForm.getBoundingClientRect();
       stickyBar.style.display = rect.bottom < 0 ? 'flex' : 'none';
     });
-
-    // ✅ Function to update sticky bar details
-    function updateStickyBar(variantId) {
-      const variant = window.meta?.product?.variants.find(v => v.id == variantId);
-      if (variant) {
-        // Update price
-        stickyPrice.innerHTML = Shopify.formatMoney(variant.price, window.meta.money_format);
-
-        // Update variant options (option1 / option2)
-        let optionsText = variant.option1;
-        if (variant.option2) {
-          optionsText += ' / ' + variant.option2;
-        }
-        stickyVariantOptions.textContent = optionsText;
-
-        // Update variant image (if available)
-        if (variant.featured_image && variant.featured_image.src) {
-          stickyVariantImage.src = variant.featured_image.src.replace(/(\.[^.]*)$/, '_100x100$1');
-        }
-      }
-    }
-
-    // ✅ Instant update on variant change (radio/select)
-    document.querySelectorAll('[name="id"]').forEach(function (input) {
-      input.addEventListener('change', function (e) {
-        const selectedId = e.target.value;
-        stickyVariantId.value = selectedId;
-        updateStickyBar(selectedId);
-      });
-    });
-
-    // ✅ Fallback interval to catch any JS-based variant updates
-    let lastVariantId = stickyVariantId.value;
-    setInterval(function () {
-      const currentInput = document.querySelector('[name="id"]:checked') || document.querySelector('[name="id"]');
-      if (currentInput) {
-        const currentId = currentInput.value;
-        if (currentId !== lastVariantId) {
-          lastVariantId = currentId;
-          stickyVariantId.value = currentId;
-          updateStickyBar(currentId);
-        }
-      }
-    }, 2000);
-  });
+  }
+});
 </script>
 
 
