@@ -61,6 +61,18 @@
                             <h3>{{ product.title }}</h3>
                             <p>{{ product.price | money }}</p>
                         </div>
+                        <div class="pro_quantity">
+                         <select id="myDropdown" name="myDropdown">
+                            <option value="option1">20ml</option>
+                            <option value="option2">40ml</option>
+                            <option value="option3">60ml</option>
+                        </select>
+                    </div>
+                    <div class="pro_buttons">
+                        <button class="more_info">More Info</button>
+                        <button class="add_to_cart">Add To cart</button>
+                    </div>
+                    
                         </div>
                     {% endif %}
                 {% endfor %}
