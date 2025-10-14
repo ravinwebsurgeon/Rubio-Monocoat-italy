@@ -972,21 +972,20 @@
   </div>
 </div>
 
-{% stylesheet %}
-{% endstylesheet %}
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const productForm = document.querySelector('form[action="/cart/add"]');
     const stickyBar = document.getElementById('sticky-add-to-cart');
     const stickyPrice = document.getElementById('sticky-price');
     const stickyVariantId = document.getElementById('sticky-variant-id');
-    const stickyOptions = document.getElementById('sticky-variant-options'); // ✅ newly added
+    const stickyVariantTitle = document.querySelector('.sticky-variant-title'); // Add this div in your sticky bar markup
 
     if (!productForm) return;
 
-    // ✅ Show/Hide sticky bar on scroll
+    // Show/Hide sticky bar on scroll
     window.addEventListener('scroll', function () {
-      const rect = productForm.getBoundingClientRect();
+      let rect = productForm.getBoundingClientRect();
       if (rect.bottom < 0) {
         stickyBar.style.display = 'flex';
       } else {
@@ -994,29 +993,33 @@
       }
     });
 
-    // ✅ Update sticky bar when variant changes
+    // Function to update price and variant title
+    function updateStickyBar(variantId) {
+      const variant = window.meta?.product?.variants.find((v) => v.id == variantId);
+      if (variant) {
+        // Update price
+        stickyPrice.innerHTML = Shopify.formatMoney(variant.price, window.meta.money_format);
+
+        // Update variant title (example: "Large / Blue")
+        if (stickyVariantTitle) {
+          stickyVariantTitle.textContent = variant.title;
+        }
+      }
+    }
+
+    // Initial update on page load (default selected variant)
+    const defaultVariantInput = document.querySelector('[name="id"]:checked') || document.querySelector('[name="id"]');
+    if (defaultVariantInput) {
+      stickyVariantId.value = defaultVariantInput.value;
+      updateStickyBar(defaultVariantInput.value);
+    }
+
+    // Update sticky bar when variant changes
     document.querySelectorAll('[name="id"]').forEach(function (input) {
       input.addEventListener('change', function (e) {
-        const selected = e.target.value;
-
-        // Update hidden variant ID
-        stickyVariantId.value = selected;
-
-        // Get variant data from Shopify's meta object
-        const variant = window.meta?.product?.variants.find(v => v.id == selected);
-        if (variant) {
-          // Update price
-          stickyPrice.innerHTML = Shopify.formatMoney(variant.price, window.meta.money_format);
-
-          // ✅ Update variant options display (e.g., "Red / Large")
-          let optionsText = variant.option1 || '';
-          if (variant.option2) {
-            optionsText += ' / ' + variant.option2;
-          }
-          if (stickyOptions) {
-            stickyOptions.textContent = optionsText;
-          }
-        }
+        const selectedId = e.target.value;
+        stickyVariantId.value = selectedId;
+        updateStickyBar(selectedId);
       });
     });
   });
