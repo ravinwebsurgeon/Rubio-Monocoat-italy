@@ -47,7 +47,7 @@
           "settings": {
             "image": "shopify://shop_images/Ellipse_66.png",
             "label": "PREPARATION",
-            "link": "",
+            "link": "shopify://collections/preparation",
             "highlight": false
           }
         },
