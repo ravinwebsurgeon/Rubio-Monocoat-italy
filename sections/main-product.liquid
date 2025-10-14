@@ -979,42 +979,39 @@
     const stickyBar = document.getElementById('sticky-add-to-cart');
     const stickyPrice = document.getElementById('sticky-price');
     const stickyVariantId = document.getElementById('sticky-variant-id');
-    const stickyVariantTitle = document.querySelector('.sticky-variant-title'); // Add this div in your sticky bar markup
+    const stickyVariantOptions = document.getElementById('sticky-variant-options');
+    const stickyVariantImage = document.getElementById('sticky-variant-image');
 
     if (!productForm) return;
 
-    // Show/Hide sticky bar on scroll
+    // ✅ Show/Hide sticky bar on scroll
     window.addEventListener('scroll', function () {
-      let rect = productForm.getBoundingClientRect();
-      if (rect.bottom < 0) {
-        stickyBar.style.display = 'flex';
-      } else {
-        stickyBar.style.display = 'none';
-      }
+      const rect = productForm.getBoundingClientRect();
+      stickyBar.style.display = rect.bottom < 0 ? 'flex' : 'none';
     });
 
-    // Function to update price and variant title
+    // ✅ Function to update sticky bar details
     function updateStickyBar(variantId) {
-      const variant = window.meta?.product?.variants.find((v) => v.id == variantId);
+      const variant = window.meta?.product?.variants.find(v => v.id == variantId);
       if (variant) {
         // Update price
         stickyPrice.innerHTML = Shopify.formatMoney(variant.price, window.meta.money_format);
 
-        // Update variant title (example: "Large / Blue")
-        if (stickyVariantTitle) {
-          stickyVariantTitle.textContent = variant.title;
+        // Update variant options (option1 / option2)
+        let optionsText = variant.option1;
+        if (variant.option2) {
+          optionsText += ' / ' + variant.option2;
+        }
+        stickyVariantOptions.textContent = optionsText;
+
+        // Update variant image (if available)
+        if (variant.featured_image && variant.featured_image.src) {
+          stickyVariantImage.src = variant.featured_image.src.replace(/(\.[^.]*)$/, '_100x100$1');
         }
       }
     }
 
-    // Initial update on page load (default selected variant)
-    const defaultVariantInput = document.querySelector('[name="id"]:checked') || document.querySelector('[name="id"]');
-    if (defaultVariantInput) {
-      stickyVariantId.value = defaultVariantInput.value;
-      updateStickyBar(defaultVariantInput.value);
-    }
-
-    // Update sticky bar when variant changes
+    // ✅ Instant update on variant change (radio/select)
     document.querySelectorAll('[name="id"]').forEach(function (input) {
       input.addEventListener('change', function (e) {
         const selectedId = e.target.value;
@@ -1022,8 +1019,23 @@
         updateStickyBar(selectedId);
       });
     });
+
+    // ✅ Fallback interval to catch any JS-based variant updates
+    let lastVariantId = stickyVariantId.value;
+    setInterval(function () {
+      const currentInput = document.querySelector('[name="id"]:checked') || document.querySelector('[name="id"]');
+      if (currentInput) {
+        const currentId = currentInput.value;
+        if (currentId !== lastVariantId) {
+          lastVariantId = currentId;
+          stickyVariantId.value = currentId;
+          updateStickyBar(currentId);
+        }
+      }
+    }, 2000);
   });
 </script>
+
 
 
 {% schema %}
