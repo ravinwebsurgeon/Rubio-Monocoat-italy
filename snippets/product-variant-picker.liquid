@@ -155,9 +155,7 @@ document.addEventListener('click', function (e) {
              <span data-selected-size>
         {{- option.selected_value -}}
       </span>
-          
-          </legend>
-          <div class="oil-calculator-box">
+         <div class="oil-calculator-box">
       <!-- Question mark SVG -->
       <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect width="25" height="25" fill="url(#pattern0_794_661)"/>
@@ -175,7 +173,9 @@ document.addEventListener('click', function (e) {
         <span>Not sure how much oil you need?</span>
         {% comment %} <a href="/pages/oil-calculator" id="openCalc">Try our Oil Calculator</a> {% endcomment %}
       </div>
-    </div>
+    </div> 
+          </legend>
+          
           {% render 'product-variant-options',
             product: product,
             option: option,
