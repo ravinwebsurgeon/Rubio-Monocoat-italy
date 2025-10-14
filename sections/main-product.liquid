@@ -973,55 +973,80 @@
 </div>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  const stickyOptionsEl = document.getElementById('sticky-variant-options');
-  const stickyPriceEl = document.getElementById('sticky-price');
-  const stickyVariantIdEl = document.getElementById('sticky-variant-id');
-  const stickyImgEl = document.getElementById('sticky-variant-image');
+  const productForm = document.querySelector('form[action="/cart/add"]');
+  const stickyBar = document.getElementById('sticky-add-to-cart');
+  const stickyPrice = document.getElementById('sticky-price');
+  const stickyVariantId = document.getElementById('sticky-variant-id');
+  const stickyVariantOptions = document.getElementById('sticky-variant-options');
+  const stickyVariantImage = document.getElementById('sticky-variant-image');
+  const stickyVariantTitle = document.getElementById('sticky-variant-title');
 
-  // Function to get currently selected variant using Shopify's variant picker
-  function getCurrentSelectedVariant() {
-    const jsonEl = document.querySelector('[data-selected-variant]');
-    if (!jsonEl) return null;
-    try {
-      return JSON.parse(jsonEl.textContent);
-    } catch (e) {
-      return null;
+  if (!productForm) return;
+
+  // Show/Hide sticky bar on scroll
+  window.addEventListener('scroll', function () {
+    let rect = productForm.getBoundingClientRect();
+    if (rect.bottom < 0) {
+      stickyBar.style.display = 'flex';
+    } else {
+      stickyBar.style.display = 'none';
     }
+  });
+
+  // ✅ Helper: format selected options (Color / Size etc.)
+  function formatOptions(variant) {
+    if (!variant) return '';
+    return variant.options.filter(Boolean).join(' / ');
   }
 
-  // Function to update sticky bar content
-  function updateStickyBar() {
-    const variant = getCurrentSelectedVariant();
+  // ✅ Update sticky bar with selected variant
+  function updateStickyBar(variant) {
     if (!variant) return;
 
-    // ✅ Update options text (e.g. "Brown / 30ML")
-    const optionsText = variant.options.filter(Boolean).join(' / ');
-    stickyOptionsEl.textContent = optionsText;
+    // Update hidden input
+    stickyVariantId.value = variant.id;
 
-    // ✅ Update price
-    if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
-      stickyPriceEl.innerHTML = Shopify.formatMoney(variant.price, window.meta.money_format);
-    } else {
-      stickyPriceEl.textContent = (variant.price / 100).toFixed(2);
+    // Update price
+    if (stickyPrice) {
+      stickyPrice.innerHTML = Shopify.formatMoney(variant.price, window.meta.money_format);
     }
 
-    // ✅ Update hidden input
-    stickyVariantIdEl.value = variant.id;
+    // Update selected options
+    if (stickyVariantOptions) {
+      stickyVariantOptions.textContent = formatOptions(variant);
+    }
 
-    // ✅ Update image (if available)
-    if (variant.featured_image && stickyImgEl) {
-      stickyImgEl.src = variant.featured_image.src;
+    // Update image
+    if (stickyVariantImage && variant.featured_image) {
+      stickyVariantImage.src = variant.featured_image.src.replace(/(\.[^.]*)$/, '_100x100$1');
+    }
+
+    // (Optional) Update title if needed
+    if (stickyVariantTitle) {
+      stickyVariantTitle.textContent = window.meta?.product?.title || '';
     }
   }
 
-  // 🔁 Run every 2 seconds to keep it in sync with variant picker
-  setInterval(updateStickyBar, 2000);
+  // ✅ Listen for Shopify variant change event
+  document.addEventListener('variant:change', function (event) {
+    const variant = event.detail?.variant;
+    if (variant) {
+      updateStickyBar(variant);
+    }
+  });
 
-  // Also run immediately once on load
-  updateStickyBar();
+  // ✅ Initialize with current selected variant (on first load)
+  const initialVariantJson = document.querySelector('[data-selected-variant]');
+  if (initialVariantJson) {
+    try {
+      const variantData = JSON.parse(initialVariantJson.textContent);
+      updateStickyBar(variantData);
+    } catch (e) {
+      console.warn('Failed to parse initial variant JSON', e);
+    }
+  }
 });
 </script>
-
 
 
 {% schema %}
