@@ -1,0 +1,41 @@
+{% schema %}
+    {
+        "name":"Filling Gap Section",
+        "settings": [
+            {
+                "type": "text",
+                "id": "heading",
+                "label": "Image Heading"
+            },
+            {
+                "type": "text",
+                "id": "subheading",
+                "label": "Subheading"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            }
+        ],
+        "blocks":[
+            {
+                "type": "text",
+                "name": "Select Products",
+                "settings": [
+                    {
+                    "type": "product",
+                    "id": "product",
+                    "label": "Product"
+                    },
+                ]
+            }
+        ],
+         "presets": [
+            {
+            "name": "Filling Gap Section",
+            "category": "collection"
+            }
+        ]
+    }
+{% endschema %}
