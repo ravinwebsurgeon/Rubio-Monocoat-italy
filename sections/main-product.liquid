@@ -971,6 +971,7 @@
     </form>
   </div>
 </div>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const productForm = document.querySelector('form[action="/cart/add"]');
@@ -982,9 +983,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (!productForm || !stickyBar) return;
 
-  /* ================================
-     SHOW / HIDE STICKY ON SCROLL
-  ================================ */
   window.addEventListener('scroll', function () {
     const rect = productForm.getBoundingClientRect();
     if (rect.bottom < 0) {
@@ -994,9 +992,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  /* ================================
-     GET CURRENT VARIANT FUNCTION
-  ================================ */
+
   function getCurrentSelectedVariant() {
     const jsonEl = document.querySelector('[data-selected-variant]');
     if (!jsonEl) return null;
@@ -1007,18 +1003,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  /* ================================
-     UPDATE STICKY BAR CONTENT
-  ================================ */
+
   function updateStickyBar() {
     const variant = getCurrentSelectedVariant();
     if (!variant) return;
 
-    // Update options text (e.g. "Brown / 30ML")
+    
     const optionsText = variant.options.filter(Boolean).join(' / ');
     stickyOptionsEl.textContent = optionsText;
 
-    // Update price
+    
     if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
       stickyPriceEl.innerHTML = Shopify.formatMoney(
         variant.price,
@@ -1028,18 +1022,15 @@ document.addEventListener('DOMContentLoaded', function () {
       stickyPriceEl.textContent = (variant.price / 100).toFixed(2);
     }
 
-    // Update hidden variant ID
+   
     stickyVariantIdEl.value = variant.id;
 
-    // Update image
+
     if (variant.featured_image && stickyImgEl) {
       stickyImgEl.src = variant.featured_image.src;
     }
   }
 
-  /* ================================
-     AUTO SYNC VARIANT EVERY 2 SECONDS
-  ================================ */
   setInterval(updateStickyBar, 1000);
   updateStickyBar();
 });
