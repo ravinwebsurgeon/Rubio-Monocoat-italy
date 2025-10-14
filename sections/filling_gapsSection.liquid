@@ -43,16 +43,16 @@
     </div>
 <div class="filling_gap_next">
 <div class="video_section">
-    {% if section.settings.video_link %}
-      {{ section.settings.video_link | media_tag: autoplay: section.settings.autoplay, loop: 
-section.settings.video_looping_custom }}
-        {% comment %} <video width="320" height="240" controls>
-  <source src="{{ section.settings.video_link }}" type="video/mp4">
-  <source src="{{ section.settings.video_link }}" type="video/mp4">
-  Your browser does not support the video tag.
-</video> {% endcomment %}
-{{ section.settings.video_link | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
-{% endif %}
+    {% if section.settings.background_video %}
+      {% comment %} {{ section.settings.background_video | media_tag: autoplay: section.settings.autoplay, loop: 
+section.settings.video_looping_custom }} {% endcomment %}
+ {{ section.settings.background_video | media_tag: 
+      autoplay: section.settings.autoplay, 
+      loop: section.settings.loop,
+      controls: true,
+      muted: true
+    }}
+  {% endif %}
 </div>
     <div class="block-products">
             <p class="p-head">Preparatory Cleaners</p>
@@ -145,7 +145,7 @@ section.settings.video_looping_custom }}
             },
             {
                 "type": "video",
-                "id": "video_link",
+                "id": "background_video",
                 "label": "Video",
             },
             {
