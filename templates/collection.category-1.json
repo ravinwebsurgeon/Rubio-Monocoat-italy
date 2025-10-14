@@ -151,7 +151,10 @@
         "heading": "Preparation",
         "subheading": "perfect for all your inside surfaces",
         "image": "shopify://shop_images/UMO2MIXkit_400ml_Chocolate.png",
-        "add_product": "dummy"
+        "add_product": "dummy",
+        "background_video": "shopify://files/videos/5895457-uhd_3840_2160_30fps.mp4",
+        "autoplay": true,
+        "loop": true
       }
     },
     "custom_two_product_col_rFJaUY": {
