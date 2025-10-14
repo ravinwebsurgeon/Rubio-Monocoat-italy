@@ -474,17 +474,10 @@ document.addEventListener('DOMContentLoaded', function () {
   let mobileSwiper = null;
   let originalMobileSlides = [];
 
-  // Normalize values for comparison
   function normalizeValue(val) {
-    return val?.toString()
-              .trim()
-              .toLowerCase()
-              .replace(/\s+/g,'-') // spaces to dash
-              .replace(/\./g,'-')  // dots to dash
-              || '';
+    return val?.toString().trim().toLowerCase().replace(/\s+/g,'-').replace(/\./g,'-') || '';
   }
 
-  // Initialize GLightbox
   function initLightbox() {
     try { if(lightbox?.destroy) lightbox.destroy(); } catch(e){}
     lightbox = GLightbox({
@@ -493,24 +486,16 @@ document.addEventListener('DOMContentLoaded', function () {
       zoomable: true,
       touchNavigation: true,
       autoplayVideos: true,
-      plyr: {
-        ratio: '16:9',
-        hideControls: false,
-        fullscreen: { enabled: true }
-      }
+      plyr: { ratio: '16:9', hideControls:false, fullscreen:{enabled:true} }
     });
   }
 
-  // Initialize mobile swiper
   function initMobileSlider() {
-    if (mobileSwiper) {
-      try { mobileSwiper.destroy(true,true); } catch(e){}
-      mobileSwiper = null;
-    }
+    if(mobileSwiper){ try { mobileSwiper.destroy(true,true); } catch(e){} mobileSwiper=null; }
     const container = document.querySelector('.mobile-gallery .swiper');
     const wrapper = document.querySelector('.mobile-gallery .swiper-wrapper');
-    if (container && wrapper && wrapper.children.length>0){
-      mobileSwiper = new Swiper(container,{
+    if(container && wrapper && wrapper.children.length>0){
+      mobileSwiper = new Swiper(container, {
         slidesPerView: 1,
         spaceBetween: 10,
         pagination: { el: '.mobile-gallery .swiper-pagination', clickable:true }
@@ -518,7 +503,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Update GLightbox active state
   function updateGlightboxActive() {
     document.querySelectorAll('a.glightbox').forEach(a=>{
       const parent = a.closest('.main-image-item,.thumbnail-item,.swiper-slide');
@@ -526,36 +510,40 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Update gallery based on color + size
-  function updateGallery(selectedColor, selectedSize) {
-    const colorHandle = normalizeValue(selectedColor);
-    const sizeHandle = normalizeValue(selectedSize);
+  function updateGallery(colorValue, sizeValue) {
+    const colorHandle = normalizeValue(colorValue);
+    const sizeHandle = normalizeValue(sizeValue);
 
-    // DESKTOP - main images
-    document.querySelectorAll('.main-image-item').forEach(item=>{
-      const itemColor = normalizeValue(item.getAttribute('data-color'));
-      const itemSize = normalizeValue(item.getAttribute('data-size'));
-      item.style.display = (itemColor === colorHandle && itemSize === sizeHandle) ? 'flex' : 'none';
-    });
+    // Get all images matching the selected variant
+    const allImages = Array.from(document.querySelectorAll('.main-image-item'))
+      .filter(item => normalizeValue(item.getAttribute('data-color')) === colorHandle &&
+                      normalizeValue(item.getAttribute('data-size')) === sizeHandle);
 
-    // DESKTOP - thumbnails
-    document.querySelectorAll('.thumbnail-item').forEach(item=>{
-      const itemColor = normalizeValue(item.getAttribute('data-color'));
-      const itemSize = normalizeValue(item.getAttribute('data-size'));
-      item.style.display = (itemColor === colorHandle && itemSize === sizeHandle) ? 'inline-block' : 'none';
-    });
+    // DESKTOP: main + thumbnails
+    const mainWrapper = document.querySelector('.desktop-gallery .main-image-wrapper .cus-sticky');
+    const thumbWrapper = document.querySelector('.desktop-gallery .thumbnails-wrapper .cus-sticky');
 
-    // MOBILE - swiper slides
+    if(mainWrapper && thumbWrapper){
+      mainWrapper.innerHTML = '';
+      thumbWrapper.innerHTML = '';
+
+      allImages.forEach((item,i)=>{
+        const clone = item.cloneNode(true);
+        if(i===0) { // first image → main
+          clone.style.display = 'flex';
+          mainWrapper.appendChild(clone);
+        } else {  // rest → thumbnails
+          clone.style.display = 'inline-block';
+          thumbWrapper.appendChild(clone);
+        }
+      });
+    }
+
+    // MOBILE
     const swiperWrapper = document.querySelector('.mobile-gallery .swiper-wrapper');
     if(swiperWrapper){
       swiperWrapper.innerHTML = '';
-      const matched = originalMobileSlides.filter(slide => {
-        const itemColor = normalizeValue(slide.getAttribute('data-color'));
-        const itemSize = normalizeValue(slide.getAttribute('data-size'));
-        return itemColor === colorHandle && itemSize === sizeHandle;
-      });
-      // If no match, show first slide as fallback
-      (matched.length ? matched : [originalMobileSlides[0]]).forEach(slide=>{
+      (allImages.length ? allImages : [originalMobileSlides[0]]).forEach(slide=>{
         const clone = slide.cloneNode(true);
         clone.style.display = 'block';
         swiperWrapper.appendChild(clone);
@@ -570,15 +558,19 @@ document.addEventListener('DOMContentLoaded', function () {
   // Capture original mobile slides
   originalMobileSlides = Array.from(document.querySelectorAll('.mobile-gallery .swiper-slide')).map(s=>s.cloneNode(true));
 
-  // Listen to swatch/select changes
+  // Listen to variant change (color + size)
+  function getSelectedVariant(){
+    const color = document.querySelector('.swatch-input__input[name^="Color"]:checked')?.value
+                  || document.querySelector('select[name="Color"]')?.value;
+    const size = document.querySelector('.swatch-input__input[name^="Size"]:checked')?.value
+                  || document.querySelector('select[name="Size"]')?.value;
+    return {color,size};
+  }
+
   document.body.addEventListener('change', e=>{
-    const t = e.target;
-    if(t.matches('.swatch-input__input[name^="Color"], select[name="Color"], .swatch-input__input[name^="Size"], select[name="Size"]')){
-      const color = document.querySelector('.swatch-input__input[name^="Color"]:checked')?.value
-                    || document.querySelector('select[name="Color"]')?.value;
-      const size = document.querySelector('.swatch-input__input[name^="Size"]:checked')?.value
-                   || document.querySelector('select[name="Size"]')?.value;
-      if(color && size) updateGallery(color, size);
+    if(e.target.matches('.swatch-input__input[name^="Color"], .swatch-input__input[name^="Size"], select[name="Color"], select[name="Size"]')){
+      const {color, size} = getSelectedVariant();
+      if(color && size) updateGallery(color,size);
     }
   });
 
@@ -589,15 +581,12 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault();
       const links = Array.from(document.querySelectorAll('a.glightbox.glightbox-active'));
       const idx = links.indexOf(anchor);
-      if(lightbox && idx >= 0) lightbox.openAt(idx);
+      if(lightbox && idx>=0) lightbox.openAt(idx);
     }
   });
 
-  // INITIALIZE gallery on page load
-  const initColor = document.querySelector('.swatch-input__input[name^="Color"]:checked')?.value
-                    || document.querySelector('select[name="Color"]')?.value;
-  const initSize = document.querySelector('.swatch-input__input[name^="Size"]:checked')?.value
-                   || document.querySelector('select[name="Size"]')?.value;
+  // INITIALIZE gallery
+  const {color:initColor, size:initSize} = getSelectedVariant();
   if(initColor && initSize) updateGallery(initColor, initSize);
   else {
     const allMain = document.querySelectorAll('.main-image-item');
@@ -609,8 +598,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if(firstColor && firstSize) updateGallery(firstColor, firstSize);
     else { updateGlightboxActive(); initLightbox(); initMobileSlider(); }
   }
+
 });
 </script>
+
 
 
 
