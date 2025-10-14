@@ -46,11 +46,11 @@
     {% if section.settings.background_video %}
       {% comment %} {{ section.settings.background_video | media_tag: autoplay: section.settings.autoplay, loop: 
 section.settings.video_looping_custom }} {% endcomment %}
-        <video width="320" height="240" controls>
+        {% comment %} <video width="320" height="240" controls>
   <source src="{{ section.settings.background_video }}" type="video/mp4">
   <source src="{{ section.settings.background_video }}" type="video/mp4">
   Your browser does not support the video tag.
-</video>
+</video> {% endcomment %}
 
 {% endif %}
 </div>
