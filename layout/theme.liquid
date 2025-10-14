@@ -479,7 +479,13 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function initLightbox() {
-    try { if(lightbox && typeof lightbox.destroy === 'function') lightbox.destroy(); } catch(e){}
+    try {
+      if (lightbox && typeof lightbox.destroy === 'function') {
+        lightbox.destroy();
+      }
+    } catch (err) { /* ignore */ }
+
+    // Initialize GLightbox only for anchors that we marked active
     lightbox = GLightbox({
       selector: '.glightbox.glightbox-active',
       loop: true,
@@ -490,112 +496,165 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function initMobileSlider() {
-    if (mobileSwiper) { try { mobileSwiper.destroy(true,true); } catch(e){} mobileSwiper=null; }
+    // destroy existing instance cleanly
+    if (mobileSwiper) {
+      try {
+        mobileSwiper.destroy(true, true);
+      } catch (err) { /* ignore */ }
+      mobileSwiper = null;
+    }
 
     const swiperContainer = document.querySelector('.mobile-gallery .swiper');
     const wrapper = document.querySelector('.mobile-gallery .swiper-wrapper');
+
     if (swiperContainer && wrapper && wrapper.children.length > 0) {
-      mobileSwiper = new Swiper(swiperContainer,{
+      // Use container-scoped pagination selector to avoid collisions
+      mobileSwiper = new Swiper(swiperContainer, {
         slidesPerView: 1,
         spaceBetween: 10,
-        pagination: { el: '.mobile-gallery .swiper-pagination', clickable:true }
+        pagination: {
+          el: '.mobile-gallery .swiper-pagination',
+          clickable: true,
+        },
+        // additional settings you may want:
+        // loop: false,
+        // lazy: { loadPrevNext: true },
       });
     }
   }
 
   function updateGlightboxActive() {
-    document.querySelectorAll('a.glightbox').forEach(anchor=>{
-      const parent = anchor.closest('.main-image-item, .thumbnail-item, .swiper-slide');
-      anchor.classList.toggle('glightbox-active', parent && getComputedStyle(parent).display!=='none');
+    // Add .glightbox-active to anchors that are currently visible in the DOM
+    document.querySelectorAll('a.glightbox').forEach(anchor => {
+      const parentItem = anchor.closest('.main-image-item, .thumbnail-item, .swiper-slide');
+      const visible = parentItem && getComputedStyle(parentItem).display !== 'none';
+      if (visible) {
+        anchor.classList.add('glightbox-active');
+      } else {
+        anchor.classList.remove('glightbox-active');
+      }
     });
   }
 
-  function getSelectedVariant() {
-    const color = document.querySelector('.swatch-input__input[name^="Color"]:checked')?.value
-      || document.querySelector('select[name="Color"]')?.value || '';
-    const size = document.querySelector('.swatch-input__input[name^="Size"]:checked')?.value
-      || document.querySelector('select[name="Size"]')?.value || '';
-    return { color: normalizeValue(color), size: normalizeValue(size) };
-  }
+  function updateGalleryForColor(colorValue) {
+    const selectedHandle = normalizeValue(colorValue);
 
-  function updateGalleryForVariant() {
-    const { color, size } = getSelectedVariant();
-    if (!color || !size) return;
-
-    // ---------- DESKTOP MAIN IMAGE ----------
-    let mainShown = false;
-    document.querySelectorAll('.main-image-item').forEach(item=>{
+    // ---------- DESKTOP ----------
+    let shownMain = false;
+    document.querySelectorAll('.main-image-item').forEach(item => {
       const itemColor = normalizeValue(item.getAttribute('data-color'));
-      const itemSize = normalizeValue(item.getAttribute('data-size'));
-      if(itemColor === color && itemSize === size && !mainShown){
+      if (itemColor === selectedHandle && !shownMain) {
         item.style.display = 'flex';
-        mainShown = true;
-      } else { item.style.display = 'none'; }
+        shownMain = true;
+      } else {
+        item.style.display = 'none';
+      }
     });
 
-    // ---------- DESKTOP THUMBNAILS ----------
     let skippedFirst = false;
-    document.querySelectorAll('.thumbnail-item').forEach(item=>{
+    document.querySelectorAll('.thumbnail-item').forEach(item => {
       const itemColor = normalizeValue(item.getAttribute('data-color'));
-      const itemSize = normalizeValue(item.getAttribute('data-size'));
-      if(itemColor === color && itemSize === size){
-        if(!skippedFirst){
-          item.style.display='none'; // first thumbnail is main image
+      if (itemColor === selectedHandle) {
+        if (!skippedFirst) {
+          // hide the first thumbnail because that's the main image on desktop
+          item.style.display = 'none';
           skippedFirst = true;
-        } else { item.style.display='inline-block'; }
-      } else { item.style.display='none'; }
+        } else {
+          item.style.display = 'inline-block';
+        }
+      } else {
+        item.style.display = 'none';
+      }
     });
 
-    // ---------- MOBILE SLIDER ----------
+    // ---------- MOBILE (REBUILD SLIDER) ----------
     const swiperWrapper = document.querySelector('.mobile-gallery .swiper-wrapper');
-    if(swiperWrapper){
-      swiperWrapper.innerHTML='';
-      const matchedSlides = originalMobileSlides.filter(slide=>{
-        const itemColor = normalizeValue(slide.getAttribute('data-color'));
-        const itemSize = normalizeValue(slide.getAttribute('data-size'));
-        return itemColor === color && itemSize === size;
-      });
-      (matchedSlides.length ? matchedSlides : [originalMobileSlides[0]]).forEach(slide=>{
-        const clone = slide.cloneNode(true);
-        clone.style.display='block';
-        swiperWrapper.appendChild(clone);
-      });
+    if (swiperWrapper) {
+      // Clear all existing slides
+      swiperWrapper.innerHTML = '';
+
+      // Filter the original slide templates we captured on load
+      const matchedSlides = originalMobileSlides.filter(slide =>
+        normalizeValue(slide.getAttribute('data-color')) === selectedHandle
+      );
+
+      if (matchedSlides.length === 0) {
+        // Fallback: if no exact match, show first original slide (or all)
+        if (originalMobileSlides.length) {
+          swiperWrapper.appendChild(originalMobileSlides[0].cloneNode(true));
+        }
+      } else {
+        // Append clones of the matched slides (on mobile we show all variant images)
+        matchedSlides.forEach(slide => {
+          const clone = slide.cloneNode(true);
+          clone.style.display = 'block';
+          swiperWrapper.appendChild(clone);
+        });
+      }
     }
 
+    // Update lightbox anchors and re-init components
     updateGlightboxActive();
     initLightbox();
     initMobileSlider();
   }
 
-  // Capture original mobile slides
-  originalMobileSlides = Array.from(document.querySelectorAll('.mobile-gallery .swiper-slide')).map(n=>n.cloneNode(true));
+  // Keep a copy of the original mobile slides (so we can rebuild from the template)
+  (function captureOriginalMobileSlides() {
+    const slides = document.querySelectorAll('.mobile-gallery .swiper-slide');
+    originalMobileSlides = Array.from(slides).map(n => n.cloneNode(true));
+  })();
 
-  // Listen to color or size change
-  document.body.addEventListener('change', function(e){
-    if(
-      e.target.matches('.swatch-input__input[name^="Color"], select[name="Color"], '+
-                       '.swatch-input__input[name^="Size"], select[name="Size"]')
-    ){
-      updateGalleryForVariant();
+  // Variant change listener (swatches or select)
+  document.body.addEventListener('change', function (e) {
+    const target = e.target;
+    if (target.matches('.swatch-input__input[name^="Color"]') || target.matches('select[name="Color"]')) {
+      updateGalleryForColor(target.value);
     }
   });
 
-  // Lightbox open
-  document.body.addEventListener('click', function(e){
-    const anchor = e.target.closest('.thumbnail-item a.glightbox, .swiper-slide a.glightbox, .main-image-item a.glightbox');
-    if(anchor?.classList.contains('glightbox-active')){
+  // Lightbox open on thumbnail / mobile slide click
+  document.body.addEventListener('click', function (e) {
+    const thumbAnchor = e.target.closest('.thumbnail-item a.glightbox, .swiper-slide a.glightbox, .main-image-item a.glightbox');
+    if (thumbAnchor && thumbAnchor.classList.contains('glightbox-active')) {
       e.preventDefault();
-      const links = Array.from(document.querySelectorAll('a.glightbox.glightbox-active'));
-      const idx = links.indexOf(anchor);
-      if(lightbox && idx >= 0) lightbox.openAt(idx);
+      // build list of visible gallery anchors and open at index
+      const galleryLinks = Array.from(document.querySelectorAll('.glightbox.glightbox-active'));
+      const index = galleryLinks.indexOf(thumbAnchor);
+      if (lightbox && index >= 0) {
+        lightbox.openAt(index);
+      }
     }
   });
 
-  // ---------- INIT ----------
-  updateGalleryForVariant();
+  // ---------- INIT ON LOAD ----------
+  const initSwatch = document.querySelector('.swatch-input__input[name^="Color"]:checked');
+  const initSelect = document.querySelector('select[name="Color"]');
+
+  // If a variant is selected by default, build gallery for it
+  if (initSwatch) {
+    updateGalleryForColor(initSwatch.value);
+  } else if (initSelect) {
+    updateGalleryForColor(initSelect.value);
+  } else {
+    // Fallback default: show first main image and set mobile to the first color's slides
+    const allMain = document.querySelectorAll('.main-image-item');
+    allMain.forEach((item, i) => item.style.display = i === 0 ? 'block' : 'none');
+
+    const allThumbs = document.querySelectorAll('.thumbnail-item');
+    allThumbs.forEach((item, i) => item.style.display = i === 0 ? 'none' : 'inline-block');
+
+    const firstColor = allMain[0]?.getAttribute('data-color');
+    if (firstColor) updateGalleryForColor(firstColor);
+    else {
+      // still init mobile slider and lightbox if nothing matched
+      updateGlightboxActive();
+      initLightbox();
+      initMobileSlider();
+    }
+  }
 });
 </script>
-
 
 
 
