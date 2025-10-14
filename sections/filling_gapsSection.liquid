@@ -14,6 +14,9 @@
             <div class="product-data">
                 {% assign product = section.settings.add_product %}
                 {% if product %}
+                        <form action="/cart/add" method="post" id="product-form-{{ product.id }}">
+                            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                                     <input type="number" id="quantity" name="quantity" value="1" min="1">
                     <div class="product-block">
                         <a href="{{ product.url }}">
                             {% if product.featured_image %}
@@ -37,6 +40,7 @@
                         <button class="add_to_cart">Add To cart</button>
                     </div>
                     </div>
+                </form>
                 {% endif %}
             </div>
         </div>
