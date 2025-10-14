@@ -133,41 +133,6 @@ document.addEventListener('click', function (e) {
 });
 </script>
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  // Loop through each swatch group
-  document.querySelectorAll('.product-form__input--swatch').forEach(fieldset => {
-    const selectedValueEl = fieldset.querySelector('[data-selected-value]');
-    const swatchInputs = fieldset.querySelectorAll('input[type="radio"]');
-
-    if (!selectedValueEl || !swatchInputs.length) return;
-
-    // Store the initial selected swatch name
-    let originalText = selectedValueEl.textContent.trim();
-
-    swatchInputs.forEach(input => {
-      const label = input.closest('label');
-      if (!label) return;
-
-      // 🟤 Hover → show hovered swatch name
-      label.addEventListener('mouseenter', () => {
-        selectedValueEl.textContent = input.value;
-      });
-
-      // 🟡 Mouse leave → revert back to selected swatch name
-      label.addEventListener('mouseleave', () => {
-        selectedValueEl.textContent = originalText;
-      });
-
-      // 🟢 On click → permanently update the displayed swatch name
-      input.addEventListener('change', () => {
-        originalText = input.value;
-        selectedValueEl.textContent = originalText;
-      });
-    });
-  });
-});
-</script>
 
 
 
