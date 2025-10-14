@@ -131,8 +131,8 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.json())
             .then(data => {
                 console.log('Added to cart:', data);
-                {% comment %} updateCartCount(totalQuantityAdded); {% endcomment %}
-                 refreshCartDrawer();
+                updateCartCount(1);
+                refreshCartDrawer();
             })
             .catch(error => {
                 console.error('Error adding to cart:', error);
@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-{% comment %} function updateCartCount(totalQuantityAdded) {
+function updateCartCount(totalQuantityAdded) {
   const cartCounts = document.querySelectorAll('.cart-count-bubble > span');
   if (cartCounts.length > 0) {
     cartCounts.forEach(count => {
@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
       customCount.parentNode.style.display = 'block';
     }
   }
-} {% endcomment %}
+}
 
 function refreshCartDrawer() {
   const cartDrawer = document.querySelector('cart-drawer');
