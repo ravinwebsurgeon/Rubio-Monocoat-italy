@@ -111,6 +111,47 @@
         "subheading": "Frutiger Condensed"
       }
     },
+    "filling_gaps_section_cHjrWp": {
+      "type": "filling_gapsSection",
+      "blocks": {
+        "text_Cb4JTV": {
+          "type": "text",
+          "settings": {
+            "product": "cleaner"
+          }
+        },
+        "text_tEJQAM": {
+          "type": "text",
+          "settings": {
+            "product": "durogrit"
+          }
+        },
+        "text_t3TNLQ": {
+          "type": "text",
+          "settings": {
+            "product": "exterior-soap-1"
+          }
+        },
+        "text_imbn9x": {
+          "type": "text",
+          "settings": {
+            "product": "exterior-soap"
+          }
+        }
+      },
+      "block_order": [
+        "text_Cb4JTV",
+        "text_tEJQAM",
+        "text_t3TNLQ",
+        "text_imbn9x"
+      ],
+      "name": "Filling Gap Section",
+      "settings": {
+        "heading": "Preparation",
+        "subheading": "perfect for all your inside surfaces",
+        "image": "shopify://shop_images/CareBundleFurniture_Bourbon.png"
+      }
+    },
     "custom_two_product_col_rFJaUY": {
       "type": "custom-two-product-col",
       "name": "custom two product col",
@@ -399,6 +440,7 @@
     "banner",
     "product-grid",
     "floor_steps_Kad3y3",
+    "filling_gaps_section_cHjrWp",
     "custom_two_product_col_rFJaUY",
     "top_picks_col_efrz3X",
     "inspired_wooden_floor_LmDtKW",
