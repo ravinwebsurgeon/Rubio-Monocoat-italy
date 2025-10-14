@@ -42,16 +42,22 @@
         </div>
     </div>
 <div class="filling_gap_next">
-<div class="video_section">
-    {% if section.settings.background_video %}
-        {{ section.settings.background_video | media_tag: 
-        autoplay: section.settings.autoplay, 
-        loop: section.settings.loop,
-        controls: true,
-        muted: true
-        }}
-  {% endif %}
-</div>
+    <div class="custom_video_content">
+        <div class="text_content">
+            <p class="video_text_first uppercase_text">not sure how to prepare your wooden floor?</p>
+            <p class="video_text_second captalize_text">listen to our expert</p>
+        </div>
+        <div class="video_section">
+            {% if section.settings.background_video %}
+                {{ section.settings.background_video | media_tag: 
+                autoplay: section.settings.autoplay, 
+                loop: section.settings.loop,
+                controls: true,
+                muted: true
+                }}
+        {% endif %}
+        </div>
+    </div>
     <div class="block-products">
             <p class="p-head">Preparatory Cleaners</p>
             <div class="product-data">
@@ -89,6 +95,8 @@
 
 <style>
     h3 , p {margin:0;}
+    .uppercase_text{text-transform:uppercase;}
+    .captalize_text{text-transform:captalize;}
     .filling_gap_section{background: #F5F5F5;padding:50px 0px;}
     .filling_gap_next{display:flex;align-items:center;}
     .filling_gap{display:flex;width:95%;margin:auto;}
