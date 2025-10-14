@@ -14,7 +14,7 @@
                             <h3>{{ product.title }}</h3>
                             <p>{{ product.price | money_with_currency }}</p>
                         </div>
-                        <div><p>Perfect all for your inside Surfaces</p></div>
+                        <div class="custom_text"><p>Perfect all for your inside Surfaces</p></div>
                         <div class="pro_variants">
                             <select class="variant-selector" name="variant-selector">
                                 {% for variant in product.variants %}
@@ -46,6 +46,8 @@
     .product_detail{border:0.1px solid #666;}
     .product_title_price h3{font-size:20px;font-weight:600;}
     .product_title_price p{font-size:18px;}
+    .single-layer .product_title_price{padding:0;}
+    .custom_text{font-size:12px;}
 {% schema %}
     {
         "name":"Filling Gap Section",
