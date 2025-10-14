@@ -13,7 +13,7 @@
         <div class="selected_product_section">
             <div class="product_head"><p>{{ section.settings.main_heading }}</p></div>
             <div class="product-data">
-                 {% assign product = block.settings.product %}
+                 {% assign product = section.settings.product %}
                     {% if product %}
                          <div class="product-block">
                         <a href="{{ product.url }}">
