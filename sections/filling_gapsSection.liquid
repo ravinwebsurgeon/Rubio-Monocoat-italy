@@ -26,8 +26,8 @@
                         </div>
                     <div class='pro_subheading'><span>{{ section.settings.subheading }}</span></div>
                     <div class="pro_buttons">
-                        <button class="more_info"></button>
-                        <button class="add_to_cart"></button>
+                        <button class="more_info">More Info</button>
+                        <button class="add_to_cart">Add To cart</button>
                     </div>
                     </div>
                 {% endif %}
@@ -81,6 +81,9 @@
     .product-data{display:flex;flex-wrap:wrap;}
     .product-block img{width:247px;}
     .pro_subheading{font-size:15px;text-align:center;}
+    .pro_buttons .more_info{background:black;}
+    .pro_buttons .add_to_cart{color:orangered;}
+    .pro_buttons button{color:white;border: none;padding: 10px;border-radius: 33px;font-size: 12px;}
 </style>
 {% schema %}
     {
