@@ -27,8 +27,8 @@
                             <p>{{ product.price | money_with_currency }}</p>
                         </div>
                     <div class='pro_subheading'><span>{{ section.settings.subheading }}</span></div>
-                    <div class="pro_quantity">
-                         <select id="myDropdown" name="myDropdown">
+                    <div class="pro_variant">
+                         <select id="variant-selector" name="variant-selector">
                             <option value="option1">20ml</option>
                             <option value="option2">40ml</option>
                             <option value="option3">60ml</option>
@@ -84,8 +84,8 @@
                             <h3>{{ product.title }}</h3>
                             <p>{{ product.price | money }}</p>
                         </div>
-                        <div class="pro_quantity">
-                         <select id="myDropdown" name="myDropdown">
+                        <div class="pro_variant">
+                         <select id="variant-selector" name="variant-selector">
                             <option value="option1">20ml</option>
                             <option value="option2">40ml</option>
                             <option value="option3">60ml</option>
@@ -167,8 +167,8 @@ document.addEventListener("DOMContentLoaded", function () {
     .pro_buttons .more_info{background:black;}
     .pro_buttons .add_to_cart_ajax{background:#F79E1B;}
     .pro_buttons button{color:white;border:none;padding:10px;border-radius:33px;font-size:14px;}
-    .pro_quantity{width: 95%;margin:15px auto;}
-    .pro_quantity select{width: 100%;padding: 8px;border-radius: 19px;}
+    .pro_variant{width: 95%;margin:15px auto;}
+    .pro_variant select{width: 100%;padding: 8px;border-radius: 19px;}
     .video_section video{width:200px;border: 7px solid #000;border-radius: 12px;}
     .video_text_first{font-size: 12px;font-weight: 600;}
     .video_text_second {font-size: 12px;}
