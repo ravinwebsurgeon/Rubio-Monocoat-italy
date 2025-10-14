@@ -501,7 +501,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Initialize Mobile Swiper
+  // Initialize mobile swiper
   function initMobileSlider() {
     if (mobileSwiper) {
       try { mobileSwiper.destroy(true,true); } catch(e){}
@@ -518,7 +518,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Toggle GLightbox active state
+  // Update GLightbox active state
   function updateGlightboxActive() {
     document.querySelectorAll('a.glightbox').forEach(a=>{
       const parent = a.closest('.main-image-item,.thumbnail-item,.swiper-slide');
@@ -539,13 +539,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // DESKTOP - thumbnails
-    let firstThumbSkipped = false;
     document.querySelectorAll('.thumbnail-item').forEach(item=>{
       const itemColor = normalizeValue(item.getAttribute('data-color'));
       const itemSize = normalizeValue(item.getAttribute('data-size'));
-      const show = (itemColor === colorHandle && itemSize === sizeHandle);
-      item.style.display = show ? (firstThumbSkipped ? 'inline-block' : 'none') : 'none';
-      if(show) firstThumbSkipped = true;
+      item.style.display = (itemColor === colorHandle && itemSize === sizeHandle) ? 'inline-block' : 'none';
     });
 
     // MOBILE - swiper slides
@@ -557,6 +554,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const itemSize = normalizeValue(slide.getAttribute('data-size'));
         return itemColor === colorHandle && itemSize === sizeHandle;
       });
+      // If no match, show first slide as fallback
       (matched.length ? matched : [originalMobileSlides[0]]).forEach(slide=>{
         const clone = slide.cloneNode(true);
         clone.style.display = 'block';
@@ -572,7 +570,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Capture original mobile slides
   originalMobileSlides = Array.from(document.querySelectorAll('.mobile-gallery .swiper-slide')).map(s=>s.cloneNode(true));
 
-  // Swatch / select change
+  // Listen to swatch/select changes
   document.body.addEventListener('change', e=>{
     const t = e.target;
     if(t.matches('.swatch-input__input[name^="Color"], select[name="Color"], .swatch-input__input[name^="Size"], select[name="Size"]')){
@@ -595,14 +593,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // INITIALIZE on page load
+  // INITIALIZE gallery on page load
   const initColor = document.querySelector('.swatch-input__input[name^="Color"]:checked')?.value
                     || document.querySelector('select[name="Color"]')?.value;
   const initSize = document.querySelector('.swatch-input__input[name^="Size"]:checked')?.value
                    || document.querySelector('select[name="Size"]')?.value;
   if(initColor && initSize) updateGallery(initColor, initSize);
   else {
-    // fallback: show first media item
     const allMain = document.querySelectorAll('.main-image-item');
     allMain.forEach((item,i)=>item.style.display=i===0?'flex':'none');
     const allThumb = document.querySelectorAll('.thumbnail-item');
