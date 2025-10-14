@@ -283,36 +283,3 @@ document.addEventListener('variant:change', function(event) {
   }
 });
 </script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  // Target all swatch inputs
-  const swatchInputs = document.querySelectorAll('.product-form__input--swatch input[type="radio"]');
-  const selectedValueEl = document.querySelector('[data-selected-value]');
-
-  if (!swatchInputs.length || !selectedValueEl) return;
-
-  let originalText = selectedValueEl.textContent.trim();
-
-  swatchInputs.forEach(input => {
-    const label = input.closest('label');
-    if (!label) return;
-
-    // Show swatch name on hover
-    label.addEventListener('mouseenter', () => {
-      const swatchName = input.value;
-      selectedValueEl.textContent = swatchName;
-    });
-
-    // Revert to selected variant name on mouse leave
-    label.addEventListener('mouseleave', () => {
-      selectedValueEl.textContent = originalText;
-    });
-
-    // Update originalText when user clicks/selects
-    input.addEventListener('change', () => {
-      originalText = input.value;
-      selectedValueEl.textContent = originalText;
-    });
-  });
-});
-</script>
