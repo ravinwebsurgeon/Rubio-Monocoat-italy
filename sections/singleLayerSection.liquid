@@ -5,10 +5,15 @@
 
         </div>
         <div class="media_content">
-            
+            <div class="media content">
+                <img src="{{ section.settings.image | img_url: 'master' }}" />
+            </div>
         </div>
     </div>
 </div>
+<style>
+    .product_listed{width:60%;}
+    .media_content{width:40%;}
 {% schema %}
     {
         "name":"Filling Gap Section",
