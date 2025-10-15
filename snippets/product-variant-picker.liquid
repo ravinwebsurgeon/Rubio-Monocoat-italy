@@ -117,6 +117,25 @@ document.addEventListener('variant:change', function(event) {
 </script>
 
 <style>
+.color-info-box {
+  margin-top: 8px;
+  border: 1px dashed #ccc;
+  padding: 10px;
+  font-size: 14px;
+  background: #f9f9f9;
+  border-radius: 6px;
+}
+.color-info-box div {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.color-info-icon {
+  font-size: 16px;
+}
+
+
 /* keep wrapper stable so SVG never disappears if tooltip is hidden */
 .color-info-btn { position: relative; display: inline-block; }
 
