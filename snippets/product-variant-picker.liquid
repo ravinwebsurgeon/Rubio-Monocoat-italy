@@ -207,64 +207,76 @@
           </legend>
           <div class="color-swatch-custom">
 {%- assign default_variant = product.selected_or_first_available_variant -%}
-          {%- assign suited_default = default_variant.metafields.custom.color_suited -%}
-          {%- assign less_suited_default = default_variant.metafields.custom.color_less_suited -%}
-          {%- assign not_suited_default = default_variant.metafields.custom.color_not_suited -%}
+{%- assign suited_default = default_variant.metafields.custom.color_suited -%}
+{%- assign less_suited_default = default_variant.metafields.custom.color_less_suited -%}
+{%- assign not_suited_default = default_variant.metafields.custom.color_not_suited -%}
 
-          {%- assign has_info = false -%}
-          {%- if suited_default != blank or less_suited_default != blank or not_suited_default != blank -%}
-            {%- assign has_info = true -%}
-          {%- endif -%}
+{%- if suited_default != blank or less_suited_default != blank or not_suited_default != blank -%}
+<div class="color-info-box">
+  <div class="color-info-heading">
+    <span class="color-info-icon-circle">?</span>
+    <span class="color-info-title">Does this colour work on my woodtype?</span>
+  </div>
 
-          <!-- 🟡 Color Info Box (Now between legend and swatches) -->
-          <div class="color-info-box" {% unless has_info %}{% endunless %}>
-            <div class="color-info-suited" {% if suited_default == blank %}{% endif %}>
-              <span class="color-info-icon">✅</span>
-              <strong>Suited for:</strong>
-              <span class="color-info-text">{{ suited_default }}</span>
-            </div>
-            <div class="color-info-less-suited" {% if less_suited_default == blank %}{% endif %}>
-              <span class="color-info-icon">⚠️</span>
-              <strong>Less suited for:</strong>
-              <span class="color-info-text">{{ less_suited_default }}</span>
-            </div>
-            <div class="color-info-not-suited" {% if not_suited_default == blank %}{% endif %}>
-              <span class="color-info-icon">❌</span>
-              <strong>Not suited for:</strong>
-              <span class="color-info-text">{{ not_suited_default }}</span>
-            </div>
-          </div>
-          <script>
+  {% if suited_default != blank %}
+    <div class="color-info-suited">
+      <span class="color-info-icon">✅</span>
+      <strong>Suited for:</strong>
+      <span class="color-info-text">{{ suited_default }}</span>
+    </div>
+  {% endif %}
+
+  {% if less_suited_default != blank %}
+    <div class="color-info-less-suited">
+      <span class="color-info-icon">⚠️</span>
+      <strong>Less suited for:</strong>
+      <span class="color-info-text">{{ less_suited_default }}</span>
+    </div>
+  {% endif %}
+
+  {% if not_suited_default != blank %}
+    <div class="color-info-not-suited">
+      <span class="color-info-icon">❌</span>
+      <strong>Not suited for:</strong>
+      <span class="color-info-text">{{ not_suited_default }}</span>
+    </div>
+  {% endif %}
+</div>
+{%- endif -%}
+
+<script>
 document.addEventListener('variant:change', function(event) {
   const variant = event.detail.variant;
   if (!variant) return;
 
-  const suitedBox = document.querySelector('.color-info-suited');
-  const lessSuitedBox = document.querySelector('.color-info-less-suited');
-  const notSuitedBox = document.querySelector('.color-info-not-suited');
   const container = document.querySelector('.color-info-box');
-
   if (!container) return;
 
-  const suited = variant.metafields?.custom?.color_suited?.value || '';
-  const lessSuited = variant.metafields?.custom?.color_less_suited?.value || '';
-  const notSuited = variant.metafields?.custom?.color_not_suited?.value || '';
+  const suitedBox = container.querySelector('.color-info-suited');
+  const lessSuitedBox = container.querySelector('.color-info-less-suited');
+  const notSuitedBox = container.querySelector('.color-info-not-suited');
 
-  function updateBox(el, text) {
-    if (text && text.trim() !== '') {
-      el.style.display = 'block';
-      el.querySelector('.color-info-text').textContent = text;
+  const suitedVal = variant.metafields?.custom?.color_suited?.value || '';
+  const lessSuitedVal = variant.metafields?.custom?.color_less_suited?.value || '';
+  const notSuitedVal = variant.metafields?.custom?.color_not_suited?.value || '';
+
+  function updateBox(box, value) {
+    if (!box) return;
+    if (value && value.trim() !== '') {
+      box.style.display = 'flex';
+      box.querySelector('.color-info-text').textContent = value;
     } else {
-      el.style.display = 'none';
-      el.querySelector('.color-info-text').textContent = '';
+      box.style.display = 'none';
+      box.querySelector('.color-info-text').textContent = '';
     }
   }
 
-  updateBox(suitedBox, suited);
-  updateBox(lessSuitedBox, lessSuited);
-  updateBox(notSuitedBox, notSuited);
+  updateBox(suitedBox, suitedVal);
+  updateBox(lessSuitedBox, lessSuitedVal);
+  updateBox(notSuitedBox, notSuitedVal);
 
-  if (suited || lessSuited || notSuited) {
+  // Show or hide the entire container
+    if (suitedVal || lessSuitedVal || notSuitedVal) {
     container.style.display = 'block';
   } else {
     container.style.display = 'none';
