@@ -160,6 +160,7 @@
 })();
 </script>
           </legend>
+          <div class="color-swatch-custom">
 {%- assign default_variant = product.selected_or_first_available_variant -%}
           {%- assign suited_default = default_variant.metafields.custom.color_suited -%}
           {%- assign less_suited_default = default_variant.metafields.custom.color_less_suited -%}
@@ -234,6 +235,7 @@ document.addEventListener('variant:change', function(event) {
             picker_type: picker_type
           %}
         </fieldset>
+      </div>
       {%- elsif picker_type == 'button' -%}
         <fieldset class="js product-form__input product-form__input--pill">
           
