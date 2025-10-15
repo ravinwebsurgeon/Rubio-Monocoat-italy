@@ -601,7 +601,18 @@
                     {% endif %}
                   </div>
                 </div>
-
+<div class="addon-popup" style="display:none;">
+  <div class="addon-popup-content">
+    <button class="addon-popup-close">X</button>
+    <img src="" alt="" class="addon-popup-image">
+    <h3 class="addon-popup-title"></h3>
+    <p class="addon-popup-price"></p>
+    <select class="addon-popup-variant">
+      <!-- variants will be populated dynamically -->
+    </select>
+    <button class="addon-popup-select">Select</button>
+  </div>
+</div>
                 <script>
                   document.addEventListener('DOMContentLoaded', function () {
                     document.querySelectorAll('.product-addons-wrapper').forEach((wrapper) => {
