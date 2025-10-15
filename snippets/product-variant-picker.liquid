@@ -250,41 +250,7 @@
             picker_type: picker_type
           %}
         </fieldset>
-        <script>
-document.addEventListener('DOMContentLoaded', function() {
-  document.addEventListener('variant:change', function(event) {
-    const variant = event.detail.variant;
-    if (!variant) return;
-
-    const container = document.querySelector('.color-info-box');
-    if (!container) return;
-
-    const suitedBox = container.querySelector('.color-info-suited');
-    const lessSuitedBox = container.querySelector('.color-info-less-suited');
-    const notSuitedBox = container.querySelector('.color-info-not-suited');
-
-    const suitedVal = variant.metafields?.custom?.color_suited?.value || '';
-    const lessSuitedVal = variant.metafields?.custom?.color_less_suited?.value || '';
-    const notSuitedVal = variant.metafields?.custom?.color_not_suited?.value || '';
-
-    function updateBox(box, value) {
-      if (!box) return;
-      if (value.trim() !== '') {
-        box.style.display = 'flex';
-        box.querySelector('.color-info-text').textContent = value;
-      } else {
-        box.style.display = 'none';
-      }
-    }
-
-    updateBox(suitedBox, suitedVal);
-    updateBox(lessSuitedBox, lessSuitedVal);
-    updateBox(notSuitedBox, notSuitedVal);
-
-    container.style.display = (suitedVal || lessSuitedVal || notSuitedVal) ? 'block' : 'none';
-  });
-});
-</script>
+       
       {%- elsif picker_type == 'button' -%}
         <fieldset class="js product-form__input product-form__input--pill">
           
