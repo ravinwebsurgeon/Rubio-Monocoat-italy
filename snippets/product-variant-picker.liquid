@@ -284,6 +284,57 @@ document.addEventListener('click', function (e) {
   </div>
 </div>
 {% endif %}
+<script>
+document.addEventListener('variant:change', function(event) {
+  const variant = event.detail.variant;
+  if (!variant) return;
+
+  const suitedBox = document.querySelector('.color-info-suited');
+  const lessSuitedBox = document.querySelector('.color-info-less-suited');
+  const notSuitedBox = document.querySelector('.color-info-not-suited');
+  const container = document.querySelector('.color-info-box');
+
+  if (!container) return;
+
+  const suited = variant.metafields?.custom?.color_suited?.value || '';
+  const lessSuited = variant.metafields?.custom?.color_less_suited?.value || '';
+  const notSuited = variant.metafields?.custom?.color_not_suited?.value || '';
+
+  // Update suited
+  if (suited && suited.trim() !== '') {
+    suitedBox.style.display = 'block';
+    suitedBox.querySelector('.color-info-text').textContent = suited;
+  } else {
+    suitedBox.style.display = 'none';
+    suitedBox.querySelector('.color-info-text').textContent = '';
+  }
+
+  // Update less suited
+  if (lessSuited && lessSuited.trim() !== '') {
+    lessSuitedBox.style.display = 'block';
+    lessSuitedBox.querySelector('.color-info-text').textContent = lessSuited;
+  } else {
+    lessSuitedBox.style.display = 'none';
+    lessSuitedBox.querySelector('.color-info-text').textContent = '';
+  }
+
+  // Update not suited
+  if (notSuited && notSuited.trim() !== '') {
+    notSuitedBox.style.display = 'block';
+    notSuitedBox.querySelector('.color-info-text').textContent = notSuited;
+  } else {
+    notSuitedBox.style.display = 'none';
+    notSuitedBox.querySelector('.color-info-text').textContent = '';
+  }
+
+  // Toggle entire container visibility
+  if (suited || lessSuited || notSuited) {
+    container.style.display = 'block';
+  } else {
+    container.style.display = 'none';
+  }
+});
+</script>
 
 
           {% render 'product-variant-options',
