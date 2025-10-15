@@ -79,6 +79,42 @@
     <strong>Not suited for:</strong> <span class="color-info-text"></span>
   </div>
 </div>
+<script>
+document.addEventListener('variant:change', function(event) {
+  const variant = event.detail.variant;
+  if (!variant) return;
+
+  const box = document.querySelector('.color-info-box');
+  if (!box) return;
+
+  const suited = box.querySelector('.color-info-suited');
+  const lessSuited = box.querySelector('.color-info-less-suited');
+  const notSuited = box.querySelector('.color-info-not-suited');
+
+  const suitedText = suited.querySelector('.color-info-text');
+  const lessSuitedText = lessSuited.querySelector('.color-info-text');
+  const notSuitedText = notSuited.querySelector('.color-info-text');
+
+  // 🧠 Get the metafield values from the selected variant
+  const suitedVal = variant.metafields?.custom?.suited_for?.value?.trim() || '';
+  const lessSuitedVal = variant.metafields?.custom?.less_suited_for?.value?.trim() || '';
+  const notSuitedVal = variant.metafields?.custom?.not_suited_for?.value?.trim() || '';
+
+  if (suitedVal || lessSuitedVal || notSuitedVal) {
+    box.style.display = 'block';
+
+    suited.style.display = suitedVal ? 'flex' : 'none';
+    lessSuited.style.display = lessSuitedVal ? 'flex' : 'none';
+    notSuited.style.display = notSuitedVal ? 'flex' : 'none';
+
+    suitedText.textContent = suitedVal;
+    lessSuitedText.textContent = lessSuitedVal;
+    notSuitedText.textContent = notSuitedVal;
+  } else {
+    box.style.display = 'none';
+  }
+});
+</script>
 
 <style>
 /* keep wrapper stable so SVG never disappears if tooltip is hidden */
