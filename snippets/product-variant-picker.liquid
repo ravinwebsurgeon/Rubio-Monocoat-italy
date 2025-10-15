@@ -205,6 +205,43 @@
 })();
 </script>
 </legend>
+{%- assign default_variant = product.selected_or_first_available_variant -%}
+{%- assign suited_default = default_variant.metafields.custom.color_suited -%}
+{%- assign less_suited_default = default_variant.metafields.custom.color_less_suited -%}
+{%- assign not_suited_default = default_variant.metafields.custom.color_not_suited -%}
+
+{%- if suited_default != blank or less_suited_default != blank or not_suited_default != blank -%}
+<div class="color-info-box">
+  <div class="color-info-heading">
+    <span class="color-info-icon-circle">?</span>
+    <span class="color-info-title">Does this colour work on my woodtype?</span>
+  </div>
+
+  {% if suited_default != blank %}
+    <div class="color-info-suited">
+      <span class="color-info-icon">✅</span>
+      <strong>Suited for:</strong>
+      <span class="color-info-text">{{ suited_default }}</span>
+    </div>
+  {% endif %}
+
+  {% if less_suited_default != blank %}
+    <div class="color-info-less-suited">
+      <span class="color-info-icon">⚠️</span>
+      <strong>Less suited for:</strong>
+      <span class="color-info-text">{{ less_suited_default }}</span>
+    </div>
+  {% endif %}
+
+  {% if not_suited_default != blank %}
+    <div class="color-info-not-suited">
+      <span class="color-info-icon">❌</span>
+      <strong>Not suited for:</strong>
+      <span class="color-info-text">{{ not_suited_default }}</span>
+    </div>
+  {% endif %}
+</div>
+{%- endif -%}
 
 
           {% render 'product-variant-options',
