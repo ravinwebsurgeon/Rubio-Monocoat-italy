@@ -53,7 +53,7 @@
             </div>
           {% endif %} 
       </div>  {% endcomment %}
- <div class="color-info-btn" aria-label="More info">
+ {% comment %} <div class="color-info-btn" aria-label="More info">
   
 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="50px" height="50px"><path d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z M 25 11 A 3 3 0 0 0 22 14 A 3 3 0 0 0 25 17 A 3 3 0 0 0 28 14 A 3 3 0 0 0 25 11 z M 21 21 L 21 23 L 22 23 L 23 23 L 23 36 L 22 36 L 21 36 L 21 38 L 22 38 L 23 38 L 27 38 L 28 38 L 29 38 L 29 36 L 28 36 L 27 36 L 27 21 L 26 21 L 22 21 L 21 21 z"/></svg>
 
@@ -64,7 +64,7 @@
       <button type="button" class="close-tooltip" aria-label="Close">&times;</button>
     </div>
   {% endif %} 
-</div>
+</div> {% endcomment %}
 
 <style>
 /* keep wrapper stable so SVG never disappears if tooltip is hidden */
@@ -133,6 +133,106 @@ document.addEventListener('click', function (e) {
 });
 </script>
 
+<script>
+(function () {
+  // Helper to get a readable name from a swatch element or an input
+  function getSwatchName(el) {
+    if (!el) return null;
+    // If element is an <input>, prefer value or data attributes
+    if (el.matches && el.matches('input[type="radio"], input[type="checkbox"]')) {
+      return el.value || el.getAttribute('data-value') || el.getAttribute('aria-label') || null;
+    }
+    // If element is a label or wrapper, check dataset or attributes
+    if (el.dataset && el.dataset.value) return el.dataset.value;
+    if (el.dataset && el.dataset.swatch) return el.dataset.swatch;
+    if (el.getAttribute && el.getAttribute('aria-label')) return el.getAttribute('aria-label');
+    if (el.getAttribute && el.getAttribute('title')) return el.getAttribute('title');
+    // fallback to trimmed textContent (may include check icons etc.)
+    const t = el.textContent ? el.textContent.trim() : '';
+    return t || null;
+  }
+
+  function initSwatchHoverForFieldset(fieldset) {
+    if (!fieldset) return;
+    const selectedValueEl = fieldset.querySelector('[data-selected-value]');
+    if (!selectedValueEl) return;
+
+    // store currently selected text (kept in sync with 'change' events and variant:change)
+    let originalText = selectedValueEl.textContent.trim();
+
+    // pointerover/out delegation so we don't need to attach to every label individually
+    fieldset.addEventListener('pointerover', function (e) {
+      const target = e.target;
+      // find the closest swatch element (label, button, .swatch__item, input, etc.)
+      const swatchEl = target.closest('label, button, .swatch__item, [data-swatch-value], input[type="radio"], input[type="checkbox"]');
+      if (!swatchEl || !fieldset.contains(swatchEl)) return;
+      // if it's a wrapper, try to find an input inside
+      const input = swatchEl.matches('input[type="radio"], input[type="checkbox"]') ? swatchEl : swatchEl.querySelector('input[type="radio"], input[type="checkbox"]');
+      const name = getSwatchName(input) || getSwatchName(swatchEl);
+      if (name) selectedValueEl.textContent = name;
+    });
+
+    fieldset.addEventListener('pointerout', function (e) {
+      // If pointer moved to another swatch inside same fieldset, don't revert
+      const related = e.relatedTarget;
+      if (related && related.closest && related.closest('.product-form__input--swatch') === fieldset) {
+        const stillInSwatch = Boolean(related.closest('label, button, .swatch__item, [data-swatch-value], input[type="radio"], input[type="checkbox"]'));
+        if (stillInSwatch) return;
+      }
+      // revert
+      selectedValueEl.textContent = originalText;
+    });
+
+    // when user actually selects a swatch, update the originalText permanently
+    fieldset.addEventListener('change', function (e) {
+      const input = e.target.closest && e.target.closest('input[type="radio"], input[type="checkbox"]') ? e.target.closest('input[type="radio"], input[type="checkbox"]') : (e.target.matches && e.target.matches('input[type="radio"], input[type="checkbox"]') ? e.target : null);
+      if (!input) return;
+      originalText = input.value || input.getAttribute('data-value') || getSwatchName(input) || originalText;
+      selectedValueEl.textContent = originalText;
+    });
+
+    // Shopify's variant:change may update the selected value through other scripts —
+    // keep originalText synced when that happens
+    document.addEventListener('variant:change', function () {
+      // attempt to read the current displayed text (in case Shopify updated it)
+      originalText = selectedValueEl.textContent.trim();
+    });
+  }
+
+  // initialize existing fieldsets
+  function initAll() {
+    document.querySelectorAll('.product-form__input--swatch').forEach(fs => {
+      // avoid double-initialization by tagging
+      if (!fs.__swatchHoverInit) {
+        initSwatchHoverForFieldset(fs);
+        fs.__swatchHoverInit = true;
+      }
+    });
+  }
+
+  // Run initial setup
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAll);
+  } else {
+    initAll();
+  }
+
+  // Observe DOM for dynamically added swatch groups (AJAX themes / sections)
+  const observer = new MutationObserver(muts => {
+    let found = false;
+    for (const m of muts) {
+      for (const n of m.addedNodes) {
+        if (!(n instanceof HTMLElement)) continue;
+        if (n.matches && n.matches('.product-form__input--swatch')) { found = true; break; }
+        if (n.querySelector && n.querySelector('.product-form__input--swatch')) { found = true; break; }
+      }
+      if (found) break;
+    }
+    if (found) initAll();
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+})();
+</script>
 
 
 
