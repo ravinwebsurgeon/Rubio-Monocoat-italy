@@ -284,7 +284,7 @@ document.addEventListener('variant:change', function(event) {
 });
 </script>
 
-
+</div>
           {% render 'product-variant-options',
             product: product,
             option: option,
@@ -292,7 +292,6 @@ document.addEventListener('variant:change', function(event) {
             picker_type: picker_type
           %}
         </fieldset>
-      </div>
       {%- elsif picker_type == 'button' -%}
         <fieldset class="js product-form__input product-form__input--pill">
           
