@@ -28,58 +28,62 @@
           endif
         -%}
         {%- if picker_type == 'swatch' -%}
-          <fieldset class="js product-form__input product-form__input--swatch">
-            <legend class="form__label">
-              {{ option.name }}:
-              <span data-selected-value>
-                {{- option.selected_value -}}
-              </span>
-              </legend>
-{%- assign default_variant = product.selected_or_first_available_variant -%}
-{%- assign suited_default = default_variant.metafields.custom.color_suited -%}
-{%- assign less_suited_default = default_variant.metafields.custom.color_less_suited -%}
-{%- assign not_suited_default = default_variant.metafields.custom.color_not_suited -%}
+  <fieldset class="js product-form__input product-form__input--swatch">
+    <legend class="form__label">
+      {{ option.name }}:
+      <span data-selected-value>
+        {{- option.selected_value -}}
+      </span>
+    </legend>
 
-{%- if suited_default != blank or less_suited_default != blank or not_suited_default != blank -%}
-<div class="color-info-box">
-  <div class="color-info-heading">
-    <span class="color-info-icon-circle">?</span>
-    <span class="color-info-title">Does this colour work on my woodtype?</span>
-  </div>
+    {%- if option.name == 'Color' or option.name == 'Colour' -%}
+      {%- assign default_variant = product.selected_or_first_available_variant -%}
+      {%- assign suited_default = default_variant.metafields.custom.color_suited -%}
+      {%- assign less_suited_default = default_variant.metafields.custom.color_less_suited -%}
+      {%- assign not_suited_default = default_variant.metafields.custom.color_not_suited -%}
 
-  {% if suited_default != blank %}
-    <div class="color-info-suited">
-      <span class="color-info-icon">✅</span>
-      <strong>Suited for:</strong>
-      <span class="color-info-text">{{ suited_default }}</span>
-    </div>
-  {% endif %}
+      {%- if suited_default != blank or less_suited_default != blank or not_suited_default != blank -%}
+      <div class="color-info-box">
+        <div class="color-info-heading">
+          <span class="color-info-icon-circle">?</span>
+          <span class="color-info-title">Does this colour work on my woodtype?</span>
+        </div>
 
-  {% if less_suited_default != blank %}
-    <div class="color-info-less-suited">
-      <span class="color-info-icon">⚠️</span>
-      <strong>Less suited for:</strong>
-      <span class="color-info-text">{{ less_suited_default }}</span>
-    </div>
-  {% endif %}
+        {% if suited_default != blank %}
+          <div class="color-info-suited">
+            <span class="color-info-icon">✅</span>
+            <strong>Suited for:</strong>
+            <span class="color-info-text">{{ suited_default }}</span>
+          </div>
+        {% endif %}
 
-  {% if not_suited_default != blank %}
-    <div class="color-info-not-suited">
-      <span class="color-info-icon">❌</span>
-      <strong>Not suited for:</strong>
-      <span class="color-info-text">{{ not_suited_default }}</span>
-    </div>
-  {% endif %}
-</div>
-{%- endif -%}
+        {% if less_suited_default != blank %}
+          <div class="color-info-less-suited">
+            <span class="color-info-icon">⚠️</span>
+            <strong>Less suited for:</strong>
+            <span class="color-info-text">{{ less_suited_default }}</span>
+          </div>
+        {% endif %}
 
-          {% render 'product-variant-options',
-            product: product,
-            option: option,
-            block: block,
-            picker_type: picker_type
-          %}
-        </fieldset>
+        {% if not_suited_default != blank %}
+          <div class="color-info-not-suited">
+            <span class="color-info-icon">❌</span>
+            <strong>Not suited for:</strong>
+            <span class="color-info-text">{{ not_suited_default }}</span>
+          </div>
+        {% endif %}
+      </div>
+      {%- endif -%}
+    {%- endif -%}
+
+    {% render 'product-variant-options',
+      product: product,
+      option: option,
+      block: block,
+      picker_type: picker_type
+    %}
+  </fieldset>
+
        
       {%- elsif picker_type == 'button' -%}
         <fieldset class="js product-form__input product-form__input--pill">
