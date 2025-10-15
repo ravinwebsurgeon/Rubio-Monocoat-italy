@@ -34,22 +34,7 @@
             <span data-selected-value>
               {{- option.selected_value -}}
             </span>
-{% if product.selected_or_first_available_variant.metafields.custom.extra_info != blank %}
-<div class="color-info-box">
-  <div class="color-info-suited">
-    <span class="color-info-icon">✅</span>
-    <strong>Suited for:</strong> <span class="color-info-text"></span>
-  </div>
-  <div class="color-info-less-suited" style="display:none;">
-    <span class="color-info-icon">⚠️</span>
-    <strong>Less suited for:</strong> <span class="color-info-text"></span>
-  </div>
-  <div class="color-info-not-suited" style="display:none;">
-    <span class="color-info-icon">❌</span>
-    <strong>Not suited for:</strong> <span class="color-info-text"></span>
-  </div>
-</div>
-{% endif %}
+
           {% comment %} start {% endcomment %}
             <!-- Info button -->
         {% comment %} <div class="color-info-btn" aria-label="More info">
@@ -80,44 +65,6 @@
     </div>
   {% endif %} 
 </div> {% endcomment %}
-
-
-<script>
-document.addEventListener('variant:change', function(event) {
-  const variant = event.detail.variant;
-  if (!variant) return;
-
-  const box = document.querySelector('.color-info-box');
-  if (!box) return;
-
-  const suited = box.querySelector('.color-info-suited');
-  const lessSuited = box.querySelector('.color-info-less-suited');
-  const notSuited = box.querySelector('.color-info-not-suited');
-
-  const suitedText = suited.querySelector('.color-info-text');
-  const lessSuitedText = lessSuited.querySelector('.color-info-text');
-  const notSuitedText = notSuited.querySelector('.color-info-text');
-
-  // 🧠 Get the metafield values from the selected variant
-  const suitedVal = variant.metafields?.custom?.suited_for?.value?.trim() || '';
-  const lessSuitedVal = variant.metafields?.custom?.less_suited_for?.value?.trim() || '';
-  const notSuitedVal = variant.metafields?.custom?.not_suited_for?.value?.trim() || '';
-
-  if (suitedVal || lessSuitedVal || notSuitedVal) {
-    box.style.display = 'block';
-
-    suited.style.display = suitedVal ? 'flex' : 'none';
-    lessSuited.style.display = lessSuitedVal ? 'flex' : 'none';
-    notSuited.style.display = notSuitedVal ? 'flex' : 'none';
-
-    suitedText.textContent = suitedVal;
-    lessSuitedText.textContent = lessSuitedVal;
-    notSuitedText.textContent = notSuitedVal;
-  } else {
-    box.style.display = 'none';
-  }
-});
-</script>
 
 <style>
 .color-info-box {
@@ -169,7 +116,7 @@ document.addEventListener('variant:change', function(event) {
 .color-tooltip { position: relative; }
 </style>
 
-<script>
+{% comment %} <script>
 document.addEventListener('click', function (e) {
   // 1) Close button (delegated) — works for buttons added later too
   const closeBtn = e.target.closest('.close-tooltip');
@@ -203,7 +150,7 @@ document.addEventListener('click', function (e) {
     });
   }
 });
-</script>
+</script> {% endcomment %}
 
 <script>
 (function () {
@@ -315,6 +262,23 @@ document.addEventListener('click', function (e) {
       {% comment %} <a href="#" class="explore-colours-link">Explore all colours</a> {% endcomment %}
           {% comment %} end {% endcomment %}
           </legend>
+{% if product.selected_or_first_available_variant.metafields.custom.extra_info != blank %}
+<div class="color-info-box">
+  <div class="color-info-suited">
+    <span class="color-info-icon">✅</span>
+    <strong>Suited for:</strong> <span class="color-info-text"></span>
+  </div>
+  <div class="color-info-less-suited" style="display:none;">
+    <span class="color-info-icon">⚠️</span>
+    <strong>Less suited for:</strong> <span class="color-info-text"></span>
+  </div>
+  <div class="color-info-not-suited" style="display:none;">
+    <span class="color-info-icon">❌</span>
+    <strong>Not suited for:</strong> <span class="color-info-text"></span>
+  </div>
+</div>
+{% endif %}
+
           {% render 'product-variant-options',
             product: product,
             option: option,
