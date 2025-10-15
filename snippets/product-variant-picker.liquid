@@ -296,18 +296,7 @@
     </script>
   </variant-selects>
 {%- endunless -%}
-<script>
-document.addEventListener('variant:change', function(event) {
-  const variant = event.detail.variant;
-  if (!variant) return;
 
-  // Update tooltip text dynamically
-  const tooltip = document.querySelector('.color-tooltip');
-  if (tooltip && variant.metafields?.custom?.color_info) {
-    tooltip.innerHTML = variant.metafields.custom.color_info.value || '';
-  }
-});
-</script>
 
 
 
