@@ -592,6 +592,9 @@
                             >
                             <span class="addon-title">{{ addon_product.title }}</span>
                             <span class="addon-price">{{ addon_product.price | money }}</span>
+                             <button type="button" class="addon-choose-btn" data-addon-id="{{ addon_product.id }}">
+      Choose Options
+    </button>
                           </label>
                         </div>
                       {% endfor %}
