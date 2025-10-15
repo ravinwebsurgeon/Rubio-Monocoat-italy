@@ -34,6 +34,7 @@
               <span data-selected-value>
                 {{- option.selected_value -}}
               </span>
+              </legend>
 
           
 
@@ -204,7 +205,7 @@
   observer.observe(document.body, { childList: true, subtree: true });
 })();
 </script>
-</legend>
+
 {%- assign default_variant = product.selected_or_first_available_variant -%}
 {%- assign suited_default = default_variant.metafields.custom.color_suited -%}
 {%- assign less_suited_default = default_variant.metafields.custom.color_less_suited -%}
