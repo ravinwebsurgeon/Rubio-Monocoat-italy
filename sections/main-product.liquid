@@ -693,13 +693,11 @@
       Popular upgrades
     </span>
     <button type="button" class="addons-toggle" aria-label="Toggle">
-      <!-- Collapsed (down arrow) SVG -->
       <span class="icon-collapsed" style="display:none;">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
           <path d="M5 7l5 5 5-5" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </span>
-      <!-- Expanded (cross) SVG -->
       <span class="icon-expanded" style="display:inline-block;">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
           <path d="M12 4L4 12M4 4L12 12" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
@@ -712,19 +710,23 @@
   <div class="addons-list open">
     {% if product.metafields.custom.product_addon.value %}
       {% for addon_product in product.metafields.custom.product_addon.value %}
-        <div class="addon-item">
-          <!-- Choose Options Button -->
-          <button type="button" class="addon-choose-btn" data-addon-id="{{ addon_product.id }}">
-            Choose Options
-          </button>
-
-          <!-- Hidden checkbox for Add to Cart -->
-          <input
-            type="checkbox"
-            class="addon-checkbox"
-            data-variant-id=""
-            style="display:none;"
-          >
+        <div class="addon-item" style="display:flex; align-items:center; margin-bottom:10px;">
+          <img src="{{ addon_product.featured_image | img_url:'100x100' }}" alt="{{ addon_product.title }}" style="width:60px; height:60px; object-fit:cover; margin-right:10px;">
+          <div class="addon-info" style="flex:1;">
+            <span class="addon-title">{{ addon_product.title }}</span>
+            <span class="addon-price" style="display:block;">{{ addon_product.price | money }}</span>
+          </div>
+          
+          {% if addon_product.variants.size > 1 %}
+            <button type="button" class="addon-choose-btn" data-addon-id="{{ addon_product.id }}">
+              Choose Options
+            </button>
+          {% else %}
+            <!-- Direct Add to Cart button if no variants -->
+            <button type="button" class="addon-addtocart-btn" data-variant-id="{{ addon_product.variants.first.id }}">
+              Add to Cart
+            </button>
+          {% endif %}
         </div>
       {% endfor %}
     {% endif %}
@@ -739,14 +741,14 @@
     <h3 class="addon-popup-title"></h3>
     <p class="addon-popup-price"></p>
     <select class="addon-popup-variant" style="width:100%; margin:10px 0;"></select>
-    <button class="addon-popup-select" style="width:100%;">Select</button>
+    <button class="addon-popup-addtocart">Add to Cart</button>
   </div>
 </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
-  // --- Accordion toggle logic ---
+  // Accordion toggle logic
   document.querySelectorAll('.product-addons-wrapper').forEach((wrapper) => {
     const toggleBtn = wrapper.querySelector('.addons-toggle');
     const list = wrapper.querySelector('.addons-list');
@@ -765,25 +767,19 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    toggleBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      toggleAccordion();
-    });
-
+    toggleBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleAccordion(); });
     wrapper.addEventListener('click', (e) => {
-      if (!e.target.closest('.addon-item') && !e.target.closest('.addons-toggle')) {
-        toggleAccordion();
-      }
+      if (!e.target.closest('.addon-item') && !e.target.closest('.addons-toggle')) toggleAccordion();
     });
   });
 
-  // --- Addon popup logic ---
+  // Addon popup logic
   const popup = document.querySelector('.addon-popup');
   const popupImage = popup.querySelector('.addon-popup-image');
   const popupTitle = popup.querySelector('.addon-popup-title');
   const popupPrice = popup.querySelector('.addon-popup-price');
   const popupVariant = popup.querySelector('.addon-popup-variant');
-  const popupSelect = popup.querySelector('.addon-popup-select');
+  const popupAddBtn = popup.querySelector('.addon-popup-addtocart');
   const popupClose = popup.querySelector('.addon-popup-close');
 
   const addonData = {{ product.metafields.custom.product_addon.value | json }};
@@ -807,62 +803,44 @@ document.addEventListener('DOMContentLoaded', function () {
         popupVariant.appendChild(opt);
       });
 
-      // Store reference to current checkbox
-      popup.setAttribute('data-current-checkbox-id', addonId);
+      // Store selected addon ID
+      popup.setAttribute('data-addon-id', addonId);
 
       popup.style.display = 'flex';
     });
   });
 
-  popupSelect.addEventListener('click', () => {
-    const selectedVariantId = popupVariant.value;
-    const addonId = popup.getAttribute('data-current-checkbox-id');
+  popupAddBtn.addEventListener('click', () => {
+    const variantId = popupVariant.value;
 
-    // Check the corresponding hidden checkbox
-    const checkbox = document.querySelector(`.addon-checkbox[data-variant-id=""][data-addon-id="${addonId}"]`) ||
-                     document.querySelector(`.addon-checkbox[data-variant-id=""]`); // fallback
-    if (checkbox) {
-      checkbox.setAttribute('data-variant-id', selectedVariantId);
-      checkbox.checked = true;
-    }
-
-    popup.style.display = 'none';
+    // Add selected variant to cart
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: variantId, quantity: 1 })
+    })
+    .then(res => res.json())
+    .then(() => {
+      popup.style.display = 'none';
+      window.location.href = '/cart';
+    });
   });
 
-  popupClose.addEventListener('click', () => {
-    popup.style.display = 'none';
-  });
+  popupClose.addEventListener('click', () => { popup.style.display = 'none'; });
 
-  // --- Add to Cart logic ---
-  const mainForm = document.querySelector("form[action*='/cart/add']");
-  if (mainForm) {
-    mainForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const formData = new FormData(mainForm);
-      const items = [];
-      items.push({
-        id: formData.get('id'), // main product variant id
-        quantity: formData.get('quantity') || 1,
-      });
-
-      document.querySelectorAll('.addon-checkbox:checked').forEach((cb) => {
-        items.push({
-          id: cb.getAttribute('data-variant-id'),
-          quantity: 1,
-        });
-      });
-
+  // Direct Add to Cart buttons for single-variant products
+  document.querySelectorAll('.addon-addtocart-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const variantId = btn.getAttribute('data-variant-id');
       fetch('/cart/add.js', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items: items }),
+        body: JSON.stringify({ id: variantId, quantity: 1 })
       })
-        .then(res => res.json())
-        .then(() => {
-          window.location.href = '/cart';
-        });
+      .then(res => res.json())
+      .then(() => { window.location.href = '/cart'; });
     });
-  }
+  });
 
 });
 </script>
