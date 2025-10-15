@@ -65,7 +65,8 @@
     </div>
   {% endif %} 
 </div> {% endcomment %}
-<div class="color-info-box" style="display:none;">
+{% if product.metafields.custom.extra_info != blank %}
+<div class="color-info-box">
   <div class="color-info-suited">
     <span class="color-info-icon">✅</span>
     <strong>Suited for:</strong> <span class="color-info-text"></span>
@@ -79,6 +80,8 @@
     <strong>Not suited for:</strong> <span class="color-info-text"></span>
   </div>
 </div>
+{% endif %}
+
 <script>
 document.addEventListener('variant:change', function(event) {
   const variant = event.detail.variant;
