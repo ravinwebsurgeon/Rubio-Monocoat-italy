@@ -244,6 +244,26 @@
 </div>
 {%- endif -%}
 
+
+
+</div>
+          {% render 'product-variant-options',
+            product: product,
+            option: option,
+            block: block,
+            picker_type: picker_type
+          %}
+        </fieldset>
+      {%- elsif picker_type == 'button' -%}
+        <fieldset class="js product-form__input product-form__input--pill">
+          
+          <legend class="form__label variant-oil-row">
+  <div class="variant-size">
+    {{ option.name }} :
+    <span data-selected-size>
+      {{- option.selected_value -}}
+    </span>
+  </div>
 <script>
 document.addEventListener('variant:change', function(event) {
   const variant = event.detail.variant;
@@ -283,26 +303,6 @@ document.addEventListener('variant:change', function(event) {
   }
 });
 </script>
-
-</div>
-          {% render 'product-variant-options',
-            product: product,
-            option: option,
-            block: block,
-            picker_type: picker_type
-          %}
-        </fieldset>
-      {%- elsif picker_type == 'button' -%}
-        <fieldset class="js product-form__input product-form__input--pill">
-          
-          <legend class="form__label variant-oil-row">
-  <div class="variant-size">
-    {{ option.name }} :
-    <span data-selected-size>
-      {{- option.selected_value -}}
-    </span>
-  </div>
-
   <div class="oil-calculator-box">
     <!-- Question mark SVG -->
     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
