@@ -262,9 +262,13 @@ document.addEventListener('click', function (e) {
       {% comment %} <a href="#" class="explore-colours-link">Explore all colours</a> {% endcomment %}
           {% comment %} end {% endcomment %}
           </legend>
-{%- assign suited = product.selected_or_first_available_variant.metafields.custom.color_suited -%}
-{%- assign less_suited = product.selected_or_first_available_variant.metafields.custom.color_less_suited -%}
-{%- assign not_suited = product.selected_or_first_available_variant.metafields.custom.color_not_suited -%}
+{%- assign first_variant = product.selected_or_first_available_variant -%}
+{%- assign color_name = first_variant.option1 -%} {# Assuming option1 is Color #}
+{%- assign color_variant = product.variants | where: 'option1', color_name | first -%}
+
+{%- assign suited = color_variant.metafields.custom.color_suited -%}
+{%- assign less_suited = color_variant.metafields.custom.color_less_suited -%}
+{%- assign not_suited = color_variant.metafields.custom.color_not_suited -%}
 
 {% if suited != blank or less_suited != blank or not_suited != blank %}
 <div class="color-info-box">
@@ -284,6 +288,7 @@ document.addEventListener('click', function (e) {
   </div>
 </div>
 {% endif %}
+
 <script>
 document.addEventListener('variant:change', function(event) {
   const variant = event.detail.variant;
