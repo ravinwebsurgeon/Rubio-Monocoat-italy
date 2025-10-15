@@ -160,56 +160,49 @@
 })();
 </script>
           </legend>
+{%- assign default_variant = product.selected_or_first_available_variant -%}
+          {%- assign suited_default = default_variant.metafields.custom.color_suited -%}
+          {%- assign less_suited_default = default_variant.metafields.custom.color_less_suited -%}
+          {%- assign not_suited_default = default_variant.metafields.custom.color_not_suited -%}
 
+          {%- assign has_info = false -%}
+          {%- if suited_default != blank or less_suited_default != blank or not_suited_default != blank -%}
+            {%- assign has_info = true -%}
+          {%- endif -%}
 
+          <!-- 🟡 Color Info Box (Now between legend and swatches) -->
+          <div class="color-info-box" {% unless has_info %}style="display:none;"{% endunless %}>
+            <div class="color-info-suited" {% if suited_default == blank %}style="display:none;"{% endif %}>
+              <span class="color-info-icon">✅</span>
+              <strong>Suited for:</strong>
+              <span class="color-info-text">{{ suited_default }}</span>
+            </div>
+            <div class="color-info-less-suited" {% if less_suited_default == blank %}style="display:none;"{% endif %}>
+              <span class="color-info-icon">⚠️</span>
+              <strong>Less suited for:</strong>
+              <span class="color-info-text">{{ less_suited_default }}</span>
+            </div>
+            <div class="color-info-not-suited" {% if not_suited_default == blank %}style="display:none;"{% endif %}>
+              <span class="color-info-icon">❌</span>
+              <strong>Not suited for:</strong>
+              <span class="color-info-text">{{ not_suited_default }}</span>
+            </div>
+          </div>
+          <script>
+document.addEventListener('variant:change', function(event) {
+  const variant = event.detail.variant;
+  if (!variant) return;
 
-          {% render 'product-variant-options',
-            product: product,
-            option: option,
-            block: block,
-            picker_type: picker_type
-          %}
-        </fieldset>
-{%- assign first_variant = product.selected_or_first_available_variant -%}
-
-<!-- Container to show Suitability info -->
-<div class="color-info-box" style="display:none;">
-  <div class="color-info-suited" style="display:none;">
-    <span class="color-info-icon">✅</span>
-    <strong>Suited for:</strong> <span class="color-info-text"></span>
-  </div>
-  <div class="color-info-less-suited" style="display:none;">
-    <span class="color-info-icon">⚠️</span>
-    <strong>Less suited for:</strong> <span class="color-info-text"></span>
-  </div>
-  <div class="color-info-not-suited" style="display:none;">
-    <span class="color-info-icon">❌</span>
-    <strong>Not suited for:</strong> <span class="color-info-text"></span>
-  </div>
-</div>
-
-<!-- Expose metafield data for all variants in JS -->
-<script>
-  window.productVariantMeta = {
-    {% for variant in product.variants %}
-      "{{ variant.id }}": {
-        "color": "{{ variant.option1 | escape }}",
-        "suited": {{ variant.metafields.custom.color_suited | json }},
-        "less_suited": {{ variant.metafields.custom.color_less_suited | json }},
-        "not_suited": {{ variant.metafields.custom.color_not_suited | json }}
-      }{% unless forloop.last %},{% endunless %}
-    {% endfor %}
-  };
-</script>
-
-<script>
-(function(){
+  const suitedBox = document.querySelector('.color-info-suited');
+  const lessSuitedBox = document.querySelector('.color-info-less-suited');
+  const notSuitedBox = document.querySelector('.color-info-not-suited');
   const container = document.querySelector('.color-info-box');
+
   if (!container) return;
 
-  const suitedBox = container.querySelector('.color-info-suited');
-  const lessSuitedBox = container.querySelector('.color-info-less-suited');
-  const notSuitedBox = container.querySelector('.color-info-not-suited');
+  const suited = variant.metafields?.custom?.color_suited?.value || '';
+  const lessSuited = variant.metafields?.custom?.color_less_suited?.value || '';
+  const notSuited = variant.metafields?.custom?.color_not_suited?.value || '';
 
   function updateBox(el, text) {
     if (text && text.trim() !== '') {
@@ -221,42 +214,26 @@
     }
   }
 
-  function renderForVariant(variantId){
-    const meta = window.productVariantMeta[variantId];
-    if (!meta) {
-      container.style.display = 'none';
-      return;
-    }
+  updateBox(suitedBox, suited);
+  updateBox(lessSuitedBox, lessSuited);
+  updateBox(notSuitedBox, notSuited);
 
-    updateBox(suitedBox, meta.suited);
-    updateBox(lessSuitedBox, meta.less_suited);
-    updateBox(notSuitedBox, meta.not_suited);
-
-    if ((meta.suited && meta.suited.trim() !== '') ||
-        (meta.less_suited && meta.less_suited.trim() !== '') ||
-        (meta.not_suited && meta.not_suited.trim() !== '')) {
-      container.style.display = 'block';
-    } else {
-      container.style.display = 'none';
-    }
+  if (suited || lessSuited || notSuited) {
+    container.style.display = 'block';
+  } else {
+    container.style.display = 'none';
   }
-
-  // ✅ Handle default variant on page load
-  document.addEventListener('DOMContentLoaded', function() {
-    const defaultVariantId = {{ first_variant.id }};
-    renderForVariant(defaultVariantId);
-  });
-
-  // ✅ Handle variant change
-  document.addEventListener('variant:change', function(e){
-    const variant = e.detail.variant;
-    if (!variant) return;
-    renderForVariant(variant.id);
-  });
-})();
+});
 </script>
 
 
+          {% render 'product-variant-options',
+            product: product,
+            option: option,
+            block: block,
+            picker_type: picker_type
+          %}
+        </fieldset>
       {%- elsif picker_type == 'button' -%}
         <fieldset class="js product-form__input product-form__input--pill">
           
