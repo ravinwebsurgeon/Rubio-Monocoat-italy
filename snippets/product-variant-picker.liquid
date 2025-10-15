@@ -263,7 +263,7 @@ document.addEventListener('click', function (e) {
           {% comment %} end {% endcomment %}
           </legend>
 {%- assign first_variant = product.selected_or_first_available_variant -%}
-{%- assign color_name = first_variant.option1 -%} {# Assuming option1 is Color #}
+{%- assign color_name = first_variant.option1 -%}
 {%- assign color_variant = product.variants | where: 'option1', color_name | first -%}
 
 {%- assign suited = color_variant.metafields.custom.color_suited -%}
