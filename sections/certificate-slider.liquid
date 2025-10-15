@@ -1,4 +1,4 @@
-{% if section.settings.show_certificates %}
+
 <section class="certificates-slider">
   <div class="certificates-header">
     <h2>{{ section.settings.section_heading }}</h2>
@@ -41,7 +41,7 @@
     {% endfor %}
   </div>
 </section>
-{% endif %}
+
 
 
 <style>
@@ -330,12 +330,6 @@ $('.certificates-carousel').slick({
 {
   "name": "Certificates Slider",
   "settings": [
-    {
-      "type": "checkbox",
-      "id": "show_certificates",
-      "label": "Show Certificates Slider",
-      "default": true
-    },
     {
       "type": "text",
       "id": "section_heading",
