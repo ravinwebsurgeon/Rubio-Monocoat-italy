@@ -262,7 +262,7 @@ document.addEventListener('click', function (e) {
       {% comment %} <a href="#" class="explore-colours-link">Explore all colours</a> {% endcomment %}
           {% comment %} end {% endcomment %}
           </legend>
-{% if product.selected_or_first_available_variant.metafields.custom.extra_info != blank %}
+{% comment %} {% if product.selected_or_first_available_variant.metafields.custom.extra_info != blank %} {% endcomment %}
 <div class="color-info-box">
   <div class="color-info-suited">
     <span class="color-info-icon">✅</span>
@@ -277,7 +277,7 @@ document.addEventListener('click', function (e) {
     <strong>Not suited for:</strong> <span class="color-info-text"></span>
   </div>
 </div>
-{% endif %}
+{% comment %} {% endif %} {% endcomment %}
 
           {% render 'product-variant-options',
             product: product,
