@@ -109,11 +109,13 @@
       {% endfor %}
     </ul> {% endcomment %}
 
-    {% assign titles = product.metafields.custom.title_left.value %}
+{% assign titles = product.metafields.custom.title_left.value %}
 {% assign descriptions = product.metafields.custom.custom_description_left.value %}
 {% assign center_image = product.metafields.custom.custom_center_image %}
+{% assign show_features = product.metafields.custom.show_features_section %}
 
-{% if titles != blank or descriptions != blank or center_image != blank %}
+{% if show_features %}
+  {% if titles != blank or descriptions != blank or center_image != blank %}
 <section class="product-features-section" id="product-info">
   {% if product.metafields.custom.custom_section_heading != blank %}
     <h2 class="section-heading">{{ product.metafields.custom.custom_section_heading }}</h2>
@@ -168,9 +170,9 @@
         {% endif %}
       {% endfor %}
     </ul>
+
     <div class="custom-sv-animate"> 
-      
-<svg width="670" height="700" viewBox="0 0 634 672" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="670" height="700" viewBox="0 0 634 672" fill="none" xmlns="http://www.w3.org/2000/svg">
 <style>
 .animat {
   transform-origin: center;
@@ -361,30 +363,33 @@
 </radialGradient>
 </defs>
 </svg>
-
     </div>
   </div>
 </section> 
+  {% endif %}
 {% endif %}
-
 
 {% schema %}
 {
   "name": "DuroGrit (Metafields)",
   "tag": "section",
   "class": "durogrit-features",
-
-
   "presets": [
     {
       "name": "DuroGrit (Metafields)",
       "category": "Product"
     }
+  ],
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_features_section",
+      "label": "Show Features Section",
+      "default": true
+    }
   ]
 }
 {% endschema %}
-
-
 
 
 
