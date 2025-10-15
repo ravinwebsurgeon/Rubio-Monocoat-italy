@@ -8,32 +8,32 @@
   Usage:
   {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 {% endcomment %}
-{%- unless product.has_only_default_variant -%}
-  <variant-selects
-    id="variant-selects-{{ section.id }}"
-    data-section="{{ section.id }}"
-    {{ block.shopify_attributes }}
-  >
-    {%- for option in product.options_with_values -%}
-      {%- liquid
-        assign swatch_count = option.values | map: 'swatch' | compact | size
-        assign picker_type = block.settings.picker_type
+  {%- unless product.has_only_default_variant -%}
+    <variant-selects
+      id="variant-selects-{{ section.id }}"
+      data-section="{{ section.id }}"
+      {{ block.shopify_attributes }}
+    >
+      {%- for option in product.options_with_values -%}
+        {%- liquid
+          assign swatch_count = option.values | map: 'swatch' | compact | size
+          assign picker_type = block.settings.picker_type
 
-        if swatch_count > 0 and block.settings.swatch_shape != 'none'
-          if block.settings.picker_type == 'dropdown'
-            assign picker_type = 'swatch_dropdown'
-          else
-            assign picker_type = 'swatch'
+          if swatch_count > 0 and block.settings.swatch_shape != 'none'
+            if block.settings.picker_type == 'dropdown'
+              assign picker_type = 'swatch_dropdown'
+            else
+              assign picker_type = 'swatch'
+            endif
           endif
-        endif
-      -%}
-      {%- if picker_type == 'swatch' -%}
-        <fieldset class="js product-form__input product-form__input--swatch">
-          <legend class="form__label">
-            {{ option.name }}:
-            <span data-selected-value>
-              {{- option.selected_value -}}
-            </span>
+        -%}
+        {%- if picker_type == 'swatch' -%}
+          <fieldset class="js product-form__input product-form__input--swatch">
+            <legend class="form__label">
+              {{ option.name }}:
+              <span data-selected-value>
+                {{- option.selected_value -}}
+              </span>
 
           {% comment %} start {% endcomment %}
             <!-- Info button -->
@@ -262,22 +262,29 @@ document.addEventListener('click', function (e) {
       {% comment %} <a href="#" class="explore-colours-link">Explore all colours</a> {% endcomment %}
           {% comment %} end {% endcomment %}
           </legend>
-{% comment %} {% if product.selected_or_first_available_variant.metafields.custom.extra_info != blank %} {% endcomment %}
+{%- assign suited = product.selected_or_first_available_variant.metafields.custom.color_suited -%}
+{%- assign less_suited = product.selected_or_first_available_variant.metafields.custom.color_less_suited -%}
+{%- assign not_suited = product.selected_or_first_available_variant.metafields.custom.color_not_suited -%}
+
+{% if suited != blank or less_suited != blank or not_suited != blank %}
 <div class="color-info-box">
-  <div class="color-info-suited">
+  <div class="color-info-suited" {% if suited == blank %}style="display:none;"{% endif %}>
     <span class="color-info-icon">✅</span>
-    <strong>Suited for:</strong> <span class="color-info-text"></span>
+    <strong>Suited for:</strong> <span class="color-info-text">{{ suited }}</span>
   </div>
-  <div class="color-info-less-suited" style="display:none;">
+
+  <div class="color-info-less-suited" {% if less_suited == blank %}style="display:none;"{% endif %}>
     <span class="color-info-icon">⚠️</span>
-    <strong>Less suited for:</strong> <span class="color-info-text"></span>
+    <strong>Less suited for:</strong> <span class="color-info-text">{{ less_suited }}</span>
   </div>
-  <div class="color-info-not-suited" style="display:none;">
+
+  <div class="color-info-not-suited" {% if not_suited == blank %}style="display:none;"{% endif %}>
     <span class="color-info-icon">❌</span>
-    <strong>Not suited for:</strong> <span class="color-info-text"></span>
+    <strong>Not suited for:</strong> <span class="color-info-text">{{ not_suited }}</span>
   </div>
 </div>
-{% comment %} {% endif %} {% endcomment %}
+{% endif %}
+
 
           {% render 'product-variant-options',
             product: product,
