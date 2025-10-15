@@ -294,45 +294,39 @@ document.addEventListener('variant:change', function(event) {
   const variant = event.detail.variant;
   if (!variant) return;
 
+  // Identify selected color (assuming option1 = Color)
+  const selectedColor = variant.option1;
+  if (!selectedColor) return;
+
+  // Find the FIRST variant with that color
+  const allVariants = window?.Shopify?.product?.variants || [];
+  const colorVariant = allVariants.find(v => v.option1 === selectedColor);
+
   const suitedBox = document.querySelector('.color-info-suited');
   const lessSuitedBox = document.querySelector('.color-info-less-suited');
   const notSuitedBox = document.querySelector('.color-info-not-suited');
   const container = document.querySelector('.color-info-box');
 
-  if (!container) return;
+  if (!container || !colorVariant) return;
 
-  const suited = variant.metafields?.custom?.color_suited?.value || '';
-  const lessSuited = variant.metafields?.custom?.color_less_suited?.value || '';
-  const notSuited = variant.metafields?.custom?.color_not_suited?.value || '';
+  const suited = colorVariant.metafields?.custom?.color_suited?.value || '';
+  const lessSuited = colorVariant.metafields?.custom?.color_less_suited?.value || '';
+  const notSuited = colorVariant.metafields?.custom?.color_not_suited?.value || '';
 
-  // Update suited
-  if (suited && suited.trim() !== '') {
-    suitedBox.style.display = 'block';
-    suitedBox.querySelector('.color-info-text').textContent = suited;
-  } else {
-    suitedBox.style.display = 'none';
-    suitedBox.querySelector('.color-info-text').textContent = '';
+  function updateBox(el, text) {
+    if (text && text.trim() !== '') {
+      el.style.display = 'block';
+      el.querySelector('.color-info-text').textContent = text;
+    } else {
+      el.style.display = 'none';
+      el.querySelector('.color-info-text').textContent = '';
+    }
   }
 
-  // Update less suited
-  if (lessSuited && lessSuited.trim() !== '') {
-    lessSuitedBox.style.display = 'block';
-    lessSuitedBox.querySelector('.color-info-text').textContent = lessSuited;
-  } else {
-    lessSuitedBox.style.display = 'none';
-    lessSuitedBox.querySelector('.color-info-text').textContent = '';
-  }
+  updateBox(suitedBox, suited);
+  updateBox(lessSuitedBox, lessSuited);
+  updateBox(notSuitedBox, notSuited);
 
-  // Update not suited
-  if (notSuited && notSuited.trim() !== '') {
-    notSuitedBox.style.display = 'block';
-    notSuitedBox.querySelector('.color-info-text').textContent = notSuited;
-  } else {
-    notSuitedBox.style.display = 'none';
-    notSuitedBox.querySelector('.color-info-text').textContent = '';
-  }
-
-  // Toggle entire container visibility
   if (suited || lessSuited || notSuited) {
     container.style.display = 'block';
   } else {
@@ -340,6 +334,7 @@ document.addEventListener('variant:change', function(event) {
   }
 });
 </script>
+
 
 
           {% render 'product-variant-options',
