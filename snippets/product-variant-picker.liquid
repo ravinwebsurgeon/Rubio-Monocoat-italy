@@ -171,18 +171,18 @@
           {%- endif -%}
 
           <!-- 🟡 Color Info Box (Now between legend and swatches) -->
-          <div class="color-info-box" {% unless has_info %}style="display:none;"{% endunless %}>
-            <div class="color-info-suited" {% if suited_default == blank %}style="display:none;"{% endif %}>
+          <div class="color-info-box" {% unless has_info %}{% endunless %}>
+            <div class="color-info-suited" {% if suited_default == blank %}{% endif %}>
               <span class="color-info-icon">✅</span>
               <strong>Suited for:</strong>
               <span class="color-info-text">{{ suited_default }}</span>
             </div>
-            <div class="color-info-less-suited" {% if less_suited_default == blank %}style="display:none;"{% endif %}>
+            <div class="color-info-less-suited" {% if less_suited_default == blank %}{% endif %}>
               <span class="color-info-icon">⚠️</span>
               <strong>Less suited for:</strong>
               <span class="color-info-text">{{ less_suited_default }}</span>
             </div>
-            <div class="color-info-not-suited" {% if not_suited_default == blank %}style="display:none;"{% endif %}>
+            <div class="color-info-not-suited" {% if not_suited_default == blank %}{% endif %}>
               <span class="color-info-icon">❌</span>
               <strong>Not suited for:</strong>
               <span class="color-info-text">{{ not_suited_default }}</span>
