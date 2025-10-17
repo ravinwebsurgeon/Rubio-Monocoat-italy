@@ -787,8 +787,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const popupVariant = popup.querySelector('.addon-popup-variant');
   const popupAddBtn = popup.querySelector('.addon-popup-addtocart');
   const popupClose = popup.querySelector('.addon-popup-close');
-  let overlay = document.createElement('div')
-  overlay.classList.add('custom-overlay')
   const addonData = {{ product.metafields.custom.product_addon.value | json }};
 
   document.querySelectorAll('.addon-choose-btn').forEach((btn) => {
@@ -812,7 +810,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Store selected addon ID
       popup.setAttribute('data-addon-id', addonId);
-      document.body.appendChild(overlay);
+      document.body.classList.add('overlay');
 
       popup.style.display = 'flex';
     
@@ -837,7 +835,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   popupClose.addEventListener('click', () => {
      popup.style.display = 'none'; 
-     {% comment %} document.querySelector('.custom-overlay').remove(); {% endcomment %}
+     document.body.classList.remove('overlay');
     });
 
   // Direct Add to Cart buttons for single-variant products
