@@ -36,6 +36,85 @@
       </span>
     </legend>
 
+
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign suited = current_variant.metafields.custom.suited_for %}
+{% assign less_suited = current_variant.metafields.custom.less_suited_for %}
+{% assign not_suited = current_variant.metafields.custom.not_suited_for %}
+{% if suited != blank or less_suited != blank or not_suited != blank %}
+  <div class="suited_section">
+    <div class="suited_main_info">
+      <div class="suited_info">
+        <svg width="17" height="17" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="45" stroke="black" stroke-width="5" fill="transparent" />
+          <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-size="70" font-family="Arial">?</text>
+        </svg>
+        <p>Does this color work on my woodtype?</p>
+      </div>
+      <div class="suited_action_sign"><p class="suited_shown">+</p> </div>
+    </div>
+
+    <div class="suited_main_data shown">
+    {% if suited != blank %}
+      <div class="suited_for">
+        <svg width="17" height="17" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="50" fill="green" />
+          <polyline points="30,55 45,70 75,40" 
+                    fill="none" 
+                    stroke="white" 
+                    stroke-width="10" 
+                    stroke-linecap="round" 
+                    stroke-linejoin="round" />
+        </svg>
+        <p><span>Suited for: </span>{{ suited}}</p>
+      </div>
+    {% endif %}
+
+    {% if less_suited != blank %}
+      <div class="less_suited_for">
+        <svg width="17" height="17" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="50" fill="#FFA500" /> <!-- Orange/yellow warning color -->
+          <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-size="50" font-family="Arial" fill="white">!</text>
+        </svg>
+        <p><span>Less suited for: </span>{{ less_suited }}</p>
+      </div>
+    {% endif %}
+
+    {% if not_suited != blank %}
+      <div class="not_suited_for">
+        <svg width="17" height="17" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="50" fill="red" />
+          <!-- White Cross (X) -->
+          <line x1="30" y1="30" x2="70" y2="70" stroke="white" stroke-width="7" stroke-linecap="round" />
+          <line x1="70" y1="30" x2="30" y2="70" stroke="white" stroke-width="7" stroke-linecap="round" />
+        </svg>
+        <p><span>Not suited for: </span>{{not_suited }}</p>
+      </div>
+    {% endif %}
+  </div>
+  </div>
+  <script>
+ var actionBtn = document.querySelector('.suited_shown')
+  console.log(actionBtn,'asas')
+if(actionBtn)
+{
+  console.log('btn_exist')
+    actionBtn.addEventListener('click',function(event) {
+        console.log('btn_clicked')
+
+      event.stopPropagation();
+        var suited_section = document.querySelector('.suited_main_data');
+        suited_section.classList.toggle('shown');
+        if(suited_section.classList.contains('shown'))
+          { actionBtn.textContent = 'X'; }
+        else{ actionBtn.textContent = '+'; }
+
+    });
+}
+
+  </script>
+{% endif %}
+    
     {% render 'product-variant-options',
       product: product,
       option: option,
@@ -192,7 +271,18 @@
 .color-info-icon {
   width: 18px;
 }
-
+#customSeeMoreBtn{border:none;background:transparent;font-size:15px;cursor:pointer;}
+.SeeMoreContent {display:none !important;visibility:hidden;overflow:hidden;}
+.suited_section{width:100%;background:#F0F4F2;border:1.5px dotted #888; padding:10px;}
+.suited_for, .less_suited_for, .not_suited_for{font-size:13px;}
+.suited_for span, .less_suited_for span, .not_suited_for span{font-weight:600;}
+.suited_section p{margin:0;padding:3px 3px 3px 10px;}
+.suited_info, .suited_for, .less_suited_for, .not_suited_for{display:flex;align-items:center;}
+.suited_info p{font-size:15px;font-weight:600;text-decoration:underline;}
+.suited_main_info{display:flex;justify-content:space-between;}
+.suited_close ,.suited_shown{font-size:13px;font-weight:600; cursor:pointer;}
+.suited_main_data{display:none;}
+.suited_main_data.shown{display:block;}
 </style>
 
 
