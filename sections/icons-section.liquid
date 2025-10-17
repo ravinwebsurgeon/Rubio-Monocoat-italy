@@ -1,6 +1,7 @@
 {% assign show_desktop = section.settings.show_on_desktop %}
 {% assign show_mobile = section.settings.show_on_mobile %}
 
+{% unless product.tags contains 'icons_section' %}
 {% if show_desktop or show_mobile %}
   <div class="four-containers_outer
     {% if show_desktop %}
@@ -31,7 +32,7 @@
     </div>
   </div>
 {% endif %}
-
+{% endunless %}
 
 
 
