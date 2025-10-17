@@ -400,7 +400,7 @@
   }
 </style>
 
-{% schema %}
+{% comment %} {% schema %}
 {
   "name": "DuroGrit (Metafields)",
   "tag": "section",
@@ -414,8 +414,29 @@
     }
   ]
 }
-{% endschema %}
+{% endschema %} {% endcomment %}
 
+{% schema %}
+{
+  "name": "DuroGrit (Metafields)",
+  "tag": "section",
+  "class": "durogrit-features",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "mobile_svg_icon",
+      "label": "Mobile SVG icon (shown before each title)",
+      "info": "Paste your SVG code here. It will display before each title on mobile (below 767px)."
+    }
+  ],
+  "presets": [
+    {
+      "name": "DuroGrit (Metafields)",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}
 
 
 
