@@ -136,9 +136,9 @@
         {% assign mod = i | modulo: 2 %}
         {% if mod == 0 and titles[i] %}
           <li>
-            {% if product.metafields.custom.icon_svg != blank %}
+           {% if section.settings.mobile_svg_icon != blank %}
     <span class="mobile-only-icon">
-      {{ product.metafields.custom.icon_svg }}
+      {{ section.settings.mobile_svg_icon }}
     </span>
   {% endif %}
             <strong>{{ titles[i] }}</strong>
@@ -165,9 +165,9 @@
         {% assign mod = i | modulo: 2 %}
         {% if mod == 1 and titles[i] %}
           <li>
-            {% if product.metafields.custom.icon_svg != blank %}
+            {% if section.settings.mobile_svg_icon != blank %}
     <span class="mobile-only-icon">
-      {{ product.metafields.custom.icon_svg }}
+      {{ section.settings.mobile_svg_icon }}
     </span>
   {% endif %}
             <strong>{{ titles[i] }}</strong>
