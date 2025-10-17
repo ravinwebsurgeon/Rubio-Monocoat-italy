@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
         div.style.visibility = 'hidden';
       }
     });
-
+    seeMoreBtn.classList.toggle('active', isHidden);
     seeMoreBtn.textContent = isHidden ? 'See Less' : 'See More';
   });
 });
