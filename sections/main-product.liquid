@@ -696,7 +696,7 @@
                   });
                 </script> {% endcomment %}
 
-{% comment %} <div class="product-addons-wrapper">
+<div class="product-addons-wrapper">
   <!-- Accordion Header -->
   <div class="addons-header">
     <span>
@@ -848,88 +848,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 });
-</script> {% endcomment %}
-
-<!-- Simplified Addon Popup -->
-<div id="addonPopup" class="quick-view-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center;">
-  <div class="quick-view-content" style="background:#fff; padding:20px; max-width:400px; width:90%; position:relative;">
-    <button class="close-quick-view" style="position:absolute; top:10px; right:10px;">×</button>
-    <div class="quick-view-image" style="margin-bottom:15px;">
-      <img src="" alt="" id="addonImage" style="width:100%; object-fit:cover;">
-    </div>
-    <div class="quick-view-details">
-      <h3 id="addonTitle"></h3>
-      <p class="price" id="addonPrice"></p>
-      <p class="quick-view-meta" id="addonMeta"></p>
-      <div class="quick-view-details-num" style="margin:10px 0;">
-        <label for="addonQty">Quantity:</label>
-        <input type="number" id="addonQty" value="1" min="1" style="width:60px;">
-      </div>
-      <div class="quick-view-details-btns" style="display:flex; gap:10px; margin-top:10px;">
-        <button id="addonAddToCart" class="button">Add to Cart</button>
-        <a href="#" id="addonLink" class="button">View Product</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-
-  const popup = document.getElementById('addonPopup');
-  const popupImage = document.getElementById('addonImage');
-  const popupTitle = document.getElementById('addonTitle');
-  const popupPrice = document.getElementById('addonPrice');
-  const popupMeta = document.getElementById('addonMeta');
-  const popupQty = document.getElementById('addonQty');
-  const popupAddBtn = document.getElementById('addonAddToCart');
-  const popupLink = document.getElementById('addonLink');
-  const popupClose = popup.querySelector('.close-quick-view');
-
-  const addonData = {{ product.metafields.custom.product_addon.value | json }};
-
-  document.querySelectorAll('.addon-choose-btn, .addon-addtocart-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const addonId = btn.getAttribute('data-addon-id') || btn.getAttribute('data-variant-id');
-      const addonProduct = addonData.find(p => p.id == addonId) || addonData.find(p => p.variants.some(v => v.id == addonId));
-
-      if(!addonProduct) return;
-
-      // Image, title, price
-      popupImage.src = addonProduct.featured_image;
-      popupTitle.textContent = addonProduct.title;
-      popupPrice.textContent = `$${(addonProduct.price/100).toFixed(2)}`;
-      popupMeta.textContent = addonProduct.variants && addonProduct.variants.length > 1 ? 'Multiple options available' : '';
-
-      // Link to product
-      popupLink.href = `/products/${addonProduct.handle}`;
-
-      // Store variant ID to add to cart
-      popupAddBtn.dataset.variantId = addonProduct.variants ? addonProduct.variants[0].id : addonProduct.id;
-
-      popupQty.value = 1;
-      popup.style.display = 'flex';
-    });
-  });
-
-  popupAddBtn.addEventListener('click', () => {
-    const variantId = popupAddBtn.dataset.variantId;
-    const quantity = parseInt(popupQty.value) || 1;
-
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: variantId, quantity: quantity })
-    })
-    .then(res => res.json())
-    .then(() => { popup.style.display = 'none'; window.location.href = '/cart'; });
-  });
-
-  popupClose.addEventListener('click', () => { popup.style.display = 'none'; });
-  popup.addEventListener('click', (e) => { if(e.target === popup) popup.style.display = 'none'; });
-
-});
 </script>
+
 
 
                 {% comment %} product add on code end {% endcomment %}
