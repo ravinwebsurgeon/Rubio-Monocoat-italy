@@ -12,11 +12,13 @@ Metafields:
     <!-- Left Column -->
     <div class="faq-left">
       <h2 class="faq-heading1">{{ section.settings.heading }}</h2>
+      <div class="desktop-display-block">
       {% if section.settings.button_label != blank and section.settings.button_link != blank %}
         <a href="{{ section.settings.button_link }}" class="faq-btn">
           {{ section.settings.button_label }}
         </a>
       {% endif %}
+    </div>
     </div>
 
     <!-- Right Column -->
