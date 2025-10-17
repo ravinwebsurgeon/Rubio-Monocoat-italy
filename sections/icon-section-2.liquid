@@ -49,6 +49,7 @@
 }
 {% endschema %}
 
+{% unless product.tags contains 'icon_section_2' %}
 <section class="icon-features" style="background-color: {{ section.settings.background_color }};">
   <div class="container">
     <div class="features-grid">
@@ -64,6 +65,7 @@
     </div>
   </div>
 </section>
+{% endunless %}
 
 <style>
 .icon-features {
