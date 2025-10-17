@@ -1,4 +1,4 @@
-
+ {% unless product.tags contains 'certificate_slider' %}
 <section class="certificates-slider">
   <div class="certificates-header">
     <h2>{{ section.settings.section_heading }}</h2>
@@ -41,7 +41,7 @@
     {% endfor %}
   </div>
 </section>
-
+{% endunless %}
 
 
 <style>
