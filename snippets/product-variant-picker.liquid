@@ -163,8 +163,7 @@ if(actionBtn)
             picker_type: picker_type
           %}
         </fieldset>
-        {% assign option_values_count = option.values | size  %} 
-      {% if option_values_count > 10 %}<button id="customSeeMoreBtn">See More</button>{% endif %}
+        
 
       {%- else -%}
         <div class="product-form__input product-form__input--dropdown">
@@ -200,7 +199,8 @@ if(actionBtn)
         </div>
       {%- endif -%}
     {%- endfor -%}
-
+{% assign option_values_count = option.values | size  %} 
+      {% if option_values_count > 10 %}<button id="customSeeMoreBtn">See More</button>{% endif %}
     <script type="application/json" data-selected-variant>
       {{ product.selected_or_first_available_variant | json }}
     </script>
