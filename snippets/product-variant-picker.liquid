@@ -135,6 +135,7 @@ const seeMoreBtn = document.getElementById('customSeeMoreBtn');
 const moreContentDivs = document.querySelectorAll('.SeeMoreContent'); // No extra spaces
 if(seeMoreBtn){
   seeMoreBtn.addEventListener('click', function() {
+    console.log('btn clicked')
     const isHidden = moreContentDivs[0].style.display === 'none' || getComputedStyle(moreContentDivs[0]).display === 'none';
     moreContentDivs.forEach(div => {
       if (isHidden) {
