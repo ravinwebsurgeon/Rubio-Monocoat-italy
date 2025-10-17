@@ -94,22 +94,23 @@
   </div>
   </div>
   <script>
- var actionBtn = document.querySelector('.suited_shown')
-  console.log(actionBtn,'asas')
-if(actionBtn)
-{
-  console.log('btn_exist')
-    actionBtn.addEventListener('click',function(event) {
-        console.log('btn_clicked')
+ var actionBtn = document.querySelector('.suited_shown');
+var suitedSection = document.querySelector('.suited_main_data');
 
-      event.stopPropagation();
-        var suited_section = document.querySelector('.suited_main_data');
-        suited_section.classList.toggle('shown');
-        if(suited_section.classList.contains('shown'))
-          { actionBtn.textContent = 'X'; }
-        else{ actionBtn.textContent = '+'; }
+if (actionBtn && suitedSection) {
+  actionBtn.addEventListener('click', function(event) {
+    event.stopPropagation();
 
-    });
+    suitedSection.classList.toggle('shown');
+
+    if (suitedSection.classList.contains('shown')) {
+      suitedSection.style.maxHeight = suitedSection.scrollHeight + "px";
+      actionBtn.textContent = 'X';
+    } else {
+      suitedSection.style.maxHeight = null;
+      actionBtn.textContent = '+';
+    }
+  });
 }
 
   </script>
@@ -281,8 +282,8 @@ if(actionBtn)
 .suited_info p{font-size:15px;font-weight:600;text-decoration:underline;}
 .suited_main_info{display:flex;justify-content:space-between;}
 .suited_close ,.suited_shown{font-size:13px;font-weight:600; cursor:pointer;}
-.suited_main_data{display:none;}
-.suited_main_data.shown{display:block;}
+.suited_main_data{max-height: 0;overflow: hidden;transition: max-height 0.4s ease;}
+.suited_main_data.shown{max-height:105px;}
 </style>
 
 
