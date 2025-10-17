@@ -453,36 +453,7 @@
 {% endstyle %}
 
 
-<script>
-  
-document.addEventListener('DOMContentLoaded', () => {
 
-//custom code to show see more section 
-const seeMoreBtn = document.getElementById('customSeeMoreBtn');
-const moreContentDivs = document.querySelectorAll('.SeeMoreContent'); // No extra spaces
-if(seeMoreBtn){
-  seeMoreBtn.addEventListener('click', function() {
-    const isHidden = moreContentDivs[0].style.display === 'none' || getComputedStyle(moreContentDivs[0]).display === 'none';
-    moreContentDivs.forEach(div => {
-      if (isHidden) {
-        {% comment %} div.style.display = 'block'; {% endcomment %}
-        div.style.setProperty('display', 'block', 'important'); 
-
-        div.style.overflow = 'visible';
-        div.style.visibility = 'visible';
-      } else {
-        div.style.display = 'none';
-        div.style.overflow = 'hidden';
-        div.style.visibility = 'hidden';
-
-      }
-    });
-
-    seeMoreBtn.textContent = isHidden ? 'See Less' : 'See More';
-  });
-}
-});
-</script>
 
 
 
