@@ -128,8 +128,12 @@ if (actionBtn && suitedSection) {
         <button id="customSeeMoreBtn">See More</button>
     <script>
       
-document.addEventListener('DOMContentLoaded', () => {
-//custom code to show see more section 
+  window.onload = function() {
+    function seeMoreContent();
+  }
+   function seeMoreContent()
+   {
+    //custom code to show see more section 
 const seeMoreBtn = document.getElementById('customSeeMoreBtn');
 const moreContentDivs = document.querySelectorAll('.SeeMoreContent'); // No extra spaces
 if(seeMoreBtn){
@@ -154,7 +158,7 @@ if(seeMoreBtn){
     seeMoreBtn.textContent = isHidden ? 'See Less' : 'See More';
   });
 }
-});
+}
     </script>
     {% endif %}
        
