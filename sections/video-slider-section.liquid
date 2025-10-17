@@ -62,7 +62,7 @@
 
 
 </section> {% endcomment %}
-
+{% unless product.tags contains 'inspired_video_slider' %}
 <section class="inspired-slider-section">
   <div class="container">
     <h2 class="slider-heading">{{ section.settings.heading }}</h2>
@@ -136,7 +136,7 @@
     </div>
   </div>
 </section>
-
+{% endunless %}
 <style> 
   .slide-media iframe {
   width: 100%;
