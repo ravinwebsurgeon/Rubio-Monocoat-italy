@@ -136,6 +136,11 @@
         {% assign mod = i | modulo: 2 %}
         {% if mod == 0 and titles[i] %}
           <li>
+            {% if product.metafields.custom.icon_svg != blank %}
+    <span class="mobile-only-icon">
+      {{ product.metafields.custom.icon_svg }}
+    </span>
+  {% endif %}
             <strong>{{ titles[i] }}</strong>
             {% if descriptions[i] %}
               <p>{{ descriptions[i] }}</p>
@@ -160,6 +165,11 @@
         {% assign mod = i | modulo: 2 %}
         {% if mod == 1 and titles[i] %}
           <li>
+            {% if product.metafields.custom.icon_svg != blank %}
+    <span class="mobile-only-icon">
+      {{ product.metafields.custom.icon_svg }}
+    </span>
+  {% endif %}
             <strong>{{ titles[i] }}</strong>
             {% if descriptions[i] %}
               <p>{{ descriptions[i] }}</p>
@@ -367,6 +377,28 @@
 </section> 
 {% endif %}
 
+<style>
+  .mobile-only-icon {
+    display: none;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  @media (max-width: 767px) {
+    .mobile-only-icon {
+      display: inline-block;
+    }
+    .product-features strong {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .product-features strong svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+</style>
 
 {% schema %}
 {
