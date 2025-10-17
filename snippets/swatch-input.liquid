@@ -31,7 +31,7 @@
   name="{{ name }}"
   value="{{ value }}"
   form="{{ product_form_id }}"
-  class="{% if swatchIndex > 10 %} SeeMoreContent {% endif %} swatch-input__input{% if visually_disabled %} visually-disabled{% endif %}"
+  class="{% if swatchIndex > 16 %} SeeMoreContent {% endif %} swatch-input__input{% if visually_disabled %} visually-disabled{% endif %}"
   {% if checked %}
     checked
   {% endif %}
@@ -54,7 +54,7 @@
 <label
   for="{{ id }}"
   title="{{ value }}"
-  class="{% if swatchIndex > 10 %} SeeMoreContent {% endif %} swatch-input__label{% if shape == 'square' %} swatch-input__label--square{% endif %}"
+  class="{% if swatchIndex > 16 %} SeeMoreContent {% endif %} swatch-input__label{% if shape == 'square' %} swatch-input__label--square{% endif %}"
 >
   {%- assign option_value = product.options_with_values | where: "name", name | first -%}
   {%- assign variant = product.variants | where: "option1", value | first -%}
