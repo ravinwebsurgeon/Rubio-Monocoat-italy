@@ -809,6 +809,8 @@ document.addEventListener('DOMContentLoaded', function () {
       popup.setAttribute('data-addon-id', addonId);
 
       popup.style.display = 'flex';
+      document.querySelector('body').style.position = 'fixed';
+
     
     });
   });
@@ -829,7 +831,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  popupClose.addEventListener('click', () => { popup.style.display = 'none'; });
+  popupClose.addEventListener('click', () => {
+     popup.style.display = 'none'; 
+     document.querySelector('body').style.position = 'unset';
+    });
 
   // Direct Add to Cart buttons for single-variant products
   document.querySelectorAll('.addon-addtocart-btn').forEach((btn) => {
