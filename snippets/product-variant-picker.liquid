@@ -162,9 +162,10 @@ if(actionBtn)
             block: block,
             picker_type: picker_type
           %}
-        </fieldset>
-        {% assign option_values_count = option.values | size  %} 
+          {% assign option_values_count = option.values | size  %} 
       {% if option_values_count > 10 %}<button id="customSeeMoreBtn">See More</button>{% endif %}
+        </fieldset>
+        
 
       {%- else -%}
         <div class="product-form__input product-form__input--dropdown">
