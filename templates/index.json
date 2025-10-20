@@ -123,7 +123,9 @@
         "column_UdPKcz",
         "column_yeAnfG"
       ],
-      "custom_css": [],
+      "custom_css": [
+        ".main-headings {margin-bottom: 20px;}"
+      ],
       "name": "custom multicolumn",
       "settings": {
         "class_add": "",
