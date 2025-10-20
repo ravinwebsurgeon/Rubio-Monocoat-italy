@@ -175,7 +175,7 @@
         "collection_rhhP3Y"
       ],
       "custom_css": [
-        ".custom-collections-section {background-color: #396948;}",
+        ".custom-collections-section {background-color: #ffff;}",
         ".custom-collections-section img {border-radius: 12px; /* Pas dit getal aan naar wens */}"
       ],
       "name": "custom collection",
