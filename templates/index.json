@@ -172,7 +172,7 @@
         "collection_rhhP3Y"
       ],
       "custom_css": [
-        "h2:contains(\"ShopbyCategory\") {background-color: #183029;}"
+        ".custom-collections-section {background-color: #183029;}"
       ],
       "name": "custom collection",
       "settings": {
