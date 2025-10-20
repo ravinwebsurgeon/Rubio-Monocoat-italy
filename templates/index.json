@@ -124,7 +124,7 @@
         "column_yeAnfG"
       ],
       "custom_css": [
-        ".main-headingsds {margin-bottom: 80px;}"
+        ".main-headingsds {margin-bottom: 24px !important; }"
       ],
       "name": "custom multicolumn",
       "settings": {
