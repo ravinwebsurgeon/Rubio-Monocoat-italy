@@ -37,9 +37,10 @@
         "paragraph_CRmXWC",
         "email_form_JJJDV8"
       ],
+      "custom_css": [],
       "name": "t:sections.newsletter.presets.name",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-c387eb6a-33c1-4d1e-b96c-717189f1303c",
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 52
@@ -90,8 +91,12 @@
         "link_list_KBYewH",
         "link_list_8g9qUg"
       ],
+      "custom_css": [
+        ".footer {background-color: #f2f2f2 !important;}",
+        "/* Tekstkleur aanpassen binnen de footer */.footer,.footer p,.footer h2,.footer h3,.footer h4,.footer a,.footer label,.footer span {color: #606060 !important; /* of wit (#fff) of een andere kleur naar wens */}"
+      ],
       "settings": {
-        "color_scheme": "scheme-3",
+        "color_scheme": "scheme-5",
         "newsletter_enable": false,
         "newsletter_heading": "Join the Family!",
         "enable_follow_on_shop": false,
