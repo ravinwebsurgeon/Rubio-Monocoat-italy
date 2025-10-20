@@ -38,7 +38,7 @@
             "icon_width_mobile": "26px",
             "icon_height_mobile": "26px",
             "heading": "ONE SINGLE LAYER",
-            "heading_color": "#000000",
+            "heading_color": "#ffffff",
             "heading_font_size": "20px",
             "heading_font_size_mobile": "16px",
             "text": "Thanks to our molecular bonding technology",
@@ -129,7 +129,7 @@
       "name": "custom multicolumn",
       "settings": {
         "class_add": "",
-        "section_bg_color": "#396948",
+        "section_bg_color": "#b9cbc5",
         "main_heading": "Why Choose Rubio Monocoat?",
         "heading_color": "#ffffff",
         "heading_font_size": "36px !important",
