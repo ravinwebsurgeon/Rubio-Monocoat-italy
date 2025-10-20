@@ -28,7 +28,7 @@
           "type": "column",
           "settings": {
             "icon": "shopify://shop_images/Layers.png",
-            "icon_bg_color": "#ffffff",
+            "icon_bg_color": "#183029",
             "icon_wrap_width": "90px",
             "icon_wrap_height": "90px",
             "icon_wrap_width_mobile": "64px",
@@ -131,11 +131,11 @@
         "class_add": "",
         "section_bg_color": "#b9cbc5",
         "main_heading": "Why Choose Rubio Monocoat?",
-        "heading_color": "#ffffff",
+        "heading_color": "#000000",
         "heading_font_size": "36px !important",
         "heading_font_size_mobile": "28px !important",
         "main_text": "At Rubio Monocoat, we understand what truly matters when treating wood: durability, simplicity, and a flawless result. Our products are designed with quality and ease of use in mind, so you can protect and enhance your wood with confidence, in just one single layer.",
-        "text_color": "#ffffff",
+        "text_color": "#000000",
         "text_font_size": "20px",
         "text_font_size_mobile": "14px"
       }
