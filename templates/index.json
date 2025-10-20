@@ -129,7 +129,7 @@
       "name": "custom multicolumn",
       "settings": {
         "class_add": "",
-        "section_bg_color": "#f0f4f2",
+        "section_bg_color": "#ffffff",
         "main_heading": "Why Choose Rubio Monocoat?",
         "heading_color": "#000000",
         "heading_font_size": "36px !important",
@@ -175,7 +175,7 @@
         "collection_rhhP3Y"
       ],
       "custom_css": [
-        ".custom-collections-section {background-color: #ffff;}",
+        ".custom-collections-section {background-color: #f0f4f2;}",
         ".custom-collections-section img {border-radius: 12px; /* Pas dit getal aan naar wens */}"
       ],
       "name": "custom collection",
@@ -223,7 +223,7 @@
         "product_block_aPTgFF"
       ],
       "custom_css": [
-        ".video-products-section {background-color: #f2f2f2;}"
+        ".video-products-section {background-color: #ffff;}"
       ],
       "name": "Video with Products",
       "settings": {
