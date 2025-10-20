@@ -51,6 +51,7 @@
       "blocks": {
         "brand_information_A98rgG": {
           "type": "brand_information",
+          "disabled": true,
           "settings": {
             "show_social": true
           }
@@ -94,7 +95,7 @@
       "custom_css": [
         ".footer {background-color: #f2f2f2 !important;}",
         " /* Tekstkleur aanpassen binnen de footer */.footer,.footer p,.footer h2,.footer h3,.footer h4,.footer a,.footer label,.footer span {color: #606060 !important; /* of wit (#fff) of een andere kleur naar wens */}",
-        ".footer hr,.footer .footer-block__details-content .list-menu,.footer .footer-block__details-content .list-menu li {border-color: #606060 !important;}"
+        ".footer .footer__copyright,.footer .copyright__content,.footer .copyright__content a,.footer small {color: #606060 !important;}"
       ],
       "settings": {
         "color_scheme": "scheme-5",
