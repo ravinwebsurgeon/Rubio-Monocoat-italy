@@ -298,7 +298,8 @@
       ],
       "custom_css": [
         ".two-column-colour-grid .container-cloor-com .left-column {background-color: #e4ecea;}",
-        ".two-column-colour-grid .right-column img {border-radius: 10px; /* pas dit getal aan naar wens */}"
+        ".two-column-colour-grid .right-column img {border-radius: 10px; /* pas dit getal aan naar wens */}",
+        "@media screen and (min-width: 1024px) {.two-column-colour-grid .container-cloor-com {gap: 20px; /* verlaag dit getal om de kolommen dichter bij elkaar te brengen */ } /* Optioneel: padding/margin aanpassen indien nodig */ .two-column-colour-grid .left-column {margin-right: 10px; } .two-column-colour-grid .right-column {margin-left: 0; }}"
       ],
       "name": "Two Column Colour Grid",
       "settings": {
