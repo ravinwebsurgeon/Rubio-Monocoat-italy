@@ -295,6 +295,9 @@
         "color_item_9L8db7",
         "color_item_JDDP8d"
       ],
+      "custom_css": [
+        ".two-column-colour-grid .container-cloor-com {background-color: #183029; /* vervang door jouw gewenste kleurcode */}"
+      ],
       "name": "Two Column Colour Grid",
       "settings": {
         "heading": "Popular interior colours",
