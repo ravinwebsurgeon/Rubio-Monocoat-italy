@@ -218,6 +218,9 @@
         "product_block_PAiMBA",
         "product_block_aPTgFF"
       ],
+      "custom_css": [
+        ".video-products-section {background-color: #ffff;}"
+      ],
       "name": "Video with Products",
       "settings": {
         "heading": "Application in a Few Simple Steps",
