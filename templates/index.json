@@ -124,17 +124,17 @@
         "column_yeAnfG"
       ],
       "custom_css": [
-        ".main-headingsds {margin-bottom: 24px !important; }"
+        ".main-headingsds {margin-bottom: 30px !important;}"
       ],
       "name": "custom multicolumn",
       "settings": {
         "class_add": "",
         "section_bg_color": "#f2f2f2",
         "main_heading": "Why Choose Rubio Monocoat?",
-        "heading_color": "#000000",
+        "heading_color": "#183029",
         "heading_font_size": "36px !important",
         "heading_font_size_mobile": "28px !important",
-        "main_text": "Join us in celebrating trees and in giving back to the planet. Partnering with veritree, we're planting trees across the United States with every order, championing sustainability, and ensuring a thriving ecosystem for generations to come.",
+        "main_text": "",
         "text_color": "#333333",
         "text_font_size": "16px",
         "text_font_size_mobile": "14px"
