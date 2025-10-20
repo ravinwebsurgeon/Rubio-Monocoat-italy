@@ -171,6 +171,9 @@
         "collection_dWzbD7",
         "collection_rhhP3Y"
       ],
+      "custom_css": [
+        "#shop-by-category-section {background-color: #183029;}"
+      ],
       "name": "custom collection",
       "settings": {
         "section_heading": "Shop by Category"
