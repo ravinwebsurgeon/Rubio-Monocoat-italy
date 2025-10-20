@@ -297,8 +297,7 @@
         "color_item_JDDP8d"
       ],
       "custom_css": [
-        ".two-column-colour-grid .container-cloor-com .left-column {background-color: #e4ecea;}",
-        ".two-column-colour-grid .right-column img {border-radius: 10px; /* pas dit getal aan naar wens */}"
+        ".two-column-colour-grid .container-cloor-com .left-column {background-color: #e4ecea;}"
       ],
       "name": "Two Column Colour Grid",
       "settings": {
