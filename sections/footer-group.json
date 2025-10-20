@@ -93,7 +93,7 @@
       ],
       "custom_css": [
         ".footer {background-color: #f2f2f2 !important;}",
-        "/* Tekstkleur aanpassen binnen de footer */.footer,.footer p,.footer h2,.footer h3,.footer h4,.footer a,.footer label,.footer span {color: #606060 !important; /* of wit (#fff) of een andere kleur naar wens */}"
+        " /* Tekstkleur aanpassen binnen de footer */.footer,.footer p,.footer h2,.footer h3,.footer h4,.footer a,.footer label,.footer span {color: #606060 !important; /* of wit (#fff) of een andere kleur naar wens */}"
       ],
       "settings": {
         "color_scheme": "scheme-5",
