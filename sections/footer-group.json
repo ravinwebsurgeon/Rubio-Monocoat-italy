@@ -51,7 +51,6 @@
       "blocks": {
         "brand_information_A98rgG": {
           "type": "brand_information",
-          "disabled": true,
           "settings": {
             "show_social": true
           }
