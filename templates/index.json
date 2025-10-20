@@ -296,7 +296,7 @@
         "color_item_JDDP8d"
       ],
       "custom_css": [
-        ".two-column-colour-grid .container-cloor-com {background-color: #183029; /* vervang door jouw gewenste kleurcode */}"
+        ".two-column-colour-grid .container-cloor-com .left-column {background-color: #183029;}"
       ],
       "name": "Two Column Colour Grid",
       "settings": {
