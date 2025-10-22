@@ -383,10 +383,10 @@
           "type": "container",
           "settings": {
             "class": "first-container-sec",
-            "icon": "shopify://shop_images/Telephone.png",
+            "icon": "shopify://shop_images/phone-fill.png",
             "heading": "Telephone advice",
             "subhead": "",
-            "subtext": "+32 (0) 51 30 80 54",
+            "subtext": "",
             "extra_text": "On weekdays 08:30 - 17:00"
           }
         },
