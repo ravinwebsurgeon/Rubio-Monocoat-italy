@@ -383,7 +383,7 @@
           "type": "container",
           "settings": {
             "class": "first-container-sec",
-            "icon": "shopify://shop_images/Telephone.png",
+            "icon": "shopify://shop_images/phone.png",
             "heading": "Telephone advice",
             "subhead": "",
             "subtext": "",
