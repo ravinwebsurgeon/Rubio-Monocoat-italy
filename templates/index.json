@@ -370,7 +370,6 @@
         "review_eUMA87",
         "review_Yqg7H6"
       ],
-      "disabled": true,
       "name": "Customer Reviews",
       "settings": {
         "heading": "Customer Reviews"
@@ -387,7 +386,7 @@
             "heading": "Telephone advice",
             "subhead": "",
             "subtext": "",
-            "extra_text": "On weekdays 08:30 - 17:00"
+            "extra_text": "Answer the questions"
           }
         },
         "container_dpr4DD": {
@@ -397,8 +396,8 @@
             "icon": "shopify://shop_images/Email_2.png",
             "heading": "Send us an email",
             "subhead": "",
-            "subtext": "<a href=\"mailto:hello@rubiomonocoat.co.uk\"> rubio@monocoatusa.com </a>",
-            "extra_text": "Response within 2 working days"
+            "subtext": "rubio@monocoatusa.com",
+            "extra_text": ""
           }
         },
         "container_rBbnjT": {
@@ -420,7 +419,7 @@
             "heading": "Take the Test",
             "subhead": "",
             "subtext": "Answer the questions",
-            "extra_text": "Direct Personal advice"
+            "extra_text": ""
           }
         }
       },
