@@ -416,8 +416,8 @@
           "type": "container",
           "settings": {
             "class": "",
-            "icon": "shopify://shop_images/Clipboard_with_check_marks.png",
-            "heading": "Take the Test",
+            "icon": "shopify://shop_images/chat.png",
+            "heading": "Ask via chat",
             "subhead": "",
             "subtext": "Answer the questions",
             "extra_text": ""
