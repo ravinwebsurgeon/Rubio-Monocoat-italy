@@ -383,7 +383,7 @@
           "type": "container",
           "settings": {
             "class": "first-container-sec",
-            "icon": "shopify://shop_images/phone_1.png",
+            "icon": "shopify://shop_images/Telephone.png",
             "heading": "Telephone advice",
             "subhead": "",
             "subtext": "",
@@ -394,7 +394,7 @@
           "type": "container",
           "settings": {
             "class": "",
-            "icon": "shopify://shop_images/envelope.png",
+            "icon": "shopify://shop_images/Email_2.png",
             "heading": "Send us an email",
             "subhead": "",
             "subtext": "rubio@monocoatusa.com",
@@ -405,7 +405,7 @@
           "type": "container",
           "settings": {
             "class": "",
-            "icon": "shopify://shop_images/headset.png",
+            "icon": "shopify://shop_images/Headphones.png",
             "heading": "Customized advice",
             "subhead": "",
             "subtext": "Answer the questions",
@@ -416,7 +416,7 @@
           "type": "container",
           "settings": {
             "class": "",
-            "icon": "shopify://shop_images/chat.png",
+            "icon": "shopify://shop_images/Clipboard_with_check_marks.png",
             "heading": "Ask via chat",
             "subhead": "",
             "subtext": "Answer the questions",
@@ -431,9 +431,9 @@
         "container_f8nFpf"
       ],
       "custom_css": [
-        ".four-containers_outer {background-color: #183029 !important;}",
-        ".four-containers .container-item {background-color: #314740; /* kies jouw kleur */ border-radius: 10px; box-shadow: 0 0px 0px rgba(255, 255, 255, 0.3); padding: 17px;}",
-        " /* (optioneel) hover */.four-containers .container-item:hover {background-color: #314740;}",
+        ".four-containers_outer {background-color: #396948 !important;}",
+        ".four-containers .container-item {background-color: #396948; /* kies jouw kleur */ border-radius: 10px; box-shadow: 0 0px 0px rgba(255, 255, 255, 0.3); padding: 17px;}",
+        " /* (optioneel) hover */.four-containers .container-item:hover {background-color: #396948;}",
         " /* Tekstkleur in elk vakje */.container-item,.container-item h2,.container-item h3,.container-item p,.container-item a,.container-item span {color: #ffff;}"
       ],
       "name": "icons section",
