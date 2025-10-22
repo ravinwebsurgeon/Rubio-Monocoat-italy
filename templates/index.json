@@ -432,7 +432,7 @@
       ],
       "custom_css": [
         ".four-containers_outer {background-color: #183029 !important;}",
-        ".four-containers .container-item {background-color: #314740; /* kies jouw kleur */ border-radius: 10px; box-shadow: 0 0px 0px rgba(255, 255, 255, 0.3); padding: 20px;}",
+        ".four-containers .container-item {background-color: #183029; /* kies jouw kleur */ border-radius: 10px; box-shadow: 0 0px 0px rgba(255, 255, 255, 0.3); padding: 20px;}",
         " /* (optioneel) hover */.four-containers .container-item:hover {background-color: #314740;}",
         " /* Tekstkleur in elk vakje */.container-item,.container-item h2,.container-item h3,.container-item p,.container-item a,.container-item span {color: #ffff;}"
       ],
