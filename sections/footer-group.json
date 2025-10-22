@@ -66,7 +66,7 @@
         "link_list_tfK6cN": {
           "type": "link_list",
           "settings": {
-            "heading": "Resources",
+            "heading": "Help & FAQ's",
             "menu": "resources"
           }
         },
@@ -79,6 +79,7 @@
         },
         "link_list_8g9qUg": {
           "type": "link_list",
+          "disabled": true,
           "settings": {
             "heading": "Company",
             "menu": "company"
