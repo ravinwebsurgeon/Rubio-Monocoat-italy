@@ -56,13 +56,6 @@
             "show_social": true
           }
         },
-        "link_list_cERTPd": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Technology",
-            "menu": "technology"
-          }
-        },
         "link_list_tfK6cN": {
           "type": "link_list",
           "settings": {
@@ -77,6 +70,13 @@
             "menu": "account"
           }
         },
+        "link_list_cERTPd": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Contact",
+            "menu": "technology"
+          }
+        },
         "link_list_8g9qUg": {
           "type": "link_list",
           "disabled": true,
@@ -84,14 +84,22 @@
             "heading": "Company",
             "menu": "company"
           }
+        },
+        "text_hWeadq": {
+          "type": "text",
+          "settings": {
+            "heading": "Contact",
+            "subtext": "<p><strong>Rubio Monocoat HQ</strong></p><p>Ambachtenlaan 58 </p><p>3001 Heverlee, Belgium</p>"
+          }
         }
       },
       "block_order": [
         "brand_information_A98rgG",
-        "link_list_cERTPd",
         "link_list_tfK6cN",
         "link_list_KBYewH",
-        "link_list_8g9qUg"
+        "link_list_cERTPd",
+        "link_list_8g9qUg",
+        "text_hWeadq"
       ],
       "custom_css": [
         ".footer {background-color: #f2f2f2 !important;}",
