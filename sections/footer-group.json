@@ -37,6 +37,7 @@
         "paragraph_CRmXWC",
         "email_form_JJJDV8"
       ],
+      "disabled": true,
       "custom_css": [],
       "name": "t:sections.newsletter.presets.name",
       "settings": {
@@ -93,7 +94,7 @@
       ],
       "custom_css": [
         ".footer {background-color: #f2f2f2 !important;}",
-        ".footer,.footer p,.footer h2,.footer h3,.footer h4,.footer a,.footer label,.footer span {color: #606060 !important; }",
+        ".footer,.footer p,.footer h2,.footer h3,.footer h4,.footer a,.footer label,.footer span {color: #606060 !important;}",
         ".footer .footer__copyright,.footer .copyright__content,.footer .copyright__content a,.footer small {color: #606060 !important;}"
       ],
       "settings": {

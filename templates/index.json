@@ -176,7 +176,7 @@
       ],
       "custom_css": [
         ".custom-collections-section {background-color: #f0f4f2;}",
-        ".custom-collections-section img {border-radius: 12px; }"
+        ".custom-collections-section img {border-radius: 12px;}"
       ],
       "name": "custom collection",
       "settings": {
@@ -428,6 +428,9 @@
         "container_dpr4DD",
         "container_rBbnjT",
         "container_f8nFpf"
+      ],
+      "custom_css": [
+        ".four-containers_outer {background-color: #b9cbc5 !important;}"
       ],
       "name": "icons section",
       "settings": {
