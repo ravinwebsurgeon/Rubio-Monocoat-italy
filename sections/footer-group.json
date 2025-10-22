@@ -59,7 +59,7 @@
         "link_list_tfK6cN": {
           "type": "link_list",
           "settings": {
-            "heading": "Help & FAQ's",
+            "heading": "Legal & Support",
             "menu": "resources"
           }
         },
@@ -67,7 +67,7 @@
           "type": "link_list",
           "settings": {
             "heading": "Account",
-            "menu": "account"
+            "menu": "technology"
           }
         },
         "link_list_cERTPd": {
@@ -90,7 +90,7 @@
           "type": "text",
           "settings": {
             "heading": "Contact",
-            "subtext": "<p><strong>Rubio Monocoat HQ</strong></p><p>Ambachtenlaan 58 </p><p>3001 Heverlee, Belgium</p><p>VAT: BE 0452.510.661</p>"
+            "subtext": "<p><strong>Rubio Monocoat HQ</strong></p><p>Ambachtenlaan 58 </p><p>8870 Izegem, Belgium</p><p>VAT: BE 0452.510.661</p>"
           }
         }
       },
