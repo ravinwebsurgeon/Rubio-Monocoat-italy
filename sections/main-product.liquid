@@ -723,74 +723,107 @@ document.addEventListener('DOMContentLoaded', function () {
 </script> {% endcomment %}
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Listen for all add-to-cart forms
+document.addEventListener('DOMContentLoaded', () => {
+  // Attach AJAX add-to-cart handlers to all forms
   document.querySelectorAll('form[action="/cart/add"]').forEach(form => {
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', e => {
       e.preventDefault();
 
       const formData = new FormData(form);
 
       fetch('/cart/add.js', {
         method: 'POST',
-        body: formData,
+        body: formData
       })
       .then(res => res.json())
       .then(data => {
-        // After adding item, update drawer contents
+        // Item successfully added — update the cart drawer
         updateCartDrawer();
       })
       .catch(err => console.error('Add to cart failed:', err));
     });
   });
 
+  /**
+   * Fetch updated cart drawer & bubble sections
+   */
   function updateCartDrawer() {
     fetch('/?sections=cart-drawer,cart-icon-bubble')
       .then(res => res.json())
       .then(data => {
-        // Update the cart drawer content
-        const drawerSection = data['cart-drawer'];
-        const cartDrawer = document.querySelector('cart-drawer');
-        const drawerContainer = document.querySelector('#CartDrawer');
+        const drawerHTML = data['cart-drawer'];
+        const bubbleHTML = data['cart-icon-bubble'];
 
-        if (drawerContainer && drawerSection) {
-          const html = new DOMParser().parseFromString(drawerSection, 'text/html');
-          const newDrawer = html.querySelector('#CartDrawer');
-          if (newDrawer) drawerContainer.innerHTML = newDrawer.innerHTML;
+        // Update drawer content
+        const parser = new DOMParser();
+        const newDrawerDoc = parser.parseFromString(drawerHTML, 'text/html');
+        const newDrawer = newDrawerDoc.querySelector('#CartDrawer');
+
+        const currentDrawer = document.querySelector('#CartDrawer');
+        if (newDrawer && currentDrawer) {
+          currentDrawer.innerHTML = newDrawer.innerHTML;
         }
 
-        // Update the cart bubble count
-        const bubbleSection = data['cart-icon-bubble'];
-        if (bubbleSection) {
-          const html = new DOMParser().parseFromString(bubbleSection, 'text/html');
-          const newBubble = html.querySelector('.cart-count-bubble');
+        // Update cart bubble count
+        if (bubbleHTML) {
+          const bubbleDoc = parser.parseFromString(bubbleHTML, 'text/html');
+          const newBubble = bubbleDoc.querySelector('.cart-count-bubble');
           const currentBubble = document.querySelector('.cart-count-bubble');
-          if (currentBubble && newBubble) currentBubble.innerHTML = newBubble.innerHTML;
+          if (currentBubble && newBubble) {
+            currentBubble.innerHTML = newBubble.innerHTML;
+          }
         }
 
-        // Re-open the drawer properly
+        // Open the drawer
         openCartDrawer();
       })
       .catch(err => console.error('Cart drawer update failed:', err));
   }
 
+  /**
+   * Force open the cart drawer
+   */
   function openCartDrawer() {
     const cartDrawer = document.querySelector('cart-drawer');
-    const body = document.querySelector('body');
+    const body = document.body;
     const overlay = document.querySelector('#CartDrawer-Overlay');
-    const innerDrawer = document.querySelector('.drawer__inner');
+    const drawerInner = document.querySelector('.drawer__inner');
 
-    // Shopify native open()
+    // Try Shopify native method if exists
     if (cartDrawer && typeof cartDrawer.open === 'function') {
       cartDrawer.open();
       return;
     }
 
-    // Fallback manual open
+    // Manual fallback (if theme uses simple divs)
     if (cartDrawer) cartDrawer.classList.add('active');
+    if (drawerInner) drawerInner.classList.add('active');
     if (body) body.classList.add('js-drawer-open');
-    if (innerDrawer) innerDrawer.classList.add('active');
     if (overlay) overlay.style.display = 'block';
+
+    // Ensure scroll lock when drawer is open
+    document.documentElement.style.overflow = 'hidden';
+  }
+
+  /**
+   * Optional: Close drawer on overlay click
+   */
+  document.addEventListener('click', e => {
+    if (e.target.id === 'CartDrawer-Overlay') {
+      closeCartDrawer();
+    }
+  });
+
+  function closeCartDrawer() {
+    const cartDrawer = document.querySelector('cart-drawer');
+    const overlay = document.querySelector('#CartDrawer-Overlay');
+    const drawerInner = document.querySelector('.drawer__inner');
+
+    if (cartDrawer) cartDrawer.classList.remove('active');
+    if (drawerInner) drawerInner.classList.remove('active');
+    document.body.classList.remove('js-drawer-open');
+    if (overlay) overlay.style.display = 'none';
+    document.documentElement.style.overflow = '';
   }
 });
 </script>
