@@ -723,108 +723,156 @@ document.addEventListener('DOMContentLoaded', function () {
 </script> {% endcomment %}
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Attach AJAX add-to-cart handlers to all forms
-  document.querySelectorAll('form[action="/cart/add"]').forEach(form => {
-    form.addEventListener('submit', e => {
-      e.preventDefault();
+document.addEventListener('DOMContentLoaded', function () {
 
-      const formData = new FormData(form);
+  // Accordion toggle logic
+  document.querySelectorAll('.product-addons-wrapper').forEach((wrapper) => {
+    const toggleBtn = wrapper.querySelector('.addons-toggle');
+    const list = wrapper.querySelector('.addons-list');
+    const collapsed = wrapper.querySelector('.icon-collapsed');
+    const expanded = wrapper.querySelector('.icon-expanded');
 
-      fetch('/cart/add.js', {
-        method: 'POST',
-        body: formData
-      })
-      .then(res => res.json())
-      .then(data => {
-        // Item successfully added — update the cart drawer
-        updateCartDrawer();
-      })
-      .catch(err => console.error('Add to cart failed:', err));
+    function toggleAccordion() {
+      if (list.classList.contains('open')) {
+        list.classList.remove('open');
+        collapsed.style.display = 'inline-block';
+        expanded.style.display = 'none';
+      } else {
+        list.classList.add('open');
+        collapsed.style.display = 'none';
+        expanded.style.display = 'inline-block';
+      }
+    }
+
+    toggleBtn?.addEventListener('click', (e) => { e.stopPropagation(); toggleAccordion(); });
+    wrapper.addEventListener('click', (e) => {
+      if (!e.target.closest('.addon-item') && !e.target.closest('.addons-toggle')) toggleAccordion();
     });
   });
 
-  /**
-   * Fetch updated cart drawer & bubble sections
-   */
+  // Addon popup logic
+  const popup = document.querySelector('.addon-popup');
+  const popupImage = popup?.querySelector('.addon-popup-image');
+  const popupTitle = popup?.querySelector('.addon-popup-title');
+  const popupPrice = popup?.querySelector('.addon-popup-price');
+  const popupVariant = popup?.querySelector('.addon-popup-variant');
+  const popupAddBtn = popup?.querySelector('.addon-popup-addtocart');
+  const popupClose = popup?.querySelector('.addon-popup-close');
+  const addonData = {{ product.metafields.custom.product_addon.value | json }};
+
+  // ✅ Utility: Update Cart Drawer + Bubble (fixed)
   function updateCartDrawer() {
     fetch('/?sections=cart-drawer,cart-icon-bubble')
       .then(res => res.json())
       .then(data => {
-        const drawerHTML = data['cart-drawer'];
-        const bubbleHTML = data['cart-icon-bubble'];
+        const cartDrawer = document.querySelector('cart-drawer');
+        const drawerInner = document.querySelector('#CartDrawer');
+        const body = document.body;
 
-        // Update drawer content
-        const parser = new DOMParser();
-        const newDrawerDoc = parser.parseFromString(drawerHTML, 'text/html');
-        const newDrawer = newDrawerDoc.querySelector('#CartDrawer');
-
-        const currentDrawer = document.querySelector('#CartDrawer');
-        if (newDrawer && currentDrawer) {
-          currentDrawer.innerHTML = newDrawer.innerHTML;
-        }
-
-        // Update cart bubble count
-        if (bubbleHTML) {
-          const bubbleDoc = parser.parseFromString(bubbleHTML, 'text/html');
-          const newBubble = bubbleDoc.querySelector('.cart-count-bubble');
-          const currentBubble = document.querySelector('.cart-count-bubble');
-          if (currentBubble && newBubble) {
-            currentBubble.innerHTML = newBubble.innerHTML;
+        // Update drawer content safely
+        if (drawerInner && data['cart-drawer']) {
+          const html = new DOMParser().parseFromString(data['cart-drawer'], 'text/html');
+          const newDrawerInner = html.querySelector('#CartDrawer');
+          if (newDrawerInner) {
+            drawerInner.innerHTML = newDrawerInner.innerHTML;
           }
         }
 
-        // Open the drawer
-        openCartDrawer();
+        // Update cart bubble
+        const bubble = document.querySelector('.cart-count-bubble');
+        if (bubble && data['cart-icon-bubble']) {
+          const html = new DOMParser().parseFromString(data['cart-icon-bubble'], 'text/html');
+          const newBubble = html.querySelector('.cart-count-bubble');
+          if (newBubble) bubble.innerHTML = newBubble.innerHTML;
+        }
+
+        // Ensure drawer overlay & open state
+        const overlay = document.querySelector('#CartDrawer-Overlay');
+
+        // Handle <cart-drawer> components (Dawn, Sense, etc.)
+        if (cartDrawer && typeof cartDrawer.open === 'function') {
+          cartDrawer.open();
+        } else {
+          // Fallback for themes with static HTML drawers
+          body.classList.add('js-drawer-open');
+          const drawer = document.querySelector('.cart-drawer');
+          if (drawer) drawer.classList.add('active');
+          if (overlay) overlay.style.display = 'block';
+        }
+
+        // Accessibility focus handling
+        const activeDrawer = document.querySelector('.drawer__inner');
+        if (activeDrawer) {
+          activeDrawer.setAttribute('tabindex', '-1');
+          activeDrawer.focus();
+        }
       })
       .catch(err => console.error('Cart drawer update failed:', err));
   }
 
-  /**
-   * Force open the cart drawer
-   */
-  function openCartDrawer() {
-    const cartDrawer = document.querySelector('cart-drawer');
-    const body = document.body;
-    const overlay = document.querySelector('#CartDrawer-Overlay');
-    const drawerInner = document.querySelector('.drawer__inner');
+  // 🧩 Handle “Choose Options” popup open
+  document.querySelectorAll('.addon-choose-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const addonId = btn.getAttribute('data-addon-id');
+      const addonProduct = addonData.find(p => p.id == addonId);
+      if (!addonProduct) return;
 
-    // Try Shopify native method if exists
-    if (cartDrawer && typeof cartDrawer.open === 'function') {
-      cartDrawer.open();
-      return;
-    }
+      popupImage.src = addonProduct.featured_image;
+      popupTitle.textContent = addonProduct.title;
+      popupPrice.textContent = `$${(addonProduct.price / 100).toFixed(2)}`;
 
-    // Manual fallback (if theme uses simple divs)
-    if (cartDrawer) cartDrawer.classList.add('active');
-    if (drawerInner) drawerInner.classList.add('active');
-    if (body) body.classList.add('js-drawer-open');
-    if (overlay) overlay.style.display = 'block';
+      popupVariant.innerHTML = '';
+      addonProduct.variants.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = v.id;
+        opt.textContent = v.title;
+        popupVariant.appendChild(opt);
+      });
 
-    // Ensure scroll lock when drawer is open
-    document.documentElement.style.overflow = 'hidden';
-  }
-
-  /**
-   * Optional: Close drawer on overlay click
-   */
-  document.addEventListener('click', e => {
-    if (e.target.id === 'CartDrawer-Overlay') {
-      closeCartDrawer();
-    }
+      popup.setAttribute('data-addon-id', addonId);
+      popup.style.display = 'flex';
+      document.body.classList.add('overlay');
+    });
   });
 
-  function closeCartDrawer() {
-    const cartDrawer = document.querySelector('cart-drawer');
-    const overlay = document.querySelector('#CartDrawer-Overlay');
-    const drawerInner = document.querySelector('.drawer__inner');
+  // 🧩 Add selected variant from popup
+  popupAddBtn?.addEventListener('click', () => {
+    const variantId = popupVariant.value;
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: variantId, quantity: 1 })
+    })
+    .then(res => res.json())
+    .then(() => {
+      popup.style.display = 'none';
+      document.body.classList.remove('overlay');
+      updateCartDrawer(); // Refresh drawer content
+    });
+  });
 
-    if (cartDrawer) cartDrawer.classList.remove('active');
-    if (drawerInner) drawerInner.classList.remove('active');
-    document.body.classList.remove('js-drawer-open');
-    if (overlay) overlay.style.display = 'none';
-    document.documentElement.style.overflow = '';
-  }
+  // 🧩 Close popup
+  popupClose?.addEventListener('click', () => {
+    popup.style.display = 'none';
+    document.body.classList.remove('overlay');
+  });
+
+  // 🧩 Direct Add to Cart (no variant selection)
+  document.querySelectorAll('.addon-addtocart-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const variantId = btn.getAttribute('data-variant-id');
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: variantId, quantity: 1 })
+      })
+      .then(res => res.json())
+      .then(() => {
+        updateCartDrawer(); // AJAX update + open drawer
+      });
+    });
+  });
+
 });
 </script>
 
