@@ -608,9 +608,9 @@ document.addEventListener('DOMContentLoaded', function () {
   // Variant change listener (swatches or select)
   document.body.addEventListener('change', function (e) {
     const target = e.target;
-    if (target.matches('.swatch-input__input[name^="Color"]') || target.matches('select[name="Color"]')) {
+    {% comment %} if (target.matches('.swatch-input__input[name^="Color"]') || target.matches('select[name="Color"]')) {
       updateGalleryForColor(target.value);
-    }
+    } {% endcomment %}
   });
 
   // Lightbox open on thumbnail / mobile slide click
@@ -633,9 +633,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // If a variant is selected by default, build gallery for it
   if (initSwatch) {
-    updateGalleryForColor(initSwatch.value);
+    {% comment %} updateGalleryForColor(initSwatch.value); {% endcomment %}
   } else if (initSelect) {
-    updateGalleryForColor(initSelect.value);
+    {% comment %} updateGalleryForColor(initSelect.value); {% endcomment %}
   } else {
     // Fallback default: show first main image and set mobile to the first color's slides
     const allMain = document.querySelectorAll('.main-image-item');
@@ -645,7 +645,10 @@ document.addEventListener('DOMContentLoaded', function () {
     allThumbs.forEach((item, i) => item.style.display = i === 0 ? 'none' : 'inline-block');
 
     const firstColor = allMain[0]?.getAttribute('data-color');
-    if (firstColor) updateGalleryForColor(firstColor);
+    if (firstColor)
+    { 
+    {% comment %} updateGalleryForColor(firstColor); {% endcomment %}
+    }
     else {
       // still init mobile slider and lightbox if nothing matched
       updateGlightboxActive();
