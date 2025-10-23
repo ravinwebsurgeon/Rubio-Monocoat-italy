@@ -411,14 +411,15 @@
               </a>
             {% elsif media.media_type == 'video' %}
               {% assign video_cover = media.preview_image | img_url: '1024x1024' %}
-              <a class="glightbox" 
+              {% comment %} <a class="glightbox" 
                  href="{{ media | media_url }}" 
                  data-type="video" 
                  data-source="local" 
                  type="video/mp4">
                 <img src="{{ video_cover }}" alt="{{ media.alt | escape }}">
                 <span class="play-icon">&#9658;</span>
-              </a>
+              </a> {% endcomment %}
+              {{ media | video_tag: controls: false, autoplay: true, loop: true, muted: true }}
             {% endif %}
           </div>
         {% endfor %}
