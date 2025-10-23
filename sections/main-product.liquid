@@ -1263,17 +1263,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  const stickyForm = document.querySelector('.sticky-form');
   const stickyVariantIdEl = document.getElementById('sticky-variant-id');
   const stickyOptionsEl = document.getElementById('sticky-variant-options');
   const stickyPriceEl = document.getElementById('sticky-price');
   const stickyImgEl = document.getElementById('sticky-variant-image');
   const stickyBar = document.getElementById('sticky-add-to-cart');
 
-  if (!stickyForm || !stickyBar) return;
+  if (!stickyBar) return;
+
+  const productForm = document.querySelector('form[action="/cart/add"]');
 
   // ===== Sticky bar show/hide on scroll =====
-  const productForm = document.querySelector('form[action="/cart/add"]');
   window.addEventListener('scroll', function () {
     if (!productForm) return;
     const rect = productForm.getBoundingClientRect();
@@ -1317,64 +1317,68 @@ document.addEventListener('DOMContentLoaded', function () {
   setInterval(updateStickyBar, 1000);
   updateStickyBar();
 
-  // ===== Wait for cart-drawer-items to exist =====
-  function waitForCartDrawerItems(callback) {
-    const drawerItems = document.querySelector('cart-drawer-items');
-    if (drawerItems) return callback(drawerItems);
+  // ===== Wait for sticky form =====
+  function waitForStickyForm(callback) {
+    const form = document.querySelector('.sticky-form');
+    if (form) return callback(form);
 
     const observer = new MutationObserver(() => {
-      const drawerItems = document.querySelector('cart-drawer-items');
-      if (drawerItems) {
+      const form = document.querySelector('.sticky-form');
+      if (form) {
         observer.disconnect();
-        callback(drawerItems);
+        callback(form);
       }
     });
     observer.observe(document.body, { childList: true, subtree: true });
   }
 
-  // ===== AJAX Add to Cart + Drawer + Bubble =====
-  stickyForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const variantId = stickyVariantIdEl.value;
+  // ===== AJAX Add to Cart =====
+  waitForStickyForm(function (stickyForm) {
+    stickyForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const variantId = stickyVariantIdEl.value;
 
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ id: variantId, quantity: 1 })
-    })
-      .then(res => res.json())
-      .then(() => fetch('/cart?sections=cart-drawer,cart-icon-bubble'))
-      .then(res => res.text())
-      .then(responseText => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(responseText, 'text/html');
-
-        // ===== Update cart drawer =====
-        waitForCartDrawerItems(drawerItems => {
-          const sections = {};
-          const drawerInner = doc.querySelector('#CartDrawer .drawer__inner');
-          if (drawerInner) sections['CartDrawer'] = drawerInner.innerHTML;
-
-          drawerItems.renderContents({ id: variantId, sections });
-        });
-
-        // ===== Update cart bubble =====
-        const updatedBubble = doc.querySelector('#cart-icon-bubble');
-        const currentBubble = document.querySelector('#cart-icon-bubble');
-        if (updatedBubble && currentBubble) {
-          currentBubble.innerHTML = updatedBubble.innerHTML;
-        }
-
-        // ===== Open drawer =====
-        const cartDrawer = document.querySelector('cart-drawer');
-        if (cartDrawer && typeof cartDrawer.open === 'function') {
-          cartDrawer.open();
-        }
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ id: variantId, quantity: 1 })
       })
-      .catch(err => console.error('Error updating cart:', err));
+        .then(res => res.json())
+        .then(() => fetch('/cart?sections=cart-drawer,cart-icon-bubble'))
+        .then(res => res.text())
+        .then(async responseText => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(responseText, 'text/html');
+
+          // ===== Update cart drawer =====
+          await customElements.whenDefined('cart-drawer-items');
+          const drawerItems = document.querySelector('cart-drawer-items');
+          if (drawerItems && typeof drawerItems.renderContents === 'function') {
+            const sections = {};
+            const drawerInner = doc.querySelector('#CartDrawer .drawer__inner');
+            if (drawerInner) sections['CartDrawer'] = drawerInner.innerHTML;
+            drawerItems.renderContents({ id: variantId, sections });
+          }
+
+          // ===== Update cart bubble =====
+          const updatedBubble = doc.querySelector('#cart-icon-bubble');
+          const currentBubble = document.querySelector('#cart-icon-bubble');
+          if (updatedBubble && currentBubble) {
+            currentBubble.innerHTML = updatedBubble.innerHTML;
+          }
+
+          // ===== Open drawer =====
+          const cartDrawer = document.querySelector('cart-drawer');
+          if (cartDrawer && typeof cartDrawer.open === 'function') {
+            cartDrawer.open();
+          }
+        })
+        .catch(err => console.error('Error updating cart:', err));
+    });
   });
 });
 </script>
+
 
 
 
