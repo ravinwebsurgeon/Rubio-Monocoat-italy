@@ -760,35 +760,57 @@ document.addEventListener('DOMContentLoaded', function () {
   const popupClose = popup?.querySelector('.addon-popup-close');
   const addonData = {{ product.metafields.custom.product_addon.value | json }};
 
-  // Utility: Update Cart Drawer + Bubble
+  // ✅ Utility: Update Cart Drawer + Bubble (fixed)
   function updateCartDrawer() {
     fetch('/?sections=cart-drawer,cart-icon-bubble')
       .then(res => res.json())
       .then(data => {
-        // Update drawer content
-        const drawer = document.querySelector('#CartDrawer');
-        if (drawer && data['cart-drawer']) {
-          drawer.innerHTML = new DOMParser().parseFromString(data['cart-drawer'], 'text/html').body.innerHTML;
+        const cartDrawer = document.querySelector('cart-drawer');
+        const drawerInner = document.querySelector('#CartDrawer');
+        const body = document.body;
+
+        // Update drawer content safely
+        if (drawerInner && data['cart-drawer']) {
+          const html = new DOMParser().parseFromString(data['cart-drawer'], 'text/html');
+          const newDrawerInner = html.querySelector('#CartDrawer');
+          if (newDrawerInner) {
+            drawerInner.innerHTML = newDrawerInner.innerHTML;
+          }
         }
 
         // Update cart bubble
         const bubble = document.querySelector('.cart-count-bubble');
         if (bubble && data['cart-icon-bubble']) {
-          bubble.innerHTML = new DOMParser().parseFromString(data['cart-icon-bubble'], 'text/html').body.innerHTML;
+          const html = new DOMParser().parseFromString(data['cart-icon-bubble'], 'text/html');
+          const newBubble = html.querySelector('.cart-count-bubble');
+          if (newBubble) bubble.innerHTML = newBubble.innerHTML;
         }
 
-        // Open the cart drawer
-        const drawerEl = document.querySelector('cart-drawer');
-        if (drawerEl && typeof drawerEl.open === 'function') {
-          drawerEl.open();
+        // Ensure drawer overlay & open state
+        const overlay = document.querySelector('#CartDrawer-Overlay');
+
+        // Handle <cart-drawer> components (Dawn, Sense, etc.)
+        if (cartDrawer && typeof cartDrawer.open === 'function') {
+          cartDrawer.open();
         } else {
-          document.querySelector('body').classList.add('js-drawer-open');
-          document.querySelector('.cart-drawer')?.classList.add('active');
+          // Fallback for themes with static HTML drawers
+          body.classList.add('js-drawer-open');
+          const drawer = document.querySelector('.cart-drawer');
+          if (drawer) drawer.classList.add('active');
+          if (overlay) overlay.style.display = 'block';
         }
-      });
+
+        // Accessibility focus handling
+        const activeDrawer = document.querySelector('.drawer__inner');
+        if (activeDrawer) {
+          activeDrawer.setAttribute('tabindex', '-1');
+          activeDrawer.focus();
+        }
+      })
+      .catch(err => console.error('Cart drawer update failed:', err));
   }
 
-  // Handle “Choose Options” popup
+  // 🧩 Handle “Choose Options” popup open
   document.querySelectorAll('.addon-choose-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       const addonId = btn.getAttribute('data-addon-id');
@@ -813,7 +835,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Add selected variant from popup
+  // 🧩 Add selected variant from popup
   popupAddBtn?.addEventListener('click', () => {
     const variantId = popupVariant.value;
     fetch('/cart/add.js', {
@@ -825,16 +847,17 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(() => {
       popup.style.display = 'none';
       document.body.classList.remove('overlay');
-      updateCartDrawer(); // AJAX refresh
+      updateCartDrawer(); // Refresh drawer content
     });
   });
 
+  // 🧩 Close popup
   popupClose?.addEventListener('click', () => {
     popup.style.display = 'none';
     document.body.classList.remove('overlay');
   });
 
-  // Direct Add to Cart buttons (no variant selection)
+  // 🧩 Direct Add to Cart (no variant selection)
   document.querySelectorAll('.addon-addtocart-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       const variantId = btn.getAttribute('data-variant-id');
@@ -845,13 +868,14 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       .then(res => res.json())
       .then(() => {
-        updateCartDrawer(); // Open and update cart
+        updateCartDrawer(); // AJAX update + open drawer
       });
     });
   });
 
 });
 </script>
+
 
 
                 {% comment %} product add on code end {% endcomment %}
