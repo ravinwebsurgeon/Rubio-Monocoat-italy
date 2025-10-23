@@ -1328,51 +1328,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const stickyForm = document.querySelector('.sticky-form');
-  const stickyVariantIdEl = document.getElementById('sticky-variant-id');
-
-  stickyForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const variantId = stickyVariantIdEl.value;
-
-    // Add to cart via AJAX
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ id: variantId, quantity: 1 })
-    })
-      .then(res => res.json())
-      .then(() => {
-        // Fetch updated cart JSON
-        return fetch('/cart.js');
-      })
-      .then(res => res.json())
-      .then(cart => {
-        // Update cart bubble
-        const bubble = document.getElementById('cart-icon-bubble');
-        if (bubble) {
-          bubble.textContent = cart.item_count;
-        }
-
-        // Update cart drawer using CartDrawerItems component
-        const cartDrawerItems = document.querySelector('cart-drawer-items');
-        if (cartDrawerItems && typeof cartDrawerItems.renderContents === 'function') {
-          cartDrawerItems.renderContents(cart);
-        }
-
-        // Open cart drawer
-        const cartDrawer = document.querySelector('cart-drawer');
-        if (cartDrawer && typeof cartDrawer.open === 'function') {
-          cartDrawer.open();
-        }
-      })
-      .catch(err => console.error('Error adding to cart:', err));
-  });
-});
-</script>
 
 
 
