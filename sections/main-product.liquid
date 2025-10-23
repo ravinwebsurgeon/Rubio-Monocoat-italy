@@ -1160,7 +1160,7 @@ document.addEventListener('DOMContentLoaded', function () {
     </form>
   </div>
 </div>
- {% comment %} <script>
+<script>
 document.addEventListener('DOMContentLoaded', function () {
   const stickyForm = document.querySelector('.sticky-form');
   const stickyVariantIdEl = document.getElementById('sticky-variant-id');
@@ -1259,49 +1259,8 @@ document.addEventListener('DOMContentLoaded', function () {
       .catch(err => console.error('Error updating cart:', err));
   });
 });
-</script>  {% endcomment %}
+</script>  
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const stickyForm = document.querySelector('.sticky-form');
-  const stickyVariantIdEl = document.getElementById('sticky-variant-id');
-  const stickyBar = document.getElementById('sticky-add-to-cart');
-  const mainAddToCartBtn = document.querySelector('.product-form__submit[name="add"]');
-
-  if (!stickyForm || !stickyBar || !mainAddToCartBtn) return;
-
-  // Show/hide sticky bar on scroll
-  const productForm = document.querySelector('form[action="/cart/add"]');
-  window.addEventListener('scroll', function () {
-    const rect = productForm.getBoundingClientRect();
-    stickyBar.style.display = rect.bottom < 0 ? 'flex' : 'none';
-  });
-
-  // Update variant ID continuously (optional)
-  function getCurrentSelectedVariant() {
-    const jsonEl = document.querySelector('[data-selected-variant]');
-    if (!jsonEl) return null;
-    try {
-      return JSON.parse(jsonEl.textContent);
-    } catch {
-      return null;
-    }
-  }
-
-  setInterval(() => {
-    const variant = getCurrentSelectedVariant();
-    if (variant) stickyVariantIdEl.value = variant.id;
-  }, 1000);
-
-  // === Trigger main Add to Cart ===
-  stickyForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (mainAddToCartBtn) {
-      mainAddToCartBtn.click(); // 🔥 triggers Shopify’s default AJAX flow
-    }
-  });
-});
-</script>
 
 
 
