@@ -1160,7 +1160,7 @@ document.addEventListener('DOMContentLoaded', function () {
     </form>
   </div>
 </div>
-{% comment %} <script>
+ {% comment %} <script>
 document.addEventListener('DOMContentLoaded', function () {
   const stickyForm = document.querySelector('.sticky-form');
   const stickyVariantIdEl = document.getElementById('sticky-variant-id');
@@ -1259,107 +1259,50 @@ document.addEventListener('DOMContentLoaded', function () {
       .catch(err => console.error('Error updating cart:', err));
   });
 });
-</script> {% endcomment %}
+</script>  {% endcomment %}
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const stickyForm = document.querySelector('.sticky-form');
   const stickyVariantIdEl = document.getElementById('sticky-variant-id');
-  const stickyOptionsEl = document.getElementById('sticky-variant-options');
-  const stickyPriceEl = document.getElementById('sticky-price');
-  const stickyImgEl = document.getElementById('sticky-variant-image');
   const stickyBar = document.getElementById('sticky-add-to-cart');
+  const mainAddToCartBtn = document.querySelector('.product-form__submit[name="add"]');
 
-  if (!stickyForm || !stickyBar) return;
+  if (!stickyForm || !stickyBar || !mainAddToCartBtn) return;
 
-  // ===== Sticky bar show/hide on scroll =====
+  // Show/hide sticky bar on scroll
   const productForm = document.querySelector('form[action="/cart/add"]');
-  if (productForm) {
-    window.addEventListener('scroll', function () {
-      const rect = productForm.getBoundingClientRect();
-      stickyBar.style.display = rect.bottom < 0 ? 'flex' : 'none';
-    });
-  }
+  window.addEventListener('scroll', function () {
+    const rect = productForm.getBoundingClientRect();
+    stickyBar.style.display = rect.bottom < 0 ? 'flex' : 'none';
+  });
 
-  // ===== Get currently selected variant =====
+  // Update variant ID continuously (optional)
   function getCurrentSelectedVariant() {
     const jsonEl = document.querySelector('[data-selected-variant]');
     if (!jsonEl) return null;
     try {
       return JSON.parse(jsonEl.textContent);
-    } catch (e) {
+    } catch {
       return null;
     }
   }
 
-  // ===== Update sticky bar info =====
-  function updateStickyBar() {
+  setInterval(() => {
     const variant = getCurrentSelectedVariant();
-    if (!variant) return;
+    if (variant) stickyVariantIdEl.value = variant.id;
+  }, 1000);
 
-    stickyOptionsEl.textContent = variant.options.filter(Boolean).join(' / ');
-    if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
-      stickyPriceEl.innerHTML = Shopify.formatMoney(
-        variant.price,
-        window.meta?.money_format || '{{ shop.money_format }}'
-      );
-    } else {
-      stickyPriceEl.textContent = (variant.price / 100).toFixed(2);
-    }
-
-    stickyVariantIdEl.value = variant.id;
-
-    if (variant.featured_image && stickyImgEl) {
-      stickyImgEl.src = variant.featured_image.src;
-    }
-  }
-
-  setInterval(updateStickyBar, 1000);
-  updateStickyBar();
-
-  // ===== AJAX Add to Cart + Update Cart Drawer =====
+  // === Trigger main Add to Cart ===
   stickyForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    const variantId = stickyVariantIdEl.value;
-
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ id: variantId, quantity: 1 })
-    })
-    .then(res => res.json())
-    .then(() => fetch('/cart?sections=cart-drawer,cart-icon-bubble'))
-    .then(res => res.text())
-    .then(async responseText => {
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(responseText, 'text/html');
-
-      // --- Replace the inner cart drawer HTML ---
-      const newDrawerInner = doc.querySelector('#CartDrawer .drawer__inner');
-      const currentDrawerInner = document.querySelector('#CartDrawer .drawer__inner');
-
-      if (newDrawerInner && currentDrawerInner) {
-        currentDrawerInner.innerHTML = newDrawerInner.innerHTML;
-      }
-
-      // --- Update the cart bubble ---
-      const updatedBubble = doc.querySelector('#cart-icon-bubble');
-      const currentBubble = document.querySelector('#cart-icon-bubble');
-      if (updatedBubble && currentBubble) {
-        currentBubble.innerHTML = updatedBubble.innerHTML;
-      }
-
-      // --- Open the cart drawer ---
-      const cartDrawer = document.querySelector('cart-drawer');
-      if (cartDrawer) {
-        cartDrawer.classList.add('active');
-        cartDrawer.classList.remove('is-empty');
-      }
-    })
-    .catch(err => console.error('Error updating cart:', err));
+    if (mainAddToCartBtn) {
+      mainAddToCartBtn.click(); // 🔥 triggers Shopify’s default AJAX flow
+    }
   });
 });
 </script>
+
 
 
 
