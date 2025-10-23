@@ -452,7 +452,64 @@
 }
 {% endstyle %}
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
 
+    const variantOptions = {{ product.options | json }}; // ["Color", "Size"]
+
+  function updateGallery() {
+    console.log('called??')
+    const selectedOptions = {};
+    variantOptions.forEach(option => {
+      const capitalized = option.charAt(0).toUpperCase() + option.slice(1);
+      let selected = document.querySelector(`.swatch-input__input[name^="${capitalized}"]:checked`);
+      if (!selected) {
+        selected = document.querySelector(`select[name="${capitalized}"]`);
+      }
+      selectedOptions[option.toLowerCase()] = selected ? selected.value.toLowerCase() : null;
+    });
+      {% comment %} console.log(selectedOptions,'selectedOptions') {% endcomment %}
+
+      document.querySelectorAll('.main-image-item').forEach(item => {
+      let show = true;
+      for (const [key, val] of Object.entries(selectedOptions)) {
+        console.log(item.dataset[key],'itemdata',val,'valus')
+        if (!val || item.dataset[key].toLowerCase() !== val.replace('.', '-')) {
+          show = false;
+          break;
+        }
+      }
+      item.style.display = show ? 'block' : 'none';
+    });
+
+   document.querySelectorAll('.thumbnail-item').forEach(item => {
+      let show = true;
+      for (const [key, val] of Object.entries(selectedOptions)) {
+        if (!val || item.dataset[key].toLowerCase() !== val.replace('.', '-')) {
+          show = false;
+          break;
+        }
+      }
+      item.style.display = show ? 'block' : 'none';
+    });
+
+  }
+
+  // Attach one event listener for changes on body
+  document.body.addEventListener('change', (e) => {
+    const target = e.target;
+    if (variantOptions.some(option => {
+      const capitalized = option.charAt(0).toUpperCase() + option.slice(1);
+      return target.matches(`.swatch-input__input[name^="${capitalized}"]`) || target.matches(`select[name="${capitalized}"]`);
+    })) {
+      updateGallery();
+    }
+  });
+
+  // Initial call on page load
+  updateGallery();
+});
+</script>
 
 
 
