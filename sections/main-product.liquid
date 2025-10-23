@@ -1160,7 +1160,7 @@ document.addEventListener('DOMContentLoaded', function () {
     </form>
   </div>
 </div>
-{% comment %} <script>
+<script>
 document.addEventListener('DOMContentLoaded', function () {
   const productForm = document.querySelector('form[action="/cart/add"]');
   const stickyBar = document.getElementById('sticky-add-to-cart');
@@ -1261,97 +1261,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       })
       .catch((err) => console.error('Error updating cart:', err));
-  });
-});
-</script> {% endcomment %}
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const productForm = document.querySelector('form[action="/cart/add"]');
-  const stickyBar = document.getElementById('sticky-add-to-cart');
-  const stickyOptionsEl = document.getElementById('sticky-variant-options');
-  const stickyPriceEl = document.getElementById('sticky-price');
-  const stickyVariantIdEl = document.getElementById('sticky-variant-id');
-  const stickyImgEl = document.getElementById('sticky-variant-image');
-  const stickyForm = document.querySelector('.sticky-form');
-
-  if (!productForm || !stickyBar) return;
-
-  // ===== Show/Hide Sticky Bar on Scroll =====
-  window.addEventListener('scroll', function () {
-    const rect = productForm.getBoundingClientRect();
-    stickyBar.style.display = rect.bottom < 0 ? 'flex' : 'none';
-  });
-
-  // ===== Get Current Selected Variant =====
-  function getCurrentSelectedVariant() {
-    const jsonEl = document.querySelector('[data-selected-variant]');
-    if (!jsonEl) return null;
-    try {
-      return JSON.parse(jsonEl.textContent);
-    } catch (e) {
-      return null;
-    }
-  }
-
-  // ===== Update Sticky Bar Info =====
-  function updateStickyBar() {
-    const variant = getCurrentSelectedVariant();
-    if (!variant) return;
-
-    const optionsText = variant.options.filter(Boolean).join(' / ');
-    stickyOptionsEl.textContent = optionsText;
-
-    if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
-      stickyPriceEl.innerHTML = Shopify.formatMoney(
-        variant.price,
-        window.meta?.money_format || '{{ shop.money_format }}'
-      );
-    } else {
-      stickyPriceEl.textContent = (variant.price / 100).toFixed(2);
-    }
-
-    stickyVariantIdEl.value = variant.id;
-
-    if (variant.featured_image && stickyImgEl) {
-      stickyImgEl.src = variant.featured_image.src;
-    }
-  }
-
-  setInterval(updateStickyBar, 1000);
-  updateStickyBar();
-
-  // ===== AJAX Add to Cart + Update Drawer + Bubble =====
-  stickyForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const variantId = stickyVariantIdEl.value;
-
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ id: variantId, quantity: 1 })
-    })
-      .then(res => res.json())
-      .then(() => fetch('/cart.js')) // Get updated cart JSON
-      .then(res => res.json())
-      .then(cart => {
-        // ===== Update Cart Bubble =====
-        const bubble = document.getElementById('cart-icon-bubble');
-        if (bubble) bubble.textContent = cart.item_count;
-
-        // ===== Update Drawer via cart-drawer-items =====
-        const cartDrawerItems = document.querySelector('cart-drawer-items');
-        if (cartDrawerItems && typeof cartDrawerItems.renderContents === 'function') {
-          cartDrawerItems.renderContents(cart); // <- This properly populates the drawer
-        }
-
-        // ===== Open Drawer =====
-        const cartDrawer = document.querySelector('cart-drawer');
-        if (cartDrawer && typeof cartDrawer.open === 'function') {
-          cartDrawer.open();
-        }
-      })
-      .catch(err => console.error('Error updating cart:', err));
   });
 });
 </script>
