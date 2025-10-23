@@ -78,14 +78,6 @@
             "menu": ""
           }
         },
-        "link_list_8g9qUg": {
-          "type": "link_list",
-          "disabled": true,
-          "settings": {
-            "heading": "Company",
-            "menu": ""
-          }
-        },
         "text_hWeadq": {
           "type": "text",
           "settings": {
@@ -99,7 +91,6 @@
         "link_list_tfK6cN",
         "link_list_KBYewH",
         "link_list_cERTPd",
-        "link_list_8g9qUg",
         "text_hWeadq"
       ],
       "custom_css": [
