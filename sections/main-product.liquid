@@ -1298,7 +1298,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!variant) return;
 
     stickyOptionsEl.textContent = variant.options.filter(Boolean).join(' / ');
-
     if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
       stickyPriceEl.innerHTML = Shopify.formatMoney(
         variant.price,
@@ -1315,11 +1314,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Update every second to catch variant changes
   setInterval(updateStickyBar, 1000);
   updateStickyBar();
 
-  // ===== AJAX Add to Cart + Update Cart Drawer & Bubble =====
+  // ===== AJAX Add to Cart + Update Cart Drawer =====
   stickyForm.addEventListener('submit', function (e) {
     e.preventDefault();
     const variantId = stickyVariantIdEl.value;
@@ -1336,32 +1334,33 @@ document.addEventListener('DOMContentLoaded', function () {
       const parser = new DOMParser();
       const doc = parser.parseFromString(responseText, 'text/html');
 
-      // ===== Replace cart-drawer-items =====
-      await customElements.whenDefined('cart-drawer-items');
-      const drawerItems = document.querySelector('cart-drawer-items');
-      const updatedDrawerItems = doc.querySelector('cart-drawer-items');
+      // --- Replace the inner cart drawer HTML ---
+      const newDrawerInner = doc.querySelector('#CartDrawer .drawer__inner');
+      const currentDrawerInner = document.querySelector('#CartDrawer .drawer__inner');
 
-      if (drawerItems && updatedDrawerItems) {
-        drawerItems.replaceWith(updatedDrawerItems);
+      if (newDrawerInner && currentDrawerInner) {
+        currentDrawerInner.innerHTML = newDrawerInner.innerHTML;
       }
 
-      // ===== Update cart bubble =====
+      // --- Update the cart bubble ---
       const updatedBubble = doc.querySelector('#cart-icon-bubble');
       const currentBubble = document.querySelector('#cart-icon-bubble');
       if (updatedBubble && currentBubble) {
         currentBubble.innerHTML = updatedBubble.innerHTML;
       }
 
-      // ===== Open cart drawer =====
+      // --- Open the cart drawer ---
       const cartDrawer = document.querySelector('cart-drawer');
-      if (cartDrawer && typeof cartDrawer.open === 'function') {
-        cartDrawer.open();
+      if (cartDrawer) {
+        cartDrawer.classList.add('active');
+        cartDrawer.classList.remove('is-empty');
       }
     })
     .catch(err => console.error('Error updating cart:', err));
   });
 });
 </script>
+
 
 
 {% schema %}
