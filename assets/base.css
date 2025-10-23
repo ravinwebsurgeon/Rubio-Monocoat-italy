@@ -3597,13 +3597,25 @@ details-disclosure > details {
 }
 
 @font-face {
-  font-family: "FrutigerNeue";
-  src: url("https://cdn.shopify.com/s/files/1/0680/7647/0314/files/FrutigerNeueLTW1G-Black.otf?v=1761143347") format("opentype");
-  font-weight: 900;
+  font-family: "FrutigerNeue-BlackCondensed";
+  src: url("https://cdn.shopify.com/s/files/1/0680/7647/0314/files/FrutigerNeueLTW1G-Heavy.otf?v=1761144166 /FrutigerNeueLTW1G-BlackCondensed.otf") format("opentype");
+  font-weight: 900;          
   font-style: normal;
   font-display: swap;
 }
-/* Eventueel alleen voor titels */
-h1, h2, h3, h4, h5, h6 {
-  font-family: "FrutigerNeue", sans-serif;
+
+@font-face {
+  font-family: "FrutigerNeue-Light";
+  src: url("https://cdn.shopify.com/s/files/1/0680/7647/0314/files/FrutigerNeueLTW1G-Light.otf?v=1761144167/FrutigerNeueLTW1G-Light.otf") format("opentype");
+  font-weight: 300;           
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FrutigerNeue-Thin";
+  src: url("https://cdn.shopify.com/s/files/1/0680/7647/0314/files/FrutigerNeueLTW1G-Thin.otf?v=1761144167/FrutigerNeueLTW1G-Thin.otf") format("opentype");
+  font-weight: 200;           /* Thin */
+  font-style: normal;
+  font-display: swap;
 }
