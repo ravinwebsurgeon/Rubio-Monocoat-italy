@@ -1254,7 +1254,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // ===== Update Sticky Bar Content =====
+  // ===== Update Sticky Bar Info =====
   function updateStickyBar() {
     const variant = getCurrentSelectedVariant();
     if (!variant) return;
@@ -1278,55 +1278,54 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Keep the sticky info synced
   setInterval(updateStickyBar, 1000);
   updateStickyBar();
 
-  // ===== AJAX Add to Cart + Update Drawer & Bubble =====
+  // ===== AJAX Add to Cart + Drawer + Bubble =====
   stickyForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const formData = new FormData(stickyForm);
-    const variantId = formData.get('id');
+    const variantId = stickyVariantIdEl.value;
 
     fetch('/cart/add.js', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({ id: variantId, quantity: 1 })
     })
-    .then(res => {
-      if (!res.ok) throw new Error('Add to cart failed');
-      return res.json();
-    })
-    .then(() => fetch('/?sections=cart-drawer,cart-icon-bubble'))
-    .then(res => res.text())
-    .then(responseText => {
-      const html = new DOMParser().parseFromString(responseText, 'text/html');
+      .then((res) => {
+        if (!res.ok) throw new Error('Add to cart failed');
+        return res.json();
+      })
+      .then(() => {
+        // Fetch cart sections — this ensures updated cart HTML
+        return fetch('/cart?sections=cart-drawer,cart-icon-bubble');
+      })
+      .then((res) => res.text())
+      .then((responseText) => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(responseText, 'text/html');
 
-      // Update cart drawer content
-      const updatedDrawer = html.getElementById('CartDrawer');
-      const currentDrawer = document.getElementById('CartDrawer');
-      if (updatedDrawer && currentDrawer) {
-        currentDrawer.innerHTML = updatedDrawer.innerHTML;
-      }
+        // Update Cart Drawer inner content
+        const updatedDrawer = doc.querySelector('#CartDrawer');
+        const currentDrawer = document.querySelector('#CartDrawer');
+        if (updatedDrawer && currentDrawer) {
+          currentDrawer.innerHTML = updatedDrawer.innerHTML;
+        }
 
-      // Update cart bubble
-      const updatedBubble = html.getElementById('cart-icon-bubble');
-      const currentBubble = document.getElementById('cart-icon-bubble');
-      if (updatedBubble && currentBubble) {
-        currentBubble.innerHTML = updatedBubble.innerHTML;
-      }
+        // Update Cart Bubble
+        const updatedBubble = doc.querySelector('#cart-icon-bubble');
+        const currentBubble = document.querySelector('#cart-icon-bubble');
+        if (updatedBubble && currentBubble) {
+          currentBubble.innerHTML = updatedBubble.innerHTML;
+        }
 
-      // Open cart drawer
-      const cartDrawer = document.querySelector('cart-drawer');
-      if (cartDrawer && typeof cartDrawer.open === 'function') {
-        cartDrawer.open();
-      }
-    })
-    .catch(err => console.error('Error adding to cart:', err));
+        // Open the cart drawer programmatically
+        const cartDrawer = document.querySelector('cart-drawer');
+        if (cartDrawer && typeof cartDrawer.open === 'function') {
+          cartDrawer.open();
+        }
+      })
+      .catch((err) => console.error('Error updating cart:', err));
   });
 });
 </script>
