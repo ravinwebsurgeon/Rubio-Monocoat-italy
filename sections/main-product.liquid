@@ -722,7 +722,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script> {% endcomment %}
 
-<script>
+{% comment %} <script>
 document.addEventListener('DOMContentLoaded', function () {
 
   // Accordion toggle logic
@@ -784,6 +784,164 @@ document.addEventListener('DOMContentLoaded', function () {
           const html = new DOMParser().parseFromString(data['cart-icon-bubble'], 'text/html');
           const newBubble = html.querySelector('.cart-count-bubble');
           if (newBubble) bubble.innerHTML = newBubble.innerHTML;
+        }
+
+        // Ensure drawer overlay & open state
+        const overlay = document.querySelector('#CartDrawer-Overlay');
+
+        // Handle <cart-drawer> components (Dawn, Sense, etc.)
+        if (cartDrawer && typeof cartDrawer.open === 'function') {
+          cartDrawer.open();
+        } else {
+          // Fallback for themes with static HTML drawers
+          body.classList.add('js-drawer-open');
+          const drawer = document.querySelector('.cart-drawer');
+          if (drawer) drawer.classList.add('active');
+          if (overlay) overlay.style.display = 'block';
+        }
+
+        // Accessibility focus handling
+        const activeDrawer = document.querySelector('.drawer__inner');
+        if (activeDrawer) {
+          activeDrawer.setAttribute('tabindex', '-1');
+          activeDrawer.focus();
+        }
+      })
+      .catch(err => console.error('Cart drawer update failed:', err));
+  }
+
+  // 🧩 Handle “Choose Options” popup open
+  document.querySelectorAll('.addon-choose-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const addonId = btn.getAttribute('data-addon-id');
+      const addonProduct = addonData.find(p => p.id == addonId);
+      if (!addonProduct) return;
+
+      popupImage.src = addonProduct.featured_image;
+      popupTitle.textContent = addonProduct.title;
+      popupPrice.textContent = `$${(addonProduct.price / 100).toFixed(2)}`;
+
+      popupVariant.innerHTML = '';
+      addonProduct.variants.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = v.id;
+        opt.textContent = v.title;
+        popupVariant.appendChild(opt);
+      });
+
+      popup.setAttribute('data-addon-id', addonId);
+      popup.style.display = 'flex';
+      document.body.classList.add('overlay');
+    });
+  });
+
+  // 🧩 Add selected variant from popup
+  popupAddBtn?.addEventListener('click', () => {
+    const variantId = popupVariant.value;
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: variantId, quantity: 1 })
+    })
+    .then(res => res.json())
+    .then(() => {
+      popup.style.display = 'none';
+      document.body.classList.remove('overlay');
+      updateCartDrawer(); // Refresh drawer content
+    });
+  });
+
+  // 🧩 Close popup
+  popupClose?.addEventListener('click', () => {
+    popup.style.display = 'none';
+    document.body.classList.remove('overlay');
+  });
+
+  // 🧩 Direct Add to Cart (no variant selection)
+  document.querySelectorAll('.addon-addtocart-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const variantId = btn.getAttribute('data-variant-id');
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: variantId, quantity: 1 })
+      })
+      .then(res => res.json())
+      .then(() => {
+        updateCartDrawer(); // AJAX update + open drawer
+      });
+    });
+  });
+
+});
+</script> {% endcomment %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  // Accordion toggle logic
+  document.querySelectorAll('.product-addons-wrapper').forEach((wrapper) => {
+    const toggleBtn = wrapper.querySelector('.addons-toggle');
+    const list = wrapper.querySelector('.addons-list');
+    const collapsed = wrapper.querySelector('.icon-collapsed');
+    const expanded = wrapper.querySelector('.icon-expanded');
+
+    function toggleAccordion() {
+      if (list.classList.contains('open')) {
+        list.classList.remove('open');
+        collapsed.style.display = 'inline-block';
+        expanded.style.display = 'none';
+      } else {
+        list.classList.add('open');
+        collapsed.style.display = 'none';
+        expanded.style.display = 'inline-block';
+      }
+    }
+
+    toggleBtn?.addEventListener('click', (e) => { e.stopPropagation(); toggleAccordion(); });
+    wrapper.addEventListener('click', (e) => {
+      if (!e.target.closest('.addon-item') && !e.target.closest('.addons-toggle')) toggleAccordion();
+    });
+  });
+
+  // Addon popup logic
+  const popup = document.querySelector('.addon-popup');
+  const popupImage = popup?.querySelector('.addon-popup-image');
+  const popupTitle = popup?.querySelector('.addon-popup-title');
+  const popupPrice = popup?.querySelector('.addon-popup-price');
+  const popupVariant = popup?.querySelector('.addon-popup-variant');
+  const popupAddBtn = popup?.querySelector('.addon-popup-addtocart');
+  const popupClose = popup?.querySelector('.addon-popup-close');
+  const addonData = {{ product.metafields.custom.product_addon.value | json }};
+
+  // ✅ Utility: Update Cart Drawer + Bubble (with is-empty fix)
+  function updateCartDrawer() {
+    fetch('/?sections=cart-drawer,cart-icon-bubble')
+      .then(res => res.json())
+      .then(data => {
+        const cartDrawer = document.querySelector('cart-drawer');
+        const drawerInner = document.querySelector('#CartDrawer');
+        const body = document.body;
+
+        // Update drawer content safely
+        if (drawerInner && data['cart-drawer']) {
+          const html = new DOMParser().parseFromString(data['cart-drawer'], 'text/html');
+          const newDrawerInner = html.querySelector('#CartDrawer');
+          if (newDrawerInner) {
+            drawerInner.innerHTML = newDrawerInner.innerHTML;
+          }
+        }
+
+        // Update cart bubble
+        const bubble = document.querySelector('.cart-count-bubble');
+        if (bubble && data['cart-icon-bubble']) {
+          const html = new DOMParser().parseFromString(data['cart-icon-bubble'], 'text/html');
+          const newBubble = html.querySelector('.cart-count-bubble');
+          if (newBubble) bubble.innerHTML = newBubble.innerHTML;
+        }
+
+        // ✅ Remove "is-empty" class when an item is added
+        if (cartDrawer && cartDrawer.classList.contains('is-empty')) {
+          cartDrawer.classList.remove('is-empty');
         }
 
         // Ensure drawer overlay & open state
