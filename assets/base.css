@@ -3619,3 +3619,19 @@ details-disclosure > details {
   font-style: normal;
   font-display: swap;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "FrutigerNeue-BlackCondensed", sans-serif;
+  font-weight: 900;
+}
+
+.subtitle, .subheading, .section-heading, .main-headings {
+  font-family: "FrutigerNeue-Light", sans-serif;
+  font-weight: 300;
+}
+
+body, p, li, a, span, input, button, label {
+  font-family: "FrutigerNeue-Thin", "FrutigerNeue-Light", sans-serif; 
+  font-weight: 200; 
+  line-height: 1.5;
+}
