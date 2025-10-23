@@ -1260,6 +1260,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script> {% endcomment %}
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const stickyForm = document.querySelector('.sticky-form');
@@ -1325,8 +1326,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const drawerItems = document.querySelector('cart-drawer-items');
         if (drawerItems && typeof drawerItems.renderContents === 'function') {
           const sections = {};
-          const drawerWrapper = doc.querySelector('#CartDrawer'); // ✅ full drawer wrapper
-          if (drawerWrapper) sections['CartDrawer'] = drawerWrapper.outerHTML;
+          const drawerInner = doc.querySelector('#CartDrawer .drawer__inner');
+          if (drawerInner) sections['CartDrawer'] = drawerInner.innerHTML; // <-- use innerHTML
 
           drawerItems.renderContents({ id: variantId, sections });
         }
@@ -1348,7 +1349,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
-
 
 
 
