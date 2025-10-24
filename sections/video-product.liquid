@@ -21,6 +21,7 @@
         <div class="product-overlay">
           <div class="product-slider">
             <div class="product-track">
+              {{ product.metafields.custom.video_products_handle | json }}
 {% if product.metafields.custom.video_products_handle %}
   <div class="video-products-wrapper">
     {% for handle in product.metafields.custom.video_products_handle %}
