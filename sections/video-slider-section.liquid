@@ -391,14 +391,13 @@
 }
 </style>
 
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   var swiper = new Swiper(".inspired-slider", {
-    slidesPerView:4.2,
-  centeredSlides: true,
-  loop: true,
-  spaceBetween: 20,
+    slidesPerView: 4.2,
+    centeredSlides: true,
+    loop: true,
+    spaceBetween: 20,
     navigation: {
       nextEl: ".custom-next",
       prevEl: ".custom-prev",
@@ -420,7 +419,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // ✅ Product Info Update
   function updateProductInfo() {
     let centerSlide = document.querySelector(".inspired-slide.swiper-slide-active");
     if (centerSlide) {
@@ -450,7 +448,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // ✅ Pause all non-center videos, play only center one
   function playCenterVideo(swiper) {
     swiper.slides.forEach(slide => {
       let video = slide.querySelector("video");
@@ -460,20 +457,15 @@ document.addEventListener("DOMContentLoaded", function () {
     let centerSlide = swiper.slides[swiper.activeIndex];
     let centerVideo = centerSlide.querySelector("video");
     if (centerVideo) {
-      centerVideo.currentTime = 0; // restart
+      centerVideo.currentTime = 0;
       let playPromise = centerVideo.play();
       if (playPromise !== undefined) {
-        playPromise.catch(err => {
-          console.log("Autoplay prevented:", err);
-        });
+        playPromise.catch(err => console.log("Autoplay prevented:", err));
       }
     }
   }
 
-  // ✅ Ensure correct video plays after full page load
-  window.addEventListener("load", () => {
-    playCenterVideo(swiper);
-  });
+  window.addEventListener("load", () => playCenterVideo(swiper));
 });
 </script>
 
