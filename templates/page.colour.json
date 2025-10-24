@@ -35,24 +35,69 @@
           "type": "column",
           "settings": {
             "icon": "shopify://shop_images/Mortar_1.png",
+            "icon_bg_color": "#f2f2f2",
+            "icon_wrap_width": "90px",
+            "icon_wrap_height": "90px",
+            "icon_wrap_width_mobile": "64px",
+            "icon_wrap_height_mobile": "64px",
+            "icon_width": "50px",
+            "icon_height": "50px",
+            "icon_width_mobile": "26px",
+            "icon_height_mobile": "26px",
             "heading": "NATURAL INGREDIENTS",
-            "text": ""
+            "heading_color": "#000000",
+            "heading_font_size": "20px",
+            "heading_font_size_mobile": "16px",
+            "text": "",
+            "text_color": "#333333",
+            "text_font_size": "16px",
+            "text_font_size_mobile": "14px"
           }
         },
         "column_KYPBwd": {
           "type": "column",
           "settings": {
             "icon": "shopify://shop_images/Fill.png",
+            "icon_bg_color": "#183029",
+            "icon_wrap_width": "90px",
+            "icon_wrap_height": "90px",
+            "icon_wrap_width_mobile": "64px",
+            "icon_wrap_height_mobile": "64px",
+            "icon_width": "50px",
+            "icon_height": "50px",
+            "icon_width_mobile": "26px",
+            "icon_height_mobile": "26px",
             "heading": "INTENSE & DEEP COLOURING",
-            "text": ""
+            "heading_color": "#000000",
+            "heading_font_size": "20px",
+            "heading_font_size_mobile": "16px",
+            "text": "",
+            "text_color": "#333333",
+            "text_font_size": "16px",
+            "text_font_size_mobile": "14px"
           }
         },
         "column_AkpzPV": {
           "type": "column",
           "settings": {
             "icon": "shopify://shop_images/Muscle.png",
+            "icon_bg_color": "#183029",
+            "icon_wrap_width": "90px",
+            "icon_wrap_height": "90px",
+            "icon_wrap_width_mobile": "64px",
+            "icon_wrap_height_mobile": "64px",
+            "icon_width": "50px",
+            "icon_height": "50px",
+            "icon_width_mobile": "26px",
+            "icon_height_mobile": "26px",
             "heading": "DURABLE PROTECTION",
-            "text": ""
+            "heading_color": "#000000",
+            "heading_font_size": "20px",
+            "heading_font_size_mobile": "16px",
+            "text": "",
+            "text_color": "#333333",
+            "text_font_size": "16px",
+            "text_font_size_mobile": "14px"
           }
         }
       },
@@ -64,8 +109,15 @@
       "name": "custom multicolumn",
       "settings": {
         "class_add": "wood_colorss",
+        "section_bg_color": "#f5f5f5",
         "main_heading": "All wood oil colours",
-        "main_text": "Rubio Monocoat products are available in many different wood stain colors. If you desire a unique color outside of the standard wood stain color options, colors for each product can be mixed to create custom colors. The extensive color range combined with a unique molecular bonding technology, makes Rubio Monocoat not only a product that looks and feelsgreat, but is durable and long lasting as well."
+        "heading_color": "#000000",
+        "heading_font_size": "36px !important",
+        "heading_font_size_mobile": "28px !important",
+        "main_text": "Rubio Monocoat products are available in many different wood stain colors. If you desire a unique color outside of the standard wood stain color options, colors for each product can be mixed to create custom colors. The extensive color range combined with a unique molecular bonding technology, makes Rubio Monocoat not only a product that looks and feelsgreat, but is durable and long lasting as well.",
+        "text_color": "#333333",
+        "text_font_size": "16px",
+        "text_font_size_mobile": "14px"
       }
     },
     "project_n8LMJf": {
