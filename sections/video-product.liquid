@@ -14,26 +14,31 @@
           <div class="product-slider">
             <div class="product-track">
               {% assign products_list = product.metafields.custom.video_products_list.value %}
-              {% if products_list.size > 0 %}
-                {% for prod in products_list %}
-                  <div class="product-card">
-                    <div class="product-image">
-                      {% if prod.featured_image %}
-                        <img src="{{ prod.featured_image | img_url: '150x' }}" alt="{{ prod.title }}">
-                      {% else %}
-                        <img src="//rubio-monocoat-italy.myshopify.com/cdn/shopifycloud/storefront/assets/no-image-160-46f2d4a0_150x.gif" alt="{{ prod.title }}">
-                      {% endif %}
-                    </div>
-                    <div class="product-info">
-                      <div class="stars">★★★★★</div>
-                      <h4>{{ prod.title }}</h4>
-                      <p class="price">{{ prod.price | money }}</p>
-                    </div>
-                  </div>
-                {% endfor %}
-              {% else %}
-                <p>No products found.</p>
-              {% endif %}
+
+{% if products_list and products_list.size > 0 %}
+  {% for prod in products_list %}
+    {% assign prod = prod | default: blank %} <!-- ensure it's valid -->
+    {% if prod %}
+      <div class="product-card">
+        <div class="product-image">
+          {% if prod.featured_image %}
+            <img src="{{ prod.featured_image | img_url: '150x' }}" alt="{{ prod.title }}">
+          {% else %}
+            <img src="//rubio-monocoat-italy.myshopify.com/cdn/shopifycloud/storefront/assets/no-image-160-46f2d4a0_150x.gif" alt="{{ prod.title }}">
+          {% endif %}
+        </div>
+        <div class="product-info">
+          <div class="stars">★★★★★</div>
+          <h4>{{ prod.title }}</h4>
+          <p class="price">{{ prod.price | money }}</p>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+{% else %}
+  <p>No products found.</p>
+{% endif %}
+
             </div>
           </div>
         </div>
