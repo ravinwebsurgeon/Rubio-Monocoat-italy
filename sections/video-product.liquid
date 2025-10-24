@@ -125,31 +125,6 @@ $(document).on("click", ".slide-next-btn.gg-3, .slide-next-btn.gg-2", function (
     }, 200); // change the time as needed
 });
 
-
-{% comment %} document.addEventListener("DOMContentLoaded", function () {
-  const track = document.querySelector(".product-track");
-  
-  // Define how much to move each time
-  const moves = [470, 150];  
-  let currentIndex = 0;
-  let currentOffset = 0;
-
-  function moveSlide() {
-    if (currentIndex < moves.length) {
-      currentOffset -= moves[currentIndex]; 
-      track.style.transform = `translateX(${currentOffset}px)`;
-      currentIndex++;
-    } else {
-      // Reset back to start
-      currentIndex = 0;
-      currentOffset = 0;
-      track.style.transform = `translateX(0px)`;
-    }
-  }
-
-  // Auto slide every 30s
-  setInterval(moveSlide, 6000);
-}); {% endcomment %}
 document.addEventListener("DOMContentLoaded", function () {
   const track = document.querySelector(".product-track");
   const wrapper = document.querySelector(".product-slider");
@@ -180,14 +155,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   animate();
 });
-
-
-
-
-
-
-
-
 </script>
 
 {% stylesheet %}
