@@ -184,8 +184,8 @@
       "name": "Video with Products",
       "settings": {
         "heading": "Application in a few simple steps",
-        "video_url": "",
-        "button_link": "",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/e9187465675742ac8a58a7331877ea98.mp4",
+        "button_link": "shopify://collections/all",
         "button_label": "View All Products"
       }
     },
