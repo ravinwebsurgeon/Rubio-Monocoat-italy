@@ -154,10 +154,21 @@
             "icon_2": "shopify://shop_images/9eded025a5a27e37ca8d6937737473195f38772e.png",
             "icon_2_link": ""
           }
+        },
+        "product_block_AWFKqj": {
+          "type": "product_block",
+          "settings": {
+            "product": "pre-aging",
+            "icon_1": "shopify://shop_images/0ca97c9394d9015e0a1e6617e655bc70bf75a973.png",
+            "icon_1_link": "",
+            "icon_2": "shopify://shop_images/9eded025a5a27e37ca8d6937737473195f38772e.png",
+            "icon_2_link": ""
+          }
         }
       },
       "block_order": [
-        "product_block_QUneNc"
+        "product_block_QUneNc",
+        "product_block_AWFKqj"
       ],
       "name": "Video with Products",
       "settings": {
