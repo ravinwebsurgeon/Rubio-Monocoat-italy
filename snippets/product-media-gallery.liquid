@@ -462,10 +462,10 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-
-    const variantOptions = {{ product.options | json }}; // ["Color", "Size"]
+const variantOptions = {{ product.options | json }}; // ["Color", "Size"]
 
   function updateGallery() {
+    console.log('called??')
     const selectedOptions = {};
     variantOptions.forEach(option => {
       const capitalized = option.charAt(0).toUpperCase() + option.slice(1);
@@ -475,7 +475,22 @@
       }
       selectedOptions[option.toLowerCase()] = selected ? selected.value.toLowerCase() : null;
     });
-      document.querySelectorAll('.main-image-item').forEach(item => {
+      console.log(selectedOptions,'selectedOptions')
+
+      function normalizeShopifySrc(src) {
+      if (!src) return '';
+        let cleanSrc = src.split('?')[0];
+        cleanSrc = cleanSrc.replace(/_(\d+)x(\d+)(\.\w+)$/, '$3');
+        return cleanSrc;
+    }
+
+    let found = false;
+    document.querySelectorAll('.main-image-item').forEach(item => {
+        if (found) {
+          item.style.display = 'none';
+        return;
+          }
+
       let show = true;
       for (const [key, val] of Object.entries(selectedOptions)) {
         console.log(item.dataset[key],'itemdata',val,'valus')
@@ -484,16 +499,32 @@
           break;
         }
       }
-      item.style.display = show ? 'block' : 'none';
+      if (show) {
+        item.style.display = 'block';
+        found = true;
+      } else {
+        item.style.display = 'none';
+      }
     });
+
+  const visibleMainSrcs = Array.from(document.querySelectorAll('.main-image-item'))
+  .filter(item => item.style.display === 'block')
+  .map(item => normalizeShopifySrc(item.querySelector('img').getAttribute('src')));
+
    document.querySelectorAll('.thumbnail-item').forEach(item => {
       let show = true;
+      let Image = item.querySelector('img')
+      let src = normalizeShopifySrc(Image.getAttribute('src'));
+    console.log('checkDataSrc',src)
+    if (visibleMainSrcs.includes(src)) { show = false; }
+    else{
       for (const [key, val] of Object.entries(selectedOptions)) {
         if (!val || item.dataset[key].toLowerCase() !== val.replace('.', '-')) {
           show = false;
           break;
         }
       }
+    }
       item.style.display = show ? 'block' : 'none';
     });
 
