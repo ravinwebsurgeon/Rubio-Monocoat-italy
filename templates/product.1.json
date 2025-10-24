@@ -144,49 +144,10 @@
     },
     "video_product_FcVMD6": {
       "type": "video-product",
-      "blocks": {
-        "product_block_QW3nYp": {
-          "type": "product_block",
-          "settings": {
-            "product": "oil-plus-2c-interior-wood-oil",
-            "icon_1": "shopify://shop_images/0ca97c9394d9015e0a1e6617e655bc70bf75a973.png",
-            "icon_1_link": "",
-            "icon_2": "shopify://shop_images/9eded025a5a27e37ca8d6937737473195f38772e.png",
-            "icon_2_link": ""
-          }
-        },
-        "product_block_zbqygQ": {
-          "type": "product_block",
-          "settings": {
-            "product": "oil-plus-part-a-20-ml",
-            "icon_1": "shopify://shop_images/0ca97c9394d9015e0a1e6617e655bc70bf75a973.png",
-            "icon_1_link": "",
-            "icon_2": "shopify://shop_images/9eded025a5a27e37ca8d6937737473195f38772e.png",
-            "icon_2_link": ""
-          }
-        },
-        "product_block_pfyyDm": {
-          "type": "product_block",
-          "settings": {
-            "product": "pre-aging",
-            "icon_1": "shopify://shop_images/0ca97c9394d9015e0a1e6617e655bc70bf75a973.png",
-            "icon_1_link": "",
-            "icon_2": "shopify://shop_images/9eded025a5a27e37ca8d6937737473195f38772e.png",
-            "icon_2_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "product_block_QW3nYp",
-        "product_block_zbqygQ",
-        "product_block_pfyyDm"
-      ],
       "name": "Video with Products",
       "settings": {
-        "heading": "Application in a few simple steps",
-        "video_url": "https://cdn.shopify.com/videos/c/o/v/e9187465675742ac8a58a7331877ea98.mp4",
-        "button_link": "shopify://collections/all",
-        "button_label": "View All Products"
+        "icon_1": "shopify://shop_images/0ca97c9394d9015e0a1e6617e655bc70bf75a973.png",
+        "icon_2": "shopify://shop_images/9eded025a5a27e37ca8d6937737473195f38772e.png"
       }
     },
     "how_to_use_faq_metafield_k4TgDV": {
