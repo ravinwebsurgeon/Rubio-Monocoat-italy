@@ -21,7 +21,7 @@
                   <div class="product-card">
                     <div class="product-image">
                       {% if prod.featured_image %}
-                        <img src="{{ card.prod.featured_image | img_url: '150x' }}" alt="{{ prod.title }}">
+                        <img src="{{ prod.featured_image | img_url: '150x' }}" alt="{{ prod.title }}">
                       {% else %}
                         <img src="//rubio-monocoat-italy.myshopify.com/cdn/shopifycloud/storefront/assets/no-image-160-46f2d4a0_150x.gif" alt="{{ prod.title }}">
                       {% endif %}
