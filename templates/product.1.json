@@ -120,77 +120,8 @@
     },
     "certificate_slider_jEWJiA": {
       "type": "certificate-slider",
-      "blocks": {
-        "certificate_zDkmXz": {
-          "type": "certificate",
-          "settings": {
-            "certificate_image": "shopify://shop_images/b0479ee1316d092d84404988ec6c7d2018953117_1.png",
-            "certificate_title": "Eurofins Food Contact Compliance",
-            "certificate_description": "Details about the certificate."
-          }
-        },
-        "certificate_BUTCPj": {
-          "type": "certificate",
-          "settings": {
-            "certificate_image": "shopify://shop_images/8b92c7180f5a54bfbcb91902b0b94621228979aa_2.png",
-            "certificate_title": "0% VOC",
-            "certificate_description": "Details about the certificate."
-          }
-        },
-        "certificate_UhNxNf": {
-          "type": "certificate",
-          "settings": {
-            "certificate_image": "shopify://shop_images/91ec1ee3f3b7b4f15e7264576166cef058336e4c_1.png",
-            "certificate_title": "Greenguard Gold",
-            "certificate_description": "Details about the certificate."
-          }
-        },
-        "certificate_BVniyg": {
-          "type": "certificate",
-          "settings": {
-            "certificate_image": "shopify://shop_images/f9e032e9883b23ad203be8b370cc6caf70d8b351_1.png",
-            "certificate_title": "EN 71-3 (toys)",
-            "certificate_description": "Details about the certificate."
-          }
-        },
-        "certificate_y8BJBM": {
-          "type": "certificate",
-          "settings": {
-            "certificate_image": "shopify://shop_images/b0479ee1316d092d84404988ec6c7d2018953117_1.png",
-            "certificate_title": "Eurofins Food Contact Compliance",
-            "certificate_description": "Details about the certificate."
-          }
-        },
-        "certificate_cxgpeN": {
-          "type": "certificate",
-          "settings": {
-            "certificate_image": "shopify://shop_images/8b92c7180f5a54bfbcb91902b0b94621228979aa_2.png",
-            "certificate_title": "0% VOC",
-            "certificate_description": "Details about the certificate."
-          }
-        },
-        "certificate_GEmWBb": {
-          "type": "certificate",
-          "settings": {
-            "certificate_image": "shopify://shop_images/91ec1ee3f3b7b4f15e7264576166cef058336e4c_1.png",
-            "certificate_title": "Greenguard Gold",
-            "certificate_description": "Details about the certificate."
-          }
-        }
-      },
-      "block_order": [
-        "certificate_zDkmXz",
-        "certificate_BUTCPj",
-        "certificate_UhNxNf",
-        "certificate_BVniyg",
-        "certificate_y8BJBM",
-        "certificate_cxgpeN",
-        "certificate_GEmWBb"
-      ],
       "name": "Certificates Slider",
-      "settings": {
-        "section_heading": "International product certificates"
-      }
+      "settings": {}
     },
     "related-products": {
       "type": "related-products",
@@ -213,49 +144,10 @@
     },
     "video_product_FcVMD6": {
       "type": "video-product",
-      "blocks": {
-        "product_block_7GCpCP": {
-          "type": "product_block",
-          "settings": {
-            "product": "oil-plus-part-a-20-ml",
-            "icon_1": "shopify://shop_images/Shopping_Bag.png",
-            "icon_1_link": "",
-            "icon_2": "shopify://shop_images/Rewind_double_arrows_outline.png",
-            "icon_2_link": ""
-          }
-        },
-        "product_block_b7wEJp": {
-          "type": "product_block",
-          "settings": {
-            "product": "oil-plus-2c-1-3-liter",
-            "icon_1": "shopify://shop_images/Shopping_Bag.png",
-            "icon_1_link": "",
-            "icon_2": "shopify://shop_images/Rewind_double_arrows_outline.png",
-            "icon_2_link": ""
-          }
-        },
-        "product_block_WwDqW7": {
-          "type": "product_block",
-          "settings": {
-            "product": "oil-plus-part-a-20-ml-copy",
-            "icon_1": "shopify://shop_images/Shopping_Bag.png",
-            "icon_1_link": "",
-            "icon_2": "shopify://shop_images/Rewind_double_arrows_outline.png",
-            "icon_2_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "product_block_7GCpCP",
-        "product_block_b7wEJp",
-        "product_block_WwDqW7"
-      ],
       "name": "Video with Products",
       "settings": {
-        "heading": "Application in a few simple steps",
-        "video_url": "https://cdn.shopify.com/videos/c/o/v/d1ecb683406f4f61befd2623ad86a0e9.mp4",
-        "button_link": "shopify://collections/all",
-        "button_label": "View All Products"
+        "icon_1": "shopify://shop_images/0ca97c9394d9015e0a1e6617e655bc70bf75a973.png",
+        "icon_2": "shopify://shop_images/9eded025a5a27e37ca8d6937737473195f38772e.png"
       }
     },
     "how_to_use_faq_metafield_k4TgDV": {
@@ -272,99 +164,8 @@
     },
     "video_slider_section_dQyWeG": {
       "type": "video-slider-section",
-      "blocks": {
-        "slide_J4KiA9": {
-          "type": "slide",
-          "settings": {
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/e9187465675742ac8a58a7331877ea98.mp4",
-            "product": "durogrit"
-          }
-        },
-        "slide_dmed9Y": {
-          "type": "slide",
-          "settings": {
-            "thumbnail": "shopify://shop_images/Rectangle_137.png",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/e9187465675742ac8a58a7331877ea98.mp4",
-            "product": "durogrit"
-          }
-        },
-        "slide_9j7nh3": {
-          "type": "slide",
-          "settings": {
-            "thumbnail": "shopify://shop_images/Rectangle_137.png",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/e9187465675742ac8a58a7331877ea98.mp4",
-            "product": "oil-plus-part-a-20-ml"
-          }
-        },
-        "slide_kA6zMd": {
-          "type": "slide",
-          "settings": {
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/e9187465675742ac8a58a7331877ea98.mp4",
-            "product": "durogrit"
-          }
-        },
-        "slide_UJ7HGY": {
-          "type": "slide",
-          "settings": {
-            "thumbnail": "shopify://shop_images/Rectangle_137.png",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/e9187465675742ac8a58a7331877ea98.mp4",
-            "product": "oil-plus-2c-1-3-liter"
-          }
-        },
-        "slide_3UMWMN": {
-          "type": "slide",
-          "settings": {
-            "thumbnail": "shopify://shop_images/Rectangle_137.png",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/e9187465675742ac8a58a7331877ea98.mp4",
-            "product": "durogrit"
-          }
-        },
-        "slide_JFrfXQ": {
-          "type": "slide",
-          "settings": {
-            "thumbnail": "shopify://shop_images/Rectangle_137.png",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/e9187465675742ac8a58a7331877ea98.mp4",
-            "product": "oil-plus-part-a-20-ml-copy"
-          }
-        },
-        "slide_VxQrea": {
-          "type": "slide",
-          "settings": {
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/e9187465675742ac8a58a7331877ea98.mp4",
-            "product": "durogrit"
-          }
-        },
-        "slide_pNiYg6": {
-          "type": "slide",
-          "settings": {
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/e9187465675742ac8a58a7331877ea98.mp4",
-            "product": "oil-plus-part-a-20-ml-copy"
-          }
-        },
-        "slide_DKxdb9": {
-          "type": "slide",
-          "settings": {
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/e9187465675742ac8a58a7331877ea98.mp4",
-            "product": "durogrit"
-          }
-        }
-      },
-      "block_order": [
-        "slide_J4KiA9",
-        "slide_dmed9Y",
-        "slide_9j7nh3",
-        "slide_kA6zMd",
-        "slide_UJ7HGY",
-        "slide_3UMWMN",
-        "slide_JFrfXQ",
-        "slide_VxQrea",
-        "slide_pNiYg6",
-        "slide_DKxdb9"
-      ],
       "name": "Inspired Video Slider",
-      "settings": {
-        "heading": "Get inspired.."
-      }
+      "settings": {}
     },
     "custom_visit_faq_section_hLVgVR": {
       "type": "custom-visit-faq-section",
