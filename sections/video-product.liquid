@@ -22,43 +22,53 @@
           <div class="product-slider">
             <div class="product-track">
 
-              {% assign handles = product.metafields.custom.video_products_handle | split: ',' %}
-              {% for handle in handles %}
-                {% assign handle = handle | strip | downcase %}
-                {% assign prod = all_products[handle] %}
+              {% if product.metafields.custom.video_products_handle %}
+  {% assign handles = product.metafields.custom.video_products_handle | split: ',' %}
+  <div class="video-products-wrapper">
+    {% for handle in handles %}
+      {% assign handle = handle | strip | downcase %}
+      {% assign prod = all_products[handle] %}
+      
+      {% if prod %}
+        <div class="product-card">
+          <div class="product-image">
+            {% if prod.featured_image %}
+              <img src="{{ prod.featured_image | img_url: '400x' }}" alt="{{ prod.title }}">
+            {% else %}
+              <div class="no-image">No Image</div>
+            {% endif %}
+          </div>
 
-                {% if prod %}
-                  <div class="product-card">
-                    <div class="product-image">
-                      {% if prod.featured_image %}
-                        <img src="{{ prod.featured_image | img_url: '400x' }}" alt="{{ prod.title }}">
-                      {% else %}
-                        <div class="no-image">No Image</div>
-                      {% endif %}
-                    </div>
+          <div class="product-info">
+            <div class="stars">★★★★★</div>
+            <h4>{{ prod.title }}</h4>
+            <p class="price">{{ prod.price | money }}</p>
+          </div>
 
-                    <div class="product-info">
-                      <div class="stars">★★★★★</div>
-                      <h4>{{ prod.title }}</h4>
-                      <p class="price">{{ prod.price | money }}</p>
-                    </div>
+          <!-- ✅ Icons (from section schema) -->
+          <div class="product-icons">
+            {% if section.settings.icon_1 %}
+              <a href="#" class="add-to-cart-btn" data-variant-id="{{ prod.selected_or_first_available_variant.id }}">
+                <img src="{{ section.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
+              </a>
+            {% endif %}
+            {% if section.settings.icon_2 %}
+              <a href="javascript:void(0);" class="slide-next-btn gg-{{ forloop.index }}">
+                <img src="{{ section.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      {% else %}
+        <!-- Optional: debug info if product handle not found -->
+        <!-- <p>Product not found for handle: {{ handle }}</p> -->
+      {% endif %}
+    {% endfor %}
+  </div>
+{% else %}
+  <p>No products found in metafield.</p>
+{% endif %}
 
-                    <!-- ✅ Icons (from schema) -->
-                    <div class="product-icons">
-                      {% if section.settings.icon_1 %}
-                        <a href="#" class="add-to-cart-btn" data-variant-id="{{ prod.selected_or_first_available_variant.id }}">
-                          <img src="{{ section.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
-                        </a>
-                      {% endif %}
-                      {% if section.settings.icon_2 %}
-                        <a href="javascript:void(0);" class="slide-next-btn gg-{{ forloop.index }}">
-                          <img src="{{ section.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
-                        </a>
-                      {% endif %}
-                    </div>
-                  </div>
-                {% endif %}
-              {% endfor %}
 
             </div>
           </div>
