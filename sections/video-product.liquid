@@ -1,12 +1,12 @@
 {% unless product.tags contains 'video_with_products' %}
 <section class="video-products-section">
   <div class="container" data-aos="fade-up">
-    <h2 class="video-heading">{{ product.metafields.custom.video_products_heading }}</h2>
+    <h2 class="video-heading">{{ product.metafields.custom.video_products_heading.value }}</h2>
 
     <div class="video-wrapper">
       <div class="video-container">
         <video autoplay muted loop playsinline class="video-bg">
-          <source src="{{ product.metafields.custom.video_products_video_url }}" type="video/mp4">
+          <source src="{{ product.metafields.custom.video_products_video_url.value }}" type="video/mp4">
           Your browser does not support the video tag.
         </video>
 
@@ -16,22 +16,26 @@
               {% assign handles = product.metafields.custom.video_products_handles.value | split: ',' %}
               {% for handle in handles %}
                 {% assign handle = handle | strip %}
-                {% assign product = all_products[handle] %}
-                {% if product %}
+                {% assign prod = all_products[handle] %}
+                {% if prod %}
                   <div class="product-card">
                     <div class="product-image">
-                      <img src="{{ product.featured_image | img_url: '150x' }}" alt="{{ product.title }}">
+                      {% if prod.featured_image %}
+                        <img src="{{ prod.featured_image | img_url: '150x' }}" alt="{{ prod.title }}">
+                      {% else %}
+                        <img src="//rubio-monocoat-italy.myshopify.com/cdn/shopifycloud/storefront/assets/no-image-160-46f2d4a0_150x.gif" alt="{{ prod.title }}">
+                      {% endif %}
                     </div>
                     <div class="product-info">
                       <div class="stars">★★★★★</div>
-                      <h4>{{ product.title }}</h4>
-                      <p class="price">{{ product.price | money }}</p>
+                      <h4>{{ prod.title }}</h4>
+                      <p class="price">{{ prod.price | money }}</p>
                     </div>
                     <div class="product-icons">
-                      {% assign icon1 = product.metafields.custom.video_products_icon_1 %}
-                      {% assign icon2 = product.metafields.custom.video_products_icon_2 %}
+                      {% assign icon1 = product.metafields.custom.video_products_icon_1.value %}
+                      {% assign icon2 = product.metafields.custom.video_products_icon_2.value %}
                       {% if icon1 %}
-                        <a href="#" class="add-to-cart-btn" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+                        <a href="#" class="add-to-cart-btn" data-variant-id="{{ prod.selected_or_first_available_variant.id }}">
                           <img src="{{ icon1 | img_url: '40x' }}" alt="Add to Cart">
                         </a>
                       {% endif %}
@@ -50,14 +54,15 @@
       </div>
     </div>
 
-    {% if product.metafields.custom.video_products_button_link %}
-      <a href="{{ product.metafields.custom.video_products_button_link }}" class="view-button">
-        {{ product.metafields.custom.video_products_button_label }}
+    {% if product.metafields.custom.video_products_button_link.value %}
+      <a href="{{ product.metafields.custom.video_products_button_link.value }}" class="view-button">
+        {{ product.metafields.custom.video_products_button_label.value }}
       </a>
     {% endif %}
   </div>
 </section>
 {% endunless %}
+
 <script>
 $(document).ready(function () {
   function setCartBubble(count) {
