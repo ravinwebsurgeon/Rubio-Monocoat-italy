@@ -13,11 +13,9 @@
         <div class="product-overlay">
           <div class="product-slider">
             <div class="product-track">
-              {% assign handles = product.metafields.custom.video_products_handles | split: ',' %}
-              {% for handle in handles %}
-                {% assign handle = handle | strip %}
-                {% assign prod = all_products[handle] %}
-                {% if prod %}
+              {% assign products_list = product.metafields.custom.video_products_list.value %}
+              {% if products_list.size > 0 %}
+                {% for prod in products_list %}
                   <div class="product-card">
                     <div class="product-image">
                       {% if prod.featured_image %}
@@ -32,10 +30,10 @@
                       <p class="price">{{ prod.price | money }}</p>
                     </div>
                   </div>
-                {% else %}
-                  <p>Product not found: {{ handle }}</p>
-                {% endif %}
-              {% endfor %}
+                {% endfor %}
+              {% else %}
+                <p>No products found.</p>
+              {% endif %}
             </div>
           </div>
         </div>
@@ -50,6 +48,7 @@
   </div>
 </section>
 {% endunless %}
+
 
 
 <script>
@@ -304,4 +303,4 @@ $(document).ready(function () {
                             }
                               ]
                               }
-                              {% endschema %}}
+{% endschema %}
