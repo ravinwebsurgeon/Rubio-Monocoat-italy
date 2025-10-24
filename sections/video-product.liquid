@@ -1,57 +1,75 @@
 {% unless product.tags contains 'video_with_products' %}
 <section class="video-products-section">
   <div class="container" data-aos="fade-up">
-    <h2 class="video-heading" >{{ section.settings.heading }}</h2>
+    <!-- Heading from metafield -->
+    <h2 class="video-heading">{{ product.metafields.custom.video_products_heading }}</h2>
+
     <div class="video-wrapper">
       <div class="video-container">
+        <!-- Video from metafield -->
         <video autoplay muted loop playsinline class="video-bg">
-          <source src="{{ section.settings.video_url }}" type="video/mp4">
+          <source src="{{ product.metafields.custom.video_products_video_url }}" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-  <div class="product-overlay">
-  <div class="product-slider">
-    <div class="product-track">
-      {% for block in section.blocks %}
-        {% if block.settings.product %}
-          {% assign product = all_products[block.settings.product] %}
-          {% if product %}
-            <div class="product-card">
-              <div class="product-image">
-                <img src="{{ product.featured_image | img_url: '150x' }}" alt="{{ product.title }}">
-              </div>
-              <div class="product-info">
-                <div class="stars">★★★★★</div>
-                <h4>{{ product.title }}</h4>
-                <p class="price">{{ product.price | money }}</p>
-              </div>
-              <div class="product-icons">
-                {% if block.settings.icon_1 %}
-                  <a href="#" class="add-to-cart-btn" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
-                    <img src="{{ block.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
-                  </a>
+
+        <!-- Product slider -->
+        <div class="product-overlay">
+          <div class="product-slider">
+            <div class="product-track">
+
+              {% assign products = 
+                product.metafields.custom.video_product_1 | append: ',' | append: product.metafields.custom.video_product_2 | append: ',' | append: product.metafields.custom.video_product_3 | split: ',' %}
+
+              {% for prod_handle in products %}
+                {% assign prod_handle = prod_handle | strip %}
+                {% assign related_product = all_products[prod_handle] %}
+                {% if related_product %}
+                  <div class="product-card">
+                    <div class="product-image">
+                      {% if related_product.featured_image %}
+                        <img src="{{ related_product.featured_image | img_url: '150x' }}" alt="{{ related_product.title }}">
+                      {% endif %}
+                    </div>
+                    <div class="product-info">
+                      <div class="stars">★★★★★</div>
+                      <h4>{{ related_product.title }}</h4>
+                      <p class="price">{{ related_product.price | money }}</p>
+                    </div>
+                    <div class="product-icons">
+                      {% if section.settings.icon_1 %}
+                        <a href="#" class="add-to-cart-btn" data-variant-id="{{ related_product.selected_or_first_available_variant.id }}">
+                          <img src="{{ section.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
+                        </a>
+                      {% endif %}
+                      {% if section.settings.icon_2 %}
+                        <a href="javascript:void(0);" class="slide-next-btn">
+                          <img src="{{ section.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
+                        </a>
+                      {% endif %}
+                    </div>
+                  </div>
                 {% endif %}
-                {% if block.settings.icon_2 %}
-                  <a href="javascript:void(0);" class="slide-next-btn gg-{{ forloop.index }}">
-                    <img src="{{ block.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
-                  </a>
-                {% endif %}
-              </div>
+              {% endfor %}
+
             </div>
-          {% endif %}
-        {% endif %}
-      {% endfor %}
-    </div>
-  </div>
-</div>
+          </div>
+        </div>
+
       </div>
     </div>
 
-    {% if section.settings.button_link %}
-      <a href="{{ section.settings.button_link }}" class="view-button">{{ section.settings.button_label }}</a>
+    <!-- Button from metafield -->
+    {% if product.metafields.custom.video_products_button_link %}
+      <a href="{{ product.metafields.custom.video_products_button_link }}" class="view-button">
+        {{ product.metafields.custom.video_products_button_label }}
+      </a>
     {% endif %}
   </div>
 </section>
 {% endunless %}
+
+
+
 <script>
 $(document).ready(function () {
   function setCartBubble(count) {
