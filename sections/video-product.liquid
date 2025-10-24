@@ -17,34 +17,41 @@
           <div class="product-slider">
             <div class="product-track">
 
-              {% assign products = product.metafields.custom.video_products_list %}
+              {% assign products = 
+                product.metafields.custom.video_product_1 | append: ',' | append: product.metafields.custom.video_product_2 | append: ',' | append: product.metafields.custom.video_product_3 | split: ',' %}
 
-{% for related_product in products %}
-  <div class="product-card">
-    <div class="product-image">
-      {% if related_product.featured_image %}
-        <img src="{{ related_product.featured_image | img_url: '150x' }}" alt="{{ related_product.title }}">
-      {% endif %}
-    </div>
-    <div class="product-info">
-      <div class="stars">★★★★★</div>
-      <h4>{{ related_product.title }}</h4>
-      <p class="price">{{ related_product.price | money }}</p>
-    </div>
-    <div class="product-icons">
-      {% if section.settings.icon_1 %}
-        <a href="#" class="add-to-cart-btn" data-variant-id="{{ related_product.selected_or_first_available_variant.id }}">
-          <img src="{{ section.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
-        </a>
-      {% endif %}
-      {% if section.settings.icon_2 %}
-        <a href="javascript:void(0);" class="slide-next-btn">
-          <img src="{{ section.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
-        </a>
-      {% endif %}
-    </div>
-  </div>
-{% endfor %}
+              {% for prod in products %}
+                {% if prod != blank %}
+                  {% assign related_product = prod %}
+
+                  <!-- Render product card -->
+                  <div class="product-card">
+                    <div class="product-image">
+                      {% if related_product.featured_image %}
+                        <img src="{{ related_product.featured_image | img_url: '150x' }}" alt="{{ related_product.title }}">
+                      {% endif %}
+                    </div>
+                    <div class="product-info">
+                      <div class="stars">★★★★★</div>
+                      <h4>{{ related_product.title }}</h4>
+                      <p class="price">{{ related_product.price | money }}</p>
+                    </div>
+                    <div class="product-icons">
+                      {% if section.settings.icon_1 %}
+                        <a href="#" class="add-to-cart-btn" data-variant-id="{{ related_product.selected_or_first_available_variant.id }}">
+                          <img src="{{ section.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
+                        </a>
+                      {% endif %}
+                      {% if section.settings.icon_2 %}
+                        <a href="javascript:void(0);" class="slide-next-btn">
+                          <img src="{{ section.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
+                        </a>
+                      {% endif %}
+                    </div>
+                  </div>
+
+                {% endif %}
+              {% endfor %}
 
             </div>
           </div>
