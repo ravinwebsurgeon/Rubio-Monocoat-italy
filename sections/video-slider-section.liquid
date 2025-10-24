@@ -2,41 +2,45 @@
 {% unless product.tags contains 'inspired_video_slider' %}
 <section class="inspired-slider-section">
   <div class="container">
-    <h2 class="slider-heading">{{ section.settings.heading }}</h2>
+    <h2 class="slider-heading">{{ product.metafields.custom.inspired_heading }}</h2>
   </div>
 
+  {% assign videos = product.metafields.custom.inspired_videos %}
+  {% assign products = product.metafields.custom.inspired_products %}
+
+  {% if videos and videos.size > 0 %}
   <!-- Swiper Slider -->
   <div class="swiper inspired-slider" id="inspiration">
     <div class="swiper-wrapper">
-      {% for block in section.blocks %}
-        <div 
-          class="swiper-slide inspired-slide"
-          data-product-title="{{ block.settings.product.title }}"
-          data-product-img="{{ block.settings.product.featured_image | img_url: '200x200' }}"
-          data-product-url="{{ block.settings.product.url }}"
-          data-product-vendor="{{ block.settings.product.vendor }}"
-          data-product-price="{{ block.settings.product.price | money }}"
-          data-variant-id="{{ block.settings.product.selected_or_first_available_variant.id }}"
-          data-video-url="{{ block.settings.video_url }}"
-        >
-      
-  {% if block.settings.video_url != blank %}
-      <video 
-        muted 
-        playsinline 
-        preload="auto" 
-        loop
-      >
-        <source src="{{ block.settings.video_url }}" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-  {% else %}
-    <img 
-      src="{{ block.settings.image | img_url: '600x600' }}" 
-      alt="Slide Image" width="" height="">
-  {% endif %}
-
-        </div>
+      {% for video in videos %}
+        {% assign related_product = products[forloop.index0] %}
+        {% if related_product %}
+          <div 
+            class="swiper-slide inspired-slide"
+            data-product-title="{{ related_product.title }}"
+            data-product-img="{{ related_product.featured_image | img_url: '200x200' }}"
+            data-product-url="{{ related_product.url }}"
+            data-product-vendor="{{ related_product.vendor }}"
+            data-product-price="{{ related_product.price | money }}"
+            data-variant-id="{{ related_product.selected_or_first_available_variant.id }}"
+          >
+            {% if video != blank %}
+              <video 
+                muted 
+                playsinline 
+                preload="auto" 
+                loop
+              >
+                <source src="{{ video | file_url }}" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            {% else %}
+              <img 
+                src="{{ related_product.featured_image | img_url: '600x600' }}" 
+                alt="{{ related_product.title }}">
+            {% endif %}
+          </div>
+        {% endif %}
       {% endfor %}
     </div>
 
@@ -58,7 +62,7 @@
   <div class="inspired-product-info">
     <div id="inspired-proouter">
       <div class="product-image-wrap">
-        <img id="product-img" src="" alt="" width="" height="">
+        <img id="product-img" src="" alt="">
         <div class="product-info-wrap">
           <p id="product-vendor"></p>
           <p id="product-title"></p>
@@ -66,14 +70,16 @@
         </div>
         <div class="atc-btn-wrap">
           <a href="#" class="add-to-cart-btn" data-variant-id="">
-            <img src="{{ 'icon-cart.svg' | asset_url }}" alt="Cart Icon" width="" height="">
+            <img src="{{ 'icon-cart.svg' | asset_url }}" alt="Cart Icon">
           </a>
         </div>
       </div>
     </div>
   </div>
+  {% endif %}
 </section>
 {% endunless %}
+
 <style> 
   .slide-media iframe {
   width: 100%;
