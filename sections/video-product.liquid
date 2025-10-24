@@ -16,7 +16,10 @@
         <div class="product-overlay">
           <div class="product-slider">
             <div class="product-track">
-              {% for handle in product_handles %}
+{% assign product_handles = product.metafields.custom.video_product_1 | append: ',' | append: product.metafields.custom.video_product_2 | append: ',' | append: product.metafields.custom.video_product_3 | split: ',' %}
+
+{% for handle in product_handles %}
+  {% assign handle = handle | strip %}
   {% assign related_product = all_products[handle] %}
   {% if related_product %}
     <div class="product-card">
@@ -28,15 +31,11 @@
       <div class="product-info">
         <div class="stars">★★★★★</div>
         <h4>{{ related_product.title }}</h4>
-        <p class="price">{{ related_product.variants.first.price | money }}</p>
+        <p class="price">{{ related_product.price | money }}</p>
       </div>
     </div>
-  {% else %}
-    <!-- Debug -->
-    <p>Product not found for handle: {{ handle }}</p>
   {% endif %}
 {% endfor %}
-
 
             </div>
           </div>
