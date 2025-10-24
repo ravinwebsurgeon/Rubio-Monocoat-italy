@@ -491,6 +491,7 @@
     });
 
    document.querySelectorAll('.thumbnail-item').forEach(item => {
+    console.log('checkDataSrc',item)
       let show = true;
       for (const [key, val] of Object.entries(selectedOptions)) {
         if (!val || item.dataset[key].toLowerCase() !== val.replace('.', '-')) {
