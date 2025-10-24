@@ -369,6 +369,7 @@
 }
 }
 </style>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   var swiper = new Swiper(".inspired-slider", {
@@ -397,7 +398,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // ✅ Update Product Info
+  // ✅ Update Product Info for the center slide
   function updateProductInfo() {
     let centerSlide = document.querySelector(".inspired-slide.swiper-slide-active");
     if (centerSlide) {
@@ -419,39 +420,39 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
           </a>
           <div class="atc-btn-wrap">
-            <a href="#" class="add-to-cart-btn" data-variant-id="${variantId}">
+            <a href="javascript:void(0)" class="add-to-cart-btn" data-variant-id="${variantId}">
               <img src="{{ 'icon-cart.svg' | asset_url }}" alt="Cart Icon">
             </a>
           </div>
         </div>
       `;
-
-      // ✅ Add click handler for Add to Cart
-      const addToCartBtn = document.querySelector(".add-to-cart-btn");
-      if (addToCartBtn) {
-        addToCartBtn.addEventListener("click", function (e) {
-          e.preventDefault();
-          const variantId = this.getAttribute("data-variant-id");
-          if (!variantId) return;
-
-          fetch("/cart/add.js", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ id: variantId, quantity: 1 })
-          })
-          .then(response => response.json())
-          .then(data => {
-            console.log("Added to cart:", data);
-            // ✅ Update cart drawer
-            if (typeof window.updateCartDrawer === "function") window.updateCartDrawer();
-            // ✅ Update cart bubble
-            if (typeof window.updateCartBubble === "function") window.updateCartBubble();
-          })
-          .catch(err => console.error("Cart add error:", err));
-        });
-      }
     }
   }
+
+  // ✅ Delegate Add to Cart click (works for dynamically added buttons)
+  document.body.addEventListener("click", function(e) {
+    if (e.target.closest(".add-to-cart-btn")) {
+      e.preventDefault();
+      const btn = e.target.closest(".add-to-cart-btn");
+      const variantId = btn.getAttribute("data-variant-id");
+      if (!variantId) return;
+
+      fetch("/cart/add.js", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: variantId, quantity: 1 })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Added to cart:", data);
+        // Update cart drawer
+        if (typeof window.updateCartDrawer === "function") window.updateCartDrawer();
+        // Update cart bubble
+        if (typeof window.updateCartBubble === "function") window.updateCartBubble();
+      })
+      .catch(err => console.error("Cart add error:", err));
+    }
+  });
 
   // ✅ Pause all non-center videos, play only center one
   function playCenterVideo(swiper) {
