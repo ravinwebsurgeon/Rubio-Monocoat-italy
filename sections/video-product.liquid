@@ -1,4 +1,23 @@
-{% assign products = product.metafields.custom.video_products_list %}
+{% unless product.tags contains 'video_with_products' %}
+<section class="video-products-section">
+  <div class="container" data-aos="fade-up">
+    <!-- Heading from metafield -->
+    <h2 class="video-heading">{{ product.metafields.custom.video_products_heading }}</h2>
+
+    <div class="video-wrapper">
+      <div class="video-container">
+        <!-- Video from metafield -->
+        <video autoplay muted loop playsinline class="video-bg">
+          <source src="{{ product.metafields.custom.video_products_video_url }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+
+        <!-- Product slider -->
+        <div class="product-overlay">
+          <div class="product-slider">
+            <div class="product-track">
+
+              {% assign products = product.metafields.custom.video_products_list %}
 
 {% for related_product in products %}
   <div class="product-card">
@@ -27,6 +46,22 @@
   </div>
 {% endfor %}
 
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Button from metafield -->
+    {% if product.metafields.custom.video_products_button_link %}
+      <a href="{{ product.metafields.custom.video_products_button_link }}" class="view-button">
+        {{ product.metafields.custom.video_products_button_label }}
+      </a>
+    {% endif %}
+  </div>
+</section>
+{% endunless %}
 
 
 <script>
