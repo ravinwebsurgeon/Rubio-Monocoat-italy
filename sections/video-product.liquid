@@ -13,30 +13,33 @@
         <div class="product-overlay">
           <div class="product-slider">
             <div class="product-track">
-              {% assign handles = product.metafields.custom.video_products_handles | split: ',' %}
-              {% for handle in handles %}
-                {% assign handle = handle | strip %}
-                {% assign prod = all_products[handle] %}
-                {% if prod %}
-                  <div class="product-card">
-                    <div class="product-image">
-                      {% if prod.featured_image %}
-                        <img src="{{ prod.featured_image | img_url: '150x' }}" alt="{{ prod.title }}">
-                      {% else %}
-                        <img src="//rubio-monocoat-italy.myshopify.com/cdn/shopifycloud/storefront/assets/no-image-160-46f2d4a0_150x.gif" alt="{{ prod.title }}">
-                      {% endif %}
-                    </div>
-                    <div class="product-info">
-                      <div class="stars">★★★★★</div>
-                      <h4>{{ prod.title }}</h4>
-                      <p class="price">{{ prod.price | money }}</p>
-                    </div>
-                  </div>
-                {% else %}
-                  <p>Product not found: {{ handle }}</p>
-                {% endif %}
-              {% endfor %}
-            </div>
+      {% assign handles = product.metafields.custom.video_products_handles | split: ',' %}
+<div class="video-products-wrapper">
+  {% for handle in handles %}
+    {% assign handle = handle | strip %}
+    {% assign prod = all_products[handle] %}
+    {% if prod %}
+      <div class="product-card">
+        <div class="product-image">
+          {% assign image = prod.featured_image | default: prod.images.first %}
+          {% if image %}
+            <img src="{{ image | img_url: '150x' }}" alt="{{ prod.title }}">
+          {% else %}
+            <img src="//rubio-monocoat-italy.myshopify.com/cdn/shopifycloud/storefront/assets/no-image-160-46f2d4a0_150x.gif" alt="{{ prod.title }}">
+          {% endif %}
+        </div>
+        <div class="product-info">
+          <div class="stars">★★★★★</div>
+          <h4>{{ prod.title }}</h4>
+          <p class="price">{{ prod.price | money }}</p>
+        </div>
+      </div>
+    {% else %}
+      <p>Product not found: {{ handle }}</p>
+    {% endif %}
+  {% endfor %}
+</div>
+
           </div>
         </div>
       </div>
