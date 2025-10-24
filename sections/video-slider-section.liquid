@@ -469,45 +469,31 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-
-
 {% schema %}
 {
   "name": "Inspired Video Slider",
   "settings": [
     {
-      "type": "text",
-      "id": "heading",
-      "label": "Section Heading",
-      "default": "Get inspired.."
-    }
-  ],
-  "blocks": [
+      "type": "paragraph",
+      "content": "This slider now uses product metafields:"
+    },
     {
-      "type": "slide",
-      "name": "Slide",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Slide Image (if no video)"
-        },
-        {
-          "type": "image_picker",
-          "id": "thumbnail",
-          "label": "Video Thumbnail"
-        },
-        {
-          "type": "url",
-          "id": "video_url",
-          "label": "Video URL"
-        },
-        {
-          "type": "product",
-          "id": "product",
-          "label": "Linked Product"
-        }
-      ]
+      "type": "paragraph",
+      "content": "• Heading → product.metafields.custom.inspired_heading"
+    },
+    {
+      "type": "paragraph",
+      "content": "• Videos → product.metafields.custom.inspired_videos"
+    },
+    {
+      "type": "paragraph",
+      "content": "• Products → product.metafields.custom.inspired_products"
+    },
+    {
+      "type": "text",
+      "id": "fallback_heading",
+      "label": "Fallback Heading (optional)",
+      "default": "Get inspired.."
     }
   ],
   "presets": [
