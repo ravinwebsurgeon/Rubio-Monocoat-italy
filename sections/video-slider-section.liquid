@@ -372,10 +372,10 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   var swiper = new Swiper(".inspired-slider", {
-    slidesPerView:4.2,
-  centeredSlides: true,
-  loop: true,
-  spaceBetween: 20,
+    slidesPerView: 4.2,
+    centeredSlides: true,
+    loop: true,
+    spaceBetween: 20,
     navigation: {
       nextEl: ".custom-next",
       prevEl: ".custom-prev",
@@ -397,7 +397,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // ✅ Product Info Update
+  // ✅ Update Product Info
   function updateProductInfo() {
     let centerSlide = document.querySelector(".inspired-slide.swiper-slide-active");
     if (centerSlide) {
@@ -423,7 +423,33 @@ document.addEventListener("DOMContentLoaded", function () {
               <img src="{{ 'icon-cart.svg' | asset_url }}" alt="Cart Icon">
             </a>
           </div>
-        </div>`;
+        </div>
+      `;
+
+      // ✅ Add click handler for Add to Cart
+      const addToCartBtn = document.querySelector(".add-to-cart-btn");
+      if (addToCartBtn) {
+        addToCartBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          const variantId = this.getAttribute("data-variant-id");
+          if (!variantId) return;
+
+          fetch("/cart/add.js", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id: variantId, quantity: 1 })
+          })
+          .then(response => response.json())
+          .then(data => {
+            console.log("Added to cart:", data);
+            // ✅ Update cart drawer
+            if (typeof window.updateCartDrawer === "function") window.updateCartDrawer();
+            // ✅ Update cart bubble
+            if (typeof window.updateCartBubble === "function") window.updateCartBubble();
+          })
+          .catch(err => console.error("Cart add error:", err));
+        });
+      }
     }
   }
 
@@ -437,22 +463,20 @@ document.addEventListener("DOMContentLoaded", function () {
     let centerSlide = swiper.slides[swiper.activeIndex];
     let centerVideo = centerSlide.querySelector("video");
     if (centerVideo) {
-      centerVideo.currentTime = 0; // restart
+      centerVideo.currentTime = 0;
       let playPromise = centerVideo.play();
       if (playPromise !== undefined) {
-        playPromise.catch(err => {
-          console.log("Autoplay prevented:", err);
-        });
+        playPromise.catch(err => console.log("Autoplay prevented:", err));
       }
     }
   }
 
-  // ✅ Ensure correct video plays after full page load
   window.addEventListener("load", () => {
     playCenterVideo(swiper);
   });
 });
 </script>
+
 
 
 
