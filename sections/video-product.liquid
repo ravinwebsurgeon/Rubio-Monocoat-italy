@@ -16,39 +16,42 @@
         <div class="product-overlay">
           <div class="product-slider">
             <div class="product-track">
+
               {% assign products = 
-  product.metafields.custom.video_product_1 | append: ',' | append: product.metafields.custom.video_product_2 | append: ',' | append: product.metafields.custom.video_product_3 | split: ',' %}
+                product.metafields.custom.video_product_1 | append: ',' | append: product.metafields.custom.video_product_2 | append: ',' | append: product.metafields.custom.video_product_3 | split: ',' %}
 
-{% for prod in products %}
-  {% if prod != blank %}
-    {% assign related_product = prod %}
-    <div class="product-card">
-      <div class="product-image">
-        {% if related_product.featured_image %}
-          <img src="{{ related_product.featured_image | img_url: '150x' }}" alt="{{ related_product.title }}">
-        {% endif %}
-      </div>
-      <div class="product-info">
-        <div class="stars">★★★★★</div>
-        <h4>{{ related_product.title }}</h4>
-        <p class="price">{{ related_product.price | money }}</p>
-      </div>
-      <div class="product-icons">
-        {% if section.settings.icon_1 %}
-          <a href="#" class="add-to-cart-btn" data-variant-id="{{ related_product.selected_or_first_available_variant.id }}">
-            <img src="{{ section.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
-          </a>
-        {% endif %}
-        {% if section.settings.icon_2 %}
-          <a href="javascript:void(0);" class="slide-next-btn">
-            <img src="{{ section.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
-          </a>
-        {% endif %}
-      </div>
-    </div>
-  {% endif %}
-{% endfor %}
+              {% for prod in products %}
+                {% if prod != blank %}
+                  {% assign related_product = prod %}
 
+                  <!-- Render product card -->
+                  <div class="product-card">
+                    <div class="product-image">
+                      {% if related_product.featured_image %}
+                        <img src="{{ related_product.featured_image | img_url: '150x' }}" alt="{{ related_product.title }}">
+                      {% endif %}
+                    </div>
+                    <div class="product-info">
+                      <div class="stars">★★★★★</div>
+                      <h4>{{ related_product.title }}</h4>
+                      <p class="price">{{ related_product.price | money }}</p>
+                    </div>
+                    <div class="product-icons">
+                      {% if section.settings.icon_1 %}
+                        <a href="#" class="add-to-cart-btn" data-variant-id="{{ related_product.selected_or_first_available_variant.id }}">
+                          <img src="{{ section.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
+                        </a>
+                      {% endif %}
+                      {% if section.settings.icon_2 %}
+                        <a href="javascript:void(0);" class="slide-next-btn">
+                          <img src="{{ section.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
+                        </a>
+                      {% endif %}
+                    </div>
+                  </div>
+
+                {% endif %}
+              {% endfor %}
 
             </div>
           </div>
@@ -68,39 +71,31 @@
 {% endunless %}
 
 
-
 <script>
 $(document).ready(function () {
+  // Cart bubble logic
   function setCartBubble(count) {
     var $icon = $("#cart-icon-bubble");
     if (!$icon.length) return;
-
     var $bubble = $icon.find(".cart-count-bubble");
-
     if (count > 0) {
-      if (!$bubble.length) {
-        $bubble = $('<div class="cart-count-bubble" aria-live="polite"></div>').appendTo($icon);
-      }
+      if (!$bubble.length) $bubble = $('<div class="cart-count-bubble" aria-live="polite"></div>').appendTo($icon);
       $bubble.html(
         '<span aria-hidden="true">' + count + '</span>' +
         '<span class="visually-hidden">' + count + ' item' + (count > 1 ? 's' : '') + '</span>'
       ).show();
-    } else {
-      $bubble.remove();
-    }
+    } else $bubble.remove();
   }
 
-  // Check cart every 2 seconds
   setInterval(function () {
     $.getJSON("/cart.js", function (cart) {
       setCartBubble(cart.item_count);
     });
   }, 2000);
 
-  // Add to cart click handler
+  // Add to cart handler
   $(".add-to-cart-btn").on("click", function (e) {
     e.preventDefault();
-
     var variantId = $(this).data("variant-id");
     if (!variantId) return console.error("Variant ID missing");
 
@@ -112,45 +107,44 @@ $(document).ready(function () {
       success: function () {
         $.get("/?section_id=cart-drawer", function (data) {
           var $drawer = $("cart-drawer");
-          var newDrawerHtml = $(data).find("cart-drawer").html();
-          var newDrawerClass = $(data).find("cart-drawer").attr("class") || "drawer animate";
-          $drawer.html(newDrawerHtml);
-          $drawer.attr("class", newDrawerClass.replace("is-empty", "").trim()).addClass("active");
+          if ($drawer.length) {
+            var newDrawerHtml = $(data).find("cart-drawer").html();
+            var newDrawerClass = $(data).find("cart-drawer").attr("class") || "drawer animate";
+            $drawer.html(newDrawerHtml);
+            $drawer.attr("class", newDrawerClass.replace("is-empty", "").trim()).addClass("active");
+          }
         });
       },
-      error: function (err) {
-        console.error("Error adding to cart:", err);
-      }
+      error: function (err) { console.error("Error adding to cart:", err); }
     });
   });
 
-  // Close drawer on overlay click
+  // Close drawer on overlay
   $(document).on("click", ".cart-drawer__overlay", function () {
     $("cart-drawer").removeClass("active");
   });
 });
 
+// Slide next buttons
 $(document).on("click", ".slide-next-btn", function () {
-    setTimeout(function () {
-        $(".product-overlay").addClass("active-slide");
-    }, 200); // 500ms = half second delay
+    $(".product-overlay").addClass("active-slide");
 });
 
 $(document).on("click", ".slide-next-btn.gg-3, .slide-next-btn.gg-2", function () {
-    setTimeout(function () {
-        $(".product-overlay").removeClass("active-slide");
-    }, 200); // change the time as needed
+    $(".product-overlay").removeClass("active-slide");
 });
 
+// Slider animation (only if element exists)
 document.addEventListener("DOMContentLoaded", function () {
-  const track = document.querySelector(".product-track");
   const wrapper = document.querySelector(".product-slider");
+  const track = document.querySelector(".product-track");
 
-  // Clone slides for infinite seamless loop
-  const slides = Array.from(track.children);
-  slides.forEach(slide => track.appendChild(slide.cloneNode(true)));
+  if (!wrapper || !track) return; // Prevent null reference error
 
-  let speed = 1; // adjust speed
+  // Clone slides for infinite loop
+  Array.from(track.children).forEach(slide => track.appendChild(slide.cloneNode(true)));
+
+  let speed = 1;
   let offset = 0;
   let isPaused = false;
 
@@ -160,26 +154,14 @@ document.addEventListener("DOMContentLoaded", function () {
   function animate() {
     if (!isPaused) {
       offset -= speed;
-
-      // Use modulo to loop smoothly without jump
       offset %= track.scrollWidth / 2;
-
       track.style.transform = `translateX(${offset}px)`;
     }
-
     requestAnimationFrame(animate);
   }
 
   animate();
 });
-
-
-
-
-
-
-
-
 </script>
 
 {% stylesheet %}
