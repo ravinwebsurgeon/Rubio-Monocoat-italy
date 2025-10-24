@@ -15,7 +15,7 @@
         <!-- Product slider -->
         <div class="product-overlay">
           <div class="product-slider">
-            <div class="product-track" data-product={{ product.metafields | json }}>
+            <div class="product-track" data-product={{ product.metafields  }}>
 
               {% assign product_handles = 
                 product.metafields.custom.video_product_1 | append: ',' | append: product.metafields.custom.video_product_2 | append: ',' | append: product.metafields.custom.video_product_3 | split: ',' %}
