@@ -144,10 +144,27 @@
     },
     "video_product_FcVMD6": {
       "type": "video-product",
+      "blocks": {
+        "product_block_QUneNc": {
+          "type": "product_block",
+          "settings": {
+            "product": "oil-plus-part-a-20-ml",
+            "icon_1": "shopify://shop_images/0ca97c9394d9015e0a1e6617e655bc70bf75a973.png",
+            "icon_1_link": "",
+            "icon_2": "shopify://shop_images/9eded025a5a27e37ca8d6937737473195f38772e.png",
+            "icon_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_block_QUneNc"
+      ],
       "name": "Video with Products",
       "settings": {
-        "icon_1": "shopify://shop_images/0ca97c9394d9015e0a1e6617e655bc70bf75a973.png",
-        "icon_2": "shopify://shop_images/9eded025a5a27e37ca8d6937737473195f38772e.png"
+        "heading": "Application in a few simple steps",
+        "video_url": "",
+        "button_link": "",
+        "button_label": "View All Products"
       }
     },
     "how_to_use_faq_metafield_k4TgDV": {
