@@ -21,11 +21,9 @@
         <div class="product-overlay">
           <div class="product-slider">
             <div class="product-track">
-
-              {% if product.metafields.custom.video_products_handle %}
-  {% assign handles = product.metafields.custom.video_products_handle | split: ',' %}
+{% if product.metafields.custom.video_products_handle %}
   <div class="video-products-wrapper">
-    {% for handle in handles %}
+    {% for handle in product.metafields.custom.video_products_handle %}
       {% assign handle = handle | strip | downcase %}
       {% assign prod = all_products[handle] %}
       
@@ -68,6 +66,7 @@
 {% else %}
   <p>No products found in metafield.</p>
 {% endif %}
+
 
 
             </div>
