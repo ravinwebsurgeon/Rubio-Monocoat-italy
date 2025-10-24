@@ -1,53 +1,59 @@
 {% unless product.tags contains 'video_with_products' %}
 <section class="video-products-section">
   <div class="container" data-aos="fade-up">
-    <h2 class="video-heading" >{{ section.settings.heading }}</h2>
+    <h2 class="video-heading">{{ product.metafields.custom.video_products_heading }}</h2>
+
     <div class="video-wrapper">
       <div class="video-container">
         <video autoplay muted loop playsinline class="video-bg">
-          <source src="{{ section.settings.video_url }}" type="video/mp4">
+          <source src="{{ product.metafields.custom.video_products_video_url }}" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-  <div class="product-overlay">
-  <div class="product-slider">
-    <div class="product-track">
-      {% for block in section.blocks %}
-        {% if block.settings.product %}
-          {% assign product = all_products[block.settings.product] %}
-          {% if product %}
-            <div class="product-card">
-              <div class="product-image">
-                <img src="{{ product.featured_image | img_url: '150x' }}" alt="{{ product.title }}">
-              </div>
-              <div class="product-info">
-                <div class="stars">★★★★★</div>
-                <h4>{{ product.title }}</h4>
-                <p class="price">{{ product.price | money }}</p>
-              </div>
-              <div class="product-icons">
-                {% if block.settings.icon_1 %}
-                  <a href="#" class="add-to-cart-btn" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
-                    <img src="{{ block.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
-                  </a>
+
+        <div class="product-overlay">
+          <div class="product-slider">
+            <div class="product-track">
+              {% assign handles = product.metafields.custom.video_products_handles.value | split: ',' %}
+              {% for handle in handles %}
+                {% assign handle = handle | strip %}
+                {% assign product = all_products[handle] %}
+                {% if product %}
+                  <div class="product-card">
+                    <div class="product-image">
+                      <img src="{{ product.featured_image | img_url: '150x' }}" alt="{{ product.title }}">
+                    </div>
+                    <div class="product-info">
+                      <div class="stars">★★★★★</div>
+                      <h4>{{ product.title }}</h4>
+                      <p class="price">{{ product.price | money }}</p>
+                    </div>
+                    <div class="product-icons">
+                      {% assign icon1 = product.metafields.custom.video_products_icon_1 %}
+                      {% assign icon2 = product.metafields.custom.video_products_icon_2 %}
+                      {% if icon1 %}
+                        <a href="#" class="add-to-cart-btn" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+                          <img src="{{ icon1 | img_url: '40x' }}" alt="Add to Cart">
+                        </a>
+                      {% endif %}
+                      {% if icon2 %}
+                        <a href="javascript:void(0);" class="slide-next-btn gg-{{ forloop.index }}">
+                          <img src="{{ icon2 | img_url: '40x' }}" alt="Next Products">
+                        </a>
+                      {% endif %}
+                    </div>
+                  </div>
                 {% endif %}
-                {% if block.settings.icon_2 %}
-                  <a href="javascript:void(0);" class="slide-next-btn gg-{{ forloop.index }}">
-                    <img src="{{ block.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
-                  </a>
-                {% endif %}
-              </div>
+              {% endfor %}
             </div>
-          {% endif %}
-        {% endif %}
-      {% endfor %}
-    </div>
-  </div>
-</div>
+          </div>
+        </div>
       </div>
     </div>
 
-    {% if section.settings.button_link %}
-      <a href="{{ section.settings.button_link }}" class="view-button">{{ section.settings.button_label }}</a>
+    {% if product.metafields.custom.video_products_button_link %}
+      <a href="{{ product.metafields.custom.video_products_button_link }}" class="view-button">
+        {{ product.metafields.custom.video_products_button_label }}
+      </a>
     {% endif %}
   </div>
 </section>
@@ -73,17 +79,14 @@ $(document).ready(function () {
     }
   }
 
-  // Check cart every 2 seconds
   setInterval(function () {
     $.getJSON("/cart.js", function (cart) {
       setCartBubble(cart.item_count);
     });
   }, 2000);
 
-  // Add to cart click handler
   $(".add-to-cart-btn").on("click", function (e) {
     e.preventDefault();
-
     var variantId = $(this).data("variant-id");
     if (!variantId) return console.error("Variant ID missing");
 
@@ -107,33 +110,29 @@ $(document).ready(function () {
     });
   });
 
-  // Close drawer on overlay click
   $(document).on("click", ".cart-drawer__overlay", function () {
     $("cart-drawer").removeClass("active");
   });
-});
 
-$(document).on("click", ".slide-next-btn", function () {
+  $(document).on("click", ".slide-next-btn", function () {
     setTimeout(function () {
-        $(".product-overlay").addClass("active-slide");
-    }, 200); // 500ms = half second delay
-});
+      $(".product-overlay").addClass("active-slide");
+    }, 200);
+  });
 
-$(document).on("click", ".slide-next-btn.gg-3, .slide-next-btn.gg-2", function () {
+  $(document).on("click", ".slide-next-btn.gg-3, .slide-next-btn.gg-2", function () {
     setTimeout(function () {
-        $(".product-overlay").removeClass("active-slide");
-    }, 200); // change the time as needed
-});
+      $(".product-overlay").removeClass("active-slide");
+    }, 200);
+  });
 
-document.addEventListener("DOMContentLoaded", function () {
   const track = document.querySelector(".product-track");
   const wrapper = document.querySelector(".product-slider");
 
-  // Clone slides for infinite seamless loop
   const slides = Array.from(track.children);
   slides.forEach(slide => track.appendChild(slide.cloneNode(true)));
 
-  let speed = 1; // adjust speed
+  let speed = 1;
   let offset = 0;
   let isPaused = false;
 
@@ -143,13 +142,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function animate() {
     if (!isPaused) {
       offset -= speed;
-
-      // Use modulo to loop smoothly without jump
       offset %= track.scrollWidth / 2;
-
       track.style.transform = `translateX(${offset}px)`;
     }
-
     requestAnimationFrame(animate);
   }
 
@@ -313,63 +308,8 @@ document.addEventListener("DOMContentLoaded", function () {
 {% schema %}
 {
   "name": "Video with Products",
-  "settings": [
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Application in a few simple steps"
-    },
-    {
-      "type": "url",
-      "id": "video_url",
-      "label": "Video MP4 URL"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button Link"
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "label": "Button Label",
-      "default": "View All Products"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "product_block",
-      "name": "Product",
-      "settings": [
-        {
-          "type": "product",
-          "id": "product",
-          "label": "Select Product"
-        },
-        {
-          "type": "image_picker",
-          "id": "icon_1",
-          "label": "First Icon"
-        },
-        {
-          "type": "url",
-          "id": "icon_1_link",
-          "label": "First Icon Link"
-        },
-        {
-          "type": "image_picker",
-          "id": "icon_2",
-          "label": "Second Icon"
-        },
-        {
-          "type": "url",
-          "id": "icon_2_link",
-          "label": "Second Icon Link"
-        }
-      ]
-    }
-  ],
+  "settings": [],
+  "blocks": [],
   "presets": [
     {
       "name": "Video with Products",
