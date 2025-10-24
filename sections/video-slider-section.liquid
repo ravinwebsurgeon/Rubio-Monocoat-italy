@@ -9,44 +9,33 @@
   <!-- Swiper Slider -->
   <div class="swiper inspired-slider" id="inspiration">
     <div class="swiper-wrapper">
-      {%- assign video_field = product.metafields.custom.inspired_videos -%}
-      {%- assign video_urls = '' -%}
-
-      {%- if video_field contains ',' -%}
-        {%- assign video_urls = video_field | split: ',' -%}
-      {%- elsif video_field contains '•' -%}
-        {%- assign video_urls = video_field | split: '•' -%}
-      {%- else -%}
-        {%- assign video_urls = video_field | split: '\n' -%}
-      {%- endif -%}
-
-      {% assign related_products = product.metafields.custom.inspired_products.value %}
-      
-      {% for prod in related_products %}
-        {% assign current_video = video_urls[forloop.index0] | strip %}
-        <div 
-          class="swiper-slide inspired-slide"
-          data-product-title="{{ prod.title }}"
-          data-product-img="{{ prod.featured_image | img_url: '600x600' }}"
-          data-product-url="{{ prod.url }}"
-          data-product-vendor="{{ prod.vendor }}"
-          data-product-price="{{ prod.price | money }}"
-          data-variant-id="{{ prod.selected_or_first_available_variant.id }}"
-          data-video-url="{{ current_video }}"
-        >
-          {% if current_video != blank %}
-            <video muted playsinline preload="auto" loop>
-              <source src="{{ current_video }}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          {% else %}
-            <img 
-              src="{{ prod.featured_image | img_url: '600x600' }}" 
-              alt="{{ prod.title }}">
-          {% endif %}
-        </div>
-      {% endfor %}
+  {% assign video_urls = product.metafields.custom.inspired_videos.value %}
+  {% assign related_products = product.metafields.custom.inspired_products.value %}
+  
+  {% for prod in related_products %}
+    {% assign current_video = video_urls[forloop.index0].url %}
+    <div 
+      class="swiper-slide inspired-slide"
+      data-product-title="{{ prod.title }}"
+      data-product-img="{{ prod.featured_image | img_url: '600x600' }}"
+      data-product-url="{{ prod.url }}"
+      data-product-vendor="{{ prod.vendor }}"
+      data-product-price="{{ prod.price | money }}"
+      data-variant-id="{{ prod.selected_or_first_available_variant.id }}"
+      data-video-url="{{ current_video }}"
+    >
+      {% if current_video != blank %}
+        <video muted playsinline preload="auto" loop>
+          <source src="{{ current_video }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      {% else %}
+        <img src="{{ prod.featured_image | img_url: '600x600' }}" alt="{{ prod.title }}">
+      {% endif %}
     </div>
+  {% endfor %}
+</div>
+
 
     <!-- Navigation -->
     <div class="swiper-button-prev custom-prev">
