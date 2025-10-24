@@ -22,7 +22,7 @@
           <div class="product-slider">
             <div class="product-track">
 {% if product.metafields.custom.video_products_handle %}
-  
+  <div class="video-products-wrapper">
     {% for item in product.metafields.custom.video_products_handle %}
       {% assign handle = item.value | strip | downcase %}
       {% assign prod = all_products[handle] %}
@@ -60,7 +60,7 @@
         <!-- <p>Product not found for handle: {{ handle }}</p> -->
       {% endif %}
     {% endfor %}
-  
+  </div>
 {% else %}
   <p>No products found in metafield.</p>
 {% endif %}
