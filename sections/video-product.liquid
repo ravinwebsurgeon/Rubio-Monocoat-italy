@@ -1,93 +1,57 @@
 {% unless product.tags contains 'video_with_products' %}
 <section class="video-products-section">
   <div class="container" data-aos="fade-up">
-
-    <!-- ✅ Heading from metafield -->
-    {% if product.metafields.custom.video_products_heading %}
-      <h2 class="video-heading">{{ product.metafields.custom.video_products_heading }}</h2>
-    {% endif %}
-
+    <h2 class="video-heading" >{{ section.settings.heading }}</h2>
     <div class="video-wrapper">
       <div class="video-container">
-        <!-- ✅ Video from metafield -->
-        {% if product.metafields.custom.video_products_video_url %}
-          <video autoplay muted loop playsinline class="video-bg">
-            <source src="{{ product.metafields.custom.video_products_video_url }}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        {% endif %}
-
-        <!-- ✅ Product Cards -->
-        <div class="product-overlay">
-          <div class="product-slider">
-            <div class="product-track">
-
-              {% if product.metafields.custom.video_products_handle %}
-  {% assign handles = product.metafields.custom.video_products_handle | split: ',' %}
-  <div class="video-products-wrapper">
-    {% for handle in handles %}
-      {% assign handle = handle | strip | downcase %}
-      {% assign prod = all_products[handle] %}
-      
-      {% if prod %}
-        <div class="product-card">
-          <div class="product-image">
-            {% if prod.featured_image %}
-              <img src="{{ prod.featured_image | img_url: '400x' }}" alt="{{ prod.title }}">
-            {% else %}
-              <div class="no-image">No Image</div>
-            {% endif %}
-          </div>
-
-          <div class="product-info">
-            <div class="stars">★★★★★</div>
-            <h4>{{ prod.title }}</h4>
-            <p class="price">{{ prod.price | money }}</p>
-          </div>
-
-          <!-- ✅ Icons (from section schema) -->
-          <div class="product-icons">
-            {% if section.settings.icon_1 %}
-              <a href="#" class="add-to-cart-btn" data-variant-id="{{ prod.selected_or_first_available_variant.id }}">
-                <img src="{{ section.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
-              </a>
-            {% endif %}
-            {% if section.settings.icon_2 %}
-              <a href="javascript:void(0);" class="slide-next-btn gg-{{ forloop.index }}">
-                <img src="{{ section.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
-              </a>
-            {% endif %}
-          </div>
-        </div>
-      {% else %}
-        <!-- Optional: debug info if product handle not found -->
-        <!-- <p>Product not found for handle: {{ handle }}</p> -->
-      {% endif %}
-    {% endfor %}
-  </div>
-{% else %}
-  <p>No products found in metafield.</p>
-{% endif %}
-
-
+        <video autoplay muted loop playsinline class="video-bg">
+          <source src="{{ section.settings.video_url }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+  <div class="product-overlay">
+  <div class="product-slider">
+    <div class="product-track">
+      {% for block in section.blocks %}
+        {% if block.settings.product %}
+          {% assign product = all_products[block.settings.product] %}
+          {% if product %}
+            <div class="product-card">
+              <div class="product-image">
+                <img src="{{ product.featured_image | img_url: '150x' }}" alt="{{ product.title }}">
+              </div>
+              <div class="product-info">
+                <div class="stars">★★★★★</div>
+                <h4>{{ product.title }}</h4>
+                <p class="price">{{ product.price | money }}</p>
+              </div>
+              <div class="product-icons">
+                {% if block.settings.icon_1 %}
+                  <a href="#" class="add-to-cart-btn" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+                    <img src="{{ block.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
+                  </a>
+                {% endif %}
+                {% if block.settings.icon_2 %}
+                  <a href="javascript:void(0);" class="slide-next-btn gg-{{ forloop.index }}">
+                    <img src="{{ block.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
+                  </a>
+                {% endif %}
+              </div>
             </div>
-          </div>
-        </div>
-
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
       </div>
     </div>
 
-    <!-- ✅ Button from metafields -->
-    {% if product.metafields.custom.video_products_button_link %}
-      <a href="{{ product.metafields.custom.video_products_button_link }}" class="view-button">
-        {{ product.metafields.custom.video_products_button_label }}
-      </a>
+    {% if section.settings.button_link %}
+      <a href="{{ section.settings.button_link }}" class="view-button">{{ section.settings.button_label }}</a>
     {% endif %}
-
   </div>
 </section>
 {% endunless %}
-
 <script>
 $(document).ready(function () {
   function setCartBubble(count) {
@@ -191,6 +155,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   animate();
 });
+
+
+
+
+
+
+
+
 </script>
 
 {% stylesheet %}
@@ -201,9 +173,14 @@ document.addEventListener("DOMContentLoaded", function () {
   width: 936px;
   overflow: hidden;
 }
+/* 
+.product-slider {
+  overflow: hidden;
+} */
 
 .product-overlay.active-slide {
     left: 50%;
+    /* transform: translateX(-50%); */
     width: 100%;
     justify-content: center;
      transition: transform .10s ease,visibility .64s ease 
@@ -346,14 +323,59 @@ document.addEventListener("DOMContentLoaded", function () {
   "name": "Video with Products",
   "settings": [
     {
-      "type": "image_picker",
-      "id": "icon_1",
-      "label": "First Icon (Add to Cart)"
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Application in a few simple steps"
     },
     {
-      "type": "image_picker",
-      "id": "icon_2",
-      "label": "Second Icon (Next Button)"
+      "type": "url",
+      "id": "video_url",
+      "label": "Video MP4 URL"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "View All Products"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_block",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_1",
+          "label": "First Icon"
+        },
+        {
+          "type": "url",
+          "id": "icon_1_link",
+          "label": "First Icon Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_2",
+          "label": "Second Icon"
+        },
+        {
+          "type": "url",
+          "id": "icon_2_link",
+          "label": "Second Icon Link"
+        }
+      ]
     }
   ],
   "presets": [
@@ -364,3 +386,7 @@ document.addEventListener("DOMContentLoaded", function () {
   ]
 }
 {% endschema %}
+
+
+
+video-products section
