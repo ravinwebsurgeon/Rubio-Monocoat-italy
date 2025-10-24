@@ -21,10 +21,12 @@
         <div class="product-overlay">
           <div class="product-slider">
             <div class="product-track">
-{% if product.metafields.custom.video_products_handle %}
+
+              {% if product.metafields.custom.video_products_handle %}
+  {% assign handles = product.metafields.custom.video_products_handle | split: ',' %}
   <div class="video-products-wrapper">
-    {% for item in product.metafields.custom.video_products_handle %}
-      {% assign handle = item.value | strip | downcase %}
+    {% for handle in handles %}
+      {% assign handle = handle | strip | downcase %}
       {% assign prod = all_products[handle] %}
       
       {% if prod %}
@@ -43,6 +45,7 @@
             <p class="price">{{ prod.price | money }}</p>
           </div>
 
+          <!-- ✅ Icons (from section schema) -->
           <div class="product-icons">
             {% if section.settings.icon_1 %}
               <a href="#" class="add-to-cart-btn" data-variant-id="{{ prod.selected_or_first_available_variant.id }}">
@@ -57,6 +60,7 @@
           </div>
         </div>
       {% else %}
+        <!-- Optional: debug info if product handle not found -->
         <!-- <p>Product not found for handle: {{ handle }}</p> -->
       {% endif %}
     {% endfor %}
@@ -64,7 +68,6 @@
 {% else %}
   <p>No products found in metafield.</p>
 {% endif %}
-
 
 
             </div>
