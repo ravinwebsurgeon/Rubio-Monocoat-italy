@@ -466,7 +466,6 @@
     const variantOptions = {{ product.options | json }}; // ["Color", "Size"]
 
   function updateGallery() {
-    console.log('called??')
     const selectedOptions = {};
     variantOptions.forEach(option => {
       const capitalized = option.charAt(0).toUpperCase() + option.slice(1);
@@ -476,8 +475,6 @@
       }
       selectedOptions[option.toLowerCase()] = selected ? selected.value.toLowerCase() : null;
     });
-      console.log(selectedOptions,'selectedOptions')
-
       document.querySelectorAll('.main-image-item').forEach(item => {
       let show = true;
       for (const [key, val] of Object.entries(selectedOptions)) {
@@ -489,7 +486,6 @@
       }
       item.style.display = show ? 'block' : 'none';
     });
-
    document.querySelectorAll('.thumbnail-item').forEach(item => {
     console.log('checkDataSrc',item)
       let show = true;
