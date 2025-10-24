@@ -17,18 +17,17 @@
           <div class="product-slider">
             <div class="product-track">
 
-              {% assign products = 
+              {% assign product_handles = 
                 product.metafields.custom.video_product_1 | append: ',' | append: product.metafields.custom.video_product_2 | append: ',' | append: product.metafields.custom.video_product_3 | split: ',' %}
 
-              {% for prod in products %}
-                {% if prod != blank %}
-                  {% assign related_product = prod %}
-
-                  <!-- Render product card -->
+              {% for handle in product_handles %}
+                {% assign handle = handle | strip %}
+                {% assign related_product = all_products[handle] %}
+                {% if related_product %}
                   <div class="product-card">
                     <div class="product-image">
                       {% if related_product.featured_image %}
-                        <img src="{{ related_product.featured_image | img_url: '150x' }}" alt="{{ related_product.title }}">
+                        <img src="{{ related_product.featured_image | img_url: '300x' }}" alt="{{ related_product.title }}">
                       {% endif %}
                     </div>
                     <div class="product-info">
@@ -49,7 +48,6 @@
                       {% endif %}
                     </div>
                   </div>
-
                 {% endif %}
               {% endfor %}
 
