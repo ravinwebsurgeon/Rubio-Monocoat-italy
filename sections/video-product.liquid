@@ -1,98 +1,89 @@
 {% unless product.tags contains 'video_with_products' %}
 <section class="video-products-section">
   <div class="container" data-aos="fade-up">
-    <!-- Heading from metafield -->
-    <h2 class="video-heading">{{ product.metafields.custom.video_products_heading }}</h2>
-
+    <h2 class="video-heading" >{{ section.settings.heading }}</h2>
     <div class="video-wrapper">
       <div class="video-container">
-        <!-- Video from metafield -->
         <video autoplay muted loop playsinline class="video-bg">
-          <source src="{{ product.metafields.custom.video_products_video_url }}" type="video/mp4">
+          <source src="{{ section.settings.video_url }}" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-
-        <!-- Product slider -->
-        <div class="product-overlay">
-          <div class="product-slider">
-            <div class="product-track" data-product={{ product.metafields  }}>
-
-              {% assign product_handles = 
-                product.metafields.custom.video_product_1 | append: ',' | append: product.metafields.custom.video_product_2 | append: ',' | append: product.metafields.custom.video_product_3 | split: ',' %}
-
-              {% for handle in product_handles %}
-                {% assign handle = handle | strip %}
-                {% assign related_product = all_products[handle] %}
-                {% if related_product %}
-                  <div class="product-card">
-                    <div class="product-image">
-                      {% if related_product.featured_image %}
-                        <img src="{{ related_product.featured_image | img_url: '300x' }}" alt="{{ related_product.title }}">
-                      {% endif %}
-                    </div>
-                    <div class="product-info">
-                      <div class="stars">★★★★★</div>
-                      <h4>{{ related_product.title }}</h4>
-                      <p class="price">{{ related_product.price | money }}</p>
-                    </div>
-                    <div class="product-icons">
-                      {% if section.settings.icon_1 %}
-                        <a href="#" class="add-to-cart-btn" data-variant-id="{{ related_product.selected_or_first_available_variant.id }}">
-                          <img src="{{ section.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
-                        </a>
-                      {% endif %}
-                      {% if section.settings.icon_2 %}
-                        <a href="javascript:void(0);" class="slide-next-btn">
-                          <img src="{{ section.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
-                        </a>
-                      {% endif %}
-                    </div>
-                  </div>
+  <div class="product-overlay">
+  <div class="product-slider">
+    <div class="product-track">
+      {% for block in section.blocks %}
+        {% if block.settings.product %}
+          {% assign product = all_products[block.settings.product] %}
+          {% if product %}
+            <div class="product-card">
+              <div class="product-image">
+                <img src="{{ product.featured_image | img_url: '150x' }}" alt="{{ product.title }}">
+              </div>
+              <div class="product-info">
+                <div class="stars">★★★★★</div>
+                <h4>{{ product.title }}</h4>
+                <p class="price">{{ product.price | money }}</p>
+              </div>
+              <div class="product-icons">
+                {% if block.settings.icon_1 %}
+                  <a href="#" class="add-to-cart-btn" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+                    <img src="{{ block.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
+                  </a>
                 {% endif %}
-              {% endfor %}
-
+                {% if block.settings.icon_2 %}
+                  <a href="javascript:void(0);" class="slide-next-btn gg-{{ forloop.index }}">
+                    <img src="{{ block.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
+                  </a>
+                {% endif %}
+              </div>
             </div>
-          </div>
-        </div>
-
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
       </div>
     </div>
 
-    <!-- Button from metafield -->
-    {% if product.metafields.custom.video_products_button_link %}
-      <a href="{{ product.metafields.custom.video_products_button_link }}" class="view-button">
-        {{ product.metafields.custom.video_products_button_label }}
-      </a>
+    {% if section.settings.button_link %}
+      <a href="{{ section.settings.button_link }}" class="view-button">{{ section.settings.button_label }}</a>
     {% endif %}
   </div>
 </section>
 {% endunless %}
-
 <script>
 $(document).ready(function () {
-  // Cart bubble logic
   function setCartBubble(count) {
     var $icon = $("#cart-icon-bubble");
     if (!$icon.length) return;
+
     var $bubble = $icon.find(".cart-count-bubble");
+
     if (count > 0) {
-      if (!$bubble.length) $bubble = $('<div class="cart-count-bubble" aria-live="polite"></div>').appendTo($icon);
+      if (!$bubble.length) {
+        $bubble = $('<div class="cart-count-bubble" aria-live="polite"></div>').appendTo($icon);
+      }
       $bubble.html(
         '<span aria-hidden="true">' + count + '</span>' +
         '<span class="visually-hidden">' + count + ' item' + (count > 1 ? 's' : '') + '</span>'
       ).show();
-    } else $bubble.remove();
+    } else {
+      $bubble.remove();
+    }
   }
 
+  // Check cart every 2 seconds
   setInterval(function () {
     $.getJSON("/cart.js", function (cart) {
       setCartBubble(cart.item_count);
     });
   }, 2000);
 
-  // Add to cart handler
+  // Add to cart click handler
   $(".add-to-cart-btn").on("click", function (e) {
     e.preventDefault();
+
     var variantId = $(this).data("variant-id");
     if (!variantId) return console.error("Variant ID missing");
 
@@ -104,44 +95,45 @@ $(document).ready(function () {
       success: function () {
         $.get("/?section_id=cart-drawer", function (data) {
           var $drawer = $("cart-drawer");
-          if ($drawer.length) {
-            var newDrawerHtml = $(data).find("cart-drawer").html();
-            var newDrawerClass = $(data).find("cart-drawer").attr("class") || "drawer animate";
-            $drawer.html(newDrawerHtml);
-            $drawer.attr("class", newDrawerClass.replace("is-empty", "").trim()).addClass("active");
-          }
+          var newDrawerHtml = $(data).find("cart-drawer").html();
+          var newDrawerClass = $(data).find("cart-drawer").attr("class") || "drawer animate";
+          $drawer.html(newDrawerHtml);
+          $drawer.attr("class", newDrawerClass.replace("is-empty", "").trim()).addClass("active");
         });
       },
-      error: function (err) { console.error("Error adding to cart:", err); }
+      error: function (err) {
+        console.error("Error adding to cart:", err);
+      }
     });
   });
 
-  // Close drawer on overlay
+  // Close drawer on overlay click
   $(document).on("click", ".cart-drawer__overlay", function () {
     $("cart-drawer").removeClass("active");
   });
 });
 
-// Slide next buttons
 $(document).on("click", ".slide-next-btn", function () {
-    $(".product-overlay").addClass("active-slide");
+    setTimeout(function () {
+        $(".product-overlay").addClass("active-slide");
+    }, 200); // 500ms = half second delay
 });
 
 $(document).on("click", ".slide-next-btn.gg-3, .slide-next-btn.gg-2", function () {
-    $(".product-overlay").removeClass("active-slide");
+    setTimeout(function () {
+        $(".product-overlay").removeClass("active-slide");
+    }, 200); // change the time as needed
 });
 
-// Slider animation (only if element exists)
 document.addEventListener("DOMContentLoaded", function () {
-  const wrapper = document.querySelector(".product-slider");
   const track = document.querySelector(".product-track");
+  const wrapper = document.querySelector(".product-slider");
 
-  if (!wrapper || !track) return; // Prevent null reference error
+  // Clone slides for infinite seamless loop
+  const slides = Array.from(track.children);
+  slides.forEach(slide => track.appendChild(slide.cloneNode(true)));
 
-  // Clone slides for infinite loop
-  Array.from(track.children).forEach(slide => track.appendChild(slide.cloneNode(true)));
-
-  let speed = 1;
+  let speed = 1; // adjust speed
   let offset = 0;
   let isPaused = false;
 
@@ -151,14 +143,26 @@ document.addEventListener("DOMContentLoaded", function () {
   function animate() {
     if (!isPaused) {
       offset -= speed;
+
+      // Use modulo to loop smoothly without jump
       offset %= track.scrollWidth / 2;
+
       track.style.transform = `translateX(${offset}px)`;
     }
+
     requestAnimationFrame(animate);
   }
 
   animate();
 });
+
+
+
+
+
+
+
+
 </script>
 
 {% stylesheet %}
@@ -319,23 +323,66 @@ document.addEventListener("DOMContentLoaded", function () {
   "name": "Video with Products",
   "settings": [
     {
-      "type": "image_picker",
-      "id": "icon_1",
-      "label": "Add to Cart Icon"
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Application in a few simple steps"
     },
     {
-      "type": "image_picker",
-      "id": "icon_2",
-      "label": "Next Slide Icon"
+      "type": "url",
+      "id": "video_url",
+      "label": "Video MP4 URL"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "View All Products"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_block",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_1",
+          "label": "First Icon"
+        },
+        {
+          "type": "url",
+          "id": "icon_1_link",
+          "label": "First Icon Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_2",
+          "label": "Second Icon"
+        },
+        {
+          "type": "url",
+          "id": "icon_2_link",
+          "label": "Second Icon Link"
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "Video with Products (Metafields)",
+      "name": "Video with Products",
       "category": "Custom"
     }
   ]
 }
 {% endschema %}
-
-
