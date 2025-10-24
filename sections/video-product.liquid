@@ -21,7 +21,7 @@
               Example: product-1, product-2, product-3
               {% endcomment %}
               {% assign handles = product.metafields.custom.video_products_handle | split: ',' %}
-              {% for handle in handles %}
+              {% comment %} {% for handle in handles %}
                 {% assign handle = handle | strip %}
                 {% assign prod = all_products[handle] %}
                 {% if prod %}
@@ -39,7 +39,18 @@
                     </div>
                   </div>
                 {% endif %}
-              {% endfor %}
+              {% endfor %} {% endcomment %}
+{% assign handles = product.metafields.custom.video_products_handle | split: ',' %}
+{% for handle in handles %}
+  <p style="color:red;">Debug handle: {{ handle }}</p>
+  {% assign handle = handle | strip %}
+  {% assign prod = all_products[handle] %}
+  {% if prod %}
+    <p style="color:green;">Found: {{ prod.title }}</p>
+  {% else %}
+    <p style="color:orange;">Not found: {{ handle }}</p>
+  {% endif %}
+{% endfor %}
 
             </div>
           </div>
