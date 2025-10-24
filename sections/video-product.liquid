@@ -41,16 +41,42 @@
                 {% endif %}
               {% endfor %} {% endcomment %}
 {% assign handles = product.metafields.custom.video_products_handle | split: ',' %}
-{% for handle in handles %}
-  <p style="color:red;">Debug handle: {{ handle }}</p>
-  {% assign handle = handle | strip %}
-  {% assign prod = all_products[handle] %}
-  {% if prod %}
-    <p style="color:green;">Found: {{ prod.title }}</p>
-  {% else %}
-    <p style="color:orange;">Not found: {{ handle }}</p>
-  {% endif %}
-{% endfor %}
+<div class="video-products">
+  {% for handle in handles %}
+    {% assign handle = handle | strip | downcase %}
+    {% assign prod = all_products[handle] %}
+    {% if prod %}
+      <div class="product-card">
+        <div class="product-image">
+          {% if prod.featured_image %}
+            <img src="{{ prod.featured_image | img_url: '400x' }}" alt="{{ prod.title }}">
+          {% else %}
+            <div class="no-image">No Image</div>
+          {% endif %}
+        </div>
+
+        <div class="product-details">
+          <h3 class="product-title">{{ prod.title }}</h3>
+          <p class="product-price">{{ prod.price | money }}</p>
+        </div>
+
+        <div class="product-icons">
+          {% if block.settings.icon_1 %}
+            <a href="#" class="add-to-cart-btn" data-variant-id="{{ prod.selected_or_first_available_variant.id }}">
+              <img src="{{ block.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
+            </a>
+          {% endif %}
+          {% if block.settings.icon_2 %}
+            <a href="javascript:void(0);" class="slide-next-btn gg-{{ forloop.index }}">
+              <img src="{{ block.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
 
             </div>
           </div>
