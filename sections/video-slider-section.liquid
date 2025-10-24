@@ -398,7 +398,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // ✅ Update Product Info for the center slide
   function updateProductInfo() {
     let centerSlide = document.querySelector(".inspired-slide.swiper-slide-active");
     if (centerSlide) {
@@ -429,7 +428,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // ✅ Delegate Add to Cart click (works for dynamically added buttons)
+  // ✅ Delegate Add to Cart click
   document.body.addEventListener("click", function(e) {
     if (e.target.closest(".add-to-cart-btn")) {
       e.preventDefault();
@@ -445,16 +444,36 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(response => response.json())
       .then(data => {
         console.log("Added to cart:", data);
-        // Update cart drawer
-        if (typeof window.updateCartDrawer === "function") window.updateCartDrawer();
-        // Update cart bubble
-        if (typeof window.updateCartBubble === "function") window.updateCartBubble();
+
+        // ✅ Force update cart via AJAX
+        fetch("/cart.js")
+          .then(res => res.json())
+          .then(cart => {
+            console.log("Updated cart:", cart);
+
+            // Trigger cart drawer open if your theme has a function
+            if (typeof window.CartDrawer === "object" && typeof window.CartDrawer.open === "function") {
+              window.CartDrawer.open();
+            } 
+            // Or fallback for custom cart drawer
+            else if (typeof window.updateCartDrawer === "function") {
+              window.updateCartDrawer();
+            }
+
+            // Update cart bubble / item count
+            if (typeof window.updateCartBubble === "function") {
+              window.updateCartBubble(cart);
+            } else {
+              // simple fallback: update bubble count if you have element with .cart-count
+              const bubble = document.querySelector(".cart-count");
+              if (bubble) bubble.textContent = cart.item_count;
+            }
+          });
       })
       .catch(err => console.error("Cart add error:", err));
     }
   });
 
-  // ✅ Pause all non-center videos, play only center one
   function playCenterVideo(swiper) {
     swiper.slides.forEach(slide => {
       let video = slide.querySelector("video");
@@ -477,9 +496,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
-
-
-
 
 {% schema %}
 {
