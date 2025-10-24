@@ -1,4 +1,4 @@
-{% comment %} {% unless product.tags contains 'video_with_products' %} {% endcomment %}
+{% unless product.tags contains 'video_with_products' %}
 <section class="video-products-section">
   <div class="container" data-aos="fade-up">
     <!-- Heading from metafield -->
@@ -68,7 +68,7 @@
     {% endif %}
   </div>
 </section>
-{% comment %} {% endunless %} {% endcomment %}
+{% endunless %}
 
 
 <script>
