@@ -1,19 +1,19 @@
 {% unless product.tags contains 'video_with_products' %}
 <section class="video-products-section">
   <div class="container" data-aos="fade-up">
-    <h2 class="video-heading">{{ product.metafields.custom.video_products_heading.value }}</h2>
+    <h2 class="video-heading">{{ product.metafields.custom.video_products_heading }}</h2>
 
     <div class="video-wrapper">
       <div class="video-container">
         <video autoplay muted loop playsinline class="video-bg">
-          <source src="{{ product.metafields.custom.video_products_video_url.value }}" type="video/mp4">
+          <source src="{{ product.metafields.custom.video_products_video_url }}" type="video/mp4">
           Your browser does not support the video tag.
         </video>
 
         <div class="product-overlay">
           <div class="product-slider">
             <div class="product-track">
-              {% assign handles = product.metafields.custom.video_products_handles.value | split: ',' %}
+              {% assign handles = product.metafields.custom.video_products_handles | split: ',' %}
               {% for handle in handles %}
                 {% assign handle = handle | strip %}
                 {% assign prod = all_products[handle] %}
@@ -31,21 +31,9 @@
                       <h4>{{ prod.title }}</h4>
                       <p class="price">{{ prod.price | money }}</p>
                     </div>
-                    <div class="product-icons">
-                      {% assign icon1 = product.metafields.custom.video_products_icon_1.value %}
-                      {% assign icon2 = product.metafields.custom.video_products_icon_2.value %}
-                      {% if icon1 %}
-                        <a href="#" class="add-to-cart-btn" data-variant-id="{{ prod.selected_or_first_available_variant.id }}">
-                          <img src="{{ icon1 | img_url: '40x' }}" alt="Add to Cart">
-                        </a>
-                      {% endif %}
-                      {% if icon2 %}
-                        <a href="javascript:void(0);" class="slide-next-btn gg-{{ forloop.index }}">
-                          <img src="{{ icon2 | img_url: '40x' }}" alt="Next Products">
-                        </a>
-                      {% endif %}
-                    </div>
                   </div>
+                {% else %}
+                  <p>Product not found: {{ handle }}</p>
                 {% endif %}
               {% endfor %}
             </div>
@@ -54,14 +42,15 @@
       </div>
     </div>
 
-    {% if product.metafields.custom.video_products_button_link.value %}
-      <a href="{{ product.metafields.custom.video_products_button_link.value }}" class="view-button">
-        {{ product.metafields.custom.video_products_button_label.value }}
+    {% if product.metafields.custom.video_products_button_link %}
+      <a href="{{ product.metafields.custom.video_products_button_link }}" class="view-button">
+        {{ product.metafields.custom.video_products_button_label }}
       </a>
     {% endif %}
   </div>
 </section>
 {% endunless %}
+
 
 <script>
 $(document).ready(function () {
