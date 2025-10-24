@@ -9,15 +9,25 @@
   <!-- Swiper Slider -->
   <div class="swiper inspired-slider" id="inspiration">
     <div class="swiper-wrapper">
-      {% assign video_urls = product.metafields.custom.inspired_videos | split: ' • ' %}
+      {%- assign video_field = product.metafields.custom.inspired_videos -%}
+      {%- assign video_urls = '' -%}
+
+      {%- if video_field contains ',' -%}
+        {%- assign video_urls = video_field | split: ',' -%}
+      {%- elsif video_field contains '•' -%}
+        {%- assign video_urls = video_field | split: '•' -%}
+      {%- else -%}
+        {%- assign video_urls = video_field | split: '\n' -%}
+      {%- endif -%}
+
       {% assign related_products = product.metafields.custom.inspired_products.value %}
       
       {% for prod in related_products %}
-        {% assign current_video = video_urls[forloop.index0] %}
+        {% assign current_video = video_urls[forloop.index0] | strip %}
         <div 
           class="swiper-slide inspired-slide"
           data-product-title="{{ prod.title }}"
-          data-product-img="{{ prod.featured_image | img_url: '200x200' }}"
+          data-product-img="{{ prod.featured_image | img_url: '600x600' }}"
           data-product-url="{{ prod.url }}"
           data-product-vendor="{{ prod.vendor }}"
           data-product-price="{{ prod.price | money }}"
@@ -26,27 +36,26 @@
         >
           {% if current_video != blank %}
             <video muted playsinline preload="auto" loop>
-              <source src="{{ current_video | strip }}" type="video/mp4">
+              <source src="{{ current_video }}" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           {% else %}
             <img 
               src="{{ prod.featured_image | img_url: '600x600' }}" 
-              alt="{{ prod.title }}" width="" height="">
+              alt="{{ prod.title }}">
           {% endif %}
         </div>
       {% endfor %}
     </div>
 
-    <!-- Navigation Arrows -->
+    <!-- Navigation -->
     <div class="swiper-button-prev custom-prev">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 640 640" fill="currentColor">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="24" height="24" fill="currentColor">
         <path d="M169.4 297.4C156.9 309.9 156.9 330.2 169.4 342.7L361.4 534.7C373.9 547.2 394.2 547.2 406.7 534.7C419.2 522.2 419.2 501.9 406.7 489.4L237.3 320 406.6 150.6C419.1 138.1 419.1 117.8 406.6 105.3C394.1 92.8 373.8 92.8 361.3 105.3L169.3 297.3z"/>
       </svg>
     </div>
-
     <div class="swiper-button-next custom-next">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 640 640" fill="currentColor">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="24" height="24" fill="currentColor">
         <path d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320 233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"/>
       </svg>
     </div>
@@ -54,24 +63,11 @@
 
   <!-- Product Info -->
   <div class="inspired-product-info">
-    <div id="inspired-proouter">
-      <div class="product-image-wrap">
-        <img id="product-img" src="" alt="" width="" height="">
-        <div class="product-info-wrap">
-          <p id="product-vendor"></p>
-          <p id="product-title"></p>
-          <p id="product-price"></p>
-        </div>
-        <div class="atc-btn-wrap">
-          <a href="#" class="add-to-cart-btn" data-variant-id="">
-            <img src="{{ 'icon-cart.svg' | asset_url }}" alt="Cart Icon" width="" height="">
-          </a>
-        </div>
-      </div>
-    </div>
+    <div id="inspired-proouter"></div>
   </div>
 </section>
 {% endunless %}
+
 
 
 <style> 
