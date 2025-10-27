@@ -84,10 +84,7 @@
                   </button>
                 </div>
               </div>
-              <label class="avail-toggle">
-                <input type="checkbox" id="available-filter">
-                <span>Available in Samples</span>
-              </label>
+             
               <div class="filter-wrap">
                 <button class="icon-btn filter" id="filterByBtn">                
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -127,7 +124,11 @@
                     {% endfor %}
                   </select>                  
                 </div> {% endcomment %}
-              </div>                
+              </div>     
+               <label class="avail-toggle">
+                <input type="checkbox" id="available-filter">
+                <span>Available in Samples</span>
+              </label>           
             </div>
             <button class="tips-link" id="openVideo">
               <span class="play">                
@@ -570,9 +571,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+</script>
 
-
-//available-filters
  
  {% comment %} document.querySelector('.filter-wrap button.icon-btn')
 .addEventListener('click', function() {
@@ -590,7 +590,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });  {% endcomment %}
 
  
-</script>
+
 {% comment %} <script>
 document.addEventListener('DOMContentLoaded', function() {
   // --- Elements ---
