@@ -1,4 +1,4 @@
-{% if faq_questions != blank or faq_answers != blank or right_image != blank %}
+{% comment %} {% if faq_questions != blank or faq_answers != blank or right_image != blank %}
 <section class="product-faq-image">
   <div class="faq-image-grid">
 
@@ -44,6 +44,63 @@
           src="{{ product.metafields.custom.right_image | image_url: width: 800 }}" 
           alt="{{ section.settings.faq_heading | escape }}" 
           class="faq-image" width="" height="">
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+{% endif %} {% endcomment %}
+{% assign faq_questions = product.metafields.custom.faq_questions.value %}
+{% assign faq_answers = product.metafields.custom.faq_answers.value %}
+{% assign right_image = product.metafields.custom.right_image %}
+
+{% if faq_questions != blank or faq_answers != blank or right_image != blank %}
+<section class="product-faq-image">
+  <div class="faq-image-grid">
+
+    <!-- Left Column: Heading + Accordion -->
+    <div class="faq-column">
+      {% if section.settings.faq_heading != blank %}
+        <h2 class="faq-heading">{{ section.settings.faq_heading }}</h2>
+      {% endif %}
+
+      {% if faq_questions != blank %}
+        <div class="faq-accordion">
+          {% for question in faq_questions %}
+            <div class="faq-item{% if forloop.first %} active{% endif %}">
+              <button class="faq-question">
+                <div class="faq-icon-head">
+                  <span class="faq-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                      <path d="M530.8 134.1C545.1 144.5 548.3 164.5 537.9 178.8L281.9 530.8C276.4 538.4 267.9 543.1 258.5 543.9C249.1 544.7 240 541.2 233.4 534.6L105.4 406.6C92.9 394.1 92.9 373.8 105.4 361.3C117.9 348.8 138.2 348.8 150.7 361.3L252.2 462.8L486.2 141.1C496.6 126.8 516.6 123.6 530.9 134z"/>
+                    </svg>
+                  </span>
+                  <h3>{{ question }}</h3>
+                </div>
+                <span class="arrow">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                    <path d="M297.4 470.6C309.9 483.1 330.2 483.1 342.7 470.6L534.7 278.6C547.2 266.1 547.2 245.8 534.7 233.3C522.2 220.8 501.9 220.8 489.4 233.3L320 402.7L150.6 233.4C138.1 220.9 117.8 220.9 105.3 233.4C92.8 245.9 92.8 266.2 105.3 278.7L297.3 470.7z"/>
+                  </svg>
+                </span>
+              </button>
+              {% if faq_answers[forloop.index0] %}
+                <div class="faq-answer">
+                  <p>{{ faq_answers[forloop.index0] }}</p>
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Right Column: Image -->
+    <div class="image-column">
+      {% if right_image != blank %}
+        <img 
+          src="{{ right_image | image_url: width: 800 }}" 
+          alt="{{ section.settings.faq_heading | escape }}" 
+          class="faq-image">
       {% endif %}
     </div>
 
