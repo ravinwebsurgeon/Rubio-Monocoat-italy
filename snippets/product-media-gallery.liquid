@@ -536,22 +536,16 @@ const variantOptions = {{ product.options | json }}; // ["Color", "Size"]
   updateGallery();
 });
 
-// ✅ Reinitialize GLightbox only with visible variant images
-const visibleLinks = Array.from(document.querySelectorAll('.glightbox'))
-  .filter(link => link.closest('.main-image-item, .thumbnail-item, .swiper-slide')?.style.display === 'block');
-
-if (window.activeLightbox) {
-  window.activeLightbox.destroy();
-}
-
-window.activeLightbox = GLightbox({
-  selector: visibleLinks,
-  touchNavigation: true,
-  loop: true,
-  zoomable: true,
-  autoplayVideos: true,
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize GLightbox
+  const lightbox = GLightbox({
+    selector: '.glightbox',
+    touchNavigation: true,
+    loop: true,
+    zoomable: true,
+    autoplayVideos: true,
+  });
 });
-
 
 if (window.innerWidth <= 991) {
   const swiper = new Swiper('.mobile-gallery .swiper', {
