@@ -552,16 +552,6 @@ window.activeLightbox = GLightbox({
   autoplayVideos: true,
 });
 
-// Initialize GLightbox initially with visible images
-window.activeLightbox = GLightbox({
-  selector: Array.from(document.querySelectorAll('.glightbox'))
-    .filter(link => link.closest('.main-image-item, .thumbnail-item, .swiper-slide')?.style.display === 'block'),
-  touchNavigation: true,
-  loop: true,
-  zoomable: true,
-  autoplayVideos: true,
-});
-
 if (window.innerWidth <= 991) {
   const swiper = new Swiper('.mobile-gallery .swiper', {
     slidesPerView: 1,
