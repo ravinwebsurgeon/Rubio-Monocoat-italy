@@ -382,12 +382,13 @@ document.addEventListener('DOMContentLoaded', () => {
     margin: 0;
     padding: 3px 3px 3px 10px;
     width: calc(100% - 20px);
+    line-height:normal;
 }
 .suited_main_data.shown svg {
     width: 17px;
 }
 .suited_info, .suited_for, .less_suited_for, .not_suited_for{display:flex;align-items:center;}
-.suited_info p{font-size:15px;font-weight:600;text-decoration:underline;}
+.suited_info p{font-size:15px;font-weight:600;text-decoration:underline;line-height:normal;}
 .suited_main_info{display:flex;justify-content:space-between;}
 .suited_close ,.suited_shown{font-size:13px;font-weight:600; cursor:pointer;}
 .suited_main_data{max-height: 0;overflow: hidden;transition: max-height 0.4s ease;}
