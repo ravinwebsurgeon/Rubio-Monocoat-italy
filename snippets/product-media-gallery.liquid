@@ -535,6 +535,17 @@ const variantOptions = {{ product.options | json }}; // ["Color", "Size"]
   // Initial call on page load
   updateGallery();
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize GLightbox
+  const lightbox = GLightbox({
+    selector: '.glightbox',
+    touchNavigation: true,
+    loop: true,
+    zoomable: true,
+    autoplayVideos: true,
+  });
+});
 </script>
 
 
