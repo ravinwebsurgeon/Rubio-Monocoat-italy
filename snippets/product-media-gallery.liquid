@@ -433,7 +433,7 @@
 .main-image-item video{width:100%;}
 {% endstyle %}
 
-<script>
+{% comment %} <script>
   document.addEventListener('DOMContentLoaded', () => {
 const variantOptions = {{ product.options | json }}; // ["Color", "Size"]
 
@@ -539,6 +539,134 @@ if (window.innerWidth <= 991) {
     },
   });
 }
+</script> {% endcomment %}
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const variantOptions = {{ product.options | json }};
+
+  let mobileSwiper; // store swiper instance
+
+  function updateGallery() {
+    const selectedOptions = {};
+    variantOptions.forEach(option => {
+      const capitalized = option.charAt(0).toUpperCase() + option.slice(1);
+      let selected = document.querySelector(`.swatch-input__input[name^="${capitalized}"]:checked`);
+      if (!selected) {
+        selected = document.querySelector(`select[name="${capitalized}"]`);
+      }
+      selectedOptions[option.toLowerCase()] = selected ? selected.value.toLowerCase() : null;
+    });
+
+    function normalizeShopifySrc(src) {
+      if (!src) return '';
+      let cleanSrc = src.split('?')[0];
+      cleanSrc = cleanSrc.replace(/_(\d+)x(\d+)(\.\w+)$/, '$3');
+      return cleanSrc;
+    }
+
+    let found = false;
+    document.querySelectorAll('.main-image-item').forEach(item => {
+      if (found) {
+        item.style.display = 'none';
+        return;
+      }
+      let show = true;
+      for (const [key, val] of Object.entries(selectedOptions)) {
+        if (!val || item.dataset[key].toLowerCase() !== val.replace('.', '-')) {
+          show = false;
+          break;
+        }
+      }
+      item.style.display = show ? 'block' : 'none';
+      if (show) found = true;
+    });
+
+    const visibleMainSrcs = Array.from(document.querySelectorAll('.main-image-item'))
+      .filter(item => item.style.display === 'block')
+      .map(item => normalizeShopifySrc(item.querySelector('img')?.getAttribute('src')));
+
+    document.querySelectorAll('.thumbnail-item').forEach(item => {
+      let show = true;
+      const img = item.querySelector('img');
+      const src = normalizeShopifySrc(img?.getAttribute('src'));
+      if (visibleMainSrcs.includes(src)) show = false;
+      else {
+        for (const [key, val] of Object.entries(selectedOptions)) {
+          if (!val || item.dataset[key].toLowerCase() !== val.replace('.', '-')) {
+            show = false;
+            break;
+          }
+        }
+      }
+      item.style.display = show ? 'block' : 'none';
+    });
+
+    // ✅ Handle Mobile Gallery visibility
+    document.querySelectorAll('.swiper-slide').forEach(slide => {
+      let show = true;
+      for (const [key, val] of Object.entries(selectedOptions)) {
+        if (!val || slide.dataset[key].toLowerCase() !== val.replace('.', '-')) {
+          show = false;
+          break;
+        }
+      }
+      slide.style.display = show ? 'block' : 'none';
+    });
+
+    // ✅ Update Swiper when slides change
+    if (window.innerWidth <= 991 && mobileSwiper) {
+      mobileSwiper.update();
+    }
+
+    // ✅ Reinit GLightbox for visible images only
+    const visibleLinks = Array.from(document.querySelectorAll('.glightbox[data-type="image"]'))
+      .filter(link => link.closest('.main-image-item, .thumbnail-item, .swiper-slide')?.style.display === 'block');
+    if (window.activeLightbox) window.activeLightbox.destroy();
+    window.activeLightbox = GLightbox({
+      selector: visibleLinks,
+      touchNavigation: true,
+      loop: true,
+      zoomable: true,
+      autoplayVideos: true,
+    });
+  }
+
+  // Variant change listener
+  document.body.addEventListener('change', (e) => {
+    const target = e.target;
+    if (variantOptions.some(option => {
+      const capitalized = option.charAt(0).toUpperCase() + option.slice(1);
+      return target.matches(`.swatch-input__input[name^="${capitalized}"]`) ||
+             target.matches(`select[name="${capitalized}"]`);
+    })) {
+      updateGallery();
+    }
+  });
+
+  // ✅ Initialize GLightbox & Swiper after DOM load
+  window.activeLightbox = GLightbox({
+    selector: '.glightbox[data-type="image"]',
+    touchNavigation: true,
+    loop: true,
+    zoomable: true,
+    autoplayVideos: true,
+  });
+
+  if (window.innerWidth <= 991) {
+    mobileSwiper = new Swiper('.mobile-gallery .swiper', {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  }
+
+  // Initial call
+  updateGallery();
+});
 </script>
 
 
