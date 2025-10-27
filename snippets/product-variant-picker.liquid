@@ -156,7 +156,12 @@ document.addEventListener('DOMContentLoaded', () => {
 {% if option_values_count > 17 %}
   <div class="see-more-wrapper">
     <button id="customSeeMoreBtn" class="see-more-btn">
-      <span class="arrow-icon">▼</span>
+      <span class="arrow-icon" aria-hidden="true">
+        <!-- Down Chevron SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </span>
       <span class="btn-text">See All Colours</span>
     </button>
   </div>
@@ -170,9 +175,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
       const isHidden = moreContentDivs[0]?.style.display === 'none' || getComputedStyle(moreContentDivs[0]).display === 'none';
 
+      // Toggle show/hide of colour options
       moreContentDivs.forEach(div => {
         if (isHidden) {
-          div.style.setProperty('display', 'block', 'important'); 
+          div.style.setProperty('display', 'block', 'important');
           div.style.overflow = 'visible';
           div.style.visibility = 'visible';
         } else {
@@ -182,21 +188,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Toggle button text and arrow
+      // Toggle button state
       seeMoreBtn.classList.toggle('active', isHidden);
-      const arrow = seeMoreBtn.querySelector('.arrow-icon');
       const btnText = seeMoreBtn.querySelector('.btn-text');
-
-      if (isHidden) {
-        arrow.textContent = '▲';
-        btnText.textContent = 'See Less Colours';
-      } else {
-        arrow.textContent = '▼';
-        btnText.textContent = 'See All Colours';
-      }
+      btnText.textContent = isHidden ? 'See Less Colours' : 'See All Colours';
     });
   });
   </script>
+
     {% endif %}
        
       {%- elsif picker_type == 'button' -%}
