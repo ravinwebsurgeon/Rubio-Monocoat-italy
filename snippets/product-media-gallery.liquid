@@ -351,15 +351,7 @@
                 <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
               </a>
             {% elsif media.media_type == 'video' %}
-              {% comment %} {{ media | video_tag: controls: false, autoplay: true, loop: true, muted: true }} {% endcomment %}
-           <a class="glightbox" 
-     href="{{ media | media_url }}" 
-     data-type="video" 
-     data-source="local" 
-     type="video/mp4">
-     <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
-     <span class="play-icon">&#9658;</span>
-  </a>
+              {{ media | video_tag: controls: false, autoplay: true, loop: true, muted: true }}
             {% endif %}
           </div>
         {% endfor %}
