@@ -378,7 +378,11 @@ document.addEventListener('DOMContentLoaded', () => {
 .suited_section{width:100%;background:#F0F4F2;border:1.5px dotted #888; padding:15px;margin:20px 0;}
 .suited_for, .less_suited_for, .not_suited_for{font-size:13px;}
 .suited_for span, .less_suited_for span, .not_suited_for span{font-weight:600;}
-.suited_section p{margin:0;padding:3px 3px 3px 10px;}
+.suited_section p {
+    margin: 0;
+    padding: 3px 3px 3px 10px;
+    width: calc(100% - 20px);
+}
 .suited_info, .suited_for, .less_suited_for, .not_suited_for{display:flex;align-items:center;}
 .suited_info p{font-size:15px;font-weight:600;text-decoration:underline;}
 .suited_main_info{display:flex;justify-content:space-between;}
