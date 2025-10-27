@@ -333,7 +333,7 @@
     </slider-component>
   {%- endif -%}
 </media-gallery> {% endcomment %}
-{% comment %} 
+
 <div class="custom-media-gallery">
 
   <!-- Desktop Gallery -->
@@ -430,10 +430,10 @@
     </div>
   </div>
 
-</div> {% endcomment %}
+</div>
 
 
-{% comment %} {% style %}
+{% style %}
 .desktop-gallery { display: block; }
 .mobile-gallery { display: none; }
 
@@ -458,9 +458,9 @@
 }
 .thumbnail-item video{width:100%;}
 .main-image-item video{width:100%;}
-{% endstyle %} {% endcomment %}
+{% endstyle %}
 
-{% comment %} <script>
+<script>
   document.addEventListener('DOMContentLoaded', () => {
 const variantOptions = {{ product.options | json }}; // ["Color", "Size"]
 
@@ -544,195 +544,12 @@ const variantOptions = {{ product.options | json }}; // ["Color", "Size"]
   // Initial call on page load
   updateGallery();
 });
-</script> {% endcomment %}
-
-
-
-
-
-
-
-<div class="custom-media-gallery">
-
-  <!-- Desktop Gallery -->
-  <div class="desktop-gallery">
-    <div class="main-image-wrapper">
-      <div class="cus-sticky">
-        {% for media in product.media %}
-          {% assign parts = media.alt | split: '/' %}
-          {% assign color = parts[0] | strip %}
-          {% assign size = parts[1] | strip %}
-          {% assign finish = parts[2] | strip %}
-          <div class="main-image-item" data-color="{{ color | handle }}" data-size="{{ size | handle }}" data-finish="{{ finish | handle }}" style="display: none;">
-            {% if media.media_type == 'image' %}
-              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}" data-type="image">
-                <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
-              </a>
-            {% elsif media.media_type == 'video' %}
-              {{ media | video_tag: controls: false, autoplay: true, loop: true, muted: true }}
-            {% endif %}
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-
-    <div class="thumbnails-wrapper">
-      <div class="cus-sticky">
-        {% for media in product.media %}
-          {% assign parts = media.alt | split: '/' %}
-          {% assign color = parts[0] | strip %}
-          {% assign size = parts[1] | strip %}
-          {% assign finish = parts[2] | strip %}
-          <div class="thumbnail-item" data-color="{{ color | handle }}" data-size="{{ size | handle }}" data-finish="{{ finish | handle }}" style="display: none;">
-            {% if media.media_type == 'image' %}
-              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}" data-type="image">
-                <img src="{{ media.preview_image | img_url: 'master' }}" alt="{{ media.alt | escape }}">
-              </a>
-            {% elsif media.media_type == 'video' %}
-              {{ media | video_tag: controls: false, autoplay: true, loop: true, muted: true }}
-            {% endif %}
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-
-  <!-- Mobile Gallery -->
-  <div class="mobile-gallery">
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        {% for media in product.media %}
-          {% assign parts = media.alt | split: '/' %}
-          {% assign color = parts[0] | strip %}
-          {% assign size = parts[1] | strip %}
-          {% assign finish = parts[2] | strip %}
-          <div class="swiper-slide" data-color="{{ color | handle }}" data-size="{{ size | handle }}" data-finish="{{ finish | handle }}" style="display: none;">
-            {% if media.media_type == 'image' %}
-              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}" data-type="image">
-                <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
-              </a>
-            {% elsif media.media_type == 'video' %}
-              {{ media | video_tag: controls: false, autoplay: true, loop: true, muted: true }}
-            {% endif %}
-          </div>
-        {% endfor %}
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
-
-</div>
-{% style %}
-.desktop-gallery { display: block; }
-.mobile-gallery { display: none; }
-
-@media (max-width: 991px) {
-  .desktop-gallery { display: none; }
-  .mobile-gallery { display: block; }
-}
-
-.thumbnail-item, .swiper-slide, .main-image-item {
-  position: relative;
-  display: inline-block;
-}
-
-.play-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 24px;
-  color: white;
-  pointer-events: none;
-}
-.thumbnail-item video { width: 100%; }
-.main-image-item video { width: 100%; }
-.swiper-slide img, .swiper-slide video { width: 100%; height: auto; display: block; }
-{% endstyle %}
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const variantOptions = {{ product.options | json }};
-  const swiperEl = document.querySelector('.mobile-gallery .swiper');
-  let mobileSwiper = null;
-
-  function initSwiper() {
-    if (!mobileSwiper) {
-      mobileSwiper = new Swiper('.mobile-gallery .swiper', {
-        slidesPerView: 1,
-        spaceBetween: 10,
-        loop: true,
-        pagination: { el: '.swiper-pagination', clickable: true }
-      });
-    } else {
-      mobileSwiper.update();
-    }
-  }
-
-  function normalizeShopifySrc(src) {
-    if (!src) return '';
-    let cleanSrc = src.split('?')[0];
-    cleanSrc = cleanSrc.replace(/_(\d+)x(\d+)(\.\w+)$/, '$3');
-    return cleanSrc;
-  }
-
-  function updateGallery() {
-    const selectedOptions = {};
-    variantOptions.forEach(option => {
-      const capitalized = option.charAt(0).toUpperCase() + option.slice(1);
-      let selected = document.querySelector(`.swatch-input__input[name^="${capitalized}"]:checked`) ||
-                     document.querySelector(`select[name="${capitalized}"]`);
-      selectedOptions[option.toLowerCase()] = selected ? selected.value.toLowerCase() : null;
-    });
-
-    let found = false;
-    const visibleMainSrcs = [];
-
-    document.querySelectorAll('.main-image-item').forEach(item => {
-      let show = true;
-      for (const [key, val] of Object.entries(selectedOptions)) {
-        if (!val || item.dataset[key].toLowerCase() !== val.replace('.', '-')) {
-          show = false;
-          break;
-        }
-      }
-      if (show && !found) {
-        item.style.display = 'block';
-        found = true;
-        const img = item.querySelector('img');
-        if (img) visibleMainSrcs.push(normalizeShopifySrc(img.src));
-      } else {
-        item.style.display = 'none';
-      }
-    });
-
-    document.querySelectorAll('.thumbnail-item, .swiper-slide').forEach(item => {
-      let show = true;
-      for (const [key, val] of Object.entries(selectedOptions)) {
-        if (!val || item.dataset[key].toLowerCase() !== val.replace('.', '-')) {
-          show = false;
-          break;
-        }
-      }
-      item.style.display = show ? 'block' : 'none';
-    });
-
-    // Update Swiper
-    if (mobileSwiper) mobileSwiper.update();
-  }
-
-  document.body.addEventListener('change', (e) => {
-    const target = e.target;
-    if (variantOptions.some(option => {
-      const capitalized = option.charAt(0).toUpperCase() + option.slice(1);
-      return target.matches(`.swatch-input__input[name^="${capitalized}"]`) ||
-             target.matches(`select[name="${capitalized}"]`);
-    })) {
-      updateGallery();
-    }
-  });
-
-  updateGallery();
-  initSwiper();
-});
 </script>
+
+
+
+
+
+
+
+
