@@ -2055,6 +2055,42 @@ li.product-item {
   height: auto;
 }
 
+
+{% comment %} wishlist {% endcomment %}
+ .product-item-img-col {
+  position: relative;
+}
+
+.product-item-img-col .wishlist_button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+.product-item-img-col .wishlist_button:hover {
+  background: #000;
+}
+
+.product-item-img-col .wishlist_button svg {
+  fill: #000;
+  transition: fill 0.3s ease;
+}
+
+.product-item-img-col .wishlist_button:hover svg {
+  fill: #fff;
+}
+
 </style>
 
 
