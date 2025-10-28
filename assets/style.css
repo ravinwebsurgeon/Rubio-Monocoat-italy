@@ -1561,8 +1561,8 @@ section.product-features-section .section-heading {
     color: rgba(0,0,0,0.7);
 }
 .wood_colorss .icon-columns .icon-column .icon-image-wrap {
-    width: 60px;
-    height: 60px;
+    /* width: 60px;
+    height: 60px; */
 }
 .wood_colorss .icon-columns .icon-column .icon-image-wrap .icon-image {
     width: 30px;
