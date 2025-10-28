@@ -1004,16 +1004,26 @@ document.addEventListener("DOMContentLoaded", function() {
         if (opt !== target) opt.style.display = "none";
       });
 
-      // Toggle current one
+      // Toggle visibility
       if (target.style.display === "flex") {
         target.style.display = "none";
       } else {
         target.style.display = "flex";
       }
+
+      // ✅ Add active state to clicked surface
+      const surfaceItems = target.querySelectorAll(".surface-item");
+      surfaceItems.forEach(item => {
+        item.addEventListener("click", function() {
+          surfaceItems.forEach(i => i.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
     });
   });
 });
 </script>
+
 
 
 
