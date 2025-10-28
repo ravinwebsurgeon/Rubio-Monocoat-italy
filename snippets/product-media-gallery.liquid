@@ -582,9 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
       for (const [key, val] of Object.entries(selectedOptions)) {
         {% comment %} if (!val || item.dataset[key].toLowerCase() !== val.replace('.', '-')) { {% endcomment %}
             if (!val || normalizeValue(item.dataset[key]) !== normalizeValue(val)) {
-
           show = false;
-        console.log(item.dataset[key],key,item.dataset,'asd')
           break;
         }
       }
