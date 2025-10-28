@@ -35,7 +35,7 @@
           "type": "column",
           "settings": {
             "icon": "shopify://shop_images/Mortar_1.png",
-            "icon_bg_color": "#f2f2f2",
+            "icon_bg_color": "#183029",
             "icon_wrap_width": "90px",
             "icon_wrap_height": "90px",
             "icon_wrap_width_mobile": "64px",
@@ -186,7 +186,9 @@
         "img1": "shopify://shop_images/Rectangle_241.png",
         "img2": "shopify://shop_images/Rectangle_242.png",
         "heading2": "Choose your species:",
-        "video_url": "https://cdn.shopify.com/videos/c/o/v/34803a8d2ef04246bbcf01f47ba29801.mp4"
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/34803a8d2ef04246bbcf01f47ba29801.mp4",
+        "vertical_surface_img": "shopify://shop_images/UMO_White.jpg",
+        "horizontal_surface_img": "shopify://shop_images/UMO_pure.jpg"
       }
     },
     "featured_collection_QYGftz": {
