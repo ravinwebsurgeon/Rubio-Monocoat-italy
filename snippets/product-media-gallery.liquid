@@ -603,7 +603,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (visibleMainSrcs.includes(src)) show = false;
       else {
         for (const [key, val] of Object.entries(selectedOptions)) {
-          if (!val || item.dataset[key].toLowerCase() !== val.replace('.', '-')) {
+          {% comment %} if (!val || item.dataset[key].toLowerCase() !== val.replace('.', '-')) { {% endcomment %}
+              if (!val || normalizeValue(item.dataset[key]) !== normalizeValue(val)) {
             show = false;
             break;
           }
