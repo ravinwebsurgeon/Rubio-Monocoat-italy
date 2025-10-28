@@ -2,6 +2,11 @@
 {
   "name": "custom two product col",
   "settings": [
+     {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+    },
     {
       "type": "text",
       "id": "main_heading",
@@ -59,8 +64,10 @@
 
 {% assign product1 = all_products[section.settings.product1] %}
 {% assign product2 = all_products[section.settings.product2] %}
-
 <section class="custom-collection-featured">
+   <div class="custom-section-header">
+    <h2>{{ section.settings.section_heading }}</h2>
+  </div>
   <div class="custom-featured-header">
     <h2>{{ section.settings.main_heading }}</h2>
     <p>{{ section.settings.main_subheading }}</p>
@@ -69,7 +76,7 @@
   <div class="custom-featured-inner">
 
     {% if product1 %}
-      <div class="product-box">
+      <div class="product-box product-block">
         <h3 class="product-title">{{ section.settings.product1_heading }}</h3>
         <p class="product-subtitle">{{ section.settings.product1_subheading }}</p>
 
@@ -77,8 +84,8 @@
           <img src="{{ product1.featured_image | img_url: '400x400' }}" alt="{{ product1.title }}">
         {% comment %} </a> {% endcomment %}
 
-        <form method="post" action="/cart/add" class="add-to-cart-form">
-          <select name="id" class="variant-select">
+        {% comment %} <form method="post" action="/cart/add" class="add-to-cart-form"> {% endcomment %}
+          <select name="id" class="variant-select variant-selector">
             {% for variant in product1.variants %}
               <option value="{{ variant.id }}">{{ variant.title }}</option>
             {% endfor %}
@@ -86,14 +93,14 @@
 
           <div class="product-actions">
             <a href="{{ product1.url }}" class="btn1 btn-secondary2">More Info</a>
-            <button type="submit" class="btn1 btn-primary1">Add to Cart</button>
+            <button type="submit" class="add_to_cart_ajax btn1 btn-primary1">Add to Cart</button>
           </div>
-        </form>
+        {% comment %} </form> {% endcomment %}
       </div>
     {% endif %}
 
     {% if product2 %}
-      <div class="product-box">
+      <div class="product-box product-block">
         <h3 class="product-title">{{ section.settings.product2_heading }}</h3>
         <p class="product-subtitle">{{ section.settings.product2_subheading }}</p>
 
@@ -101,8 +108,7 @@
           <img src="{{ product2.featured_image | img_url: '400x400' }}" alt="{{ product2.title }}">
         </a>
 
-        <form method="post" action="/cart/add" class="add-to-cart-form">
-          <select name="id" class="variant-select">
+          <select name="id" class="variant-select  variant-selector">
             {% for variant in product2.variants %}
               <option value="{{ variant.id }}">{{ variant.title }}</option>
             {% endfor %}
@@ -110,9 +116,8 @@
 
           <div class="product-actions">
             <a href="{{ product2.url }}" class="btn1 btn-secondary2">More Info</a>
-            <button type="submit" class="btn1 btn-primary1">Add to Cart</button>
+            <button type="submit" class="add_to_cart_ajax btn1 btn-primary1">Add to Cart</button>
           </div>
-        </form>
       </div>
     {% endif %}
 
@@ -121,7 +126,7 @@
 
 <style>
 .custom-collection-featured {
-  background: #f8f8f8;
+  {% comment %} background: #f8f8f8; {% endcomment %}
   padding: 40px;
   border-radius: 12px;
   margin: 40px auto;
@@ -144,6 +149,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
+  padding: 50px;border-radius: 20px;background:#f8f8f8;
 }
 .product-box {
   flex: 1 1 45%;
@@ -166,9 +172,9 @@
   margin-bottom: 15px;
 }
 .variant-select {
-  margin-top: 10px;
+  margin: 10px auto;
   padding: 10px;
-  width: 100%;
+  width: 80%;
   border-radius: 50px;
   border: 1px solid #ccc;
   font-size: 14px;
@@ -203,4 +209,5 @@
 form.add-to-cart-form {
     width: 370px;
 }
+.custom-section-header h2{font-size: 23px;font-weight: 600;color: #444;}
 </style>
