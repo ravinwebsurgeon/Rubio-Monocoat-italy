@@ -580,7 +580,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 {% comment %} morder sample ATC {% endcomment %}
 document.addEventListener("DOMContentLoaded", function () {
-  // Handle "Order Sample" button clicks
+  const cartDrawer = document.querySelector('cart-drawer'); // Shopify 2.0 drawer element
+  const cartBubble = document.querySelector('[data-cart-count-bubble], .cart-count-bubble'); // adjust if different selector
+
+  // --- ORDER SAMPLE BUTTON ---
   document.querySelectorAll(".order-sample-color").forEach((button) => {
     button.addEventListener("click", function (e) {
       e.preventDefault();
@@ -593,7 +596,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      // Add to cart using Shopify AJAX API
       fetch("/cart/add.js", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -605,27 +607,65 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((res) => res.json())
         .then((data) => {
           console.log("Added to cart:", data);
-          {% comment %} alert("Sample added to cart!"); {% endcomment %}
+
+          // Update cart bubble
+          updateCartBubble();
+
+          // Open and refresh the cart drawer
+          openCartDrawer();
         })
         .catch((err) => console.error("Error adding to cart:", err));
     });
   });
 
-  // Handle "More Info" button clicks
+  // --- MORE INFO BUTTON ---
   document.querySelectorAll(".more-info-color").forEach((button) => {
     button.addEventListener("click", function (e) {
       e.preventDefault();
 
       const productItem = this.closest(".product-item");
       const productLink = productItem.querySelector("a[href]");
-      
+
       if (productLink) {
         window.location.href = productLink.href;
       }
     });
   });
-});
 
+  // --- FUNCTIONS ---
+
+  function openCartDrawer() {
+    // Shopify 2.0 themes (like Dawn) emit a custom event for cart-drawer updates
+    fetch('/?sections=cart-drawer')
+      .then(response => response.json())
+      .then((sections) => {
+        const html = sections['cart-drawer'];
+        if (cartDrawer && html) {
+          cartDrawer.innerHTML = new DOMParser()
+            .parseFromString(html, 'text/html')
+            .querySelector('cart-drawer').innerHTML;
+
+          cartDrawer.classList.add('is-open');
+          document.body.classList.add('overflow-hidden');
+        }
+      });
+  }
+
+  function updateCartBubble() {
+    fetch("/cart.js")
+      .then((res) => res.json())
+      .then((cart) => {
+        if (cartBubble) {
+          cartBubble.textContent = cart.item_count;
+          if (cart.item_count > 0) {
+            cartBubble.classList.remove("hidden");
+          } else {
+            cartBubble.classList.add("hidden");
+          }
+        }
+      });
+  }
+});
 
 
 {% comment %} end {% endcomment %}
