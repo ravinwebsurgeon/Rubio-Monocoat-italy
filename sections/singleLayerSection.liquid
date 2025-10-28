@@ -6,7 +6,7 @@
             <div class="product_detail product-block">
                 {% assign product = section.settings.add_product %}
                 {% if product %}
-                    <div class="media_sec">
+                    <div class="media_section">
                         <img src="{{ product.featured_image | image_url: width: 300  }}" />
                     </div>
                     <div class="pro_detail">
@@ -16,12 +16,25 @@
                         </div>
                         <div class="custom_text"><p>Perfect all for your inside Surfaces</p></div>
                         <div class="pro_variants">
-                            <select class="variant-selector" name="variant-selector">
+                            {% comment %} <select class="variant-selector" name="variant-selector">
                                 {% for variant in product.variants %}
                                     <option value="{{ variant.id }}">{{ variant.title }}</option>
                                 {% endfor %}
-                            </select>
+                            </select> {% endcomment %}
+                              {% for option in product.options_with_values %}
+                                <div class="pro_variant_options">
+                                <select class="option-variant-selector" name="option-variant-selector" id="ProductSelect-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
+                                {% for value in option.values %}
+                                    <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>
+                                    {{ value | escape }}
+                                    </option>
+                                {% endfor %}
+                                </select>
+                                </div>
+                            {% endfor %}
+                            <input type="hidden" class="variant-selector" id="variant-id" name="id" value="">
                         </div>
+
                         <div class="pro_buttons">
                             <a href="{{ product.url }}"><button class="more_info">More Info</button></a>
                             <button type="submit" class="add_to_cart_ajax">Add To cart</button>
@@ -30,17 +43,69 @@
                 {% endif %}
             </div>
         </div>
-        <div class="media_content">
-            <div class="media content">
-                <img src="{{ section.settings.image | img_url: 'master' }}" />
+        <div class="media_content_main">
+            <div class="mediaData">
+                <div class="media_content">
+                    <img src="{{ section.settings.image | img_url: 'master' }}" />
+                </div>
+                <div class="content_section media_text">
+                    <h3 class="heading"> {{ section.settings.heading }} </h3>
+                    <p class="subheading"> {{ section.settings.subheading }} </p>
+                </div>
+            </div>
+            <div>
+                 <div class="custom_video_content">
+            <div class="ori_video">
+            <div class="text_content">
+                <svg width="20" height="20" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Circle -->
+                    <circle cx="32" cy="32" r="30" stroke="black" stroke-width="2" fill="none" />
+                    <!-- Question Mark -->
+                    <path d="M24 22c0-3 4-5 8-5s8 2 8 5c0 4-6 4-6 9v2" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                    <!-- Dot of question mark -->
+                    <circle cx="32" cy="44" r="3" fill="black" />
+                </svg>
+                <p class="video_text_first uppercase_text">not sure how to prepare your wooden floor?</p>
+                <p class="video_text_second captalize_text">listen to our expert</p>
+                
+            </div>
+            <div class="video_section">
+                {% if section.settings.video %}
+                    {{ section.settings.video | media_tag: 
+                    autoplay: section.settings.autoplay, 
+                    loop: section.settings.loop,
+                    controls: true,
+                    muted: true
+                    }}
+            {% endif %}
+            </div>
+        </div>
+        <div class="arrow_video_link">
+            <div class="arrow_icon">
+                <svg width="50" height="20" viewBox="0 0 50 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="0" refY="2" orient="auto">
+                    <path d="M0,0 L6,2 L0,4 Z" fill="currentColor" />
+                    </marker>
+                </defs>
+                <!-- Changed control points to make the curve dip down -->
+                <path d="M5 5 C 15 15, 35 15, 45 5" stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+            </svg>
+            </div>
+            <div class="video_watch_link"><a href="{{ section.settings.video.sources[1].url }}" class="watch_link"><p>Watch Video</p></a></div>
+        </div>
+    </div>
             </div>
         </div>
     </div>
+   
 </div>
 <style>
-    .product_listed{width:60%;}
-    .media_content{width:40%;}
-    .single-layer{width:95%;margin:auto;}
+
+    .product_listed{width:60%;padding:30px;}
+    .single-layer-section-main .media_content_main{width:40%;padding:30px;}
+    .mediaData{position:relative;}
+    .single-layer{width:95%;margin:auto;display:flex;}
     .product_listed h2{font-size:25px; font-weight:600;text-transform:capitalize;}
     .product_detail , .product_title_price{display:flex;align-items:center;}
     .product_detail{border:0.1px solid #666;}
@@ -48,9 +113,65 @@
     .product_title_price p{font-size:18px;}
     .single-layer .product_title_price{padding:0;}
     .custom_text{font-size:14px;}
+    .pro_variants .option-variant-selector{padding:10px;border-radius:20px;font-size:14px;margin-top:10px;width:100%;}
+    .product_detail .media_section{width:50%;text-align:center;}
+    .content_section.media_text{position:absolute;bottom:-13px;left:0px;}
+    .content_section.media_text h3.heading{color:#fff;text-transform:capitalize;padding:10px;}
+    .single-layer-section-main .custom_video_content{width:100%;margin-top:50px;}
+
+    @media only screen and (min-width:320px) and (max-width:767px)
+    {
+    .single-layer{display:block;}
+    .product_listed , .media_content_main{width:100%;}
+    }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const variantSelectors = document.querySelectorAll('.option-variant-selector');
+
+    // Load all variants into JS (this is Liquid)
+    const variants = {{ product.variants | json }};
+
+    function getSelectedOptions() {
+      let selectedOptions = [];
+      variantSelectors.forEach((select) => {
+        selectedOptions.push(select.value);
+      });
+      return selectedOptions;
+    }
+
+    function findMatchingVariant(options) {
+      return variants.find((variant) => {
+        return variant.options.every((opt, index) => opt === options[index]);
+      });
+    }
+
+    function updateVariantId() {
+      const selectedOptions = getSelectedOptions();
+      const matchingVariant = findMatchingVariant(selectedOptions);
+
+      if (matchingVariant) {
+        console.log('Selected Variant ID:', matchingVariant.id);
+        document.querySelector('#variant-id').value = matchingVariant.id;
+      } else {
+        console.log('No matching variant found');
+      }
+    }
+
+    // Listen for changes on all variant selectors
+    variantSelectors.forEach((select) => {
+      select.addEventListener('change', updateVariantId);
+    });
+
+    // Initial check on page load
+    updateVariantId();
+  });
+</script>
+
 {% schema %}
     {
-        "name":"Filling Gap Section",
+        "name":"Single Layer Section",
         "settings": [
             {
                 "type": "text",
@@ -76,6 +197,11 @@
                 "type": "text",
                 "id": "subheading",
                 "label": "Subheading"
+            },
+            {
+                "type": "video",
+                "id": "video",
+                "label":"Video"
             }
         ],
          "presets": [
