@@ -2126,18 +2126,16 @@ li.product-item {
 }
 
 .product-buttons-wraper {
-  {% comment %} position: absolute; {% endcomment %}
-  bottom: 15px;
   left: 50%;
-  {% comment %} transform: translateX(-50%); {% endcomment %}
   display: flex;
   gap: 10px;
-  opacity: 0;
-  visibility: hidden;
   transition: all 0.3s ease;
   z-index: 2;
-  height:1px;
   margin-top:10px;
+  height: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
 }
 
 .product-buttons-wraper button {
@@ -2160,10 +2158,11 @@ li.product-item {
     color:#000;
 }
 .product-item:hover .product-buttons-wraper {
-  opacity: 1;
+  {% comment %} opacity: 1;
   visibility: visible;
   bottom: 25px; 
-  height: auto;
+  height: auto; {% endcomment %}
+  max-height: 500px;
 }
 
 
