@@ -580,8 +580,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 {% comment %} morder sample ATC {% endcomment %}
 document.addEventListener("DOMContentLoaded", function () {
-  const cartDrawer = document.querySelector('cart-drawer'); // Shopify 2.0 drawer element
-  const cartBubble = document.querySelector('[data-cart-count-bubble], .cart-count-bubble'); // adjust if different selector
+  const cartDrawer = document.querySelector("cart-drawer");
+  const cartBubble = document.querySelector('[data-cart-count-bubble], .cart-count-bubble');
 
   // --- ORDER SAMPLE BUTTON ---
   document.querySelectorAll(".order-sample-color").forEach((button) => {
@@ -608,10 +608,10 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((data) => {
           console.log("Added to cart:", data);
 
-          // Update cart bubble
+          // ✅ Update cart bubble count
           updateCartBubble();
 
-          // Open and refresh the cart drawer
+          // ✅ Open and refresh the cart drawer
           openCartDrawer();
         })
         .catch((err) => console.error("Error adding to cart:", err));
@@ -625,30 +625,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const productItem = this.closest(".product-item");
       const productLink = productItem.querySelector("a[href]");
-
-      if (productLink) {
-        window.location.href = productLink.href;
-      }
+      if (productLink) window.location.href = productLink.href;
     });
   });
 
   // --- FUNCTIONS ---
-
   function openCartDrawer() {
-    // Shopify 2.0 themes (like Dawn) emit a custom event for cart-drawer updates
-    fetch('/?sections=cart-drawer')
-      .then(response => response.json())
+    fetch("/?sections=cart-drawer")
+      .then((response) => response.json())
       .then((sections) => {
-        const html = sections['cart-drawer'];
+        const html = sections["cart-drawer"];
         if (cartDrawer && html) {
-          cartDrawer.innerHTML = new DOMParser()
-            .parseFromString(html, 'text/html')
-            .querySelector('cart-drawer').innerHTML;
+          const parsed = new DOMParser()
+            .parseFromString(html, "text/html")
+            .querySelector("cart-drawer");
 
-          cartDrawer.classList.add('is-open');
-          document.body.classList.add('overflow-hidden');
+          // ✅ Replace drawer content
+          cartDrawer.innerHTML = parsed.innerHTML;
+
+          // ✅ Remove "is-empty" class if present
+          cartDrawer.classList.remove("is-empty");
+
+          // ✅ Open the drawer visually
+          cartDrawer.classList.add("is-open", "active", "animate");
+          document.body.classList.add("overflow-hidden");
         }
-      });
+      })
+      .catch((error) => console.error("Drawer update failed:", error));
   }
 
   function updateCartBubble() {
@@ -663,11 +666,10 @@ document.addEventListener("DOMContentLoaded", function () {
             cartBubble.classList.add("hidden");
           }
         }
-      });
+      })
+      .catch((error) => console.error("Cart bubble update failed:", error));
   }
 });
-
-
 {% comment %} end {% endcomment %}
 </script>
 
