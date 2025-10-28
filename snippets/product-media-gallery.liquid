@@ -567,7 +567,9 @@ document.addEventListener('DOMContentLoaded', () => {
       cleanSrc = cleanSrc.replace(/_(\d+)x(\d+)(\.\w+)$/, '$3');
       return cleanSrc;
     }
-
+    function normalizeValue(str) {
+      return str ? str.toLowerCase().replace(/\s+/g, '').replace(/\./g, '-') : '';
+    }
     let found = false;
     document.querySelectorAll('.main-image-item').forEach(item => {
       if (found) {
@@ -578,10 +580,11 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log(selectedOptions, 'ckeckeddata')
       
       for (const [key, val] of Object.entries(selectedOptions)) {
-        if (!val || item.dataset[key].toLowerCase() !== val.replace('.', '-')) {
+        {% comment %} if (!val || item.dataset[key].toLowerCase() !== val.replace('.', '-')) { {% endcomment %}
+            if (!val || normalizeValue(item.dataset[key]) !== normalizeValue(val)) {
+
           show = false;
         console.log(item.dataset[key],key,item.dataset,'asd')
-
           break;
         }
       }
