@@ -565,7 +565,13 @@ document.addEventListener('DOMContentLoaded', () => {
       return cleanSrc;
     }
     function normalizeValue(str) {
-      return str ? str.toLowerCase().replace(/\s+/g, '').replace(/\./g, '-') : '';
+      {% comment %} return str ? str.toLowerCase().replace(/\s+/g, '').replace(/\./g, '-') : ''; {% endcomment %}
+      return str
+    ? str.toLowerCase()
+         .replace(/\s+/g, '')       // remove spaces
+         .replace(/\./g, '-')       // replace dots with dashes
+         .replace(/[^a-z0-9-]/g, '') // remove everything except letters, numbers, and dashes
+    : '';
     }
     let found = false;
     document.querySelectorAll('.main-image-item').forEach(item => {
