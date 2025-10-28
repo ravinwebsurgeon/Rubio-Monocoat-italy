@@ -28,7 +28,7 @@
           "type": "column",
           "settings": {
             "icon": "shopify://shop_images/Layers.png",
-            "icon_bg_color": "#183029",
+            "icon_bg_color": "#ffffff",
             "icon_wrap_width": "90px",
             "icon_wrap_height": "90px",
             "icon_wrap_width_mobile": "64px",
