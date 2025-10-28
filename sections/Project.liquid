@@ -2,7 +2,7 @@
   <div class="page-no-width">
     <div class="cust-pro-wrap"> 
       <div class="main-pro-wrap">  
-        <div class="pro-first-color">
+        {% comment %} <div class="pro-first-color">
            <h3 class="heading-pr">{{ section.settings.heading }}</h3>
            <div class="pro-first">
             <div class="Interio">
@@ -18,7 +18,54 @@
               <div class="exter-btn" id="exterior">Exterior</div>
             </div>
           </div>
-        </div>   
+        </div>    {% endcomment %}
+        <div class="pro-first-color">
+  <h3 class="heading-pr">{{ section.settings.heading }}</h3>
+  <div class="pro-first">
+
+    <!-- Interior -->
+    <div class="Interio">
+      {% if section.settings.img1 %}
+        <img src="{{ section.settings.img1 | img_url: 'master' }}" alt="Interior" width="" height=""> 
+      {% endif %}
+      <div class="inter-btn surface-toggle" data-target="interior-surfaces">Interior</div>
+
+      <!-- Hidden surface options -->
+      <div class="surface-options" id="interior-surfaces">
+        <div class="surface-item">
+          <img src="{{ section.settings.vertical_surface_img | img_url: 'master' }}" alt="Vertical surface">
+          <p>Vertical surface</p>
+        </div>
+        <div class="surface-item">
+          <img src="{{ section.settings.horizontal_surface_img | img_url: 'master' }}" alt="Horizontal surface">
+          <p>Horizontal surface</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exterior -->
+    <div class="exterior">
+      {% if section.settings.img2 %}
+        <img src="{{ section.settings.img2 | img_url: 'master' }}" alt="Exterior" width="" height="">
+      {% endif %}
+      <div class="exter-btn surface-toggle" data-target="exterior-surfaces">Exterior</div>
+
+      <!-- Hidden surface options -->
+      <div class="surface-options" id="exterior-surfaces">
+        <div class="surface-item">
+          <img src="{{ section.settings.vertical_surface_img | img_url: 'master' }}" alt="Vertical surface">
+          <p>Vertical surface</p>
+        </div>
+        <div class="surface-item">
+          <img src="{{ section.settings.horizontal_surface_img | img_url: 'master' }}" alt="Horizontal surface">
+          <p>Horizontal surface</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
         <!-- Tabs + Products -->
         <div class="circle-tabs-section">             
           <div class="circle-tabs-outer">
