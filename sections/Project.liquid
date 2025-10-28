@@ -24,11 +24,11 @@
   <div class="pro-first">
 
     <!-- Interior -->
-    <div class="Interio">
+    <div class="Interio surface-toggle">
       {% if section.settings.img1 %}
         <img src="{{ section.settings.img1 | img_url: 'master' }}" alt="Interior" width="" height=""> 
       {% endif %}
-      <div class="inter-btn surface-toggle" data-target="interior-surfaces">Interior</div>
+      <div class="inter-btn" data-target="interior-surfaces">Interior</div>
 
       <!-- Hidden surface options -->
       <div class="surface-options" id="interior-surfaces">
@@ -44,11 +44,11 @@
     </div>
 
     <!-- Exterior -->
-    <div class="exterior">
+    <div class="exterior surface-toggle">
       {% if section.settings.img2 %}
         <img src="{{ section.settings.img2 | img_url: 'master' }}" alt="Exterior" width="" height="">
       {% endif %}
-      <div class="exter-btn surface-toggle" data-target="exterior-surfaces">Exterior</div>
+      <div class="exter-btn" data-target="exterior-surfaces">Exterior</div>
 
       <!-- Hidden surface options -->
       <div class="surface-options" id="exterior-surfaces">
