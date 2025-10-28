@@ -992,7 +992,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  const toggles = document.querySelectorAll(".exterior, .Interio");
+  const toggles = document.querySelectorAll(".exterior, .interior"); // ✅ fixed lowercase
 
   toggles.forEach(btn => {
     btn.addEventListener("click", function() {
