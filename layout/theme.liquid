@@ -660,7 +660,107 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 </script> {% endcomment %}
+    <script>
+function toggleWishlist(button) {
+  const productData = {
+    productId: button.dataset.id,
+    productTitle: button.dataset.title,
+    productImg: button.dataset.image ,
+    productPrice: button.dataset.price,
+    productUrl: button.dataset.url
+  };
 
+  let wishlistData = JSON.parse(localStorage.getItem('wishlist')) || [];
+  const index = wishlistData.findIndex(item => item.productId === productData.productId);
+
+  if (index === -1) {
+    wishlistData.push(productData);
+    button.innerHTML = getFilledHeartSVG();
+  } else {
+    wishlistData.splice(index, 1);
+    button.innerHTML = getOutlinedHeartSVG();
+  }
+
+  localStorage.setItem('wishlist', JSON.stringify(wishlistData));
+  renderWishlistPage(); // Optional: re-render wishlist after toggle
+}
+
+function getFilledHeartSVG() {
+  return `
+    <svg width="30px" height="30px" fill="#e74c3c" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+      2 5.42 4.42 3 7.5 3c1.74 0 3.41 1.01 4.5 
+      2.09C13.09 4.01 14.76 3 16.5 3 19.58 3 
+      22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 
+      11.54L12 21.35z"/>
+    </svg>`;
+}
+
+function getOutlinedHeartSVG() {
+  return `
+    <svg width="30px" height="30px" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.5 4.5c2.206 0 4 1.794 4 4 0 
+      4.67-5.543 8.94-8.5 11.023C9.043 17.44 3.5 
+      13.17 3.5 8.5c0-2.206 1.794-4 4-4 1.298 0 
+      2.522.638 3.273 1.706L12 7.953l1.227-1.746c.75-1.07 
+      1.975-1.707 3.273-1.707zM16.5 3c-1.862 0-3.505.928-4.5 
+      2.344C11.005 3.928 9.362 3 7.5 3 4.462 3 2 
+      5.462 2 8.5c0 5.72 6.5 10.438 10 
+      12.85 3.5-2.412 10-7.13 
+      10-12.85C22 5.462 19.538 3 16.5 3z"/>
+    </svg>`;
+}
+
+function renderWishlistPage() {
+  const wishlistData = JSON.parse(localStorage.getItem('wishlist')) || [];
+  const container = document.querySelector('.js-wishlistBlock');
+  if (!container) return;
+
+  if (wishlistData.length === 0) {
+    container.innerHTML = '<p>Your wishlist is empty.</p>';
+    return;
+  }
+
+  container.innerHTML = '';
+  wishlistData.forEach(item => {
+    const productHTML = `
+      <div class="wishlist-item" style="margin-bottom: 30px;">
+        <a href="${item.productUrl}">
+          <img class="check-l" src="${item.productImg}" alt="${item.productTitle} ">
+        </a>
+        <h4><a class="wish-tit" href="${item.productUrl}">${item.productTitle}</a></h4>
+        <p class="price-wish">${item.productPrice}</p>
+      <button class="remove-btn" onclick="removeFromWishlist('${item.productId}')">Remove</button>
+
+      </div>
+    `;
+    container.innerHTML += productHTML;
+  });
+}
+
+function removeFromWishlist(productId) {
+  let wishlistData = JSON.parse(localStorage.getItem('wishlist')) || [];
+  wishlistData = wishlistData.filter(item => item.productId !== productId);
+  localStorage.setItem('wishlist', JSON.stringify(wishlistData));
+  renderWishlistPage();
+}
+
+
+   
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Highlight buttons if present
+  const wishlistData = JSON.parse(localStorage.getItem('wishlist')) || [];
+  document.querySelectorAll('.wishlist_button').forEach(button => {
+    const pid = button.dataset.id;
+    const isInWishlist = wishlistData.some(item => item.productId === pid);
+    button.innerHTML = isInWishlist ? getFilledHeartSVG() : getOutlinedHeartSVG();
+  });
+
+  // Render wishlist if this is the wishlist page
+  renderWishlistPage();
+});
+    </script>
 
 
 
