@@ -1888,6 +1888,49 @@ li.product-item {
     width: 40px;
     height: 40px;
 }
+{% comment %} hover button {% endcomment %}
+
+
+.product-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-buttons-wraper {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.product-buttons-wraper button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.product-buttons-wraper button:hover {
+  background-color: #444;
+}
+
+
+.product-item:hover .product-buttons-wraper {
+  opacity: 1;
+  visibility: visible;
+  bottom: 25px; 
+}
+
 </style>
 
 
