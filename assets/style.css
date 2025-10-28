@@ -366,8 +366,8 @@ section.icon-columns-section {
     height: 100%;
     max-width: 100px;
     padding: 25px;
-    background-color: #183029;
-    border-radius: 50px;
+    background-color: transparent;
+    border-radius: 0px;
     margin: 0 auto;
 }
 
