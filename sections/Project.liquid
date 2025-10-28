@@ -574,6 +574,61 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+
+
+
+{% comment %} morder sample ATC {% endcomment %}
+document.addEventListener("DOMContentLoaded", function () {
+  // Handle "Order Sample" button clicks
+  document.querySelectorAll(".order-sample-color").forEach((button) => {
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const productItem = this.closest(".product-item");
+      const variantId = productItem.dataset.productId;
+
+      if (!variantId) {
+        console.error("No variant ID found for this product.");
+        return;
+      }
+
+      // Add to cart using Shopify AJAX API
+      fetch("/cart/add.js", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: variantId,
+          quantity: 1,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Added to cart:", data);
+          alert("Sample added to cart!");
+        })
+        .catch((err) => console.error("Error adding to cart:", err));
+    });
+  });
+
+  // Handle "More Info" button clicks
+  document.querySelectorAll(".more-info-color").forEach((button) => {
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const productItem = this.closest(".product-item");
+      const productLink = productItem.querySelector("a[href]");
+      
+      if (productLink) {
+        window.location.href = productLink.href;
+      }
+    });
+  });
+});
+
+
+
+{% comment %} end {% endcomment %}
 </script>
 
  
