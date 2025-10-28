@@ -960,6 +960,30 @@ document.addEventListener('DOMContentLoaded', function() {
   filterProducts();
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const toggles = document.querySelectorAll(".surface-toggle");
+
+  toggles.forEach(btn => {
+    btn.addEventListener("click", function() {
+      const targetId = this.getAttribute("data-target");
+      const target = document.getElementById(targetId);
+
+      // Hide all other surface options
+      document.querySelectorAll(".surface-options").forEach(opt => {
+        if (opt !== target) opt.style.display = "none";
+      });
+
+      // Toggle current one
+      if (target.style.display === "flex") {
+        target.style.display = "none";
+      } else {
+        target.style.display = "flex";
+      }
+    });
+  });
+});
+</script>
 
 
 
@@ -2136,6 +2160,43 @@ li.product-item {
 
 .product-item-img-col .wishlist_button:hover svg {
   fill: #fff;
+}
+
+
+{% comment %} surface on exterior btn click {% endcomment %}
+ .surface-options {
+  display: none;
+  margin-top: 10px;
+  justify-content: center;
+  gap: 30px;
+  animation: fadeIn 0.4s ease;
+}
+
+.surface-item {
+  text-align: center;
+}
+
+.surface-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.surface-item img:hover {
+  transform: scale(1.05);
+}
+
+.surface-item p {
+  font-size: 14px;
+  margin-top: 5px;
+  color: #333;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 </style>
