@@ -574,11 +574,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
       let show = true;
-      console.log(selectedOptions,'selectedOptions are',item.dataset, 'ckeckeddata')
+      {% comment %} console.log(selectedOptions,'selectedOptions are',item.dataset, 'ckeckeddata') {% endcomment %}
       
       for (const [key, val] of Object.entries(selectedOptions)) {
         {% comment %} if (!val || item.dataset[key].toLowerCase() !== val.replace('.', '-')) { {% endcomment %}
             if (!val || normalizeValue(item.dataset[key]) !== normalizeValue(val)) {
+          console.log(normalizeValue(item.dataset[key]),'selectedOptions are', normalizeValue(val))
           show = false;
           break;
         }
