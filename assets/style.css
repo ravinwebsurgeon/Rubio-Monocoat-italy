@@ -4876,8 +4876,8 @@ body .two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
     }
     .icon-columns-section.wood_colorss .icon-columns .icon-column .icon-image-wrap {
         margin: 0 auto;
-        width: 40px;
-        height: 40px;
+        /* width: 40px; */
+        /* height: 40px; */
     }
     .icon-columns-section.wood_colorss .icon-columns .icon-column {
         display: block;
