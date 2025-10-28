@@ -992,23 +992,23 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  const toggles = document.querySelectorAll(".exterior, .Interio"); // ✅ fixed lowercase
+  const toggles = document.querySelectorAll(".exterior, .interior"); // use same class as buttons
 
   toggles.forEach(btn => {
     btn.addEventListener("click", function() {
       const targetId = this.getAttribute("data-target");
       const target = document.getElementById(targetId);
-      if (!target) return; // ✅ safety check
+      if (!target) return;
 
-      // Hide all other surface-options
+      // Hide all other sections
       document.querySelectorAll(".surface-options").forEach(opt => {
         if (opt !== target) opt.classList.remove("active");
       });
 
-      // Toggle active class on the target
+      // Toggle target section
       target.classList.toggle("active");
 
-      // ✅ Set active class for surface-items
+      // Add click functionality for surface-item active state
       const surfaceItems = target.querySelectorAll(".surface-item");
       surfaceItems.forEach(item => {
         item.addEventListener("click", function() {
@@ -1020,6 +1020,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 </script>
+
 
 
 
