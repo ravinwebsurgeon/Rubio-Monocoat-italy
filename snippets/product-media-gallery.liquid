@@ -555,10 +555,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!selected) {
         selected = document.querySelector(`select[name="${capitalized}"]`);
       }
-      {% comment %} selectedOptions[option.toLowerCase()] = selected ? selected.value.toLowerCase() : null; {% endcomment %}
-  const value = selected ? selected.value.replace(/\s+/g, '').toLowerCase() : null;
+      selectedOptions[option.toLowerCase()] = selected ? selected.value.toLowerCase() : null;
+  {% comment %} const value = selected ? selected.value.replace(/\s+/g, '').toLowerCase() : null; {% endcomment %}
 
-  selectedOptions[option.toLowerCase()] = value;
+  {% comment %} selectedOptions[option.toLowerCase()] = value; {% endcomment %}
     });
 
     function normalizeShopifySrc(src) {
