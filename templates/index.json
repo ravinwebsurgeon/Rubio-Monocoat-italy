@@ -300,7 +300,7 @@
         "color_item_JDDP8d"
       ],
       "custom_css": [
-        ".two-column-colour-grid .container-cloor-com .left-column {background-color: #183029; border-radius: 12px;}",
+        ".two-column-colour-grid .container-cloor-com .left-column {background-color: #f0f4f2; border-radius: 12px;}",
         ".two-column-colour-grid .right-column img {border-radius: 12px; /* pas dit getal aan naar wens */}"
       ],
       "name": "Two Column Colour Grid",
