@@ -166,8 +166,8 @@
       "type": "custom-two-product-col",
       "name": "custom two product col",
       "settings": {
-        "main_heading": "Featured Products",
-        "main_subheading": "Pick the right product for your needs",
+        "main_heading": "",
+        "main_subheading": "",
         "product1": "woodcream-softener",
         "product1_heading": "Protection in one single layer",
         "product1_subheading": "Quicker drying & stronger end result",
