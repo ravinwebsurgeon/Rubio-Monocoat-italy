@@ -605,7 +605,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((res) => res.json())
         .then((data) => {
           console.log("Added to cart:", data);
-          alert("Sample added to cart!");
+          {% comment %} alert("Sample added to cart!"); {% endcomment %}
         })
         .catch((err) => console.error("Error adding to cart:", err));
     });
