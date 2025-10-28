@@ -572,6 +572,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
       let show = true;
+      console.log(item,'ckeckeddata')
       for (const [key, val] of Object.entries(selectedOptions)) {
         if (!val || item.dataset[key].toLowerCase() !== val.replace('.', '-')) {
           show = false;
