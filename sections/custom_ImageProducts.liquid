@@ -1,0 +1,248 @@
+<div class="custom_image_products_section">
+    <div class="img_products_main">
+        <div class="media_section">
+            <div class="image_content">
+                <div>
+                    <img src = "{{ section.settings.image | img_url: 'master' }}" />
+                    <div class="image_text content_section ">
+                        <h2 class="heading">{{ section.settings.image_heading }}</h2>
+                        <p class="subheading">{{ section.settings.image_text }}</p>
+                    </div>
+                </div>
+                <div class="video_section">
+                    <div class="text_content">
+                        <svg width="20" height="20" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Circle -->
+                            <circle cx="32" cy="32" r="30" stroke="black" stroke-width="2" fill="none" />
+                            <!-- Question Mark -->
+                            <path d="M24 22c0-3 4-5 8-5s8 2 8 5c0 4-6 4-6 9v2" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                            <!-- Dot of question mark -->
+                            <circle cx="32" cy="44" r="3" fill="black" />
+                        </svg>
+                        <p class="video_text_first uppercase_text">not sure how to prepare your wooden floor?</p>
+                        <p class="video_text_second captalize_text">listen to our expert</p>
+                    </div>
+                    <div class="video_main">
+                            {% if section.settings.video %}
+                                {{ section.settings.video | media_tag: 
+                                autoplay: section.settings.autoplay, 
+                                loop: section.settings.loop,
+                                controls: true,
+                                muted: true
+                                }}
+                        {% endif %}
+                    </div>
+                </div>
+                  <div class="arrow_video_link">
+                        <div class="arrow_icon">
+                            <svg width="50" height="20" viewBox="0 0 50 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="0" refY="2" orient="auto">
+                                    <path d="M0,0 L6,2 L0,4 Z" fill="currentColor" />
+                                    </marker>
+                                </defs>
+                                <!-- Changed control points to make the curve dip down -->
+                                <path d="M5 5 C 15 15, 35 15, 45 5" stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                            </svg>
+                        </div>
+                        <div class="video_watch_link"><a href="{{ section.settings.video.sources[1].url }}" class="watch_link"><p>Watch Video</p></a></div>
+                    </div>
+            </div>
+        </div>
+        <div class="product_section">
+            <div class="product_heading">
+                <p>{{ section.settings.product_heading }}</p>
+            </div>
+            <div class="product-data">
+                {% assign product = section.settings.product1 %}
+                {% if product %}
+                     <div class="product-block"  data-variant-id="{{ product.variants.first.id }}">
+                        <a href="{{ product.url }}">
+                            {% if product.featured_image %}
+                            <img src="{{ product.featured_image | image_url: width: 300 }}" alt="{{ product.title }}">
+                            {% endif %}
+                        </a>
+                        <div class="product_title_price">
+                            <h3>{{ product.title }}</h3>
+                            <p>{{ product.price | money_with_currency }}</p>
+                        </div>
+                        {% comment %} <div class='pro_subheading'><span>{{ section.settings.subheading }}</span></div> {% endcomment %}
+                        <div class="pro_variant">
+                            <select class="variant-selector" name="variant-selector">
+                                {% for variant in product.variants %}
+                                    <option value="{{ variant.id }}">{{ variant.title }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="pro_buttons">
+                            <a href="{{ product.url }}"><button class="more_info">More Info</button></a>
+                            <button type="submit" class="add_to_cart_ajax">Add To cart</button>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% assign product2 = section.settings.product2 %}
+                {% if product2 %}    
+                    <div class="product-block"  data-variant-id="{{ product2.variants.first.id }}">
+                        <a href="{{ product2.url }}">
+                            {% if product2.featured_image %}
+                            <img src="{{ product2.featured_image | image_url: width: 300 }}" alt="{{ product2.title }}">
+                            {% endif %}
+                        </a>
+                        <div class="product_title_price">
+                            <h3>{{ product2.title }}</h3>
+                            <p>{{ product2.price | money_with_currency }}</p>
+                        </div>
+                        {% comment %} <div class='pro_subheading'><span>{{ section.settings.subheading }}</span></div> {% endcomment %}
+                        <div class="pro_variant">
+                            <select class="variant-selector" name="variant-selector">
+                                {% for variant in product2.variants %}
+                                    <option value="{{ variant.id }}">{{ variant.title }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="pro_buttons">
+                            <a href="{{ product2.url }}"><button class="more_info">More Info</button></a>
+                            <button type="submit" class="add_to_cart_ajax">Add To cart</button>
+                        </div>
+                    </div>
+                {% endif %} 
+            </div>
+            <div class="single_product">
+                {% assign product = section.settings.product3 %}
+                {% if product %}
+                        <div class="pro_heading">
+                            <p>Use an applicator handle to apply oil evenly and ensure a clean working environment.</p>
+                        </div>
+                    
+                        <div class="product_main product-block" data-variant-id="{{ product.variants.first.id }}">
+                            <div class="product_media">
+                                <img src="{{ product.featured_image | img_url: 'small' }}" />
+                            </div>
+                            <div class="single_product_detail">
+                                <div class="product_info">
+                                    <p>{{ product.title }}</p>
+                                    <p>{{ product.price | money_with_currency}}</p>
+                                </div>
+                                <div class="custom_text"><p>Perfect all for your inside Surfaces</p></div>
+                                <div class="action_btns pro_buttons">
+                                     <input type="hidden" value ="{{ product.variants.first.id }}" class="variant-selector" name="variant-selector">
+                                    <a href="{{ product.url }}"><button class="more_info more_info_btn">More Info</button></a>
+                                    <button class="add_to_cart_btn add_to_cart_ajax">Add to cart</button>
+                                </div>
+                            </div>
+                        </div>
+                {% endif %}
+            </div>
+            <div class="bottom_products">
+                {% assign bottom_product = section.settings.bottom_product %}
+                {% if bottom_product %}
+                     <div class="product-block" data-variant-id="{{ bottom_product.variants.first.id }}">
+                        <a href="{{ bottom_product.url }}">
+                            {% if bottom_product.featured_image %}
+                            <img src="{{ bottom_product.featured_image | image_url: width: 300 }}" alt="{{ bottom_product.title }}">
+                            {% endif %}
+                        </a>
+                        <div class="product_title_price">
+                            <h3>{{ bottom_product.title }}</h3>
+                            <p>{{ bottom_product.price | money_with_currency }}</p>
+                        </div>
+                        {% comment %} <div class='pro_subheading'><span>{{ section.settings.subheading }}</span></div> {% endcomment %}
+                        <div class="pro_variant">
+                            <select class="variant-selector" name="variant-selector">
+                                {% for variant in bottom_product.variants %}
+                                    <option value="{{ variant.id }}">{{ variant.title }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="pro_buttons">
+                            <a href="{{ bottom_product.url }}"><button class="more_info">More Info</button></a>
+                            <button type="submit" class="add_to_cart_ajax">Add To cart</button>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .bottom_products .product-block{width:34%;}
+    .custom_image_products_section{background:#F5F5F5;padding:50px 0px;}
+    .img_products_main{width:100%;display:flex;}
+    .media_section{width:40%;}
+    .product_section{width:60%;}
+    .img_products_main .image_text h2{margin:0;color:#fff;}
+    .img_products_main .image_content img{border-radius:20px;}
+    .img_products_main .image_text.content_section {border:10px;left:17.2%;margin-top:-6%;}
+    .custom_image_products_section .video_section{display:flex;margin: 50px 0px 0px 50px;}
+    .custom_image_products_section .video_section .text_content{width:40%}
+    .custom_image_products_section .single_product{background:#fff;padding:20px;width:72%;border-radius:17px;}
+    .custom_image_products_section  .single_product .product_main{display:flex;border:0.1px solid gray;padding:10px;border-radius:11px;}
+   .custom_image_products_section .single_product .product_info{display: flex;text-align: center;justify-content:space-between;}    
+   .custom_image_products_section .single_product  .product_media{width:35%;}
+   .custom_image_products_section .single_product .product_info p{font-size:15px;font-weight:600;}
+   .custom_image_products_section .single_product .single_product_detail{width:65%;}
+   .single_product .custom_text{font-size:13px;text-align:start;}
+   .custom_image_products_section .single_product .pro_heading {font-size:15px;margin:0;line-height:1.5;}
+   .product_main.product-block img{width:100px;} 
+   .single_product .pro_buttons{gap:15px;justify-content:start;}
+</style>
+
+{% schema %}
+    {
+        "name":"Custom Image Products",
+        "settings": [
+            {
+                "type": "text",
+                "id": "image_heading",
+                "label": "Image Heading"
+            },
+            {
+                "type": "text",
+                "id": "image_text",
+                "label": "Image Text"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "video",
+                "id":"video",
+                "label":"video"
+            },
+            {
+                "type": "text",
+                "id": "product_heading",
+                "label": "Product Heading Text"
+            },
+            {
+                "type": "product",
+                "id": "product1",
+                "label": "product1"
+            },
+            {
+                "type": "product",
+                "id": "product2",
+                "label": "product2"
+            },
+            {
+                "type": "product",
+                "id": "product3",
+                "label": "product3"
+            },
+            {
+                "type": "product",
+                "id": "bottom_product",
+                "label": "Bottom product"
+            }
+        ],
+         "presets": [
+            {
+            "name": "Custom Image Products",
+            "category": "collection"
+            }
+        ]
+    }
+{% endschema %}
