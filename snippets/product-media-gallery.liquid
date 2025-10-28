@@ -556,9 +556,6 @@ document.addEventListener('DOMContentLoaded', () => {
         selected = document.querySelector(`select[name="${capitalized}"]`);
       }
       selectedOptions[option.toLowerCase()] = selected ? selected.value.toLowerCase() : null;
-  {% comment %} const value = selected ? selected.value.replace(/\s+/g, '').toLowerCase() : null; {% endcomment %}
-
-  {% comment %} selectedOptions[option.toLowerCase()] = value; {% endcomment %}
     });
 
     function normalizeShopifySrc(src) {
