@@ -92,30 +92,31 @@
 {% endstylesheet %}
 
 <section class="blog-slider-section">
-  <div class="blog-slider-header">
-    <h2>{{ section.settings.heading }}</h2>
-    <div class="blog-slider-arrows"></div>
-  </div>
-
-  <div class="blog-slider">
-    {% for article in blogs[section.settings.blog].articles limit: section.settings.post_limit %}
-      <div class="blog-card">
-        <div class="blog-card-image">
-          {% if article.image %}
-            <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.title }}" width="" height="">
-          {% endif %}
+  <div> 
+    <div class="blog-slider-header">
+      <h2>{{ section.settings.heading }}</h2>
+      <div class="blog-slider-arrows"></div>
+    </div>
+    <div class="blog-slider">
+      {% for article in blogs[section.settings.blog].articles limit: section.settings.post_limit %}
+        <div class="blog-card">
+          <div class="blog-card-image">
+            {% if article.image %}
+              <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.title }}" width="" height="">
+            {% endif %}
+          </div>
+          <div class="blog-card-content">
+            <h3>{{ article.title }}</h3>
+            <a href="{{ article.url }}" class="blog-card-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
         </div>
-        <div class="blog-card-content">
-          <h3>{{ article.title }}</h3>
-          <a href="{{ article.url }}" class="blog-card-arrow">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
-      </div>
-    {% endfor %}
-  </div>
+      {% endfor %}
+    </div>
+  </div>  
 </section>
 
 {% javascript %}

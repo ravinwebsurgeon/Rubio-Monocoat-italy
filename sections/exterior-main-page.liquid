@@ -62,7 +62,7 @@
                             <h3>{{ product.title }}</h3>
                             <p>{{ product.price | money_with_currency }}</p>
                         </div>
-                        <div class='pro_subheading'><span>{{ section.settings.subheading }}</span></div>
+                        <div class='pro_subheading'><span>{{ custom_text }}</span></div>
                         <div class="pro_variant">
                             <select class="variant-selector" name="variant-selector">
                                 {% for variant in product.variants %}
