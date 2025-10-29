@@ -1,4 +1,4 @@
- <div class="tab-products-wrap">
+ {% comment %} <div class="tab-products-wrap">
                 <h4 class="oil-head">{{ section.settings.heading }}</h4>
                 {% for block in section.blocks %}
                 {% assign tab_collection = block.settings.tab_collection %}
@@ -59,7 +59,218 @@
                   </ul>
                 </div>
               {% endfor %}
-             </div>
+             </div> {% endcomment %}
+<div class="tab-products-wrap">
+  <h4 class="oil-head">{{ section.settings.heading }}</h4>
+
+  {% comment %}
+    Surface Options (Vertical / Horizontal) - clicking these will show the collection here
+  {% endcomment %}
+  <div class="surface-options" id="exterior-surfaces" style="display:none;">
+    <div class="surface-item" data-collection="{{ section.settings.vertical_surface_collection.handle }}">
+      <span class="surfaces-img-spn">
+        <img src="{{ section.settings.vertical_surface_img | img_url: 'master' }}" alt="Vertical surface">
+      </span>
+      <p>Vertical surface</p>
+    </div>
+    <div class="surface-item" data-collection="{{ section.settings.horizontal_surface_collection.handle }}">
+      <span class="surfaces-img-spn">
+        <img src="{{ section.settings.horizontal_surface_img | img_url: 'master' }}" alt="Horizontal surface"> 
+      </span>
+      <p>Horizontal surface</p>
+    </div>
+  </div>
+
+  {% comment %}
+    Render vertical collection products
+  {% endcomment %}
+  {% if section.settings.vertical_surface_collection != blank %}
+    {% assign vertical_collection = section.settings.vertical_surface_collection %}
+    <div class="tab-productss vertical-surface" id="collection-{{ vertical_collection.handle }}" style="display:none;">
+      <ul class="product-grid">
+        {% for product in vertical_collection.products %}
+          <li class="product-item"
+            data-colours="{{ product.metafields.custom.colour_filter2.value | join: ',' }}"
+            data-products="{{ product.metafields.custom.product_filter.value | join: ',' }}"
+            data-available="{{ product.available }}"
+            data-product-id="{{ product.variants.first.id }}">                        
+            <div class="product-item-img-col">
+              <a href="{{ product.url }}">
+              {% if product.featured_image %}
+              <div class="product-image-wrapper" data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}" data-featured="{{ product.featured_image | img_url: '400x' }}">
+                {% if product.metafields.custom.cover_image != blank %}
+                  <img class="cover-image" src="{{ product.metafields.custom.cover_image | img_url: ' ' }}" alt="{{ product.title }}" width="" height="">
+                {% endif %}
+                <img class="featured-image" src="{{ product.featured_image | img_url: ' ' }}" alt="{{ product.title | escape }}" width="" height="">
+              </div>
+              {% endif %} 
+              </a>
+              <div class="plus-show">{% render 'Cs-plus-icon' %}</div>
+            </div>  
+            <button
+              class="wishlist_button card-prod main-{{ forloop.index0 }} {%- if product.available == false -%}sold-wish{% endif %}"
+              onclick="toggleWishlist(this)"
+              data-id="{{ product.id }}"
+              data-title="{{ product.title | escape }}"
+              data-image="{{ product.featured_image | img_url: 'master' }}"
+              data-price="{{ product.price | money }}"
+              data-url="{{ product.url }}"
+            >
+              <svg width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" fill="none" width="24" height="24"/>
+                <g>
+                  <path d="M16.5 4.5c2.206 0 4 1.794 4 4 0 4.67-5.543 8.94-8.5 11.023C9.043 17.44 3.5 13.17 3.5 8.5c0-2.206 1.794-4 4-4 1.298 0 2.522.638 3.273 1.706L12 7.953l1.227-1.746c.75-1.07 1.975-1.707 3.273-1.707m0-1.5c-1.862 0-3.505.928-4.5 2.344C11.005 3.928 9.362 3 7.5 3 4.462 3 2 5.462 2 8.5c0 5.72 6.5 10.438 10 12.85 3.5-2.412 10-7.13 10-12.85C22 5.462 19.538 3 16.5 3z"/>
+                </g>
+              </svg>
+            </button>
+            <div class="product-item-conts">
+              <div class="product-buttons-wraper">
+                <button class="more-info-color">More Info</button>
+                <button class="order-sample-color">Order Sample</button>                  
+              </div>
+              <a href="{{ product.url }}">
+                <h3>{{ product.title }}</h3>
+                <p class="price hidden">{{ product.price | money }}</p>    
+              </a>                         
+            </div>
+          </li>                      
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  {% comment %}
+    Render horizontal collection products
+  {% endcomment %}
+  {% if section.settings.horizontal_surface_collection != blank %}
+    {% assign horizontal_collection = section.settings.horizontal_surface_collection %}
+    <div class="tab-productss horizontal-surface" id="collection-{{ horizontal_collection.handle }}" style="display:none;">
+      <ul class="product-grid">
+        {% for product in horizontal_collection.products %}
+          <li class="product-item"
+            data-colours="{{ product.metafields.custom.colour_filter2.value | join: ',' }}"
+            data-products="{{ product.metafields.custom.product_filter.value | join: ',' }}"
+            data-available="{{ product.available }}"
+            data-product-id="{{ product.variants.first.id }}">                        
+            <div class="product-item-img-col">
+              <a href="{{ product.url }}">
+              {% if product.featured_image %}
+              <div class="product-image-wrapper" data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}" data-featured="{{ product.featured_image | img_url: '400x' }}">
+                {% if product.metafields.custom.cover_image != blank %}
+                  <img class="cover-image" src="{{ product.metafields.custom.cover_image | img_url: ' ' }}" alt="{{ product.title }}" width="" height="">
+                {% endif %}
+                <img class="featured-image" src="{{ product.featured_image | img_url: ' ' }}" alt="{{ product.title | escape }}" width="" height="">
+              </div>
+              {% endif %} 
+              </a>
+              <div class="plus-show">{% render 'Cs-plus-icon' %}</div>
+            </div>  
+            <button
+              class="wishlist_button card-prod main-{{ forloop.index0 }} {%- if product.available == false -%}sold-wish{% endif %}"
+              onclick="toggleWishlist(this)"
+              data-id="{{ product.id }}"
+              data-title="{{ product.title | escape }}"
+              data-image="{{ product.featured_image | img_url: 'master' }}"
+              data-price="{{ product.price | money }}"
+              data-url="{{ product.url }}"
+            >
+              <svg width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" fill="none" width="24" height="24"/>
+                <g>
+                  <path d="M16.5 4.5c2.206 0 4 1.794 4 4 0 4.67-5.543 8.94-8.5 11.023C9.043 17.44 3.5 13.17 3.5 8.5c0-2.206 1.794-4 4-4 1.298 0 2.522.638 3.273 1.706L12 7.953l1.227-1.746c.75-1.07 1.975-1.707 3.273-1.707m0-1.5c-1.862 0-3.505.928-4.5 2.344C11.005 3.928 9.362 3 7.5 3 4.462 3 2 5.462 2 8.5c0 5.72 6.5 10.438 10 12.85 3.5-2.412 10-7.13 10-12.85C22 5.462 19.538 3 16.5 3z"/>
+                </g>
+              </svg>
+            </button>
+            <div class="product-item-conts">
+              <div class="product-buttons-wraper">
+                <button class="more-info-color">More Info</button>
+                <button class="order-sample-color">Order Sample</button>                  
+              </div>
+              <a href="{{ product.url }}">
+                <h3>{{ product.title }}</h3>
+                <p class="price hidden">{{ product.price | money }}</p>    
+              </a>                         
+            </div>
+          </li>                      
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  {% comment %}
+    Existing blocks loop (unchanged)
+  {% endcomment %}
+  {% for block in section.blocks %}
+    {% assign tab_collection = block.settings.tab_collection %}
+    <div class="tab-productss {% if forloop.first %} active{% endif %}" >
+      <ul class="product-grid">
+        {% for product in tab_collection.products %}
+          <li class="product-item"
+            data-colours="{{ product.metafields.custom.colour_filter2.value | join: ',' }}"
+            data-products="{{ product.metafields.custom.product_filter.value | join: ',' }}"
+            data-available="{{ product.available }}"
+            data-product-id="{{ product.variants.first.id }}">                        
+            <div class="product-item-img-col">
+              <a href="{{ product.url }}">
+              {% if product.featured_image %}
+              <div class="product-image-wrapper" data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}" data-featured="{{ product.featured_image | img_url: '400x' }}">
+                {% if product.metafields.custom.cover_image != blank %}
+                  <img class="cover-image" src="{{ product.metafields.custom.cover_image | img_url: ' ' }}" alt="{{ product.title }}" width="" height="">
+                {% endif %}
+                <img class="featured-image" src="{{ product.featured_image | img_url: ' ' }}" alt="{{ product.title | escape }}" width="" height="">
+              </div>
+              {% endif %} 
+              </a>
+              <div class="plus-show">{% render 'Cs-plus-icon' %}</div>
+            </div>  
+            <button
+              class="wishlist_button card-prod main-{{ forloop.index0 }} {%- if product.available == false -%}sold-wish{% endif %}"
+              onclick="toggleWishlist(this)"
+              data-id="{{ product.id }}"
+              data-title="{{ product.title | escape }}"
+              data-image="{{ product.featured_image | img_url: 'master' }}"
+              data-price="{{ product.price | money }}"
+              data-url="{{ product.url }}"
+            >
+              <svg width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" fill="none" width="24" height="24"/>
+                <g>
+                  <path d="M16.5 4.5c2.206 0 4 1.794 4 4 0 4.67-5.543 8.94-8.5 11.023C9.043 17.44 3.5 13.17 3.5 8.5c0-2.206 1.794-4 4-4 1.298 0 2.522.638 3.273 1.706L12 7.953l1.227-1.746c.75-1.07 1.975-1.707 3.273-1.707m0-1.5c-1.862 0-3.505.928-4.5 2.344C11.005 3.928 9.362 3 7.5 3 4.462 3 2 5.462 2 8.5c0 5.72 6.5 10.438 10 12.85 3.5-2.412 10-7.13 10-12.85C22 5.462 19.538 3 16.5 3z"/>
+                </g>
+              </svg>
+            </button>
+            <div class="product-item-conts">
+              <div class="product-buttons-wraper">
+                <button class="more-info-color">More Info</button>
+                <button class="order-sample-color">Order Sample</button>                  
+              </div>
+              <a href="{{ product.url }}">
+                <h3>{{ product.title }}</h3>
+                <p class="price hidden">{{ product.price | money }}</p>    
+              </a>                         
+            </div>
+          </li>                      
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</div>
+
+{% comment %}
+  JS to toggle surface collections
+{% endcomment %}
+<script>
+document.querySelectorAll('.surface-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const handle = item.dataset.collection;
+    // hide all surface collections
+    document.querySelectorAll('.vertical-surface, .horizontal-surface').forEach(el => el.style.display = 'none');
+    // show selected
+    const selected = document.getElementById(`collection-${handle}`);
+    if(selected) selected.style.display = 'block';
+  });
+});
+</script>
 
              {% schema %}
 {
