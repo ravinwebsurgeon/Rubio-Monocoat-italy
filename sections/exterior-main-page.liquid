@@ -1,0 +1,303 @@
+{% assign links = page.metafields.custom.floor_steps_url  %}
+{% assign images = page.metafields.custom.floor_steps_images.value %}
+{% assign headings = page.metafields.custom.floor_steps_heading.value  %}
+
+{% assign product = page.metafields.custom.filling_gap_product.value  %}
+{% assign filling_gap_image = page.metafields.custom.filling_gap_image.value  %}
+{% assign product_list = page.metafields.custom.preparatory_cleaners_products.value %}
+{% assign video = page.metafields.custom.filling_gap_video.value %}
+{% assign singleLayerProduct = page.metafields.custom.singlelayerproduct.value %}
+
+<div class="floor-steps-section">
+  <div class="containers">
+    <h2 class="floor_steps_heading">What you’ll need to oil your wooden floor</h2>
+    <p class="floor_step_subheading ">Frutiger Condensed</p>
+     <div class="floor-steps-wrapper">    
+    {% for image in images %}
+        {% assign index = forloop.index0 %}
+        <a href="{{ links[index] }}" class="floor-step">
+            <img src='{{ image | img_url: width: 600  }}' alt="Step {{ i | plus: 1 }}">
+            <p>{{ headings[index]  }}</p>
+        </a>
+    {% endfor %}
+  </div>
+  </div>
+</div>
+
+<div class="filling_gap_section">
+    <div class="filling_gap">
+        <div class="media_section">
+            <div class="custom_image">
+                <img src="{{ filling_gap_image | img_url: 'master' }}" width=300 height=500 />
+                <div class="content_section">
+                    <p class="heading">Preparation</p>
+                    <p class="subheading">Perfect for your all inner surfaces</p>
+                </div>
+            </div>
+        </div>
+
+           <div class="selected_product_section">
+            <div class="product_head"><p>{{ section.settings.main_heading }}</p></div>
+            <div class="product-data">
+                {% if page.metafields.custom.filling_gap_product %}
+                    <div class="product-block"  data-variant-id="{{ product.variants.first.id }}">
+                        <a href="{{ product.url }}">
+                            {% if product.featured_image %}
+                            <img src="{{ product.featured_image | image_url: width: 300 }}" alt="{{ product.title }}">
+                            {% endif %}
+                        </a>
+                        <div class="product_title_price">
+                            <h3>{{ product.title }}</h3>
+                            <p>{{ product.price | money_with_currency }}</p>
+                        </div>
+                        <div class='pro_subheading'><span>{{ section.settings.subheading }}</span></div>
+                        <div class="pro_variant">
+                            <select class="variant-selector" name="variant-selector">
+                                {% for variant in product.variants %}
+                                    <option value="{{ variant.id }}">{{ variant.title }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="pro_buttons">
+                            <a href="{{ product.url }}"><button class="more_info">More Info</button></a>
+                            <button type="submit" class="add_to_cart_ajax">Add To cart</button>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="filling_gap_next">
+   
+     <div class="custom_video_content">
+        <div class="ori_video">
+            <div class="text_content">
+                <svg width="20" height="20" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Circle -->
+                    <circle cx="32" cy="32" r="30" stroke="black" stroke-width="2" fill="none" />
+                    <!-- Question Mark -->
+                    <path d="M24 22c0-3 4-5 8-5s8 2 8 5c0 4-6 4-6 9v2" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                    <!-- Dot of question mark -->
+                    <circle cx="32" cy="44" r="3" fill="black" />
+                </svg>
+                <p class="video_text_first uppercase_text">not sure how to prepare your wooden floor?</p>
+                <p class="video_text_second captalize_text">listen to our expert</p>
+                
+            </div>
+            <div class="video_section">
+                 {% if video %}
+                    {{ video | media_tag: 
+                    autoplay: section.settings.autoplay, 
+                    loop: section.settings.loop,
+                    controls: true,
+                    muted: true
+                    }}
+            {% endif %} 
+            </div>
+        </div>
+        <div class="arrow_video_link">
+            <div class="arrow_icon">
+                <svg width="50" height="20" viewBox="0 0 50 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="0" refY="2" orient="auto">
+                    <path d="M0,0 L6,2 L0,4 Z" fill="currentColor" />
+                    </marker>
+                </defs>
+                <!-- Changed control points to make the curve dip down -->
+                <path d="M5 5 C 15 15, 35 15, 45 5" stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                </svg>
+            </div>
+            <div class="video_watch_link"><a href="{{ video.url }}" class="watch_link"><p>Watch Video</p></a></div>
+        </div>
+    </div> 
+
+    <div class="block-products">
+            <p class="p-head">Preparatory Cleaners</p>
+            <div class="product-data">
+                {% for product in product_list %}
+                    {% if product %}
+                        <div class="product-block">
+                        <a href="{{ product.url }}">
+                            <img src="{{ product.featured_image | image_url: width: 300 }}" alt="{{ product.title }}">
+                        </a>
+                        <div class="product_title_price">
+                            <h3>{{ product.title }}</h3>
+                            <p>{{ product.price | money }}</p>
+                        </div>
+                        <div class="pro_variant">
+                         <select class="variant-selector" name="variant-selector">
+                            {% for variant in product.variants %}
+                                <option value="{{ variant.id }}">{{ variant.title }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="pro_buttons">
+                        <a href="{{ product.url }}"><button class="more_info">More Info</button></a>
+                        <button class="add_to_cart_ajax">Add To cart</button>
+                    </div>
+
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+    </div>
+</div>
+{% render 'single_layer_protection', product:singleLayerProduct %}
+<style>
+.floor-steps-section{width:97%;margin:auto;}
+.floor_steps_heading{font-size:35px;font-weight:600;margin-bottom:0;}
+.floor_step_subheading{font-size:17px;font-weight:600;}
+.floor-steps-wrapper {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.floor-step {
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  flex: 1 1 120px;
+  max-width: 240px;
+}
+
+.floor-step img {
+  border-radius: 50%;
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.floor-step.highlight img {
+  border: 3px solid #5A5AFC;
+  padding: 3px;
+}
+
+.floor-step:hover img {
+  transform: scale(1.05);
+}
+
+.floor-step p {
+  margin-top: 10px;
+  color:#000;
+  font-size: 14px;
+}
+
+.filling_gap_section{display:flex;}
+ h3 , p {margin:0;}
+    .uppercase_text{text-transform:uppercase;}
+    .captalize_text{text-transform:capitalize;}
+    .filling_gap_section{background: #F5F5F5;padding:50px 0px;}
+    .filling_gap_next{display:flex;align-items:center;}
+    .filling_gap{display:flex;width:95%;margin:auto;}
+    .custom_image{padding-left:18%;}
+    .custom_image img{position:relative;border-radius:10px;}
+    .content_section{background:black;color:#fff;border-radius:10px;position:absolute;margin-top:-3%;left:190px;}
+    .content_section .subheading{font-size:12px;text-transform:capitalize;}
+    .content_section p{margin:0;padding:0px 10px;}
+    {% comment %} .selected_product_section{width:60%} {% endcomment %}
+    .media_section, .custom_video_content{width:34%;text-align:center;}
+    .selected_product_section .product_head p, .filling_gap_next p.p-head{font-size:20px;font-weight:600;margin:0;}
+    .product_title_price{display:flex;justify-content:space-between;padding:0px 15px;}
+    .product-block{background:#fff;width:auto;margin:8px;padding:4px;border-radius:10px;text-align:center;}
+    .product-data{display:flex;flex-wrap:wrap;}
+    .product-block img{width:250px;}
+    .pro_subheading{font-size:15px;text-align:center;}
+    .pro_buttons{margin:10px 0px;display: flex;align-items: center;justify-content: space-between;}
+    .pro_buttons .more_info{background:black;cursor:pointer;}
+    .pro_buttons .add_to_cart_ajax{background:#F79E1B;cursor:pointer;}
+    .pro_buttons button{color:white;border:none;padding:10px;border-radius:33px;font-size:14px;}
+    .pro_variant{width: 95%;margin:15px auto;}
+    .pro_variant select{width: 100%;padding: 8px;border-radius: 19px;}
+    .video_section video{width:200px;border: 7px solid #000;border-radius: 12px;}
+    .video_text_first{font-size: 12px;font-weight: 600;}
+    .video_text_second {font-size: 12px;}
+    .custom_video_content{padding-left:50px;}
+    .custom_video_content .text_content{width:30%;margin-right:30px;}
+    .watch_link{color:black;text-decoration:underline;text-decoration-color:black;}
+    .ori_video ,.arrow_video_link{display:flex;}
+    .arrow_icon{width:40%;text-align:end}
+    .video_watch_link{width:50%;text-align:center;}
+
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('.add_to_cart_ajax').forEach(function (button) {
+        button.addEventListener('click', function () {
+            const productBlock = button.closest('.product-block');
+            const variantSelect = productBlock.querySelector('.variant-selector');
+            const variantId = variantSelect.value;
+
+            if (!variantId) {
+                alert("Please select a variant.");
+                return;
+            }
+
+            fetch('/cart/add.js', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    id: variantId,
+                    quantity: 1
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Added to cart:', data);
+                updateCartCount(1);
+                refreshCartDrawer();
+            })
+            .catch(error => {
+                console.error('Error adding to cart:', error);
+                alert("Something went wrong.");
+            });
+        });
+    });
+});
+
+function updateCartCount(totalQuantityAdded) {
+  const cartCounts = document.querySelectorAll('.cart-count-bubble > span');
+  if (cartCounts.length > 1) {
+    cartCounts.forEach(count => {
+      const currentNumberMatch = count.textContent.match(/\d+/);
+      const currentNumber = currentNumberMatch ? parseInt(currentNumberMatch[0]) : 0;
+      const newNumber = currentNumber + totalQuantityAdded;
+      count.textContent = count.textContent.replace(/\d+/, newNumber);
+      // Remove custom count bubble if any
+      const customCount = document.querySelector('.custom-cart-count-bubble > span');
+      if (customCount) customCount.remove();
+    });
+  } else {
+    const customCount = document.querySelector('.custom-cart-count-bubble > span');
+    if (customCount) {
+    console.log('custom cart found successfully',customCount.textContent)
+    let number = Number(customCount.textContent) || 0;
+      customCount.textContent = number + totalQuantityAdded;
+      customCount.parentNode.style.display = 'block';
+    }
+  }
+}
+
+function refreshCartDrawer() {
+  const cartDrawer = document.querySelector('cart-drawer');
+  fetch(`${routes.cart_url}?sections=cart-drawer`)
+    .then(response => response.json())
+    .then(sections => {
+      const newCartDrawerHtml = sections['cart-drawer'];
+      const newDocument = new DOMParser().parseFromString(newCartDrawerHtml, 'text/html');
+      const newCartDrawer = newDocument.querySelector('cart-drawer');
+      if (cartDrawer && newCartDrawer) {
+        cartDrawer.replaceWith(newCartDrawer);
+        document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
+      }
+    })
+    .catch((error) => { console.error('Error refreshing cart drawer:', error); });
+}
+</script>
