@@ -22,7 +22,7 @@
       "name": "Banner image 2",
       "settings": {
         "banner_img": "shopify://shop_images/customer-service-business-contact-concept-wooden-cube-block-which-print-screen-letter-telephone-email-address-message.jpg",
-        "banner-text": "Contact"
+        "banner_text": "Contact"
       }
     },
     "form": {
