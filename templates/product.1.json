@@ -272,6 +272,7 @@
       ],
       "name": "icons section",
       "settings": {
+        "custom_class": "pdp-icons-sec",
         "show_on_desktop": true,
         "show_on_mobile": true
       }
