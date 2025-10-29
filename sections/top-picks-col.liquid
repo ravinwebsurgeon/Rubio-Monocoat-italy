@@ -306,6 +306,7 @@ document.addEventListener("DOMContentLoaded", function(){
   });
 
    popupClose.addEventListener("click", () => {
+    console.log('popup-close clicked')
     popup.classList.remove("active");
     document.body.classList.remove("popup-open");
   });
