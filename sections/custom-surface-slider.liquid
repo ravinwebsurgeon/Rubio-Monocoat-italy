@@ -1,3 +1,7 @@
+{% assign source_page = pages[section.settings.source_page] %}
+{% assign url_list = source_page.metafields.custom.surface_slider_urls.value %}
+{% assign text_list = source_page.metafields.custom.surface_slider_text.value %}
+{% assign images = source_page.metafields.custom.surface_slider.value %}
 
 {% schema %}
 {
@@ -9,6 +13,11 @@
       "label": "Main Heading",
       "default": "Oiling other surfaces?"
     },
+    {
+    "type": "page",
+    "id": "source_page",
+    "label": "Select Page for Images"
+    }
   ],
 
   "presets": [
