@@ -3,11 +3,13 @@
 {% comment %} {% assign inspired_products = source_page.metafields.custom.inspired_wooden_product.value %} {% endcomment %}
 
 {% assign inspired_wooden_images = source_page.metafields.custom.inspired_wooden_images.value %}
+{% assign heading = source_page.metafields.custom.inspired_wooden_heading.value %}
+{% assign subheading = source_page.metafields.custom.inspired_wooden_subheading.value %}
 <section class="inspired-collage">
   <div class="container">
     <div class="collage-header">
-      <h2>{{ section.settings.heading }}</h2>
-      <p>{{ section.settings.subheading }}</p>
+      <h2>{{ heading }}</h2>
+      <p>{{subheading}}</p>
     </div>
 
     <div class="collage-grid">
