@@ -3,6 +3,8 @@
 {% assign inspired_products = source_page.metafields.custom.inspired_wooden_product.value %}
 
 {% assign inspired_wooden_images = source_page.metafields.custom.inspired_wooden_images.value %}
+es = source_page.metafields.custom.inspired_wooden_images.value %}
+
 <section class="inspired-collage">
   <div class="container">
     <div class="collage-header">
@@ -12,12 +14,13 @@
 
     <div class="collage-grid">
       {% for image in inspired_wooden_images %}
-        {% assign handle = inspired_products[forloop.index0] %}
-        {% assign product = all_products[handle] %}
+        {% assign product = inspired_products[forloop.index0] %}
+
         {% if product %}
           <div class="collage-item {% if forloop.first %}large{% else %}small{% endif %}" 
                style="background-image: url('{{ image | img_url: 'master' }}')">
-            <a href="javascript:void(0);" 
+            
+            <a href="{{ product.url }}" 
                class="product-overlay-btn {{ product.title | handleize }}" 
                data-product-handle="{{ product.handle }}">
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,7 +31,11 @@
 
             <div class="hotspot-popup">
               <span class="close-hotspot">&times;</span>
-              <div class="hotspot-content"></div>
+              <div class="hotspot-content">
+                <p>{{ product.title }}</p>
+                <p>Handle: {{ product.handle }}</p>
+                <p>Price: {{ product.price | money }}</p>
+              </div>
             </div>
           </div>
         {% endif %}
