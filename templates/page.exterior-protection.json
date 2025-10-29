@@ -13,6 +13,14 @@
       "type": "exterior-main-page",
       "settings": {}
     },
+    "top_picks_col_edptFR": {
+      "type": "top-picks-col",
+      "name": "Top Picks Slider col",
+      "settings": {
+        "section_heading": "International product certificates",
+        "product_list": "{{ page.metafields.custom.productslider.value }}"
+      }
+    },
     "custom_image_products_cLaP4D": {
       "type": "custom_ImageProducts",
       "name": "Custom Image Products",
@@ -31,6 +39,7 @@
   },
   "order": [
     "main",
+    "top_picks_col_edptFR",
     "custom_image_products_cLaP4D"
   ]
 }
