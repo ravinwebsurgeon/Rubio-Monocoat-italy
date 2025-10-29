@@ -223,6 +223,22 @@
             "tag_title": ""
           }
         },
+        "custom_images_PYzHVp": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Walnut wood",
+            "menu_image": "shopify://shop_images/width_2008-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        },
+        "custom_images_4Npnpa": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Larch wood",
+            "menu_image": "shopify://shop_images/width_2001-ezgif.com-webp-to-png-converter_1.png",
+            "tag_title": ""
+          }
+        },
         "custom_images_g3JF7t": {
           "type": "Custom_images",
           "settings": {
@@ -261,6 +277,8 @@
         "custom_images_MzyewX",
         "custom_images_ALbzXQ",
         "custom_images_9rae9t",
+        "custom_images_PYzHVp",
+        "custom_images_4Npnpa",
         "custom_images_g3JF7t",
         "custom_images_YqQTYn"
       ],
