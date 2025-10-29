@@ -1,0 +1,47 @@
+{% comment %} <div class="single-layer-section-main">
+    <div class="single-layer">
+        <div class="product_listed">
+            {% comment %} <h2>{{ section.settings.main_heading }}</h2> {% endcomment %}
+            <div class="product_detail product-block">
+                {% assign product = section.settings.add_product %}
+                {% if product %}
+                    <div class="media_section">
+                        <img src="{{ product.featured_image | image_url: width: 300  }}" />
+                    </div>
+                    <div class="pro_detail">
+                        <div class="product_title_price">
+                            <h3>{{ product.title }}</h3>
+                            <p>{{ product.price | money_with_currency }}</p>
+                        </div>
+                        <div class="custom_text"><p>Perfect all for your inside Surfaces</p></div>
+                        <div class="pro_variants">
+                            {% comment %} <select class="variant-selector" name="variant-selector">
+                                {% for variant in product.variants %}
+                                    <option value="{{ variant.id }}">{{ variant.title }}</option>
+                                {% endfor %}
+                            </select> {% endcomment %}
+                              {% for option in product.options_with_values %}
+                                <div class="pro_variant_options">
+                                <select class="option-variant-selector" name="option-variant-selector" id="ProductSelect-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
+                                {% for value in option.values %}
+                                    <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>
+                                    {{ value | escape }}
+                                    </option>
+                                {% endfor %}
+                                </select>
+                                </div>
+                            {% endfor %}
+                            <input type="hidden" class="variant-selector" id="variant-id" name="id" value="">
+                        </div>
+
+                        <div class="pro_buttons">
+                            <a href="{{ product.url }}"><button class="more_info">More Info</button></a>
+                            <button type="submit" class="add_to_cart_ajax">Add To cart</button>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+   
+</div> {% endcomment %}
