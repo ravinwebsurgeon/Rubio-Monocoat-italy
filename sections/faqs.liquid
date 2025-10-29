@@ -12,10 +12,19 @@
       {% for block in section.blocks %}
         <div class="faq2-item {% if forloop.first %}active{% endif %}">
           <button type="button" class="faq2-question">
-            <span>{{ block.settings.question }}</span>
+            <span class="faq2-left">
+              <!-- Added SVG icon before question -->
+              <svg class="faq2-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="6" stroke="black" stroke-width="2" />
+              </svg>
+              <span class="faq2-text">{{ block.settings.question }}</span>
+            </span>
             <span class="faq2-icon">
-              <svg class="faq2-arrow" width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 7l5 6 5-6" stroke="black" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <svg class="faq2-arrow" width="20" height="20" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 7l5 6 5-6" stroke="black" stroke-width="2" fill="none"
+                  stroke-linecap="round" />
               </svg>
             </span>
           </button>
@@ -75,6 +84,14 @@
   font-family: Frutiger Neue LT W1G;
   color: #000;
 }
+.faq2-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.faq2-bullet {
+  flex-shrink: 0;
+}
 .faq2-answer {
   overflow: hidden;
   height: 0;
@@ -131,7 +148,6 @@
 
 <script>
 $(document).ready(function () {
-  // Set all answers to height 0 except the active one
   $(".faq2-item").each(function() {
     const $item = $(this);
     const $answer = $item.find(".faq2-answer");
@@ -148,7 +164,6 @@ $(document).ready(function () {
     const $item = $(this).closest(".faq2-item");
     const $answer = $item.find(".faq2-answer");
 
-    // Close all others
     $item.siblings(".faq2-item").removeClass("active")
          .find(".faq2-answer")
          .each(function(){
@@ -156,11 +171,9 @@ $(document).ready(function () {
          });
 
     if ($item.hasClass("active")) {
-      // Close current item
       $item.removeClass("active");
       $answer.stop().animate({ height: 0 }, 300);
     } else {
-      // Open clicked item
       $item.addClass("active");
       const fullHeight = $answer.prop("scrollHeight");
       $answer.stop().animate({ height: fullHeight }, 300);
