@@ -1,8 +1,6 @@
 {% assign source_page = pages[section.settings.source_page] %}
-{% assign products_array = section.settings.Products | parse_json %}
-{% for p in products_array %}
-  {{ p.handle }}
-{% endfor %}
+{% assign product_handles = section.settings.Products | parse_json %}
+{% assign inspired_wooden_images = source_page.metafields.custom.inspired_wooden_images.value %}
 
 <section class="inspired-collage">
   <div class="container">
@@ -10,10 +8,8 @@
       <h2>{{ section.settings.heading }}</h2>
       <p>{{ section.settings.subheading }}</p>
     </div>
-    <div class="collage-grid">
-      {% assign inspired_wooden_images = source_page.metafields.custom.inspired_wooden_images.value %}
-      {% assign product_handles = section.settings.Products  | parse_json %}
 
+    <div class="collage-grid">
       {% for image in inspired_wooden_images %}
         {% assign handle = product_handles[forloop.index0] %}
         {% assign product = all_products[handle] %}
@@ -21,23 +17,33 @@
         {% if product %}
           <div class="collage-item {% if forloop.first %}large{% else %}small{% endif %}" 
                style="background-image: url('{{ image | img_url: 'master' }}')">
-            <a href="javascript:void(0);" class="product-overlay-btn {{ product.title }}" data-product-handle="{{ product.handle }}">
+            <a href="javascript:void(0);" 
+               class="product-overlay-btn {{ product.title | handleize }}" 
+               data-product-handle="{{ product.handle }}">
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="20" cy="20" r="20" fill="black" fill-opacity="0.5"/>
                 <circle cx="20" cy="20" r="9" fill="white"/>
               </svg>
             </a>
+
             <div class="hotspot-popup">
               <span class="close-hotspot">&times;</span>
               <div class="hotspot-content"></div>
             </div>
           </div>
+        {% else %}
+          {% comment %}
+            Optional: fallback if product handle is missing
+          {% endcomment %}
+          <div class="collage-item small" 
+               style="background-image: url('{{ image | img_url: 'master' }}')">
+            <span class="no-product">Product not found</span>
+          </div>
         {% endif %}
       {% endfor %}
     </div>
-  </div>  
+  </div>
 </section>
-
 
 <style>
 .inspired-collage{
