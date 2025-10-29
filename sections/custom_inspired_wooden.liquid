@@ -7,7 +7,7 @@
       <p>{{ section.settings.subheading }}</p>
     </div>
     <div class="collage-grid">
-      {% assign inspired_wooden_images = page.metafields.custom.inspired_wooden_images.value %}
+      {% assign inspired_wooden_images = source_page.metafields.custom.inspired_wooden_images.value %}
       {% assign products = section.settings.product_List %}
 
       {% comment %}
