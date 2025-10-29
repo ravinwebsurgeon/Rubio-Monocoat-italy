@@ -1,7 +1,7 @@
 {% assign source_page = pages[section.settings.source_page] %}
 {% assign product_handles = section.settings.Products | parse_json %}
 {% assign inspired_wooden_images = source_page.metafields.custom.inspired_wooden_images.value %}
-{{ product_handles[0].handle }}
+
 <section class="inspired-collage">
   <div class="container">
     <div class="collage-header">
@@ -11,11 +11,12 @@
 
     <div class="collage-grid">
       {% for image in inspired_wooden_images %}
-        {% assign handle = product_handles[forloop.index0] %}
-        {% assign product = all_products[handle] %}
+        {% assign product = product_handles[forloop.index0] %}
+
         {% if product %}
           <div class="collage-item {% if forloop.first %}large{% else %}small{% endif %}" 
                style="background-image: url('{{ image | img_url: 'master' }}')">
+            
             <a href="javascript:void(0);" 
                class="product-overlay-btn {{ product.title | handleize }}" 
                data-product-handle="{{ product.handle }}">
@@ -27,7 +28,10 @@
 
             <div class="hotspot-popup">
               <span class="close-hotspot">&times;</span>
-              <div class="hotspot-content"></div>
+              <div class="hotspot-content">
+                <p>{{ product.title }}</p>
+                <p>Handle: {{ product.handle }}</p>
+              </div>
             </div>
           </div>
         {% endif %}
@@ -35,6 +39,7 @@
     </div>
   </div>
 </section>
+
 
 <style>
 .inspired-collage{
