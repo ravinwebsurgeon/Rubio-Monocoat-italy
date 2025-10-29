@@ -7,14 +7,12 @@
     <div class="custom-contact-text-wrapper">
       {% if section.settings.floating_image != blank %}
         <div class="floating-image-wrapper">
-          <img src="{{ section.settings.floating_image | image_url: width: 800 }}" alt="Floating image" class="floating-image" loading="lazy">
+          <img src="{{ section.settings.floating_image | image_url: width: 600 }}" alt="Floating image" class="floating-image" loading="lazy">
         </div>
       {% endif %}
 
       <div class="custom-contact-text-overlay">
-        {% if section.settings.heading != blank %}
-          <h2 class="custom-contact-title">{{ section.settings.heading }}</h2>
-        {% endif %}
+        <h2 class="custom-contact-title">{{ section.settings.heading }}</h2>
 
         {% if section.settings.subheading != blank %}
           <p class="custom-contact-subheading">{{ section.settings.subheading }}</p>
@@ -52,7 +50,6 @@
             <input class="custom-field__input" type="email" id="ContactFormEmail" name="contact[email]" placeholder="Email" value="{{ form.email }}">
           </div>
         </div>
-
         <div class="custom-field">
           <label for="ContactFormPhone">Phone</label>
           <input class="custom-field__input" type="tel" id="ContactFormPhone" name="contact[phone]" placeholder="Phone" value="{{ form.phone }}">
@@ -76,21 +73,28 @@
 <style>
 .custom-contact-inner {
   display: flex;
-  align-items: stretch;
-  justify-content: space-between;
+  flex-direction: row; /* ✅ Ensures image is left, form is right */
+  align-items: center;
+  justify-content: center;
   background-color: #00000008;
   border-radius: 12px;
   overflow: hidden;
 }
 
-/* Left side (Image + Text Overlay) */
 .custom-contact-text-wrapper {
   position: relative;
-  width: 50%;
+  width: 50%; /* ✅ Left half */
 }
 
 .floating-image-wrapper {
+  position: relative;
   width: 100%;
+  max-height: 550px;
+  min-height: 500px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
 }
 
@@ -99,6 +103,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 12px 0 0 12px;
 }
 
 .custom-contact-text-overlay {
@@ -110,14 +115,15 @@
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
   width: 100%;
   box-sizing: border-box;
-  background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0));
 }
 
 .custom-contact-title {
   font-size: 40px;
   font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 1px;
   color: #fff;
+  line-height: normal;
   margin: 0;
 }
 
@@ -130,30 +136,20 @@
 }
 
 .custom-contact-description {
-  margin: 10px 0 20px;
+  margin-bottom: 20px;
 }
 
 .custom-contact-additional-info {
   font-size: 1rem;
+  margin-top: 20px;
 }
 
-/* Right side (Form) */
 .custom-contact-form {
-  width: 50%;
+  width: 50%; /* ✅ Right half */
   padding: 40px;
-  background-color: #fff;
-  border-radius: 0 12px 12px 0;
   box-sizing: border-box;
-}
-
-.name-email-text {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.custom-field {
-  width: 100%;
+  background: #fff;
+  border-radius: 0 12px 12px 0;
 }
 
 .custom-field__input {
@@ -167,11 +163,13 @@
   background-color: #F58720;
   color: #fff;
   border-radius: 10px;
-  font-size: 20px;
-  padding: 10px 40px;
-  border: none;
+  font-size: 24px;
+  line-height: normal;
+  font-weight: 400;
+  padding: 8px 49px;
+  display: inline-block;
   cursor: pointer;
-  transition: background-color 0.3s;
+  border: 0;
 }
 
 .custom-button:hover {
@@ -194,8 +192,8 @@
   color: #721c24;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 900px) {
+/* ✅ Responsive adjustments */
+@media screen and (max-width: 768px) {
   .custom-contact-inner {
     flex-direction: column;
   }
@@ -203,6 +201,11 @@
   .custom-contact-text-wrapper,
   .custom-contact-form {
     width: 100%;
+  }
+
+  .floating-image-wrapper {
+    min-height: 200px;
+    max-height: 300px;
   }
 
   .custom-contact-form {
