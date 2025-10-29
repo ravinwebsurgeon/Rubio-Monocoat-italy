@@ -311,6 +311,22 @@
             "tag_title": ""
           }
         },
+        "custom_images_Agp6nU": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Bankirai",
+            "menu_image": "shopify://shop_images/width_20018-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        },
+        "custom_images_qfQGRm": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Pine wood",
+            "menu_image": "shopify://shop_images/width_20019-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        },
         "custom_images_g3JF7t": {
           "type": "Custom_images",
           "settings": {
@@ -360,6 +376,8 @@
         "custom_images_DJfPKi",
         "custom_images_byhRjU",
         "custom_images_n3c8HV",
+        "custom_images_Agp6nU",
+        "custom_images_qfQGRm",
         "custom_images_g3JF7t",
         "custom_images_YqQTYn"
       ],
