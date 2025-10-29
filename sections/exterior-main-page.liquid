@@ -14,6 +14,7 @@
 {% assign layerVideo = page.metafields.custom.singlelayervideo.value %}
 {% assign leftProduct = page.metafields.custom.left_product.value %}
 {% assign rightProduct = page.metafields.custom.right_product.value %}
+{% assign two_col_heading = page.metafields.custom.two_col_heading.value %}
 
 <div class="floor-steps-section">
   <div class="containers">
@@ -160,7 +161,8 @@
 %}
 {% render 'two-col-product', 
     product1: leftProduct,
-    product2: rightProduct
+    product2: rightProduct,
+    two_col_heading: two_col_heading,
 
 %}
 <style>
