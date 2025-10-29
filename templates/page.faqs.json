@@ -27,7 +27,7 @@
             "subheading": "<p>Find answers to common questions about our products and services</p>",
             "heading_alignment": "center",
             "heading_spacing": 40,
-            "first_item_open": false,
+            "first_item_open": true,
             "question_1": "What is your return policy?",
             "answer_1": "<p>We offer a 30-day return policy on all products. Items must be unused and in their original packaging.</p>",
             "question_2": "How long does shipping take?",
