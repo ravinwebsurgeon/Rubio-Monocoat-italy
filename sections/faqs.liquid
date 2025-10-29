@@ -1,0 +1,198 @@
+{% comment %}
+  Section: Full Width FAQ (Unique Version)
+  Layout: One Heading at Top → Accordion Below
+{% endcomment %}
+<section class="faq2-section">
+  <div class="faq2-wrapper page-width">
+    {% if section.settings.heading != blank %}
+      <h2 class="faq2-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="faq2-accordion">
+      {% for block in section.blocks %}
+        <div class="faq2-item {% if forloop.first %}active{% endif %}">
+          <button type="button" class="faq2-question">
+            <span>{{ block.settings.question }}</span>
+            <span class="faq2-icon">
+              <svg class="faq2-arrow" width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 7l5 6 5-6" stroke="black" stroke-width="2" fill="none" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq2-answer">
+            <p>{{ block.settings.answer }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+.faq2-section {
+  background-color: #f8f8f8;
+  padding: 100px 30px 50px;
+  width: 100%;
+}
+.faq2-wrapper {
+  max-width: 1700px;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 50px;
+}
+.faq2-heading {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+  color: #000;
+}
+.faq2-accordion {
+  background-color: #fff;
+  border-radius: 20px;
+}
+.faq2-item {
+  border-bottom: 1px solid #000;
+  padding: 33px 0;
+}
+.faq2-item:last-child {
+  border: none;
+}
+.faq2-question {
+  width: 100%;
+  text-align: left;
+  font-weight: 400;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  font-family: Frutiger Neue LT W1G;
+  color: #000;
+}
+.faq2-answer {
+  overflow: hidden;
+  height: 0;
+  font-size: 16px;
+  color: #000;
+  font-family: Frutiger Neue LT W1G;
+  margin-top: 0;
+  transition: height 0.3s ease;
+}
+.faq2-answer p {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+.faq2-arrow {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+.faq2-item.active .faq2-arrow {
+  transform: rotate(180deg);
+}
+
+/* Responsive */
+@media(max-width: 991px) {
+  .faq2-wrapper {
+    padding: 30px 25px;
+  }
+  .faq2-question {
+    font-size: 18px;
+  }
+  .faq2-answer {
+    font-size: 14px;
+  }
+}
+@media(max-width: 767px) {
+  .faq2-section {
+    padding: 60px 15px 30px;
+  }
+  .faq2-wrapper {
+    padding: 25px 15px;
+  }
+  .faq2-heading {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+  .faq2-question {
+    font-size: 16px;
+  }
+  .faq2-answer p {
+    margin-top: 12px;
+  }
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  $(".faq2-question").on("click", function () {
+    const $item = $(this).closest(".faq2-item");
+    const $answer = $item.find(".faq2-answer");
+
+    // Close other items
+    $item.siblings(".faq2-item").removeClass("active")
+         .find(".faq2-answer")
+         .each(function(){
+            $(this).stop().animate({ height: 0 }, 300);
+         });
+
+    if ($item.hasClass("active")) {
+      // Close current
+      $item.removeClass("active");
+      $answer.stop().animate({ height: 0 }, 300);
+    } else {
+      // Open current
+      $item.addClass("active");
+      const fullHeight = $answer.prop("scrollHeight");
+      $answer.stop().animate({ height: fullHeight }, 300);
+    }
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Full Width FAQ (New)",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Frequently Asked Questions"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Example question here"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Example answer text goes here. You can explain your FAQ answer here."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Full Width FAQ (New)",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}
