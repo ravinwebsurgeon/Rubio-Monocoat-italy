@@ -26,19 +26,25 @@
     <!-- Interior -->
     <div class="Interio surface-toggle" data-target="interior-surfaces">
       {% if section.settings.img1 %}
-        <img src="{{ section.settings.img1 | img_url: 'master' }}" alt="Interior" width="" height=""> 
+        <span class="surfaces-img-spn"> 
+          <img src="{{ section.settings.img1 | img_url: 'master' }}" alt="Interior" width="" height=""> 
+        </span>
       {% endif %}
       <div class="inter-btn " data-target="interior-surfaces">Interior</div>
 
       <!-- Hidden surface options -->
       <div class="surface-options" id="interior-surfaces">
         <div class="surface-item">
-          <img src="{{ section.settings.vertical_surface_img | img_url: 'master' }}" alt="Vertical surface">
+          <span class="surfaces-img-spn">
+            <img src="{{ section.settings.vertical_surface_img | img_url: 'master' }}" alt="Vertical surface" width="" height=""> 
+          </span>
           <p>Vertical surface</p>
         </div>
         <div class="surface-item">
-          <img src="{{ section.settings.horizontal_surface_img | img_url: 'master' }}" alt="Horizontal surface">
-          <p>Horizontal surface</p>
+          <span class="surfaces-img-spn">
+            <img src="{{ section.settings.horizontal_surface_img | img_url: 'master' }}" alt="Horizontal surface" width="" height=""> 
+          </span>
+          <p>Horizontal surface</p>          
         </div>
       </div>
     </div>
