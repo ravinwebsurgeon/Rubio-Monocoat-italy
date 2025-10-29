@@ -33,7 +33,7 @@
       <div class="inter-btn " data-target="interior-surfaces">Interior</div>
 
       <!-- Hidden surface options -->
-      <div class="surface-options" id="interior-surfaces">
+      {% comment %} <div class="surface-options" id="interior-surfaces">
         <div class="surface-item">
           <span class="surfaces-img-spn">
             <img src="{{ section.settings.vertical_surface_img | img_url: 'master' }}" alt="Vertical surface" width="" height=""> 
@@ -46,7 +46,7 @@
           </span>
           <p>Horizontal surface</p>          
         </div>
-      </div>
+      </div> {% endcomment %}
     </div>
 
     <!-- Exterior -->
