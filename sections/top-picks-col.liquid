@@ -266,6 +266,8 @@ document.addEventListener("DOMContentLoaded", function(){
   const popupDescription = document.getElementById("popup-description");
   const popupLink = document.getElementById("popup-link");
   const popupClose = document.querySelector(".popup-close");
+  const popupmain = document.querySelector('.product-popup-content')
+
 
   if(typeof jQuery !== 'undefined' && typeof jQuery.fn.slick !== 'undefined'){
     $('.custom-cert-carousel').slick({
@@ -289,7 +291,6 @@ document.addEventListener("DOMContentLoaded", function(){
       {% comment %} const card = this.closest(".custom-cert-card");
       card.classList.toggle("active");
       this.textContent = card.classList.contains("active") ? "×" : "+"; {% endcomment %}
-      const popupmain = document.querySelector('.product-popup-content')
       const title = this.dataset.title;
       const image = this.dataset.image;
       const url = this.dataset.url;
@@ -308,6 +309,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
    popupClose.addEventListener("click", () => {
     console.log('popup-close clicked')
+    popupmain.classList.remove('active-popup')
     popup.classList.remove("active");
     document.body.classList.remove("popup-open");
   });
@@ -315,6 +317,7 @@ document.addEventListener("DOMContentLoaded", function(){
   // Optional: close when clicking outside content
   popup.addEventListener("click", (e) => {
     if (e.target === popup) {
+        popupmain.classList.remove('active-popup')
       popup.classList.remove("active");
       document.body.classList.remove("popup-open");
     }
