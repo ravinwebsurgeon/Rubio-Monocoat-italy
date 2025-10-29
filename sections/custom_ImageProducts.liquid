@@ -51,7 +51,7 @@
         </div>
         <div class="product_section">
             <div class="product_heading">
-                <p>{{ section.settings.product_heading }}</p>
+                {% comment %} <p>{{ section.settings.product_heading }}</p> {% endcomment %}
             </div>
             <div class="product-data">
                 {% assign product = section.settings.product1 %}
@@ -112,7 +112,7 @@
                 {% assign product = section.settings.product3 %}
                 {% if product %}
                         <div class="pro_heading">
-                            <p>Use an applicator handle to apply oil evenly and ensure a clean working environment.</p>
+                            <p>{{ section.settings.product_heading }}</p>
                         </div>
                     
                         <div class="product_main product-block" data-variant-id="{{ product.variants.first.id }}">
