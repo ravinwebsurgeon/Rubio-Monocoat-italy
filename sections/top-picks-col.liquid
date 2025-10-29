@@ -290,13 +290,11 @@ document.addEventListener("DOMContentLoaded", function(){
 
       const title = this.dataset.title;
       const image = this.dataset.image;
-      const description = this.dataset.description;
       const url = this.dataset.url;
 
       popupImage.src = image;
       popupImage.alt = title;
       popupTitle.textContent = title;
-      popupDescription.innerHTML = description;
       popupLink.href = url;
 
       popup.classList.add("active");
@@ -305,7 +303,7 @@ document.addEventListener("DOMContentLoaded", function(){
     });
   });
 
-    popupClose.addEventListener("click", () => {
+    {% comment %} popupClose.addEventListener("click", () => {
     popup.classList.remove("active");
     document.body.classList.remove("popup-open");
   });
@@ -316,7 +314,7 @@ document.addEventListener("DOMContentLoaded", function(){
       popup.classList.remove("active");
       document.body.classList.remove("popup-open");
     }
-  });
+  }); {% endcomment %}
 
 });
 </script>
