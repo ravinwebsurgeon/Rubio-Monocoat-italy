@@ -1,4 +1,7 @@
 {% unless product.tags contains 'certificate_slider' %}
+  {% assign images = product.metafields.custom.certificates_images.value %}
+  {% assign titles = product.metafields.custom.certificates_titles.value %}
+  {% assign descriptions = product.metafields.custom.certificates_descriptions.value %}
 <section class="certificates-slider">
   <div class="certificates-header">
     <h2>
@@ -23,10 +26,6 @@
   </div>
 
   <div class="certificates-carousel">
-    {% assign images = product.metafields.custom.certificates_images.value %}
-    {% assign titles = product.metafields.custom.certificates_titles.value %}
-    {% assign descriptions = product.metafields.custom.certificates_descriptions.value %}
-
     {% for image in images %}
       {% assign i = forloop.index0 %}
       <div class="certificate-card">
