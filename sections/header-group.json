@@ -287,6 +287,30 @@
             "tag_title": ""
           }
         },
+        "custom_images_DJfPKi": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Teak wood",
+            "menu_image": "shopify://shop_images/width_20015-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        },
+        "custom_images_byhRjU": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Douglas wood",
+            "menu_image": "shopify://shop_images/width_20016-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        },
+        "custom_images_n3c8HV": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Thermo Ayous",
+            "menu_image": "shopify://shop_images/width_20017-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        },
         "custom_images_g3JF7t": {
           "type": "Custom_images",
           "settings": {
@@ -333,6 +357,9 @@
         "custom_images_YQGxtW",
         "custom_images_hL3AFF",
         "custom_images_X3Y37g",
+        "custom_images_DJfPKi",
+        "custom_images_byhRjU",
+        "custom_images_n3c8HV",
         "custom_images_g3JF7t",
         "custom_images_YqQTYn"
       ],
