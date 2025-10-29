@@ -1,5 +1,5 @@
 {% unless product.tags contains 'video_with_products' %}
-  {% assign video = product.metafields.custom.products_video.value  %}
+  {% assign video_url  = product.metafields.custom.products_video.value  %}
 <section class="video-products-section {{ section.settings.custom_class }}">
   <div class="container" data-aos="fade-up">
     <h2 class="video-heading" >{{ section.settings.heading }}</h2>
@@ -9,12 +9,16 @@
           <source src="{{ section.settings.video_url }}" type="video/mp4">
           Your browser does not support the video tag.
         </video> {% endcomment %}
-           {{ video | media_tag: 
-                    autoplay: section.settings.autoplay, 
-                    loop: section.settings.loop,
-                    controls: false,
-                    muted: true
-                    }}
+        <video 
+          
+          muted 
+          playsinline 
+          controls="false"
+          class="video-bg"
+        >
+          <source src="{{ video_url }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
   <div class="product-overlay">
   <div class="product-slider">
     <div class="product-track">
