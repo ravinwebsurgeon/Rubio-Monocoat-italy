@@ -7,8 +7,8 @@
 
     {% if product1 %}
       <div class="product-box product-block">
-        <h3 class="product-title">{{ section.settings.product1_heading }}</h3>
-        <p class="product-subtitle">{{ section.settings.product1_subheading }}</p>
+        <h3 class="product-title">{{ left_product_heading }}</h3>
+        <p class="product-subtitle">{{ left_product_text }}</p>
 
         {% comment %} <a href="{{ product1.url }}"> {% endcomment %}
           <img src="{{ product1.featured_image | img_url: '400x400' }}" alt="{{ product1.title }}">
