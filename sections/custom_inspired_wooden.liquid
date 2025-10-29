@@ -191,6 +191,59 @@
     right:22.5%;
 }
 </style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const buttons = document.querySelectorAll(".product-overlay-btn");
+
+  buttons.forEach(btn => {
+    const popup = btn.closest(".collage-item").querySelector(".hotspot-popup");
+    const content = popup.querySelector(".hotspot-content");
+    const closeBtn = popup.querySelector(".close-hotspot");
+
+    btn.addEventListener("click", function(e){
+      const handle = this.dataset.productHandle;
+
+      // Hide all other popups
+      document.querySelectorAll(".hotspot-popup").forEach(p => { if(p !== popup) p.style.display = 'none'; });
+
+      // Position popup relative to SVG
+      const rect = btn.getBoundingClientRect();
+      const parentRect = btn.closest(".collage-item").getBoundingClientRect();
+      popup.style.top = (btn.offsetTop + btn.offsetHeight + 5) + 'px';
+      {% comment %} popup.style.left = (btn.offsetLeft) + '%'; {% endcomment %}
+
+      // Fetch product data
+      fetch(`/products/${handle}.js`)
+        .then(res => res.json())
+        .then(product => {
+          content.innerHTML = `
+            <img src="${product.images[0]}" alt="${product.title}">
+            <h3>${product.title}</h3>
+            <p>${product.body_html}</p>
+            <form action="/cart/add" method="post">
+              {% comment %} <select name="id">
+                ${product.variants.map(v => `<option value="${v.id}">${v.title} - $${(v.price/100).toFixed(2)}</option>`).join('')}
+              </select> {% endcomment %}
+              <button type="submit">Add to Cart</button>
+            </form>
+          `;
+          popup.style.display = "block";
+        });
+    });
+
+    closeBtn.addEventListener("click", () => popup.style.display = "none");
+  });
+
+  // Close popup when clicking outside
+  document.addEventListener("click", e => {
+    if(!e.target.closest(".collage-item")) {
+      document.querySelectorAll(".hotspot-popup").forEach(p => p.style.display = 'none');
+    }
+  });
+});
+</script>
+
 {% schema %}
 {
   "name": "Custom Inspired Wooden",
