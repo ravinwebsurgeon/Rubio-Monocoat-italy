@@ -370,6 +370,8 @@
 </div>
 
 
+
+
 {% comment %} {% schema %}
 {
   "name": "Project",
@@ -378,7 +380,11 @@
     { "type": "image_picker", "id": "img1", "label": "Interior Image" },
     { "type": "image_picker", "id": "img2", "label": "Exterior Image" },
     { "type": "text", "id": "heading2", "label": "Secondary Heading", "default": "Choose your species:" },
-    { "type": "url", "id": "video_url", "label": "Video URL (MP4)" }
+    { "type": "url", "id": "video_url", "label": "Video URL (MP4)" },
+
+    /* ✅ Added fields for surface images */
+    { "type": "image_picker", "id": "vertical_surface_img", "label": "Vertical Surface Image" },
+    { "type": "image_picker", "id": "horizontal_surface_img", "label": "Horizontal Surface Image" }
   ],
   "blocks": [
     {
@@ -407,7 +413,9 @@
 
     /* ✅ Added fields for surface images */
     { "type": "image_picker", "id": "vertical_surface_img", "label": "Vertical Surface Image" },
-    { "type": "image_picker", "id": "horizontal_surface_img", "label": "Horizontal Surface Image" }
+    { "type": "collection", "id": "vertical_surface_collection", "label": "Vertical Surface Collection" },
+    { "type": "image_picker", "id": "horizontal_surface_img", "label": "Horizontal Surface Image" },
+    { "type": "collection", "id": "horizontal_surface_collection", "label": "Horizontal Surface Collection" }
   ],
   "blocks": [
     {
@@ -423,6 +431,7 @@
   "presets": [{ "name": "Project", "category": "Custom" }]
 }
 {% endschema %}
+
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
