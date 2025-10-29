@@ -3,13 +3,13 @@
 {% comment %} {% assign inspired_products = source_page.metafields.custom.inspired_wooden_product.value %} {% endcomment %}
 
 {% assign inspired_wooden_images = source_page.metafields.custom.inspired_wooden_images.value %}
-{% assign heading = source_page.metafields.custom.inspired_wooden_heading.value %}
-{% assign subheading = source_page.metafields.custom.inspired_wooden_subheading.value %}
+{% comment %} {% assign heading = source_page.metafields.custom.inspired_wooden_heading.value %} {% endcomment %}
+{% comment %} {% assign subheading = source_page.metafields.custom.inspired_wooden_subheading.value %} {% endcomment %}
 <section class="inspired-collage">
   <div class="container">
     <div class="collage-header">
-      <h2>{{ heading }}</h2>
-      <p>{{subheading}}</p>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.subheading }}</p>
     </div>
 
     <div class="collage-grid">
@@ -252,7 +252,7 @@ document.addEventListener("DOMContentLoaded", function(){
 {
   "name": "Custom Inspired Wooden",
   "settings": [
-    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "text", "id": "heading", "label": "Heading"},
     { "type": "text", "id": "subheading", "label": "Subheading" },
     { "type": "product_list", "id": "Products", "label": "Products" },
     {
