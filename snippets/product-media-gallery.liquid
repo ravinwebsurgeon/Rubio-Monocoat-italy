@@ -591,7 +591,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const datasetKeys = Object.keys(item.dataset);
 
       console.log(selectedOptions,'selectedOptions are',datasetKeys, 'ckeckeddata')
-       if (datasetKeys.length === 1) {
+       if (datasetKeys.length === 0) {
         show = true;
       } else { 
         for (const [key, val] of Object.entries(selectedOptions)) {
@@ -613,18 +613,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.thumbnail-item').forEach(item => {
       let show = true;
-      const img = item.querySelector('img');
-      const src = normalizeShopifySrc(img?.getAttribute('src'));
-      if (visibleMainSrcs.includes(src)) show = false;
-      else {
+      const datasetKeys = Object.keys(item.dataset);
+
+      // ✅ If no dataset attributes → always show
+      if (datasetKeys.length === 0) {
+        show = true;
+      } else {
         for (const [key, val] of Object.entries(selectedOptions)) {
-          {% comment %} if (!val || item.dataset[key].toLowerCase() !== val.replace('.', '-')) { {% endcomment %}
-              if (!val || normalizeValue(item.dataset[key]) !== normalizeValue(val)) {
+          if (!val) continue;
+          if (!item.dataset[key]) continue;
+
+          if (normalizeValue(item.dataset[key]) !== normalizeValue(val)) {
             show = false;
             break;
           }
         }
       }
+
       item.style.display = show ? 'block' : 'none';
     });
 
