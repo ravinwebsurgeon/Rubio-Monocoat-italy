@@ -36,8 +36,65 @@
                 {% endif %}
             </div>
         </div>
+
+
+<div class="media_content_main">
+            <div class="mediaData">
+                <div class="media_content">
+                    <img src="{{ layerImage | img_url: 'master' }}" />
+                </div>
+                <div class="content_section media_text">
+                    <h3 class="heading"> {{ layerImageHeading }} </h3>
+                    <p class="subheading"> {{ custom_text }} </p>
+                </div>
+            </div>
+            <div>
+                <div class="custom_video_content">
+                    <div class="ori_video">
+                    <div class="text_content">
+                        <svg width="20" height="20" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Circle -->
+                            <circle cx="32" cy="32" r="30" stroke="black" stroke-width="2" fill="none" />
+                            <!-- Question Mark -->
+                            <path d="M24 22c0-3 4-5 8-5s8 2 8 5c0 4-6 4-6 9v2" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                            <!-- Dot of question mark -->
+                            <circle cx="32" cy="44" r="3" fill="black" />
+                        </svg>
+                        <p class="video_text_first uppercase_text">not sure how to prepare your wooden floor?</p>
+                        <p class="video_text_second captalize_text">listen to our expert</p>
+                        
+                    </div>
+                    <div class="video_section">
+                        {% comment %} {% if section.settings.video %}
+                            {{ section.settings.video | media_tag: 
+                            autoplay: section.settings.autoplay, 
+                            loop: section.settings.loop,
+                            controls: true,
+                            muted: true
+                            }}
+                    {% endif %} {% endcomment %}
+                    </div>
+                </div>
+                <div class="arrow_video_link">
+                    <div class="arrow_icon">
+                        <svg width="50" height="20" viewBox="0 0 50 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="0" refY="2" orient="auto">
+                            <path d="M0,0 L6,2 L0,4 Z" fill="currentColor" />
+                            </marker>
+                        </defs>
+                        <!-- Changed control points to make the curve dip down -->
+                        <path d="M5 5 C 15 15, 35 15, 45 5" stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                    </svg>
+                    </div>
+                        {% comment %} <div class="video_watch_link"><a href="{{ section.settings.video.sources[1].url }}" class="watch_link"><p>Watch Video</p></a></div> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
-   
 </div> 
 <style>
     .single-layer-section-main .media_content_main{width:40%;padding:30px;}
