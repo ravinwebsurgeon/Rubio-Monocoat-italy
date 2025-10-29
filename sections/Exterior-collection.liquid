@@ -48,38 +48,6 @@
   {% endfor %}
 </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const surfaceItems = document.querySelectorAll('.surface-item');
-  const grids = document.querySelectorAll('.product-grid');
-
-  // Hide all grids initially
-  grids.forEach(grid => grid.style.display = 'none');
-
-  surfaceItems.forEach(item => {
-    item.addEventListener('click', function() {
-      // Remove active class from all surface buttons
-      surfaceItems.forEach(btn => btn.classList.remove('active'));
-      this.classList.add('active');
-
-      const targetCollection = this.dataset.collection;
-
-      // Hide all grids
-      grids.forEach(grid => grid.style.display = 'none');
-
-      // Show the correct grid by matching collection handle
-      const targetGrid = document.querySelector('.collection-' + targetCollection);
-      if(targetGrid) {
-        targetGrid.style.display = 'block';
-      }
-    });
-  });
-
-  // Optional: show horizontal surface by default
-  const defaultSurface = document.querySelector('.surface-item.horizontal');
-  if(defaultSurface) defaultSurface.click();
-});
-</script>
 
 {% schema %}
 {
