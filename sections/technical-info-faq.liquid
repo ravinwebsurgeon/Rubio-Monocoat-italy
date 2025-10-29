@@ -40,10 +40,23 @@
 
                 <div class="tech-info-answer">
                   {% if t_question contains 'Download' or t_question contains 'download' %}
-                    <a href="{{ t_answer }}" download class="tech-download-btn">Download File</a>
-                  {% else %}
-                    <p>{{ t_answer }}</p>
-                  {% endif %}
+  <a href="{{ t_answer }}" class="tech-download-btn" onclick="forceDownload(event, this.href)">Download File</a>
+{% else %}
+  <p>{{ t_answer }}</p>
+{% endif %}
+
+<script>
+function forceDownload(e, url) {
+  e.preventDefault();
+  const fileName = url.split('/').pop().split('?')[0];
+  const a = document.createElement('a');
+  a.href = url;
+  a.setAttribute('download', fileName);
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+</script>
                 </div>
               </div>
             {% endfor %}
