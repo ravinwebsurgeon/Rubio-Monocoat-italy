@@ -16,9 +16,18 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "custom_banner_2_PWRfp3": {
+      "type": "custom-banner-2",
+      "name": "Banner image 2",
+      "settings": {
+        "banner_img": "shopify://shop_images/business-financial-concept-with-magnifying-glass-question-mark-yellow-background-flat-lay.jpg",
+        "banner_text": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "custom_banner_2_PWRfp3"
   ]
 }
