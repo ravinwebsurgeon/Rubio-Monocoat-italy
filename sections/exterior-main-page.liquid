@@ -8,6 +8,7 @@
 {% assign video = page.metafields.custom.filling_gap_video.value %}
 {% assign singleLayerProduct = page.metafields.custom.singlelayerproduct.value %}
 {% assign heading = page.metafields.custom.single_layer_product_heading.value %}
+{% assign layerImage = page.metafields.custom.single_layer_image.value %}
 
 <div class="floor-steps-section">
   <div class="containers">
@@ -147,6 +148,7 @@
 {% render 'single_layer_protection', 
     product:singleLayerProduct,
     heading: heading,
+    layerImage: layerImage,
 %}
 <style>
 .floor-steps-section{width:97%;margin:auto;}
