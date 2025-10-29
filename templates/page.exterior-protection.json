@@ -17,7 +17,7 @@
       "type": "top-picks-col",
       "name": "Top Picks Slider col",
       "settings": {
-        "section_heading": "I{{ page.metafields.custom.productsliderheading.value }}",
+        "section_heading": "{{ page.metafields.custom.productsliderheading.value }}",
         "product_list": "{{ page.metafields.custom.productslider.value }}"
       }
     },
