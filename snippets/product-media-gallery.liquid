@@ -341,19 +341,11 @@
     <div class="main-image-wrapper">
       <div class="cus-sticky">
         {% for media in product.media %}
-          {% assign alt_parts = media.alt | split: '/' %}
-
-          {% if alt_parts > 1 %}
-            {% comment %} {% assign parts = media.alt | split: '/' %} {% endcomment %}
-            {% assign color = alt_parts[0] | strip %}
-            {% assign size = alt_parts[1] | strip %}
-            {% assign finish = alt_parts[2] | strip %}
-          {% else %}
-            {% assign color = '' %}
-            {% assign size = '' %}
-            {% assign finish = '' %}
-          {% endif %}
-          <div class="main-image-item testClass {{ media.alt }}" {% if alt_parts > 1 %} data-color="{{ color | handle }}" data-size="{{ size | handle }}" data-finish="{{ finish }}" {% endif %} style="display: none;">
+          {% assign parts = media.alt | split: '/' %}
+          {% assign color = parts[0] | strip %}
+          {% assign size = parts[1] | strip %}
+          {% assign finish = parts[2] | strip %}
+          <div class="main-image-item" data-media-alt ="{{  media.alt  }}" data-color="{{ color | handle }}" data-size="{{ size | handle }}" data-finish="{{ finish }}"  style="display: none;">
             {% if media.media_type == 'image' %}
               <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}" data-type="image">
                 <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
@@ -588,21 +580,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
       let show = true;
-      const datasetKeys = Object.keys(item.dataset);
-
-      console.log(selectedOptions,'selectedOptions are',datasetKeys, 'ckeckeddata')
-       {% comment %} if (datasetKeys.length === 0) {
-        show = true;
-      } else {  {% endcomment %}
-        for (const [key, val] of Object.entries(selectedOptions)) {
-          {% comment %} if (!val || item.dataset[key].toLowerCase() !== val.replace('.', '-')) { {% endcomment %}
-              if (!val || normalizeValue(item.dataset[key]) !== normalizeValue(val)) {
-            console.log(normalizeValue(item.dataset[key]),'selectedOptions are', normalizeValue(val))
-            show = false;
-            break;
-          }
-        {% comment %} } {% endcomment %}
-      } 
+      {% comment %} console.log(selectedOptions,'selectedOptions are',item.dataset, 'ckeckeddata') {% endcomment %}
+      
+      for (const [key, val] of Object.entries(selectedOptions)) {
+        {% comment %} if (!val || item.dataset[key].toLowerCase() !== val.replace('.', '-')) { {% endcomment %}
+            if (!val || normalizeValue(item.dataset[key]) !== normalizeValue(val)) {
+          console.log(normalizeValue(item.dataset[key]),'selectedOptions are', normalizeValue(val))
+          show = false;
+          break;
+        }
+      }
       item.style.display = show ? 'block' : 'none';
       if (show) found = true;
     });
@@ -612,26 +599,21 @@ document.addEventListener('DOMContentLoaded', () => {
       .map(item => normalizeShopifySrc(item.querySelector('img')?.getAttribute('src')));
 
     document.querySelectorAll('.thumbnail-item').forEach(item => {
-    let show = true;
-    const datasetKeys = Object.keys(item.dataset);
-
-    // ✅ If no dataset attributes → always show
-    if (datasetKeys.length === 0) {
-      show = true;
-    } else {
-      for (const [key, val] of Object.entries(selectedOptions)) {
-        if (!val) continue;
-        if (!item.dataset[key]) continue;
-
-        if (normalizeValue(item.dataset[key]) !== normalizeValue(val)) {
-          show = false;
-          break;
+      let show = true;
+      const img = item.querySelector('img');
+      const src = normalizeShopifySrc(img?.getAttribute('src'));
+      if (visibleMainSrcs.includes(src)) show = false;
+      else {
+        for (const [key, val] of Object.entries(selectedOptions)) {
+          {% comment %} if (!val || item.dataset[key].toLowerCase() !== val.replace('.', '-')) { {% endcomment %}
+              if (!val || normalizeValue(item.dataset[key]) !== normalizeValue(val)) {
+            show = false;
+            break;
+          }
         }
       }
-    }
-
-    item.style.display = show ? 'block' : 'none';
-  });
+      item.style.display = show ? 'block' : 'none';
+    });
 
     // ✅ Handle Mobile Gallery visibility
     document.querySelectorAll('.swiper-slide').forEach(slide => {
