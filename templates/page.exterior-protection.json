@@ -20,6 +20,7 @@
         "image_heading": "{{ page.metafields.custom.custom_image_heading.value }}",
         "image_text": "{{ page.metafields.custom.custom_text.value }}",
         "image": "{{ page.metafields.custom.custompoductimage.value }}",
+        "video": "{{ page.metafields.custom.imageproductvideo.value }}",
         "product_heading": "",
         "product1": "{{ page.metafields.custom.image_product1.value }}",
         "product2": "{{ page.metafields.custom.image_product2.value }}",
