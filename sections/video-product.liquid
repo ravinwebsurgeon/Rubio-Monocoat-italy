@@ -161,10 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const track = document.querySelector(".product-track");
   const wrapper = document.querySelector(".product-slider");
 
-  // Clone slides for smooth infinite loop
   const slides = Array.from(track.children);
-  slides.forEach(slide => track.appendChild(slide.cloneNode(true)));
-
   let currentIndex = 0;
   let isPaused = false;
   const slideWidth = slides[0].offsetWidth;
@@ -179,23 +176,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     currentIndex++;
 
-    // Apply smooth transition
+    // Smooth slide move
     track.style.transition = "transform 0.8s ease-in-out";
     track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 
-    // When reaching end of original slides
-    if (currentIndex === totalSlides) {
-      // After animation ends, instantly reset to start (no visible jump)
+    // When last slide ends, go back smoothly
+    if (currentIndex >= totalSlides) {
       setTimeout(() => {
         track.style.transition = "none";
         track.style.transform = "translateX(0)";
         currentIndex = 0;
-      }, 800); // match transition duration
+      }, 800);
     }
   }
 
   setInterval(moveSlides, delay);
 });
+
 
 
 
