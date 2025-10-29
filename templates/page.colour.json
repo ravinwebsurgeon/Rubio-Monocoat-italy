@@ -232,13 +232,13 @@
             "tab_collection": "exterior-protection"
           }
         },
-        "exterior_collection_9g4eG6": {
+        "exterior_collection_6whGNi": {
           "type": "Exterior-collection",
           "settings": {
             "tab_collection": "exterior-horizontal-surface"
           }
         },
-        "exterior_collection_qnxEi9": {
+        "exterior_collection_cGNwYY": {
           "type": "Exterior-collection",
           "settings": {
             "tab_collection": "exterior-vertical-surface"
@@ -247,14 +247,12 @@
       },
       "block_order": [
         "exterior_collection_LHfW8G",
-        "exterior_collection_9g4eG6",
-        "exterior_collection_qnxEi9"
+        "exterior_collection_6whGNi",
+        "exterior_collection_cGNwYY"
       ],
       "name": "Exterior-collection",
       "settings": {
-        "heading": "Durogit - Exterior wood oil",
-        "vertical_surface_collection": "",
-        "horizontal_surface_collection": ""
+        "heading": "Durogit - Exterior wood oil"
       }
     },
     "icons_section_cF3FEP": {
