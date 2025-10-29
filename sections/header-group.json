@@ -375,6 +375,22 @@
             "tag_title": ""
           }
         },
+        "custom_images_cXNgep": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "White colours",
+            "menu_image": "shopify://shop_images/width_20024-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        },
+        "custom_images_Fd79Vg": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Bright colours",
+            "menu_image": "shopify://shop_images/width_20025-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        },
         "custom_images_g3JF7t": {
           "type": "Custom_images",
           "settings": {
@@ -432,6 +448,8 @@
         "custom_images_MTUeQP",
         "custom_images_qCcYh7",
         "custom_images_nbAVU9",
+        "custom_images_cXNgep",
+        "custom_images_Fd79Vg",
         "custom_images_g3JF7t",
         "custom_images_YqQTYn"
       ],
