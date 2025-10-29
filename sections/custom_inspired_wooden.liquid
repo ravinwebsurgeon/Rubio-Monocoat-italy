@@ -10,7 +10,7 @@
       <p>{{ section.settings.subheading }}</p>
     </div>
 
-    <div class="collage-grid {{inspired_wooden_images[0]}}">
+    <div class="collage-grid">
       {% for image in inspired_wooden_images %}
         {% assign handle = product_handles[forloop.index0] %}
         {% assign product = all_products[handle] %}
