@@ -254,8 +254,44 @@
   .custom-cert-arrows button { width: 30px; height: 30px; border: 1px solid rgba(0,0,0,0.2); }
   .custom-cert-arrows button svg { width: 12px; height: 12px; }
 }
+
+/** popup css*/
 .product-popup-content{display:none;}
 .product-popup-content.active-popup{display:block;}
+.product-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.product-popup.active {
+  display: flex;
+}
+.product-popup-content {
+  background: #fff;
+  padding: 30px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  border-radius: 8px;
+}
+.product-popup-content img {
+  max-width: 100%;
+  height: auto;
+}
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  cursor: pointer;
+}
 </style>
 
 <script>
