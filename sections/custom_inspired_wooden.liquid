@@ -1,5 +1,14 @@
 {% assign source_page = pages[section.settings.source_page] %}
+{% assign product_handles = section.settings.product_List %}
 
+{% for handle in product_handles %}
+  {% assign product = all_products[handle] %}
+  {% if product %}
+    {{ product.title }}
+  {% else %}
+    No product found for handle: {{ handle }}
+  {% endif %}
+{% endfor %}
 <section class="inspired-collage">
   <div class="container">
     <div class="collage-header">
