@@ -1,7 +1,11 @@
 {% assign source_page = pages[section.settings.source_page] %}
 {% assign product_handles = section.settings.Products | parse_json %}
 {% assign inspired_wooden_images = source_page.metafields.custom.inspired_wooden_images.value %}
-
+{% for handle in product_handles %}
+  <p>Trying handle: "{{ handle }}"</p>
+  {% assign prod = all_products[handle] %}
+  <pre>{{ prod }}</pre>
+{% endfor %}
 <section class="inspired-collage">
   <div class="container">
     <div class="collage-header">
