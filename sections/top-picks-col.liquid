@@ -269,8 +269,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
   document.querySelectorAll(".custom-cert-plus").forEach(btn => {
     btn.addEventListener("click", function(){
-      {% comment %} const card = this.closest(".custom-cert-card"); {% endcomment %}
-      {% comment %} card.classList.toggle("active"); {% endcomment %}
+      const card = this.closest(".custom-cert-card");
+      card.classList.toggle("active");
       this.textContent = card.classList.contains("active") ? "×" : "+";
     });
   });
