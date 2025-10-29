@@ -19,6 +19,7 @@
       "settings": {
         "image_heading": "{{ page.metafields.custom.custom_image_heading.value }}",
         "image_text": "{{ page.metafields.custom.custom_text.value }}",
+        "image": "{{ page.metafields.custom.custompoductimage.value }}",
         "product_heading": "",
         "product1": "",
         "product2": "",
