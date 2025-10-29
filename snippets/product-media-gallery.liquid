@@ -634,17 +634,37 @@ document.addEventListener('DOMContentLoaded', () => {
   item.style.display = show ? 'block' : 'none';
 });
 
-    // ✅ Handle Mobile Gallery visibility
-    document.querySelectorAll('.swiper-slide').forEach(slide => {
-      let show = true;
+// ✅ Handle Mobile Gallery visibility
+document.querySelectorAll('.swiper-slide').forEach(slide => {
+  let show = true;
+  const datasetKeys = Object.keys(slide.dataset);
+  const img = slide.querySelector('img');
+  const src = normalizeShopifySrc(img?.getAttribute('src'));
+
+  // 1️⃣ Hide if same as visible main image
+  if (visibleMainSrcs.includes(src)) {
+    show = false;
+  } else {
+    // 2️⃣ If no dataset attributes → always show
+    if (datasetKeys.length === 0) {
+      show = true;
+    } else {
+      // 3️⃣ Otherwise check variant matching
       for (const [key, val] of Object.entries(selectedOptions)) {
-        if (!val || slide.dataset[key].toLowerCase() !== val.replace('.', '-')) {
+        if (!val) continue; // skip unselected variant
+        if (!slide.dataset[key]) continue; // skip missing data key
+
+        if (normalizeValue(slide.dataset[key]) !== normalizeValue(val)) {
           show = false;
           break;
         }
       }
-      slide.style.display = show ? 'block' : 'none';
-    });
+    }
+  }
+
+  slide.style.display = show ? 'block' : 'none';
+});
+
 
     // ✅ Update Swiper when slides change
     if (window.innerWidth <= 991 && mobileSwiper) {
