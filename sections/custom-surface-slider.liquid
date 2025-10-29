@@ -34,97 +34,22 @@
     </div>
   </div>
 </section>
-<style>
-.surface-slider {
-  padding: 60px 0;
-  background-color: #fafafa;
-}
-
-.slider-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-}
-
-.slider-header h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #111;
-  margin: 0;
-}
-
-.surface-slider-inner .slide-item {
-  padding: 0 10px;
-}
-
-.slide-card {
-  display: block;
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  text-decoration: none;
-  color: inherit;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
-}
-
-.slide-card:hover {
-  transform: translateY(-4px);
-}
-
-.slide-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.slide-title {
-  padding: 10px;
-  text-align: center;
-  font-weight: 600;
-  color: #333;
-  font-size: 1rem;
-}
-
-/* Slick arrows styling */
-.slick-prev, .slick-next {
-  background: transparent;
-  border: none;
-  color: #111;
-  font-size: 0;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.slick-prev:hover, .slick-next:hover {
-  color: #000;
-}
-
-.custom-arrows {
-  display: flex;
-  gap: 10px;
-}
-
-
-</style>
-
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  if ($('.surface-slider-inner').length) {
-    $('.surface-slider-inner').slick({
+  if ($('.surface-slider-track').length) {
+    $('.surface-slider-track').slick({
       slidesToShow: 3,
       slidesToScroll: 1,
       infinite: false,
       arrows: true,
-      appendArrows: $('.custom-arrows'),
-      prevArrow: `<button type="button" class="slick-prev">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      appendArrows: $('.surface-slider-nav'),
+      prevArrow: `<button type="button" class="slider-btn prev-slide" aria-label="Previous Slide">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
         </svg>
       </button>`,
-      nextArrow: `<button type="button" class="slick-next">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      nextArrow: `<button type="button" class="slider-btn next-slide" aria-label="Next Slide">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
       </button>`,
