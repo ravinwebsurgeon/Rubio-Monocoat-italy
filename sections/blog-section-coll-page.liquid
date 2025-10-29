@@ -119,7 +119,9 @@
         <div class="blog-card">
           <div class="blog-card-image">
             {% if article.image %}
-              <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.title }}" width="" height="">
+              <a href="{{ article.url }}">
+                <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.title }}" width="" height="">
+              </a>
             {% endif %}
           </div>
           <div class="blog-card-content">
