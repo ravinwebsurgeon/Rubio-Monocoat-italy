@@ -9,20 +9,20 @@
  */
 {
   "sections": {
-    "custom_banner_2_PWRfp3": {
-      "type": "custom-banner-2",
-      "name": "Banner image 2",
-      "settings": {
-        "banner_img": "shopify://shop_images/685c0470-8248-44f9-9e61-4ce716a2387b.jpg",
-        "banner_text": "FAQs"
-      }
-    },
     "main": {
       "type": "main-page",
       "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
+      }
+    },
+    "custom_faq_banner_KWPV7V": {
+      "type": "custom-faq-banner",
+      "name": "faq banner",
+      "settings": {
+        "heading": "FAQ’s",
+        "text": "Discover the answer to our frequently asked questions."
       }
     },
     "faqs_gnazct": {
@@ -79,7 +79,7 @@
   },
   "order": [
     "main",
-    "custom_banner_2_PWRfp3",
+    "custom_faq_banner_KWPV7V",
     "faqs_gnazct"
   ]
 }
