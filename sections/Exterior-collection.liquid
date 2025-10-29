@@ -1,4 +1,4 @@
- {% comment %} <div class="tab-products-wrap">
+<div class="tab-products-wrap">
                 <h4 class="oil-head">{{ section.settings.heading }}</h4>
                 {% for block in section.blocks %}
                 {% assign tab_collection = block.settings.tab_collection %}
@@ -59,52 +59,9 @@
                   </ul>
                 </div>
               {% endfor %}
-             </div> {% endcomment %}
-<div class="tab-products-wrap">
-  <h4 class="oil-head">{{ section.settings.heading }}</h4>
+             </div> 
 
-  {% comment %} Vertical surface collection {% endcomment %}
-  {% if section.settings.vertical_surface_collection != blank %}
-    {% assign vertical_collection = section.settings.vertical_surface_collection %}
-    <div class="tab-productss vertical-surface" data-collection-id="{{ vertical_collection.id }}" style="display:none;">
-      <ul class="product-grid">
-        {% for product in vertical_collection.products %}
-          <li class="product-item">
-            <a href="{{ product.url }}">
-              {% if product.featured_image %}
-                <img src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title }}">
-              {% endif %}
-            </a>
-            <h3>{{ product.title }}</h3>
-            <p>{{ product.price | money }}</p>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  {% endif %}
-
-  {% comment %} Horizontal surface collection {% endcomment %}
-  {% if section.settings.horizontal_surface_collection != blank %}
-    {% assign horizontal_collection = section.settings.horizontal_surface_collection %}
-    <div class="tab-productss horizontal-surface" data-collection-id="{{ horizontal_collection.id }}" style="display:none;">
-      <ul class="product-grid">
-        {% for product in horizontal_collection.products %}
-          <li class="product-item">
-            <a href="{{ product.url }}">
-              {% if product.featured_image %}
-                <img src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title }}">
-              {% endif %}
-            </a>
-            <h3>{{ product.title }}</h3>
-            <p>{{ product.price | money }}</p>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  {% endif %}
-
-</div>
-{% schema %}
+             {% schema %}
 {
   "name": "Exterior-collection",
   "settings": [
