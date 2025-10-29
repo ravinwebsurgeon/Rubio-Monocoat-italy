@@ -1,7 +1,39 @@
 {% assign source_page = pages[section.settings.source_page] %}
-{% assign url_list = source_page.metafields.custom.surface_slider_urls.value %}
-{% assign text_list = source_page.metafields.custom.surface_slider_text.value %}
-{% assign images = source_page.metafields.custom.surface_slider.value %}
+{% assign slider_links = source_page.metafields.custom.surface_slider_urls.value %}
+{% assign slider_titles = source_page.metafields.custom.surface_slider_text.value %}
+{% assign slider_images = source_page.metafields.custom.surface_slider.value %}
+
+<section class="surface-slider-section">
+  <div class="surface-slider-wrapper container">
+    <div class="surface-slider-header">
+      <h2 class="surface-slider-heading">{{ section.settings.main_heading }}</h2>
+      <div class="surface-slider-nav">
+        <button class="slider-btn prev-slide" aria-label="Previous Slide">‹</button>
+        <button class="slider-btn next-slide" aria-label="Next Slide">›</button>
+      </div>
+    </div>
+
+    <div class="surface-slider-track">
+      {% for image in slider_images %}
+        {% assign title = slider_titles[forloop.index0] %}
+        {% assign link = slider_links[forloop.index0] %}
+
+        <div class="surface-slide">
+          <a href="{{ link }}" class="surface-slide-card">
+            {% if image %}
+              <div class="surface-slide-image">
+                <img src="{{ image | img_url: '600x400' }}" alt="{{ title | escape }}">
+              </div>
+            {% endif %}
+            {% if title %}
+              <p class="surface-slide-title">{{ title }}</p>
+            {% endif %}
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 
 {% schema %}
 {
