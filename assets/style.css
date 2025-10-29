@@ -187,7 +187,7 @@ svg.icon.icon-caret path {
     width: 100% !important;
 }
 
-.Advise_\&_Test:hover {
+.templateindex .Advise_\&_Test:hover {
     background-color: #ffffffba !important;
     transition: all ease 1s;
 }
