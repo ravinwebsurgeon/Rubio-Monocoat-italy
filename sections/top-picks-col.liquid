@@ -1,4 +1,4 @@
-<section class="custom-cert-slider">
+{% comment %} <section class="custom-cert-slider">
   <div class="custom-cert-header">
     <h2>{{ section.settings.section_heading }}</h2>
     <div class="custom-cert-arrows">
@@ -218,6 +218,8 @@ document.addEventListener("DOMContentLoaded", function(){
   "name": "top picks Slider col",
   "settings": [
     { "type": "text", "id": "section_heading", "label": "Section Heading", "default": "International product certificates" }
+    { "type": "product_list", "id": "product_list", "label": "Certificate Image" },
+    
   ],
   "blocks": [
     {
@@ -229,6 +231,20 @@ document.addEventListener("DOMContentLoaded", function(){
         { "type": "text", "id": "certificate_subtitle", "label": "Certificate Subtitle", "default": "Subtitle here" }
       ]
     }
+  ],
+  "presets": [ { "name": "Top Picks Slider col" } ]
+}
+{% endschema %} {% endcomment %}
+
+
+
+{% schema %}
+{
+  "name": "top picks Slider col",
+  "settings": [
+    { "type": "text", "id": "section_heading", "label": "Section Heading", "default": "International product certificates" },
+    { "type": "product_list", "id": "product_list", "label": "Certificate Image" },
+    
   ],
   "presets": [ { "name": "Top Picks Slider col" } ]
 }
