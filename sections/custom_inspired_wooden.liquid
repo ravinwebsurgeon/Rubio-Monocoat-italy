@@ -1,5 +1,39 @@
-{% assign inspired_wooden_images = page.metafields.custom.inspired_wooden_images.value %}
-{% assign inspired_wooden_product = page.metafields.custom.inspired_wooden_product.value %}
+
+<section class="inspired-collage">
+  <div class="container">
+    <div class="collage-header">
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.subheading }}</p>
+    </div>
+    <div class="collage-grid">
+      {% assign inspired_wooden_images = page.metafields.custom.inspired_wooden_images.value %}
+      {% assign products = section.settings.product_List %}
+
+      {% comment %}
+        Loop over images from metafield and match with products.
+        If there are more images than products, some products may repeat or be skipped.
+      {% endcomment %}
+      {% for image in inspired_wooden_images %}
+        {% assign product = products[forloop.index0] %}
+        {% if product %}
+          <div class="collage-item {% if forloop.first %}large{% else %}small{% endif %}" 
+               style="background-image: url('{{ image | file_url }}')">
+            <a href="javascript:void(0);" class="product-overlay-btn" data-product-handle="{{ product.handle }}">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" fill="black" fill-opacity="0.5"/>
+                <circle cx="20" cy="20" r="9" fill="white"/>
+              </svg>
+            </a>
+            <div class="hotspot-popup">
+              <span class="close-hotspot">&times;</span>
+              <div class="hotspot-content"></div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>  
+</section>
 
 {% schema %}
 {
