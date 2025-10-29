@@ -254,6 +254,7 @@
   .custom-cert-arrows button { width: 30px; height: 30px; border: 1px solid rgba(0,0,0,0.2); }
   .custom-cert-arrows button svg { width: 12px; height: 12px; }
 }
+.product-popup-content{display:none;}
 </style>
 
 <script>
@@ -287,11 +288,10 @@ document.addEventListener("DOMContentLoaded", function(){
       {% comment %} const card = this.closest(".custom-cert-card");
       card.classList.toggle("active");
       this.textContent = card.classList.contains("active") ? "×" : "+"; {% endcomment %}
-
       const title = this.dataset.title;
       const image = this.dataset.image;
       const url = this.dataset.url;
-
+popup.style.display = 'block';
       popupImage.src = image;
       popupImage.alt = title;
       popupTitle.textContent = title;
