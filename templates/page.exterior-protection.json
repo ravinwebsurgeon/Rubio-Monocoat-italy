@@ -21,7 +21,7 @@
         "image_text": "{{ page.metafields.custom.custom_text.value }}",
         "image": "{{ page.metafields.custom.custompoductimage.value }}",
         "video": "{{ page.metafields.custom.imageproductvideo.value }}",
-        "product_heading": "",
+        "product_heading": "{{ page.metafields.custom.image_product_heading.value }}",
         "product1": "{{ page.metafields.custom.image_product1.value }}",
         "product2": "{{ page.metafields.custom.image_product2.value }}",
         "product3": "{{ page.metafields.custom.image_product3.value }}",
