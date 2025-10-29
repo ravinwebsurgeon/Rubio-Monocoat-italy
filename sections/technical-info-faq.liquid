@@ -44,20 +44,7 @@
 {% else %}
   <p>{{ t_answer }}</p>
 {% endif %}
-
-<script>
-function forceDownload(e, url) {
-  e.preventDefault();
-  const fileName = url.split('/').pop().split('?')[0];
-  const a = document.createElement('a');
-  a.href = url;
-  a.setAttribute('download', fileName);
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-}
-</script>
-                </div>
+               </div>
               </div>
             {% endfor %}
           {% endif %}
@@ -319,7 +306,18 @@ function forceDownload(e, url) {
   }
 }
 </style>
-
+<script>
+function forceDownload(e, url) {
+  e.preventDefault();
+  const fileName = url.split('/').pop().split('?')[0];
+  const a = document.createElement('a');
+  a.href = url;
+  a.setAttribute('download', fileName);
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+</script>
 <script>
 $(document).ready(function () {
   $(".tech-info-question").on("click", function () {
