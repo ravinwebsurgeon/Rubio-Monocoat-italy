@@ -21,61 +21,45 @@
         </div>    {% endcomment %}
         <div class="pro-first-color">
   <h3 class="heading-pr">{{ section.settings.heading }}</h3>
-  <div class="pro-first">
+<div class="pro-first">
 
-    <!-- Interior -->
-    <div class="Interio surface-toggle" data-target="interior-surfaces">
-      {% if section.settings.img1 %}
-        <span class="surfaces-img-spn"> 
-          <img src="{{ section.settings.img1 | img_url: 'master' }}" alt="Interior" width="" height=""> 
-        </span>
-      {% endif %}
-      <div class="inter-btn " data-target="interior-surfaces">Interior</div>
+  <!-- Interior (No toggle, static only) -->
+  <div class="Interio">
+    {% if section.settings.img1 %}
+      <span class="surfaces-img-spn"> 
+        <img src="{{ section.settings.img1 | img_url: 'master' }}" alt="Interior" width="" height=""> 
+      </span>
+    {% endif %}
+    <div class="inter-btn">Interior</div>
+  </div>
 
-      <!-- Hidden surface options -->
-      {% comment %} <div class="surface-options" id="interior-surfaces">
-        <div class="surface-item">
-          <span class="surfaces-img-spn">
-            <img src="{{ section.settings.vertical_surface_img | img_url: 'master' }}" alt="Vertical surface" width="" height=""> 
-          </span>
-          <p>Vertical surface</p>
-        </div>
-        <div class="surface-item">
-          <span class="surfaces-img-spn">
-            <img src="{{ section.settings.horizontal_surface_img | img_url: 'master' }}" alt="Horizontal surface" width="" height=""> 
-          </span>
-          <p>Horizontal surface</p>          
-        </div>
-      </div> {% endcomment %}
-    </div>
+  <!-- Exterior (With toggle) -->
+  <div class="exterior surface-toggle" data-target="exterior-surfaces">
+    {% if section.settings.img2 %}
+      <span class="surfaces-img-spn">
+        <img src="{{ section.settings.img2 | img_url: 'master' }}" alt="Exterior" width="" height="">
+      </span>
+    {% endif %}
+    <div class="exter-btn">Exterior</div>
 
-    <!-- Exterior -->
-    <div class="exterior surface-toggle" data-target="exterior-surfaces">
-      {% if section.settings.img2 %}
+    <!-- Hidden surface options -->
+    <div class="surface-options" id="exterior-surfaces">
+      <div class="surface-item">
         <span class="surfaces-img-spn">
-          <img src="{{ section.settings.img2 | img_url: 'master' }}" alt="Exterior" width="" height="">
+          <img src="{{ section.settings.vertical_surface_img | img_url: 'master' }}" alt="Vertical surface" width="" height="">
         </span>
-      {% endif %}
-      <div class="exter-btn" >Exterior</div>
-
-      <!-- Hidden surface options -->
-      <div class="surface-options" id="exterior-surfaces">
-        <div class="surface-item">
-          <span class="surfaces-img-spn">
-            <img src="{{ section.settings.vertical_surface_img | img_url: 'master' }}" alt="Vertical surface" width="" height="">
-          </span>
-          <p>Vertical surface</p>
-        </div>
-        <div class="surface-item">
-          <span class="surfaces-img-spn">
-           <img src="{{ section.settings.horizontal_surface_img | img_url: 'master' }}" alt="Horizontal surface" width="" height=""> 
-          </span>
-          <p>Horizontal surface</p>
-        </div>
+        <p>Vertical surface</p>
+      </div>
+      <div class="surface-item">
+        <span class="surfaces-img-spn">
+          <img src="{{ section.settings.horizontal_surface_img | img_url: 'master' }}" alt="Horizontal surface" width="" height=""> 
+        </span>
+        <p>Horizontal surface</p>
       </div>
     </div>
-
   </div>
+
+</div>
 </div>
 
         <!-- Tabs + Products -->
@@ -1004,14 +988,14 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  const toggles = document.querySelectorAll(".surface-toggle");
+  const exteriorToggle = document.querySelector(".exterior.surface-toggle");
 
-  toggles.forEach(toggle => {
-    toggle.addEventListener("click", function() {
+  if (exteriorToggle) {
+    exteriorToggle.addEventListener("click", function() {
       const targetId = this.getAttribute("data-target");
       const target = document.getElementById(targetId);
 
-      // Close all others and remove active class
+      // Close any open options first
       document.querySelectorAll(".surface-options").forEach(opt => opt.style.display = "none");
       document.querySelectorAll(".surface-toggle").forEach(el => el.classList.remove("active"));
 
@@ -1024,17 +1008,17 @@ document.addEventListener("DOMContentLoaded", function() {
         this.classList.add("active");
       }
 
-      // Handle surface item active state
+      // Handle active state on surface items
       const surfaceItems = target.querySelectorAll(".surface-item");
       surfaceItems.forEach(item => {
         item.addEventListener("click", function(e) {
-          e.stopPropagation(); // prevent triggering main toggle click
+          e.stopPropagation(); // Prevent toggle re-trigger
           surfaceItems.forEach(i => i.classList.remove("active"));
           this.classList.add("active");
         });
       });
     });
-  });
+  }
 });
 </script>
 
