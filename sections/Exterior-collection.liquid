@@ -1,4 +1,4 @@
-<div class="tab-products-wrap">
+{% comment %} <div class="tab-products-wrap">
                 <h4 class="oil-head">{{ section.settings.heading }}</h4>
                 {% for block in section.blocks %}
                 {% assign tab_collection = block.settings.tab_collection %}
@@ -74,6 +74,67 @@
       "name": "collection",
       "settings": [
        
+        { "type": "collection", "id": "tab_collection", "label": "Collection to show" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Exterior-collection", "category": "Custom" }]
+}
+{% endschema %} {% endcomment %}
+
+<div class="tab-products-wrap">
+  <h4 class="oil-head">{{ section.settings.heading }}</h4>
+
+  {% comment %} Default collection products {% endcomment %}
+  {% for block in section.blocks %}
+    {% assign tab_collection = block.settings.tab_collection %}
+    <div class="tab-productss default-collection {% if forloop.first %} active{% endif %}" >
+      <ul class="product-grid">
+        {% for product in tab_collection.products %}
+          <!-- Your full product-item markup here -->
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+
+  {% comment %} Vertical surface collection {% endcomment %}
+  {% if section.settings.vertical_surface_collection != blank %}
+    {% assign vertical_collection = section.settings.vertical_surface_collection %}
+    <div class="tab-productss vertical-collection" style="display:none;">
+      <ul class="product-grid">
+        {% for product in vertical_collection.products %}
+          <!-- Your full product-item markup here -->
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  {% comment %} Horizontal surface collection {% endcomment %}
+  {% if section.settings.horizontal_surface_collection != blank %}
+    {% assign horizontal_collection = section.settings.horizontal_surface_collection %}
+    <div class="tab-productss horizontal-collection" style="display:none;">
+      <ul class="product-grid">
+        {% for product in horizontal_collection.products %}
+          <!-- Your full product-item markup here -->
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+</div>
+{% schema %}
+{
+  "name": "Exterior-collection",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Main Heading" },
+    { "type": "collection", "id": "vertical_surface_collection", "label": "Vertical Surface Collection" },
+    { "type": "collection", "id": "horizontal_surface_collection", "label": "Horizontal Surface Collection" }
+  ],
+  "blocks": [
+    {
+      "type": "Exterior-collection",
+      "name": "collection",
+      "settings": [
         { "type": "collection", "id": "tab_collection", "label": "Collection to show" }
       ]
     }
