@@ -160,7 +160,7 @@ $(document).on("click", ".slide-next-btn.gg-3, .slide-next-btn.gg-2", function (
 document.addEventListener("DOMContentLoaded", function () {
   const track = document.querySelector(".product-track");
   const wrapper = document.querySelector(".product-slider");
-  const slideWidth = track.querySelector(".product-card").offsetWidth;
+  
 
   // Clone slides for smooth infinite loop
   const slides = Array.from(track.children);
@@ -272,7 +272,8 @@ section.video-products-section.product-with-videos {
     border-radius: 12px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.15);
     gap: 12px;
-    min-width: 450px;
+    /* min-width: 450px; */
+    max-width: 100% !important;
   }
 
   .product-image img {
