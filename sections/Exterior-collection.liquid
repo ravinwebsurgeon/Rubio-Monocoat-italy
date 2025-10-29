@@ -48,6 +48,41 @@
   {% endfor %}
 </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const surfaceItems = document.querySelectorAll('.surface-item');
+  const horizontalGrid = document.querySelector('.collection-exterior-horizontal-surface');
+  const verticalGrid = document.querySelector('.collection-exterior-vertical-surface');
+
+  // Hide both grids initially
+  horizontalGrid.style.display = 'none';
+  verticalGrid.style.display = 'none';
+
+  surfaceItems.forEach(item => {
+    item.addEventListener('click', function() {
+      // Remove active class from all buttons
+      surfaceItems.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+
+      // Swap logic
+      if(this.classList.contains('vertical')) {
+        // vertical active → show horizontal grid
+        horizontalGrid.style.display = 'block';
+        verticalGrid.style.display = 'none';
+      } 
+      else if(this.classList.contains('horizontal')) {
+        // horizontal active → show vertical grid
+        verticalGrid.style.display = 'block';
+        horizontalGrid.style.display = 'none';
+      }
+    });
+  });
+
+  // Optional: initialize vertical button as active
+  const defaultBtn = document.querySelector('.surface-item.vertical');
+  if(defaultBtn) defaultBtn.click();
+});
+</script>
 
 {% schema %}
 {
