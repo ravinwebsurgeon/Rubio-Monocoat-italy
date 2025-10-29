@@ -1160,6 +1160,60 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+
+document.addEventListener('DOMContentLoaded', () => {
+  const productForm = document.querySelector('form[action="/cart/add"]');
+  if (!productForm) return;
+
+  const variantIdInput = productForm.querySelector('input[name="id"]');
+  const seeMoreBtn = document.getElementById('customSeeMoreBtn');
+
+  function showMoreContent() {
+    const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
+    moreContentDivs.forEach(div => {
+      div.style.setProperty('display', 'inline-block', 'important');
+      div.style.visibility = 'visible';
+      div.style.overflow = 'visible';
+    });
+
+    if (seeMoreBtn) {
+      seeMoreBtn.style.display = 'none'; // hide the button after click
+    }
+  }
+
+  if (seeMoreBtn) {
+    seeMoreBtn.addEventListener('click', showMoreContent);
+  }
+
+  // Watch for variant changes
+  let lastVariant = variantIdInput.value;
+  const observer = new MutationObserver(() => {
+    if (variantIdInput.value !== lastVariant) {
+      lastVariant = variantIdInput.value;
+      console.log('Variant changed:', lastVariant);
+
+      // If content was already expanded, reapply display
+      const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
+      moreContentDivs.forEach(div => {
+        if (seeMoreBtn.style.display === 'none') {
+          div.style.setProperty('display', 'inline-block', 'important');
+          div.style.visibility = 'visible';
+          div.style.overflow = 'visible';
+        }
+      });
+    }
+  });
+
+  observer.observe(variantIdInput, { attributes: true, attributeFilter: ['value'] });
+  
+  // Initial render: hide content initially
+  const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
+  moreContentDivs.forEach(div => {
+    div.style.setProperty('display', 'none', 'important');
+    div.style.visibility = 'hidden';
+    div.style.overflow = 'hidden';
+  });
+});
 </script>
 
 

@@ -123,34 +123,7 @@ if (actionBtn && suitedSection) {
       picker_type: picker_type
     %}
   </fieldset>
-       {% comment %} {% assign option_values_count = option.values | size  %} 
-      {% if option_values_count > 17 %}
-        <button id="customSeeMoreBtn">See More</button>
-   <script>
-document.addEventListener('DOMContentLoaded', () => {
-  document.body.addEventListener('click', function(event) {
-    const seeMoreBtn = event.target.closest('#customSeeMoreBtn');
-    if (!seeMoreBtn) return;
-
-    const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
-    const isHidden = moreContentDivs[0]?.style.display === 'none' || getComputedStyle(moreContentDivs[0]).display === 'none';
-
-    moreContentDivs.forEach(div => {
-      if (isHidden) {
-        div.style.setProperty('display', 'block', 'important'); 
-        div.style.overflow = 'visible';
-        div.style.visibility = 'visible';
-      } else {
-        div.style.display = 'none';
-        div.style.overflow = 'hidden';
-        div.style.visibility = 'hidden';
-      }
-    });
-    seeMoreBtn.classList.toggle('active', isHidden);
-    seeMoreBtn.textContent = isHidden ? 'See Less' : 'See More';
-  });
-});
-</script> {% endcomment %}
+{% comment %} 
 
 {% assign option_values_count = option.values | size %}
 {% if option_values_count > 17 %}
@@ -196,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   </script>
 
-    {% endif %}
+    {% endif %} {% endcomment %}
        
       {%- elsif picker_type == 'button' -%}
         <fieldset class="js product-form__input product-form__input--pill">
