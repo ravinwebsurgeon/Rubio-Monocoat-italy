@@ -40,8 +40,8 @@
       "type": "custom_inspired_wooden",
       "name": "CustomInspired Wooden",
       "settings": {
-        "heading": "",
-        "subheading": "",
+        "heading": "{{ page.metafields.custom.inspired_wooden_heading.value }}",
+        "subheading": "{{ page.metafields.custom.inspired_wooden_subheading.value }}",
         "Products": "{{ section.settings.source_page.metafields.custom.inspired_wooden_product.value }}",
         "source_page": "exterior-protection"
       }
