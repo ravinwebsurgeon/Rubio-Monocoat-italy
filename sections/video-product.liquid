@@ -11,7 +11,7 @@
   <div class="product-overlay">
   <div class="product-slider">
     <div class="product-track">
-      {% for block in section.blocks %}
+      {% comment %} {% for block in section.blocks %}
         {% if block.settings.product %}
           {% assign product = all_products[block.settings.product] %}
           {% if product %}
@@ -39,7 +39,43 @@
             </div>
           {% endif %}
         {% endif %}
-      {% endfor %}
+      {% endfor %} {% endcomment %}
+
+      {% if product.metafields.custom.inspired_products.value %}
+        {% for product in product.metafields.custom.inspired_products.value %}
+          {% if product %}
+            <div class="product-card">
+              <div class="product-image">
+                <img src="{{ product.featured_image | img_url: '150x' }}" alt="{{ product.title }}">
+              </div>
+              <div class="product-info">
+                <div class="stars">★★★★★</div>
+                <h4>{{ product.title }}</h4>
+                <p class="price">{{ product.price | money }}</p>
+              </div>
+              <div class="product-icons">
+                {% comment %} {% if block.settings.icon_1 %}
+                  <a href="#" class="add-to-cart-btn" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+                    <img src="{{ block.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
+                  </a>
+                {% endif %}
+                {% if block.settings.icon_2 %}
+                  <a href="javascript:void(0);" class="slide-next-btn gg-{{ forloop.index }}">
+                    <img src="{{ block.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
+                  </a>
+                {% endif %} {% endcomment %}
+                <a href="#" class="add-to-cart-btn" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+                    <img src="{{ section.settings.cart_icon | img_url: '40x' }}" alt="Add to Cart">
+                  
+                </a>
+                <a href="javascript:void(0);" class="slide-next-btn gg-{{ forloop.index }}">
+                    <img src="{{ section.settings.move_icon | img_url: '40x' }}" alt="Next Products">
+                </a>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %} 
     </div>
   </div>
 </div>
