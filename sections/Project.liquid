@@ -44,11 +44,11 @@
     </div>
 
     <!-- Exterior -->
-    <div class="exterior" data-target="exterior-surfaces">
+    <div class="exterior surface-toggle" data-target="exterior-surfaces">
       {% if section.settings.img2 %}
         <img src="{{ section.settings.img2 | img_url: 'master' }}" alt="Exterior" width="" height="">
       {% endif %}
-      <div class="exter-btn surface-toggle" >Exterior</div>
+      <div class="exter-btn" >Exterior</div>
 
       <!-- Hidden surface options -->
       <div class="surface-options" id="exterior-surfaces">
