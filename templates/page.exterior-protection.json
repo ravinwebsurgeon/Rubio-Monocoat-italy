@@ -21,10 +21,10 @@
         "image_text": "{{ page.metafields.custom.custom_text.value }}",
         "image": "{{ page.metafields.custom.custompoductimage.value }}",
         "product_heading": "",
-        "product1": "",
-        "product2": "",
-        "product3": "",
-        "bottom_product": ""
+        "product1": "{{ page.metafields.custom.image_product1.value }}",
+        "product2": "{{ page.metafields.custom.image_product2.value }}",
+        "product3": "{{ page.metafields.custom.image_product3.value }}",
+        "bottom_product": "{{ page.metafields.custom.bottom_product.value }}"
       }
     }
   },
