@@ -254,19 +254,18 @@ document.addEventListener("DOMContentLoaded", function(){
   </div> {% endcomment %}
 
   <div class="custom-cert-carousel">
-   {% for product in section.settings.product_list %}
-      <div class="custom-cert-card">
+    {% for block in section.blocks %}
+      <div class="custom-cert-card" {{ block.shopify_attributes }}>
         <div class="custom-cert-img">
-          {% if product.featured_image %}
-            <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title | escape }}">
+          {% if block.settings.certificate_image %}
+            <img src="{{ block.settings.certificate_image | img_url:'master' }}" alt="{{ block.settings.certificate_title | escape }}">
           {% endif %}
           <div class="custom-cert-desc">
-            <p>{{ product.description | strip_html | truncate: 120 }}</p>
+            <p>{{ block.settings.certificate_description }}</p>
           </div>
         </div>
-
         <div class="custom-cert-content">
-          <h3>{{ product.title }}</h3>
+          <h3>{{ block.settings.certificate_title }}</h3>
           <div class="custom-cert-btn-wrapper">
             <div class="custom-cert-btn">
               <button class="custom-cert-plus" type="button">+</button>
