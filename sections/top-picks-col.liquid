@@ -288,10 +288,11 @@ document.addEventListener("DOMContentLoaded", function(){
       {% comment %} const card = this.closest(".custom-cert-card");
       card.classList.toggle("active");
       this.textContent = card.classList.contains("active") ? "×" : "+"; {% endcomment %}
+      const popupmain = document.querySelector('.product-popup-content')
       const title = this.dataset.title;
       const image = this.dataset.image;
       const url = this.dataset.url;
-popup.style.display = 'block';
+popupmain.style.display = 'block';
       popupImage.src = image;
       popupImage.alt = title;
       popupTitle.textContent = title;
