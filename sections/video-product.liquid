@@ -5,18 +5,7 @@
     <h2 class="video-heading" >{{ section.settings.heading }}</h2>
     <div class="video-wrapper">
       <div class="video-container">
-        {% comment %} <video autoplay muted loop playsinline class="video-bg">
-          <source src="{{ section.settings.video_url }}" type="video/mp4">
-          Your browser does not support the video tag.
-        </video> {% endcomment %}
         {{ video_url | video_tag: controls: true, autoplay: true, loop: true }}
-{% comment %}         
-          {{ video_url | media_tag: 
-          autoplay: true, 
-          loop: true, 
-          muted: true, 
-          controls: false 
-        }} {% endcomment %}
   <div class="product-overlay">
   <div class="product-slider">
     <div class="product-track">
