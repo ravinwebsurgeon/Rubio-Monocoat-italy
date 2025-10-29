@@ -1,0 +1,17 @@
+{% assign inspired_wooden_images = page.metafields.custom.inspired_wooden_images.value %}
+{% assign inspired_wooden_product = page.metafields.custom.inspired_wooden_product.value %}
+
+
+{% schema %}
+{
+  "name": "Custom Inspired Wooden",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Get inspired by wooden floors" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Create a bedroom worth staying awake for with these inspiring ideas." },
+    { "type": "product_list", "id": "product_List", "label": "Products" },
+  ],
+  "presets": [
+    { "name": "CustomInspired Wooden", "category": "Sections" }
+  ]
+}
+{% endschema %}
