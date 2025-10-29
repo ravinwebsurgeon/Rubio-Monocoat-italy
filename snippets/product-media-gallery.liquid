@@ -582,7 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let show = true;
       {% comment %} console.log(selectedOptions,'selectedOptions are',item.dataset, 'ckeckeddata') {% endcomment %}
       let datasetKeys  = Object.keys(item.dataset);
-      if(datasetKeys.length == 0){item.style.display = "block"; return;}
+      if(datasetKeys.length == 0){item.style.display = "block"; }
       console.log('datase lenth is:',datasetKeys.length);
       for (const [key, val] of Object.entries(selectedOptions)) {
         {% comment %} if (!val || item.dataset[key].toLowerCase() !== val.replace('.', '-')) { {% endcomment %}
