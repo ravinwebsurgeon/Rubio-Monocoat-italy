@@ -994,27 +994,29 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener("DOMContentLoaded", function() {
   const toggles = document.querySelectorAll(".surface-toggle");
 
-  toggles.forEach(btn => {
-    btn.addEventListener("click", function() {
+  toggles.forEach(toggle => {
+    toggle.addEventListener("click", function() {
       const targetId = this.getAttribute("data-target");
       const target = document.getElementById(targetId);
 
-      // Hide all other surface options
-      document.querySelectorAll(".surface-options").forEach(opt => {
-        if (opt !== target) opt.style.display = "none";
-      });
+      // Close all others and remove active class
+      document.querySelectorAll(".surface-options").forEach(opt => opt.style.display = "none");
+      document.querySelectorAll(".surface-toggle").forEach(el => el.classList.remove("active"));
 
-      // Toggle visibility
+      // Toggle this one
       if (target.style.display === "flex") {
         target.style.display = "none";
+        this.classList.remove("active");
       } else {
         target.style.display = "flex";
+        this.classList.add("active");
       }
 
-      // ✅ Add active state to clicked surface
+      // Handle surface item active state
       const surfaceItems = target.querySelectorAll(".surface-item");
       surfaceItems.forEach(item => {
-        item.addEventListener("click", function() {
+        item.addEventListener("click", function(e) {
+          e.stopPropagation(); // prevent triggering main toggle click
           surfaceItems.forEach(i => i.classList.remove("active"));
           this.classList.add("active");
         });
