@@ -986,42 +986,47 @@ document.addEventListener('DOMContentLoaded', function() {
   filterProducts();
 });
 </script>
+
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const exteriorToggle = document.querySelector(".exterior.surface-toggle");
+  const surfaceOptions = document.getElementById("exterior-surfaces");
 
-  if (exteriorToggle) {
-    exteriorToggle.addEventListener("click", function() {
-      const targetId = this.getAttribute("data-target");
-      const target = document.getElementById(targetId);
+  if (exteriorToggle && surfaceOptions) {
+    exteriorToggle.addEventListener("click", function(e) {
+      e.stopPropagation(); // prevent triggering document click
+      const isActive = this.classList.contains("active");
 
-      // Close any open options first
+      // Close if already open
       document.querySelectorAll(".surface-options").forEach(opt => opt.style.display = "none");
       document.querySelectorAll(".surface-toggle").forEach(el => el.classList.remove("active"));
 
-      // Toggle this one
-      if (target.style.display === "flex") {
-        target.style.display = "none";
-        this.classList.remove("active");
-      } else {
-        target.style.display = "flex";
+      if (!isActive) {
+        surfaceOptions.style.display = "flex";
         this.classList.add("active");
       }
+    });
 
-      // Handle active state on surface items
-      const surfaceItems = target.querySelectorAll(".surface-item");
-      surfaceItems.forEach(item => {
-        item.addEventListener("click", function(e) {
-          e.stopPropagation(); // Prevent toggle re-trigger
-          surfaceItems.forEach(i => i.classList.remove("active"));
-          this.classList.add("active");
-        });
+    // Handle surface item selection
+    const surfaceItems = surfaceOptions.querySelectorAll(".surface-item");
+    surfaceItems.forEach(item => {
+      item.addEventListener("click", function(e) {
+        e.stopPropagation(); // don't close on item click
+        surfaceItems.forEach(i => i.classList.remove("active"));
+        this.classList.add("active");
       });
+    });
+
+    // Hide when clicking outside
+    document.addEventListener("click", function(e) {
+      if (!exteriorToggle.contains(e.target) && !surfaceOptions.contains(e.target)) {
+        surfaceOptions.style.display = "none";
+        exteriorToggle.classList.remove("active");
+      }
     });
   }
 });
 </script>
-
 
 
 
