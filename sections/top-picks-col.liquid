@@ -236,6 +236,48 @@ document.addEventListener("DOMContentLoaded", function(){
 }
 {% endschema %} {% endcomment %}
 
+ <section class="custom-cert-slider">
+{% comment %} <div class="custom-cert-header">
+    <h2>{{ section.settings.section_heading }}</h2>
+    <div class="custom-cert-arrows">
+      <button type="button" class="custom-cert-prev">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="#000">
+          <path d="M169.4 297.4C156.9 309.9 156.9 330.2 169.4 342.7L361.4 534.7C373.9 547.2 394.2 547.2 406.7 534.7C419.2 522.2 419.2 501.9 406.7 489.4L237.3 320L406.6 150.6C419.1 138.1 419.1 117.8 406.6 105.3C394.1 92.8 373.8 92.8 361.3 105.3L169.3 297.3z"/>
+        </svg>
+      </button>
+      <button type="button" class="custom-cert-next">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="#000">
+          <path d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"/>
+        </svg>
+      </button>
+    </div>
+  </div> {% endcomment %}
+
+  <div class="custom-cert-carousel">
+   {% for product in section.settings.product_list %}
+      <div class="custom-cert-card">
+        <div class="custom-cert-img">
+          {% if product.featured_image %}
+            <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title | escape }}">
+          {% endif %}
+          <div class="custom-cert-desc">
+            <p>{{ product.description | strip_html | truncate: 120 }}</p>
+          </div>
+        </div>
+
+        <div class="custom-cert-content">
+          <h3>{{ product.title }}</h3>
+          <div class="custom-cert-btn-wrapper">
+            <div class="custom-cert-btn">
+              <button class="custom-cert-plus" type="button">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
 
 
 {% schema %}
