@@ -159,6 +159,14 @@
             "tag_title": ""
           }
         },
+        "custom_images_YCteHV": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Doors",
+            "menu_image": "shopify://shop_images/width_100-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        },
         "custom_images_MzyewX": {
           "type": "Custom_images",
           "settings": {
@@ -205,6 +213,7 @@
         "custom_images_wnVmdD",
         "custom_images_xj4RXz",
         "custom_images_nypj6B",
+        "custom_images_YCteHV",
         "custom_images_MzyewX",
         "custom_images_ALbzXQ",
         "custom_images_g3JF7t",
