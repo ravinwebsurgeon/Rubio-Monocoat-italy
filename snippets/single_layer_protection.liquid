@@ -119,3 +119,45 @@
     .product_listed , .media_content_main{width:100%;}
     }
 </style>
+<script>
+     document.addEventListener('DOMContentLoaded', function () {
+    const variantSelectors = document.querySelectorAll('.option-variant-selector');
+
+    // Load all variants into JS (this is Liquid)
+    const variants = {{ product.variants | json }};
+
+    function getSelectedOptions() {
+      let selectedOptions = [];
+      variantSelectors.forEach((select) => {
+        selectedOptions.push(select.value);
+      });
+      return selectedOptions;
+    }
+
+    function findMatchingVariant(options) {
+      return variants.find((variant) => {
+        return variant.options.every((opt, index) => opt === options[index]);
+      });
+    }
+
+    function updateVariantId() {
+      const selectedOptions = getSelectedOptions();
+      const matchingVariant = findMatchingVariant(selectedOptions);
+
+      if (matchingVariant) {
+        console.log('Selected Variant ID:', matchingVariant.id);
+        document.querySelector('#variant-id').value = matchingVariant.id;
+      } else {
+        console.log('No matching variant found');
+      }
+    }
+
+    // Listen for changes on all variant selectors
+    variantSelectors.forEach((select) => {
+      select.addEventListener('change', updateVariantId);
+    });
+
+    // Initial check on page load
+    updateVariantId();
+  });
+</script>
