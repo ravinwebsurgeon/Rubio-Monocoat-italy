@@ -255,6 +255,38 @@
             "tag_title": ""
           }
         },
+        "custom_images_iT9Wnp": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Outdoor furniture",
+            "menu_image": "shopify://shop_images/width_20011-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        },
+        "custom_images_YQGxtW": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Cladding",
+            "menu_image": "shopify://shop_images/width_20012-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        },
+        "custom_images_hL3AFF": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Carports",
+            "menu_image": "shopify://shop_images/width_20013-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        },
+        "custom_images_X3Y37g": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Wooden gates",
+            "menu_image": "shopify://shop_images/width_20014-ezgif.png",
+            "tag_title": ""
+          }
+        },
         "custom_images_g3JF7t": {
           "type": "Custom_images",
           "settings": {
@@ -297,6 +329,10 @@
         "custom_images_4Npnpa",
         "custom_images_ihdEyP",
         "custom_images_tGHJf8",
+        "custom_images_iT9Wnp",
+        "custom_images_YQGxtW",
+        "custom_images_hL3AFF",
+        "custom_images_X3Y37g",
         "custom_images_g3JF7t",
         "custom_images_YqQTYn"
       ],
