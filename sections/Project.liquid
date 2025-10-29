@@ -44,13 +44,13 @@
 
     <!-- Hidden surface options -->
     <div class="surface-options" id="exterior-surfaces" style="display:none;">
-  <div class="surface-item" data-collection="{{ section.settings.vertical_surface_collection.handle }}">
+  <div class="surface-item vertical" data-collection="{{ section.settings.vertical_surface_collection.handle }}">
     <span class="surfaces-img-spn">
       <img src="{{ section.settings.vertical_surface_img | img_url: 'master' }}" alt="Vertical surface">
     </span>
     <p>Vertical surface</p>
   </div>
-  <div class="surface-item" data-collection="{{ section.settings.horizontal_surface_collection.handle }}">
+  <div class="surface-item horizontal" data-collection="{{ section.settings.horizontal_surface_collection.handle }}">
     <span class="surfaces-img-spn">
       <img src="{{ section.settings.horizontal_surface_img | img_url: 'master' }}" alt="Horizontal surface"> 
     </span>
