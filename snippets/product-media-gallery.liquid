@@ -341,17 +341,19 @@
     <div class="main-image-wrapper">
       <div class="cus-sticky">
         {% for media in product.media %}
-          {% if media.alt != blank %}
-            {% assign parts = media.alt | split: '/' %}
-            {% assign color = parts[0] | strip %}
-            {% assign size = parts[1] | strip %}
-            {% assign finish = parts[2] | strip %}
+          {% assign alt_parts = media.alt | split: '/' %}
+
+          {% if alt_parts > 1 %}
+            {% comment %} {% assign parts = media.alt | split: '/' %} {% endcomment %}
+            {% assign color = alt_parts[0] | strip %}
+            {% assign size = alt_parts[1] | strip %}
+            {% assign finish = alt_parts[2] | strip %}
           {% else %}
             {% assign color = '' %}
             {% assign size = '' %}
             {% assign finish = '' %}
           {% endif %}
-          <div class="main-image-item testClass {{ media.alt }}" {% if media.alt != blank %} data-color="{{ color | handle }}" data-size="{{ size | handle }}" data-finish="{{ finish }}" {% endif %} style="display: none;">
+          <div class="main-image-item testClass {{ media.alt }}" {% if alt_parts > 1 %} data-color="{{ color | handle }}" data-size="{{ size | handle }}" data-finish="{{ finish }}" {% endif %} style="display: none;">
             {% if media.media_type == 'image' %}
               <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}" data-type="image">
                 <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
