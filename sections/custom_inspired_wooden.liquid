@@ -5,22 +5,22 @@
 {% assign inspired_wooden_images = source_page.metafields.custom.inspired_wooden_images.value %}
 {% comment %} {% assign heading = source_page.metafields.custom.inspired_wooden_heading.value %} {% endcomment %}
 {% comment %} {% assign subheading = source_page.metafields.custom.inspired_wooden_subheading.value %} {% endcomment %}
-<section class="inspired-collage">
+<section class="inspired-collage-section">
   <div class="container">
-    <div class="collage-header">
+    <div class="collage-header-main">
       <h2>{{ section.settings.heading }}</h2>
       <p>{{ section.settings.subheading }}</p>
     </div>
 
-    <div class="collage-grid">
+    <div class="collage-grid-section">
       {% for image in inspired_wooden_images %}
         {% assign handle = product_handles[forloop.index0] %}
         {% assign product = all_products[handle] %}
         {% if product %}
-          <div class="collage-item {% if forloop.first %}large{% else %}small{% endif %}" 
+          <div class="inspired-collage-item {% if forloop.first %}large{% else %}small{% endif %}" 
                style="background-image: url('{{ image | img_url: 'master' }}')">
             <a href="javascript:void(0);" 
-               class="product-overlay-btn {% for pro in product_handles%} {% if forloop.index == forloop.parentloop.index %} {{ pro.title | handleize }} {% endif %} {% endfor %}" 
+               class="item-overlay-btn {% for pro in product_handles%} {% if forloop.index == forloop.parentloop.index %} {{ pro.title | handleize }} {% endif %} {% endfor %}" 
                {% for pro in product_handles%} {% if forloop.index == forloop.parentloop.index %}  data-product-handle="{{ pro.handle }}" {% endif %} {% endfor %}>
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="20" cy="20" r="20" fill="black" fill-opacity="0.5"/>
@@ -28,7 +28,7 @@
               </svg>
             </a>
 
-            <div class="hotspot-popup">
+            <div class="item-hotspot-popup">
               <span class="close-hotspot">&times;</span>
               <div class="hotspot-content"></div>
             </div>
@@ -40,35 +40,35 @@
 </section>
 
 <style>
-.inspired-collage{
+.inspired-collage-section{
   padding:100px 0 50px;
 }
-.inspired-collage .container{ 
+.inspired-collage-section .container{ 
   max-width: 1760px; 
   margin: 0 auto; 
   padding: 0 30px;
   font-family: Frutiger Neue LT W1G;
 }
-.collage-header h2 { 
+.collage-header-main h2 { 
     font-family: Frutiger Neue LT W1G;
     font-weight: 700;
     font-size: 36px;
     line-height: normal;
     margin: 0 0 10px;
 }
-.collage-header p { 
+.collage-header-main p { 
   font-size: 24px; 
   color: rgba(0,0,0,0.7); 
   line-height: normal;
 }
-.collage-grid {
+.collage-grid-section {
   display: grid;
   grid-template-columns: 1.3fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 16px;
   margin:50px 0 0;
 }
-.collage-item { 
+.inspired-collage-item { 
   position: relative; 
   border-radius: 12px; 
   cursor: pointer; 
@@ -76,13 +76,13 @@
   background-position: center; 
   min-height: 400px;
 }
-.collage-item.large {
+.inspired-collage-item.large {
   grid-column: 1 / 2;
   grid-row: 1 / 3;
 }
-.collage-item.small {
+.inspired-collage-item.small {
 }
-.product-overlay-btn { 
+.item-overlay-btn { 
    position: absolute; 
    top: 10px; 
    left: 10px; 
@@ -90,7 +90,7 @@
    cursor:pointer;
 }
 
-.hotspot-popup {
+.item-hotspot-popup {
   display: none;
   position: absolute;
   top: 50px; 
@@ -105,7 +105,7 @@
   transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
 }
-.hotspot-popup .close-hotspot {
+.item-hotspot-popup .close-hotspot {
   position: absolute;
   top: -5px;
   right: -5px;
@@ -125,10 +125,10 @@
   padding: 0;
   border: none;
 }
-.hotspot-popup form {
+.item-hotspot-popup form {
     text-align: center;
 }
-.hotspot-popup img {
+.item-hotspot-popup img {
   width: 160px;
   height: 160px;
   border-radius:10px;
@@ -137,7 +137,7 @@
   display:block;
   object-fit:contain;
 }
-.hotspot-popup h3 {
+.item-hotspot-popup h3 {
   margin: 15px 0 5px;
   font-size: 16px;
   font-weight: 500;
@@ -145,14 +145,14 @@
   color:#000;
   line-height: normal;
 }
-.hotspot-popup p {
+.item-hotspot-popup p {
   font-size: 12px;
   margin-bottom: 0;
   font-family: Frutiger Neue LT W1G;
   color:rgba(0,0,0,0.7);
   line-height: normal;
 }
-.hotspot-popup button {
+.item-hotspot-popup button {
   color: white;
   border: none;
   padding: 10.5px 32px;
@@ -166,30 +166,30 @@
   display: inline-flex;
   margin: 20px auto 0;
 }
-.collage-item.large .product-overlay-btn {
+.inspired-collage-item.large .item-overlay-btn {
     left: 50%;
     top: 50%;
     width: 40px;
     height: 40px;
     transform: translate(-50%, -50%);    
 }
-.product-overlay-btn svg {
+.item-overlay-btn svg {
     display: block;
 }
-.collage-item:nth-child(2) .product-overlay-btn {
+.inspired-collage-item:nth-child(2) .item-overlay-btn {
     top: 68px;
     left: 53%;
 }
-.collage-item:nth-child(3) .product-overlay-btn {
+.inspired-collage-item:nth-child(3) .item-overlay-btn {
     top: 77px;
     left: 60%;
 }
-.collage-item:nth-child(4) .product-overlay-btn {
+.inspired-collage-item:nth-child(4) .item-overlay-btn {
     top: 68px;
     left: auto;
     right:30%;
 }
-.collage-item:nth-child(5) .product-overlay-btn {
+.inspired-collage-item:nth-child(5) .item-overlay-btn {
     top: 97px;
     left: auto;
     right:22.5%;
@@ -198,10 +198,10 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function(){
-  const buttons = document.querySelectorAll(".product-overlay-btn");
+  const buttons = document.querySelectorAll(".item-overlay-btn");
 
   buttons.forEach(btn => {
-    const popup = btn.closest(".collage-item").querySelector(".hotspot-popup");
+    const popup = btn.closest(".inspired-collage-item").querySelector(".item-hotspot-popup");
     const content = popup.querySelector(".hotspot-content");
     const closeBtn = popup.querySelector(".close-hotspot");
 
@@ -209,11 +209,11 @@ document.addEventListener("DOMContentLoaded", function(){
       const handle = this.dataset.productHandle;
 
       // Hide all other popups
-      document.querySelectorAll(".hotspot-popup").forEach(p => { if(p !== popup) p.style.display = 'none'; });
+      document.querySelectorAll(".item-hotspot-popup").forEach(p => { if(p !== popup) p.style.display = 'none'; });
 
       // Position popup relative to SVG
       const rect = btn.getBoundingClientRect();
-      const parentRect = btn.closest(".collage-item").getBoundingClientRect();
+      const parentRect = btn.closest(".inspired-collage-item").getBoundingClientRect();
       popup.style.top = (btn.offsetTop + btn.offsetHeight + 5) + 'px';
       {% comment %} popup.style.left = (btn.offsetLeft) + '%'; {% endcomment %}
 
@@ -241,8 +241,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
   // Close popup when clicking outside
   document.addEventListener("click", e => {
-    if(!e.target.closest(".collage-item")) {
-      document.querySelectorAll(".hotspot-popup").forEach(p => p.style.display = 'none');
+    if(!e.target.closest(".inspired-collage-item")) {
+      document.querySelectorAll(".item-hotspot-popup").forEach(p => p.style.display = 'none');
     }
   });
 });
