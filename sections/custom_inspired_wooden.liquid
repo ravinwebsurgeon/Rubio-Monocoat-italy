@@ -9,11 +9,11 @@
     <div class="collage-grid">
       {% assign inspired_wooden_images = source_page.metafields.custom.inspired_wooden_images.value %}
       {% assign product_handles = section.settings.Products %}
+<pre>{{ product_handles |json }}</pre>
 
       {% for image in inspired_wooden_images %}
         {% assign handle = product_handles[forloop.index0] %}
         {% assign product = all_products[handle] %}
-<pre>{{ product_handles |json }}</pre>
         {% if product %}
           <div class="collage-item {% if forloop.first %}large{% else %}small{% endif %}" 
                style="background-image: url('{{ image | img_url: 'master' }}')">
