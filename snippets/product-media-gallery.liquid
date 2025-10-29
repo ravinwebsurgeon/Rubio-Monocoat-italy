@@ -342,14 +342,14 @@
       <div class="cus-sticky">
         {% for media in product.media %}
            {% assign alt_parts = media.alt | split: '/' %}
-    {% assign last_index = product.options.size | minus: 1 %}
+          {% assign last_index = product.options.size | minus: 1 %}
 
-          {% assign parts = media.alt | split: '/' %}
+          {% comment %} {% assign parts = media.alt | split: '/' %}
           {% assign color = parts[0] | strip %}
           {% assign size = parts[1] | strip %}
           {% assign finish = parts[2] | strip %}
           {% assign fragrance = parts[3] | strip %}
-          {% assign volume = parts[4] | strip %}
+          {% assign volume = parts[4] | strip %} {% endcomment %}
           <div class="main-image-item"
                     {% unless media.alt == product.title %}
            {% for i in (0..last_index) %}
@@ -385,13 +385,13 @@
       <div class="cus-sticky">
         {% for media in product.media %}
           {% assign alt_parts = media.alt | split: '/' %}
-    {% assign last_index = product.options.size | minus: 1 %}
-          {% assign parts = media.alt | split: '/' %}
+          {% assign last_index = product.options.size | minus: 1 %}
+          {% comment %} {% assign parts = media.alt | split: '/' %}
           {% assign color = parts[0] | strip %}
           {% assign size = parts[1] | strip %}
           {% assign finish = parts[2] | strip %}
           {% assign fragrance = parts[3] | strip %}
-          {% assign volume = parts[4] | strip %}
+          {% assign volume = parts[4] | strip %} {% endcomment %}
           <div class="thumbnail-item" 
                          {% unless media.alt == product.title %}
            {% for i in (0..last_index) %}
@@ -426,13 +426,13 @@
   <div class="swiper">
     <div class="swiper-wrapper">
       {% for media in product.media %}
-                {% assign alt_parts = media.alt | split: '/' %}
-    {% assign last_index = product.options.size | minus: 1 %}
-        {% assign parts = media.alt | split: '/' %}
+        {% assign alt_parts = media.alt | split: '/' %}
+        {% assign last_index = product.options.size | minus: 1 %}
+        {% comment %} {% assign parts = media.alt | split: '/' %}
         {% assign color = parts[0] | strip %}
         {% assign size = parts[1] | strip %}
         {% assign fragrance = parts[3] | strip %}
-        {% assign volume = parts[4] | strip %}
+        {% assign volume = parts[4] | strip %} {% endcomment %}
         <div class="swiper-slide"  
                  {% unless media.alt == product.title %}
            {% for i in (0..last_index) %}
