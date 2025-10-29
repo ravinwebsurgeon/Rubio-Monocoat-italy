@@ -1,0 +1,148 @@
+
+<section class="custom-collection-featured">
+   {% comment %} <div class="custom-section-header">
+    <h2>{{ section.settings.section_heading }}</h2>
+  </div>
+  <div class="custom-featured-header">
+    <h2>{{ section.settings.main_heading }}</h2>
+    <p>{{ section.settings.main_subheading }}</p>
+  </div> {% endcomment %}
+
+  <div class="custom-featured-inner">
+
+    {% if product1 %}
+      <div class="product-box product-block">
+        <h3 class="product-title">{{ section.settings.product1_heading }}</h3>
+        <p class="product-subtitle">{{ section.settings.product1_subheading }}</p>
+
+        {% comment %} <a href="{{ product1.url }}"> {% endcomment %}
+          <img src="{{ product1.featured_image | img_url: '400x400' }}" alt="{{ product1.title }}">
+        {% comment %} </a> {% endcomment %}
+
+        {% comment %} <form method="post" action="/cart/add" class="add-to-cart-form"> {% endcomment %}
+          <select name="id" class="variant-select variant-selector">
+            {% for variant in product1.variants %}
+              <option value="{{ variant.id }}">{{ variant.title }}</option>
+            {% endfor %}
+          </select>
+
+          <div class="product-actions">
+            <a href="{{ product1.url }}" class="btn1 btn-secondary2">More Info</a>
+            <button type="submit" class="add_to_cart_ajax btn1 btn-primary1">Add to Cart</button>
+          </div>
+        {% comment %} </form> {% endcomment %}
+      </div>
+    {% endif %}
+
+    {% if product2 %}
+      <div class="product-box product-block">
+        <h3 class="product-title">{{ section.settings.product2_heading }}</h3>
+        <p class="product-subtitle">{{ section.settings.product2_subheading }}</p>
+
+        <a href="{{ product2.url }}">
+          <img src="{{ product2.featured_image | img_url: '400x400' }}" alt="{{ product2.title }}">
+        </a>
+
+          <select name="id" class="variant-select  variant-selector">
+            {% for variant in product2.variants %}
+              <option value="{{ variant.id }}">{{ variant.title }}</option>
+            {% endfor %}
+          </select>
+
+          <div class="product-actions">
+            <a href="{{ product2.url }}" class="btn1 btn-secondary2">More Info</a>
+            <button type="submit" class="add_to_cart_ajax btn1 btn-primary1">Add to Cart</button>
+          </div>
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<style>
+.custom-collection-featured {
+  {% comment %} background: #f8f8f8; {% endcomment %}
+  padding: 40px;
+  border-radius: 12px;
+  margin: 40px auto;
+  max-width: 1700px;
+}
+.custom-featured-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.custom-featured-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+.custom-featured-header p {
+  font-size: 16px;
+  color: #666;
+}
+.custom-featured-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 50px;border-radius: 20px;background:#f8f8f8;
+}
+.product-box {
+  flex: 1 1 45%;
+  text-align: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.product-title {
+  font-weight: 600;
+  font-size: 18px;
+}
+.product-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+.variant-select {
+  margin: 10px auto;
+  padding: 10px;
+  width: 80%;
+  border-radius: 50px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  appearance: none;
+  background: url("data:image/svg+xml,%3Csvg width='14' height='10' viewBox='0 0 14 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23333' stroke-width='2' fill='none'/%3E%3C/svg%3E") no-repeat right 12px center/12px;
+}
+.product-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+.btn1 {
+  padding: 10px 16px;
+  border-radius: 50px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  min-width: 100px;
+}
+.btn-primary1 {
+  background: #f0a500;
+  color: #fff;
+  border: none;
+}
+.btn-secondary2 {
+  background: #183029;
+  color: #fff;
+  border: none;
+}
+form.add-to-cart-form {
+    width: 370px;
+}
+.custom-section-header h2{font-size: 23px;font-weight: 600;color: #444;}
+</style>
