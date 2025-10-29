@@ -23,7 +23,7 @@
   <h3 class="heading-pr">{{ section.settings.heading }}</h3>
 <div class="pro-first">
 
-  <!-- Interior (No toggle, static only) -->
+  <!-- Interior (Static, no toggle) -->
   <div class="Interio">
     {% if section.settings.img1 %}
       <span class="surfaces-img-spn"> 
@@ -43,7 +43,7 @@
     <div class="exter-btn">Exterior</div>
 
     <!-- Hidden surface options -->
-    <div class="surface-options" id="exterior-surfaces">
+    <div class="surface-options" id="exterior-surfaces" style="display:none;">
       <div class="surface-item">
         <span class="surfaces-img-spn">
           <img src="{{ section.settings.vertical_surface_img | img_url: 'master' }}" alt="Vertical surface" width="" height="">
