@@ -60,31 +60,15 @@
                 </div>
               {% endfor %}
              </div> {% endcomment %}
-<div class="surface-options" id="exterior-surfaces">
-  <div class="surface-item" data-collection-id="{{ section.settings.vertical_surface_collection.id }}">
-    <span class="surfaces-img-spn">
-      <img src="{{ section.settings.vertical_surface_img | img_url: 'master' }}" alt="Vertical surface">
-    </span>
-    <p>Vertical surface</p>
-  </div>
-  <div class="surface-item" data-collection-id="{{ section.settings.horizontal_surface_collection.id }}">
-    <span class="surfaces-img-spn">
-      <img src="{{ section.settings.horizontal_surface_img | img_url: 'master' }}" alt="Horizontal surface"> 
-    </span>
-    <p>Horizontal surface</p>
-  </div>
-</div>
-
 <div class="tab-products-wrap">
   <h4 class="oil-head">{{ section.settings.heading }}</h4>
 
-  {% comment %} Render vertical collection {% endcomment %}
+  {% comment %} Vertical surface collection {% endcomment %}
   {% if section.settings.vertical_surface_collection != blank %}
     {% assign vertical_collection = section.settings.vertical_surface_collection %}
     <div class="tab-productss vertical-surface" data-collection-id="{{ vertical_collection.id }}" style="display:none;">
       <ul class="product-grid">
         {% for product in vertical_collection.products %}
-          <!-- Product Item (same as your code) -->
           <li class="product-item">
             <a href="{{ product.url }}">
               {% if product.featured_image %}
@@ -92,19 +76,19 @@
               {% endif %}
             </a>
             <h3>{{ product.title }}</h3>
+            <p>{{ product.price | money }}</p>
           </li>
         {% endfor %}
       </ul>
     </div>
   {% endif %}
 
-  {% comment %} Render horizontal collection {% endcomment %}
+  {% comment %} Horizontal surface collection {% endcomment %}
   {% if section.settings.horizontal_surface_collection != blank %}
     {% assign horizontal_collection = section.settings.horizontal_surface_collection %}
     <div class="tab-productss horizontal-surface" data-collection-id="{{ horizontal_collection.id }}" style="display:none;">
       <ul class="product-grid">
         {% for product in horizontal_collection.products %}
-          <!-- Product Item (same as your code) -->
           <li class="product-item">
             <a href="{{ product.url }}">
               {% if product.featured_image %}
@@ -112,48 +96,14 @@
               {% endif %}
             </a>
             <h3>{{ product.title }}</h3>
+            <p>{{ product.price | money }}</p>
           </li>
         {% endfor %}
       </ul>
     </div>
   {% endif %}
 
-  {% comment %} Original blocks loop {% endcomment %}
-  {% for block in section.blocks %}
-    {% assign tab_collection = block.settings.tab_collection %}
-    <div class="tab-productss" data-collection-id="{{ tab_collection.id }}">
-      <ul class="product-grid">
-        {% for product in tab_collection.products %}
-          <!-- Product Item -->
-          <li class="product-item">
-            <a href="{{ product.url }}">
-              {% if product.featured_image %}
-                <img src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title }}">
-              {% endif %}
-            </a>
-            <h3>{{ product.title }}</h3>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  {% endfor %}
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const surfaceItems = document.querySelectorAll('.surface-item');
-  surfaceItems.forEach(item => {
-    item.addEventListener('click', function() {
-      const collectionId = item.dataset.collectionId;
-      // hide all surfaces
-      document.querySelectorAll('.vertical-surface, .horizontal-surface').forEach(el => el.style.display = 'none');
-      // show the selected
-      const selected = document.querySelector(`[data-collection-id="${collectionId}"]`);
-      if(selected) selected.style.display = 'block';
-    });
-  });
-});
-</script>
 
              {% schema %}
 {
