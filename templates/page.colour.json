@@ -228,6 +228,7 @@
       "blocks": {
         "exterior_collection_LHfW8G": {
           "type": "Exterior-collection",
+          "disabled": true,
           "settings": {
             "tab_collection": "exterior-protection"
           }
