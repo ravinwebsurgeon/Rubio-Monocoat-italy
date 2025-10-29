@@ -341,6 +341,9 @@
     <div class="main-image-wrapper">
       <div class="cus-sticky">
         {% for media in product.media %}
+           {% assign alt_parts = media.alt | split: '/' %}
+    {% assign last_index = product.options.size | minus: 1 %}
+
           {% assign parts = media.alt | split: '/' %}
           {% assign color = parts[0] | strip %}
           {% assign size = parts[1] | strip %}
@@ -348,12 +351,15 @@
           {% assign fragrance = parts[3] | strip %}
           {% assign volume = parts[4] | strip %}
           <div class="main-image-item"
-             {% comment %} {% for i in (0..product.options.size | minus: 1) %}
+                    {% unless media.alt == product.title %}
+           {% for i in (0..last_index) %}
              {% assign option_name = product.options[i] | downcase | strip %}
              {% assign option_value = alt_parts[i] | strip %}
              data-{{ option_name | handle }}="{{ option_value }}"
-           {% endfor %} {% endcomment %}
-            
+           {% endfor %}
+         {% endunless %}
+
+{% comment %}             
             {% unless media.alt == product.title %} 
               data-media-alt ="{{  media.alt  }}" 
               data-color="{{ color | handle }}" 
@@ -361,7 +367,7 @@
               data-finish="{{ finish }}"
               data-fragrance={{ fragrance }} 
               data-volume={{ volume }}
-             {% endunless %} 
+             {% endunless %}  {% endcomment %}
              style="display: none;">
             {% if media.media_type == 'image' %}
               <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}" data-type="image">
