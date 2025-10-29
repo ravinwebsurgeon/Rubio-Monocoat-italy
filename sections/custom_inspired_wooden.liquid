@@ -11,14 +11,13 @@
 
     <div class="collage-grid">
       {% for image in inspired_wooden_images %}
-        {% assign product = product_handles[forloop.index0] %}
-
+        {% assign handle = product_handles[forloop.index0] %}
+        {% assign product = all_products[handle] %}
         {% if product %}
           <div class="collage-item {% if forloop.first %}large{% else %}small{% endif %}" 
                style="background-image: url('{{ image | img_url: 'master' }}')">
-            
             <a href="javascript:void(0);" 
-               class="product-overlay-btn {{ product.title | handleize }}" 
+               class="product-overlay-btn {{ handle.title | handleize }}" 
                data-product-handle="{{ product.handle }}">
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="20" cy="20" r="20" fill="black" fill-opacity="0.5"/>
@@ -28,10 +27,7 @@
 
             <div class="hotspot-popup">
               <span class="close-hotspot">&times;</span>
-              <div class="hotspot-content">
-                <p>{{ product.title }}</p>
-                <p>Handle: {{ product.handle }}</p>
-              </div>
+              <div class="hotspot-content"></div>
             </div>
           </div>
         {% endif %}
@@ -39,7 +35,6 @@
     </div>
   </div>
 </section>
-
 
 <style>
 .inspired-collage{
