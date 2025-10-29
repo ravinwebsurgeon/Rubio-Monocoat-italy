@@ -1,6 +1,6 @@
 {% assign source_page = pages[section.settings.source_page] %}
 
-<section class="inspired-collage {{ source_page }}">
+<section class="inspired-collage">
   <div class="container">
     <div class="collage-header">
       <h2>{{ section.settings.heading }}</h2>
@@ -9,7 +9,7 @@
     <div class="collage-grid">
       {% assign inspired_wooden_images = source_page.metafields.custom.inspired_wooden_images.value %}
       {% assign products = section.settings.product_List %}
-
+<p class="{{products}}">test</p>
       {% comment %}
         Loop over images from metafield and match with products.
         If there are more images than products, some products may repeat or be skipped.
