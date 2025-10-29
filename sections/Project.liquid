@@ -24,11 +24,11 @@
   <div class="pro-first">
 
     <!-- Interior -->
-    <div class="Interio">
+    <div class="Interio surface-toggle">
       {% if section.settings.img1 %}
         <img src="{{ section.settings.img1 | img_url: 'master' }}" alt="Interior" width="" height=""> 
       {% endif %}
-      <div class="inter-btn surface-toggle" data-target="interior-surfaces">Interior</div>
+      <div class="inter-btn " data-target="interior-surfaces">Interior</div>
 
       <!-- Hidden surface options -->
       <div class="surface-options" id="interior-surfaces">
@@ -2212,7 +2212,7 @@ li.product-item {
 padding: 0;
 width:100%;
 }
-.exterior{
+.exterior .Interio{
   cursor:pointer;
 }
 .surface-item {
