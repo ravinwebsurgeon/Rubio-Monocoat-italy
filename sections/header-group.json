@@ -215,6 +215,14 @@
             "tag_title": ""
           }
         },
+        "custom_images_9rae9t": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Ash wood",
+            "menu_image": "shopify://shop_images/width_166-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        },
         "custom_images_g3JF7t": {
           "type": "Custom_images",
           "settings": {
@@ -252,6 +260,7 @@
         "custom_images_dgJbkW",
         "custom_images_MzyewX",
         "custom_images_ALbzXQ",
+        "custom_images_9rae9t",
         "custom_images_g3JF7t",
         "custom_images_YqQTYn"
       ],
