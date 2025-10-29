@@ -9,7 +9,6 @@
     <div class="collage-grid">
       {% assign inspired_wooden_images = source_page.metafields.custom.inspired_wooden_images.value %}
       {% assign products = section.settings.product_List %}
-<p class="{{products[0].title}}">test</p>
       {% comment %}
         Loop over images from metafield and match with products.
         If there are more images than products, some products may repeat or be skipped.
@@ -35,6 +34,215 @@
     </div>
   </div>  
 </section>
+
+<style>
+.inspired-collage{
+  padding:100px 0 50px;
+}
+.inspired-collage .container{ 
+  max-width: 1760px; 
+  margin: 0 auto; 
+  padding: 0 30px;
+  font-family: Frutiger Neue LT W1G;
+}
+.collage-header h2 { 
+    font-family: Frutiger Neue LT W1G;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: normal;
+    margin: 0 0 10px;
+}
+.collage-header p { 
+  font-size: 24px; 
+  color: rgba(0,0,0,0.7); 
+  line-height: normal;
+}
+.collage-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+  margin:50px 0 0;
+}
+.collage-item { 
+  position: relative; 
+  border-radius: 12px; 
+  cursor: pointer; 
+  background-size: cover; 
+  background-position: center; 
+  min-height: 400px;
+}
+.collage-item.large {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+.collage-item.small {
+}
+.product-overlay-btn { 
+   position: absolute; 
+   top: 10px; 
+   left: 10px; 
+   z-index: 1; 
+   cursor:pointer;
+}
+
+.hotspot-popup {
+  display: none;
+  position: absolute;
+  top: 50px; 
+  left: 0;
+  width: 240px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px 20px;
+  z-index: 2;
+  box-sizing: border-box;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
+.hotspot-popup .close-hotspot {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #183029;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 2;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  display: flex  ;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  line-height: 24px;
+  font-family: arial;
+  padding: 0;
+  border: none;
+}
+.hotspot-popup form {
+    text-align: center;
+}
+.hotspot-popup img {
+  width: 160px;
+  height: 160px;
+  border-radius:10px;
+  margin:0 auto;
+  max-width:100%;
+  display:block;
+  object-fit:contain;
+}
+.hotspot-popup h3 {
+  margin: 15px 0 5px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Frutiger Neue LT W1G;
+  color:#000;
+  line-height: normal;
+}
+.hotspot-popup p {
+  font-size: 12px;
+  margin-bottom: 0;
+  font-family: Frutiger Neue LT W1G;
+  color:rgba(0,0,0,0.7);
+  line-height: normal;
+}
+.hotspot-popup button {
+  color: white;
+  border: none;
+  padding: 10.5px 32px;
+  border-radius: 33px;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: Frutiger Neue LT W1G;
+  width: auto;
+  font-weight: bold;
+  background-color: #F79E1B;
+  display: inline-flex;
+  margin: 20px auto 0;
+}
+.collage-item.large .product-overlay-btn {
+    left: 50%;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%);    
+}
+.product-overlay-btn svg {
+    display: block;
+}
+.collage-item:nth-child(2) .product-overlay-btn {
+    top: 68px;
+    left: 53%;
+}
+.collage-item:nth-child(3) .product-overlay-btn {
+    top: 77px;
+    left: 60%;
+}
+.collage-item:nth-child(4) .product-overlay-btn {
+    top: 68px;
+    left: auto;
+    right:30%;
+}
+.collage-item:nth-child(5) .product-overlay-btn {
+    top: 97px;
+    left: auto;
+    right:22.5%;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const buttons = document.querySelectorAll(".product-overlay-btn");
+
+  buttons.forEach(btn => {
+    const popup = btn.closest(".collage-item").querySelector(".hotspot-popup");
+    const content = popup.querySelector(".hotspot-content");
+    const closeBtn = popup.querySelector(".close-hotspot");
+
+    btn.addEventListener("click", function(e){
+      const handle = this.dataset.productHandle;
+
+      // Hide all other popups
+      document.querySelectorAll(".hotspot-popup").forEach(p => { if(p !== popup) p.style.display = 'none'; });
+
+      // Position popup relative to SVG
+      const rect = btn.getBoundingClientRect();
+      const parentRect = btn.closest(".collage-item").getBoundingClientRect();
+      popup.style.top = (btn.offsetTop + btn.offsetHeight + 5) + 'px';
+      {% comment %} popup.style.left = (btn.offsetLeft) + '%'; {% endcomment %}
+
+      // Fetch product data
+      fetch(`/products/${handle}.js`)
+        .then(res => res.json())
+        .then(product => {
+          content.innerHTML = `
+            <img src="${product.images[0]}" alt="${product.title}">
+            <h3>${product.title}</h3>
+            <p>${product.body_html}</p>
+            <form action="/cart/add" method="post">
+              {% comment %} <select name="id">
+                ${product.variants.map(v => `<option value="${v.id}">${v.title} - $${(v.price/100).toFixed(2)}</option>`).join('')}
+              </select> {% endcomment %}
+              <button type="submit">Add to Cart</button>
+            </form>
+          `;
+          popup.style.display = "block";
+        });
+    });
+
+    closeBtn.addEventListener("click", () => popup.style.display = "none");
+  });
+
+  // Close popup when clicking outside
+  document.addEventListener("click", e => {
+    if(!e.target.closest(".collage-item")) {
+      document.querySelectorAll(".hotspot-popup").forEach(p => p.style.display = 'none');
+    }
+  });
+});
+</script>
 
 {% schema %}
 {
