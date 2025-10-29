@@ -359,6 +359,22 @@
             "tag_title": ""
           }
         },
+        "custom_images_qCcYh7": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Natural colours",
+            "menu_image": "shopify://shop_images/width_200-ezgif.com-webp-to-png-converter_1.png",
+            "tag_title": ""
+          }
+        },
+        "custom_images_nbAVU9": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Grey colours",
+            "menu_image": "shopify://shop_images/width_20023-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        },
         "custom_images_g3JF7t": {
           "type": "Custom_images",
           "settings": {
@@ -414,6 +430,8 @@
         "custom_images_GLJyLg",
         "custom_images_D8FMTA",
         "custom_images_MTUeQP",
+        "custom_images_qCcYh7",
+        "custom_images_nbAVU9",
         "custom_images_g3JF7t",
         "custom_images_YqQTYn"
       ],
