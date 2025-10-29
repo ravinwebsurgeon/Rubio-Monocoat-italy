@@ -46,18 +46,24 @@
     <!-- Exterior -->
     <div class="exterior surface-toggle" data-target="exterior-surfaces">
       {% if section.settings.img2 %}
-        <img src="{{ section.settings.img2 | img_url: 'master' }}" alt="Exterior" width="" height="">
+        <span class="surfaces-img-spn">
+          <img src="{{ section.settings.img2 | img_url: 'master' }}" alt="Exterior" width="" height="">
+        </span>
       {% endif %}
       <div class="exter-btn" >Exterior</div>
 
       <!-- Hidden surface options -->
       <div class="surface-options" id="exterior-surfaces">
         <div class="surface-item">
-          <img src="{{ section.settings.vertical_surface_img | img_url: 'master' }}" alt="Vertical surface">
+          <span class="surfaces-img-spn">
+            <img src="{{ section.settings.vertical_surface_img | img_url: 'master' }}" alt="Vertical surface">
+          </span>
           <p>Vertical surface</p>
         </div>
         <div class="surface-item">
+          <span class="surfaces-img-spn">
           <img src="{{ section.settings.horizontal_surface_img | img_url: 'master' }}" alt="Horizontal surface">
+          </span>
           <p>Horizontal surface</p>
         </div>
       </div>
