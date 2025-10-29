@@ -9,14 +9,6 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
-      "disabled": true,
-      "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
-      }
-    },
     "custom_banner_2_PWRfp3": {
       "type": "custom-banner-2",
       "name": "Banner image 2",
@@ -24,10 +16,77 @@
         "banner_img": "shopify://shop_images/685c0470-8248-44f9-9e61-4ce716a2387b.jpg",
         "banner_text": "FAQs"
       }
+    },
+    "17617247986ae9c766": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_ea8cf0d_tYcBpA": {
+          "type": "ai_gen_block_ea8cf0d",
+          "settings": {
+            "heading": "Shipping and Returns",
+            "subheading": "<p>Find answers to common questions about our products and services</p>",
+            "heading_alignment": "center",
+            "heading_spacing": 40,
+            "first_item_open": false,
+            "question_1": "What is your return policy?",
+            "answer_1": "<p>We offer a 30-day return policy on all products. Items must be unused and in their original packaging.</p>",
+            "question_2": "How long does shipping take?",
+            "answer_2": "<p>Standard shipping typically takes 5-7 business days. Express shipping options are available at checkout.</p>",
+            "question_3": "Do you ship internationally?",
+            "answer_3": "<p>Yes, we ship to most countries worldwide. Shipping costs and delivery times vary by location.</p>",
+            "question_4": "How can I track my order?",
+            "answer_4": "<p>Once your order ships, you'll receive a tracking number via email. You can use this to track your package.</p>",
+            "question_5": "What payment methods do you accept?",
+            "answer_5": "<p>We accept all major credit cards, PayPal, and other secure payment methods at checkout.</p>",
+            "question_6": "",
+            "answer_6": "",
+            "question_7": "",
+            "answer_7": "",
+            "question_8": "",
+            "answer_8": "",
+            "question_9": "",
+            "answer_9": "",
+            "question_10": "",
+            "answer_10": "",
+            "container_width": 1200,
+            "faq_max_width": 800,
+            "section_padding_top": 52,
+            "section_padding_bottom": 60,
+            "item_padding": 20,
+            "background_color": "#ffffff",
+            "heading_color": "#121212",
+            "subheading_color": "#121212",
+            "question_color": "#121212",
+            "question_hover_color": "#183029",
+            "answer_color": "#121212",
+            "icon_color": "#121212",
+            "divider_color": "#e8e8e8",
+            "heading_size": 36,
+            "subheading_size": 16,
+            "question_size": 18,
+            "answer_size": 16,
+            "divider_thickness": 1
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_ea8cf0d_tYcBpA"
+      ],
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
     }
   },
   "order": [
-    "main",
-    "custom_banner_2_PWRfp3"
+    "custom_banner_2_PWRfp3",
+    "17617247986ae9c766",
+    "main"
   ]
 }
