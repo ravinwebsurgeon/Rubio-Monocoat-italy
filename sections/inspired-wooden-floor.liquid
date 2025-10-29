@@ -30,7 +30,12 @@
 .inspired-collage .container{ max-width: 1760pxpx; margin: 0 auto; padding: 0 30px;}
 .collage-header h2 { font-size: 32px; margin-bottom: 10px; }
 .collage-header p { font-size: 16px; color: #666; }
-.collage-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.collage-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+}
 .collage-item { position: relative; overflow: hidden; border-radius: 12px; cursor: pointer; background-size: cover; background-position: center; }
 .collage-item.large { flex: 1 1 45%; height: 825px; }
 .collage-item.small { flex: 1 1 27%; height: 400px; }
