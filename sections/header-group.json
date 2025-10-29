@@ -327,6 +327,14 @@
             "tag_title": ""
           }
         },
+        "custom_images_pfXwXE": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Interior colours",
+            "menu_image": "shopify://shop_images/width_20026-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        },
         "custom_images_g3JF7t": {
           "type": "Custom_images",
           "settings": {
@@ -378,6 +386,7 @@
         "custom_images_n3c8HV",
         "custom_images_Agp6nU",
         "custom_images_qfQGRm",
+        "custom_images_pfXwXE",
         "custom_images_g3JF7t",
         "custom_images_YqQTYn"
       ],
