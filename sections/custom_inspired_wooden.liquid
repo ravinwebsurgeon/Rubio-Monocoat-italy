@@ -17,7 +17,7 @@
           <div class="collage-item {% if forloop.first %}large{% else %}small{% endif %}" 
                style="background-image: url('{{ image | img_url: 'master' }}')">
             <a href="javascript:void(0);" 
-               class="product-overlay-btn {{ handle.title | handleize }}" 
+               class="product-overlay-btn {{ product.title | handleize }}" 
                data-product-handle="{{ product.handle }}">
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="20" cy="20" r="20" fill="black" fill-opacity="0.5"/>
