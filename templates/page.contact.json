@@ -25,6 +25,17 @@
         "banner_text": "Contact"
       }
     },
+    "custom_contact_form_bd6yRY": {
+      "type": "custom-contact-form",
+      "name": "Custom contact form",
+      "settings": {
+        "floating_image": "shopify://shop_images/UMO_pure.jpg",
+        "heading": "Contact Us",
+        "subheading": "We're here to help",
+        "paragraph": "Reach out with any questions.",
+        "additional_info": "<p>Call or visit us anytime.</p>"
+      }
+    },
     "icons_section_xiGkPB": {
       "type": "icons-section",
       "blocks": {
@@ -89,6 +100,7 @@
   "order": [
     "main",
     "custom_banner_2_Y39BHh",
+    "custom_contact_form_bd6yRY",
     "icons_section_xiGkPB"
   ]
 }
