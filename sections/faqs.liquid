@@ -131,11 +131,24 @@
 
 <script>
 $(document).ready(function () {
+  // Set all answers to height 0 except the active one
+  $(".faq2-item").each(function() {
+    const $item = $(this);
+    const $answer = $item.find(".faq2-answer");
+
+    if ($item.hasClass("active")) {
+      const fullHeight = $answer.prop("scrollHeight");
+      $answer.css("height", fullHeight);
+    } else {
+      $answer.css("height", 0);
+    }
+  });
+
   $(".faq2-question").on("click", function () {
     const $item = $(this).closest(".faq2-item");
     const $answer = $item.find(".faq2-answer");
 
-    // Close other items
+    // Close all others
     $item.siblings(".faq2-item").removeClass("active")
          .find(".faq2-answer")
          .each(function(){
@@ -143,11 +156,11 @@ $(document).ready(function () {
          });
 
     if ($item.hasClass("active")) {
-      // Close current
+      // Close current item
       $item.removeClass("active");
       $answer.stop().animate({ height: 0 }, 300);
     } else {
-      // Open current
+      // Open clicked item
       $item.addClass("active");
       const fullHeight = $answer.prop("scrollHeight");
       $answer.stop().animate({ height: fullHeight }, 300);
@@ -155,6 +168,7 @@ $(document).ready(function () {
   });
 });
 </script>
+
 
 {% schema %}
 {
