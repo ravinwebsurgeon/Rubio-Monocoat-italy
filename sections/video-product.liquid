@@ -125,7 +125,7 @@ $(document).on("click", ".slide-next-btn.gg-3, .slide-next-btn.gg-2", function (
     }, 200); // change the time as needed
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+{% comment %} document.addEventListener("DOMContentLoaded", function () {
   const track = document.querySelector(".product-track");
   const wrapper = document.querySelector(".product-slider");
 
@@ -154,9 +154,46 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   animate();
+}); {% endcomment %}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const track = document.querySelector(".product-track");
+  const wrapper = document.querySelector(".product-slider");
+
+  // Clone slides for infinite loop
+  const slides = Array.from(track.children);
+  slides.forEach(slide => track.appendChild(slide.cloneNode(true)));
+
+  let currentIndex = 0;
+  let isPaused = false;
+  const slideWidth = slides[0].offsetWidth; // each slide width
+  const totalSlides = slides.length;
+  const delay = 500; // 0.5 seconds
+
+  wrapper.addEventListener("mouseenter", () => isPaused = true);
+  wrapper.addEventListener("mouseleave", () => isPaused = false);
+
+  function moveSlides() {
+    if (!isPaused) {
+      currentIndex++;
+
+      // Reset when end reached (infinite loop)
+      if (currentIndex >= totalSlides) {
+        currentIndex = 0;
+        track.style.transition = "none";
+        track.style.transform = `translateX(0)`;
+        void track.offsetWidth; // force reflow
+      }
+
+      track.style.transition = "transform 0.4s ease";
+      track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+  }
+
+  // Start interval movement
+  setInterval(moveSlides, delay);
 });
-
-
 
 
 
