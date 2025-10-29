@@ -11,8 +11,8 @@
       {% assign product_handles = section.settings.product_List %}
 
       {% for image in inspired_wooden_images %}
-        {% assign handle = product_handles[forloop.index0] %}
-        {% assign product = all_products[handle] %}
+        {% assign product = product_handles[forloop.index0] %}
+        {% comment %} {% assign product = all_products[handle] %} {% endcomment %}
 
         {% if product %}
           <div class="collage-item {% if forloop.first %}large{% else %}small{% endif %}" 
