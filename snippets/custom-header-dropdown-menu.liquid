@@ -3,8 +3,8 @@
 {%- for link in section.settings.menu.links -%}
   <li class="main_menu_item">
     {%- if link.links != blank -%}
-      <a href="{{- link.url -}}">{{- link.title -}} <svg width="8" height="6" viewBox="0 0 8 6" fill="#000" xmlns="http://www.w3.org/2000/svg">
-<path d="M6.75 1.5L3.75 4.5L0.75 1.5" stroke="var(--color-header-links, --color-accent)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"></path>
+      <a href="{{- link.url -}}">{{- link.title -}} <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.75 1.5L3.75 4.5L0.75 1.5" stroke="#000" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"></path>
 </svg></a>
       <div class="mega_menu_items_wrapper item_{{- link.title -}}">
         <div class="mega_menu_items_blocks">
