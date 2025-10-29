@@ -12,9 +12,23 @@
     "main": {
       "type": "exterior-main-page",
       "settings": {}
+    },
+    "custom_image_products_cLaP4D": {
+      "type": "custom_ImageProducts",
+      "name": "Custom Image Products",
+      "settings": {
+        "image_heading": "{{ page.metafields.custom.custom_image_heading.value }}",
+        "image_text": "{{ page.metafields.custom.custom_text.value }}",
+        "product_heading": "",
+        "product1": "",
+        "product2": "",
+        "product3": "",
+        "bottom_product": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "custom_image_products_cLaP4D"
   ]
 }
