@@ -167,6 +167,38 @@
             "tag_title": ""
           }
         },
+        "custom_images_z4zbht": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Furniture",
+            "menu_image": "shopify://shop_images/width_1001-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        },
+        "custom_images_fbcaVq": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Worktops",
+            "menu_image": "shopify://shop_images/width_1002-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        },
+        "custom_images_GbcCfk": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Stairs",
+            "menu_image": "shopify://shop_images/width_1003-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        },
+        "custom_images_dgJbkW": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Objects",
+            "menu_image": "shopify://shop_images/width_2006-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        },
         "custom_images_MzyewX": {
           "type": "Custom_images",
           "settings": {
@@ -214,6 +246,10 @@
         "custom_images_xj4RXz",
         "custom_images_nypj6B",
         "custom_images_YCteHV",
+        "custom_images_z4zbht",
+        "custom_images_fbcaVq",
+        "custom_images_GbcCfk",
+        "custom_images_dgJbkW",
         "custom_images_MzyewX",
         "custom_images_ALbzXQ",
         "custom_images_g3JF7t",
