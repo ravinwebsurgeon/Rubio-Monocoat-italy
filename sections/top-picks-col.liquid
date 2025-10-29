@@ -255,6 +255,7 @@
   .custom-cert-arrows button svg { width: 12px; height: 12px; }
 }
 .product-popup-content{display:none;}
+.product-popup-content.active-popup{display:block;}
 </style>
 
 <script>
@@ -293,7 +294,7 @@ document.addEventListener("DOMContentLoaded", function(){
       const image = this.dataset.image;
       const url = this.dataset.url;
       
-      popupmain.style.display = 'block';
+      popupmain.classList.add('active-popup');
       popupImage.src = image;
       popupImage.alt = title;
       popupTitle.textContent = title;
