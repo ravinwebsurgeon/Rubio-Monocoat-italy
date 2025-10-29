@@ -182,6 +182,7 @@
     right:22.5%;
 }
 </style>
+
 <script>
 document.addEventListener("DOMContentLoaded", function(){
   const buttons = document.querySelectorAll(".product-overlay-btn");
@@ -192,14 +193,16 @@ document.addEventListener("DOMContentLoaded", function(){
     const closeBtn = popup.querySelector(".close-hotspot");
 
     btn.addEventListener("click", function(e){
-      e.stopPropagation(); // prevent document click from immediately closing popup
       const handle = this.dataset.productHandle;
-      if(!handle) return;
-
-      console.log('Fetching product:', handle);
 
       // Hide all other popups
       document.querySelectorAll(".hotspot-popup").forEach(p => { if(p !== popup) p.style.display = 'none'; });
+
+      // Position popup relative to SVG
+      const rect = btn.getBoundingClientRect();
+      const parentRect = btn.closest(".collage-item").getBoundingClientRect();
+      popup.style.top = (btn.offsetTop + btn.offsetHeight + 5) + 'px';
+      {% comment %} popup.style.left = (btn.offsetLeft) + '%'; {% endcomment %}
 
       // Fetch product data
       fetch(`/products/${handle}.js`)
@@ -210,7 +213,9 @@ document.addEventListener("DOMContentLoaded", function(){
             <h3>${product.title}</h3>
             <p>${product.body_html}</p>
             <form action="/cart/add" method="post">
-              <!-- Add variant selector if needed -->
+              {% comment %} <select name="id">
+                ${product.variants.map(v => `<option value="${v.id}">${v.title} - $${(v.price/100).toFixed(2)}</option>`).join('')}
+              </select> {% endcomment %}
               <button type="submit">Add to Cart</button>
             </form>
           `;
@@ -218,10 +223,7 @@ document.addEventListener("DOMContentLoaded", function(){
         });
     });
 
-    closeBtn.addEventListener("click", e => {
-      e.stopPropagation();
-      popup.style.display = "none";
-    });
+    closeBtn.addEventListener("click", () => popup.style.display = "none");
   });
 
   // Close popup when clicking outside
@@ -232,7 +234,6 @@ document.addEventListener("DOMContentLoaded", function(){
   });
 });
 </script>
-
 
 {% schema %}
 {
