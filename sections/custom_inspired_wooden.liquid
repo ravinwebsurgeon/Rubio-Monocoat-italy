@@ -11,7 +11,6 @@
       {% assign product_handles = section.settings.Products %}
 
       {% for image in inspired_wooden_images %}
-        
         {% assign handle = product_handles[forloop.index0] %}
         {% assign product = all_products[handle] %}
         {% if product %}
