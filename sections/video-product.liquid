@@ -1,13 +1,20 @@
 {% unless product.tags contains 'video_with_products' %}
+  {% assign video = product.metafields.custom.products_video.value  %}
 <section class="video-products-section {{ section.settings.custom_class }}">
   <div class="container" data-aos="fade-up">
     <h2 class="video-heading" >{{ section.settings.heading }}</h2>
     <div class="video-wrapper">
       <div class="video-container">
-        <video autoplay muted loop playsinline class="video-bg">
+        {% comment %} <video autoplay muted loop playsinline class="video-bg">
           <source src="{{ section.settings.video_url }}" type="video/mp4">
           Your browser does not support the video tag.
-        </video>
+        </video> {% endcomment %}
+           {{ video | media_tag: 
+                    autoplay: section.settings.autoplay, 
+                    loop: section.settings.loop,
+                    controls: false,
+                    muted: true
+                    }}
   <div class="product-overlay">
   <div class="product-slider">
     <div class="product-track">
