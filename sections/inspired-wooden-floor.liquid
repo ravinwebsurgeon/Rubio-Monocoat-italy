@@ -47,9 +47,18 @@
   gap: 16px;
 }
 .collage-item { position: relative; overflow: hidden; border-radius: 12px; cursor: pointer; background-size: cover; background-position: center; }
-.collage-item.large { flex: 1 1 45%; height: 825px; }
-.collage-item.small { flex: 1 1 27%; height: 400px; }
-.product-overlay-btn { position: absolute; top: 10px; left: 10px; z-index: 1; }
+.collage-item.large {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+.collage-item.small {
+}
+.product-overlay-btn { 
+   position: absolute; 
+   top: 10px; 
+   left: 10px; 
+   z-index: 1; 
+}
 
 .hotspot-popup {
   display: none;
