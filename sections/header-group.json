@@ -335,6 +335,30 @@
             "tag_title": ""
           }
         },
+        "custom_images_GLJyLg": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Exterior colours",
+            "menu_image": "shopify://shop_images/width_20011-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        },
+        "custom_images_D8FMTA": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Black colours",
+            "menu_image": "shopify://shop_images/width_20020-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        },
+        "custom_images_MTUeQP": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Dark colours",
+            "menu_image": "shopify://shop_images/width_20021-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        },
         "custom_images_g3JF7t": {
           "type": "Custom_images",
           "settings": {
@@ -387,6 +411,9 @@
         "custom_images_Agp6nU",
         "custom_images_qfQGRm",
         "custom_images_pfXwXE",
+        "custom_images_GLJyLg",
+        "custom_images_D8FMTA",
+        "custom_images_MTUeQP",
         "custom_images_g3JF7t",
         "custom_images_YqQTYn"
       ],
