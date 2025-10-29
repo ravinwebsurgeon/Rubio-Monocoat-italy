@@ -17,6 +17,14 @@
         "padding_bottom": 36
       }
     },
+    "custom_banner_2_Y39BHh": {
+      "type": "custom-banner-2",
+      "name": "Banner image 2",
+      "settings": {
+        "banner_img": "shopify://shop_images/customer-service-business-contact-concept-wooden-cube-block-which-print-screen-letter-telephone-email-address-message.jpg",
+        "banner-text": "Contact"
+      }
+    },
     "form": {
       "type": "contact-form",
       "settings": {
@@ -90,6 +98,7 @@
   },
   "order": [
     "main",
+    "custom_banner_2_Y39BHh",
     "form",
     "icons_section_xiGkPB"
   ]

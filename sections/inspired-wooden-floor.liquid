@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function(){
       // Position popup relative to SVG
       const rect = btn.getBoundingClientRect();
       const parentRect = btn.closest(".collage-item").getBoundingClientRect();
-      popup.style.top = (btn.offsetTop + btn.offsetHeight + 5) + '%';
+      popup.style.top = (btn.offsetTop + btn.offsetHeight + 5) + 'px';
       {% comment %} popup.style.left = (btn.offsetLeft) + '%'; {% endcomment %}
 
       // Fetch product data
