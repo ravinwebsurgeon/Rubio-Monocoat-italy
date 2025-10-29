@@ -31,14 +31,6 @@
               <div class="hotspot-content"></div>
             </div>
           </div>
-        {% else %}
-          {% comment %}
-            Optional: fallback if product handle is missing
-          {% endcomment %}
-          <div class="collage-item small" 
-               style="background-image: url('{{ image | img_url: 'master' }}')">
-            <span class="no-product">Product not found</span>
-          </div>
         {% endif %}
       {% endfor %}
     </div>
