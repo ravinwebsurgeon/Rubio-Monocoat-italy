@@ -1,9 +1,8 @@
-{% comment %} <div class="single-layer-section-main">
+<div class="single-layer-section-main">
     <div class="single-layer">
         <div class="product_listed">
             {% comment %} <h2>{{ section.settings.main_heading }}</h2> {% endcomment %}
             <div class="product_detail product-block">
-                {% assign product = section.settings.add_product %}
                 {% if product %}
                     <div class="media_section">
                         <img src="{{ product.featured_image | image_url: width: 300  }}" />
@@ -15,11 +14,6 @@
                         </div>
                         <div class="custom_text"><p>Perfect all for your inside Surfaces</p></div>
                         <div class="pro_variants">
-                            {% comment %} <select class="variant-selector" name="variant-selector">
-                                {% for variant in product.variants %}
-                                    <option value="{{ variant.id }}">{{ variant.title }}</option>
-                                {% endfor %}
-                            </select> {% endcomment %}
                               {% for option in product.options_with_values %}
                                 <div class="pro_variant_options">
                                 <select class="option-variant-selector" name="option-variant-selector" id="ProductSelect-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
@@ -44,4 +38,4 @@
         </div>
     </div>
    
-</div> {% endcomment %}
+</div> 
