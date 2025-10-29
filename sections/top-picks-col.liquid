@@ -258,6 +258,13 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function(){
+  const popup = document.getElementById("product-popup");
+  const popupImage = document.getElementById("popup-image");
+  const popupTitle = document.getElementById("popup-title");
+  const popupDescription = document.getElementById("popup-description");
+  const popupLink = document.getElementById("popup-link");
+  const popupClose = document.querySelector(".popup-close");
+
   if(typeof jQuery !== 'undefined' && typeof jQuery.fn.slick !== 'undefined'){
     $('.custom-cert-carousel').slick({
       slidesToShow: 5,
@@ -277,11 +284,40 @@ document.addEventListener("DOMContentLoaded", function(){
 
   document.querySelectorAll(".custom-cert-plus").forEach(btn => {
     btn.addEventListener("click", function(){
-      const card = this.closest(".custom-cert-card");
+      {% comment %} const card = this.closest(".custom-cert-card");
       card.classList.toggle("active");
-      this.textContent = card.classList.contains("active") ? "×" : "+";
+      this.textContent = card.classList.contains("active") ? "×" : "+"; {% endcomment %}
+
+      const title = this.dataset.title;
+      const image = this.dataset.image;
+      const description = this.dataset.description;
+      const url = this.dataset.url;
+
+      popupImage.src = image;
+      popupImage.alt = title;
+      popupTitle.textContent = title;
+      popupDescription.innerHTML = description;
+      popupLink.href = url;
+
+      popup.classList.add("active");
+      document.body.classList.add("popup-open");
+
     });
   });
+
+    popupClose.addEventListener("click", () => {
+    popup.classList.remove("active");
+    document.body.classList.remove("popup-open");
+  });
+
+  // Optional: close when clicking outside content
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) {
+      popup.classList.remove("active");
+      document.body.classList.remove("popup-open");
+    }
+  });
+
 });
 </script>
 
