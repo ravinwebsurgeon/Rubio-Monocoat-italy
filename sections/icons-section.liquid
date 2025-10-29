@@ -3,13 +3,13 @@
 
 {% unless product.tags contains 'icons_section' %}
 {% if show_desktop or show_mobile %}
-  <div class="four-containers_outer
+  <div class="four-containers_outer 
     {% if show_desktop %}
       {% if show_mobile == false %} desktop-only {% endif %}
     {% endif %}
     {% if show_mobile %}
       {% if show_desktop == false %} mobile-only {% endif %}
-    {% endif %}">
+    {% endif %}  {{ section.settings.custom_class }} ">
     
     <div class="four-containers">
       {% for block in section.blocks %}
@@ -119,6 +119,11 @@
 {
   "name": "icons section",
   "settings": [
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class"
+    },
      {
       "type": "checkbox",
       "id": "show_on_desktop",
