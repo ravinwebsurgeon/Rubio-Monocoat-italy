@@ -4,51 +4,57 @@
 {% endcomment %}
 {% if product.metafields.custom.technical_info_faq_question.value != blank and product.metafields.custom.technical_info_faq_answer.value != blank %}
 <div class="tech-info-wrapper-sec">
-<div class="tech-info-wrapper page-width" id="technical-info">
-  <div class="tech-info-inner">    
-    <!-- Left Side -->
-    <div class="tech-info-left">
-      {% if section.settings.heading != blank %}
-        <h2 class="tech-info-heading">{{ section.settings.heading }}</h2>
-      {% endif %}
-      {% if section.settings.image != blank %}
-        <div class="tech-info-image">
-          <img src="{{ section.settings.image | img_url: '800x' }}" alt="{{ section.settings.heading | escape }}" loading="lazy" width=""  height="">
-        </div>
-      {% endif %}
-    </div>
+  <div class="tech-info-wrapper page-width" id="technical-info">
+    <div class="tech-info-inner">
 
-    <!-- Right Side -->
-    <div class="tech-info-content">
-      <div class="tech-info-accordion">
-        {% assign t_questions = product.metafields.custom.technical_info_faq_question.value %}
-        {% assign t_answers = product.metafields.custom.technical_info_faq_answer.value %}
-
-        {% if t_questions and t_answers %}
-          {% for t_question in t_questions %}
-            {% assign t_answer = t_answers[forloop.index0] %}
-            <div class="tech-info-item {% if forloop.first %}active{% endif %}">
-              <button type="button" class="tech-info-question">
-                <span>{{ t_question }}</span>
-                <span class="tech-info-icon">
-                  <!-- Single Arrow SVG -->
-                  <svg class="faq-arrow" width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 7l5 6 5-6" stroke="black" stroke-width="2" fill="none" stroke-linecap="round"/>
-                  </svg>
-                </span>
-              </button>
-              <div class="tech-info-answer">
-                <p>{{ t_answer }}</p>
-              </div>
-            </div>
-          {% endfor %}
+      <!-- Left Side -->
+      <div class="tech-info-left">
+        {% if section.settings.heading != blank %}
+          <h2 class="tech-info-heading">{{ section.settings.heading }}</h2>
         {% endif %}
+        {% if section.settings.image != blank %}
+          <div class="tech-info-image">
+            <img src="{{ section.settings.image | img_url: '800x' }}" alt="{{ section.settings.heading | escape }}" loading="lazy">
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- Right Side -->
+      <div class="tech-info-content">
+        <div class="tech-info-accordion">
+          {% assign t_questions = product.metafields.custom.technical_info_faq_question.value %}
+          {% assign t_answers = product.metafields.custom.technical_info_faq_answer.value %}
+
+          {% if t_questions and t_answers %}
+            {% for t_question in t_questions %}
+              {% assign t_answer = t_answers[forloop.index0] %}
+              <div class="tech-info-item {% if forloop.first %}active{% endif %}">
+                <button type="button" class="tech-info-question">
+                  <span>{{ t_question }}</span>
+                  <span class="tech-info-icon">
+                    <svg class="faq-arrow" width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 7l5 6 5-6" stroke="black" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                </button>
+
+                <div class="tech-info-answer">
+                  {% if t_question contains 'Download' or t_question contains 'download' %}
+                    <a href="{{ t_answer }}" download class="tech-download-btn">Download File</a>
+                  {% else %}
+                    <p>{{ t_answer }}</p>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
       </div>
     </div>
   </div>
 </div>
-</div>
 {% endif %}
+
 {% comment %} <style>
 .tech-info-wrapper {
   padding: 75px 89px;
