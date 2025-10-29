@@ -1,0 +1,30 @@
+<div class="custom-banner-main-container">
+    <div class="custom-banner-image-wrap">
+        <img src="{{ section.settings.banner_img | img_url : "master" }}" width="100%" height="100%">
+    </div>
+    <div class="custom-banner-content">
+        <h1 class="cstm-banner-heading">{{ section.settings.banner_text }}</h1>
+    </div>
+</div>
+{% schema %}
+{
+"name": "custom banner 2",
+"settings": [
+    {
+    "type": "image_picker",
+    "id": "banner_img",
+    "label": "Banner-image"
+    },
+    {
+    "type": "text",
+    "id": "banner-text",
+    "label": "banner heading"
+    }
+],
+"presets": [
+    {
+    "name": "Banner image 2"
+    }
+]
+}
+{% endschema %}
