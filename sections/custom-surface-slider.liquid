@@ -34,6 +34,81 @@
     </div>
   </div>
 </section>
+<style>
+.surface-slider {
+  padding: 60px 0;
+  background-color: #fafafa;
+}
+
+.slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.slider-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+}
+
+.surface-slider-inner .slide-item {
+  padding: 0 10px;
+}
+
+.slide-card {
+  display: block;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.slide-card:hover {
+  transform: translateY(-4px);
+}
+
+.slide-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.slide-title {
+  padding: 10px;
+  text-align: center;
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
+/* Slick arrows styling */
+.slick-prev, .slick-next {
+  background: transparent;
+  border: none;
+  color: #111;
+  font-size: 0;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.slick-prev:hover, .slick-next:hover {
+  color: #000;
+}
+
+.custom-arrows {
+  display: flex;
+  gap: 10px;
+}
+
+
+</style>
+
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   if ($('.surface-slider-inner').length) {
