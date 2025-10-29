@@ -13,7 +13,6 @@
       {% for image in inspired_wooden_images %}
         {% assign handle = product_handles[forloop.index0] %}
         {% assign product = all_products[handle] %}
-<pre>{{ product }}</pre>
         {% if product %}
           <div class="collage-item {% if forloop.first %}large{% else %}small{% endif %}" 
                style="background-image: url('{{ image | img_url: 'master' }}')">
