@@ -2,6 +2,7 @@
   {% assign images = product.metafields.custom.certificates_images.value %}
   {% assign titles = product.metafields.custom.certificates_titles.value %}
   {% assign descriptions = product.metafields.custom.certificates_descriptions.value %}
+  {% if images != blank %}
 <section class="certificates-slider">
   <div class="certificates-header">
     <h2>
@@ -49,6 +50,7 @@
     {% endfor %}
   </div>
 </section>
+{% endif %}
 {% endunless %}
 
 <style>
