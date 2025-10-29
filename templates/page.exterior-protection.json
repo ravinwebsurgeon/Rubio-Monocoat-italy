@@ -42,7 +42,7 @@
       "settings": {
         "heading": "Get inspired by wooden floors",
         "subheading": "Create a bedroom worth staying awake for with these inspiring ideas.",
-        "product_List": []
+        "product_List": "{{ page.metafields.custom.inspired_wooden_product.value }}"
       }
     }
   },
