@@ -12,22 +12,51 @@
       {% endif %}
 
       <div class="custom-contact-text-overlay">
-        <h2 class="custom-contact-title">{{ section.settings.heading }}</h2>
+  <h2 class="custom-contact-title">{{ section.settings.heading }}</h2>
 
-        {% if section.settings.subheading != blank %}
-          <p class="custom-contact-subheading">{{ section.settings.subheading }}</p>
-        {% endif %}
+  {% if section.settings.subheading != blank %}
+    <p class="custom-contact-subheading">{{ section.settings.subheading }}</p>
+  {% endif %}
 
-        {% if section.settings.paragraph != blank %}
-          <p class="custom-contact-description">{{ section.settings.paragraph }}</p>
-        {% endif %}
+  {% if section.settings.paragraph != blank %}
+    <p class="custom-contact-description">{{ section.settings.paragraph }}</p>
+  {% endif %}
 
-        {% if section.settings.additional_info != blank %}
-          <div class="custom-contact-additional-info">
-            {{ section.settings.additional_info }}
-          </div>
-        {% endif %}
+  {% if section.settings.additional_info != blank %}
+    <div class="custom-contact-additional-info">
+      {{ section.settings.additional_info }}
+    </div>
+  {% endif %}
+
+  <!-- ✅ Three icon + text fields -->
+  <div class="custom-contact-info">
+    {% if section.settings.info1_text != blank %}
+      <div class="info-item">
+        <span class="info-icon">
+          {{ section.settings.info1_icon }}
+        </span>
+        <span class="info-text">{{ section.settings.info1_text }}</span>
       </div>
+    {% endif %}
+    {% if section.settings.info2_text != blank %}
+      <div class="info-item">
+        <span class="info-icon">
+          {{ section.settings.info2_icon }}
+        </span>
+        <span class="info-text">{{ section.settings.info2_text }}</span>
+      </div>
+    {% endif %}
+    {% if section.settings.info3_text != blank %}
+      <div class="info-item">
+        <span class="info-icon">
+          {{ section.settings.info3_icon }}
+        </span>
+        <span class="info-text">{{ section.settings.info3_text }}</span>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
     </div>
 
     <!-- Right: Contact Form -->
@@ -71,6 +100,9 @@
 </div>
 
 <style>
+    .custom-contact-wrapper.spaced-section {
+    padding: 50px 0;
+}
 .custom-contact-inner {
   display: flex;
   flex-direction: row; /* ✅ Ensures image is left, form is right */
