@@ -3,6 +3,7 @@
   Layout: Heading → Image on left → Accordion on right
 {% endcomment %}
 {% if product.metafields.custom.technical_info_faq_question.value != blank and product.metafields.custom.technical_info_faq_answer.value != blank %}
+<div class="tech-info-wrapper-sec">
 <div class="tech-info-wrapper page-width" id="technical-info">
   <div class="tech-info-inner">    
     <!-- Left Side -->
@@ -45,6 +46,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 {% endif %}
 {% comment %} <style>
