@@ -51,12 +51,12 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const surfaceItems = document.querySelectorAll('.surface-item');
-  const horizontalGrid = document.querySelector('.collection-exterior-horizontal-surface');
-  const verticalGrid = document.querySelector('.collection-exterior-vertical-surface');
+  const horizontalTab = document.querySelector('.collection-exterior-horizontal-surface').closest('.tab-productss');
+  const verticalTab = document.querySelector('.collection-exterior-vertical-surface').closest('.tab-productss');
 
-  // Hide both grids initially
-  horizontalGrid.style.display = 'none';
-  verticalGrid.style.display = 'none';
+  // Hide both tabs initially
+  horizontalTab.style.display = 'none';
+  verticalTab.style.display = 'none';
 
   surfaceItems.forEach(item => {
     item.addEventListener('click', function() {
@@ -66,23 +66,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Swap logic
       if(this.classList.contains('vertical')) {
-        // vertical active → show horizontal grid
-        horizontalGrid.style.display = 'block';
-        verticalGrid.style.display = 'none';
+        // vertical active → show horizontal tab
+        horizontalTab.style.display = 'block';
+        verticalTab.style.display = 'none';
       } 
       else if(this.classList.contains('horizontal')) {
-        // horizontal active → show vertical grid
-        verticalGrid.style.display = 'block';
-        horizontalGrid.style.display = 'none';
+        // horizontal active → show vertical tab
+        verticalTab.style.display = 'block';
+        horizontalTab.style.display = 'none';
       }
     });
   });
 
-  // Optional: initialize vertical button as active
+  // Initialize vertical button as active
   const defaultBtn = document.querySelector('.surface-item.vertical');
   if(defaultBtn) defaultBtn.click();
 });
 </script>
+
+
 
 {% schema %}
 {
