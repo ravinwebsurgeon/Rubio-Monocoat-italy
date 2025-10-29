@@ -1,12 +1,12 @@
 {% unless product.tags contains 'video_with_products' %}
   {% assign video_url  = product.metafields.custom.products_video.value  %}
-  {% assign videoHeading  = product.metafields.custom.productvideo_heading.value  %}
-  {% assign btnText  = product.metafields.custom.video_sec_btn.value  %}
+  {% assign video_heading  = product.metafields.custom.productvideo_heading.value  %}
+  {% assign btn_text  = product.metafields.custom.video_sec_btn.value  %}
   {% assign url = product.metafields.custom.video_products_button_link.value %}
   
 <section class="video-products-section {{ section.settings.custom_class }}">
   <div class="container" data-aos="fade-up">
-    <h2 class="video-heading" >{{ videoHeading }}</h2>
+    <h2 class="video-heading" >{{ video_heading }}</h2>
     <div class="video-wrapper">
       <div class="video-container">
         {{ video_url | video_tag: controls: true, autoplay: true, loop: true }}
@@ -85,7 +85,7 @@
     </div>
 
     {% if url %}
-      <a href="{{ url }}" class="view-button">{{btnText }}</a>
+      <a href="{{ url }}" class="view-button">{{btn_text }}</a>
     {% endif %}
   </div>
 </section>
