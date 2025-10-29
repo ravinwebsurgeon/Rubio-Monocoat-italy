@@ -12,7 +12,7 @@
     </div>
     <div class="collage-grid">
       {% assign inspired_wooden_images = source_page.metafields.custom.inspired_wooden_images.value %}
-      {% assign product_handles = section.settings.Products %}
+      {% assign product_handles = section.settings.Products  | parse_json %}
 
       {% for image in inspired_wooden_images %}
         {% assign handle = product_handles[forloop.index0] %}
