@@ -85,7 +85,6 @@
   height: 18px;
 }
 
-/* Responsive */
 @media(max-width: 1024px){
   .blog-card { width: 100%; height: auto; }
   .blog-card-image { height: 300px; }
@@ -103,7 +102,7 @@
       <div class="blog-card">
         <div class="blog-card-image">
           {% if article.image %}
-            <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.title }}">
+            <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.title }}" width="" height="">
           {% endif %}
         </div>
         <div class="blog-card-content">
