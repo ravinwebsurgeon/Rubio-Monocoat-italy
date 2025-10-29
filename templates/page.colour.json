@@ -237,11 +237,18 @@
           "settings": {
             "tab_collection": "exterior-horizontal-surface"
           }
+        },
+        "exterior_collection_qnxEi9": {
+          "type": "Exterior-collection",
+          "settings": {
+            "tab_collection": "exterior-vertical-surface"
+          }
         }
       },
       "block_order": [
         "exterior_collection_LHfW8G",
-        "exterior_collection_9g4eG6"
+        "exterior_collection_9g4eG6",
+        "exterior_collection_qnxEi9"
       ],
       "name": "Exterior-collection",
       "settings": {
