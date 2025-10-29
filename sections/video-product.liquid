@@ -161,39 +161,42 @@ document.addEventListener("DOMContentLoaded", function () {
   const track = document.querySelector(".product-track");
   const wrapper = document.querySelector(".product-slider");
 
-  // Clone slides for infinite loop
+  // Clone slides for smooth infinite loop
   const slides = Array.from(track.children);
   slides.forEach(slide => track.appendChild(slide.cloneNode(true)));
 
   let currentIndex = 0;
   let isPaused = false;
-  const slideWidth = slides[0].offsetWidth; // each slide width
+  const slideWidth = slides[0].offsetWidth;
   const totalSlides = slides.length;
-  const delay = 6000; // 0.5 seconds
+  const delay = 6000; // 6 seconds per slide
 
-  wrapper.addEventListener("mouseenter", () => isPaused = true);
-  wrapper.addEventListener("mouseleave", () => isPaused = false);
+  wrapper.addEventListener("mouseenter", () => (isPaused = true));
+  wrapper.addEventListener("mouseleave", () => (isPaused = false));
 
   function moveSlides() {
-    if (!isPaused) {
-      currentIndex++;
+    if (isPaused) return;
 
-      // Reset when end reached (infinite loop)
-      if (currentIndex >= totalSlides) {
-        currentIndex = 0;
+    currentIndex++;
+
+    // Apply smooth transition
+    track.style.transition = "transform 0.8s ease-in-out";
+    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+    // When reaching end of original slides
+    if (currentIndex === totalSlides) {
+      // After animation ends, instantly reset to start (no visible jump)
+      setTimeout(() => {
         track.style.transition = "none";
-        track.style.transform = `translateX(0)`;
-        void track.offsetWidth; // force reflow
-      }
-
-      track.style.transition = "transform 0.4s ease";
-      {% comment %} track.style.transform = `translateX(-${currentIndex * slideWidth}px)`; {% endcomment %}
+        track.style.transform = "translateX(0)";
+        currentIndex = 0;
+      }, 800); // match transition duration
     }
   }
 
-  // Start interval movement
   setInterval(moveSlides, delay);
 });
+
 
 
 
