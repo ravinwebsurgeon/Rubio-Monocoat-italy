@@ -347,7 +347,22 @@
           {% assign finish = parts[2] | strip %}
           {% assign fragrance = parts[3] | strip %}
           {% assign volume = parts[4] | strip %}
-          <div class="main-image-item" {% unless media.alt == product.title %} data-media-alt ="{{  media.alt  }}" data-color="{{ color | handle }}" data-size="{{ size | handle }}" data-finish="{{ finish }}" data-fragrance={{ fragrance }} data-volume={{ volume }} {% endunless %} style="display: none;">
+          <div class="main-image-item"
+             {% for i in (0..product.options.size | minus: 1) %}
+             {% assign option_name = product.options[i] | downcase | strip %}
+             {% assign option_value = alt_parts[i] | strip %}
+             data-{{ option_name | handle }}="{{ option_value }}"
+           {% endfor %}
+{% comment %}             
+            {% unless media.alt == product.title %} 
+              data-media-alt ="{{  media.alt  }}" 
+              data-color="{{ color | handle }}" 
+              data-size="{{ size | handle }}" 
+              data-finish="{{ finish }}"
+              data-fragrance={{ fragrance }} 
+              data-volume={{ volume }}
+             {% endunless %}  {% endcomment %}
+             style="display: none;">
             {% if media.media_type == 'image' %}
               <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}" data-type="image">
                 <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
