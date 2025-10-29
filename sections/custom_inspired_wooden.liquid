@@ -10,6 +10,7 @@
       {% assign inspired_wooden_images = source_page.metafields.custom.inspired_wooden_images.value %}
       {% assign products = section.settings.product_List %}
 <p class="{{inspired_wooden_images}}">test</p>
+{% for image in inspired_wooden_images %} {{ image }}{% endfor %}
       {% comment %}
         Loop over images from metafield and match with products.
         If there are more images than products, some products may repeat or be skipped.
