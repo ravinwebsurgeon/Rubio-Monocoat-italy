@@ -188,7 +188,9 @@
         "heading2": "Choose your species:",
         "video_url": "https://cdn.shopify.com/videos/c/o/v/34803a8d2ef04246bbcf01f47ba29801.mp4",
         "vertical_surface_img": "shopify://shop_images/UMO_White.jpg",
-        "horizontal_surface_img": "shopify://shop_images/UMO_pure.jpg"
+        "vertical_surface_collection": "exterior-vertical-surface",
+        "horizontal_surface_img": "shopify://shop_images/UMO_pure.jpg",
+        "horizontal_surface_collection": "exterior-horizontal-surface"
       }
     },
     "featured_collection_QYGftz": {
@@ -295,6 +297,7 @@
       ],
       "name": "icons section",
       "settings": {
+        "custom_class": "",
         "show_on_desktop": true,
         "show_on_mobile": true
       }
