@@ -11,6 +11,7 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 36,
         "padding_bottom": 36
@@ -25,10 +26,71 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "icons_section_xiGkPB": {
+      "type": "icons-section",
+      "blocks": {
+        "container_GzxDG6": {
+          "type": "container",
+          "settings": {
+            "class": "first-container-sec",
+            "icon": "shopify://shop_images/phone_1.png",
+            "heading": "Telephone advice",
+            "subhead": "",
+            "subtext": "",
+            "extra_text": "Answer the questions"
+          }
+        },
+        "container_MHNQef": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/envelope.png",
+            "heading": "Send us an email",
+            "subhead": "",
+            "subtext": "rubio@monocoatusa.com",
+            "extra_text": ""
+          }
+        },
+        "container_x6dV3R": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/headset.png",
+            "heading": "Customized advice",
+            "subhead": "",
+            "subtext": "Answer the questions",
+            "extra_text": ""
+          }
+        },
+        "container_JVgfEa": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/chat.png",
+            "heading": "Ask via chat",
+            "subhead": "",
+            "subtext": "Answer the questions",
+            "extra_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "container_GzxDG6",
+        "container_MHNQef",
+        "container_x6dV3R",
+        "container_JVgfEa"
+      ],
+      "name": "icons section",
+      "settings": {
+        "show_on_desktop": true,
+        "show_on_mobile": true
+      }
     }
   },
   "order": [
     "main",
-    "form"
+    "form",
+    "icons_section_xiGkPB"
   ]
 }
