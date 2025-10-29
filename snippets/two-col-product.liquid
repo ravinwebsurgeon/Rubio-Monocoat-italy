@@ -31,8 +31,8 @@
 
     {% if product2 %}
       <div class="product-box product-block">
-        <h3 class="product-title">{{ section.settings.product2_heading }}</h3>
-        <p class="product-subtitle">{{ section.settings.product2_subheading }}</p>
+        <h3 class="product-title">{{ right_product_heading }}</h3>
+        <p class="product-subtitle">{{ right_product_text }}</p>
 
         <a href="{{ product2.url }}">
           <img src="{{ product2.featured_image | img_url: '400x400' }}" alt="{{ product2.title }}">
