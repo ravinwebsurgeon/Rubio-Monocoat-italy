@@ -35,11 +35,21 @@
         "product3": "{{ page.metafields.custom.image_product3.value }}",
         "bottom_product": "{{ page.metafields.custom.bottom_product.value }}"
       }
+    },
+    "custom_inspired_wooden_tBELPG": {
+      "type": "custom_inspired_wooden",
+      "name": "CustomInspired Wooden",
+      "settings": {
+        "heading": "Get inspired by wooden floors",
+        "subheading": "Create a bedroom worth staying awake for with these inspiring ideas.",
+        "product_List": []
+      }
     }
   },
   "order": [
     "main",
     "top_picks_col_edptFR",
-    "custom_image_products_cLaP4D"
+    "custom_image_products_cLaP4D",
+    "custom_inspired_wooden_tBELPG"
   ]
 }
