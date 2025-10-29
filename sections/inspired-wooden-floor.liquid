@@ -1,32 +1,33 @@
 <section class="inspired-collage">
-  <div class="collage-header">
-    <h2>{{ section.settings.heading }}</h2>
-    <p>{{ section.settings.subheading }}</p>
-  </div>
-
-  <div class="collage-grid">
-    {% for block in section.blocks %}
-      {% assign product = block.settings.product %}
-      {% if product %}
-        <div class="collage-item {% if forloop.first %}large{% else %}small{% endif %}" style="background-image: url('{{ block.settings.background_image | img_url: 'master' }}')">
-          <a href="javascript:void(0);" class="product-overlay-btn" data-product-handle="{{ product.handle }}">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="20" cy="20" r="20" fill="black" fill-opacity="0.5"/>
-              <circle cx="20" cy="20" r="9" fill="white"/>
-            </svg>
-          </a>
-          <div class="hotspot-popup">
-            <span class="close-hotspot">&times;</span>
-            <div class="hotspot-content"></div>
+  <div class="container">
+    <div class="collage-header">
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.subheading }}</p>
+    </div>
+    <div class="collage-grid">
+      {% for block in section.blocks %}
+        {% assign product = block.settings.product %}
+        {% if product %}
+          <div class="collage-item {% if forloop.first %}large{% else %}small{% endif %}" style="background-image: url('{{ block.settings.background_image | img_url: 'master' }}')">
+            <a href="javascript:void(0);" class="product-overlay-btn" data-product-handle="{{ product.handle }}">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" fill="black" fill-opacity="0.5"/>
+                <circle cx="20" cy="20" r="9" fill="white"/>
+              </svg>
+            </a>
+            <div class="hotspot-popup">
+              <span class="close-hotspot">&times;</span>
+              <div class="hotspot-content"></div>
+            </div>
           </div>
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>  
 </section>
 
 <style>
-.inspired-collage { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+.inspired-collage .container{ max-width: 1760pxpx; margin: 0 auto; padding: 0 30px;}
 .collage-header h2 { font-size: 32px; margin-bottom: 10px; }
 .collage-header p { font-size: 16px; color: #666; }
 .collage-grid { display: flex; flex-wrap: wrap; gap: 10px; }
