@@ -612,25 +612,26 @@ document.addEventListener('DOMContentLoaded', () => {
       .map(item => normalizeShopifySrc(item.querySelector('img')?.getAttribute('src')));
 
     document.querySelectorAll('.thumbnail-item').forEach(item => {
-  let show = true;
-  const datasetKeys = Object.keys(item.dataset);
+    let show = true;
+    const datasetKeys = Object.keys(item.dataset);
 
-  if (datasetKeys.length === 0) {
-    show = true; // Always show if no dataset
-  } else {
-    for (const [key, val] of Object.entries(selectedOptions)) {
-      if (!val) continue;
-      if (!item.dataset[key]) continue;
-      if (normalizeValue(item.dataset[key]) !== normalizeValue(val)) {
-        show = false;
-        break;
+    // ✅ If no dataset attributes → always show
+    if (datasetKeys.length === 0) {
+      show = true;
+    } else {
+      for (const [key, val] of Object.entries(selectedOptions)) {
+        if (!val) continue;
+        if (!item.dataset[key]) continue;
+
+        if (normalizeValue(item.dataset[key]) !== normalizeValue(val)) {
+          show = false;
+          break;
+        }
       }
     }
-  }
 
-  item.style.display = show ? 'block' : 'none';
-});
-
+    item.style.display = show ? 'block' : 'none';
+  });
 
     // ✅ Handle Mobile Gallery visibility
     document.querySelectorAll('.swiper-slide').forEach(slide => {
