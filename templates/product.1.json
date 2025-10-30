@@ -185,9 +185,13 @@
       "settings": {
         "custom_class": "product-with-videos",
         "heading": "Application in a few simple steps",
-        "video_url": "https://cdn.shopify.com/videos/c/o/v/e9187465675742ac8a58a7331877ea98.mp4",
+        "video_link": "",
         "button_link": "shopify://collections/all",
-        "button_label": "View All Products"
+        "button_label": "View All Products",
+        "cart_icon": "shopify://shop_images/Shopping_Bag.png",
+        "move_icon": "shopify://shop_images/Rewind_double_arrows_outline.png",
+        "cart_icon_link": "",
+        "move_icon_link": ""
       }
     },
     "how_to_use_faq_metafield_k4TgDV": {
