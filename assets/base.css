@@ -3608,11 +3608,3 @@ details-disclosure > details {
     flex-wrap: wrap !important;
   }
 }
-@media (min-width: 768px) {
-  .jump-links-section {
-    width: 100% !important;
-    max-width: 100% !important;
-    justify-content: space-around !important;
-    padding: 0 5% !important; /* optioneel wat binnenmarge */
-  }
-}
