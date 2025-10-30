@@ -3601,8 +3601,8 @@ details-disclosure > details {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-top: 32px;     /* meer ruimte boven */
-    margin-bottom: 5px;  /* minder ruimte onder */
+    margin-top: 32px !important;     /* meer ruimte boven */
+    margin-bottom: 5px !important;  /* minder ruimte onder */
   }
 
   .jump-links-items {
