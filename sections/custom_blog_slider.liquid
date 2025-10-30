@@ -155,24 +155,24 @@
           </div>
         </div>
       {% endfor %} {% endcomment %}
-       {% if related_articles and related_articles.size > 0 %}
+     {% if related_articles and related_articles.size > 0 %}
   <div class="related-articles-slider">
     {% for article in related_articles %}
       <div class="slider-card">
         <div class="slider-card-image">
-          {% if article.image %}
-            <a href="{{ article.url }}">
-              <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.title }}">
+          {% if article.image and article.image.src %}
+            <a href="/blogs/{{ article.blog_id }}/{{ article.handle }}">
+              <img src="{{ article.image.src | prepend: 'https:' }}" alt="{{ article.image.alt | default: article.title }}">
             </a>
           {% endif %}
         </div>
         <div class="slider-content">
           <h3>
-            <a href="{{ article.url }}">
+            <a href="/blogs/{{ article.blog_id }}/{{ article.handle }}">
               {{ article.title }}
             </a>
           </h3>
-          <a href="{{ article.url }}" class="blog-card-arrow">
+          <a href="/blogs/{{ article.blog_id }}/{{ article.handle }}" class="blog-card-arrow">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
