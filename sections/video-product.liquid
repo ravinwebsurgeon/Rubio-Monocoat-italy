@@ -1,5 +1,5 @@
 {% unless product.tags contains 'video_with_products' %}
-  {% assign video_url  = product.metafields.custom.products_video.value  %}
+  {% assign video  = product.metafields.custom.products_video.value  %}
   {% assign video_heading  = product.metafields.custom.productvideo_heading.value  %}
   {% assign btn_text  = product.metafields.custom.video_sec_btn.value  %}
   {% assign url = product.metafields.custom.video_products_button_link.value %}
@@ -9,7 +9,7 @@
     <h2 class="video-heading" >{{ video_heading }}</h2>
     <div class="video-wrapper">
       <div class="video-container">
-        {{ video_url | video_tag: controls: true, autoplay: true, loop: true }}
+        {{ video | video_tag: controls: true, autoplay: true, loop: true }}
   <div class="product-overlay">
   <div class="product-slider">
     <div class="product-track">
@@ -407,7 +407,7 @@ section.video-products-section.product-with-videos {
     },
     {
       "type": "url",
-      "id": "video_url",
+      "id": "video_link",
       "label": "Video MP4 URL"
     },
     {
