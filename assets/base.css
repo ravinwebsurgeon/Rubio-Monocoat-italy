@@ -3619,7 +3619,7 @@ details-disclosure > details {
     text-align: center !important;
     margin-top: 40px !important;
     margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
+    padding-bottom: 20px !important;
     gap: 12px !important;
     flex-wrap: wrap !important;
   }
