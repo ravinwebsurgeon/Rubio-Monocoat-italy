@@ -96,7 +96,13 @@
           <h3>{{ product.title }}</h3>
           <div class="custom-cert-btn-wrapper">
             <div class="custom-cert-btn">
-              <button class="custom-cert-plus" data-variant="{{ product.variants.first.id }}" data-url="{{ product.url }}" data-image="{{ product.featured_image | img_url: 'medium' }}"" data-title = "{{ product.title }}" type="button">+</button>
+              <button class="custom-cert-plus" 
+                data-variant="{{ product.variants.first.id }}" 
+                data-url="{{ product.url }}" 
+                data-image="{{ product.featured_image | img_url: 'medium' }}" 
+                data-title = "{{ product.title }}" 
+                data-addons = {{ addon_products | json }}
+                type="button">+</button>
             </div>
           </div>
         </div>
