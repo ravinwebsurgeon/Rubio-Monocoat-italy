@@ -34,13 +34,14 @@
         <span class="jump-link-text">Inspiration</span>
       </a>
     {% endif %}
-
-    <a href="#faqs" class="jump-link-item">
-      <div class="jump-to-icon">
-      <img src="{{ 'icon-faq.svg' | asset_url }}" alt="FAQ’s" class="jump-link-icon">
-      </div>
-      <span class="jump-link-text">FAQ’s</span>
-    </a>
+    {% if faq_section != blank %}
+      <a href="#faqs" class="jump-link-item">
+        <div class="jump-to-icon">
+        <img src="{{ 'icon-faq.svg' | asset_url }}" alt="FAQ’s" class="jump-link-icon">
+        </div>
+        <span class="jump-link-text">FAQ’s</span>
+      </a>
+    {% endif %}
 
     <a href="#reviews" class="jump-link-item">
       <div class="jump-to-icon">
