@@ -48,8 +48,7 @@
                 </div>
             </div>
         </div>
-
-           <div class="selected_product_section">
+        <div class="selected_product_section">
             <div class="product_head"><p>{{ section.settings.main_heading }}</p></div>
             <div class="product-data">
                 {% if page.metafields.custom.filling_gap_product %}
@@ -80,10 +79,8 @@
             </div>
         </div>
     </div>
-</div>
-<div class="filling_gap_next">
-   
-     <div class="custom_video_content">
+    <div class="filling_gap_next">
+    <div class="custom_video_content">
         <div class="ori_video">
             <div class="text_content">
                 <svg width="20" height="20" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -96,7 +93,6 @@
                 </svg>
                 <p class="video_text_first uppercase_text">not sure how to prepare your wooden floor?</p>
                 <p class="video_text_second captalize_text">listen to our expert</p>
-                
             </div>
             <div class="video_section">
                  {% if video %}
@@ -124,13 +120,12 @@
             <div class="video_watch_link"><a href="{{ video.url }}" class="watch_link"><p>Watch Video</p></a></div>
         </div>
     </div> 
-
     <div class="block-products">
-            <p class="p-head">Preparatory Cleaners</p>
-            <div class="product-data">
-                {% for product in product_list %}
-                    {% if product %}
-                        <div class="product-block">
+        <p class="p-head">Preparatory Cleaners</p>
+        <div class="product-data">
+            {% for product in product_list %}
+                {% if product %}
+                    <div class="product-block">
                         <a href="{{ product.url }}">
                             <img src="{{ product.featured_image | image_url: width: 300 }}" alt="{{ product.title }}">
                         </a>
@@ -139,23 +134,24 @@
                             <p>{{ product.price | money }}</p>
                         </div>
                         <div class="pro_variant">
-                         <select class="variant-selector" name="variant-selector">
-                            {% for variant in product.variants %}
-                                <option value="{{ variant.id }}">{{ variant.title }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div class="pro_buttons">
-                        <a href="{{ product.url }}"><button class="more_info">More Info</button></a>
-                        <button class="add_to_cart_ajax">Add To cart</button>
-                    </div>
-
+                            <select class="variant-selector" name="variant-selector">
+                                {% for variant in product.variants %}
+                                    <option value="{{ variant.id }}">{{ variant.title }}</option>
+                                {% endfor %}
+                            </select>
                         </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
+                        <div class="pro_buttons">
+                            <a href="{{ product.url }}"><button class="more_info">More Info</button></a>
+                            <button class="add_to_cart_ajax">Add To cart</button>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
     </div>
 </div>
+</div>
+
 {% render 'single_layer_protection', 
     product:singleLayerProduct,
     heading: heading,
