@@ -3633,4 +3633,8 @@ details-disclosure > details {
     margin-top: 32px !important;
   }
 }
+/* ✅ Variant tekstkleur aanpassen wanneer geselecteerd */
+input[type="radio"].swatch-input__input:checked + label .variant-label-text {
+  color: #183029 !important;
+}
   
