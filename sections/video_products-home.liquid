@@ -143,32 +143,7 @@ $(document).on("click", ".slide-next-btn.gg-3, .slide-next-btn.gg-2", function (
     }, 200); // change the time as needed
 });
 
-
 {% comment %} document.addEventListener("DOMContentLoaded", function () {
-  const track = document.querySelector(".product-track");
-  
-  // Define how much to move each time
-  const moves = [470, 150];  
-  let currentIndex = 0;
-  let currentOffset = 0;
-
-  function moveSlide() {
-    if (currentIndex < moves.length) {
-      currentOffset -= moves[currentIndex]; 
-      track.style.transform = `translateX(${currentOffset}px)`;
-      currentIndex++;
-    } else {
-      // Reset back to start
-      currentIndex = 0;
-      currentOffset = 0;
-      track.style.transform = `translateX(0px)`;
-    }
-  }
-
-  // Auto slide every 30s
-  setInterval(moveSlide, 6000);
-}); {% endcomment %}
-document.addEventListener("DOMContentLoaded", function () {
   const track = document.querySelector(".product-track");
   const wrapper = document.querySelector(".product-slider");
 
@@ -197,6 +172,43 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   animate();
+}); {% endcomment %}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const track = document.querySelector(".product-track");
+  const wrapper = document.querySelector(".product-slider");
+
+  const slides = Array.from(track.children);
+  let currentIndex = 0;
+  let isPaused = false;
+  const slideWidth = slides[0].offsetWidth;
+  const totalSlides = slides.length;
+  const delay = {{ section.settings.delay_time | default: 6 }} * 1000;
+
+  wrapper.addEventListener("mouseenter", () => (isPaused = true));
+  wrapper.addEventListener("mouseleave", () => (isPaused = false));
+
+  function moveSlides() {
+    if (isPaused) return;
+
+    currentIndex++;
+
+    // Smooth slide move
+    track.style.transition = "transform 0.8s ease-in-out";
+    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+    // When last slide ends, go back smoothly
+    if (currentIndex >= totalSlides) {
+      setTimeout(() => {
+        track.style.transition = "none";
+        track.style.transform = "translateX(0)";
+        currentIndex = 0;
+      }, 800);
+    }
+  }
+
+  setInterval(moveSlides, delay);
 });
 
 
