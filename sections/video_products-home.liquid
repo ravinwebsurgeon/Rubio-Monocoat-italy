@@ -360,16 +360,20 @@ document.addEventListener("DOMContentLoaded", function () {
 {% schema %}
 {
   "name": "Video Home Products",
-  "settings": [
+   "settings": [
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class"
+    },
     {
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Application in a few simple steps"
     },
     {
       "type": "url",
-      "id": "video_url",
+      "id": "video_link",
       "label": "Video MP4 URL"
     },
     {
@@ -383,65 +387,34 @@ document.addEventListener("DOMContentLoaded", function () {
       "label": "Button Label",
       "default": "View All Products"
     },
+     {
+        "type": "image_picker",
+        "id": "cart_icon",
+        "label": "First Icon"
+     },
     {
-      "type": "color",
-      "id": "section_background_color",
-      "label": "Section Background Color",
-      "default": "#f5f5f5"
+      "type": "image_picker",
+      "id": "move_icon",
+      "label": "Second Icon"
     },
     {
-      "type": "color",
-      "id": "heading_color",
-      "label": "Heading Color",
-      "default": "#000000"
+      "type": "url",
+      "id": "cart_icon_link",
+      "label": "First Icon Link"
     },
     {
-      "type": "range",
-      "id": "heading_font_size",
-      "label": "Heading Font Size (px)",
-      "min": 16,
-      "max": 72,
-      "step": 1,
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "video_border_radius",
-      "label": "Video Border Radius (px)",
-      "min": 0,
-      "max": 50,
-      "step": 1,
-      "default": 12
-    },
-    {
-      "type": "color",
-      "id": "view_button_bg_color",
-      "label": "View Button Background Color",
-      "default": "#000000"
-    },
-    {
-      "type": "color",
-      "id": "view_button_text_color",
-      "label": "View Button Text Color",
-      "default": "#183029"
+      "type": "url",
+      "id": "move_icon_link",
+      "label": "Second Icon Link"
     },
     {
       "type": "range",
-      "id": "view_button_font_size",
-      "label": "View Button Font Size (px)",
-      "min": 10,
-      "max": 28,
+      "id": "delay_time",
+      "label": "Slide Delay (seconds)",
+      "min": 2,
+      "max": 15,
       "step": 1,
-      "default": 20
-    },
-    {
-      "type": "range",
-      "id": "view_button_border_radius",
-      "label": "View Button Border Radius (px)",
-      "min": 0,
-      "max": 50,
-      "step": 1,
-      "default": 50
+      "default": 6
     }
   ],
   "blocks": [
