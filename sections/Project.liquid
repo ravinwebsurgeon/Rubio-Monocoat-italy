@@ -1168,7 +1168,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 </script> {% endcomment %}
-
+{% comment %} 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const exteriorToggle = document.querySelector(".exterior.surface-toggle");
@@ -1198,6 +1198,49 @@ document.addEventListener("DOMContentLoaded", function() {
     surfaceItems.forEach(item => {
       item.addEventListener("click", function(e) {
         e.stopPropagation(); // Keep dropdown open
+        surfaceItems.forEach(i => i.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", function(e) {
+      if (!exteriorToggle.contains(e.target) && !surfaceOptions.contains(e.target)) {
+        surfaceOptions.style.display = "none";
+        exteriorToggle.classList.remove("active");
+      }
+    });
+  }
+});
+</script> {% endcomment %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const exteriorToggle = document.querySelector(".exterior.surface-toggle");
+  const surfaceOptions = document.getElementById("exterior-surfaces");
+
+  if (exteriorToggle && surfaceOptions) {
+    
+    // Toggle dropdown open/close
+    exteriorToggle.addEventListener("click", function(e) {
+      e.stopPropagation();
+
+      const isActive = this.classList.contains("active");
+
+      // Toggle the current dropdown only
+      if (isActive) {
+        this.classList.remove("active");
+        surfaceOptions.style.display = "none";
+      } else {
+        this.classList.add("active");
+        surfaceOptions.style.display = "flex";
+      }
+    });
+
+    // Handle surface item selection
+    const surfaceItems = surfaceOptions.querySelectorAll(".surface-item");
+    surfaceItems.forEach(item => {
+      item.addEventListener("click", function(e) {
+        e.stopPropagation(); // prevent closing
         surfaceItems.forEach(i => i.classList.remove("active"));
         this.classList.add("active");
       });
