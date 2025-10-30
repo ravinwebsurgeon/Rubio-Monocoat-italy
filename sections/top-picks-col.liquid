@@ -395,8 +395,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
       // Set inner HTML with image and title
       addonDiv.innerHTML = `
-        <img src="${addon.featured_image?.src || ''}" alt="${addon.title}">
-        <h4>${addon.title}</h4>
+        <img src="${addon.featured_image?.src || ''}" />
+        <p>${addon.title}</p>
       `;
 
       // Append to container
