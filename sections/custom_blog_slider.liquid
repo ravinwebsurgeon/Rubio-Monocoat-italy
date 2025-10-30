@@ -123,8 +123,8 @@
 {% assign source_page = pages[section.settings.source_page] %}
 {% assign related_articles = source_page.metafields.custom.blog_posts.value %}
 <pre>
-{{ product.metafields.custom.blog_posts | json }}
-{{ product.metafields.custom.blog_posts.value | json }}
+{{ source_page.metafields.custom.blog_posts | json }}
+{{ source_page.metafields.custom.blog_posts.value | json }}
 </pre>
 <section class="custom_blog_slider">
   <div class="container"> 
