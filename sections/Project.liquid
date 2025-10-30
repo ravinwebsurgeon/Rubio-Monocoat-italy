@@ -1036,68 +1036,10 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const circleTabsSection = document.querySelector(".circle-tabs-section");
-  const circleTabsOuter = document.querySelector(".circle-tabs-outer");
-  const filterBar = document.querySelector(".filter-bar");
-  const tabProductsOuter = document.querySelector(".tab-products-outer");
 
-  const interiorBtn = document.querySelector(".Interio");
-  const surfaceOptions = document.getElementById("exterior-surfaces");
-
-  // -------------------------------
-  // INTERIOR CLICK → show all sections
-  if (interiorBtn) {
-    interiorBtn.addEventListener("click", function() {
-      circleTabsSection?.classList.add("show-section");
-      circleTabsOuter?.classList.add("show-section");
-      filterBar?.classList.add("show-section");
-      tabProductsOuter?.classList.add("show-section");
-    });
-  }
-
-  // -------------------------------
-  // EXTERIOR SURFACE CLICK → show all sections
-  if (surfaceOptions) {
-    const surfaceItems = surfaceOptions.querySelectorAll(".surface-item");
-    surfaceItems.forEach(item => {
-      item.addEventListener("click", function(e) {
-        e.stopPropagation();
-        circleTabsSection?.classList.add("show-section");
-        circleTabsOuter?.classList.add("show-section");
-        filterBar?.classList.add("show-section");
-        tabProductsOuter?.classList.add("show-section");
-      });
-    });
-  }
-
-  // -------------------------------
-  // CIRCLE TAB CLICK → show products only
-  const circleTabs = document.querySelectorAll(".circle-tab");
-  circleTabs.forEach(tab => {
-    tab.addEventListener("click", function() {
-      tabProductsOuter?.classList.add("show-section");
-    });
-  });
-});
-</script>
 
 
 <style>
-  /* Hide by default */
-.circle-tabs-section,
-.circle-tabs-outer,
-.filter-bar,
-.tab-products-outer {
-  display: none;
-}
-
-/* Show when active */
-.show-section {
-  display: block !important; /* or use flex/grid if needed */
-}
-{% comment %}  {% endcomment %}
 .cust-project{
   font-family: Frutiger Neue LT W1G;
 }

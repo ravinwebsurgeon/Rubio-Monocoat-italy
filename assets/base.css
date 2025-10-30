@@ -3595,18 +3595,6 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 
-  }
-@media (min-width: 768px) {
-  .jump-links-section {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    margin-top: 40px !important;     /* meer ruimte boven */
-    margin-bottom: 0px !important;   /* minder ruimte onder */
-    gap: 12px !important;
-    flex-wrap: wrap !important;
-  }
 
   }
 @media (min-width: 992px) {
@@ -3623,9 +3611,4 @@ details-disclosure > details {
   .product-features-section .section-heading {
     margin-top: 0 !important;
   }
-}
-@media (min-width: 992px) {
-  .product-features-section .section-heading {
-    margin-top: 32x !important; /* of 32px voor iets meer ademruimte */
-  }
-}
+ }
