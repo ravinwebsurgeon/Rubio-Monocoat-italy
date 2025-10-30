@@ -1036,67 +1036,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  // Elements
-  const circleTabsSection = document.querySelector(".circle-tabs-section");
-  const circleTabsOuter = document.querySelector(".circle-tabs-outer");
-  const filterBar = document.querySelector(".filter-bar");
-  const tabProductsOuter = document.querySelector(".tab-products-outer");
 
-  const interiorBtn = document.querySelector(".Interio");
-  const exteriorToggle = document.querySelector(".exterior.surface-toggle");
-  const surfaceOptions = document.getElementById("exterior-surfaces");
-
-  // Hide sections by default
-  if (circleTabsSection) circleTabsSection.style.display = "none";
-  if (circleTabsOuter) circleTabsOuter.style.display = "none";
-  if (filterBar) filterBar.style.display = "none";
-  if (tabProductsOuter) tabProductsOuter.style.display = "none";
-
-  // -------------------------------
-  // INTERIOR CLICK → show all sections
-  if (interiorBtn) {
-    interiorBtn.addEventListener("click", function() {
-      if (circleTabsSection) circleTabsSection.style.display = "block";
-      if (circleTabsOuter) circleTabsOuter.style.display = "block";
-      if (filterBar) filterBar.style.display = "block";
-      if (tabProductsOuter) tabProductsOuter.style.display = "block";
-
-      // Close exterior dropdown if open
-      if (surfaceOptions) surfaceOptions.style.display = "none";
-      if (exteriorToggle) exteriorToggle.classList.remove("active");
-    });
-  }
-
-  // -------------------------------
-  // EXTERIOR SURFACE CLICK → show all sections
-  if (surfaceOptions) {
-    const surfaceItems = surfaceOptions.querySelectorAll(".surface-item");
-    surfaceItems.forEach(item => {
-      item.addEventListener("click", function(e) {
-        e.stopPropagation();
-
-        // Show circle tabs + filter + products
-        if (circleTabsSection) circleTabsSection.style.display = "block";
-        if (circleTabsOuter) circleTabsOuter.style.display = "block";
-        if (filterBar) filterBar.style.display = "block";
-        if (tabProductsOuter) tabProductsOuter.style.display = "block";
-      });
-    });
-  }
-
-  // -------------------------------
-  // CIRCLE TAB CLICK → show product section only
-  const circleTabs = document.querySelectorAll(".circle-tab");
-  circleTabs.forEach(tab => {
-    tab.addEventListener("click", function() {
-      if (tabProductsOuter) tabProductsOuter.style.display = "block";
-    });
-  });
-
-});
-</script>
 
 
 <style>
