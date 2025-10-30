@@ -104,7 +104,7 @@
   </div>
 </section>
 <div id="product-popup" class="product-popup">
-  <div class="product-popup-content">
+  <div class="product-popup-content product-block">
     <button class="popup-close">×</button>
     <div class="popup_product_info_main">
       <div class="product_image"><img id="popup-image" src="" alt=""></div>
@@ -115,6 +115,7 @@
         </div>
         <div class="action_btns">
           <a id="popup-link" href="#" class="popup-view-product">View Product</a>
+          <input type="hidden" name="variant-selector">
           <button class="add_to_cart add_to_cart_ajax">Add to Cart</button>
         </div>
       </div>
@@ -313,6 +314,7 @@ document.addEventListener("DOMContentLoaded", function(){
   const popupLink = document.getElementById("popup-link");
   const popupClose = document.querySelector(".popup-close");
   const popupmain = document.querySelector('.product-popup-content')
+  const popupInput = document.querySelector('.variant-selector')
 
 
   if(typeof jQuery !== 'undefined' && typeof jQuery.fn.slick !== 'undefined'){
@@ -340,12 +342,14 @@ document.addEventListener("DOMContentLoaded", function(){
       const title = this.dataset.title;
       const image = this.dataset.image;
       const url = this.dataset.url;
+      const variant_id = this.dataset.variant;
       
       popupmain.classList.add('active-popup');
       popupImage.src = image;
       popupImage.alt = title;
       popupTitle.textContent = title;
       popupLink.href = url;
+      popupInput.value = variant_id
 
       popup.classList.add("active");
       document.body.classList.add("popup-open");
