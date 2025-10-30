@@ -3616,11 +3616,11 @@ details-disclosure > details {
   }
 
   section#product-info {
-    margin-top: 24px !important; /* pas aan: kleiner = compacter witruimte */
+    margin-top: 0 !important; /* geen extra marge meer op de hele section */
     padding-top: 0 !important;
   }
 
   .product-features-section .section-heading {
-    margin-top: 0 !important;
+    margin-top: 32px !important; /* alleen de titel krijgt ruimte */
   }
 }
