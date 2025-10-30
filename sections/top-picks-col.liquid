@@ -81,6 +81,7 @@
 
   <div class="custom-cert-carousel">
    {% for product in section.settings.product_list %}
+        {% assign addon_products = product.metafields.custom.product_addon.value %}
       <div class="custom-cert-card">
         <div class="custom-cert-img">
           {% if product.featured_image %}
