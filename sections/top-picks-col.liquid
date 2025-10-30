@@ -327,7 +327,9 @@ document.addEventListener("DOMContentLoaded", function(){
   const popupClose = document.querySelector(".popup-close");
   const popupmain = document.querySelector('.product-popup-content')
   const popupInput = document.querySelector('input[name="variant-selector"]')
+  const addonContainer = document.querySelector('.addon_products_main');
 
+  let selectedAddons = new Set();
 
   if(typeof jQuery !== 'undefined' && typeof jQuery.fn.slick !== 'undefined'){
     $('.custom-cert-carousel').slick({
@@ -356,7 +358,6 @@ document.addEventListener("DOMContentLoaded", function(){
       const variant_id = this.dataset.variant;
       const scriptTag = this.parentElement.querySelector('script.addons');
       const addons = JSON.parse(scriptTag.textContent);
-      console.log(addons,"asdfgh")
       if(addons) addonAdd(addons)
     
       popupmain.classList.add('active-popup');
@@ -377,6 +378,10 @@ document.addEventListener("DOMContentLoaded", function(){
     popupmain.classList.remove('active-popup')
     popup.classList.remove("active");
     document.body.classList.remove("popup-open");
+     // Reset addons & selections
+        addonContainer.innerHTML = '';
+        selectedAddons.clear();
+        popupInput.value = '';
   });
 
   // Optional: close when clicking outside content
