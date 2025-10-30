@@ -3621,6 +3621,6 @@ details-disclosure > details {
   }
 
   .product-features-section .section-heading {
-    margin-top: 32px !important; /* alleen de titel krijgt ruimte */
+    margin-top: 50px !important; /* alleen de titel krijgt ruimte */
   }
 }
