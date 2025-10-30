@@ -3662,3 +3662,7 @@ input[name="Size-2"] + label {
   padding: 8px !important;
   box-sizing: border-box !important;
 }
+.swatch-input__input[name="Size-2"] ~ label.swatch-input__label {
+  min-width: 120px !important;
+  /* dezelfde styling als hierboven */
+}
