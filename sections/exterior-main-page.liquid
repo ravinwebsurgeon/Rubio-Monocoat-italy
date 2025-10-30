@@ -254,16 +254,13 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-     const items = [];
+    
     document.querySelectorAll('.add_to_cart_ajax').forEach(function (button) {
         button.addEventListener('click', function () {
             const productBlock = button.closest('.product-block');
             const variantSelect = productBlock.querySelector('.variant-selector');
             const variantId = variantSelect.value;
-            items.push({
-                id: variantId,
-                quantity: 1
-            });
+
        
 
             fetch('/cart/add.js', {
@@ -272,11 +269,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
-                {% comment %} body: JSON.stringify({
+                body: JSON.stringify({
                     id: variantId,
                     quantity: 1
-                }) {% endcomment %}
-                body: JSON.stringify({ items })
+                })
             })
             .then(response => response.json())
             .then(data => {
