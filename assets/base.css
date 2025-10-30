@@ -3601,11 +3601,18 @@ details-disclosure > details {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    justify-content: space-around !important; 
     text-align: center !important;
     margin-top: 40px !important;     /* meer ruimte boven */
     margin-bottom: 0px !important;   /* minder ruimte onder */
     gap: 12px !important;
     flex-wrap: wrap !important;
+  }
+}
+@media (min-width: 768px) {
+  .jump-links-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: space-around !important;
+    padding: 0 5% !important; /* optioneel wat binnenmarge */
   }
 }
