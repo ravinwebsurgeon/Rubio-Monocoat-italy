@@ -343,13 +343,13 @@ document.addEventListener("DOMContentLoaded", function(){
       const image = this.dataset.image;
       const url = this.dataset.url;
       const variant_id = this.dataset.variant;
-      console.log(this.dataset.variant,'sasasas')
+
       popupmain.classList.add('active-popup');
       popupImage.src = image;
       popupImage.alt = title;
       popupTitle.textContent = title;
       popupLink.href = url;
-      popupInput.value = variant_id
+      popupInput.setAttribute("value",variant_id) 
 
       popup.classList.add("active");
       document.body.classList.add("popup-open");
