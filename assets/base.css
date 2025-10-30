@@ -3612,6 +3612,6 @@ details-disclosure > details {
 @media (min-width: 768px) {
   .product-features-section {
     padding-top: 16px !important; /* of 8px voor heel strak */
-    margin-top: 0 !important;
+    margin-top: 4 !important;
   }
 }
