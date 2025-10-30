@@ -135,7 +135,7 @@
         </div>
         <div class="blog-slider-content">
             {% if related_articles %}
-                <div class="related-articles-slider">
+                {% comment %} <div class="related-articles-slider"> {% endcomment %}
                     {% for article in related_articles %}
                         <div class="slider-card">
                             <div class="slider-card-image">
@@ -159,7 +159,7 @@
                             </div>
                         </div>
                     {% endfor %}
-                </div>
+                {% comment %} </div> {% endcomment %}
             {% endif %}
         </div>
     </div>  
