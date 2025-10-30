@@ -3598,7 +3598,7 @@ details-disclosure > details {
 @media (max-width: 991px) {
   .jump-links-section {
     margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
+    padding-bottom: 10px !important;
   }
 
   section#product-info {
