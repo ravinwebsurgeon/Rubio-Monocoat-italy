@@ -780,7 +780,7 @@ document.querySelectorAll('variant-selects').forEach(vs => {
   fs.querySelector('legend')?.textContent.trim().toLowerCase().includes('color')
 );
 console.log(sizeFieldset.querySelector('.swatch-input__input'),'sizeFieldset')
-console.log(sizeFieldset,'found it')
+{% comment %} console.log(sizeFieldset,'found it') {% endcomment %}
   if (sizeFieldset && !vs.querySelector('#customSeeMoreBtn')) {
     sizeFieldset.insertAdjacentHTML('afterend', `
       <button id="customSeeMoreBtn">
