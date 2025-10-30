@@ -1089,19 +1089,21 @@ document.addEventListener("DOMContentLoaded", function() {
 .filter-bar,
 .tab-products-wrap.Interior-wrap,
 .tab-products-wrap.Exterior-wrap {
-  display: none !important; /* force hide */
+  display: none !important;
 }
 
-/* Show sections when .show-section is added */
+/* Show tabs + filter */
 .show-section.circle-tabs-outer,
+.show-section.filter-bar {
+  display: flex !important; /* preserve layout */
+}
+
+/* Show product sections */
 .show-section.tab-products-wrap.Interior-wrap,
 .show-section.tab-products-wrap.Exterior-wrap {
   display: block !important;
 }
 
-.show-section.filter-bar {
-  display: flex !important; /* preserve original flex layout */
-}
 
 .cust-project{
   font-family: Frutiger Neue LT W1G;
