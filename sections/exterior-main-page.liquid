@@ -292,45 +292,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function updateCartCount(totalQuantityAdded) {
   const cartCounts = document.querySelectorAll('.cart-count-bubble > span');
-    const customCount = document.querySelector('.custom-cart-count-bubble > span');
 
-    if (cartCounts.length > 0) {
-        // Update existing standard cart counts
-        cartCounts.forEach(count => {
-            const currentNumberMatch = count.textContent.match(/\d+/);
-            const currentNumber = currentNumberMatch ? parseInt(currentNumberMatch[0]) : 0;
-            const newNumber = currentNumber + totalQuantityAdded;
-            count.textContent = count.textContent.replace(/\d+/, newNumber);
+  if (cartCounts.length > 0) {
+    cartCounts.forEach(count => {
+      const currentNumberMatch = count.textContent.match(/\d+/);
+      const currentNumber = currentNumberMatch ? parseInt(currentNumberMatch[0]) : 0;
+      const newNumber = currentNumber + totalQuantityAdded;
+      count.textContent = count.textContent.replace(/\d+/, newNumber);
+    });
 
-            // Remove custom count bubble if any
-            const customCountElem = document.querySelector('.custom-cart-count-bubble > span');
-            if (customCountElem) customCountElem.remove();
-        });
-    } else if (customCount) {
-        // Update existing custom count
-        let count = Number(customCount.textContent) || 0;
-        let totalQuantity = count + totalQuantityAdded;
-        customCount.textContent = totalQuantity;
+    // Remove any old custom count bubble
+    const customCount = document.querySelector('.custom-cart-count-bubble');
+    if (customCount) customCount.remove();
+  } else {
+    // Try to find the custom bubble
+    let customCount = document.querySelector('.custom-cart-count-bubble > span');
 
-        // Make sure parent is visible
-        customCount.parentNode.style.display = 'block';
-        customCount.parentNode.style.visibility = 'visible';
-    } else {
-        // **Both cart bubble types are missing — create a new custom bubble**
-        const mainCartBubble = document.querySelector('.header__icon--cart'); // adjust to your cart icon container
-        if (mainCartBubble) {
-            const newCount = document.createElement('div');
-            newCount.classList.add('custom-cart-count-bubble','cart-count-bubble');
-
-            const newCountSpan = document.createElement('span');
-            newCountSpan.textContent = totalQuantityAdded; // set initial quantity
-
-            newCount.appendChild(newCountSpan);
-            mainCartBubble.appendChild(newCount);
-            newCount.style.display="block"
-            newCount.style.visibility="visible"
-        }
+    if (!customCount) {
+      // If not present, create it
+      const cartIcon = document.querySelector('.cart-icon'); // change to your cart icon container
+      if (cartIcon) {
+        const customDiv = document.createElement('div');
+        customDiv.classList.add('custom-cart-count-bubble');
+        customDiv.innerHTML = `<span>${totalQuantityAdded}</span>`;
+        cartIcon.appendChild(customDiv);
+        return;
+      }
     }
+
+    if (customCount) {
+      let number = Number(customCount.textContent) || 0;
+      customCount.textContent = number + totalQuantityAdded;
+      customCount.parentNode.style.display = 'block';
+    }
+  }
 }
 
 function refreshCartDrawer() {
