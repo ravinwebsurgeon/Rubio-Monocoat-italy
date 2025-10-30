@@ -3618,6 +3618,6 @@ details-disclosure > details {
 
   /* Titel in de blauwe sectie: lucht boven de titel */
   section#product-info h2.section-heading {
-    margin-top: 32px !important;
+    margin-top: 20px !important;
   }
 }
