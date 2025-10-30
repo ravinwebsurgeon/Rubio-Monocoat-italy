@@ -254,15 +254,11 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    
     document.querySelectorAll('.add_to_cart_ajax').forEach(function (button) {
         button.addEventListener('click', function () {
             const productBlock = button.closest('.product-block');
             const variantSelect = productBlock.querySelector('.variant-selector');
             const variantId = variantSelect.value;
-
-       
-
             fetch('/cart/add.js', {
                 method: 'POST',
                 headers: {
