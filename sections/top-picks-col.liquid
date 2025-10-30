@@ -406,7 +406,9 @@ document.addEventListener("DOMContentLoaded", function(){
           const addonDiv = document.createElement('div');
           addonDiv.classList.add('addon-item-data');
           addonDiv.innerHTML = `
-            {% comment %} <button class="add_addon">+</button> {% endcomment %}
+             <button class="add_addon">+</button>
+              <input type="hidden" class="variant-selector" name="variant-selector" value="${addon.variant[0].id}"> 
+           
             <a href="${addonUrl}"><div class=media_content><img src="${imageSrc}" style="width:100px;" /></div>
             <div class="addon_item_title"><p>${addon.title}</p></div></a>
           `;
