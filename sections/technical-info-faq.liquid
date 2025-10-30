@@ -2,6 +2,7 @@
   Section: Technical Info FAQ
   Layout: Heading → Image on left → Accordion on right
 {% endcomment %}
+ {% assign tech_info_heading = product.metafields.custom.tech_info_heading.value %}
 {% if product.metafields.custom.technical_info_faq_question.value != blank and product.metafields.custom.technical_info_faq_answer.value != blank %}
 <div class="tech-info-wrapper-sec">
   <div class="tech-info-wrapper page-width" id="technical-info">
@@ -9,12 +10,12 @@
 
       <!-- Left Side -->
       <div class="tech-info-left">
-        {% if section.settings.heading != blank %}
-          <h2 class="tech-info-heading">{{ section.settings.heading }}</h2>
+        {% if tech_info_heading != blank %}
+          <h2 class="tech-info-heading">{{ tech_info_heading  }}</h2>
         {% endif %}
         {% if section.settings.image != blank %}
           <div class="tech-info-image">
-            <img src="{{ section.settings.image | img_url: '800x' }}" alt="{{ section.settings.heading | escape }}" loading="lazy">
+            <img src="{{ section.settings.image | img_url: '800x' }}" alt="{{ tech_info_heading | escape }}" loading="lazy">
           </div>
         {% endif %}
       </div>
@@ -40,10 +41,10 @@
 
                 <div class="tech-info-answer">
                   {% if t_question contains 'Download' or t_question contains 'download' %}
-  <a href="{{ t_answer }}" class="tech-download-btn" onclick="forceDownload(event, this.href)">Download File</a>
-{% else %}
-  <p>{{ t_answer }}</p>
-{% endif %}
+                    <a href="{{ t_answer }}" class="tech-download-btn" onclick="forceDownload(event, this.href)">Download File</a>
+                  {% else %}
+                    <p>{{ t_answer }}</p>
+                  {% endif %}
                </div>
               </div>
             {% endfor %}
