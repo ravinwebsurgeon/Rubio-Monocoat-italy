@@ -163,7 +163,7 @@
         <div class="slider-card-image">
           {% if article.image and article.image.src %}
             <a href="/blogs/{{ article.blog_id }}/{{ article.handle }}">
-              <img  src="{{ article.image.src | replace: '//', 'https://' }}"  alt="{{ article.image.alt | default: article.title }}">
+              <img src="{{ article.image.src | prepend: 'https:' }}" alt="{{ article.image.alt | default: article.title }}">
             </a>
           {% endif %}
         </div>
