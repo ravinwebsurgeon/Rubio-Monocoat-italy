@@ -254,35 +254,63 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('.add_to_cart_ajax').forEach(function (button) {
+    const selectedAddons = new Set(); // Track selected addon variant IDs
+
+    // Handle main popup "Add to Cart"
+    document.querySelectorAll('.add_to_cart_ajax').forEach(button => {
         button.addEventListener('click', function () {
             const productBlock = button.closest('.product-block');
-            const variantSelect = productBlock.querySelector('.variant-selector');
-            const variantId = variantSelect.value;
-            fetch('/cart/add.js', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    id: variantId,
-                    quantity: 1
+            const mainVariantId = productBlock.querySelector('.variant-selector').value;
+
+            // Create an array of all variants to add (main + selected addons)
+            const allVariants = [mainVariantId, ...selectedAddons];
+
+            // Function to add each variant
+            const addVariant = (variantId) => {
+                return fetch('/cart/add.js', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({ id: variantId, quantity: 1 })
+                }).then(response => response.json());
+            };
+
+            // Sequentially add all products to cart
+            Promise.all(allVariants.map(addVariant))
+                .then(results => {
+                    console.log('Added to cart:', results);
+                    updateCartCount(allVariants.length);
+                    refreshCartDrawer();
+                    // Clear selected addons after adding
+                    selectedAddons.clear();
                 })
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Added to cart:', data);
-                updateCartCount(1);
-                refreshCartDrawer();
-            })
-            .catch(error => {
-                console.error('Error adding to cart:', error);
-                alert("Something went wrong.");
-            });
+                .catch(error => {
+                    console.error('Error adding to cart:', error);
+                    alert("Something went wrong.");
+                });
         });
     });
+
+    // Handle addon selection
+    document.querySelector('.addon_products_main').addEventListener('click', function(e){
+        if(e.target.classList.contains('add_addon')){
+            const addonDiv = e.target.closest('.addon-item-data');
+            const variantId = addonDiv.querySelector('.variant-selector').value;
+            if(selectedAddons.has(variantId)){
+                selectedAddons.delete(variantId);
+                e.target.textContent = '+'; // unselect
+                addonDiv.classList.remove('selected-addon');
+            } else {
+                selectedAddons.add(variantId);
+                e.target.textContent = '✓'; // selected
+                addonDiv.classList.add('selected-addon');
+            }
+        }
+    });
 });
+
 
 function updateCartCount(totalQuantityAdded) {
     const cartCounts = document.querySelectorAll('.cart-count-bubble > span');
