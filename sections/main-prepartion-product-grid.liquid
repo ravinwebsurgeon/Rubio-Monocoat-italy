@@ -1,8 +1,12 @@
 {%  assign cat_heading = collection.metafields.custom.main_hedaing.value %}
 {%  assign cat_subheading = collection.metafields.custom.main_subheading.value %}
-<div class="custom-collection-main">
-    <div class="collection_header-main">
+<div class="custom_collection_main">
+    <div class="collection_header_main">
         <div class="header_main_heading"><h2>{{ cat_heading }}</h2></div>
         <div class="header_main_subheading"><p>{{ cat_subheading }}</p></div>
     </div>
 </div>
+<style>
+    .custom_collection_main{width:100%;}
+    .collection_header_main{background:#B9CBC5;}
+</style>
