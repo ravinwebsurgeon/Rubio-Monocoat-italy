@@ -1040,8 +1040,10 @@ document.addEventListener('DOMContentLoaded', function () {
       {{ product | structured_data }}
     </script>
     {% assign product_info_sec = product.metafields.custom.product_info_section.value %}
+    {% assign video_product_section = product.metafields.custom.video_products_section.value %}
     {% render 'jump-to' ,
-      product_info_sec: product_info_sec %}
+      product_info_sec: product_info_sec,
+      video_product_section: video_product_section, %}
   </div>
 </product-info>
 
