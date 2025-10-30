@@ -3620,8 +3620,8 @@ details-disclosure > details {
     align-items: center !important;
     text-align: center !important;
     margin-top: 40px !important;
-    margin-bottom: 15px !important;
-    gap: 12px !important;
+    margin-bottom: 8px !important;
+    gap: 20px !important;
     flex-wrap: wrap !important;
   }
 
