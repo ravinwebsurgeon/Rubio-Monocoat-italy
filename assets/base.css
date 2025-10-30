@@ -3624,3 +3624,9 @@ details-disclosure > details {
     margin-top: 32px !important; /* dit moet nu echt effect hebben */
   }
 }
+@media (min-width: 992px) {
+  section#product-info {
+    padding-top: 30px !important;  /* pas dit getal aan voor meer of minder ruimte */
+    margin-top: 0 !important;      /* zorg dat er geen dubbele marge actief is */
+  }
+}
