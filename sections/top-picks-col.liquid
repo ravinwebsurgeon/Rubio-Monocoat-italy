@@ -340,7 +340,11 @@ document.addEventListener("DOMContentLoaded", function(){
   } else {
     console.error("jQuery or Slick slider is not loaded.");
   }
-
+function decodeHtmlEntities(str) {
+    const txt = document.createElement("textarea");
+    txt.innerHTML = str;
+    return txt.value;
+}
   document.querySelectorAll(".custom-cert-plus").forEach(btn => {
     btn.addEventListener("click", function(){
       {% comment %} const card = this.closest(".custom-cert-card");
@@ -351,7 +355,11 @@ document.addEventListener("DOMContentLoaded", function(){
       const url = this.dataset.url;
       const variant_id = this.dataset.variant;
 
-      const addons = JSON.parse(this.dataset.addons);
+      {% comment %} const addons = JSON.parse(this.dataset.addons); {% endcomment %}
+      const rawAddons = this.dataset.addons;           // get the string from data-addons
+const decodedAddons = decodeHtmlEntities(rawAddons); // decode &quot; etc.
+const addons = JSON.parse(decodedAddons);       // now parse safely
+console.log(addons,'check');
 
       console.log('addons',addons)
       popupmain.classList.add('active-popup');
