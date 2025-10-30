@@ -1039,6 +1039,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <script type="application/ld+json">
       {{ product | structured_data }}
     </script>
+    {% assign product_info_sec = product.metafields.custom.product_info_section.value %}
     {% render 'jump-to' %}
   </div>
 </product-info>
