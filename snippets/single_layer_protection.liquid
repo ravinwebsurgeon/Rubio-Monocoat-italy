@@ -1,8 +1,8 @@
-<div class="single-layer-section-main test">
-    <div class="single-layer">
-        <div class="product_listed">
+<div class="single_layer_main">
+    <div class="single_layer">
+        <div class="product_listed_main">
             <h2>{{heading}}</h2>
-            <div class="product_detail product-block">
+            <div class="product_info product-block">
                 {% if product %}
                     <div class="media_section">
                         <img src="{{ product.featured_image | image_url: width: 300  }}" />
@@ -97,26 +97,26 @@
     </div>
 </div> 
 <style>
-    .single-layer-section-main .media_content_main{width:40%;padding:30px;}
+    .single_layer_main .media_content_main{width:40%;padding:30px;}
     .mediaData{position:relative;}
-    .single-layer{width:95%;margin:auto;display:flex;}
-    .product_listed h2{font-size:25px; font-weight:600;text-transform:capitalize;}
-    .product_detail , .product_title_price{display:flex;align-items:center;}
-    .product_detail{border:0.1px solid #666;}
+    .single_layer{width:95%;margin:auto;display:flex;}
+    .product_listed_main h2{font-size:25px; font-weight:600;text-transform:capitalize;}
+    .product_info , .product_title_price{display:flex;align-items:center;}
+    .product_info{border:0.1px solid #666;}
     .product_title_price h3{font-size:20px;font-weight:600;}
     .product_title_price p{font-size:18px;}
-    .single-layer .product_title_price{padding:0;}
+    .single_layer .product_title_price{padding:0;}
     .custom_text{font-size:14px;}
     .pro_variants .option-variant-selector{padding:10px;border-radius:20px;font-size:14px;margin-top:10px;width:100%;}
-    .product_detail .media_section{width:50%;text-align:center;}
+    .product_info .media_section{width:50%;text-align:center;}
     .content_section.media_text{position:absolute;bottom:-13px;left:0px;}
     .content_section.media_text h3.heading{color:#fff;text-transform:capitalize;padding:10px;}
-    .single-layer-section-main .custom_video_content{width:100%;margin-top:50px;}
+    .single_layer_main .custom_video_content{width:100%;margin-top:50px;}
 
     @media only screen and (min-width:320px) and (max-width:767px)
     {
-    .single-layer{display:block;}
-    .product_listed , .media_content_main{width:100%;}
+    .single_layer{display:block;}
+    .product_listed_main , .media_content_main{width:100%;}
     }
 </style>
 <script>
