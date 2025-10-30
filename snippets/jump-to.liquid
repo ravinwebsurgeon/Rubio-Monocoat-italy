@@ -42,13 +42,14 @@
         <span class="jump-link-text">FAQ’s</span>
       </a>
     {% endif %}
-
-    <a href="#reviews" class="jump-link-item">
-      <div class="jump-to-icon">
-      <img src="{{ 'icon-reviews.svg' | asset_url }}" alt="Reviews" class="jump-link-icon">
-      </div>
-      <span class="jump-link-text">Reviews</span>
-    </a>
+    {% if review_section != blank %}
+      <a href="#reviews" class="jump-link-item">
+        <div class="jump-to-icon">
+        <img src="{{ 'icon-reviews.svg' | asset_url }}" alt="Reviews" class="jump-link-icon">
+        </div>
+        <span class="jump-link-text">Reviews</span>
+      </a>
+    {% endif %}
   </div>
 </div>
 {% style %}
