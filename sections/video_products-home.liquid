@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Clone slides for infinite seamless loop
   const slides = Array.from(track.children);
   slides.forEach(slide => track.appendChild(slide.cloneNode(true)));
-const delay = {{ section.settings.delay_time | default: 6 }} * 1000;
+
   let speed = 1; // adjust speed
   let offset = 0;
   let isPaused = false;
