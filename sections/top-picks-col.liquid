@@ -391,7 +391,7 @@ document.addEventListener("DOMContentLoaded", function(){
       addons.forEach(addon => {
         const imageSrc = addon.variants?.[0]?.featured_image?.src || '';
         const addonDiv = document.createElement('div');
-        addonDiv.classList.add('addon-item');
+        addonDiv.classList.add('addon-item-data');
         addonDiv.innerHTML = `
           <img src="${imageSrc}" style="width:100px;" />
           <p>${addon.title}</p>
