@@ -405,8 +405,8 @@ document.addEventListener("DOMContentLoaded", function(){
         const addonDiv = document.createElement('div');
         addonDiv.classList.add('addon-item-data');
         addonDiv.innerHTML = `
-          <div class=media_content><img src="${imageSrc}" style="width:100px;" /></div>
-          <div class="addon_item_title"><p>${addon.title}</p></div>
+          <a href="`${addon.url}`"><div class=media_content><img src="${imageSrc}" style="width:100px;" /></div>
+          <div class="addon_item_title"><p>${addon.title}</p></div></a>
         `;
 
         container.appendChild(addonDiv);
