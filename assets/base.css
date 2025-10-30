@@ -3635,7 +3635,8 @@ details-disclosure > details {
 }
 /* ✅ Variant tekstkleur aanpassen wanneer geselecteerd */
 input[type="radio"].swatch-input__input:checked + label .variant-label-text,
-input[type="radio"].swatch-input__input:checked + label .variant-price {
+input[type="radio"].swatch-input__input:checked + label .variant-price,
+input[type="radio"].swatch-input__input:checked + label .variant-note {
   color: #183029 !important;
 
 }
