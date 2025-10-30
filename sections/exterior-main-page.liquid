@@ -21,14 +21,14 @@
 {% assign right_product_text = page.metafields.custom.right_product_text.value %}
 
 
-<div class="floor-steps-section">
+<div class="exterior-floor-steps-section">
   <div class="containers">
-    <h2 class="floor_steps_heading">What you’ll need to oil your wooden floor</h2>
-    <p class="floor_step_subheading ">Frutiger Condensed</p>
-     <div class="floor-steps-wrapper">    
+    <h2 class="steps_heading">What you’ll need to oil your wooden floor</h2>
+    <p class="step_subheading ">Frutiger Condensed</p>
+     <div class="steps-wrapper">    
     {% for image in images %}
         {% assign index = forloop.index0 %}
-        <a href="{{ links[index] }}" class="floor-step">
+        <a href="{{ links[index] }}" class="floor_step_content">
             <img src='{{ image | img_url: width: 600  }}' alt="Step {{ i | plus: 1 }}">
             <p>{{ headings[index]  }}</p>
         </a>
@@ -175,17 +175,17 @@
 
 %}
 <style>
-.floor-steps-section{width:97%;margin:auto;}
-.floor_steps_heading{font-size:35px;font-weight:600;margin-bottom:0;}
-.floor_step_subheading{font-size:17px;font-weight:600;}
-.floor-steps-wrapper {
+.exterior-floor-steps-section{width:97%;margin:auto;}
+.steps_heading{font-size:35px;font-weight:600;margin-bottom:0;}
+.step_subheading{font-size:17px;font-weight:600;}
+.steps-wrapper {
   display: flex;
   gap: 20px;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
-.floor-step {
+.floor_step_content {
   text-align: center;
   text-decoration: none;
   color: inherit;
@@ -193,7 +193,7 @@
   max-width: 240px;
 }
 
-.floor-step img {
+.floor_step_content img {
   border-radius: 50%;
   width: 170px;
   height: 170px;
@@ -201,16 +201,16 @@
   transition: transform 0.3s;
 }
 
-.floor-step.highlight img {
+.floor_step_content.highlight img {
   border: 3px solid #5A5AFC;
   padding: 3px;
 }
 
-.floor-step:hover img {
+.floor_step_content:hover img {
   transform: scale(1.05);
 }
 
-.floor-step p {
+.floor_step_content p {
   margin-top: 10px;
   color:#000;
   font-size: 14px;
