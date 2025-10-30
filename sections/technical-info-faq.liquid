@@ -14,7 +14,7 @@
         {% if tech_info_heading != blank %}
           <h2 class="tech-info-heading">{{ tech_info_heading  }}</h2>
         {% endif %}
-        {% if section.settings.image != blank %}
+        {% if image != blank %}
           <div class="tech-info-image">
             <img src="{{ image | img_url: '800x' }}" alt="{{ tech_info_heading | escape }}" loading="lazy">
           </div>
