@@ -3594,7 +3594,7 @@ details-disclosure > details {
   100% {
     transform: translateX(100%) scaleX(0);
   }
-
+}
 @media (max-width: 991px) {
   .jump-links-section {
     margin-bottom: 0 !important;
@@ -3603,7 +3603,7 @@ details-disclosure > details {
 
   section#product-info {
     margin-top: 0 !important;
-    padding-top: 15px !important;  /* bepaal hiermee de ruimte onder de knoppen */
+    padding-top: 8px !important;  /* bepaal hiermee de ruimte onder de knoppen */
   }
 
   section#product-info h2.section-heading {
