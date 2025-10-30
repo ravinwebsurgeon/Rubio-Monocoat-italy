@@ -159,11 +159,11 @@
      {% if related_articles %}
   <div class="related-articles-slider">
     {% for article in related_articles %}
-      <div class="slider-card {{ article.title }}">
+      <div class="slider-card">
         <div class="slider-card-image">
           {% if article.image and article.image.src %}
             <a href="/blogs/{{ article.blog_id }}/{{ article.handle }}">
-              <img src="{{ article.image.src | prepend: 'https:' }}" alt="{{ article.image.alt | default: article.title }}">
+              <img src="{{ article.image | prepend: 'https:' }}" alt="{{ article.image.alt | default: article.title }}">
             </a>
           {% endif %}
         </div>
