@@ -61,6 +61,67 @@
         "main_heading": "Oiling other surfaces?",
         "source_page": "exterior-protection"
       }
+    },
+    "icons_section_KFwDyT": {
+      "type": "icons-section",
+      "blocks": {
+        "container_JrNqCW": {
+          "type": "container",
+          "settings": {
+            "class": "first-container-sec",
+            "icon": "shopify://shop_images/Telephone.png",
+            "heading": "Telephone advice",
+            "subhead": "Available on",
+            "subtext": "+32 (0) 51 30 80 54",
+            "extra_text": "On weekdays 08:30 - 17:00"
+          }
+        },
+        "container_nKmJzR": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/Email_2.png",
+            "heading": "Send us an email",
+            "subhead": "",
+            "subtext": "Send us a rubio@monocoatusa.com",
+            "extra_text": "Response within 2 working days"
+          }
+        },
+        "container_zDA78P": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/Headphones.png",
+            "heading": "Customized advice",
+            "subhead": "",
+            "subtext": "Fill out the form",
+            "extra_text": "Advice within 2 days"
+          }
+        },
+        "container_WWHQzi": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/Clipboard_with_check_marks.png",
+            "heading": "Take the Test",
+            "subhead": "",
+            "subtext": "Answer the questions",
+            "extra_text": "Direct Personal advice"
+          }
+        }
+      },
+      "block_order": [
+        "container_JrNqCW",
+        "container_nKmJzR",
+        "container_zDA78P",
+        "container_WWHQzi"
+      ],
+      "name": "icons section",
+      "settings": {
+        "custom_class": "",
+        "show_on_desktop": true,
+        "show_on_mobile": true
+      }
     }
   },
   "order": [
@@ -69,6 +130,7 @@
     "custom_image_products_cLaP4D",
     "custom_inspired_wooden_tBELPG",
     "custom_blog_slider_czkQfJ",
-    "custom_surface_slider_WcApa9"
+    "custom_surface_slider_WcApa9",
+    "icons_section_KFwDyT"
   ]
 }
