@@ -222,6 +222,7 @@
         "product_block_PAiMBA",
         "product_block_aPTgFF"
       ],
+      "disabled": true,
       "custom_css": [
         ".video-products-section {background-color: #ffff;}"
       ],
