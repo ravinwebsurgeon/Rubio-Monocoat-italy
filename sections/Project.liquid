@@ -1035,6 +1035,69 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const circleTabsSection = document.querySelector(".circle-tabs-section");
+  const tabProductsOuter = document.querySelector(".tab-products-outer");
+  const interiorBtn = document.querySelector(".Interio");
+  const exteriorToggle = document.querySelector(".exterior.surface-toggle");
+  const surfaceOptions = document.getElementById("exterior-surfaces");
+
+  // Hide sections by default
+  if (circleTabsSection) circleTabsSection.style.display = "none";
+  if (tabProductsOuter) tabProductsOuter.style.display = "none";
+
+  // ✅ INTERIOR CLICK
+  if (interiorBtn) {
+    interiorBtn.addEventListener("click", function() {
+      if (circleTabsSection) circleTabsSection.style.display = "block";
+      if (tabProductsOuter) tabProductsOuter.style.display = "block";
+
+      // Hide exterior dropdown if open
+      if (surfaceOptions) surfaceOptions.style.display = "none";
+      if (exteriorToggle) exteriorToggle.classList.remove("active");
+    });
+  }
+
+  // ✅ EXTERIOR DROPDOWN TOGGLE
+  if (exteriorToggle && surfaceOptions) {
+    exteriorToggle.addEventListener("click", function(e) {
+      e.stopPropagation();
+      const isActive = this.classList.contains("active");
+
+      document.querySelectorAll(".surface-options").forEach(opt => opt.style.display = "none");
+      document.querySelectorAll(".surface-toggle").forEach(el => el.classList.remove("active"));
+
+      if (!isActive) {
+        surfaceOptions.style.display = "flex";
+        this.classList.add("active");
+      }
+    });
+
+    // ✅ EXTERIOR SURFACE ITEM CLICK
+    const surfaceItems = surfaceOptions.querySelectorAll(".surface-item");
+    surfaceItems.forEach(item => {
+      item.addEventListener("click", function(e) {
+        e.stopPropagation();
+        surfaceItems.forEach(i => i.classList.remove("active"));
+        this.classList.add("active");
+
+        // Show circle tabs + product section
+        if (circleTabsSection) circleTabsSection.style.display = "block";
+        if (tabProductsOuter) tabProductsOuter.style.display = "block";
+      });
+    });
+
+    // Hide dropdown when clicking outside
+    document.addEventListener("click", function(e) {
+      if (!exteriorToggle.contains(e.target) && !surfaceOptions.contains(e.target)) {
+        surfaceOptions.style.display = "none";
+        exteriorToggle.classList.remove("active");
+      }
+    });
+  }
+});
+</script>
 
 
 <style>
