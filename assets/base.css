@@ -3638,15 +3638,3 @@ input[type="radio"].swatch-input__input:checked + label .variant-label-text,
 input[type="radio"].swatch-input__input:checked + label .variant-price {
   color: #183029 !important;
 }
-
-/* Variant knoppen gelijke grootte geven */
-label.swatch-input__label {
-  min-width: 100px;         /* Pas aan naar wens (bv. 120px voor bredere knoppen) */
-  text-align: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 8px;
-  box-sizing: border-box;
-}
