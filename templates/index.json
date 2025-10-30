@@ -244,21 +244,9 @@
           "type": "product_block",
           "settings": {
             "product": "oil-plus-2c",
+            "icon_1": "shopify://shop_images/Shopping_Bag.png",
             "icon_1_link": "",
-            "icon_2_link": "",
-            "product_card_bg_color": "#ffffff",
-            "product_card_border_radius": 20,
-            "product_title_color": "#000000",
-            "product_title_font_size": 20,
-            "price_color": "#2f4f2f",
-            "price_font_size": 14
-          }
-        },
-        "product_block_hP8b6i": {
-          "type": "product_block",
-          "settings": {
-            "product": "oil-plus-2c",
-            "icon_1_link": "",
+            "icon_2": "shopify://shop_images/Rewind_double_arrows_outline.png",
             "icon_2_link": "",
             "product_card_bg_color": "#ffffff",
             "product_card_border_radius": 20,
@@ -270,8 +258,7 @@
         }
       },
       "block_order": [
-        "product_block_dXkcwP",
-        "product_block_hP8b6i"
+        "product_block_dXkcwP"
       ],
       "name": "Video Home Products",
       "settings": {
