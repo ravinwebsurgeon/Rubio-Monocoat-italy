@@ -1167,11 +1167,6 @@ document.addEventListener("DOMContentLoaded", function() {
   tabProductsInterior?.classList.remove("show-section");
   tabProductsExterior?.classList.remove("show-section");
 
-  // Helper to reset tabs
-  const resetCircleTabs = () => {
-    circleTabs.forEach(t => t.classList.remove("active"));
-  };
-
   // -------------------------------
   // INTERIOR CLICK → show tabs + filter only
   interiorBtn?.addEventListener("click", function() {
@@ -1185,16 +1180,17 @@ document.addEventListener("DOMContentLoaded", function() {
     // Remove active from exterior dropdown
     exteriorToggle?.classList.remove("active");
     surfaceOptions?.style.setProperty("display", "none");
+    surfaceOptions?.querySelectorAll(".surface-item").forEach(i => i.classList.remove("active"));
 
-    // Reset circle tabs
-    resetCircleTabs();
+    // Remove active from circle tabs
+    circleTabs.forEach(t => t.classList.remove("active"));
 
     // Mark Interior as active
     interiorBtn.classList.add("active");
   });
 
   // -------------------------------
-  // EXTERIOR CLICK → toggle dropdown only
+  // EXTERIOR CLICK → toggle dropdown
   exteriorToggle?.addEventListener("click", function(e) {
     e.stopPropagation();
     const isActive = this.classList.contains("active");
@@ -1211,14 +1207,14 @@ document.addEventListener("DOMContentLoaded", function() {
     // Remove active from Interior
     interiorBtn?.classList.remove("active");
 
-    // Hide tabs, filter, and product wrappers until surface selected
+    // Hide circle tabs + filter until a surface is selected
     circleTabsOuter?.classList.remove("show-section");
     filterBar?.classList.remove("show-section");
     tabProductsInterior?.classList.remove("show-section");
     tabProductsExterior?.classList.remove("show-section");
 
-    // Reset circle tabs
-    resetCircleTabs();
+    // Remove active from circle tabs
+    circleTabs.forEach(t => t.classList.remove("active"));
   });
 
   // -------------------------------
@@ -1239,15 +1235,21 @@ document.addEventListener("DOMContentLoaded", function() {
       tabProductsInterior?.classList.remove("show-section");
       tabProductsExterior?.classList.remove("show-section");
 
-      // Reset circle tabs
-      resetCircleTabs();
+      // Keep exterior dropdown open
+      surfaceOptions.style.display = "flex";
+      exteriorToggle.classList.add("active");
+
+      // Remove active from circle tabs
+      circleTabs.forEach(t => t.classList.remove("active"));
     });
   });
 
   // -------------------------------
   // CIRCLE TAB CLICK → show correct product wrapper
   circleTabs.forEach(tab => {
-    tab.addEventListener("click", function() {
+    tab.addEventListener("click", function(e) {
+      e.stopPropagation(); // Prevent closing dropdown
+
       // Remove active from all tabs
       circleTabs.forEach(t => t.classList.remove("active"));
       this.classList.add("active");
@@ -1260,6 +1262,9 @@ document.addEventListener("DOMContentLoaded", function() {
         tabProductsExterior?.classList.add("show-section");
         tabProductsInterior?.classList.remove("show-section");
       }
+
+      // Do NOT close the exterior dropdown
+      // surfaceOptions.style.display = "flex"; // already open
     });
   });
 
@@ -1273,6 +1278,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 </script>
+
 
 
 
