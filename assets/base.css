@@ -3594,6 +3594,7 @@ details-disclosure > details {
   100% {
     transform: translateX(100%) scaleX(0);
   }
+
 }
 @media (min-width: 768px) {
   .jump-links-section {
@@ -3601,15 +3602,9 @@ details-disclosure > details {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-top: 32px !important;     /* meer ruimte boven */
-    margin-bottom: 5px !important;  /* minder ruimte onder */
-  }
-
-  .jump-links-items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    margin-top: 40px !important;     /* meer ruimte boven */
+    margin-bottom: 8px !important;   /* minder ruimte onder */
     gap: 12px;
-    margin-top: 8px;
+    flex-wrap: wrap;
   }
 }
