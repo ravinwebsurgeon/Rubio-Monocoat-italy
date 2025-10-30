@@ -1038,50 +1038,103 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+  // Sections
   const circleTabsOuter = document.querySelector(".circle-tabs-outer");
   const filterBar = document.querySelector(".filter-bar");
   const tabProductsInterior = document.querySelector(".tab-products-wrap.Interior-wrap");
   const tabProductsExterior = document.querySelector(".tab-products-wrap.Exterior-wrap");
 
   const interiorBtn = document.querySelector(".Interio");
+  const exteriorToggle = document.querySelector(".exterior.surface-toggle");
   const surfaceOptions = document.getElementById("exterior-surfaces");
+  const circleTabs = document.querySelectorAll(".circle-tab");
 
-  // Hide all by default
+  // --- Hide all by default ---
   circleTabsOuter?.classList.remove("show-section");
   filterBar?.classList.remove("show-section");
   tabProductsInterior?.classList.remove("show-section");
   tabProductsExterior?.classList.remove("show-section");
 
-  // INTERIOR CLICK
-  if (interiorBtn) {
-    interiorBtn.addEventListener("click", function() {
+  // -------------------------------
+  // INTERIOR CLICK → show tabs + filter only
+  interiorBtn?.addEventListener("click", function() {
+    circleTabsOuter?.classList.add("show-section");
+    filterBar?.classList.add("show-section");
+
+    // Hide product wrappers
+    tabProductsInterior?.classList.remove("show-section");
+    tabProductsExterior?.classList.remove("show-section");
+
+    // Remove active from exterior button
+    exteriorToggle?.classList.remove("active");
+    surfaceOptions?.style.setProperty("display", "none");
+  });
+
+  // -------------------------------
+  // EXTERIOR CLICK → toggle dropdown
+  exteriorToggle?.addEventListener("click", function(e) {
+    e.stopPropagation();
+    const isActive = this.classList.contains("active");
+
+    // Close any open dropdowns first
+    document.querySelectorAll(".surface-options").forEach(opt => opt.style.display = "none");
+    document.querySelectorAll(".surface-toggle").forEach(el => el.classList.remove("active"));
+
+    if (!isActive) {
+      surfaceOptions?.style.setProperty("display", "flex");
+      this.classList.add("active");
+    }
+  });
+
+  // -------------------------------
+  // SURFACE ITEM CLICK → show tabs + filter only
+  surfaceOptions?.querySelectorAll(".surface-item").forEach(item => {
+    item.addEventListener("click", function(e) {
+      e.stopPropagation();
+
+      // Toggle active state
+      surfaceOptions.querySelectorAll(".surface-item").forEach(i => i.classList.remove("active"));
+      this.classList.add("active");
+
+      // Show tabs + filter
       circleTabsOuter?.classList.add("show-section");
       filterBar?.classList.add("show-section");
-      tabProductsInterior?.classList.add("show-section");
 
-      // Hide exterior
+      // Hide product wrappers
+      tabProductsInterior?.classList.remove("show-section");
       tabProductsExterior?.classList.remove("show-section");
     });
-  }
+  });
 
-  // EXTERIOR SURFACE ITEM CLICK
-  if (surfaceOptions) {
-    const surfaceItems = surfaceOptions.querySelectorAll(".surface-item");
-    surfaceItems.forEach(item => {
-      item.addEventListener("click", function(e) {
-        e.stopPropagation();
-        circleTabsOuter?.classList.add("show-section");
-        filterBar?.classList.add("show-section");
+  // -------------------------------
+  // CIRCLE TAB CLICK → show correct product wrapper
+  circleTabs.forEach(tab => {
+    tab.addEventListener("click", function() {
+      // Remove active from all tabs
+      circleTabs.forEach(t => t.classList.remove("active"));
+      this.classList.add("active");
+
+      // Determine if Interior or Exterior should show
+      if (interiorBtn?.classList.contains("active") || !exteriorToggle?.classList.contains("active")) {
+        tabProductsInterior?.classList.add("show-section");
+        tabProductsExterior?.classList.remove("show-section");
+      } else if (surfaceOptions?.querySelector(".surface-item.active")) {
         tabProductsExterior?.classList.add("show-section");
-
-        // Hide interior
         tabProductsInterior?.classList.remove("show-section");
-      });
+      }
     });
-  }
+  });
+
+  // -------------------------------
+  // Click outside dropdown → close exterior dropdown
+  document.addEventListener("click", function(e) {
+    if (!exteriorToggle?.contains(e.target) && !surfaceOptions?.contains(e.target)) {
+      surfaceOptions?.style.setProperty("display", "none");
+      exteriorToggle?.classList.remove("active");
+    }
+  });
 });
 </script>
-
 
 <style>
 /* Hide all sections by default */

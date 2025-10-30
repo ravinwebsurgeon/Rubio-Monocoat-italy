@@ -3597,36 +3597,27 @@ details-disclosure > details {
 
 
   }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
+  /* Jump to sectie centreren en compacter maken */
   .jump-links-section {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    margin-top: 40px !important;     /* meer ruimte boven */
-    margin-bottom: 8px !important;   /* minder ruimte onder */
+    margin-top: 40px !important;     /* meer ruimte boven menu */
+    margin-bottom: 8px !important;   /* minder ruimte onder menu */
     gap: 12px !important;
     flex-wrap: wrap !important;
   }
-  }
-@media (min-width: 992px) {
-  .jump-links-section {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-  }
 
+  /* Grijze/blauwe sectie: minder witruimte erboven */
   section#product-info {
     margin-top: 0 !important;
-    padding-top: 0 !important;
+    padding-top: 30px !important; /* pas aan naar 24px of 40px voor minder/meer ruimte */
   }
 
+  /* Titel in de blauwe sectie: lucht boven de titel */
   section#product-info h2.section-heading {
-    margin-top: 32px !important; /* dit moet nu echt effect hebben */
-  }
-}
-@media (min-width: 992px) {
-  section#product-info {
-    padding-top: 30px !important;  /* pas dit getal aan voor meer of minder ruimte */
-    margin-top: 0 !important;      /* zorg dat er geen dubbele marge actief is */
+    margin-top: 32px !important;
   }
 }
