@@ -3597,27 +3597,40 @@ details-disclosure > details {
 
 
   }
+@media (max-width: 991px) {
+  .jump-links-section {
+    margin-bottom: 8px !important;
+  }
+
+  section#product-info {
+    margin-top: 0 !important;
+    padding-top: 16px !important;  /* of 8px voor nog compacter, pas aan naar smaak */
+  }
+
+  section#product-info h2.section-heading {
+    margin-top: 16px !important;
+  }
+}
+
+/* ✅ Desktop styling */
 @media (min-width: 992px) {
-  /* Jump to sectie centreren en compacter maken */
   .jump-links-section {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    margin-top: 40px !important;     /* meer ruimte boven menu */
-    margin-bottom: 8px !important;   /* minder ruimte onder menu */
+    margin-top: 40px !important;
+    margin-bottom: 8px !important;
     gap: 12px !important;
     flex-wrap: wrap !important;
   }
 
-  /* Grijze/blauwe sectie: minder witruimte erboven */
   section#product-info {
     margin-top: 0 !important;
-    padding-top: 30px !important; /* pas aan naar 24px of 40px voor minder/meer ruimte */
+    padding-top: 30px !important;
   }
 
-  /* Titel in de blauwe sectie: lucht boven de titel */
   section#product-info h2.section-heading {
-    margin-top: 20px !important;
+    margin-top: 32px !important;
   }
 }
