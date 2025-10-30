@@ -50,7 +50,8 @@
       "type": "custom_blog_slider",
       "name": "Custom Blog Slider",
       "settings": {
-        "heading": "{{ page.metafields.custom.blog_heading.value }}"
+        "heading": "{{ page.metafields.custom.blog_heading.value }}",
+        "source_page": "exterior-protection"
       }
     },
     "custom_surface_slider_WcApa9": {
