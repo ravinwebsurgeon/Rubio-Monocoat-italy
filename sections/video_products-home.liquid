@@ -144,30 +144,6 @@ $(document).on("click", ".slide-next-btn.gg-3, .slide-next-btn.gg-2", function (
 });
 
 
-{% comment %} document.addEventListener("DOMContentLoaded", function () {
-  const track = document.querySelector(".product-track");
-  
-  // Define how much to move each time
-  const moves = [470, 150];  
-  let currentIndex = 0;
-  let currentOffset = 0;
-
-  function moveSlide() {
-    if (currentIndex < moves.length) {
-      currentOffset -= moves[currentIndex]; 
-      track.style.transform = `translateX(${currentOffset}px)`;
-      currentIndex++;
-    } else {
-      // Reset back to start
-      currentIndex = 0;
-      currentOffset = 0;
-      track.style.transform = `translateX(0px)`;
-    }
-  }
-
-  // Auto slide every 30s
-  setInterval(moveSlide, 6000);
-}); {% endcomment %}
 document.addEventListener("DOMContentLoaded", function () {
   const track = document.querySelector(".product-track");
   const wrapper = document.querySelector(".product-slider");
@@ -371,6 +347,15 @@ document.addEventListener("DOMContentLoaded", function () {
       "default": "View All Products"
     },
     {
+      "type": "range",
+      "id": "delay_time",
+      "label": "Slide Delay (seconds)",
+      "min": 2,
+      "max": 15,
+      "step": 1,
+      "default": 6
+    },
+    {
       "type": "color",
       "id": "section_background_color",
       "label": "Section Background Color",
@@ -436,84 +421,22 @@ document.addEventListener("DOMContentLoaded", function () {
       "type": "product_block",
       "name": "Product",
       "settings": [
-        {
-          "type": "product",
-          "id": "product",
-          "label": "Select Product"
-        },
-        {
-          "type": "image_picker",
-          "id": "icon_1",
-          "label": "First Icon"
-        },
-        {
-          "type": "url",
-          "id": "icon_1_link",
-          "label": "First Icon Link"
-        },
-        {
-          "type": "image_picker",
-          "id": "icon_2",
-          "label": "Second Icon"
-        },
-        {
-          "type": "url",
-          "id": "icon_2_link",
-          "label": "Second Icon Link"
-        },
-        {
-          "type": "color",
-          "id": "product_card_bg_color",
-          "label": "Product Card Background Color",
-          "default": "#ffffff"
-        },
-        {
-          "type": "range",
-          "id": "product_card_border_radius",
-          "label": "Product Card Border Radius (px)",
-          "min": 0,
-          "max": 50,
-          "step": 1,
-          "default": 20
-        },
-        {
-          "type": "color",
-          "id": "product_title_color",
-          "label": "Product Title Color",
-          "default": "#000000"
-        },
-        {
-          "type": "range",
-          "id": "product_title_font_size",
-          "label": "Product Title Font Size (px)",
-          "min": 12,
-          "max": 36,
-          "step": 1,
-          "default": 20
-        },
-        {
-          "type": "color",
-          "id": "price_color",
-          "label": "Price Color",
-          "default": "#2f4f2f"
-        },
-        {
-          "type": "range",
-          "id": "price_font_size",
-          "label": "Price Font Size (px)",
-          "min": 10,
-          "max": 28,
-          "step": 1,
-          "default": 14
-        }
+        { "type": "product", "id": "product", "label": "Select Product" },
+        { "type": "image_picker", "id": "icon_1", "label": "First Icon" },
+        { "type": "url", "id": "icon_1_link", "label": "First Icon Link" },
+        { "type": "image_picker", "id": "icon_2", "label": "Second Icon" },
+        { "type": "url", "id": "icon_2_link", "label": "Second Icon Link" },
+        { "type": "color", "id": "product_card_bg_color", "label": "Product Card Background Color", "default": "#ffffff" },
+        { "type": "range", "id": "product_card_border_radius", "label": "Product Card Border Radius (px)", "min": 0, "max": 50, "step": 1, "default": 20 },
+        { "type": "color", "id": "product_title_color", "label": "Product Title Color", "default": "#000000" },
+        { "type": "range", "id": "product_title_font_size", "label": "Product Title Font Size (px)", "min": 12, "max": 36, "step": 1, "default": 20 },
+        { "type": "color", "id": "price_color", "label": "Price Color", "default": "#2f4f2f" },
+        { "type": "range", "id": "price_font_size", "label": "Price Font Size (px)", "min": 10, "max": 28, "step": 1, "default": 14 }
       ]
     }
   ],
   "presets": [
-    {
-      "name": "Video Products home",
-      "category": "Custom"
-    }
+    { "name": "Video Products home", "category": "Custom" }
   ]
 }
 {% endschema %}
