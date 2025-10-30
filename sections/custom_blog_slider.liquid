@@ -122,9 +122,9 @@
 {% endstylesheet %}
 {% assign source_page = pages[section.settings.source_page] %}
 {% assign related_articles = source_page.metafields.custom.blog_posts.value %}
-<pre>
+{% comment %} <pre>
 {{ source_page.metafields.custom.blog_posts.value | json }}
-</pre>
+</pre> {% endcomment %}
 <section class="custom_blog_slider">
   <div class="container"> 
     <div class="blog-header">
@@ -158,7 +158,7 @@
      {% if related_articles and related_articles.size > 0 %}
   <div class="related-articles-slider">
     {% for article in related_articles %}
-      <div class="slider-card">
+      <div class="slider-card {{ article.title }}">
         <div class="slider-card-image">
           {% if article.image and article.image.src %}
             <a href="/blogs/{{ article.blog_id }}/{{ article.handle }}">
