@@ -3679,6 +3679,6 @@ input[type="radio"].swatch-input__input:checked + label .variant-price {
   /* Zorg dat de calculator‑zin echt wat verder naar beneden komt */
   .form__label.variant-oil-row .oil-calculator-box {
     margin-top: 4px !important;
-    padding-top: 2px !important;
+    padding-top: 0px !important;
   }
 }
