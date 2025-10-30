@@ -3650,3 +3650,10 @@ input.swatch-input__input[name="Size-2"] ~ label.swatch-input__label {
   padding: 8px !important;
   box-sizing: border-box !important;
 }
+
+@media (max-width: 991px) {
+  .oil-calculator-box {
+    padding-top: 4px !important;  /* of 0px voor volledig weg */
+    margin-top: 0 !important;
+  }
+}
