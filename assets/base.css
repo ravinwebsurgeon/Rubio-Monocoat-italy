@@ -3626,6 +3626,6 @@ details-disclosure > details {
 }
 @media (min-width: 992px) {
   .product-features-section .section-heading {
-    margin-top: 24px !important; /* of 32px voor iets meer ademruimte */
+    margin-top: 32x !important; /* of 32px voor iets meer ademruimte */
   }
 }
