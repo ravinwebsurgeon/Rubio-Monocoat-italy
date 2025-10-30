@@ -1,6 +1,7 @@
 {% assign links = page.metafields.custom.floor_steps_url  %}
 {% assign images = page.metafields.custom.floor_steps_images.value %}
 {% assign headings = page.metafields.custom.floor_steps_heading.value  %}
+{% assign floor_heading = page.metafields.custom.floor_steps_main_heading.value %}
 
 {% assign product = page.metafields.custom.filling_gap_product.value  %}
 {% assign filling_gap_image = page.metafields.custom.filling_gap_image.value  %}
@@ -22,7 +23,7 @@
 
 <div class="exterior-floor-steps-section">
   <div class="containers">
-    <h2 class="steps_heading">What you’ll need to oil your wooden floor</h2>
+    <h2 class="steps_heading">{{ floor_heading }}</h2>
     <p class="step_subheading ">Frutiger Condensed</p>
      <div class="steps-wrapper">    
     {% for image in images %}
