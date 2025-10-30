@@ -3700,15 +3700,17 @@ input[type="radio"].swatch-input__input:checked + label .variant-price {
 }
 
 @media (max-width: 768px) {
-  .product__info-container [name="Size-2"] + label {
-    font-size: 1rem; /* vergroot de tekst */
-    padding: 0.8em 1.2em; /* knop schaalt mee */
-    min-width: 80px; /* voorkomt te smalle knoppen */
-    line-height: 1.2; /* beter uitlijnen van tekst */
+  /* Alleen de Size-2 knoppen */
+  .product__info-container input[name="Size-2"] + label {
+    font-size: 1.1rem !important; /* vergroot tekst en overschrijft thema */
+    padding: 0.9em 1.3em !important; /* knop schaalt mee */
+    min-width: 90px;
+    line-height: 1.2;
+    text-align: center;
   }
 
-  /* Zorg dat de tekst nooit buiten de knop komt */
-  .product__info-container [name="Size-2"] + label span {
+  /* voorkom afbreken of uitrekken */
+  .product__info-container input[name="Size-2"] + label span {
     white-space: nowrap;
   }
 }
