@@ -3599,7 +3599,7 @@ details-disclosure > details {
   }
 @media (max-width: 991px) {
   .jump-links-section {
-    margin-bottom: 15px !important;
+    margin-bottom: 8px !important;
   }
 
   section#product-info {
@@ -3620,7 +3620,7 @@ details-disclosure > details {
     align-items: center !important;
     text-align: center !important;
     margin-top: 40px !important;
-    margin-bottom: 8px !important;
+    margin-bottom: 15px !important;
     gap: 12px !important;
     flex-wrap: wrap !important;
   }
