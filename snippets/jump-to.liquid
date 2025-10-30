@@ -2,13 +2,14 @@
   
   <div class="jump-links-grid">
     <h3 class="jump-links-heading">Jump to...</h3>
-    <a href="#product-info" class="jump-link-item">
-      <div class="jump-to-icon">
-      <img src="{{ 'icon-product.svg' | asset_url }}" alt="Product info" class="jump-link-icon">
-      </div>
-      <span class="jump-link-text">Product info</span>
-    </a>
-
+    {% if product_info_sec != blank %}
+      <a href="#product-info" class="jump-link-item">
+        <div class="jump-to-icon">
+        <img src="{{ 'icon-product.svg' | asset_url }}" alt="Product info" class="jump-link-icon">
+        </div>
+        <span class="jump-link-text">Product info</span>
+      </a>
+    {% endif %}
     <a href="#how-to-apply" class="jump-link-item">
       <div class="jump-to-icon">
       <img src="{{ 'icon-apply.svg' | asset_url }}" alt="How to apply" class="jump-link-icon">
