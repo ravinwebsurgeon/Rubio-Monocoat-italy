@@ -405,6 +405,7 @@ document.addEventListener("DOMContentLoaded", function(){
           const addonUrl = `/products/${addon.handle}`;
           const addonDiv = document.createElement('div');
           addonDiv.classList.add('addon-item-data');
+          addonDiv.innerHTML = '';
           addonDiv.innerHTML = `
              <button class="add_addon">+</button>
               <input type="hidden" class="variant-selector" name="variant-selector" value="${addon.variants[0].id}"> 
