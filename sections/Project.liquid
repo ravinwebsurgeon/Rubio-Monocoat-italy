@@ -1169,6 +1169,50 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script> {% endcomment %}
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const exteriorToggle = document.querySelector(".exterior.surface-toggle");
+  const surfaceOptions = document.getElementById("exterior-surfaces");
+
+  if (exteriorToggle && surfaceOptions) {
+
+    // Toggle dropdown open/close
+    exteriorToggle.addEventListener("click", function(e) {
+      e.stopPropagation();
+
+      const isActive = this.classList.contains("active");
+
+      // Close all other dropdowns
+      document.querySelectorAll(".surface-options").forEach(opt => opt.style.display = "none");
+      document.querySelectorAll(".surface-toggle").forEach(el => el.classList.remove("active"));
+
+      // Open only if it wasn't already active
+      if (!isActive) {
+        surfaceOptions.style.display = "flex";
+        this.classList.add("active");
+      }
+    });
+
+    // Handle surface item selection
+    const surfaceItems = surfaceOptions.querySelectorAll(".surface-item");
+    surfaceItems.forEach(item => {
+      item.addEventListener("click", function(e) {
+        e.stopPropagation(); // Keep dropdown open
+        surfaceItems.forEach(i => i.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", function(e) {
+      if (!exteriorToggle.contains(e.target) && !surfaceOptions.contains(e.target)) {
+        surfaceOptions.style.display = "none";
+        exteriorToggle.classList.remove("active");
+      }
+    });
+  }
+});
+</script>
 
 <style>
 /* Hide all sections by default */
