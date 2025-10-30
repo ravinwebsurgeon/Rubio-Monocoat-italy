@@ -291,26 +291,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function updateCartCount(totalQuantityAdded) {
-  {% comment %} const cartCounts = document.querySelectorAll('.cart-count-bubble > span');
-  if (cartCounts.length > 1) {
-    cartCounts.forEach(count => {
-      const currentNumberMatch = count.textContent.match(/\d+/);
-      const currentNumber = currentNumberMatch ? parseInt(currentNumberMatch[0]) : 0;
-      const newNumber = currentNumber + totalQuantityAdded;
-      count.textContent = count.textContent.replace(/\d+/, newNumber);
-      // Remove custom count bubble if any
-      const customCount = document.querySelector('.custom-cart-count-bubble > span');
-      if (customCount) customCount.remove();
-    });
-  } else {
-    const customCount = document.querySelector('.custom-cart-count-bubble > span');
-    if (customCount) {
-    console.log('custom cart found successfully',customCount.textContent)
-    let number = Number(customCount.textContent) || 0;
-      customCount.textContent = number + totalQuantityAdded;
-      customCount.parentNode.style.display = 'block';
-    }
-  } {% endcomment %}
     const cartCounts = document.querySelectorAll('.cart-count-bubble > span');
     const customCount = document.querySelector('.custom-cart-count-bubble > span');
 
