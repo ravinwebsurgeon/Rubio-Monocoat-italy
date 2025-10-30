@@ -352,14 +352,10 @@ document.addEventListener("DOMContentLoaded", function(){
       const image = this.dataset.image;
       const url = this.dataset.url;
       const variant_id = this.dataset.variant;
-
-      {% comment %} const addons = JSON.parse(this.dataset.addons);
-      console.log(addons,'check'); {% endcomment %}
       const scriptTag = this.parentElement.querySelector('script.addons');
       const addons = JSON.parse(scriptTag.textContent);
-      // Loop through each addon
       addons.forEach(addon => {
-      addonAdd(addon)
+          addonAdd(addon)
     });
       popupmain.classList.add('active-popup');
       popupImage.src = image;
