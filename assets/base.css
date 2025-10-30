@@ -3619,7 +3619,7 @@ details-disclosure > details {
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    margin-top: 30px !important;
+    margin-top: 40px !important;
     margin-bottom: 8px !important;
     gap: 12px !important;
     flex-wrap: wrap !important;
@@ -3631,6 +3631,6 @@ details-disclosure > details {
   }
 
   section#product-info h2.section-heading {
-    margin-top: 32px !important;
+    margin-top: 25px !important;
   }
 }
