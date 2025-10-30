@@ -3608,7 +3608,7 @@ details-disclosure > details {
     gap: 12px !important;
     flex-wrap: wrap !important;
   }
-}
+  }
 @media (min-width: 992px) {
   .jump-links-section {
     margin-bottom: 0 !important;
@@ -3616,11 +3616,11 @@ details-disclosure > details {
   }
 
   section#product-info {
-    margin-top: 0 !important; /* geen extra marge meer op de hele section */
+    margin-top: 0 !important;
     padding-top: 0 !important;
   }
 
-  .product-features-section .section-heading {
-    margin-top: 50px !important; /* alleen de titel krijgt ruimte */
+  section#product-info h2.section-heading {
+    margin-top: 32px !important; /* dit moet nu echt effect hebben */
   }
 }
