@@ -7,16 +7,19 @@ Metafields:
 - custom.visit_faq_answers
 {% endcomment %}
 {% if product.metafields.custom.visit_faq_ques.value != blank and product.metafields.custom.visit_faq_answers.value != blank %}
-<div class="visit-faq-section-sect">
+{% assign visit_faq_heading = product.metafields.custom.visit_faq_heading.value %}
+{% assign visit_faq_btn = product.metafields.custom.visit_fqa_btn.value %}
+{% assign visit_faq_link = product.metafields.custom.visit_faq_btn_link.value %}
+  <div class="visit-faq-section-sect">
   <section class="visit-faq-section" id="faqs">
     <div class="faq-container">
       <!-- Left Column -->
       <div class="faq-left">
-        <h2 class="faq-heading1">{{ section.settings.heading }}</h2>
+        <h2 class="faq-heading1">{{ visit_faq_heading }}</h2>
         <div class="desktop-display-block">
-        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-          <a href="{{ section.settings.button_link }}" class="faq-btn">
-            {{ section.settings.button_label }}
+        {% if visit_faq_btn != blank and section.settings.button_link != blank %}
+          <a href="{{ visit_faq_link }}" class="faq-btn">
+            {{ visit_faq_btn }}
           </a>
         {% endif %}
       </div>
