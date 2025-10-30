@@ -1219,20 +1219,17 @@ document.addEventListener("DOMContentLoaded", function() {
   const surfaceOptions = document.getElementById("exterior-surfaces");
 
   if (exteriorToggle && surfaceOptions) {
-    
-    // Toggle dropdown open/close
+
+    // Toggle dropdown visibility (not the entire exterior-wrap)
     exteriorToggle.addEventListener("click", function(e) {
       e.stopPropagation();
 
-      const isActive = this.classList.contains("active");
+      this.classList.toggle("active");
 
-      // Toggle the current dropdown only
-      if (isActive) {
-        this.classList.remove("active");
-        surfaceOptions.style.display = "none";
-      } else {
-        this.classList.add("active");
+      if (this.classList.contains("active")) {
         surfaceOptions.style.display = "flex";
+      } else {
+        surfaceOptions.style.display = "none";
       }
     });
 
@@ -1240,13 +1237,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const surfaceItems = surfaceOptions.querySelectorAll(".surface-item");
     surfaceItems.forEach(item => {
       item.addEventListener("click", function(e) {
-        e.stopPropagation(); // prevent closing
+        e.stopPropagation(); // keep dropdown open
         surfaceItems.forEach(i => i.classList.remove("active"));
         this.classList.add("active");
       });
     });
 
-    // Close dropdown when clicking outside
+    // Click outside to close only the dropdown, not the exterior-wrap
     document.addEventListener("click", function(e) {
       if (!exteriorToggle.contains(e.target) && !surfaceOptions.contains(e.target)) {
         surfaceOptions.style.display = "none";
