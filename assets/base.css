@@ -3610,6 +3610,6 @@ details-disclosure > details {
 }
 @media (min-width: 768px) {
   .product-features-section .section-heading {
-    margin-top: 40px !important;
+    margin-top: 20px !important;
   }
 }
