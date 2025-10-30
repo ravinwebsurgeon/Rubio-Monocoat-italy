@@ -3607,7 +3607,7 @@ details-disclosure > details {
     gap: 12px !important;
     flex-wrap: wrap !important;
   }
-  
+
   }
 @media (min-width: 992px) {
   .jump-links-section {
@@ -3622,5 +3622,10 @@ details-disclosure > details {
 
   .product-features-section .section-heading {
     margin-top: 0 !important;
+  }
+}
+@media (min-width: 992px) {
+  .product-features-section .section-heading {
+    margin-top: 24px !important; /* of 32px voor iets meer ademruimte */
   }
 }
