@@ -3608,3 +3608,6 @@ details-disclosure > details {
     flex-wrap: wrap;
   }
 }
+.jump-links-section {
+  background: red !important;
+}
