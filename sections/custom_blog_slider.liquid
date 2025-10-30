@@ -122,7 +122,9 @@
 {% endstylesheet %}
 {% assign source_page = pages[section.settings.source_page] %}
 {% assign related_articles = source_page.metafields.custom.blog_posts.value %}
-
+<pre>
+{{ source_page.metafields.custom.blog_posts.value | json }}
+</pre>
 <section class="custom_blog_slider">
   <div class="container"> 
     <div class="blog-header">
