@@ -3640,42 +3640,35 @@ input[type="radio"].swatch-input__input:checked + label .variant-price {
 
 }
 
-/* 🔧 MOBILE STYLING */
 @media (max-width: 991px) {
-  /* Witruimte onder de knoppen verminderen */
-  .jump-links-section {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-  }
-
-  /* Witruimte boven de Durogrit feature blok */
-  section#product-info {
-    margin-top: 0 !important;
-    padding-top: 16px !important;
-  }
-
-  /* Titel marges mobiel */
-  section#product-info h2.section-heading {
-    margin-top: 16px !important;
-  }
-
-  /* Zet "Size" en "How much oil do I need?" op 1 lijn met icon */
   .form__label.variant-oil-row {
-    display: flex;
+    display: flex !important;
     justify-content: space-between;
     align-items: center;
-    margin-top: 12px !important;
-    padding-bottom: 4px !important;
+    flex-wrap: nowrap;
     gap: 8px;
+    margin-bottom: 8px !important;
   }
 
-  .form__label.variant-oil-row .oil-calculator-box {
+  .variant-size {
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .oil-calculator-box {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
+    margin-top: 0 !important;
   }
 
-  .form__label.variant-oil-row .oil-calculator-text {
-    font-weight: 600;
+  .oil-calculator-text {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .oil-calculator-box svg {
+    width: 16px;
+    height: 16px;
   }
 }
