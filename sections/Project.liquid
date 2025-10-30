@@ -1167,6 +1167,11 @@ document.addEventListener("DOMContentLoaded", function() {
   tabProductsInterior?.classList.remove("show-section");
   tabProductsExterior?.classList.remove("show-section");
 
+  // Helper to reset tabs
+  const resetCircleTabs = () => {
+    circleTabs.forEach(t => t.classList.remove("active"));
+  };
+
   // -------------------------------
   // INTERIOR CLICK → show tabs + filter only
   interiorBtn?.addEventListener("click", function() {
@@ -1180,6 +1185,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Remove active from exterior dropdown
     exteriorToggle?.classList.remove("active");
     surfaceOptions?.style.setProperty("display", "none");
+
+    // Reset circle tabs
+    resetCircleTabs();
 
     // Mark Interior as active
     interiorBtn.classList.add("active");
@@ -1208,6 +1216,9 @@ document.addEventListener("DOMContentLoaded", function() {
     filterBar?.classList.remove("show-section");
     tabProductsInterior?.classList.remove("show-section");
     tabProductsExterior?.classList.remove("show-section");
+
+    // Reset circle tabs
+    resetCircleTabs();
   });
 
   // -------------------------------
@@ -1227,6 +1238,9 @@ document.addEventListener("DOMContentLoaded", function() {
       // Hide product wrappers until a circle tab is clicked
       tabProductsInterior?.classList.remove("show-section");
       tabProductsExterior?.classList.remove("show-section");
+
+      // Reset circle tabs
+      resetCircleTabs();
     });
   });
 
@@ -1259,6 +1273,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 </script>
+
 
 
 
