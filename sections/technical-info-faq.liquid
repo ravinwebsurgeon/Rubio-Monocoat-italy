@@ -3,6 +3,7 @@
   Layout: Heading → Image on left → Accordion on right
 {% endcomment %}
  {% assign tech_info_heading = product.metafields.custom.tech_info_heading.value %}
+ {% assign image = product.metafields.custom.tech_info_image.value %}
 {% if product.metafields.custom.technical_info_faq_question.value != blank and product.metafields.custom.technical_info_faq_answer.value != blank %}
 <div class="tech-info-wrapper-sec">
   <div class="tech-info-wrapper page-width" id="technical-info">
@@ -15,7 +16,7 @@
         {% endif %}
         {% if section.settings.image != blank %}
           <div class="tech-info-image">
-            <img src="{{ section.settings.image | img_url: '800x' }}" alt="{{ tech_info_heading | escape }}" loading="lazy">
+            <img src="{{ image | img_url: '800x' }}" alt="{{ tech_info_heading | escape }}" loading="lazy">
           </div>
         {% endif %}
       </div>
