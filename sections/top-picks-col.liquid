@@ -101,7 +101,7 @@
                 data-url="{{ product.url }}" 
                 data-image="{{ product.featured_image | img_url: 'medium' }}" 
                 data-title = "{{ product.title }}" 
-                data-addons = "{{ addon_products | json }}"
+                data-addons = {{ addon_products | json }}
                 type="button">+</button>
             </div>
           </div>
