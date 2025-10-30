@@ -1,6 +1,17 @@
- 
-<section class="video-products-section {{ section.settings.custom_class }}">
-   <div class="container" data-aos="fade-up">
+<section 
+  class="video-products-section"
+  style="
+    --section-bg: {{ section.settings.section_background_color | default: '#f5f5f5' }};
+    --heading-color: {{ section.settings.heading_color | default: '#000000' }};
+    --heading-size: {{ section.settings.heading_font_size | default: 36 }}px;
+    --video-radius: {{ section.settings.video_border_radius | default: 12 }}px;
+    --view-btn-bg: {{ section.settings.view_button_bg_color | default: '#000000' }};
+    --view-btn-color: {{ section.settings.view_button_text_color | default: '#ffffff' }};
+    --view-btn-size: {{ section.settings.view_button_font_size | default: 16 }}px;
+    --view-btn-radius: {{ section.settings.view_button_border_radius | default: 8 }}px;
+  "
+>
+  <div class="container" data-aos="fade-up">
     <h2 class="video-heading" style="color: var(--heading-color); font-size: var(--heading-size);">{{ section.settings.heading }}</h2>
     <div class="video-wrapper">
       <div class="video-container" style="border-radius: var(--video-radius);">
@@ -132,7 +143,32 @@ $(document).on("click", ".slide-next-btn.gg-3, .slide-next-btn.gg-2", function (
     }, 200); // change the time as needed
 });
 
+
 {% comment %} document.addEventListener("DOMContentLoaded", function () {
+  const track = document.querySelector(".product-track");
+  
+  // Define how much to move each time
+  const moves = [470, 150];  
+  let currentIndex = 0;
+  let currentOffset = 0;
+
+  function moveSlide() {
+    if (currentIndex < moves.length) {
+      currentOffset -= moves[currentIndex]; 
+      track.style.transform = `translateX(${currentOffset}px)`;
+      currentIndex++;
+    } else {
+      // Reset back to start
+      currentIndex = 0;
+      currentOffset = 0;
+      track.style.transform = `translateX(0px)`;
+    }
+  }
+
+  // Auto slide every 30s
+  setInterval(moveSlide, 6000);
+}); {% endcomment %}
+document.addEventListener("DOMContentLoaded", function () {
   const track = document.querySelector(".product-track");
   const wrapper = document.querySelector(".product-slider");
 
@@ -161,43 +197,6 @@ $(document).on("click", ".slide-next-btn.gg-3, .slide-next-btn.gg-2", function (
   }
 
   animate();
-}); {% endcomment %}
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  const track = document.querySelector(".product-track");
-  const wrapper = document.querySelector(".product-slider");
-
-  const slides = Array.from(track.children);
-  let currentIndex = 0;
-  let isPaused = false;
-  const slideWidth = slides[0].offsetWidth;
-  const totalSlides = slides.length;
-  const delay = {{ section.settings.delay_time | default: 6 }} * 1000;
-
-  wrapper.addEventListener("mouseenter", () => (isPaused = true));
-  wrapper.addEventListener("mouseleave", () => (isPaused = false));
-
-  function moveSlides() {
-    if (isPaused) return;
-
-    currentIndex++;
-
-    // Smooth slide move
-    track.style.transition = "transform 0.8s ease-in-out";
-    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-
-    // When last slide ends, go back smoothly
-    if (currentIndex >= totalSlides) {
-      setTimeout(() => {
-        track.style.transition = "none";
-        track.style.transform = "translateX(0)";
-        currentIndex = 0;
-      }, 800);
-    }
-  }
-
-  setInterval(moveSlides, delay);
 });
 
 
@@ -216,9 +215,6 @@ document.addEventListener("DOMContentLoaded", function () {
   right: 20px;
   width: 936px;
   overflow: hidden;
-}
-section.video-products-section.product-with-videos {
-    margin-bottom: 0;
 }
 /* 
 .product-slider {
@@ -251,7 +247,7 @@ section.video-products-section.product-with-videos {
     overflow: hidden;
   }
 
-  .video-container .video-bg ,  .video-container video{
+  .video-container .video-bg {
     width: 100%;
     height: 700px;
     object-fit: cover;
@@ -330,10 +326,6 @@ section.video-products-section.product-with-videos {
     background: #1b3a27ad;
     transition: all ease 1s;
   }
-  .view-button:hover, .view-button:focus, .view-button:active {
-    background: #1b3a27ad;
-    color: #fff;
-}
 .product-overlay {
     transition: transform .64s ease, visibility .64s ease;
 }
@@ -353,6 +345,11 @@ section.video-products-section.product-with-videos {
 }
 
 
+
+
+
+
+
 .product-card {
   flex: 0 0 100%; /* each card takes full width */
   max-width: 100%;
@@ -366,17 +363,13 @@ section.video-products-section.product-with-videos {
   "settings": [
     {
       "type": "text",
-      "id": "custom_class",
-      "label": "Custom Class"
-    },
-    {
-      "type": "text",
       "id": "heading",
       "label": "Heading",
+      "default": "Application in a few simple steps"
     },
     {
       "type": "url",
-      "id": "video_link",
+      "id": "video_url",
       "label": "Video MP4 URL"
     },
     {
@@ -390,34 +383,65 @@ section.video-products-section.product-with-videos {
       "label": "Button Label",
       "default": "View All Products"
     },
-     {
-        "type": "image_picker",
-        "id": "cart_icon",
-        "label": "First Icon"
-     },
     {
-      "type": "image_picker",
-      "id": "move_icon",
-      "label": "Second Icon"
+      "type": "color",
+      "id": "section_background_color",
+      "label": "Section Background Color",
+      "default": "#f5f5f5"
     },
     {
-      "type": "url",
-      "id": "cart_icon_link",
-      "label": "First Icon Link"
-    },
-    {
-      "type": "url",
-      "id": "move_icon_link",
-      "label": "Second Icon Link"
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#000000"
     },
     {
       "type": "range",
-      "id": "delay_time",
-      "label": "Slide Delay (seconds)",
-      "min": 2,
-      "max": 15,
+      "id": "heading_font_size",
+      "label": "Heading Font Size (px)",
+      "min": 16,
+      "max": 72,
       "step": 1,
-      "default": 6
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "video_border_radius",
+      "label": "Video Border Radius (px)",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "view_button_bg_color",
+      "label": "View Button Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "view_button_text_color",
+      "label": "View Button Text Color",
+      "default": "#183029"
+    },
+    {
+      "type": "range",
+      "id": "view_button_font_size",
+      "label": "View Button Font Size (px)",
+      "min": 10,
+      "max": 28,
+      "step": 1,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "view_button_border_radius",
+      "label": "View Button Border Radius (px)",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "default": 50
     }
   ],
   "blocks": [
@@ -449,6 +473,51 @@ section.video-products-section.product-with-videos {
           "type": "url",
           "id": "icon_2_link",
           "label": "Second Icon Link"
+        },
+        {
+          "type": "color",
+          "id": "product_card_bg_color",
+          "label": "Product Card Background Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "range",
+          "id": "product_card_border_radius",
+          "label": "Product Card Border Radius (px)",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "default": 20
+        },
+        {
+          "type": "color",
+          "id": "product_title_color",
+          "label": "Product Title Color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "product_title_font_size",
+          "label": "Product Title Font Size (px)",
+          "min": 12,
+          "max": 36,
+          "step": 1,
+          "default": 20
+        },
+        {
+          "type": "color",
+          "id": "price_color",
+          "label": "Price Color",
+          "default": "#2f4f2f"
+        },
+        {
+          "type": "range",
+          "id": "price_font_size",
+          "label": "Price Font Size (px)",
+          "min": 10,
+          "max": 28,
+          "step": 1,
+          "default": 14
         }
       ]
     }
