@@ -1184,12 +1184,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /* Show tabs + filter */
 .show-section.circle-tabs-outer,
-.show-section {
-  display: block !important; /* preserve layout */
+.show-section.filter-bar {
+  display: flex !important; /* preserve layout */
 }
-.filter-bar{
-  display:flex !important;
-}
+
 /* Show product wrappers */
 .show-section.tab-products-wrap.Interior-wrap,
 .show-section.tab-products-wrap.Exterior-wrap {
