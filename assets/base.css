@@ -3597,18 +3597,15 @@ details-disclosure > details {
 
 
   }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .jump-links-section {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin-top: 40px !important;     /* meer ruimte boven */
+    margin-bottom: 8px !important;   /* minder ruimte onder */
+    gap: 12px !important;
+    flex-wrap: wrap !important;
   }
-
-  section#product-info {
-    margin-top: 24px !important; /* pas aan: kleiner = compacter witruimte */
-    padding-top: 0 !important;
-  }
-
-  .product-features-section .section-heading {
-    margin-top: 0 !important;
-  }
- }
+}
