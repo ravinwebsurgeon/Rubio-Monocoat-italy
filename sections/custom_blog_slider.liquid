@@ -165,7 +165,7 @@
            {% assign img_src = article.image.src | remove: '\\' | replace_first: '//', 'https://' %}
 
             <a href="/blogs/{{ article.blog_id }}/{{ article.handle }}">
-              <img src="{{img_src }}" alt="{{ article.image.alt | default: article.title }}">
+              <img src="{{img_src | image_url }}" alt="{{ article.image.alt | default: article.title }}">
             </a>
           {% endif %}
         </div>
