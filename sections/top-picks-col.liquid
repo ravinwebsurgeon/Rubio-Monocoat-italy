@@ -402,14 +402,15 @@ document.addEventListener("DOMContentLoaded", function(){
           else if (addon.variants?.[0]?.featured_image?.src) {
             imageSrc = addon.variants[0].featured_image.src;
           }
-        const addonDiv = document.createElement('div');
-        addonDiv.classList.add('addon-item-data');
-        addonDiv.innerHTML = `
-          <a href="${addon.url}"><div class=media_content><img src="${imageSrc}" style="width:100px;" /></div>
-          <div class="addon_item_title"><p>${addon.title}</p></div></a>
-        `;
+          const addonUrl = `/products/${addon.handle}`;
+          const addonDiv = document.createElement('div');
+          addonDiv.classList.add('addon-item-data');
+          addonDiv.innerHTML = `
+            <a href="${addonUrl}"><div class=media_content><img src="${imageSrc}" style="width:100px;" /></div>
+            <div class="addon_item_title"><p>${addon.title}</p></div></a>
+          `;
 
-        container.appendChild(addonDiv);
+          container.appendChild(addonDiv);
     });
   }
 });
