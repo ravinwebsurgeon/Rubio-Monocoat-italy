@@ -72,7 +72,7 @@
             {% endif %}
             <div class="circle-tabs">
               {% for block in section.blocks %}
-                <button class="circle-tab{% if forloop.first %} active{% endif %}" data-tab="tab-{{ block.id }}">
+                <button class="circle-tab" data-tab="tab-{{ block.id }}">
                   {% if block.settings.tab_image %}
                     <span class="circle-tab-ing"> 
                       <img src="{{ block.settings.tab_image | img_url: '200x200' }}" alt="{{ block.settings.tab_name | escape }}" width="" height=""> 
