@@ -3607,9 +3607,20 @@ details-disclosure > details {
     gap: 12px !important;
     flex-wrap: wrap !important;
   }
-}
-@media (min-width: 768px) {
+  
+  }
+@media (min-width: 992px) {
+  .jump-links-section {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  section#product-info {
+    margin-top: 24px !important; /* pas aan: kleiner = compacter witruimte */
+    padding-top: 0 !important;
+  }
+
   .product-features-section .section-heading {
-    margin-top: 32px !important;  /* pas dit aan voor meer/minder witruimte */
+    margin-top: 0 !important;
   }
 }
