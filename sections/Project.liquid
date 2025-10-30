@@ -1040,6 +1040,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 <style>
+/* Hide sections by default */
+.circle-tabs-outer,
+.filter-bar,
+.tab-products-wrap.Interior-wrap,
+.tab-products-wrap.Exterior-wrap {
+  display: none;
+}
+
+/* Show sections when .show-section is added */
+.show-section {
+  display: block !important; /* if any section needs flex/grid, override here individually */
+}
+
 .cust-project{
   font-family: Frutiger Neue LT W1G;
 }
