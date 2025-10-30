@@ -3599,7 +3599,7 @@ details-disclosure > details {
   }
 @media (max-width: 991px) {
   .jump-links-section {
-    margin-bottom: 8px !important;
+    margin-bottom: 15px !important;
   }
 
   section#product-info {
@@ -3631,6 +3631,6 @@ details-disclosure > details {
   }
 
   section#product-info h2.section-heading {
-    margin-top: 25px !important;
+    margin-top: 32px !important;
   }
 }
