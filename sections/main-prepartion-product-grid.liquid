@@ -1,10 +1,44 @@
 {%  assign cat_heading = collection.metafields.custom.main_hedaing.value %}
 {%  assign cat_subheading = collection.metafields.custom.main_subheading.value %}
+
+{% assign slider_links = collection.metafields.custom.surface_urls.value %}
+{% assign slider_titles = collection.metafields.custom.surface_urls.value %}
+{% assign slider_images = collection.metafields.custom.surface_images.value %}
+{% assign surface_header = collection.metafields.custom.surface_header.value %}
+
+
 <div class="custom_collection_main">
     <div class="collection_header_main">
         <div class="header_main_heading"><h2>{{ cat_heading }}</h2></div>
         <div class="header_main_subheading"><p>{{ cat_subheading }}</p></div>
     </div>
+
+    <div class="collection_surface_section">
+        <div class="collection_surface_content">
+            <div class="collection_surface_header">
+                <h2>{{ surface_header }}</h2>
+            </div>
+            <div class="surface_inner_content">
+                {% for image in slider_images %}
+                    {% assign title = slider_titles[forloop.index0] %}
+                    {% assign link = slider_links[forloop.index0] %}
+                    <div class="surface_slide">
+                    <a href="{{ link }}" class="surface_slide_card">
+                        {% if image %}
+                        <div class="surface_slide_image">
+                            <img src="{{ image | img_url: '600x400' }}" alt="{{ title | escape }}">
+                        </div>
+                        {% endif %}
+                        {% if title %}
+                        <p class="surface_slide_title">{{ title }}</p>
+                        {% endif %}
+                    </a>
+                    </div>
+                 {% endfor %}
+            </div>
+        </div>
+    </div>
+
 </div>
 <style>
     h2, p{margin:0;}
