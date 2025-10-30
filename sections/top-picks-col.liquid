@@ -407,8 +407,8 @@ document.addEventListener("DOMContentLoaded", function(){
           addonDiv.classList.add('addon-item-data');
           addonDiv.innerHTML = '';
           addonDiv.innerHTML = `
-             <button class="add_addon">+</button>
-              <input type="hidden" class="variant-selector" name="variant-selector" value="${addon.variants[0].id}"> 
+             {% comment %} <button class="add_addon">+</button> {% endcomment %}
+              {% comment %} <input type="hidden" class="variant-selector" name="variant-selector" value="${addon.variants[0].id}">  {% endcomment %}
            
             <a href="${addonUrl}"><div class=media_content><img src="${imageSrc}" style="width:100px;" /></div>
             <div class="addon_item_title"><p>${addon.title}</p></div></a>
