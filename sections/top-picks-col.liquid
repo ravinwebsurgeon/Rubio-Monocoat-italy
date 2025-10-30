@@ -363,6 +363,7 @@ function decodeHtmlEntities(str) {
       const scriptTag = this.parentElement.querySelector('script.addons');
       const addons = JSON.parse(scriptTag.textContent);
       console.log('addonscheck',addons)
+      
       popupmain.classList.add('active-popup');
       popupImage.src = image;
       popupImage.alt = title;
