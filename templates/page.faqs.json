@@ -75,11 +75,73 @@
       "settings": {
         "heading": "Frequently Asked Questions"
       }
+    },
+    "icons_section_ry8Hx7": {
+      "type": "icons-section",
+      "blocks": {
+        "container_77qgNk": {
+          "type": "container",
+          "settings": {
+            "class": "first-container-sec",
+            "icon": "shopify://shop_images/phone_1.png",
+            "heading": "Telephone advice",
+            "subhead": "",
+            "subtext": "",
+            "extra_text": "Answer the questions"
+          }
+        },
+        "container_tgYiQy": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/envelope.png",
+            "heading": "Send us an email",
+            "subhead": "",
+            "subtext": "rubio@monocoatusa.com",
+            "extra_text": ""
+          }
+        },
+        "container_6P7jA9": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/headset.png",
+            "heading": "Customized advice",
+            "subhead": "",
+            "subtext": "Answer the questions",
+            "extra_text": ""
+          }
+        },
+        "container_rp4x3E": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/chat.png",
+            "heading": "Ask via chat",
+            "subhead": "",
+            "subtext": "Answer the questions",
+            "extra_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "container_77qgNk",
+        "container_tgYiQy",
+        "container_6P7jA9",
+        "container_rp4x3E"
+      ],
+      "name": "icons section",
+      "settings": {
+        "custom_class": "",
+        "show_on_desktop": true,
+        "show_on_mobile": true
+      }
     }
   },
   "order": [
     "main",
     "custom_faq_banner_KWPV7V",
-    "faqs_gnazct"
+    "faqs_gnazct",
+    "icons_section_ry8Hx7"
   ]
 }

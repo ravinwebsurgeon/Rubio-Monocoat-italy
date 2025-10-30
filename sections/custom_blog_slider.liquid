@@ -162,10 +162,9 @@
       <div class="slider-card">
         <div class="slider-card-image">
           {% if article.image and article.image.src %}
-           {% assign img_src = article.image.src | remove: '\\' | replace_first: '//', 'https://' %}
 
             <a href="/blogs/{{ article.blog_id }}/{{ article.handle }}">
-              <img src="{{article.image.src | img_url }}" alt="{{ article.image.alt | default: article.title }}">
+              <img src="{{article.image.src | img_url: 'master' }}" alt="{{ article.image.alt | default: article.title }}">
             </a>
           {% endif %}
         </div>
