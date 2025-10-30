@@ -3603,7 +3603,7 @@ details-disclosure > details {
 
   section#product-info {
     margin-top: 0 !important;
-    padding-top: 8px !important;  /* bepaal hiermee de ruimte onder de knoppen */
+    padding-top: 16px !important;  /* bepaal hiermee de ruimte onder de knoppen */
   }
 
   section#product-info h2.section-heading {
