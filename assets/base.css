@@ -3649,7 +3649,7 @@ input[type="radio"].swatch-input__input:checked + label .variant-price {
     flex-wrap: nowrap;
     gap: 8px;
     margin-bottom: 8px !important;
-    padding: 12px 0; /* ➕ Voeg padding boven/onder toe */
+    padding: 20px 0; /* ➕ Voeg padding boven/onder toe */
   }
 
   .variant-size {
