@@ -3603,7 +3603,7 @@ details-disclosure > details {
     align-items: center !important;
     text-align: center !important;
     margin-top: 40px !important;     /* meer ruimte boven */
-    margin-bottom: 8px !important;   /* minder ruimte onder */
+    margin-bottom: 0px !important;   /* minder ruimte onder */
     gap: 12px !important;
     flex-wrap: wrap !important;
   }
