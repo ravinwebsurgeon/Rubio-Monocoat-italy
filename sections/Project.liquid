@@ -1036,8 +1036,75 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
 
+  // Select key elements
+  const interiorBtn = document.querySelector('.Interio');
+  const exteriorToggle = document.querySelector('.exterior.surface-toggle');
+  const surfaceOptions = document.getElementById('exterior-surfaces');
+  const surfaceItems = surfaceOptions ? surfaceOptions.querySelectorAll('.surface-item') : [];
+  const circleTabsSection = document.querySelector('.circle-tabs-section');
 
+  // Hide the circle tabs section by default
+  if (circleTabsSection) circleTabsSection.style.display = 'none';
+
+  // ---- INTERIOR CLICK ----
+  if (interiorBtn) {
+    interiorBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+
+      // Show circle tabs section
+      if (circleTabsSection) circleTabsSection.style.display = 'block';
+
+      // Close any open surface options
+      if (surfaceOptions) surfaceOptions.style.display = 'none';
+      if (exteriorToggle) exteriorToggle.classList.remove('active');
+    });
+  }
+
+  // ---- EXTERIOR TOGGLE ----
+  if (exteriorToggle && surfaceOptions) {
+    exteriorToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const isActive = this.classList.contains('active');
+
+      // Close all toggles first
+      document.querySelectorAll('.surface-options').forEach(opt => opt.style.display = 'none');
+      document.querySelectorAll('.surface-toggle').forEach(el => el.classList.remove('active'));
+
+      if (!isActive) {
+        surfaceOptions.style.display = 'flex';
+        this.classList.add('active');
+      } else {
+        surfaceOptions.style.display = 'none';
+      }
+    });
+
+    // ---- SURFACE ITEM CLICK ----
+    surfaceItems.forEach(item => {
+      item.addEventListener('click', function(e) {
+        e.stopPropagation();
+
+        // Remove active from all items
+        surfaceItems.forEach(i => i.classList.remove('active'));
+        this.classList.add('active');
+
+        // Show circle-tabs-section
+        if (circleTabsSection) circleTabsSection.style.display = 'block';
+      });
+    });
+
+    // ---- CLICK OUTSIDE ----
+    document.addEventListener('click', function(e) {
+      if (!exteriorToggle.contains(e.target) && !surfaceOptions.contains(e.target)) {
+        surfaceOptions.style.display = 'none';
+        exteriorToggle.classList.remove('active');
+      }
+    });
+  }
+});
+</script>
 
 <style>
 .cust-project{
