@@ -1,95 +1,64 @@
-{% unless product.tags contains 'video_with_products' %}
-  {% assign video  = product.metafields.custom.products_video.value  %}
-  {% assign video_heading  = product.metafields.custom.productvideo_heading.value  %}
-  {% assign btn_text  = product.metafields.custom.video_sec_btn.value  %}
-  {% assign url = product.metafields.custom.video_products_button_link.value %}
-  
+ 
 <section class="video-products-section {{ section.settings.custom_class }}">
-  <div class="container" data-aos="fade-up">
-    <h2 class="video-heading" >{{ video_heading }}</h2>
+   <div class="container" data-aos="fade-up">
+    <h2 class="video-heading" style="color: var(--heading-color); font-size: var(--heading-size);">{{ section.settings.heading }}</h2>
     <div class="video-wrapper">
-      <div class="video-container">
-        {{ video | video_tag: controls: false, autoplay: true, loop: true }}
-  <div class="product-overlay">
-  <div class="product-slider">
-    <div class="product-track">
-      {% comment %} {% for block in section.blocks %}
-        {% if block.settings.product %}
-          {% assign product = all_products[block.settings.product] %}
-          {% if product %}
-            <div class="product-card">
-              <div class="product-image">
-                <img src="{{ product.featured_image | img_url: '150x' }}" alt="{{ product.title }}">
-              </div>
-              <div class="product-info">
-                <div class="stars">★★★★★</div>
-                <h4>{{ product.title }}</h4>
-                <p class="price">{{ product.price | money }}</p>
-              </div>
-              <div class="product-icons">
-                {% if block.settings.icon_1 %}
-                  <a href="#" class="add-to-cart-btn" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
-                    <img src="{{ block.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
-                  </a>
-                {% endif %}
-                {% if block.settings.icon_2 %}
-                  <a href="javascript:void(0);" class="slide-next-btn gg-{{ forloop.index }}">
-                    <img src="{{ block.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
-                  </a>
-                {% endif %}
-              </div>
-            </div>
-          {% endif %}
-        {% endif %}
-      {% endfor %} {% endcomment %}
+      <div class="video-container" style="border-radius: var(--video-radius);">
+        <video autoplay muted loop playsinline class="video-bg" style="border-radius: var(--video-radius);">
+          <source src="{{ section.settings.video_url }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
 
-      {% if product.metafields.custom.inspired_products.value %}
-        {% for product in product.metafields.custom.inspired_products.value %}
-          {% if product %}
-            <div class="product-card">
-              <div class="product-image">
-                <img src="{{ product.featured_image | img_url: '150x' }}" alt="{{ product.title }}">
-              </div>
-              <div class="product-info">
-                <div class="stars">★★★★★</div>
-                <h4>{{ product.title }}</h4>
-                <p class="price">{{ product.price | money }}</p>
-              </div>
-              <div class="product-icons">
-                {% comment %} {% if block.settings.icon_1 %}
-                  <a href="#" class="add-to-cart-btn" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
-                    <img src="{{ block.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
-                  </a>
+        <div class="product-overlay">
+          <div class="product-slider">
+            <div class="product-track">
+              {% for block in section.blocks %}
+                {% if block.settings.product %}
+                  {% assign product = all_products[block.settings.product] %}
+                  {% if product %}
+                    <div class="product-card" style="background: {{ block.settings.product_card_bg_color | default: '#ffffff' }}; border-radius: {{ block.settings.product_card_border_radius | default: 20 }}px;">
+                      <div class="product-image">
+                        <img src="{{ product.featured_image | img_url: '150x' }}" alt="{{ product.title }}">
+                      </div>
+                      <div class="product-info">
+                        <div class="stars">★★★★★</div>
+                        <h4 style="color: {{ block.settings.product_title_color | default: '#000000' }}; font-size: {{ block.settings.product_title_font_size | default: 20 }}px;">
+                          {{ product.title }}
+                        </h4>
+                        <p class="price" style="color: {{ block.settings.price_color | default: '#f5f5f5' }}; font-size: {{ block.settings.price_font_size | default: 14 }}px;">
+                          {{ product.price | money }}
+                        </p>
+                      </div>
+                      <div class="product-icons">
+                        {% if block.settings.icon_1 %}
+                          <a href="{{ block.settings.icon_1_link }}" class="add-to-cart-btn" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+                            <img src="{{ block.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
+                          </a>
+                        {% endif %}
+                        {% if block.settings.icon_2 %}
+                          <a href="{{ block.settings.icon_2_link }}" class="slide-next-btn gg-{{ forloop.index }}">
+                            <img src="{{ block.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
+                          </a>
+                        {% endif %}
+                      </div>
+                    </div>
+                  {% endif %}
                 {% endif %}
-                {% if block.settings.icon_2 %}
-                  <a href="javascript:void(0);" class="slide-next-btn gg-{{ forloop.index }}">
-                    <img src="{{ block.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
-                  </a>
-                {% endif %} {% endcomment %}
-                <a href="#" class="add-to-cart-btn" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
-                    <img src="{{ section.settings.cart_icon | img_url: '40x' }}" alt="Add to Cart">
-                  
-                </a>
-                <a href="javascript:void(0);" class="slide-next-btn gg-{{ forloop.index }}">
-                    <img src="{{ section.settings.move_icon | img_url: '40x' }}" alt="Next Products">
-                </a>
-              </div>
+              {% endfor %}
             </div>
-          {% endif %}
-        {% endfor %}
-      {% endif %} 
-    </div>
-  </div>
-</div>
+          </div>
+        </div>
       </div>
     </div>
 
-    {% if url %}
-      <a href="{{ url }}" class="view-button">{{btn_text }}</a>
+    {% if section.settings.button_link %}
+      <a href="{{ section.settings.button_link }}" class="view-button" 
+         style="background-color: var(--view-btn-bg); color: var(--view-btn-color); font-size: var(--view-btn-size); border-radius: var(--view-btn-radius); padding: 10px 20px; text-decoration: none; display: inline-block;">
+        {{ section.settings.button_label }}
+      </a>
     {% endif %}
   </div>
 </section>
-{% endunless %}
 <script>
 $(document).ready(function () {
   function setCartBubble(count) {
