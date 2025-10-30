@@ -3609,7 +3609,7 @@ details-disclosure > details {
   }
 }
 @media (min-width: 768px) {
-  .features-wrapper {
-    padding-top: 10px !important;
+  .product-features-section .section-heading {
+    margin-top: 32px !important;  /* pas dit aan voor meer/minder witruimte */
   }
 }
