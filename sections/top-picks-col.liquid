@@ -391,7 +391,17 @@ document.addEventListener("DOMContentLoaded", function(){
   {
       const container = document.querySelector('.addon_products_main');
       addons.forEach(addon => {
-        const imageSrc = addon.variants?.[0]?.featured_image?.src || '';
+          let imageSrc = '';
+          if (addon.featured_image) {
+            if (typeof addon.featured_image === 'string') {
+              imageSrc = addon.featured_image; 
+            } else if (addon.featured_image.src) {
+              imageSrc = addon.featured_image.src; 
+            }
+          } 
+          else if (addon.variants?.[0]?.featured_image?.src) {
+            imageSrc = addon.variants[0].featured_image.src;
+          }
         const addonDiv = document.createElement('div');
         addonDiv.classList.add('addon-item-data');
         addonDiv.innerHTML = `
