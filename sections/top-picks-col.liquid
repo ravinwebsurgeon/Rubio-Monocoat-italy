@@ -355,9 +355,8 @@ document.addEventListener("DOMContentLoaded", function(){
       const variant_id = this.dataset.variant;
       const scriptTag = this.parentElement.querySelector('script.addons');
       const addons = JSON.parse(scriptTag.textContent);
-      addons.forEach(addon => {
-          addonAdd(addon)
-    });
+      addonAdd(addons)
+    
       popupmain.classList.add('active-popup');
       popupImage.src = image;
       popupImage.alt = title;
@@ -386,9 +385,22 @@ document.addEventListener("DOMContentLoaded", function(){
       document.body.classList.remove("popup-open");
     }
   });
-  function addonAdd(product)
+  function addonAdd(addons)
   {
-    
+      const container = document.querySelector('.addon_products_main');
+       // Loop through addons and create elements
+    addons.forEach(addon => {
+      const addonDiv = document.createElement('div');
+      addonDiv.classList.add('addon-item');
+
+      // Set inner HTML with image and title
+      addonDiv.innerHTML = `
+        <img src="${addon.featured_image?.src || ''}" alt="${addon.title}">
+        <h4>${addon.title}</h4>
+      `;
+
+      // Append to container
+      container.appendChild(addonDiv);
   }
 });
 </script>
