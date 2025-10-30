@@ -3602,7 +3602,7 @@ details-disclosure > details {
     align-items: center;
     text-align: center;
     margin-top: 32px;     /* meer ruimte boven */
-    margin-bottom: 12px;  /* minder ruimte onder */
+    margin-bottom: 5px;  /* minder ruimte onder */
   }
 
   .jump-links-items {
