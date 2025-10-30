@@ -1044,12 +1044,15 @@ document.addEventListener('DOMContentLoaded', function () {
     {% assign technical_info_section = product.metafields.custom.technical_info_section.value %}
     {% assign inspiration_section = product.metafields.custom.inspiration_section.value %}
     {% assign faq_section = product.metafields.custom.faq_section.value %}
+    {% assign review_section = product.metafields.custom.review_section.value %}
+    
     {% render 'jump-to' ,
       product_info_sec: product_info_sec,
       how_to_apply_section: how_to_apply_section, 
       technical_info_section:technical_info_section,
       inspiration_section: inspiration_section,
       faq_section: faq_section,
+      review_section:review_section,
     %}
   </div>
 </product-info>
