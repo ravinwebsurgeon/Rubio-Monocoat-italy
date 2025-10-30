@@ -343,11 +343,6 @@ document.addEventListener("DOMContentLoaded", function(){
   } else {
     console.error("jQuery or Slick slider is not loaded.");
   }
-function decodeHtmlEntities(str) {
-    const txt = document.createElement("textarea");
-    txt.innerHTML = str;
-    return txt.value;
-}
   document.querySelectorAll(".custom-cert-plus").forEach(btn => {
     btn.addEventListener("click", function(){
       {% comment %} const card = this.closest(".custom-cert-card");
@@ -363,15 +358,8 @@ function decodeHtmlEntities(str) {
       const scriptTag = this.parentElement.querySelector('script.addons');
       const addons = JSON.parse(scriptTag.textContent);
       // Loop through each addon
-    addons.forEach(addon => {
-      console.log("Addon ID:", addon.id);
-      console.log("Title:", addon.title);
-      console.log("Description:", addon.description);
-      console.log("Price:", addon.price);
-      console.log("Available:", addon.available);
-
-      // Do something with each addon...
-      // e.g., create a list item or a button for the addon
+      addons.forEach(addon => {
+      addonAdd(addon)
     });
       popupmain.classList.add('active-popup');
       popupImage.src = image;
