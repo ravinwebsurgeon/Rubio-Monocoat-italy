@@ -26,13 +26,14 @@
         <span class="jump-link-text">Technical info</span>
       </a>
     {% endif %}
-
-    <a href="#inspiration" class="jump-link-item">
-      <div class="jump-to-icon">
-      <img src="{{ 'icon-inspiration.svg' | asset_url }}" alt="Inspiration" class="jump-link-icon">
-      </div>
-      <span class="jump-link-text">Inspiration</span>
-    </a>
+    {% if inspiration_section != block %}
+      <a href="#inspiration" class="jump-link-item">
+        <div class="jump-to-icon">
+        <img src="{{ 'icon-inspiration.svg' | asset_url }}" alt="Inspiration" class="jump-link-icon">
+        </div>
+        <span class="jump-link-text">Inspiration</span>
+      </a>
+    {% endif %}
 
     <a href="#faqs" class="jump-link-item">
       <div class="jump-to-icon">
