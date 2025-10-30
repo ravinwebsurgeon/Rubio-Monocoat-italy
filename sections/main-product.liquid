@@ -1041,9 +1041,11 @@ document.addEventListener('DOMContentLoaded', function () {
     </script>
     {% assign product_info_sec = product.metafields.custom.product_info_section.value %}
     {% assign how_to_apply_section = product.metafields.custom.how_to_apply_section.value %}
+    {% assign technical_info_section = product.metafields.custom.technical_info_section.value %}
     {% render 'jump-to' ,
       product_info_sec: product_info_sec,
-      how_to_apply_section: how_to_apply_section, %}
+      how_to_apply_section: how_to_apply_section, 
+      technical_info_section:technical_info_section%}
   </div>
 </product-info>
 

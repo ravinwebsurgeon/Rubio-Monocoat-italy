@@ -1036,6 +1036,59 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Sections to toggle
+  const circleTabsOuter = document.querySelector(".circle-tabs-outer");
+  const filterBar = document.querySelector(".filter-bar");
+  const tabProductsInterior = document.querySelector(".tab-products-wrap.Interior-wrap");
+  const tabProductsExterior = document.querySelector(".tab-products-wrap.Exterior-wrap");
+
+  const interiorBtn = document.querySelector(".Interio");
+  const surfaceOptions = document.getElementById("exterior-surfaces");
+
+  // --- Hide everything by default ---
+  circleTabsOuter?.classList.remove("show-section");
+  filterBar?.classList.remove("show-section");
+  tabProductsInterior?.classList.remove("show-section");
+  tabProductsExterior?.classList.remove("show-section");
+
+  // -------------------------------
+  // INTERIOR CLICK
+  if (interiorBtn) {
+    interiorBtn.addEventListener("click", function() {
+      // Show interior sections
+      circleTabsOuter?.classList.add("show-section");
+      filterBar?.classList.add("show-section");
+      tabProductsInterior?.classList.add("show-section");
+
+      // Hide exterior products
+      tabProductsExterior?.classList.remove("show-section");
+    });
+  }
+
+  // -------------------------------
+  // EXTERIOR SURFACE ITEM CLICK
+  if (surfaceOptions) {
+    const surfaceItems = surfaceOptions.querySelectorAll(".surface-item");
+    surfaceItems.forEach(item => {
+      item.addEventListener("click", function(e) {
+        e.stopPropagation();
+
+        // Show exterior sections
+        circleTabsOuter?.classList.add("show-section");
+        filterBar?.classList.add("show-section");
+        tabProductsExterior?.classList.add("show-section");
+
+        // Hide interior products
+        tabProductsInterior?.classList.remove("show-section");
+      });
+    });
+  }
+
+});
+</script>
+
 
 
 
