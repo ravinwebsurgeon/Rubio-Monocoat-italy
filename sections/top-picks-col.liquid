@@ -101,8 +101,11 @@
                 data-url="{{ product.url }}" 
                 data-image="{{ product.featured_image | img_url: 'medium' }}" 
                 data-title = "{{ product.title }}" 
-                data-addons = {{ addon_products | json }}
+                {% comment %} data-addons = {{ addon_products | json }} {% endcomment %}
                 type="button">+</button>
+                <script type="application/json" class="addons">
+                  {{ addon_products | json }}
+                </script>
             </div>
           </div>
         </div>
@@ -355,11 +358,13 @@ function decodeHtmlEntities(str) {
       const url = this.dataset.url;
       const variant_id = this.dataset.variant;
 
-      const addons = JSON.parse(this.dataset.addons);
-      console.log(addons,'check');
+      {% comment %} const addons = JSON.parse(this.dataset.addons);
+      console.log(addons,'check'); {% endcomment %}
+        const scriptTag = this.parentElement.querySelector('script.addons');
+    const addons = JSON.parse(scriptTag.textContent);
 
 
-      console.log('addons',addons)
+      console.log('addonscheck',addons)
       popupmain.classList.add('active-popup');
       popupImage.src = image;
       popupImage.alt = title;
