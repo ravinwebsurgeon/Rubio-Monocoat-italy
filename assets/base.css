@@ -3611,6 +3611,6 @@ details-disclosure > details {
 @media (min-width: 768px) {
   .product-features-section {
     margin: 0 !important;
-    padding: 48px 0 0 0 !important; /* alleen bovenruimte */
+    padding: 100px 0 0 0 !important; /* alleen bovenruimte */
   }
 }
