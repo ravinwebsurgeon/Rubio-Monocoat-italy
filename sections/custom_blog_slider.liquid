@@ -125,7 +125,7 @@
 {% comment %} <pre>
 {{ source_page.metafields.custom.blog_posts.value | json }}
 </pre> {% endcomment %}
-{{ related_articles.size }}
+
 <section class="custom_blog_slider">
   <div class="container"> 
     <div class="blog-header">
@@ -156,7 +156,7 @@
           </div>
         </div>
       {% endfor %} {% endcomment %}
-     {% if related_articles and related_articles.size > 0 %}
+     {% if related_articles %}
   <div class="related-articles-slider">
     {% for article in related_articles %}
       <div class="slider-card {{ article.title }}">
