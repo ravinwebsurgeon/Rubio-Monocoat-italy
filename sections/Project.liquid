@@ -1186,7 +1186,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   // -------------------------------
-  // EXTERIOR CLICK → show dropdown + tabs + filter
+  // EXTERIOR CLICK → toggle dropdown only
   exteriorToggle?.addEventListener("click", function(e) {
     e.stopPropagation();
     const isActive = this.classList.contains("active");
@@ -1200,16 +1200,34 @@ document.addEventListener("DOMContentLoaded", function() {
       this.classList.add("active");
     }
 
-    // Show circle tabs + filter
-    circleTabsOuter?.classList.add("show-section");
-    filterBar?.classList.add("show-section");
-
-    // Hide product wrappers until a circle tab is clicked
-    tabProductsInterior?.classList.remove("show-section");
-    tabProductsExterior?.classList.remove("show-section");
-
     // Remove active from Interior
     interiorBtn?.classList.remove("active");
+
+    // Hide tabs, filter, and product wrappers until surface selected
+    circleTabsOuter?.classList.remove("show-section");
+    filterBar?.classList.remove("show-section");
+    tabProductsInterior?.classList.remove("show-section");
+    tabProductsExterior?.classList.remove("show-section");
+  });
+
+  // -------------------------------
+  // SURFACE ITEM CLICK → show tabs + filter only
+  surfaceOptions?.querySelectorAll(".surface-item").forEach(item => {
+    item.addEventListener("click", function(e) {
+      e.stopPropagation();
+
+      // Toggle active state
+      surfaceOptions.querySelectorAll(".surface-item").forEach(i => i.classList.remove("active"));
+      this.classList.add("active");
+
+      // Show tabs + filter
+      circleTabsOuter?.classList.add("show-section");
+      filterBar?.classList.add("show-section");
+
+      // Hide product wrappers until a circle tab is clicked
+      tabProductsInterior?.classList.remove("show-section");
+      tabProductsExterior?.classList.remove("show-section");
+    });
   });
 
   // -------------------------------
@@ -1224,7 +1242,7 @@ document.addEventListener("DOMContentLoaded", function() {
       if (interiorBtn?.classList.contains("active")) {
         tabProductsInterior?.classList.add("show-section");
         tabProductsExterior?.classList.remove("show-section");
-      } else if (exteriorToggle?.classList.contains("active")) {
+      } else if (surfaceOptions?.querySelector(".surface-item.active")) {
         tabProductsExterior?.classList.add("show-section");
         tabProductsInterior?.classList.remove("show-section");
       }
@@ -1241,6 +1259,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 </script>
+
 
 
 <style>
