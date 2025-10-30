@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let isPaused = false;
   const slideWidth = slides[0].offsetWidth;
   const totalSlides = slides.length;
-  const delay = 6000; // 6 seconds per slide
+  const delay = {{ section.settings.delay_time | default: 6 }} * 1000;
 
   wrapper.addEventListener("mouseenter", () => (isPaused = true));
   wrapper.addEventListener("mouseleave", () => (isPaused = false));
