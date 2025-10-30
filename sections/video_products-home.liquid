@@ -75,7 +75,6 @@ $(document).ready(function () {
   function setCartBubble(count) {
     var $icon = $("#cart-icon-bubble");
     if (!$icon.length) return;
-
     var $bubble = $icon.find(".cart-count-bubble");
 
     if (count > 0) {
@@ -101,7 +100,6 @@ $(document).ready(function () {
   // Add to cart click handler
   $(".add-to-cart-btn").on("click", function (e) {
     e.preventDefault();
-
     var variantId = $(this).data("variant-id");
     if (!variantId) return console.error("Variant ID missing");
 
@@ -132,27 +130,27 @@ $(document).ready(function () {
 });
 
 $(document).on("click", ".slide-next-btn", function () {
-    setTimeout(function () {
-        $(".product-overlay").addClass("active-slide");
-    }, 200); // 500ms = half second delay
+  setTimeout(function () {
+    $(".product-overlay").addClass("active-slide");
+  }, 200);
 });
 
 $(document).on("click", ".slide-next-btn.gg-3, .slide-next-btn.gg-2", function () {
-    setTimeout(function () {
-        $(".product-overlay").removeClass("active-slide");
-    }, 200); // change the time as needed
+  setTimeout(function () {
+    $(".product-overlay").removeClass("active-slide");
+  }, 200);
 });
-
 
 document.addEventListener("DOMContentLoaded", function () {
   const track = document.querySelector(".product-track");
   const wrapper = document.querySelector(".product-slider");
+  const delay = {{ section.settings.delay_time | default: 6 }} * 1000; // Delay in ms from customization
 
-  // Clone slides for infinite seamless loop
+  // Clone slides for seamless loop
   const slides = Array.from(track.children);
   slides.forEach(slide => track.appendChild(slide.cloneNode(true)));
 
-  let speed = 1; // adjust speed
+  let speed = 1;
   let offset = 0;
   let isPaused = false;
 
@@ -162,21 +160,18 @@ document.addEventListener("DOMContentLoaded", function () {
   function animate() {
     if (!isPaused) {
       offset -= speed;
-
-      // Use modulo to loop smoothly without jump
       offset %= track.scrollWidth / 2;
-
       track.style.transform = `translateX(${offset}px)`;
     }
-
     requestAnimationFrame(animate);
   }
 
-  animate();
+  // Use delay to control slider motion smoothness
+  setTimeout(() => {
+    animate();
+  }, delay);
 });
-
 </script>
-
 {% stylesheet %}
 .product-overlay {
   position: absolute;
