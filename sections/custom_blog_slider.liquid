@@ -120,7 +120,9 @@
   .slider-card-image { height: 300px; }
 }
 {% endstylesheet %}
-{% assign related_articles = product.metafields.custom.blog_posts.value %}
+{% assign source_page = pages[section.settings.source_page] %}
+
+{% assign related_articles = source_page.metafields.custom.blog_posts.value %}
 
 <section class="custom_blog_slider">
   <div class="container"> 
@@ -215,6 +217,7 @@ document.addEventListener("DOMContentLoaded", function() {
   "name": "Custom Blog Slider",
   "settings": [
     { "type": "text", "id": "heading", "label": "Section Heading" },
+    {"type": "page", "id": "source_page", "label":"Select page"}
   ],
   "presets": [
     { "name": "Custom Blog Slider", "category": "Blog" }
