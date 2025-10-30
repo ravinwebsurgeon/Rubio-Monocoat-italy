@@ -37,17 +37,18 @@
   </div>
 </div>
 
-<div class="filling_gap_main">
-    <div class="filling_content">
-        <div class="filling_media_section">
-            <div class="media_image">
+<div class="filling_gap_section">
+    <div class="filling_gap">
+        <div class="media_section">
+            <div class="custom_image">
                 <img src="{{ filling_gap_image | img_url: 'master' }}" width=300 height=500 />
-                <div class="media_content_section">
+                <div class="content_section">
                     <p class="heading">Preparation</p>
                     <p class="subheading">{{  custom_text }}</p>
                 </div>
             </div>
         </div>
+
            <div class="selected_product_section">
             <div class="product_head"><p>{{ section.settings.main_heading }}</p></div>
             <div class="product-data">
@@ -215,20 +216,20 @@
   font-size: 14px;
 }
 
-.filling_gap_main{display:flex;}
- .filling_gap_main h3 ,.filling_gap_main p {margin:0;}
+.filling_gap_section{display:flex;}
+ .filling_gap_section h3 ,.filling_gap_section p {margin:0;}
     .uppercase_text{text-transform:uppercase;}
     .captalize_text{text-transform:capitalize;}
-    .filling_gap_main{background: #F5F5F5;padding:50px 0px;}
+    .filling_gap_section{background: #F5F5F5;padding:50px 0px;}
     .filling_gap_next{display:flex;align-items:center;}
-    .filling_content{display:flex;width:95%;margin:auto;}
-    .media_image{padding-left:18%;}
-    .media_image img{position:relative;border-radius:10px;}
-    .media_content_section{background:black;color:#fff;border-radius:10px;position:absolute;margin-top:-3%;left:190px;}
-    .mdia_content_section .subheading{font-size:12px;text-transform:capitalize;}
-    .media_content_section p{margin:0;padding:0px 10px;}
+    .filling_gap{display:flex;width:95%;margin:auto;}
+    .custom_image{padding-left:18%;}
+    .custom_image img{position:relative;border-radius:10px;}
+    .content_section{background:black;color:#fff;border-radius:10px;position:absolute;margin-top:-3%;left:190px;}
+    .content_section .subheading{font-size:12px;text-transform:capitalize;}
+    .content_section p{margin:0;padding:0px 10px;}
     {% comment %} .selected_product_section{width:60%} {% endcomment %}
-    .filling_media_section, .custom_video_content{width:34%;text-align:center;}
+    .media_section, .custom_video_content{width:34%;text-align:center;}
     .selected_product_section .product_head p, .filling_gap_next p.p-head{font-size:20px;font-weight:600;margin:0;}
     .product_title_price{display:flex;justify-content:space-between;padding:0px 15px;}
     .product-block{background:#fff;width:auto;margin:8px;padding:4px;border-radius:10px;text-align:center;}
