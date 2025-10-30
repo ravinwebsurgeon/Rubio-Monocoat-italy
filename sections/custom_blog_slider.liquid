@@ -121,7 +121,7 @@
 }
 {% endstylesheet %}
 {% assign related_articles = product.metafields.custom.blog_posts.value %}
-
+<pre>{{ related_articles |json }}</pre>
 <section class="custom_blog_slider">
   <div class="container"> 
     <div class="blog-header">
