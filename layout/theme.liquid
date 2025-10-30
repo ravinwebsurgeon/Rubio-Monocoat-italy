@@ -779,6 +779,7 @@ document.querySelectorAll('variant-selects').forEach(vs => {
   const sizeFieldset = Array.from(vs.querySelectorAll('fieldset')).find(fs =>
   fs.querySelector('legend')?.textContent.trim().toLowerCase().includes('color')
 );
+console.log(sizeFieldset,'sizeFieldset')
 console.log(sizeFieldset,'found it')
   if (sizeFieldset && !vs.querySelector('#customSeeMoreBtn')) {
     sizeFieldset.insertAdjacentHTML('afterend', `
