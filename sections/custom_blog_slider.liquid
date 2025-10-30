@@ -1,0 +1,195 @@
+{% stylesheet %}
+.custom_blog_slider {
+  padding:50px 0;
+  font-family: Frutiger Neue LT W1G;
+}
+.custom_blog_slider .container{
+  max-width: 1760px;
+  padding: 0 30px;
+}
+.blog-slider-content.slick-slider {
+    overflow: hidden;
+}
+.blog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.custom_blog_slider .blog-header h2 {
+  font-family: Frutiger Neue LT W1G;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 45px;
+  margin: 0;
+}
+.blog-slider-content.slick-slider .slick-list{
+  margin:0 -25px;
+  display: flex;
+}
+.slider-arrows {
+  display: flex;
+  gap: 10px;
+}
+.slider-arrows button {
+  background: transparent;
+  border: 1px solid #183029;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.slider-arrows button svg {
+  width: 18px;
+  height: 18px;
+  color: #183029;
+}
+.custom_blog_slider .slick-track{
+   display: flex;
+}
+.slider-card.slick-slide {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  margin:0 25px;
+  height: 100%;
+  display: flex;
+  border: 1px solid rgb(0 0 0 / 30%);
+  box-sizing: border-box;
+}
+.slider-card-image {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  object-fit: cover;
+}
+.slider-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+   border-radius: 20px 20px 0 0;
+   transition: all ease 0.3s;
+}
+.slider-content {
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.slider-content h3 {
+  margin: 0 0 28px;
+  flex: 1;
+  font-family: Frutiger Neue LT W1G;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: normal;
+  letter-spacing: normal;
+}
+.blog-card-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #183029;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+}
+.blog-card-arrow svg {
+  width: 18px;
+  height: 18px;
+  color: #183029;
+}
+.blog-card-arrow svg path{
+  stroke: #000;
+}
+.slider-content h3 a {
+    color: #000;
+    text-decoration: none;
+}
+.slider-card-image a:hover img {
+    transform: scale(1.1);
+    transition: all ease 0.3s;
+}
+@media(max-width: 1024px){
+  .slider-card { width: 100%; height: auto; }
+  .slider-card-image { height: 300px; }
+}
+{% endstylesheet %}
+
+<section class="custom_blog_slider">
+  <div class="container"> 
+    <div class="blog-header">
+      <h2>{{ section.settings.heading }}</h2>
+      <div class="slider-arrows"></div>
+    </div>
+    <div class="blog-slider-content">
+      {% comment %} {% for article in blogs[section.settings.blog].articles limit: section.settings.post_limit %}
+        <div class="slider-card">
+          <div class="slider-card-image">
+            {% if article.image %}
+              <a href="{{ article.url }}">
+                <img src="{{ article.image | img_url: 'master' }}" alt="{{ article.title }}" width="" height="">
+              </a>
+            {% endif %}
+          </div>
+          <div class="slider-content">
+            <h3>
+              <a href="{{ article.url }}">
+                {{ article.title }}
+              </a>
+            </h3>
+            <a href="{{ article.url }}" class="blog-card-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      {% endfor %} {% endcomment %}
+    </div>
+  </div>  
+</section>
+{% comment %} 
+{% javascript %}
+document.addEventListener("DOMContentLoaded", function() {
+  if ($('.blog-slider-content').length) {
+    $('.blog-slider-content').slick({
+      slidesToShow: 2,
+      slidesToScroll: 1,
+      infinite: false,
+      arrows: true,
+      appendArrows: $('.slider-arrows'),
+      prevArrow: `<button type="button" class="slick-prev">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>`,
+      nextArrow: `<button type="button" class="slick-next">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>`,
+      responsive: [
+        { breakpoint: 1024, settings: { slidesToShow: 1 } }
+      ]
+    });
+  }
+});
+{% endjavascript %} {% endcomment %}
+
+{% schema %}
+{
+  "name": "Custom Blog Slider",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Section Heading", "default": "Latest from the blog" },
+  ],
+  "presets": [
+    { "name": "Custom Blog Slider", "category": "Blog" }
+  ]
+}
+{% endschema %}
