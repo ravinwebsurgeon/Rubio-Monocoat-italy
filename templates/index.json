@@ -227,10 +227,50 @@
       ],
       "name": "Video with Products",
       "settings": {
+        "custom_class": "",
         "heading": "Application in a Few Simple Steps",
-        "video_url": "https://cdn.shopify.com/videos/c/o/v/d1ecb683406f4f61befd2623ad86a0e9.mp4",
+        "video_link": "",
         "button_link": "shopify://collections/all",
-        "button_label": "View All Products"
+        "button_label": "View All Products",
+        "cart_icon_link": "",
+        "move_icon_link": "",
+        "delay_time": 6
+      }
+    },
+    "video_products_home_8dwaBA": {
+      "type": "video_products-home",
+      "blocks": {
+        "product_block_dXkcwP": {
+          "type": "product_block",
+          "settings": {
+            "product": "oil-plus-2c",
+            "icon_1_link": "",
+            "icon_2_link": ""
+          }
+        },
+        "product_block_hP8b6i": {
+          "type": "product_block",
+          "settings": {
+            "product": "oil-plus-2c",
+            "icon_1_link": "",
+            "icon_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_block_dXkcwP",
+        "product_block_hP8b6i"
+      ],
+      "name": "Video Home Products",
+      "settings": {
+        "custom_class": "",
+        "heading": "",
+        "video_link": "https://rubio-monocoat-italy.myshopify.com/cdn/shop/videos/c/vp/e9187465675742ac8a58a7331877ea98/e9187465675742ac8a58a7331877ea98.HD-1080p-7.2Mbps-56269341.mp4?v=0",
+        "button_link": "",
+        "button_label": "View All Products",
+        "cart_icon_link": "",
+        "move_icon_link": "",
+        "delay_time": 6
       }
     },
     "two_color_grid_ifntXn": {
@@ -438,6 +478,7 @@
       ],
       "name": "icons section",
       "settings": {
+        "custom_class": "",
         "show_on_desktop": true,
         "show_on_mobile": true
       }
@@ -448,6 +489,7 @@
     "custom_multicolumn_RBfXX8",
     "custom_collection_NPiKyw",
     "video_product_zqartH",
+    "video_products_home_8dwaBA",
     "two_color_grid_ifntXn",
     "custom_vedio_banner_fbxRjq",
     "custom_blog_section_W9ehre",
