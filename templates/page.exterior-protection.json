@@ -46,6 +46,13 @@
         "source_page": "exterior-protection"
       }
     },
+    "custom_blog_slider_czkQfJ": {
+      "type": "custom_blog_slider",
+      "name": "Custom Blog Slider",
+      "settings": {
+        "heading": "{{ page.metafields.custom.blog_heading.value }}"
+      }
+    },
     "custom_surface_slider_WcApa9": {
       "type": "custom-surface-slider",
       "name": "Surface Slider",
@@ -60,6 +67,7 @@
     "top_picks_col_edptFR",
     "custom_image_products_cLaP4D",
     "custom_inspired_wooden_tBELPG",
+    "custom_blog_slider_czkQfJ",
     "custom_surface_slider_WcApa9"
   ]
 }
