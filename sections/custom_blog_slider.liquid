@@ -146,9 +146,9 @@
                             </div>
                             <div class="slider-content">
                                 <h3>
-                                    <a href="/blogs/{{ article.blog_id }}/{{ article.handle }}">
+                                    {% comment %} <a href="/blogs/{{ article.blog_id }}/{{ article.handle }}"> {% endcomment %}
                                         {{ article.title }}
-                                    </a>
+                                    {% comment %} </a> {% endcomment %}
                                 </h3>
                                 <a href="/blogs/{{ article.blog_id }}/{{ article.handle }}" class="blog-card-arrow">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
