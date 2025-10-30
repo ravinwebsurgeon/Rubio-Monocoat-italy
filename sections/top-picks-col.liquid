@@ -356,6 +356,7 @@ document.addEventListener("DOMContentLoaded", function(){
       const variant_id = this.dataset.variant;
       const scriptTag = this.parentElement.querySelector('script.addons');
       const addons = JSON.parse(scriptTag.textContent);
+      console.log(addons,"asdfgh")
       if(addons) addonAdd(addons)
     
       popupmain.classList.add('active-popup');
