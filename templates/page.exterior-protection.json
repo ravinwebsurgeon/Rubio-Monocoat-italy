@@ -58,7 +58,7 @@
       "type": "custom-surface-slider",
       "name": "Surface Slider",
       "settings": {
-        "main_heading": "Oiling other surfaces?",
+        "main_heading": "{{ page.metafields.custom.surface_slider_heading.value }}",
         "source_page": "exterior-protection"
       }
     },
