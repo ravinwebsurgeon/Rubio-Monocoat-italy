@@ -107,7 +107,7 @@
     "durogrit_features_ehMfYA": {
       "type": "durogrit-features",
       "custom_css": [
-        "h2 {margin-top: 32px;}"
+        "h2 {margin-top: 50px;}"
       ],
       "name": "DuroGrit (Metafields)",
       "settings": {
@@ -194,7 +194,8 @@
         "cart_icon": "shopify://shop_images/Shopping_Bag.png",
         "move_icon": "shopify://shop_images/Rewind_double_arrows_outline.png",
         "cart_icon_link": "",
-        "move_icon_link": ""
+        "move_icon_link": "",
+        "delay_time": 10
       }
     },
     "how_to_use_faq_metafield_k4TgDV": {
