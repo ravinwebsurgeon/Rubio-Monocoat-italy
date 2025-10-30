@@ -360,7 +360,7 @@ function decodeHtmlEntities(str) {
 
       {% comment %} const addons = JSON.parse(this.dataset.addons);
       console.log(addons,'check'); {% endcomment %}
-        const scriptTag = this.parentElement.querySelector('script.addons');
+      const scriptTag = this.parentElement.querySelector('script.addons');
       const addons = JSON.parse(scriptTag.textContent);
       console.log('addonscheck',addons)
       popupmain.classList.add('active-popup');
