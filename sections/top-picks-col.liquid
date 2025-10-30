@@ -355,13 +355,8 @@ function decodeHtmlEntities(str) {
       const url = this.dataset.url;
       const variant_id = this.dataset.variant;
 
-      {% comment %} const addons = JSON.parse(this.dataset.addons); {% endcomment %}
-      const rawAddons = this.dataset.addons;           // get the string from data-addons
-const decodedAddons = decodeHtmlEntities(rawAddons); // decode &quot; etc.
-{% comment %} const addons = JSON.parse(decodedAddons);       // now parse safely {% endcomment %}
-const cleanedAddons = decodedAddons.replace(/\n/g, '');
-const addons = JSON.parse(cleanedAddons);
-console.log(addons,'check');
+      const addons = JSON.parse(this.dataset.addons);
+      console.log(addons,'check');
 
 
       console.log('addons',addons)
