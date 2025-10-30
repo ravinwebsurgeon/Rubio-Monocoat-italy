@@ -3626,7 +3626,7 @@ details-disclosure > details {
 }
 @media (min-width: 992px) {
   section#product-info {
-    padding-top: 40px !important;  /* pas dit getal aan voor meer of minder ruimte */
+    padding-top: 30px !important;  /* pas dit getal aan voor meer of minder ruimte */
     margin-top: 0 !important;      /* zorg dat er geen dubbele marge actief is */
   }
 }
