@@ -355,7 +355,7 @@ document.addEventListener("DOMContentLoaded", function(){
       const variant_id = this.dataset.variant;
       const scriptTag = this.parentElement.querySelector('script.addons');
       const addons = JSON.parse(scriptTag.textContent);
-      addonAdd(addons)
+      if(addons) addonAdd(addons)
     
       popupmain.classList.add('active-popup');
       popupImage.src = image;
