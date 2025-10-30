@@ -1,6 +1,8 @@
+{% if product_info_sec !=blank or how_to_apply_section != blank or technical_info_section != blank or inspiration_section != blank  or review_section != blank or faq_section != blank  %}
 <div class="jump-links-section">
   <div class="jump-links-grid">
     <h3 class="jump-links-heading">Jump to...</h3>
+    
     {% if product_info_sec != blank %}
       <a href="#product-info" class="jump-link-item">
         <div class="jump-to-icon">
@@ -9,6 +11,7 @@
         <span class="jump-link-text">Product info</span>
       </a>
     {% endif %}
+
     {% if how_to_apply_section != blank %}
       <a href="#how-to-apply" class="jump-link-item">
         <div class="jump-to-icon">
@@ -17,6 +20,7 @@
         <span class="jump-link-text">How to apply</span>
       </a>
     {% endif %}
+
     {%if technical_info_section != blank %}
       <a href="#technical-info" class="jump-link-item">
         <div class="jump-to-icon">
@@ -25,7 +29,8 @@
         <span class="jump-link-text">Technical info</span>
       </a>
     {% endif %}
-    {% if inspiration_section != block %}
+
+    {% if inspiration_section != blank %}
       <a href="#inspiration" class="jump-link-item">
         <div class="jump-to-icon">
         <img src="{{ 'icon-inspiration.svg' | asset_url }}" alt="Inspiration" class="jump-link-icon">
@@ -33,6 +38,7 @@
         <span class="jump-link-text">Inspiration</span>
       </a>
     {% endif %}
+
     {% if faq_section != blank %}
       <a href="#faqs" class="jump-link-item">
         <div class="jump-to-icon">
@@ -41,6 +47,7 @@
         <span class="jump-link-text">FAQ’s</span>
       </a>
     {% endif %}
+
     {% if review_section != blank %}
       <a href="#reviews" class="jump-link-item">
         <div class="jump-to-icon">
@@ -51,6 +58,7 @@
     {% endif %}
   </div>
 </div>
+{% endif %}
 {% style %}
 .jump-links-section {
   margin: 20px 0;
