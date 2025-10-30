@@ -340,7 +340,7 @@ function updateCartCount(totalQuantityAdded) {
         const mainCartBubble = document.querySelector('.header__icon--cart'); // adjust to your cart icon container
         if (mainCartBubble) {
             const newCount = document.createElement('div');
-            newCount.classList.add('custom-cart-count-bubble','cart-count-bubble');
+            newCount.classList.add('cart-count-bubble');
 
             const newCountSpan = document.createElement('span');
             newCountSpan.textContent = totalQuantityAdded; // set initial quantity
