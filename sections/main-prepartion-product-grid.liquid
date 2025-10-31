@@ -336,7 +336,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const selects = card.querySelectorAll(".option-variant-selector");
     const variantInput = card.querySelector(".variant-selector");
     const productJSON = card.querySelector(".product-json");
-
+    console.log(productJSON,'productJSON')
     if (!productJSON) return;
 
     const productData = JSON.parse(productJSON.textContent);
