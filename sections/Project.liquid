@@ -1168,7 +1168,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script> 
 
-<script>
+{% comment %} <script>
 document.addEventListener("DOMContentLoaded", function() {
   const exteriorToggle = document.querySelector(".exterior.surface-toggle");
   const surfaceOptions = document.getElementById("exterior-surfaces");
@@ -1251,11 +1251,11 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 });
-</script>
+</script> {% endcomment %}
 
 <style>
 /* Hide all sections by default */
- .circle-tabs-outer,
+ {% comment %} .circle-tabs-outer,
 .filter-bar,
 .tab-products-wrap.Interior-wrap,
 .tab-products-wrap.Exterior-wrap {
@@ -1274,7 +1274,7 @@ document.addEventListener("DOMContentLoaded", function() {
 .show-section.tab-products-wrap.Interior-wrap,
 .show-section.tab-products-wrap.Exterior-wrap {
   display: block !important;
-} 
+}  {% endcomment %}
 
 
 .cust-project{
