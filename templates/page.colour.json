@@ -158,7 +158,7 @@
           "settings": {
             "tab_name": "Pine",
             "tag_name": "tag_interior_pine",
-            "exterior_tag_name": "",
+            "exterior_tag_name": "tag_exterior_pine",
             "tab_image": "shopify://shop_images/Ellipse_79.png",
             "tab_collection": ""
           }
