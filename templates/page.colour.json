@@ -242,12 +242,14 @@
         },
         "exterior_collection_6whGNi": {
           "type": "Exterior-collection",
+          "disabled": true,
           "settings": {
             "tab_collection": "exterior-horizontal-surface"
           }
         },
         "exterior_collection_cGNwYY": {
           "type": "Exterior-collection",
+          "disabled": true,
           "settings": {
             "tab_collection": "exterior-vertical-surface"
           }
