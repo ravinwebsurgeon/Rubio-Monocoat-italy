@@ -81,7 +81,7 @@
   }
 {%- endstyle -%}
 
-<div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
+{% comment %} <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
   {%- paginate collection.products by section.settings.products_per_page -%}
     {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
       <facet-filters-form class="facets facets-vertical-sort page-width small-hide">
@@ -241,8 +241,110 @@
 </div>
 
 <!-- collection main-product-grid code END -->
-</div>
+</div> {% endcomment %}
+<section class="all-products">
+  <div class="container">
+    <h2 class="section-heading">All Products</h2>
 
+    <div class="product-grid">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://rubio-monocoat-italy.myshopify.com/cdn/shop/files/StaalmeesterBrush_flatbrush_35mm.png?v=1761230796&width=360" alt="Woodfiller Quick">
+        </div>
+        <div class="product-content">
+          <div class="title-price">
+            <h3>Woodfiller Quick</h3>
+            <span>€49,20</span>
+          </div>
+
+          <div class="swatches">
+            <span class="swatch" style="background-color:#d9b38c;"></span>
+            <span class="swatch" style="background-color:#c68c53;"></span>
+            <span class="swatch" style="background-color:#a67b5b;"></span>
+          </div>
+
+          <select class="variant">
+            <option>100ml</option>
+            <option>200ml</option>
+          </select>
+
+          <ul class="features">
+            <li><img src="https://cdn-icons-png.flaticon.com/512/1670/1670485.png" alt=""> Quick Curing</li>
+            <li><img src="https://cdn-icons-png.flaticon.com/512/1010/1010390.png" alt=""> User-friendly</li>
+          </ul>
+
+          <div class="buttons">
+            <button class="btn dark">More info</button>
+            <button class="btn yellow">Add to cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://rubio-monocoat-italy.myshopify.com/cdn/shop/files/StaalmeesterBrush_flatbrush_35mm.png?v=1761230796&width=360" alt="Deep Cleaner">
+        </div>
+        <div class="product-content">
+          <div class="title-price">
+            <h3>Deep Cleaner</h3>
+            <span>€49,20</span>
+          </div>
+
+          <select class="variant">
+            <option>100ml</option>
+            <option>500ml</option>
+          </select>
+
+          <ul class="features">
+            <li><img src="https://cdn-icons-png.flaticon.com/512/1670/1670485.png" alt=""> Quick Curing</li>
+            <li><img src="https://cdn-icons-png.flaticon.com/512/1010/1010390.png" alt=""> User-friendly</li>
+          </ul>
+
+          <div class="buttons">
+            <button class="btn dark">More info</button>
+            <button class="btn yellow">Add to cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://rubio-monocoat-italy.myshopify.com/cdn/shop/files/StaalmeesterBrush_flatbrush_35mm.png?v=1761230796&width=360" alt="Woodfiller Quick">
+        </div>
+        <div class="product-content">
+          <div class="title-price">
+            <h3>Woodfiller Quick</h3>
+            <span>€49,20</span>
+          </div>
+
+          <div class="swatches">
+            <span class="swatch" style="background-color:#d9b38c;"></span>
+            <span class="swatch" style="background-color:#c68c53;"></span>
+            <span class="swatch" style="background-color:#a67b5b;"></span>
+          </div>
+
+          <select class="variant">
+            <option>100ml</option>
+            <option>200ml</option>
+          </select>
+
+          <ul class="features">
+            <li><img src="https://cdn-icons-png.flaticon.com/512/1670/1670485.png" alt=""> Quick Curing</li>
+            <li><img src="https://cdn-icons-png.flaticon.com/512/1010/1010390.png" alt=""> User-friendly</li>
+          </ul>
+
+          <div class="buttons">
+            <button class="btn dark">More info</button>
+            <button class="btn yellow">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <style>
     .custom_collection_main{
@@ -285,7 +387,7 @@
       border-radius: 20px;
       padding: 50px;
       justify-content:center;
-      gap:30px;
+      gap:25px;
     }
     .collection_surface_header h2 {
         font-family: Frutiger Neue LT W1G;
