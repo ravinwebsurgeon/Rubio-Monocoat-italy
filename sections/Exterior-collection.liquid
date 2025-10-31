@@ -3,6 +3,8 @@
   
   {% for block in section.blocks %}
     {% assign tab_collection = block.settings.tab_collection %}
+    {% comment %} {% assign tab_collection = section.settings.Exterior_collection %} {% endcomment %}
+
     
     <div class="tab-productss {% if forloop.first %}active{% endif %}">
       <!-- Add dynamic class to <ul> -->
