@@ -128,6 +128,7 @@
           "settings": {
             "tab_name": "Douglas",
             "tag_name": "tag_interior_douglas",
+            "exterior_tag_name": "tag_exterior_douglas",
             "tab_image": "shopify://shop_images/Ellipse_79.png",
             "tab_collection": "douglas-wood"
           }
@@ -137,6 +138,7 @@
           "settings": {
             "tab_name": "Ipe",
             "tag_name": "tag_interior_ipe",
+            "exterior_tag_name": "",
             "tab_image": "shopify://shop_images/Ellipse_80.png",
             "tab_collection": "pine-wood"
           }
@@ -146,6 +148,7 @@
           "settings": {
             "tab_name": "Larch",
             "tag_name": "tag_interior_larch",
+            "exterior_tag_name": "",
             "tab_image": "shopify://shop_images/Ellipse_81.png",
             "tab_collection": ""
           }
@@ -155,6 +158,7 @@
           "settings": {
             "tab_name": "Pine",
             "tag_name": "tag_interior_pine",
+            "exterior_tag_name": "",
             "tab_image": "shopify://shop_images/Ellipse_79.png",
             "tab_collection": ""
           }
@@ -164,6 +168,7 @@
           "settings": {
             "tab_name": "Teak",
             "tag_name": "tag_interior_teak",
+            "exterior_tag_name": "",
             "tab_image": "shopify://shop_images/Ellipse_83.png",
             "tab_collection": ""
           }
@@ -173,6 +178,7 @@
           "settings": {
             "tab_name": "Thermowood",
             "tag_name": "tag_interior_thermowood",
+            "exterior_tag_name": "",
             "tab_image": "shopify://shop_images/Ellipse_84.png",
             "tab_collection": ""
           }
@@ -232,34 +238,6 @@
     },
     "exterior_collection_8e6Tp4": {
       "type": "Exterior-collection",
-      "blocks": {
-        "exterior_collection_LHfW8G": {
-          "type": "Exterior-collection",
-          "disabled": true,
-          "settings": {
-            "tab_collection": "exterior-protection"
-          }
-        },
-        "exterior_collection_6whGNi": {
-          "type": "Exterior-collection",
-          "disabled": true,
-          "settings": {
-            "tab_collection": "exterior-horizontal-surface"
-          }
-        },
-        "exterior_collection_cGNwYY": {
-          "type": "Exterior-collection",
-          "disabled": true,
-          "settings": {
-            "tab_collection": "exterior-vertical-surface"
-          }
-        }
-      },
-      "block_order": [
-        "exterior_collection_LHfW8G",
-        "exterior_collection_6whGNi",
-        "exterior_collection_cGNwYY"
-      ],
       "name": "Exterior-collection",
       "settings": {
         "heading": "Durogit - Exterior wood oil",
