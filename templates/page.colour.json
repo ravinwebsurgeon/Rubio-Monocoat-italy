@@ -168,7 +168,7 @@
           "settings": {
             "tab_name": "Teak",
             "tag_name": "tag_interior_teak",
-            "exterior_tag_name": "",
+            "exterior_tag_name": "tag_exterior_teak",
             "tab_image": "shopify://shop_images/Ellipse_83.png",
             "tab_collection": ""
           }
