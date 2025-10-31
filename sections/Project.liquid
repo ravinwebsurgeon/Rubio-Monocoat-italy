@@ -282,7 +282,7 @@
                 <div class="tab-products{% if forloop.first %} active{% endif %}" id="tab-{{ block.id }}">
                   <ul class="product-grid">
                     {% for product in tab_collection.products %}
-                    <li class="product-item"
+                    <li class="product-item" data-tags="{{product.tags}}"
                       data-colours="{{ product.metafields.custom.colour_filter2.value | join: ',' }}"
                       data-products="{{ product.metafields.custom.product_filter.value | join: ',' }}"
                       data-available="{{ product.available }}"
@@ -369,36 +369,6 @@
 </div>
 
 
-
-
-{% comment %} {% schema %}
-{
-  "name": "Project",
-  "settings": [
-    { "type": "text", "id": "heading", "label": "Main Heading", "default": "Choose your project:" },
-    { "type": "image_picker", "id": "img1", "label": "Interior Image" },
-    { "type": "image_picker", "id": "img2", "label": "Exterior Image" },
-    { "type": "text", "id": "heading2", "label": "Secondary Heading", "default": "Choose your species:" },
-    { "type": "url", "id": "video_url", "label": "Video URL (MP4)" },
-
-    /* ✅ Added fields for surface images */
-    { "type": "image_picker", "id": "vertical_surface_img", "label": "Vertical Surface Image" },
-    { "type": "image_picker", "id": "horizontal_surface_img", "label": "Horizontal Surface Image" }
-  ],
-  "blocks": [
-    {
-      "type": "tab",
-      "name": "Tab",
-      "settings": [
-        { "type": "text", "id": "tab_name", "label": "Tab name" },
-        { "type": "image_picker", "id": "tab_image", "label": "Tab image" },
-        { "type": "collection", "id": "tab_collection", "label": "Collection to show" }
-      ]
-    }
-  ],
-  "presets": [{ "name": "Project", "category": "Custom" }]
-}
-{% endschema %} {% endcomment %}
 
 {% schema %}
 {
