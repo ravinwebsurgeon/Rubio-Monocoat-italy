@@ -31,19 +31,10 @@
     },
     "collection_compare_products_pYHEaF": {
       "type": "collection-compare-products",
+      "disabled": true,
       "name": "Compare Product Section",
       "settings": {
         "heading": "Latest from the blog"
-      }
-    },
-    "top_picks_col_GhqgTm": {
-      "type": "top-picks-col",
-      "name": "Top Picks Slider col",
-      "settings": {
-        "section_heading": "International product certificates",
-        "product_list": [
-          "exterior-soap-ecospray"
-        ]
       }
     },
     "inspired_wooden_floor_GyrTqA": {
@@ -162,7 +153,6 @@
   "order": [
     "product-grid",
     "collection_compare_products_pYHEaF",
-    "top_picks_col_GhqgTm",
     "inspired_wooden_floor_GyrTqA",
     "other_surfaces_slider_3bmEdY"
   ]
