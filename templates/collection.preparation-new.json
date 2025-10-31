@@ -49,28 +49,28 @@
         "product_block_XWCJaT": {
           "type": "product_block",
           "settings": {
-            "product": "cleaner",
+            "product": "durogrit-1",
             "background_image": "shopify://shop_images/Untitled_410_x_400_px_1.png"
           }
         },
         "product_block_Ukfr49": {
           "type": "product_block",
           "settings": {
-            "product": "cleaner",
+            "product": "exterior-soap-1",
             "background_image": "shopify://shop_images/Untitled_410_x_400_px_be966806-9f82-498c-805e-57a7ba6cdd23.png"
           }
         },
         "product_block_XbhYA9": {
           "type": "product_block",
           "settings": {
-            "product": "cleaner",
+            "product": "floor-care-bundle",
             "background_image": "shopify://shop_images/Untitled_design_72.png"
           }
         },
         "product_block_QipbKy": {
           "type": "product_block",
           "settings": {
-            "product": "cleaner",
+            "product": "grease-remover",
             "background_image": "shopify://shop_images/e5624f9fa274d9c761c6e640fe62e760d60b2c58.jpg"
           }
         }

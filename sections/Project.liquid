@@ -1121,8 +1121,8 @@ document.addEventListener("DOMContentLoaded", function() {
  
   tagButtons.forEach(button => {
 
-  button.addEventListener('click', (e) => {
-      e.stopPropagation();
+  button.addEventListener('click', () => {
+  
  const btnparentClasses = button.parentNode.parentNode.classList;
 
     let parent = '';
