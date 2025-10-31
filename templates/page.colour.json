@@ -128,7 +128,6 @@
           "settings": {
             "tab_name": "Douglas",
             "tag_name": "tag_interior_douglas",
-            "exterior_tag_name": "tag_exterior_douglas",
             "tab_image": "shopify://shop_images/Ellipse_79.png",
             "tab_collection": "douglas-wood"
           }
@@ -138,7 +137,6 @@
           "settings": {
             "tab_name": "Ipe",
             "tag_name": "tag_interior_ipe",
-            "exterior_tag_name": "tag_exterior_ipe",
             "tab_image": "shopify://shop_images/Ellipse_80.png",
             "tab_collection": "pine-wood"
           }
@@ -148,7 +146,6 @@
           "settings": {
             "tab_name": "Larch",
             "tag_name": "tag_interior_larch",
-            "exterior_tag_name": "tag_exterior_larch",
             "tab_image": "shopify://shop_images/Ellipse_81.png",
             "tab_collection": ""
           }
@@ -158,7 +155,6 @@
           "settings": {
             "tab_name": "Pine",
             "tag_name": "tag_interior_pine",
-            "exterior_tag_name": "tag_exterior_pine",
             "tab_image": "shopify://shop_images/Ellipse_79.png",
             "tab_collection": ""
           }
@@ -168,7 +164,6 @@
           "settings": {
             "tab_name": "Teak",
             "tag_name": "tag_interior_teak",
-            "exterior_tag_name": "tag_exterior_teak",
             "tab_image": "shopify://shop_images/Ellipse_83.png",
             "tab_collection": ""
           }
@@ -178,7 +173,6 @@
           "settings": {
             "tab_name": "Thermowood",
             "tag_name": "tag_interior_thermowood",
-            "exterior_tag_name": "tag_exterior_thermowood",
             "tab_image": "shopify://shop_images/Ellipse_84.png",
             "tab_collection": ""
           }
@@ -238,6 +232,70 @@
     },
     "exterior_collection_8e6Tp4": {
       "type": "Exterior-collection",
+      "blocks": {
+        "tab_7Mk49L": {
+          "type": "tab",
+          "settings": {
+            "tab_name": "Ash",
+            "exterior_tag_name": "",
+            "tab_image": "shopify://shop_images/OIL_PLUS_2C_ASH_PURE_5410761574514.jpg",
+            "tab_collection": ""
+          }
+        },
+        "tab_VPKXdT": {
+          "type": "tab",
+          "settings": {
+            "tab_name": "Beech",
+            "exterior_tag_name": "",
+            "tab_image": "shopify://shop_images/width_20018-ezgif.com-webp-to-png-converter.png",
+            "tab_collection": ""
+          }
+        },
+        "tab_cbribG": {
+          "type": "tab",
+          "settings": {
+            "tab_name": "Larch",
+            "exterior_tag_name": "",
+            "tab_image": "shopify://shop_images/width_20017-ezgif.com-webp-to-png-converter.png",
+            "tab_collection": ""
+          }
+        },
+        "tab_nDnVtJ": {
+          "type": "tab",
+          "settings": {
+            "tab_name": "Maple",
+            "exterior_tag_name": "",
+            "tab_image": "shopify://shop_images/width_20024-ezgif.com-webp-to-png-converter.png",
+            "tab_collection": ""
+          }
+        },
+        "tab_idEQNf": {
+          "type": "tab",
+          "settings": {
+            "tab_name": "oak",
+            "exterior_tag_name": "",
+            "tab_image": "shopify://shop_images/width_20022-ezgif.com-webp-to-png-converter.png",
+            "tab_collection": ""
+          }
+        },
+        "tab_efRYDc": {
+          "type": "tab",
+          "settings": {
+            "tab_name": "Pine",
+            "exterior_tag_name": "",
+            "tab_image": "shopify://shop_images/width_2001-ezgif.com-webp-to-png-converter_1.png",
+            "tab_collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_7Mk49L",
+        "tab_VPKXdT",
+        "tab_cbribG",
+        "tab_nDnVtJ",
+        "tab_idEQNf",
+        "tab_efRYDc"
+      ],
       "name": "Exterior-collection",
       "settings": {
         "heading": "Durogit - Exterior wood oil",
