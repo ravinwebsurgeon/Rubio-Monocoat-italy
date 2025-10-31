@@ -441,10 +441,7 @@ tagButtons.forEach(button => {
 <script>
  
 document.addEventListener('DOMContentLoaded', function() {
-   function show_products()
-  {
-  console.log('test');
-  }
+
   const colourFilter   = document.getElementById('colour-filter');
   const productFilter  = document.getElementById('product-filter');
   const availableFilter= document.getElementById('available-filter');
@@ -477,6 +474,10 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
     document.addEventListener('DOMContentLoaded', function () {
   /* circle tabs */
+     function show_products()
+  {
+  console.log('test');
+  }
   document.querySelectorAll('.circle-tab').forEach(btn => {
     btn.addEventListener('click', function () {
       document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove('active'));
