@@ -662,14 +662,33 @@ document.addEventListener('DOMContentLoaded', function() {
     const playButton = block.querySelector('.video-play-btn');
 
     if (video && playButton) {
+      
+      // When play button is clicked
       playButton.addEventListener('click', () => {
         if (video.paused) {
+          // Hide the play icon and play video
           video.play();
-          playButton.classList.add('playing');
+          playButton.style.display = 'none';
         } else {
+          // Pause and show the play icon
           video.pause();
-          playButton.classList.remove('playing');
+          playButton.style.display = 'flex';
         }
+      });
+
+      // When video ends → show play icon again
+      video.addEventListener('ended', () => {
+        playButton.style.display = 'flex';
+      });
+
+      // If video is paused manually
+      video.addEventListener('pause', () => {
+        playButton.style.display = 'flex';
+      });
+
+      // If video starts playing (from anywhere)
+      video.addEventListener('play', () => {
+        playButton.style.display = 'none';
       });
     }
   });
@@ -690,3 +709,4 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+
