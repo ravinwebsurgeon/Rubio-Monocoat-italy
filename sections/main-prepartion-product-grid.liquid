@@ -331,19 +331,15 @@ function refreshCartDrawer() {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Select all product cards on the collection page
+  // Loop through each product card on the page
   const productCards = document.querySelectorAll('.product-card');
 
   productCards.forEach((card) => {
-    // Each card should have its own variant selectors
     const variantSelectors = card.querySelectorAll('.option-variant-selector');
-
-    // Get the product’s variants (use a data attribute from Liquid)
+    const variantInput = card.querySelector('#variant-id');
     const variants = JSON.parse(card.dataset.variants);
 
-    // Hidden input to hold selected variant ID
-    const variantIdInput = card.querySelector('.variant-id-input');
-
+    // Collect currently selected option values
     function getSelectedOptions() {
       let selectedOptions = [];
       variantSelectors.forEach((select) => {
@@ -352,30 +348,31 @@ document.addEventListener('DOMContentLoaded', function () {
       return selectedOptions;
     }
 
-    function findMatchingVariant(options) {
-      return variants.find((variant) => {
-        return variant.options.every((opt, index) => opt === options[index]);
-      });
+    // Find matching variant from options
+    function findMatchingVariant(selectedOptions) {
+      return variants.find((variant) =>
+        variant.options.every((opt, index) => opt === selectedOptions[index])
+      );
     }
 
     function updateVariantId() {
       const selectedOptions = getSelectedOptions();
-      const matchingVariant = findMatchingVariant(selectedOptions);
+      const matchedVariant = findMatchingVariant(selectedOptions);
 
-      if (matchingVariant) {
-        console.log('Selected Variant ID:', matchingVariant.id);
-        variantIdInput.value = matchingVariant.id;
+      if (matchedVariant) {
+        variantInput.value = matchedVariant.id;
+        console.log(`Updated variant ID for this product: ${matchedVariant.id}`);
       } else {
-        console.log('No matching variant found for this card');
+        console.log('No matching variant found for this combination');
       }
     }
 
-    // Listen for changes on all variant selectors inside this card
+    // Listen for changes on all dropdowns within this card
     variantSelectors.forEach((select) => {
       select.addEventListener('change', updateVariantId);
     });
 
-    // Initial check
+    // Initialize on page load
     updateVariantId();
   });
 });
