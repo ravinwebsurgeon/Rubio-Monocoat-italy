@@ -1111,12 +1111,9 @@ document.addEventListener("DOMContentLoaded", function() {
     {
     const products = document.querySelectorAll('.product-item'); 
     const tagButtons = document.querySelectorAll('.circle-tab');
+ 
+tagButtons.forEach(button => {
 
-  tagButtons.forEach(button => {
-    let btnparentClasses = button.parentNode.parentNode.classList
-  console.log('btnparent',btnparentClasses)
-  let parent =''
-  if (btnparentClasses.contains('exterior')) {parent = 'exterior'} else if (btnparentClasses.contains('interior')) {parent = 'interior' }
   button.addEventListener('click', () => {
 
     let selectedTag = button.textContent.trim().toLowerCase();
