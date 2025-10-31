@@ -158,10 +158,11 @@
               aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
             >
               {{ card_product.title | escape }}
-            {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
-
             </a>
           </h3>
+          {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+
+
           <div class="card-information">
             {%- if show_vendor -%}
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
