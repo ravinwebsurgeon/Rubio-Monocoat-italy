@@ -163,6 +163,20 @@
           </h3>
           {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
         </div>
+        <div class="custom_added_variants">
+          {% for option in card_product.options_with_values %}
+            <div class="pro_variant_options">
+              <select class="option-variant-selector" name="option-variant-selector" id="ProductSelect-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
+                {% for value in option.values %}
+                    <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>
+                    {{ value | escape }}
+                    </option>
+                {% endfor %}
+              </select>
+            </div>
+          {% endfor %}
+          <input type="hidden" class="variant-selector" id="variant-id" name="id" value="">
+        </div>
 
           <div class="card-information">
             {%- if show_vendor -%}
