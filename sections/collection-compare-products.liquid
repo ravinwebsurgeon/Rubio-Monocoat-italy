@@ -5,7 +5,6 @@
 {% assign des_suitable = collection.metafields.custom.compare_product_des_suitable.value %}
 {% assign des_benefits = collection.metafields.custom.compare_product_des_benefits.value %}
 {% assign des_moment = collection.metafields.custom.compare_product_des_moment.value %}
-{% assign all_columns = des_purpose | zip: des_suitable | zip: des_benefits | zip: des_moment %}
 
 
 <div class="comapre_products_section">
@@ -48,8 +47,8 @@
       </tr>
     </thead>
     <tbody>
-      {% assign row_count = des_purpose.size %}
-      {% for i in (0..row_count-1) %}
+      {% assign max_rows = des_purpose.size | at_least: des_suitable.size | at_least: des_benefits.size | at_least: des_moment.size %}
+      {% for i in (0..max_rows-1) %}
         <tr>
           <td>{{ des_purpose[i] }}</td>
           <td>{{ des_suitable[i] }}</td>
