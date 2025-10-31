@@ -246,7 +246,7 @@
           "type": "tab",
           "settings": {
             "tab_name": "Beech",
-            "exterior_tag_name": "",
+            "exterior_tag_name": "tag_exterior_beech",
             "tab_image": "shopify://shop_images/width_20018-ezgif.com-webp-to-png-converter.png",
             "tab_collection": ""
           }
