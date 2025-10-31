@@ -197,7 +197,6 @@
         "vertical_surface_collection": "exterior-vertical-surface",
         "horizontal_surface_img": "shopify://shop_images/UMO_pure.jpg",
         "horizontal_surface_collection": "exterior-horizontal-surface",
-        "exterior_collection": "exterior-colors",
         "interior_collection": "interior-colors"
       }
     },
@@ -261,7 +260,8 @@
       ],
       "name": "Exterior-collection",
       "settings": {
-        "heading": "Durogit - Exterior wood oil"
+        "heading": "Durogit - Exterior wood oil",
+        "exterior_collection": "exterior-colors"
       }
     },
     "icons_section_cF3FEP": {
