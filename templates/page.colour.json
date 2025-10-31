@@ -264,7 +264,7 @@
           "type": "tab",
           "settings": {
             "tab_name": "Maple",
-            "exterior_tag_name": "",
+            "exterior_tag_name": "tag_exterior_maple",
             "tab_image": "shopify://shop_images/width_20024-ezgif.com-webp-to-png-converter.png",
             "tab_collection": ""
           }
