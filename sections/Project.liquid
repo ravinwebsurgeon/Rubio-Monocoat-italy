@@ -477,6 +477,7 @@ document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.tab-products').forEach(c => c.classList.remove('active'));
       this.classList.add('active');
+      show_products();
       document.getElementById(this.dataset.tab).classList.add('active');
     });
   });
