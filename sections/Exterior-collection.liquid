@@ -5,7 +5,7 @@
     {% endif %}
     <div class="circle-tabs">
       {% for block in section.blocks %}
-        <button class="circle-tab" data-tab="tab-{{ block.id }}" data-exterior-tag-name={{ block.settings.exterior_tag_name }} data-interior-tag-name={{block.settings.tag_name }}>
+        <button class="circle-tab" data-tab="tab-{{ block.id }}" data-exterior-tag-name="{{ block.settings.exterior_tag_name }}" data-interior-tag-name={{block.settings.tag_name }}>
           {% if block.settings.tab_image %}
             <span class="circle-tab-ing"> 
               <img src="{{ block.settings.tab_image | img_url: '200x200' }}" alt="{{ block.settings.tab_name | escape }}" width="" height=""> 
@@ -123,7 +123,8 @@
               <span class="tips-link-txt tips-link-mobs"> Check out our expert tips! </span>
             </button>
           </div>
-          <div class="tab-products-wrap Exterior-wrap">
+</div> 
+<div class="tab-products-wrap Exterior-wrap">
   {% if section.settings.heading != blank %}
     <h4 class="oil-head">{{ section.settings.heading }}</h4>
   {% endif %}
@@ -175,8 +176,6 @@
     <p>No collection selected or collection is empty.</p>
   {% endif %}
 </div>
-
-</div> 
 
 {% comment %} <script>
 document.addEventListener('DOMContentLoaded', function() {
