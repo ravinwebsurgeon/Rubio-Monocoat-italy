@@ -5,7 +5,7 @@
     {% endif %}
     <div class="circle-tabs">
       {% for block in section.blocks %}
-        <button class="circle-tab" data-tab="tab-{{ block.id }}" data-exterior-tag-name="{{ block.settings.exterior_tag_name }}" data-interior-tag-name={{block.settings.tag_name }}>
+        <button class="exterior-circle circle-tab" data-tab="tab-{{ block.id }}" data-exterior-tag-name="{{ block.settings.exterior_tag_name }}" data-interior-tag-name={{block.settings.tag_name }}>
           {% if block.settings.tab_image %}
             <span class="circle-tab-ing"> 
               <img src="{{ block.settings.tab_image | img_url: '200x200' }}" alt="{{ block.settings.tab_name | escape }}" width="" height=""> 
@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
   /* circle tabs */
  function showproducts() {
     const products = document.querySelectorAll('.exterior-product-item'); 
-    const activeTab = document.querySelector('.circle-tab.active');
+    const activeTab = document.querySelector('.exterior-circle.active');
     if (!activeTab) return;
     const btnparentClasses = activeTab.parentNode.parentNode.classList;
     console.log('check',btnparentClasses)
@@ -250,7 +250,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 }
-
+});
+// Initialize tabs with proper showproducts call
+document.querySelectorAll('.exterior-circle').forEach(btn => {
+    btn.addEventListener('click', function () {
+        document.querySelectorAll('.exterior-circle').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-products').forEach(c => c.classList.remove('active'));
+        
+        this.classList.add('active');
+        document.getElementById(this.dataset.tab).classList.add('active');
+        
+        // Call showproducts immediately after tab activation
+        showproducts();
+    });
+});
 </script>
 
 
