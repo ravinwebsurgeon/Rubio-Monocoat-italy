@@ -1,7 +1,11 @@
 {% assign products = collection.metafields.custom.compare_products.value %}
 {% assign heading = collection.metafields.custom.compare_products_heading.value %}
 {% assign des_headings = collection.metafields.custom.compare_product_des_heading.value %}
-{% assign des_values = collection.metafields.custom.custom.compare_product_des_detail.value %}
+{% assign des_purpose = collection.metafields.custom.compare_product_des_purpose.value %}
+{% assign des_suitable = collection.metafields.custom.compare_product_des_suitable.value %}
+{% assign des_benefits = collection.metafields.custom.compare_product_des_benefits.value %}
+{% assign des_moment = collection.metafields.custom.compare_product_des_moment.value %}
+{% assign all_columns = des_purpose | zip: des_suitable | zip: des_benefits | zip: des_moment %}
 
 
 <div class="comapre_products_section">
@@ -25,7 +29,7 @@
         </div>
     </div>
 
-    <div class="products_description_conent">
+    {% comment %} <div class="products_description_conent">
         <div class="heading_lists">
             {% for text in des_headings %}
                 <div class="des_content">
@@ -33,8 +37,29 @@
                 </div>
             {% endfor %}
         </div>
-    </div>
-
+    </div> {% endcomment %}
+<div class="compare-table-wrapper">
+  <table class="compare-table">
+    <thead>
+      <tr>
+        {% for heading in des_headings %}
+          <th>{{ heading }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% assign row_count = des_purpose.size %}
+      {% for i in (0..row_count-1) %}
+        <tr>
+          <td>{{ des_purpose[i] }}</td>
+          <td>{{ des_suitable[i] }}</td>
+          <td>{{ des_benefits[i] }}</td>
+          <td>{{ des_moment[i] }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 </div>
 <style>
     .compare_products{display:flex;}
