@@ -172,7 +172,7 @@
           "type": "tab",
           "settings": {
             "tab_name": "Thermowood",
-            "tag_name": "",
+            "tag_name": "tag_interior_thermowood",
             "tab_image": "shopify://shop_images/Ellipse_84.png",
             "tab_collection": ""
           }
@@ -196,7 +196,9 @@
         "vertical_surface_img": "shopify://shop_images/UMO_White.jpg",
         "vertical_surface_collection": "exterior-vertical-surface",
         "horizontal_surface_img": "shopify://shop_images/UMO_pure.jpg",
-        "horizontal_surface_collection": "exterior-horizontal-surface"
+        "horizontal_surface_collection": "exterior-horizontal-surface",
+        "exterior_collection": "exterior-colors",
+        "interior_collection": "interior-colors"
       }
     },
     "featured_collection_QYGftz": {
