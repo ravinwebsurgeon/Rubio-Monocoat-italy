@@ -438,58 +438,62 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
     document.addEventListener('DOMContentLoaded', function () {
   /* circle tabs */
- 
-function showproducts()
-    {
+ function showproducts() {
     const products = document.querySelectorAll('.product-item'); 
-    const tagButtons = document.querySelectorAll('.circle-tab');
- 
-  tagButtons.forEach(button => {
-
-  button.addEventListener('click', () => {
-  
- const btnparentClasses = button.parentNode.parentNode.classList;
-
+    const activeTab = document.querySelector('.circle-tab.active');
+    
+    if (!activeTab) return;
+    
+    const btnparentClasses = activeTab.parentNode.parentNode.classList;
     let parent = '';
 
     if (btnparentClasses.contains('exterior')) {
-      parent = 'exterior';
+        parent = 'exterior';
     } else if (btnparentClasses.contains('interior')) {
-      parent = 'interior';
+        parent = 'interior';
     }
-    let selectedTag = button.textContent.trim().toLowerCase();
+    
+    let selectedTag = activeTab.textContent.trim().toLowerCase();
 
     products.forEach(product => {
-    let productParent = product.parentNode.parentNode.parentNode
-         {% comment %} const productWrap = product.closest('.Exterior-wrap, .Interior-wrap'); {% endcomment %}
-        let productParentclass ='';
-         if(productParent.classList.contains('Exterior-wrap')){ productParentclass ='exterior';}
-         else if(productParent.classList.contains('Interior-wrap')){ productParentclass ='interior';}
+        let productParent = product.parentNode.parentNode.parentNode;
+        let productParentclass = '';
         
-      // Get product tags (assuming comma-separated)
+        if(productParent.classList.contains('Exterior-wrap')) { 
+            productParentclass = 'exterior';
+        } else if(productParent.classList.contains('Interior-wrap')) { 
+            productParentclass = 'interior';
+        }
+        
+        const productTags = product.dataset.tags.split(',').map(tag => tag.trim().toLowerCase());
+        const matchPattern = `${parent}_${selectedTag}`;
+        const matches = productTags.some(tag => tag.includes(matchPattern));
 
-      const productTags = product.dataset.tags.split(',').map(tag => tag.trim().toLowerCase());
-      const matchPattern = `${parent}_${selectedTag}`;
-      // Check if any product tag contains the selected tag as substring
-      console.log('matchPattern',matchPattern,"productParent",productParentclass,'parent',parent)
-      const matches = productTags.some(tag => tag.includes(matchPattern));
- 
-      // Show/hide based on match
-      console.log('matches',matches)
-      {% comment %} product.style.display = matches ? 'block' : 'none'; {% endcomment %}
-          if (matches && productParentclass == parent) {
-          product.style.display = 'block';
+        console.log('matchPattern', matchPattern, "productParent", productParentclass, 'parent', parent, 'matches', matches);
+        
+        if (matches && productParentclass == parent) {
+            product.style.display = 'block';
         } else {
-          product.style.display = 'none';
+            product.style.display = 'none';
         }
     });
-  });
+}
 
+// Initialize tabs with proper showproducts call
+document.querySelectorAll('.circle-tab').forEach(btn => {
+    btn.addEventListener('click', function () {
+        document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove('active','asdf'));
+        document.querySelectorAll('.tab-products').forEach(c => c.classList.remove('active'));
+        
+        this.classList.add('active');
+        document.getElementById(this.dataset.tab).classList.add('active');
+        
+        // Call showproducts immediately after tab activation
+        showproducts();
+    });
 });
-
-    }
     {% comment %} <!-- comment by amanpreet --> {% endcomment %}
-  document.querySelectorAll('.circle-tab').forEach(btn => {
+  {% comment %} document.querySelectorAll('.circle-tab').forEach(btn => {
     btn.addEventListener('click', function () {
       document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove('active','asdf'));
       document.querySelectorAll('.tab-products').forEach(c => c.classList.remove('active'));
@@ -499,7 +503,7 @@ function showproducts()
 
     });
   
-  });
+  }); {% endcomment %}
   
 
  
