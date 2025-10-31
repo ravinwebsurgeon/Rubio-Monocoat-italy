@@ -148,7 +148,7 @@
           "settings": {
             "tab_name": "Larch",
             "tag_name": "tag_interior_larch",
-            "exterior_tag_name": "",
+            "exterior_tag_name": "tag_exterior_larch",
             "tab_image": "shopify://shop_images/Ellipse_81.png",
             "tab_collection": ""
           }
