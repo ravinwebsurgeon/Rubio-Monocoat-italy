@@ -1136,9 +1136,9 @@ tagButtons.forEach(button => {
     products.forEach(product => {
     let productParent = product.parentNode.parentNode.parentNode
          {% comment %} const productWrap = product.closest('.Exterior-wrap, .Interior-wrap'); {% endcomment %}
-        const productParent ='';
-         if(productParent.classList.contains('exterior-wrap')){ productParent ='exterior';}
-         else if(productParent.classList.contains('interior-wrap')){ productParent ='interior';}
+        let productParentclass ='';
+         if(productParent.classList.contains('exterior-wrap')){ productParentclass ='exterior';}
+         else if(productParent.classList.contains('interior-wrap')){ productParentclass ='interior';}
         
       // Get product tags (assuming comma-separated)
 
