@@ -1137,8 +1137,8 @@ tagButtons.forEach(button => {
     {% comment %} let productParent = product.parentNode.parentNode.parentNode.classList {% endcomment %}
          const productWrap = product.closest('.Exterior-wrap, .Interior-wrap');
         const productParent =
-          productWrap?.classList.contains('exterior-wrap') ? 'Exterior-wrap' :
-          productWrap?.classList.contains('interior-wrap') ? 'Interior-wrap' :
+          productWrap?.classList.contains('exterior-wrap') ? 'xterior' :
+          productWrap?.classList.contains('interior-wrap') ? 'interior' :
           null;
       // Get product tags (assuming comma-separated)
 
@@ -1150,7 +1150,12 @@ tagButtons.forEach(button => {
  
       // Show/hide based on match
       console.log('matches',matches)
-      product.style.display = matches ? 'block' : 'none';
+      {% comment %} product.style.display = matches ? 'block' : 'none'; {% endcomment %}
+          if (matches && productParent === parent) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
     });
   });
 
