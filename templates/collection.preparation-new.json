@@ -29,6 +29,18 @@
         "padding_bottom": 36
       }
     },
+    "custom_inspired_wooden_7apwah": {
+      "type": "custom_inspired_wooden",
+      "name": "CustomInspired Wooden",
+      "settings": {
+        "heading": "",
+        "subheading": "",
+        "Products": [
+          "cleaner"
+        ],
+        "source_page": ""
+      }
+    },
     "collection_compare_products_pYHEaF": {
       "type": "collection-compare-products",
       "name": "Compare Product Section",
@@ -39,6 +51,7 @@
   },
   "order": [
     "product-grid",
+    "custom_inspired_wooden_7apwah",
     "collection_compare_products_pYHEaF"
   ]
 }
