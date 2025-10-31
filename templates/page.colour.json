@@ -126,8 +126,8 @@
         "tab_dTdLM6": {
           "type": "tab",
           "settings": {
-            "tab_name": "Douglas",
-            "tag_name": "tag_interior_douglas",
+            "tab_name": "Ash",
+            "tag_name": "tag_interior_ash",
             "tab_image": "shopify://shop_images/Ellipse_79.png",
             "tab_collection": "douglas-wood"
           }
@@ -299,6 +299,7 @@
       "name": "Exterior-collection",
       "settings": {
         "heading": "Durogit - Exterior wood oil",
+        "heading2": "Choose your species:",
         "exterior_collection": "exterior-colors"
       }
     },
