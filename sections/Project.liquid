@@ -439,11 +439,12 @@ tagButtons.forEach(button => {
 
 
 <script>
-  function show_products()
+ 
+document.addEventListener('DOMContentLoaded', function() {
+   function show_products()
   {
   console.log('test');
   }
-document.addEventListener('DOMContentLoaded', function() {
   const colourFilter   = document.getElementById('colour-filter');
   const productFilter  = document.getElementById('product-filter');
   const availableFilter= document.getElementById('available-filter');
