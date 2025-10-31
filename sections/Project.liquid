@@ -282,7 +282,7 @@
                 <div class="tab-products{% if forloop.first %} active{% endif %}" id="tab-{{ block.id }}">
                   <ul class="product-grid">
                     {% for product in tab_collection.products %}
-                    <li class="product-item" data-tags="{{product.tags}}"
+                    <li class="product-item" data-tags="{{product.tags | join:','}}"
                       data-colours="{{ product.metafields.custom.colour_filter2.value | join: ',' }}"
                       data-products="{{ product.metafields.custom.product_filter.value | join: ',' }}"
                       data-available="{{ product.available }}"
