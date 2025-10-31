@@ -31,7 +31,6 @@
     },
     "collection_compare_products_pYHEaF": {
       "type": "collection-compare-products",
-      "disabled": true,
       "name": "Compare Product Section",
       "settings": {
         "heading": "Latest from the blog"
@@ -252,8 +251,8 @@
   },
   "order": [
     "product-grid",
-    "collection_compare_products_pYHEaF",
     "how_to_use_faq_news_test_Ltrq6j",
+    "collection_compare_products_pYHEaF",
     "inspired_wooden_floor_GyrTqA",
     "custom_vissits_nomal_ctG9Gz",
     "other_surfaces_slider_3bmEdY"
