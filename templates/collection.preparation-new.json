@@ -148,12 +148,66 @@
       "settings": {
         "main_heading": "Oiling Other Surfaces?"
       }
+    },
+    "custom_vissits_nomal_ctG9Gz": {
+      "type": "Custom-vissits-nomal",
+      "blocks": {
+        "faq_item_Dwkytx": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can you dillute DuroGrit?",
+            "answer": "Yes, DuroGrit can be sprayed with a manual spray gun. Dilute up to 20% with water for spray application. For industrial spray applications (i.e. spray coater, airless, …) use the industrial version. For further spraying questions, please reach out to our support team."
+          }
+        },
+        "faq_item_k6BJmD": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which colour should I choose?",
+            "answer": "Yes, DuroGrit can be sprayed with a manual spray gun. Dilute up to 20% with water for spray application. For industrial spray applications (i.e. spray coater, airless, …) use the industrial version. For further spraying questions, please reach out to our support team."
+          }
+        },
+        "faq_item_bqPHDe": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can DuroGrit be applied on every wood type?",
+            "answer": "Yes, DuroGrit can be sprayed with a manual spray gun. Dilute up to 20% with water for spray application. For industrial spray applications (i.e. spray coater, airless, …) use the industrial version. For further spraying questions, please reach out to our support team."
+          }
+        },
+        "faq_item_6wkftL": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is water-soluble oil?",
+            "answer": "Yes, DuroGrit can be sprayed with a manual spray gun. Dilute up to 20% with water for spray application. For industrial spray applications (i.e. spray coater, airless, …) use the industrial version. For further spraying questions, please reach out to our support team."
+          }
+        },
+        "faq_item_AWd9dk": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can DuroGrit be sprayed?",
+            "answer": "Yes, DuroGrit can be sprayed with a manual spray gun. Dilute up to 20% with water for spray application. For industrial spray applications (i.e. spray coater, airless, …) use the industrial version. For further spraying questions, please reach out to our support team."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_Dwkytx",
+        "faq_item_k6BJmD",
+        "faq_item_bqPHDe",
+        "faq_item_6wkftL",
+        "faq_item_AWd9dk"
+      ],
+      "name": "Custom HTML FAQ",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "button_label": "Visit FAQ",
+        "button_link": ""
+      }
     }
   },
   "order": [
     "product-grid",
     "collection_compare_products_pYHEaF",
     "inspired_wooden_floor_GyrTqA",
-    "other_surfaces_slider_3bmEdY"
+    "other_surfaces_slider_3bmEdY",
+    "custom_vissits_nomal_ctG9Gz"
   ]
 }
