@@ -1111,10 +1111,10 @@ document.addEventListener("DOMContentLoaded", function() {
     {
     const products = document.querySelectorAll('.product-item'); 
     const tagButtons = document.querySelectorAll('.circle-tab');
-    let btnparent = tagButtons.parent
- console.log('btnparent',btnparent)
-tagButtons.forEach(button => {
 
+tagButtons.forEach(button => {
+    let btnparent = button.parent
+ console.log('btnparent',btnparent)
   button.addEventListener('click', () => {
 
     let selectedTag = button.textContent.trim().toLowerCase();
