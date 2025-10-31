@@ -1108,18 +1108,15 @@ document.addEventListener("DOMContentLoaded", function() {
   });
    function showproducts()
     {
-    const products = document.querySelectorAll('.product-item');
-    console.log('test',products);
- 
-// Select all tag buttons
-
-const tagButtons = document.querySelectorAll('.circle-tab.active');
+    const products = document.querySelectorAll('.product-item'); 
+    const tagButtons = document.querySelectorAll('.circle-tab.active');
  
 tagButtons.forEach(button => {
 
   button.addEventListener('click', () => {
 
     let selectedTag = button.textContent.trim().toLowerCase();
+    console.log(selectedTag,'selectedTag')
  
     products.forEach(product => {
 
