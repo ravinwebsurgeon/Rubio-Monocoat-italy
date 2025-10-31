@@ -1,55 +1,54 @@
 <div class="tab-products-wrap Exterior-wrap">
-  <h4 class="oil-head">{{ section.settings.heading }}</h4>
-  
-  {% for block in section.blocks %}
-    {% comment %} {% assign tab_collection = block.settings.tab_collection %} {% endcomment %}
-    {% assign tab_collection = section.settings.Exterior_collection %}
+  {% if section.settings.heading != blank %}
+    <h4 class="oil-head">{{ section.settings.heading }}</h4>
+  {% endif %}
 
-    
-    <div class="tab-productss {% if forloop.first %}active{% endif %}">
-      <!-- Add dynamic class to <ul> -->
-      <ul class="product-grid grid-{{ forloop.index0 }} collection-{{ tab_collection.handle }}">
-        
+  {% assign tab_collection = collections[section.settings.exterior_collection] %}
+
+  {% if tab_collection != blank %}
+    <div class="tab-productss active">
+      <ul class="product-grid collection-{{ tab_collection.handle }}">
         {% for product in tab_collection.products %}
           <li class="product-item"
               data-colours="{{ product.metafields.custom.colour_filter2.value | join: ',' }}"
               data-products="{{ product.metafields.custom.product_filter.value | join: ',' }}"
               data-available="{{ product.available }}"
               data-product-id="{{ product.variants.first.id }}"
-              data-tags="{{product.tags | join:','}}"
-            >                        
-              
+              data-tags="{{ product.tags | join: ',' }}">
+            
             <div class="product-item-img-col">
               <a href="{{ product.url }}">
                 {% if product.featured_image %}
-                  <div class="product-image-wrapper" 
-                       data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}" 
+                  <div class="product-image-wrapper"
+                       data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}"
                        data-featured="{{ product.featured_image | img_url: '400x' }}">
                     {% if product.metafields.custom.cover_image != blank %}
-                      <img class="cover-image" src="{{ product.metafields.custom.cover_image | img_url: ' ' }}" alt="{{ product.title }}">
+                      <img class="cover-image" src="{{ product.metafields.custom.cover_image | img_url: 'master' }}" alt="{{ product.title }}">
                     {% endif %}
-                    <img class="featured-image" src="{{ product.featured_image | img_url: ' ' }}" alt="{{ product.title | escape }}">
+                    <img class="featured-image" src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title | escape }}">
                   </div>
                 {% endif %}
               </a>
               <div class="plus-show">{% render 'Cs-plus-icon' %}</div>
             </div>
-            
+
             <div class="product-item-conts">
               <div class="product-buttons-wraper">
                 <button class="more-info-color">More Info</button>
-                <button class="order-sample-color">Order Sample</button>                  
+                <button class="order-sample-color">Order Sample</button>
               </div>
               <a href="{{ product.url }}">
                 <h3>{{ product.title }}</h3>
-                <p class="price hidden">{{ product.price | money }}</p>    
-              </a>                         
+                <p class="price hidden">{{ product.price | money }}</p>
+              </a>
             </div>
-          </li>                      
+          </li>
         {% endfor %}
       </ul>
     </div>
-  {% endfor %}
+  {% else %}
+    <p>No collection selected or collection is empty.</p>
+  {% endif %}
 </div>
 
 {% comment %} <script>
@@ -92,18 +91,6 @@ document.addEventListener('DOMContentLoaded', function() {
   "settings": [
     { "type": "text", "id": "heading", "label": "Main Heading" },
     { "type": "collection", "id": "exterior_collection", "label": "Exterior Collection" }
-
-    
-  ],
-  "blocks": [
-    {
-      "type": "Exterior-collection",
-      "name": "collection",
-      "settings": [
-       
-        { "type": "collection", "id": "tab_collection", "label": "Collection to show" }
-      ]
-    }
   ],
   "presets": [{ "name": "Exterior-collection", "category": "Custom" }]
 }
