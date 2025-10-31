@@ -127,6 +127,7 @@
           "type": "tab",
           "settings": {
             "tab_name": "Douglas",
+            "tag_name": "tag_interior_douglas",
             "tab_image": "shopify://shop_images/Ellipse_79.png",
             "tab_collection": "douglas-wood"
           }
@@ -135,6 +136,7 @@
           "type": "tab",
           "settings": {
             "tab_name": "Ipe",
+            "tag_name": "",
             "tab_image": "shopify://shop_images/Ellipse_80.png",
             "tab_collection": "pine-wood"
           }
@@ -143,6 +145,7 @@
           "type": "tab",
           "settings": {
             "tab_name": "Larch",
+            "tag_name": "",
             "tab_image": "shopify://shop_images/Ellipse_81.png",
             "tab_collection": ""
           }
@@ -151,6 +154,7 @@
           "type": "tab",
           "settings": {
             "tab_name": "Pine",
+            "tag_name": "",
             "tab_image": "shopify://shop_images/Ellipse_79.png",
             "tab_collection": ""
           }
@@ -159,6 +163,7 @@
           "type": "tab",
           "settings": {
             "tab_name": "Teak",
+            "tag_name": "",
             "tab_image": "shopify://shop_images/Ellipse_83.png",
             "tab_collection": ""
           }
@@ -167,6 +172,7 @@
           "type": "tab",
           "settings": {
             "tab_name": "Thermowood",
+            "tag_name": "",
             "tab_image": "shopify://shop_images/Ellipse_84.png",
             "tab_collection": ""
           }
