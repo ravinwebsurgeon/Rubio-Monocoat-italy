@@ -82,6 +82,11 @@
               <div class="compare-cell">{{ item | strip }}</div>
             {% endfor %}
           </td>
+           {% comment %} <td>  
+            {%  for des in des_suitable %}
+                <div class="compare-cell">{{ des | strip }}</div>
+            {% endfor %}
+          </td> {% endcomment %}
         </tr>
         <tr>
           <th>{{ des_headings[1] }}</th>
@@ -90,10 +95,11 @@
               <div class="compare-cell">{{ item | strip }}</div>
             {% endfor %}
           </td>
-          <td>  {%  for des in des_suitable %}
+          {% comment %} <td>  
+            {%  for des in des_suitable %}
                 <div class="compare-cell">{{ des | strip }}</div>
             {% endfor %}
-          </td>
+          </td> {% endcomment %}
         </tr>
         <tr>
           <th>{{ des_headings[2] }}</th>
