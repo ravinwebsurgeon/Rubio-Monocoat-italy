@@ -178,7 +178,7 @@
           "settings": {
             "tab_name": "Thermowood",
             "tag_name": "tag_interior_thermowood",
-            "exterior_tag_name": "",
+            "exterior_tag_name": "tag_exterior_thermowood",
             "tab_image": "shopify://shop_images/Ellipse_84.png",
             "tab_collection": ""
           }
