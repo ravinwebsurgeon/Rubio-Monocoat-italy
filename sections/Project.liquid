@@ -1134,7 +1134,8 @@ tagButtons.forEach(button => {
     let selectedTag = button.textContent.trim().toLowerCase();
 
     products.forEach(product => {
-
+let productParent = product.parentNode.parentNode.parentNode
+console.log(productParent)
       // Get product tags (assuming comma-separated)
 
       const productTags = product.dataset.tags.split(',').map(tag => tag.trim().toLowerCase());
@@ -2448,16 +2449,13 @@ li.product-item {
 .product-buttons-wraper button {
     color: white;
     border: none;
-    padding: 11px 5px;
+    padding: 14px 5px;
     border-radius: 33px;
-    font-size: 13px;
+    font-size: 14px;
     cursor: pointer;
     font-family: Frutiger Neue LT W1G;
     flex: auto;
     font-weight: bold;
-    height: auto;
-    min-height: inherit;
-    line-height: normal;
 }
 
 .product-buttons-wraper button.more-info-color {
