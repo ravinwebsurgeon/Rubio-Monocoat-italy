@@ -91,11 +91,68 @@
         ],
         "images": "shopify://shop_images/Untitled_410_x_400_px_1.png"
       }
+    },
+    "other_surfaces_slider_3bmEdY": {
+      "type": "other-surfaces-slider",
+      "blocks": {
+        "slide_P3kjee": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_410_x_400_px_1.png",
+            "title": "Furniture",
+            "link": ""
+          }
+        },
+        "slide_wTDUGf": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_410_x_400_px_be966806-9f82-498c-805e-57a7ba6cdd23.png",
+            "title": "Worktops",
+            "link": ""
+          }
+        },
+        "slide_cfrddQ": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_72.png",
+            "title": "Stairs",
+            "link": ""
+          }
+        },
+        "slide_EaHJHY": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_410_x_400_px_be966806-9f82-498c-805e-57a7ba6cdd23.png",
+            "title": "Worktops",
+            "link": ""
+          }
+        },
+        "slide_rkiUkM": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_410_x_400_px_1.png",
+            "title": "Furniture",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_P3kjee",
+        "slide_wTDUGf",
+        "slide_cfrddQ",
+        "slide_EaHJHY",
+        "slide_rkiUkM"
+      ],
+      "name": "Other Surface Slider",
+      "settings": {
+        "main_heading": "Oiling Other Surfaces?"
+      }
     }
   },
   "order": [
     "product-grid",
     "collection_compare_products_pYHEaF",
-    "inspired_wooden_floor_GyrTqA"
+    "inspired_wooden_floor_GyrTqA",
+    "other_surfaces_slider_3bmEdY"
   ]
 }
