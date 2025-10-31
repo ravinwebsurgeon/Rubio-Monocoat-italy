@@ -6,8 +6,7 @@
     --heading-size: {{ section.settings.heading_font_size | default: 36 }}px;
     --video-radius: {{ section.settings.video_border_radius | default: 12 }}px;
     --view-btn-bg: {{ section.settings.view_button_bg_color | default: '#000000' }};
-    --view-btn-color: {{ section.settings.view_button_text_color | default: '#ffffff' }};
-    --view-btn-size: {{ section.settings.view_button_font_size | default: 16 }}px;
+    --view-btn-color: {{ section.settings.view_button_text_color | default: '#ffffff' }};    
     --view-btn-radius: {{ section.settings.view_button_border_radius | default: 8 }}px;
   "
 >
@@ -391,15 +390,6 @@ document.addEventListener("DOMContentLoaded", function () {
       "id": "view_button_text_color",
       "label": "View Button Text Color",
       "default": "#183029"
-    },
-    {
-      "type": "range",
-      "id": "view_button_font_size",
-      "label": "View Button Font Size (px)",
-      "min": 10,
-      "max": 28,
-      "step": 1,
-      "default": 20
     },
     {
       "type": "range",
