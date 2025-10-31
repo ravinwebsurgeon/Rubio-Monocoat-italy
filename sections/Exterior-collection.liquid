@@ -2,8 +2,8 @@
   <h4 class="oil-head">{{ section.settings.heading }}</h4>
   
   {% for block in section.blocks %}
-    {% assign tab_collection = block.settings.tab_collection %}
-    {% comment %} {% assign tab_collection = section.settings.Exterior_collection %} {% endcomment %}
+    {% comment %} {% assign tab_collection = block.settings.tab_collection %} {% endcomment %}
+    {% assign tab_collection = section.settings.Exterior_collection %}
 
     
     <div class="tab-productss {% if forloop.first %}active{% endif %}">
