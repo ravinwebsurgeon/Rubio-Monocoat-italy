@@ -1115,7 +1115,14 @@ document.addEventListener("DOMContentLoaded", function() {
 tagButtons.forEach(button => {
 
   button.addEventListener('click', () => {
+ const btnparentClasses = button.parentNode.parentNode.classList;
+    let parent = '';
 
+    if (btnparentClasses.contains('exterior')) {
+      parent = 'exterior';
+    } else if (btnparentClasses.contains('interior')) {
+      parent = 'interior';
+    }
     let selectedTag = button.textContent.trim().toLowerCase();
  
     products.forEach(product => {
@@ -1123,10 +1130,10 @@ tagButtons.forEach(button => {
       // Get product tags (assuming comma-separated)
 
       const productTags = product.dataset.tags.split(',').map(tag => tag.trim().toLowerCase());
- 
+ const matchPattern = `tag_${parent}_${selectedTag}`;
       // Check if any product tag contains the selected tag as substring
 
-      const matches = productTags.some(tag => tag.includes(selectedTag));
+      const matches = productTags.some(tag => tag.includes(matchPattern));
  
       // Show/hide based on match
 console.log('matches',matches)
