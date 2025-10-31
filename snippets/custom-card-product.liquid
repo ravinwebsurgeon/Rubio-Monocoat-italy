@@ -177,7 +177,7 @@
                 </select>
               </div>
             {% endfor %}
-            <input type="hidden" class="variant-selector" id="variant-id" name="id" value="">
+            <input type="hidden" class="variant-selector" id="variant-id" name="id" value="{{ card_product.selected_or_first_available_variant.id }}">
           </div>
           <div class="custom_action_btns">
             <div class="product_actions_btns">
