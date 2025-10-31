@@ -1134,12 +1134,12 @@ tagButtons.forEach(button => {
     let selectedTag = button.textContent.trim().toLowerCase();
 
     products.forEach(product => {
-    {% comment %} let productParent = product.parentNode.parentNode.parentNode.classList {% endcomment %}
-         const productWrap = product.closest('.Exterior-wrap, .Interior-wrap');
-        const productParent =
-          productWrap?.classList.contains('exterior-wrap') ? 'exterior' :
-          productWrap?.classList.contains('interior-wrap') ? 'interior' :
-          null;
+    let productParent = product.parentNode.parentNode.parentNode.classList
+         {% comment %} const productWrap = product.closest('.Exterior-wrap, .Interior-wrap'); {% endcomment %}
+        const productParent ='';
+         if(productParent.classList.contains('exterior-wrap')){ productParent ='exterior';}
+         else if(productParent.classList.contains('interior-wrap')){ productParent ='interior';}
+        
       // Get product tags (assuming comma-separated)
 
       const productTags = product.dataset.tags.split(',').map(tag => tag.trim().toLowerCase());
