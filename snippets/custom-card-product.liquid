@@ -146,45 +146,45 @@
       <div class="card__content">
         <div class="card__information">
           <div class="custom_card_detail">
-          <h3
-            class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
-            {% if card_product.featured_media or settings.card_style == 'card' %}
-              id="title-{{ section_id }}-{{ card_product.id }}"
-            {% endif %}
-          >
-            {% comment %} <a
-              href="{{ card_product.url }}"
-              id="CardLink-{{ section_id }}-{{ card_product.id }}"
-              class="full-unstyled-link"
-              aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
-            > {% endcomment %}
+            <h3
+              class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
+              {% if card_product.featured_media or settings.card_style == 'card' %}
+                id="title-{{ section_id }}-{{ card_product.id }}"
+              {% endif %}
+            >
+              {% comment %} <a
+                href="{{ card_product.url }}"
+                id="CardLink-{{ section_id }}-{{ card_product.id }}"
+                class="full-unstyled-link"
+                aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
+              > {% endcomment %}
 
               {{ card_product.title | escape }}
 
-            {% comment %} </a> {% endcomment %}
-          </h3>
-          {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
-        </div>
-        <div class="custom_added_variants">
-          {% for option in card_product.options_with_values %}
-            <div class="pro_variant_options">
-              <select class="option-variant-selector" name="option-variant-selector" id="ProductSelect-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
-                {% for value in option.values %}
-                    <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>
-                    {{ value | escape }}
-                    </option>
-                {% endfor %}
-              </select>
-            </div>
-          {% endfor %}
-          <input type="hidden" class="variant-selector" id="variant-id" name="id" value="">
-        </div>
-        <div class="custom_action_btns">
-          <div class="product_actions_btns">
-            <a href="{{ card_product.url }}" ><button class="product_link_btn">More Info</button></a>
-            <button class="product_cart_btn">Add Into Cart</button>
+              {% comment %} </a> {% endcomment %}
+            </h3>
+            {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
           </div>
-        </div>
+          <div class="custom_added_variants">
+            {% for option in card_product.options_with_values %}
+              <div class="pro_variant_options">
+                <select class="option-variant-selector" name="option-variant-selector" id="ProductSelect-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
+                  {% for value in option.values %}
+                      <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>
+                      {{ value | escape }}
+                      </option>
+                  {% endfor %}
+                </select>
+              </div>
+            {% endfor %}
+            <input type="hidden" class="variant-selector" id="variant-id" name="id" value="">
+          </div>
+          <div class="custom_action_btns">
+            <div class="product_actions_btns">
+              <a href="{{ card_product.url }}" ><button class="product_link_btn">More Info</button></a>
+              <button class="product_cart_btn">Add Into Cart</button>
+            </div>
+          </div>
 
           <div class="card-information">
             {%- if show_vendor -%}

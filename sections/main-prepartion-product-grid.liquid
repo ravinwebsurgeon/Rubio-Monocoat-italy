@@ -257,6 +257,85 @@
     
 </style>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('.product_cart_btn').forEach(function (button) {
+        button.addEventListener('click', function () {
+            const productBlock = button.closest('.card__information');
+            const variantSelect = productBlock.querySelector('.variant-selector');
+            const variantId = variantSelect.value;
+
+            if (!variantId) {
+                alert("Please select a variant.");
+                return;
+            }
+
+            fetch('/cart/add.js', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    id: variantId,
+                    quantity: 1
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Added to cart:', data);
+                updateCartCount(1);
+                refreshCartDrawer();
+            })
+            .catch(error => {
+                console.error('Error adding to cart:', error);
+                alert("Something went wrong.");
+            });
+        });
+    });
+});
+
+function updateCartCount(totalQuantityAdded) {
+  const cartCounts = document.querySelectorAll('.cart-count-bubble > span');
+  if (cartCounts.length > 0) {
+    cartCounts.forEach(count => {
+      const currentNumberMatch = count.textContent.match(/\d+/);
+      const currentNumber = currentNumberMatch ? parseInt(currentNumberMatch[0]) : 0;
+      const newNumber = currentNumber + totalQuantityAdded;
+      count.textContent = count.textContent.replace(/\d+/, newNumber);
+
+      // Remove custom count bubble if any
+      const customCount = document.querySelector('.custom-cart-count-bubble > span');
+      if (customCount) customCount.remove();
+    });
+  } else {
+    const customCount = document.querySelector('.custom-cart-count-bubble > span');
+    if (customCount) {
+      customCount.textContent = totalQuantityAdded;
+      customCount.parentNode.style.display = 'block';
+    }
+  }
+}
+
+function refreshCartDrawer() {
+  const cartDrawer = document.querySelector('cart-drawer');
+
+  fetch(`${routes.cart_url}?sections=cart-drawer`)
+    .then(response => response.json())
+    .then(sections => {
+      const newCartDrawerHtml = sections['cart-drawer'];
+      const newDocument = new DOMParser().parseFromString(newCartDrawerHtml, 'text/html');
+      const newCartDrawer = newDocument.querySelector('cart-drawer');
+
+      if (cartDrawer && newCartDrawer) {
+        cartDrawer.replaceWith(newCartDrawer);
+        document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
+      }
+    })
+    .catch((error) => { console.error('Error refreshing cart drawer:', error); });
+}
+</script>
+
 {% schema %}
 {
   "name": "t:sections.main-collection-product-grid.name",
