@@ -1108,40 +1108,30 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
    function showproducts()
-    {
+  {
     const products = document.querySelectorAll('.product-item'); 
     const tagButtons = document.querySelectorAll('.circle-tab');
 
-tagButtons.forEach(button => {
-    let btnparentClasses = button.parentNode.parentNode.classList
-  console.log('btnparent',btnparentClasses)
-  let parent =''
-  if (btnparentClasses.contains('exterior')) {parent = 'exterior'} else if (btnparentClasses.contains('interior')) {parent = 'interior' }
-  button.addEventListener('click', () => {
+    tagButtons.forEach(button => {
+      let btnparentClasses = button.parentNode.parentNode.classList
+      console.log('btnparent',btnparentClasses)
+      let parent =''
+      if (btnparentClasses.contains('exterior')) {parent = 'exterior'} else if (btnparentClasses.contains('interior')) {parent = 'interior' }
+      button.addEventListener('click', () => {
+        let selectedTag = button.textContent.trim().toLowerCase();
+        products.forEach(product => {
+          const productTags = product.dataset.tags.split(',').map(tag => tag.trim().toLowerCase());
+            const matches =
+          productTags.some(tag => tag.includes(selectedTag)) &&
+          productTags.some(tag => tag.includes(parent));
 
-    let selectedTag = button.textContent.trim().toLowerCase();
- 
-    products.forEach(product => {
-
-      // Get product tags (assuming comma-separated)
-
-      const productTags = product.dataset.tags.split(',').map(tag => tag.trim().toLowerCase());
- 
-      // Check if any product tag contains the selected tag as substring
-
-      const matches = productTags.some(tag => tag.includes(selectedTag));
- 
-      // Show/hide based on match
-console.log('matches',matches)
-      product.style.display = matches ? 'block' : 'none';
-
+          console.log('matches',matches)
+          product.style.display = matches ? 'block' : 'none';
+       });
     });
-
   });
 
-});
-
-    }
+  }
   // -------------------------------
   // CIRCLE TAB CLICK → show correct product wrapper
   circleTabs.forEach(tab => {
