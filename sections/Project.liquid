@@ -444,7 +444,7 @@ document.addEventListener('DOMContentLoaded', function() {
   /* circle tabs */
  function showproducts() {
     const products = document.querySelectorAll('.product-item'); 
-    const activeTab = document.querySelector('.circle-tab.active');
+    const activeTab = document.querySelector('.circle-tab');
     if (!activeTab) return;
     const btnparentClasses = activeTab.parentNode.parentNode.classList;
     console.log('check',btnparentClasses)
