@@ -439,6 +439,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('DOMContentLoaded', function () {
   /* circle tabs */
  
+  {% comment %} 
+    <!-- comment by amanpreet -->
   document.querySelectorAll('.circle-tab').forEach(btn => {
     btn.addEventListener('click', function () {
       document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove('active','asdf'));
@@ -448,6 +450,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   
   });
+  
+  {% endcomment %}
  
   /* video modal */
   const openBtn = document.getElementById('openVideo'),
@@ -1023,6 +1027,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const exteriorToggle = document.querySelector(".exterior.surface-toggle");
   const surfaceOptions = document.getElementById("exterior-surfaces");
   const circleTabs = document.querySelectorAll(".circle-tab");
+  let tabs_outer = document.querySelector('.circle-tabs-outer')
 
   // --- Hide all by default ---
   circleTabsOuter?.classList.remove("show-section");
@@ -1042,6 +1047,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Remove active from exterior dropdown
     exteriorToggle?.classList.remove("active");
+    tabs_outer.classList.remove('exterior')
     surfaceOptions?.style.setProperty("display", "none");
     surfaceOptions?.querySelectorAll(".surface-item").forEach(i => i.classList.remove("active"));
 
@@ -1050,6 +1056,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Mark Interior as active
     interiorBtn.classList.add("active");
+    tabs_outer.classList.add('interior')
   });
 
   // -------------------------------
@@ -1070,7 +1077,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Remove active from Interior
     interiorBtn?.classList.remove("active");
-
+  tabs_outer.classList.remove('interior')
     // Hide circle tabs + filter until a surface is selected
     circleTabsOuter?.classList.remove("show-section");
     filterBar?.classList.remove("show-section");
