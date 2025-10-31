@@ -10,7 +10,9 @@
             {% for product in products %}
                 <div class="product_data">
                     <div class="product_media_content">
-                        <img src="{{ product.featured_image | img_url: "small" }}" />
+                        <a href="{{ product.url }}">
+                            <img src="{{ product.featured_image | img_url: "small" }}" />
+                        </a>
                     </div>
                     <div class="product_title">
                         <p>{{ product.title }}</p>
