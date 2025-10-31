@@ -1135,10 +1135,10 @@ tagButtons.forEach(button => {
 
     products.forEach(product => {
     {% comment %} let productParent = product.parentNode.parentNode.parentNode.classList {% endcomment %}
-           const productWrap = product.closest('.exterior-wrap, .interior-wrap');
+         const productWrap = product.closest('.Exterior-wrap, .Interior-wrap');
         const productParent =
-          productWrap?.classList.contains('exterior-wrap') ? 'exterior' :
-          productWrap?.classList.contains('interior-wrap') ? 'interior' :
+          productWrap?.classList.contains('exterior-wrap') ? 'Exterior-wrap' :
+          productWrap?.classList.contains('interior-wrap') ? 'Interior-wrap' :
           null;
       // Get product tags (assuming comma-separated)
 
@@ -1147,13 +1147,10 @@ tagButtons.forEach(button => {
       // Check if any product tag contains the selected tag as substring
       console.log('matchPattern',matchPattern)
       const matches = productTags.some(tag => tag.includes(matchPattern));
-      const matchesParent = productParent === parent;
-      const showProduct = matchesPattern && matchesParent;
-
-        // ✅ Show/hide
-        product.style.display = showProduct ? 'block' : 'none';
+ 
       // Show/hide based on match
-      {% comment %} product.style.display = matches ? 'block' : 'none'; {% endcomment %}
+      console.log('matches',matches)
+      product.style.display = matches ? 'block' : 'none';
     });
   });
 
