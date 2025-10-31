@@ -1190,12 +1190,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // -------------------------------
   // Click outside dropdown → close exterior dropdown
-  {% comment %} document.addEventListener("click", function(e) {
+  document.addEventListener("click", function(e) {
     if (!exteriorToggle?.contains(e.target) && !surfaceOptions?.contains(e.target)) {
       surfaceOptions?.style.setProperty("display", "none");
       exteriorToggle?.classList.remove("active");
     }
-  }); {% endcomment %}
+  });
 });
 </script> 
 
