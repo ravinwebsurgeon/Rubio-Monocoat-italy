@@ -344,7 +344,30 @@
   </div>
 </div>
 
-
+<script>
+const products = document.querySelectorAll('.product-item');
+ 
+// Select all tag buttons
+const tagButtons = document.querySelectorAll('.circle-tab');
+ 
+tagButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const selectedTag = button.getAttribute('data-tag');
+ 
+    products.forEach(product => {
+      // Get product tags (assuming comma-separated)
+      const productTags = product.dataset.tags.split(',');
+ 
+      // Show product if it includes selected tag, else hide
+      if (productTags.includes(selectedTag)) {
+        product.style.display = 'block';
+      } else {
+        product.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
 <!-- Quick View Modal -->
 <div id="quickViewModal" class="quick-view-modal" style="display:none;">
   <div class="quick-view-content">
