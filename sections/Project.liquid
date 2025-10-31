@@ -446,6 +446,7 @@ document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove('active','asdf'));
       document.querySelectorAll('.tab-products').forEach(c => c.classList.remove('active'));
       this.classList.add('active');
+       showproducts(); 
       document.getElementById(this.dataset.tab).classList.add('active');
     });
   
