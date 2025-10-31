@@ -1,7 +1,25 @@
 {% assign products = collection.metafields.custom.compare_products.value %}
 {% assign heading = collection.metafields.custom.compare_products_heading.value %}
 
-{{ heading }}
+<div class="comapre_products_section">
+    <div class="compare_products_data">
+        <div class="compare_products_heading">
+            <h2>{{ heading }}</h2>
+        </div>
+        <div class="compare_products">
+            {% for product in products %}
+                <div class="product_data">
+                    <div class="product_media_content">
+                        <img src="{{ product.featured_image | img_url: "small" }}" />
+                    </div>
+                    <div class="product_title">
+                        <p>{{ product.title }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 
 {% schema %}
 {
