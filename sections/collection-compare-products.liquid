@@ -71,6 +71,9 @@
 {% if des_moment.size > max_rows %}
   {% assign max_rows = des_moment.size %}
 {% endif %}
+<pre>
+{{ collection.metafields.custom.compare_product_des_purpose | json }}
+</pre>
 
 <div class="compare-table-wrapper">
   <table class="compare-table">
