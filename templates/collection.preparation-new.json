@@ -44,7 +44,8 @@
           "type": "faq_item",
           "settings": {
             "question": "STEP 1: Fill holes",
-            "answer": "Clean the deck with plain water, using a garden hose and the aid of a scrubbing brush. Wash off any accumulated dirt."
+            "answer": "Clean the deck with plain water, using a garden hose and the aid of a scrubbing brush. Wash off any accumulated dirt.",
+            "image": "shopify://shop_images/Untitled_design_73.png"
           }
         },
         "faq_item_yifee9": {
