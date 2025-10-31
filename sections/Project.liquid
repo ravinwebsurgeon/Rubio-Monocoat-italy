@@ -1107,31 +1107,41 @@ document.addEventListener("DOMContentLoaded", function() {
       circleTabs.forEach(t => t.classList.remove("active"));
     });
   });
-   function showproducts()
-  {
-    const products = document.querySelectorAll('.product-item'); 
-    const tagButtons = document.querySelectorAll('.circle-tab');
+ function showproducts() {
+  const products = document.querySelectorAll('.product-item'); 
+  const tagButtons = document.querySelectorAll('.circle-tab');
 
-    tagButtons.forEach(button => {
-      let btnparentClasses = button.parentNode.parentNode.classList
-      console.log('btnparent',btnparentClasses)
-      let parent =''
-      if (btnparentClasses.contains('exterior')) {parent = 'exterior'} else if (btnparentClasses.contains('interior')) {parent = 'interior' }
-      button.addEventListener('click', () => {
-        let selectedTag = button.textContent.trim().toLowerCase();
-        products.forEach(product => {
-          const productTags = product.dataset.tags.split(',').map(tag => tag.trim().toLowerCase());
-          const matchPattern = `tag_${parent}_${selectedTag}`;
-          console.log(matchPattern,'matchPattern')
-          const matches = productTags.some(tag => tag.includes(matchPattern));
+  tagButtons.forEach(button => {
+    const btnparentClasses = button.parentNode.parentNode.classList;
+    let parent = '';
 
-          console.log('matches',matches,productTags)
-          product.style.display = matches ? 'block' : 'none';
-       });
+    if (btnparentClasses.contains('exterior')) {
+      parent = 'exterior';
+    } else if (btnparentClasses.contains('interior')) {
+      parent = 'interior';
+    }
+
+    button.addEventListener('click', () => {
+      const selectedTag = button.textContent.trim().toLowerCase();
+      const matchPattern = `tag_${parent}_${selectedTag}`; // your intended format
+
+      console.log(`Looking for: "${matchPattern}"`);
+
+      products.forEach(product => {
+        const productTags = product.dataset.tags
+          .split(',')
+          .map(tag => tag.trim().toLowerCase());
+
+        // check for exact match or partial match (depending on your structure)
+        const matches = productTags.some(tag => tag.includes(matchPattern));
+
+        console.log('Product:', product, '\nTags:', productTags, '\nMatches:', matches);
+
+        product.style.display = matches ? 'block' : 'none';
+      });
     });
   });
-
-  }
+}
   // -------------------------------
   // CIRCLE TAB CLICK → show correct product wrapper
   circleTabs.forEach(tab => {
