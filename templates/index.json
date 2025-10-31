@@ -308,7 +308,7 @@
         "video_border_radius": 12,
         "view_button_bg_color": "#2f4f2f",
         "view_button_text_color": "#ffffff",
-        "view_button_font_size": 16,
+        "view_button_font_size": 14,
         "view_button_border_radius": 50
       }
     },
