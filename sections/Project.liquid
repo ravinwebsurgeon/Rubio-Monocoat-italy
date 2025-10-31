@@ -1167,7 +1167,7 @@ document.addEventListener("DOMContentLoaded", function() {
    
   // -------------------------------
   // CIRCLE TAB CLICK → show correct product wrapper
-  {% comment %} circleTabs.forEach(tab => {
+  circleTabs.forEach(tab => {
     tab.addEventListener("click", function(e) {
       e.stopPropagation(); // Prevent closing dropdown
 
@@ -1188,11 +1188,12 @@ document.addEventListener("DOMContentLoaded", function() {
       // surfaceOptions.style.display = "flex"; // already open
     });
   
-  }); {% endcomment %}
+  });
 
   // -------------------------------
   // Click outside dropdown → close exterior dropdown
   document.addEventListener("click", function(e) {
+    showproducts();
     if (!exteriorToggle?.contains(e.target) && !surfaceOptions?.contains(e.target)) {
       surfaceOptions?.style.setProperty("display", "none");
       exteriorToggle?.classList.remove("active");
