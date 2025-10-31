@@ -138,7 +138,7 @@
           "settings": {
             "tab_name": "Ipe",
             "tag_name": "tag_interior_ipe",
-            "exterior_tag_name": "",
+            "exterior_tag_name": "tag_exterior_ipe",
             "tab_image": "shopify://shop_images/Ellipse_80.png",
             "tab_collection": "pine-wood"
           }
