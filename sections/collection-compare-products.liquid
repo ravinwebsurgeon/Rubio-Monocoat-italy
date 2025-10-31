@@ -37,142 +37,23 @@
             {% endfor %}
         </div>
     </div> {% endcomment %}
-    {%- assign sep_candidates = ",|||\n|;" | split: "|" -%} 
-
-{%- capture normalize_array %}
-  {% raw %}
-  {% assign __raw = __INPUT__ %}
-  {% if __raw[0] != nil %}
-    {% assign __arr = __raw %}
-  {% else %}
-    {% comment %} try '||' (common custom separator) {% endcomment %}
-    {% if __raw contains '||' %}
-      {% assign __arr = __raw | split: '||' %}
-    {% elsif __raw contains '\n' %}
-      {% assign __arr = __raw | split: '\n' %}
-    {% elsif __raw contains ',' %}
-      {% assign __arr = __raw | split: ',' %}
-    {% elsif __raw contains ';' %}
-      {% assign __arr = __raw | split: ';' %}
-    {% else %}
-      {% assign __arr = __raw | split: '|' %}
-    {% endif %}
-  {% endif %}
-  {% for __x in __arr %}
-    {{- '__ITEM__' -}}
-  {% endfor %}
-  {% endraw %}
-{% endcapture %}
-
-{% if raw_purpose[0] != nil %}
-  {% assign arr_purpose = raw_purpose %}
-{% else %}
-  {% if raw_purpose contains '||' %}
-    {% assign arr_purpose = raw_purpose | split: '||' %}
-  {% elsif raw_purpose contains '\n' %}
-    {% assign arr_purpose = raw_purpose | split: '\n' %}
-  {% elsif raw_purpose contains ',' %}
-    {% assign arr_purpose = raw_purpose | split: ',' %}
-  {% elsif raw_purpose contains ';' %}
-    {% assign arr_purpose = raw_purpose | split: ';' %}
-  {% else %}
-    {% assign arr_purpose = raw_purpose | split: '|' %}
-  {% endif %}
-{% endif %}
-
-
-{% if raw_suitable[0] != nil %}
-  {% assign arr_suitable = raw_suitable %}
-{% else %}
-  {% if raw_suitable contains '||' %}
-    {% assign arr_suitable = raw_suitable | split: '||' %}
-  {% elsif raw_suitable contains '\n' %}
-    {% assign arr_suitable = raw_suitable | split: '\n' %}
-  {% elsif raw_suitable contains ',' %}
-    {% assign arr_suitable = raw_suitable | split: ',' %}
-  {% elsif raw_suitable contains ';' %}
-    {% assign arr_suitable = raw_suitable | split: ';' %}
-  {% else %}
-    {% assign arr_suitable = raw_suitable | split: '|' %}
-  {% endif %}
-{% endif %}
-
-
-{% if raw_benefits[0] != nil %}
-  {% assign arr_benefits = raw_benefits %}
-{% else %}
-  {% if raw_benefits contains '||' %}
-    {% assign arr_benefits = raw_benefits | split: '||' %}
-  {% elsif raw_benefits contains '\n' %}
-    {% assign arr_benefits = raw_benefits | split: '\n' %}
-  {% elsif raw_benefits contains ',' %}
-    {% assign arr_benefits = raw_benefits | split: ',' %}
-  {% elsif raw_benefits contains ';' %}
-    {% assign arr_benefits = raw_benefits | split: ';' %}
-  {% else %}
-    {% assign arr_benefits = raw_benefits | split: '|' %}
-  {% endif %}
-{% endif %}
-
-
-{% if raw_moment[0] != nil %}
-  {% assign arr_moment = raw_moment %}
-{% else %}
-  {% if raw_moment contains '||' %}
-    {% assign arr_moment = raw_moment | split: '||' %}
-  {% elsif raw_moment contains '\n' %}
-    {% assign arr_moment = raw_moment | split: '\n' %}
-  {% elsif raw_moment contains ',' %}
-    {% assign arr_moment = raw_moment | split: ',' %}
-  {% elsif raw_moment contains ';' %}
-    {% assign arr_moment = raw_moment | split: ';' %}
-  {% else %}
-    {% assign arr_moment = raw_moment | split: '|' %}
-  {% endif %}
-{% endif %}
-
-
-{% if raw_headings[0] != nil %}
-  {% assign arr_headings = raw_headings %}
-{% else %}
-  {% if raw_headings contains '||' %}
-    {% assign arr_headings = raw_headings | split: '||' %}
-  {% elsif raw_headings contains '\n' %}
-    {% assign arr_headings = raw_headings | split: '\n' %}
-  {% elsif raw_headings contains ',' %}
-    {% assign arr_headings = raw_headings | split: ',' %}
-  {% elsif raw_headings contains ';' %}
-    {% assign arr_headings = raw_headings | split: ';' %}
-  {% else %}
-    {% assign arr_headings = raw_headings | split: '|' %}
-  {% endif %}
-{% endif %}
-
-
-{% assign max_rows = 0 %}
-{% if arr_purpose.size > max_rows %}{% assign max_rows = arr_purpose.size %}{% endif %}
-{% if arr_suitable.size > max_rows %}{% assign max_rows = arr_suitable.size %}{% endif %}
-{% if arr_benefits.size > max_rows %}{% assign max_rows = arr_benefits.size %}{% endif %}
-{% if arr_moment.size > max_rows %}{% assign max_rows = arr_moment.size %}{% endif %}
-
-
-
 <div class="compare-table-wrapper">
   <table class="compare-table">
     <thead>
       <tr>
-        {% for h in arr_headings %}
-          <th>{{ h | strip }}</th>
+        {% for heading in des_headings %}
+          <th>{{ heading }}</th>
         {% endfor %}
       </tr>
     </thead>
     <tbody>
+      {% assign max_rows = des_purpose.size | at_least: des_suitable.size | at_least: des_benefits.size | at_least: des_moment.size %}
       {% for i in (0..max_rows-1) %}
         <tr>
-          <td>{{ arr_purpose[i]  | default: '' | strip }}</td>
-          <td>{{ arr_suitable[i] | default: '' | strip }}</td>
-          <td>{{ arr_benefits[i] | default: '' | strip }}</td>
-          <td>{{ arr_moment[i]   | default: '' | strip }}</td>
+          <td>{{ des_purpose[i] }}</td>
+          <td>{{ des_suitable[i] }}</td>
+          <td>{{ des_benefits[i] }}</td>
+          <td>{{ des_moment[i] }}</td>
         </tr>
       {% endfor %}
     </tbody>
