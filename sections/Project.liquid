@@ -439,7 +439,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('DOMContentLoaded', function () {
   /* circle tabs */
  
-  {% comment %} document.querySelectorAll('.circle-tab').forEach(btn => {
+  document.querySelectorAll('.circle-tab').forEach(btn => {
     btn.addEventListener('click', function () {
       document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove('active','asdf'));
       document.querySelectorAll('.tab-products').forEach(c => c.classList.remove('active'));
@@ -447,7 +447,7 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById(this.dataset.tab).classList.add('active');
     });
   
-  }); {% endcomment %}
+  });
  
   /* video modal */
   const openBtn = document.getElementById('openVideo'),
