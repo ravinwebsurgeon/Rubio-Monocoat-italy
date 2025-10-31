@@ -1134,7 +1134,7 @@ tagButtons.forEach(button => {
     let selectedTag = button.textContent.trim().toLowerCase();
 
     products.forEach(product => {
-    let productParent = product.parentNode.parentNode.parentNode.classList
+    let productParent = product.parentNode.parentNode.parentNode
          {% comment %} const productWrap = product.closest('.Exterior-wrap, .Interior-wrap'); {% endcomment %}
         const productParent ='';
          if(productParent.classList.contains('exterior-wrap')){ productParent ='exterior';}
