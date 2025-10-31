@@ -1149,13 +1149,13 @@ tagButtons.forEach(button => {
       const matches = productTags.some(tag => tag.includes(matchPattern));
  
       // Show/hide based on match
-      console.log('matches',matches)
-      {% comment %} product.style.display = matches ? 'block' : 'none'; {% endcomment %}
-          if (matches && productParent === parent) {
+      console.log('matches',matches,"productParent",productParent,'parent',parent)
+      product.style.display = matches ? 'block' : 'none';
+          {% comment %} if (matches && productParent === parent) {
           product.style.display = 'block';
         } else {
           product.style.display = 'none';
-        }
+        } {% endcomment %}
     });
   });
 
