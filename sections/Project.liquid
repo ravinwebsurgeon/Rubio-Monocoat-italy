@@ -1213,6 +1213,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const interiorWrap = document.querySelector('.interior_tabs_section');
+  if (interiorWrap) {
+    interiorWrap.style.display = 'block';
+  }
+});
 </script> 
 
 {% comment %} <script>
