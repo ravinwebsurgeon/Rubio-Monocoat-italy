@@ -477,18 +477,19 @@ document.addEventListener('DOMContentLoaded', function() {
  
   document.querySelectorAll('.circle-tab').forEach(btn => {
     btn.addEventListener('click', function () {
+      showproducts()
+
       document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.tab-products').forEach(c => c.classList.remove('active'));
       this.classList.add('active');
-      showproducts();
       document.getElementById(this.dataset.tab).classList.add('active');
     });
-        function showproducts()
-  {
-  console.log('test');
-  }
+  
   });
-
+  function showproducts()
+    {
+    console.log('test');
+    }
   /* video modal */
   const openBtn = document.getElementById('openVideo'),
         modal = document.getElementById('videoModal'),
