@@ -37,6 +37,41 @@
             {% endfor %}
         </div>
     </div> {% endcomment %}
+{% if des_purpose_raw[0] != nil %}
+  {% assign des_purpose = des_purpose_raw %}
+{% else %}
+  {% assign des_purpose = des_purpose_raw | split: ',' %}
+{% endif %}
+
+{% if des_suitable_raw[0] != nil %}
+  {% assign des_suitable = des_suitable_raw %}
+{% else %}
+  {% assign des_suitable = des_suitable_raw | split: ',' %}
+{% endif %}
+
+{% if des_benefits_raw[0] != nil %}
+  {% assign des_benefits = des_benefits_raw %}
+{% else %}
+  {% assign des_benefits = des_benefits_raw | split: ',' %}
+{% endif %}
+
+{% if des_moment_raw[0] != nil %}
+  {% assign des_moment = des_moment_raw %}
+{% else %}
+  {% assign des_moment = des_moment_raw | split: ',' %}
+{% endif %}
+
+{% assign max_rows = des_purpose.size %}
+{% if des_suitable.size > max_rows %}
+  {% assign max_rows = des_suitable.size %}
+{% endif %}
+{% if des_benefits.size > max_rows %}
+  {% assign max_rows = des_benefits.size %}
+{% endif %}
+{% if des_moment.size > max_rows %}
+  {% assign max_rows = des_moment.size %}
+{% endif %}
+
 <div class="compare-table-wrapper">
   <table class="compare-table">
     <thead>
@@ -47,18 +82,20 @@
       </tr>
     </thead>
     <tbody>
-      {% assign max_rows = des_purpose.size | at_least: des_suitable.size | at_least: des_benefits.size | at_least: des_moment.size %}
       {% for i in (0..max_rows-1) %}
         <tr>
-          <td>{{ des_purpose[i] }}</td>
-          <td>{{ des_suitable[i] }}</td>
-          <td>{{ des_benefits[i] }}</td>
-          <td>{{ des_moment[i] }}</td>
+          <td>{{ des_purpose[i] | strip }}</td>
+          <td>{{ des_suitable[i] | strip }}</td>
+          <td>{{ des_benefits[i] | strip }}</td>
+          <td>{{ des_moment[i] | strip }}</td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
 </div>
+
+
+
 </div>
 <style>
     .compare_products{display:flex;}
