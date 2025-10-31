@@ -1122,8 +1122,8 @@ document.addEventListener("DOMContentLoaded", function() {
         products.forEach(product => {
           const productTags = product.dataset.tags.split(',').map(tag => tag.trim().toLowerCase());
           const matchPattern = `tag_${parent}_${selectedTag}`;
-
-        const matches = productTags.some(tag => tag.includes(matchPattern));
+          console.log(matchPattern,'matchPattern')
+          const matches = productTags.some(tag => tag.includes(matchPattern));
 
           console.log('matches',matches,productTags)
           product.style.display = matches ? 'block' : 'none';
