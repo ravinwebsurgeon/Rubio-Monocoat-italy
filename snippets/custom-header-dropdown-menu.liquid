@@ -620,7 +620,7 @@ li.main_menu_item.unhovered >a {
 </style>
 
 
-<script>
+{% comment %} <script>
 document.addEventListener('DOMContentLoaded', function() {
   const video = document.getElementById('myVideo');
   const playButton = document.getElementById('playButton');
@@ -650,8 +650,43 @@ document.querySelectorAll('.main_menu_item').forEach((item) => {
     }
   });
 });
+</script> {% endcomment %}
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Handle all video blocks
+  const videoBlocks = document.querySelectorAll('.video-chose');
 
+  videoBlocks.forEach(block => {
+    const video = block.querySelector('video');
+    const playButton = block.querySelector('.video-play-btn');
 
+    if (video && playButton) {
+      playButton.addEventListener('click', () => {
+        if (video.paused) {
+          video.play();
+          playButton.classList.add('playing');
+        } else {
+          video.pause();
+          playButton.classList.remove('playing');
+        }
+      });
+    }
+  });
 
+  // Mega menu hover effect
+  document.querySelectorAll('.main_menu_item').forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      if (item.querySelector('.mega_menu_items_wrapper')) {
+        document.querySelector('.section-header').classList.add('mega-open');
+      }
+    });
+
+    item.addEventListener('mouseleave', () => {
+      if (item.querySelector('.mega_menu_items_wrapper')) {
+        document.querySelector('.section-header').classList.remove('mega-open');
+      }
+    });
+  });
+});
 </script>
