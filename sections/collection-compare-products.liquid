@@ -77,7 +77,6 @@
       <tbody>
         <tr>
           <th>{{ des_headings[0] }}</th>
-          
             {% for item in des_purpose %}
              <td> <div class="compare-cell">{{ item | strip }}</div></td>
             {% endfor %}
@@ -85,27 +84,23 @@
         </tr>
         <tr>
           <th>{{ des_headings[1] }}</th>
-          <td>
             {% for item in des_suitable %}
-              <div class="compare-cell">{{ item | strip }}</div>
+             <td> <div class="compare-cell">{{ item | strip }}</div> </td>
             {% endfor %}
-          </td>
         </tr>
         <tr>
           <th>{{ des_headings[2] }}</th>
-          <td>
+          
             {% for item in des_benefits %}
-              <div class="compare-cell">{{ item | strip }}</div>
+             <td> <div class="compare-cell">{{ item | strip }}</div> </td>
             {% endfor %}
-          </td>
+         
         </tr>
         <tr>
           <th>{{ des_headings[3] }}</th>
-          <td>
             {% for item in des_moment %}
-              <div class="compare-cell">{{ item | strip }}</div>
+            <td>  <div class="compare-cell">{{ item | strip }}</div></td>
             {% endfor %}
-          </td>
         </tr>
       </tbody>
     </table>  
