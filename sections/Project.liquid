@@ -1137,7 +1137,7 @@ tagButtons.forEach(button => {
     {% comment %} let productParent = product.parentNode.parentNode.parentNode.classList {% endcomment %}
          const productWrap = product.closest('.Exterior-wrap, .Interior-wrap');
         const productParent =
-          productWrap?.classList.contains('exterior-wrap') ? 'xterior' :
+          productWrap?.classList.contains('exterior-wrap') ? 'exterior' :
           productWrap?.classList.contains('interior-wrap') ? 'interior' :
           null;
       // Get product tags (assuming comma-separated)
