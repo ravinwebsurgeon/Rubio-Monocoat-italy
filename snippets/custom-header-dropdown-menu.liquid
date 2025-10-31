@@ -719,10 +719,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
   videoBlocks.forEach(block => {
     const video = block.querySelector('video');
+    const playButton = block.querySelector('.video-play-btn');
 
-    if (video) {
-      // Always show native controls
-      video.setAttribute('controls', 'controls');
+    if (video && playButton) {
+
+      // When play button is clicked
+      playButton.addEventListener('click', () => {
+        if (video.paused) {
+          // Play video
+          video.play();
+          playButton.style.display = 'none';
+        } else {
+          // Pause video
+          video.pause();
+          playButton.style.display = 'flex';
+        }
+      });
+
+      // Also pause when clicking on the video itself
+      video.addEventListener('click', () => {
+        if (video.paused) {
+          video.play();
+          playButton.style.display = 'none';
+        } else {
+          video.pause();
+          playButton.style.display = 'flex';
+        }
+      });
+
+      // When video ends → show play icon again
+      video.addEventListener('ended', () => {
+        playButton.style.display = 'flex';
+      });
+
+      // When paused manually → show play icon
+      video.addEventListener('pause', () => {
+        playButton.style.display = 'flex';
+      });
+
+      // When playing → hide play icon
+      video.addEventListener('play', () => {
+        playButton.style.display = 'none';
+      });
     }
   });
 
@@ -742,6 +780,5 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
-
 
 
