@@ -5,7 +5,7 @@
     {% endif %}
     <div class="circle-tabs">
       {% for block in section.blocks %}
-        <button class="exterior-circle circle-tab" data-tab="tab-{{ block.id }}" data-exterior-tag-name="{{ block.settings.exterior_tag_name }}" data-interior-tag-name={{block.settings.tag_name }}>
+        <button class="circle-tab" data-tab="tab-{{ block.id }}" data-exterior-tag-name="{{ block.settings.exterior_tag_name }}" data-interior-tag-name={{block.settings.tag_name }}>
           {% if block.settings.tab_image %}
             <span class="circle-tab-ing"> 
               <img src="{{ block.settings.tab_image | img_url: '200x200' }}" alt="{{ block.settings.tab_name | escape }}" width="" height=""> 
@@ -135,7 +135,7 @@
     <div class="tab-productss active">
       <ul class="product-grid collection-{{ tab_collection.handle }}">
         {% for product in tab_collection.products %}
-          <li class="exterior-product-item product-item"
+          <li class="product-item"
               data-colours="{{ product.metafields.custom.colour_filter2.value | join: ',' }}"
               data-products="{{ product.metafields.custom.product_filter.value | join: ',' }}"
               data-available="{{ product.available }}"
@@ -208,63 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }); 
 });
 </script>  {% endcomment %}
-<script>
- document.addEventListener('DOMContentLoaded', function () {
-  /* circle tabs */
- function showproducts() {
-    const products = document.querySelectorAll('.exterior-product-item'); 
-    const activeTab = document.querySelector('.exterior-circle.active');
-    if (!activeTab) return;
-    const btnparentClasses = activeTab.parentNode.parentNode.classList;
-    console.log('check',btnparentClasses)
-    let parent = '';
-    if (btnparentClasses.contains('exterior')) {
-        parent = 'exterior';
-    } else if (btnparentClasses.contains('interior')) {
-        parent = 'interior';
-    }
-    {% comment %} let selectedTag = activeTab.textContent.trim().toLowerCase(); {% endcomment %}
-     if (parent === 'exterior') {
-      selectedTag = activeTab.dataset.exteriorTagName?.trim().toLowerCase() || '';
-    } else if (parent === 'interior') {
-      selectedTag = activeTab.dataset.interiorTagName?.trim().toLowerCase() || '';
-    }
 
-    products.forEach(product => {
-        let productParent = product.parentNode.parentNode.parentNode;
-        let productParentclass = '';
-        
-        if(productParent.classList.contains('Exterior-wrap')) { 
-            productParentclass = 'exterior';
-        } else if(productParent.classList.contains('Interior-wrap')) { 
-            productParentclass = 'interior';
-        }
-        
-        const productTags = product.dataset.tags.split(',').map(tag => tag.trim().toLowerCase());
-        {% comment %} const matchPattern = `${parent}_${selectedTag}`; {% endcomment %}
-        {% comment %} const matches = productTags.some(tag => tag.includes(matchPattern)); {% endcomment %}
-        if (productParentclass == parent && productTags.includes(selectedTag)) {
-            product.style.display = 'block';
-        } else {
-            product.style.display = 'none';
-        }
-    });
-}
-});
-// Initialize tabs with proper showproducts call
-document.querySelectorAll('.exterior-circle').forEach(btn => {
-    btn.addEventListener('click', function () {
-        document.querySelectorAll('.exterior-circle').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.tab-products').forEach(c => c.classList.remove('active'));
-        
-        this.classList.add('active');
-        document.getElementById(this.dataset.tab).classList.add('active');
-        
-        // Call showproducts immediately after tab activation
-        showproducts();
-    });
-});
-</script>
 
 
 {% schema %}
