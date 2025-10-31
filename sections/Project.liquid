@@ -1125,7 +1125,7 @@ document.addEventListener("DOMContentLoaded", function() {
           productTags.some(tag => tag.includes(selectedTag)) &&
           productTags.some(tag => tag.includes(parent));
 
-          console.log('matches',matches)
+          console.log('matches',matches,productTags)
           product.style.display = matches ? 'block' : 'none';
        });
     });
