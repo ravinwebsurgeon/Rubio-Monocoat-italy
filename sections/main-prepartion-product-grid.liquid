@@ -329,52 +329,27 @@ function refreshCartDrawer() {
     .catch((error) => { console.error('Error refreshing cart drawer:', error); });
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+  const productData = {{ card_product | json }};
+  const selects = document.querySelectorAll(".option-variant-selector");
+  const variantInput = document.querySelector(".variant-selector");
 
-document.addEventListener('DOMContentLoaded', function () {
-  // Loop through each product card on the page
-  const productCards = document.querySelectorAll('.product-card');
-
-  productCards.forEach((card) => {
-    const variantSelectors = card.querySelectorAll('.option-variant-selector');
-    const variantInput = card.querySelector('#variant-id');
-    const variants = JSON.parse(card.dataset.variants);
-
-    // Collect currently selected option values
-    function getSelectedOptions() {
-      let selectedOptions = [];
-      variantSelectors.forEach((select) => {
-        selectedOptions.push(select.value);
-      });
-      return selectedOptions;
-    }
-
-    // Find matching variant from options
-    function findMatchingVariant(selectedOptions) {
-      return variants.find((variant) =>
-        variant.options.every((opt, index) => opt === selectedOptions[index])
-      );
-    }
-
-    function updateVariantId() {
-      const selectedOptions = getSelectedOptions();
-      const matchedVariant = findMatchingVariant(selectedOptions);
-
-      if (matchedVariant) {
-        variantInput.value = matchedVariant.id;
-        console.log(`Updated variant ID for this product: ${matchedVariant.id}`);
-      } else {
-        console.log('No matching variant found for this combination');
-      }
-    }
-
-    // Listen for changes on all dropdowns within this card
-    variantSelectors.forEach((select) => {
-      console.log("select input")
-      select.addEventListener('change', updateVariantId);
+  function updateVariantId() {
+    const selectedOptions = Array.from(selects).map(select => select.value);
+    const matchedVariant = productData.variants.find(variant => {
+      return variant.options.every((opt, index) => opt === selectedOptions[index]);
     });
 
-    // Initialize on page load
-    updateVariantId();
+    if (matchedVariant) {
+      variantInput.value = matchedVariant.id;
+      console.log("Updated variant ID:", matchedVariant.id);
+    } else {
+      console.warn("No matching variant found for selected options:", selectedOptions);
+    }
+  }
+
+  selects.forEach(select => {
+    select.addEventListener("change", updateVariantId);
   });
 });
 
