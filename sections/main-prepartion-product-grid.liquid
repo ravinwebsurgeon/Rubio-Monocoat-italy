@@ -369,6 +369,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Listen for changes on all dropdowns within this card
     variantSelectors.forEach((select) => {
+      console.log("select input")
       select.addEventListener('change', updateVariantId);
     });
 
