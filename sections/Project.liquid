@@ -1130,7 +1130,7 @@ tagButtons.forEach(button => {
       // Get product tags (assuming comma-separated)
 
       const productTags = product.dataset.tags.split(',').map(tag => tag.trim().toLowerCase());
- const matchPattern = `tag_${parent}_${selectedTag}`;
+ const matchPattern = `${parent}_${selectedTag}`;
       // Check if any product tag contains the selected tag as substring
 console.log('matchPattern',matchPattern)
       const matches = productTags.some(tag => tag.includes(matchPattern));
