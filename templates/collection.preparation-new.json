@@ -29,13 +29,6 @@
         "padding_bottom": 36
       }
     },
-    "collection_compare_products_pYHEaF": {
-      "type": "collection-compare-products",
-      "name": "Compare Product Section",
-      "settings": {
-        "heading": "Latest from the blog"
-      }
-    },
     "how_to_use_faq_news_test_Ltrq6j": {
       "type": "how-to-use-faq-news-test",
       "blocks": {
@@ -81,6 +74,14 @@
       "name": "How To Use FAQ NW",
       "settings": {
         "default_image": "shopify://shop_images/aa62a9d8b76bf83cf45b55405d96c568c062b03e.png"
+      }
+    },
+    "collection_compare_products_pYHEaF": {
+      "type": "collection-compare-products",
+      "disabled": true,
+      "name": "Compare Product Section",
+      "settings": {
+        "heading": "Latest from the blog"
       }
     },
     "inspired_wooden_floor_GyrTqA": {

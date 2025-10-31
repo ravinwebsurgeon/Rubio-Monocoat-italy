@@ -69,7 +69,7 @@
             {% endif %}
             <div class="circle-tabs">
               {% for block in section.blocks %}
-                <button class="circle-tab" data-tab="tab-{{ block.id }}"  data-interior-tag-name={{block.settings.tag_name }}>
+                <button class="circle-tab" data-tab="tab-{{ block.id }}" data-exterior-tag-name="{{ block.settings.exterior_tag_name }}" data-interior-tag-name={{block.settings.tag_name }}>
                   {% if block.settings.tab_image %}
                     <span class="circle-tab-ing"> 
                       <img src="{{ block.settings.tab_image | img_url: '200x200' }}" alt="{{ block.settings.tab_name | escape }}" width="" height=""> 
@@ -388,6 +388,7 @@
     { "type": "image_picker", "id": "horizontal_surface_img", "label": "Horizontal Surface Image" },
     { "type": "collection", "id": "horizontal_surface_collection", "label": "Horizontal Surface Collection" },
     { "type": "collection", "id": "interior_collection", "label": "Interior Collection" }
+    
   ],
   "blocks": [
     {
@@ -396,6 +397,8 @@
       "settings": [
         { "type": "text", "id": "tab_name", "label": "Species name" },
         { "type": "text", "id": "tag_name", "label": "Interior Tag name" },
+        { "type": "text", "id": "exterior_tag_name", "label": "Exteriour Tag name" },
+        
         { "type": "image_picker", "id": "tab_image", "label": "Tab image" },
         { "type": "collection", "id": "tab_collection", "label": "Collection to show" }
       ]
