@@ -439,7 +439,55 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('DOMContentLoaded', function () {
   /* circle tabs */
  
+function showproducts()
+    {
+    const products = document.querySelectorAll('.product-item'); 
+    const tagButtons = document.querySelectorAll('.circle-tab');
+ 
+  tagButtons.forEach(button => {
 
+  button.addEventListener('click', () => {
+  
+ const btnparentClasses = button.parentNode.parentNode.classList;
+
+    let parent = '';
+
+    if (btnparentClasses.contains('exterior')) {
+      parent = 'exterior';
+    } else if (btnparentClasses.contains('interior')) {
+      parent = 'interior';
+    }
+    let selectedTag = button.textContent.trim().toLowerCase();
+
+    products.forEach(product => {
+    let productParent = product.parentNode.parentNode.parentNode
+         {% comment %} const productWrap = product.closest('.Exterior-wrap, .Interior-wrap'); {% endcomment %}
+        let productParentclass ='';
+         if(productParent.classList.contains('Exterior-wrap')){ productParentclass ='exterior';}
+         else if(productParent.classList.contains('Interior-wrap')){ productParentclass ='interior';}
+        
+      // Get product tags (assuming comma-separated)
+
+      const productTags = product.dataset.tags.split(',').map(tag => tag.trim().toLowerCase());
+      const matchPattern = `${parent}_${selectedTag}`;
+      // Check if any product tag contains the selected tag as substring
+      console.log('matchPattern',matchPattern,"productParent",productParentclass,'parent',parent)
+      const matches = productTags.some(tag => tag.includes(matchPattern));
+ 
+      // Show/hide based on match
+      console.log('matches',matches)
+      {% comment %} product.style.display = matches ? 'block' : 'none'; {% endcomment %}
+          if (matches && productParentclass == parent) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+    });
+  });
+
+});
+
+    }
     {% comment %} <!-- comment by amanpreet --> {% endcomment %}
   document.querySelectorAll('.circle-tab').forEach(btn => {
     btn.addEventListener('click', function () {
@@ -1115,55 +1163,7 @@ document.addEventListener("DOMContentLoaded", function() {
       circleTabs.forEach(t => t.classList.remove("active"));
     });
   });
-   function showproducts()
-    {
-    const products = document.querySelectorAll('.product-item'); 
-    const tagButtons = document.querySelectorAll('.circle-tab');
- 
-  tagButtons.forEach(button => {
-
-  button.addEventListener('click', () => {
-  
- const btnparentClasses = button.parentNode.parentNode.classList;
-
-    let parent = '';
-
-    if (btnparentClasses.contains('exterior')) {
-      parent = 'exterior';
-    } else if (btnparentClasses.contains('interior')) {
-      parent = 'interior';
-    }
-    let selectedTag = button.textContent.trim().toLowerCase();
-
-    products.forEach(product => {
-    let productParent = product.parentNode.parentNode.parentNode
-         {% comment %} const productWrap = product.closest('.Exterior-wrap, .Interior-wrap'); {% endcomment %}
-        let productParentclass ='';
-         if(productParent.classList.contains('Exterior-wrap')){ productParentclass ='exterior';}
-         else if(productParent.classList.contains('Interior-wrap')){ productParentclass ='interior';}
-        
-      // Get product tags (assuming comma-separated)
-
-      const productTags = product.dataset.tags.split(',').map(tag => tag.trim().toLowerCase());
-      const matchPattern = `${parent}_${selectedTag}`;
-      // Check if any product tag contains the selected tag as substring
-      console.log('matchPattern',matchPattern,"productParent",productParentclass,'parent',parent)
-      const matches = productTags.some(tag => tag.includes(matchPattern));
- 
-      // Show/hide based on match
-      console.log('matches',matches)
-      {% comment %} product.style.display = matches ? 'block' : 'none'; {% endcomment %}
-          if (matches && productParentclass == parent) {
-          product.style.display = 'block';
-        } else {
-          product.style.display = 'none';
-        }
-    });
-  });
-
-});
-
-    }
+   
   // -------------------------------
   // CIRCLE TAB CLICK → show correct product wrapper
   circleTabs.forEach(tab => {
