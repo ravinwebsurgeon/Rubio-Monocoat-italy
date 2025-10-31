@@ -29,29 +29,73 @@
         "padding_bottom": 36
       }
     },
-    "custom_inspired_wooden_7apwah": {
-      "type": "custom_inspired_wooden",
-      "name": "CustomInspired Wooden",
-      "settings": {
-        "heading": "",
-        "subheading": "",
-        "Products": [
-          "cleaner"
-        ],
-        "source_page": ""
-      }
-    },
     "collection_compare_products_pYHEaF": {
       "type": "collection-compare-products",
       "name": "Compare Product Section",
       "settings": {
         "heading": "Latest from the blog"
       }
+    },
+    "inspired_wooden_floor_GyrTqA": {
+      "type": "inspired-wooden-floor",
+      "blocks": {
+        "product_block_c38gpw": {
+          "type": "product_block",
+          "settings": {
+            "product": "cleaner",
+            "background_image": "shopify://shop_images/64e59971a135495d2ea068875724acc5125a8eff.jpg"
+          }
+        },
+        "product_block_XWCJaT": {
+          "type": "product_block",
+          "settings": {
+            "product": "cleaner",
+            "background_image": "shopify://shop_images/Untitled_410_x_400_px_1.png"
+          }
+        },
+        "product_block_Ukfr49": {
+          "type": "product_block",
+          "settings": {
+            "product": "cleaner",
+            "background_image": "shopify://shop_images/Untitled_410_x_400_px_be966806-9f82-498c-805e-57a7ba6cdd23.png"
+          }
+        },
+        "product_block_XbhYA9": {
+          "type": "product_block",
+          "settings": {
+            "product": "cleaner",
+            "background_image": "shopify://shop_images/Untitled_design_72.png"
+          }
+        },
+        "product_block_QipbKy": {
+          "type": "product_block",
+          "settings": {
+            "product": "cleaner",
+            "background_image": "shopify://shop_images/e5624f9fa274d9c761c6e640fe62e760d60b2c58.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "product_block_c38gpw",
+        "product_block_XWCJaT",
+        "product_block_Ukfr49",
+        "product_block_XbhYA9",
+        "product_block_QipbKy"
+      ],
+      "name": "Inspired Wooden Floors",
+      "settings": {
+        "heading": "See How Others Finished Their Oak Wood",
+        "subheading": "",
+        "product_List": [
+          "cleaner"
+        ],
+        "images": "shopify://shop_images/Untitled_410_x_400_px_1.png"
+      }
     }
   },
   "order": [
     "product-grid",
-    "custom_inspired_wooden_7apwah",
-    "collection_compare_products_pYHEaF"
+    "collection_compare_products_pYHEaF",
+    "inspired_wooden_floor_GyrTqA"
   ]
 }

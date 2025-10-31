@@ -1119,9 +1119,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const products = document.querySelectorAll('.product-item'); 
     const tagButtons = document.querySelectorAll('.circle-tab');
  
-tagButtons.forEach(button => {
+  tagButtons.forEach(button => {
 
-  button.addEventListener('click', () => {
+  button.addEventListener('click', (e) => {
+      e.stopPropagation();
  const btnparentClasses = button.parentNode.parentNode.classList;
 
     let parent = '';
