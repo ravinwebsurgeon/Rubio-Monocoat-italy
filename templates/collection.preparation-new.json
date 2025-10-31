@@ -51,22 +51,33 @@
         "faq_item_yifee9": {
           "type": "faq_item",
           "settings": {
-            "question": "How do I use this product?",
-            "answer": "This product can be used by following the steps mentioned here."
+            "question": "STEP 2: Sand",
+            "answer": "Shake the bottle of Exterior Soap to obtain a\nhomogeneous mixture. Pour 1 litre of xterior Soap into a bucket. Add 3 litres of clear water.",
+            "image": "shopify://shop_images/Untitled_design_72.png"
           }
         },
         "faq_item_PHKyzj": {
           "type": "faq_item",
           "settings": {
-            "question": "How do I use this product?",
-            "answer": "This product can be used by following the steps mentioned here."
+            "question": "STEP 3: Clean",
+            "answer": "Damp mop this solution evenly on the cleaned surface.",
+            "image": "shopify://shop_images/Untitled_410_x_400_px_1.png"
+          }
+        },
+        "faq_item_xPnVeM": {
+          "type": "faq_item",
+          "settings": {
+            "question": "STEP 4: Dry",
+            "answer": "Allow to dry for approximately 30 minutes.",
+            "image": "shopify://shop_images/Untitled_410_x_400_px_1.png"
           }
         }
       },
       "block_order": [
         "faq_item_CKb7nJ",
         "faq_item_yifee9",
-        "faq_item_PHKyzj"
+        "faq_item_PHKyzj",
+        "faq_item_xPnVeM"
       ],
       "name": "How To Use FAQ NW",
       "settings": {
