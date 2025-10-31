@@ -1103,6 +1103,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Remove active from exterior dropdown
     exteriorToggle?.classList.remove("active");
+        document.querySelector('.exteriour_tabs_section').classList.remove('active');
+
     tabs_outer.classList.remove('exterior')
     surfaceOptions?.style.setProperty("display", "none");
     surfaceOptions?.querySelectorAll(".surface-item").forEach(i => i.classList.remove("active"));
@@ -1125,6 +1127,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Close all dropdowns first
     document.querySelectorAll(".surface-options").forEach(opt => opt.style.display = "none");
     document.querySelectorAll(".surface-toggle").forEach(el => el.classList.remove("active"));
+    document.querySelector('.exteriour_tabs_section').classList.add('active');
 
     if (!isActive) {
       surfaceOptions?.style.setProperty("display", "flex");
