@@ -37,6 +37,41 @@
         "heading": "Latest from the blog"
       }
     },
+    "how_to_use_faq_news_test_Ltrq6j": {
+      "type": "how-to-use-faq-news-test",
+      "blocks": {
+        "faq_item_CKb7nJ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I use this product?",
+            "answer": "This product can be used by following the steps mentioned here."
+          }
+        },
+        "faq_item_yifee9": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I use this product?",
+            "answer": "This product can be used by following the steps mentioned here."
+          }
+        },
+        "faq_item_PHKyzj": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I use this product?",
+            "answer": "This product can be used by following the steps mentioned here."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_CKb7nJ",
+        "faq_item_yifee9",
+        "faq_item_PHKyzj"
+      ],
+      "name": "How To Use FAQ NW",
+      "settings": {
+        "default_image": "shopify://shop_images/aa62a9d8b76bf83cf45b55405d96c568c062b03e.png"
+      }
+    },
     "inspired_wooden_floor_GyrTqA": {
       "type": "inspired-wooden-floor",
       "blocks": {
@@ -206,6 +241,7 @@
   "order": [
     "product-grid",
     "collection_compare_products_pYHEaF",
+    "how_to_use_faq_news_test_Ltrq6j",
     "inspired_wooden_floor_GyrTqA",
     "custom_vissits_nomal_ctG9Gz",
     "other_surfaces_slider_3bmEdY"
