@@ -71,39 +71,32 @@
 {% if des_moment.size > max_rows %}
   {% assign max_rows = des_moment.size %}
 {% endif %}
+{% assign purpose_str = des_purpose | join: '||' %}
+{% assign suitable_str = des_suitable | join: '||' %}
+{% assign benefits_str = des_benefits | join: '||' %}
+{% assign moment_str = des_moment | join: '||' %}
+
+{% assign metafield_arrays = purpose_str | append: '###' | append: suitable_str | append: '###' | append: benefits_str | append: '###' | append: moment_str %}
+{% assign metafield_groups = metafield_arrays | split: '###' %}
 
 <div class="compare-table-wrapper">
-    <table class="compare-table vertical-layout">
-      <tbody>
+  <table class="compare-table vertical-layout">
+    <tbody>
+      {% for metafield in metafield_groups %}
+        {% assign items = metafield | split: '||' %}
         <tr>
-          <th>{{ des_headings[0] }}</th>
-            {% for item in des_purpose %}
-             <td> <div class="compare-cell">{{ item | strip }}</div></td>
-            {% endfor %}
-          
+          <th>{{ des_headings[forloop.index0] }}</th>
+          {% for i in (0..max_rows-1) %}
+            <td>
+              <div class="compare-cell">
+                {{ items[i] | default: '' | strip }}
+              </div>
+            </td>
+          {% endfor %}
         </tr>
-        <tr>
-          <th>{{ des_headings[1] }}</th>
-            {% for item in des_suitable %}
-             <td> <div class="compare-cell">{{ item | strip }}</div> </td>
-            {% endfor %}
-        </tr>
-        <tr>
-          <th>{{ des_headings[2] }}</th>
-          
-            {% for item in des_benefits %}
-             <td> <div class="compare-cell">{{ item | strip }}</div> </td>
-            {% endfor %}
-         
-        </tr>
-        <tr>
-          <th>{{ des_headings[3] }}</th>
-            {% for item in des_moment %}
-            <td><div class="compare-cell">{{ item | strip }}</div></td>
-            {% endfor %}
-        </tr>
-      </tbody>
-    </table>  
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
 
 
