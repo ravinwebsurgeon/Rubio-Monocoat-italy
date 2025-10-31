@@ -652,7 +652,7 @@ document.querySelectorAll('.main_menu_item').forEach((item) => {
 });
 </script> {% endcomment %}
 
-<script>
+{% comment %} <script>
 document.addEventListener('DOMContentLoaded', function() {
   // Handle all video blocks
   const videoBlocks = document.querySelectorAll('.video-chose');
@@ -662,26 +662,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const playButton = block.querySelector('.video-play-btn');
 
     if (video && playButton) {
-
+      
       // When play button is clicked
       playButton.addEventListener('click', () => {
         if (video.paused) {
-          // Play video
+          // Hide the play icon and play video
           video.play();
           playButton.style.display = 'none';
         } else {
-          // Pause video
-          video.pause();
-          playButton.style.display = 'flex';
-        }
-      });
-
-      // Also pause when clicking on the video itself
-      video.addEventListener('click', () => {
-        if (video.paused) {
-          video.play();
-          playButton.style.display = 'none';
-        } else {
+          // Pause and show the play icon
           video.pause();
           playButton.style.display = 'flex';
         }
@@ -692,12 +681,71 @@ document.addEventListener('DOMContentLoaded', function() {
         playButton.style.display = 'flex';
       });
 
-      // When paused manually → show play icon
+      // If video is paused manually
       video.addEventListener('pause', () => {
         playButton.style.display = 'flex';
       });
 
-      // When playing → hide play icon
+      // If video starts playing (from anywhere)
+      video.addEventListener('play', () => {
+        playButton.style.display = 'none';
+      });
+    }
+  });
+
+  // Mega menu hover effect
+  document.querySelectorAll('.main_menu_item').forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      if (item.querySelector('.mega_menu_items_wrapper')) {
+        document.querySelector('.section-header').classList.add('mega-open');
+      }
+    });
+
+    item.addEventListener('mouseleave', () => {
+      if (item.querySelector('.mega_menu_items_wrapper')) {
+        document.querySelector('.section-header').classList.remove('mega-open');
+      }
+    });
+  });
+});
+</script> {% endcomment %}
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Handle all video blocks
+  const videoBlocks = document.querySelectorAll('.video-chose');
+
+  videoBlocks.forEach(block => {
+    const video = block.querySelector('video');
+    const playButton = block.querySelector('.video-play-btn');
+
+    if (video && playButton) {
+      // When play button is clicked
+      playButton.addEventListener('click', () => {
+        if (video.paused) {
+          // Show controls, play video, and hide custom button
+          video.setAttribute('controls', 'controls');
+          video.play();
+          playButton.style.display = 'none';
+        }
+      });
+
+      // When video ends → show play button again, hide controls
+      video.addEventListener('ended', () => {
+        video.removeAttribute('controls');
+        playButton.style.display = 'flex';
+      });
+
+      // When paused manually → show play button again, hide controls
+      video.addEventListener('pause', () => {
+        if (video.currentTime < video.duration) {
+          video.removeAttribute('controls');
+          playButton.style.display = 'flex';
+        }
+      });
+
+      // When video starts playing (from anywhere) → hide play button
       video.addEventListener('play', () => {
         playButton.style.display = 'none';
       });
