@@ -439,8 +439,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('DOMContentLoaded', function () {
   /* circle tabs */
  
-  {% comment %} 
-    <!-- comment by amanpreet -->
+
+    {% comment %} <!-- comment by amanpreet --> {% endcomment %}
   document.querySelectorAll('.circle-tab').forEach(btn => {
     btn.addEventListener('click', function () {
       document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove('active','asdf'));
@@ -451,7 +451,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   });
   
-  {% endcomment %}
+
  
   /* video modal */
   const openBtn = document.getElementById('openVideo'),
