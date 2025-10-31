@@ -495,7 +495,11 @@ function showproducts()
       document.querySelectorAll('.tab-products').forEach(c => c.classList.remove('active'));
       this.classList.add('active');
       document.getElementById(this.dataset.tab).classList.add('active');
-       showproducts(); 
+       // Try multiple approaches
+    setTimeout(() => {
+      console.log('Calling showproducts after timeout');
+      showproducts();
+    }, 10);
 
     });
   
