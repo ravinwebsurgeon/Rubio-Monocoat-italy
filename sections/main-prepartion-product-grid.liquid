@@ -264,12 +264,6 @@
             const productBlock = button.closest('.card__information');
             const variantSelect = productBlock.querySelector('.variant-selector');
             const variantId = variantSelect.value;
-
-            if (!variantId) {
-                alert("Please select a variant.");
-                return;
-            }
-
             fetch('/cart/add.js', {
                 method: 'POST',
                 headers: {
