@@ -474,10 +474,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
     document.addEventListener('DOMContentLoaded', function () {
   /* circle tabs */
-     function show_products()
-  {
-  console.log('test');
-  }
+ 
   document.querySelectorAll('.circle-tab').forEach(btn => {
     btn.addEventListener('click', function () {
       document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove('active'));
@@ -486,6 +483,10 @@ document.addEventListener('DOMContentLoaded', function() {
       show_products();
       document.getElementById(this.dataset.tab).classList.add('active');
     });
+        function show_products()
+  {
+  console.log('test');
+  }
   });
 
   /* video modal */
