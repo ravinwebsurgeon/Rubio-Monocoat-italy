@@ -495,7 +495,7 @@ function showproducts()
       document.querySelectorAll('.tab-products').forEach(c => c.classList.remove('active'));
       this.classList.add('active');
       document.getElementById(this.dataset.tab).classList.add('active');
-       {% comment %} showproducts();  {% endcomment %}
+       showproducts(); 
 
     });
   
@@ -1193,7 +1193,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // -------------------------------
   // Click outside dropdown → close exterior dropdown
   document.addEventListener("click", function(e) {
-    showproducts();
+    
     if (!exteriorToggle?.contains(e.target) && !surfaceOptions?.contains(e.target)) {
       surfaceOptions?.style.setProperty("display", "none");
       exteriorToggle?.classList.remove("active");
