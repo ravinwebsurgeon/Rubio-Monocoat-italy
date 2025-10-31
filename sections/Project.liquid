@@ -345,28 +345,41 @@
 </div>
 
 <script>
+// Select all products
+
 const products = document.querySelectorAll('.product-item');
  
 // Select all tag buttons
-const tagButtons = document.querySelectorAll('.color-tabs');
+
+const tagButtons = document.querySelectorAll('.circle-tab.active');
  
 tagButtons.forEach(button => {
+
   button.addEventListener('click', () => {
-    const selectedTag = button.getAttribute('data-tag');
+
+    let selectedTag = button.textContent.trim().toLowerCase();
  
     products.forEach(product => {
+
       // Get product tags (assuming comma-separated)
-      const productTags = product.dataset.tags.split(',');
+
+      const productTags = product.dataset.tags.split(',').map(tag => tag.trim().toLowerCase());
  
-      // Show product if it includes selected tag, else hide
-      if (productTags.includes(selectedTag)) {
-        product.style.display = 'block';
-      } else {
-        product.style.display = 'none';
-      }
+      // Check if any product tag contains the selected tag as substring
+
+      const matches = productTags.some(tag => tag.includes(selectedTag));
+ 
+      // Show/hide based on match
+
+      product.style.display = matches ? 'block' : 'none';
+
     });
+
   });
+
 });
+
+ 
 </script>
 <!-- Quick View Modal -->
 <div id="quickViewModal" class="quick-view-modal" style="display:none;">
