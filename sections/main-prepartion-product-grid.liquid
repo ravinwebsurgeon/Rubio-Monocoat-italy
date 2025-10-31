@@ -331,7 +331,7 @@ function refreshCartDrawer() {
 
 document.addEventListener("DOMContentLoaded", function() {
   const productCards = document.querySelectorAll(".product-card");
-
+console.log('productCards',productCards.length)
   productCards.forEach(card => {
     const selects = card.querySelectorAll(".option-variant-selector");
     const variantInput = card.querySelector(".variant-selector");
