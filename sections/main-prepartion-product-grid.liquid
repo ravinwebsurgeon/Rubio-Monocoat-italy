@@ -330,11 +330,19 @@ function refreshCartDrawer() {
 }
 
 
-  document.addEventListener('DOMContentLoaded', function () {
-    const variantSelectors = document.querySelectorAll('.option-variant-selector');
+document.addEventListener('DOMContentLoaded', function () {
+  // Select all product cards on the collection page
+  const productCards = document.querySelectorAll('.product-card');
 
-    // Load all variants into JS (this is Liquid)
-    const variants = {{ product.variants | json }};
+  productCards.forEach((card) => {
+    // Each card should have its own variant selectors
+    const variantSelectors = card.querySelectorAll('.option-variant-selector');
+
+    // Get the product’s variants (use a data attribute from Liquid)
+    const variants = JSON.parse(card.dataset.variants);
+
+    // Hidden input to hold selected variant ID
+    const variantIdInput = card.querySelector('.variant-id-input');
 
     function getSelectedOptions() {
       let selectedOptions = [];
@@ -356,20 +364,22 @@ function refreshCartDrawer() {
 
       if (matchingVariant) {
         console.log('Selected Variant ID:', matchingVariant.id);
-        document.querySelector('#variant-id').value = matchingVariant.id;
+        variantIdInput.value = matchingVariant.id;
       } else {
-        console.log('No matching variant found');
+        console.log('No matching variant found for this card');
       }
     }
 
-    // Listen for changes on all variant selectors
+    // Listen for changes on all variant selectors inside this card
     variantSelectors.forEach((select) => {
       select.addEventListener('change', updateVariantId);
     });
 
-    // Initial check on page load
+    // Initial check
     updateVariantId();
   });
+});
+
 </script>
 
 
