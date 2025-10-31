@@ -330,26 +330,32 @@ function refreshCartDrawer() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  const productData = {{ card_product | json }};
-  const selects = document.querySelectorAll(".option-variant-selector");
-  const variantInput = document.querySelector(".variant-selector");
+  const productCards = document.querySelectorAll(".product-card");
 
-  function updateVariantId() {
-    const selectedOptions = Array.from(selects).map(select => select.value);
-    const matchedVariant = productData.variants.find(variant => {
-      return variant.options.every((opt, index) => opt === selectedOptions[index]);
-    });
+  productCards.forEach(card => {
+    const selects = card.querySelectorAll(".option-variant-selector");
+    const variantInput = card.querySelector(".variant-selector");
+    const productJSON = card.querySelector(".product-json");
 
-    if (matchedVariant) {
-      variantInput.value = matchedVariant.id;
-      console.log("Updated variant ID:", matchedVariant.id);
-    } else {
-      console.warn("No matching variant found for selected options:", selectedOptions);
+    if (!productJSON) return;
+
+    const productData = JSON.parse(productJSON.textContent);
+
+    function updateVariantId() {
+      const selectedOptions = Array.from(selects).map(s => s.value);
+      const matchedVariant = productData.variants.find(v =>
+        v.options.every((opt, idx) => opt === selectedOptions[idx])
+      );
+
+      if (matchedVariant) {
+        variantInput.value = matchedVariant.id;
+        console.log(`✅ Updated variant for ${productData.title}:`, matchedVariant.id);
+      } else {
+        console.warn(`⚠️ No matching variant found for ${productData.title}`);
+      }
     }
-  }
 
-  selects.forEach(select => {
-    select.addEventListener("change", updateVariantId);
+    selects.forEach(select => select.addEventListener("change", updateVariantId));
   });
 });
 

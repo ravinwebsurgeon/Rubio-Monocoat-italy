@@ -179,6 +179,11 @@
             {% endfor %}
             <input type="hidden" class="variant-selector" id="variant-id" name="id" value="{{ card_product.selected_or_first_available_variant.id }}">
           </div>
+              <!-- Embed JSON data per product -->
+          <script type="application/json" class="product-json">
+            {{ card_product | json }}
+          </script>
+
           <div class="custom_action_btns">
             <div class="product_actions_btns">
               <a href="{{ card_product.url }}" ><button class="product_link_btn">More Info</button></a>
