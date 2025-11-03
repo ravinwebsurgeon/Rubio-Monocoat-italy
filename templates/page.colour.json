@@ -244,7 +244,7 @@
           "type": "tab",
           "settings": {
             "tab_name": "Ash",
-            "exterior_tag_name": "tag_exterior_ash",
+            "exterior_tag_name": "tag_exterior_horizontal_ash",
             "exterior_v_tag_name": "tag_exterior_vertical_ash",
             "tab_image": "shopify://shop_images/OIL_PLUS_2C_ASH_PURE_5410761574514.jpg",
             "tab_collection": ""
