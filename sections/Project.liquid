@@ -314,7 +314,7 @@
                       {% assign oak_image = product.metafields.custom.interior_oak_image.value %}
                       {% assign maple_image = product.metafields.custom.interior_maple_image.value %}                    
 
-                    <li class="product-item" data-tags="{{product.tags | join:','}}"
+                    <li class="product-item" data-quantity ="{{  product.selected_or_first_available_variant.inventory_quantity }}" data-tags="{{product.tags | join:','}}"
                       data-colours="{{ product.metafields.custom.colour_filter2.value | join: ',' }}"
                       data-products="{{ product.metafields.custom.product_filter.value | join: ',' }}"
                       data-available="{{ product.available }}"
@@ -455,6 +455,30 @@
 
 
 <script>
+ document.addEventListener('DOMContentLoaded', function() {
+  const toggle = document.querySelector('.stock-toggle');
+  const products = document.querySelectorAll('.product-item');
+
+  if (!toggle) return;
+
+  toggle.addEventListener('click', function() {
+    toggle.classList.toggle('active'); // add/remove active class
+
+    const showInStock = toggle.classList.contains('active');
+
+    products.forEach(product => {
+      const inStock = product.dataset.quantity
+
+      // Show only in-stock products when active
+      if (showInStock && inStock >0) {
+        product.style.display = 'none';
+      } else {
+        product.style.display = 'block';
+      }
+    });
+  });
+});
+
  {% comment %} document.addEventListener('DOMContentLoaded', function () {
   const exteriorSection = document.querySelector('.circle-tabs-section.exteriour_tabs_section');
   const interiorSection = document.querySelector('.circle-tabs-section.interior_tabs_section');
