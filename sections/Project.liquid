@@ -504,8 +504,8 @@ document.querySelectorAll('.circle-tab').forEach(btn => {
           c.classList.remove('active');
         }
       });
-        {% comment %} console.log( target,'chek') {% endcomment %}
-        target.classList.add('active');
+        {% comment %} target.classList.add('active'); {% endcomment %}
+          if (e.target.classList.contains('circle-tab')) { e.target.classList.add('active'); }
         document.getElementById(target.dataset.tab).classList.add('active');
         
         // Call showproducts immediately after tab activation
