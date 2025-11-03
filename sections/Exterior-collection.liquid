@@ -20,7 +20,8 @@
           <span>{{ block.settings.tab_name }}</span>
         </button>
       {% endfor %}
-       {% comment %} {% for image in tab_images %}
+       {% comment %} 
+        {% for image in tab_images %}
                   {% assign index = forloop.index0 %}
                   {% assign title = tab_titles[index] %}
                   {% assign v_tag = exterior_vertical_tags[index] %}
@@ -35,7 +36,8 @@
                     {% endif %}
                     <span>{{ title }}</span>
                   </button>
-                {% endfor %}  {% endcomment %}
+                {% endfor %}
+                   {% endcomment %}
 
 
 
