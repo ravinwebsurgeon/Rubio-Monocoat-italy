@@ -78,7 +78,7 @@
                   {% assign tab_titles = source_collection.metafields.custom.species_titles.value %}
                   {% assign interior_tags = source_collection.metafields.custom.species_tag_name.value %}
 
-               {% comment %} {% for block in section.blocks %}
+               {% for block in section.blocks %}
                 <button class="circle-tab" data-tab="tab-{{ block.id }}" 
                   data-interior-tag-name={{block.settings.tag_name }}>
                   {% if block.settings.tab_image %}
@@ -89,8 +89,8 @@
                   <span>{{ block.settings.tab_name }}</span>
                 </button>
               {% endfor %} 
-               {% endcomment %}
-           
+              
+              {% comment %} 
                {% for image in tab_images %}
                     {% assign index = forloop.index0 %}
                     {% assign title = tab_titles[index] %}
@@ -113,6 +113,7 @@
                       <span>{{ title }}</span>
                     </button>
                   {% endfor %} 
+                  {% endcomment %}
 
             </div>
           </div> 
