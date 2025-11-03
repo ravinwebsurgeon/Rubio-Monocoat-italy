@@ -77,7 +77,7 @@
                   {% assign tab_images = source_collection.metafields.custom.species_images.value %}
                   {% assign tab_titles = source_collection.metafields.custom.species_titles.value %}
                   {% assign interior_tags = source_collection.metafields.custom.species_tag_name.value %}
-{% comment %} 
+                  {% comment %} 
                {% for block in section.blocks %}
                 <button class="circle-tab" data-tab="tab-{{ block.id }}" 
                   data-interior-tag-name={{block.settings.tag_name }}>
