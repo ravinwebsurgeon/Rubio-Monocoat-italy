@@ -1288,7 +1288,7 @@ document.addEventListener("DOMContentLoaded", function() {
     exteriorToggle?.classList.remove("active");
         document.querySelector('.exteriour_tabs_section').classList.remove('active');
         document.querySelector('.interior_tabs_section').classList.add('active')
-        document.querySelector('.interior_tabs_section').style.visible="visible"
+        document.querySelector('.interior_tabs_section').style.display="block"
 
 
     {% comment %} tabs_outer.classList.remove('exterior') {% endcomment %}
@@ -1315,7 +1315,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll(".surface-toggle").forEach(el => el.classList.remove("active"));
     document.querySelector('.exteriour_tabs_section').classList.add('active');
     document.querySelector('.interior_tabs_section').classList.remove('active')
-    document.querySelector('.interior_tabs_section').style.visible="hidden"
+    document.querySelector('.interior_tabs_section').style.display="none"
     {% comment %} document.querySelector('.interior_tabs_section > .filter-bar').style.display="block" {% endcomment %}
     {% comment %} document.querySelector('.interior_tabs_section > .filter-bar').style.visible="visible" {% endcomment %}
 
