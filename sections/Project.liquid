@@ -86,7 +86,7 @@
               {% endfor %}
 
 
-               {% comment %} {% for image in tab_images %}
+                {% for image in tab_images %}
                   {% assign index = forloop.index0 %}
                   {% assign title = tab_titles[index] %}
                   {% assign tag = interior_tags[index] %}
@@ -100,7 +100,7 @@
                     {% endif %}
                     <span>{{ title }}</span>
                   </button>
-                {% endfor %} {% endcomment %}
+                {% endfor %} 
 
 
             </div>
