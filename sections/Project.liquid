@@ -1,6 +1,7 @@
 {% assign tab_images = collection.metafields.custom.species_images.value %}
 {% assign tab_titles = collection.metafiels.custom.species_titles.value %}
 {% assign interior_tag_name = collection.metafields.custom.species_tag_name.value %}
+{% for img in tab_images %} {{ img }}{% endfor %}
 
 <div class="cust-project">
   <div class="page-no-width">
