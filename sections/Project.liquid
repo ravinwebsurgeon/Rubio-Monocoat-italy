@@ -489,6 +489,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // Initialize tabs with proper showproducts call
 document.querySelectorAll('.circle-tab').forEach(btn => {
     btn.addEventListener('click', function () {
+       let tabs = document.querySelectorAll('.circle-tab')
+       console.log('check',tabs)
         document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove('active'));
         document.querySelectorAll('.tab-products').forEach(c => c.classList.remove('active'));
         
