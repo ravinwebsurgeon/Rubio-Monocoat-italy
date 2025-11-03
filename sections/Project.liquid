@@ -581,7 +581,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (productParentClass === parent && hasMatchingTag) {
       const imgWrapper = product.querySelector('.product-image-wrapper');
       const image = imgWrapper.dataset[activeTabText];
-      const noImagePattern = '/shopifycloud/storefront/assets/no-image';
 
       if (image && parent === 'interior') {
         imgWrapper.querySelector('img.cover-image').src = image;
