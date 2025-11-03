@@ -302,7 +302,7 @@
                           <div class="product-image-wrapper" 
                             data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}" 
                             data-featured="{{ product.featured_image | img_url: '400x' }}" 
-                            data-ash="{{ ash_image | img_url: '400x'}}"
+                            data-ash="{% if ash_image %}  {{ ash_image | img_url: '400x'}} {%endif %}"
                             data-beech="{{ beech_image | img_url: '400x'}}"
                             data-larch="{{ larch_image | img_url: '400x'}}"
                             data-pine="{{ pine_image | img_url: '400x'}}"
