@@ -1289,7 +1289,9 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector('.exteriour_tabs_section').classList.remove('active');
         document.querySelector('.interior_tabs_section').classList.add('active')
         document.querySelector('.interior_tabs_section').style.display="block"
-
+  interiorSection.querySelectorAll(':scope > *').forEach(el => {
+    el.style.display = '';
+  });
 
     {% comment %} tabs_outer.classList.remove('exterior') {% endcomment %}
     surfaceOptions?.style.setProperty("display", "none");
