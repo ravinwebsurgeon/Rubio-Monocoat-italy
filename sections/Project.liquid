@@ -554,7 +554,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const surfaceItem = document.querySelector('.surface-item.active');
     let productWrap = document.querySelector('.tab-products-wrap.exterior-wrap')
     let InteriorProductWrap = document.querySelector('.tab-products-wrap.Interior-wrap')
-    console.log(InteriorProductWrap,'foundit')
+
     let surface = '';
 
     if (surfaceItem?.classList.contains('vertical')) {
@@ -570,15 +570,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (btnParentClasses.contains('exterior')) {
       parent = 'exterior';
-      {% comment %} let productWrap = document.querySelector('.tab-products-wrap.exterior-wrap')
-      let InteriorProductWrap = document.querySelector('.tab-products-wrap.Interior-wrap')
-      productWrap.style.display = 'block';
-      InteriorProductWrap.style.display = 'none'; {% endcomment %}
+      if(productWrap){productWrap.style.display = 'block';
+      InteriorProductWrap.style.display = 'none'; }
     } else if (btnParentClasses.contains('interior')) {
       parent = 'interior';
-       {% comment %} 
-      productWrap.style.display = 'none';
-      InteriorProductWrap.style.display = 'block'; {% endcomment %}
+      
+       if(InteriorProductWrap){productWrap.style.display = 'none';
+      InteriorProductWrap.style.display = 'block';} 
     }
 
     const activeTabText = activeTab.textContent.trim().toLowerCase();
