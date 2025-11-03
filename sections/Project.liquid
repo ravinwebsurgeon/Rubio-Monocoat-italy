@@ -73,7 +73,7 @@
               <h3 class="tabs-heading heading-pr">{{ section.settings.heading2 }}</h3>
             {% endif %}
             <div class="circle-tabs">
-               {% for block in section.blocks %}
+               {% comment %} {% for block in section.blocks %}
                 <button class="circle-tab" data-tab="tab-{{ block.id }}" 
                   data-interior-tag-name={{block.settings.tag_name }}>
                   {% if block.settings.tab_image %}
@@ -83,22 +83,30 @@
                   {% endif %}
                   <span>{{ block.settings.tab_name }}</span>
                 </button>
-              {% endfor %} 
+              {% endfor %}  {% endcomment %}
               
-              {% comment %} {% for image in tab_images %}
-                  {% assign index = forloop.index0 %}
-                  {% assign title = tab_titles[index] %}
-                  {% assign tag = interior_tags[index] %}
-                 <button class="circle-tab" data-tab="tab-{{ forloop.index0 }}" 
-                    data-interior-tag-name="{{ tag | escape }}">
-                    {% if image != blank %}
-                      <span class="circle-tab-ing"> 
-                        <img src="{{ image | img_url: '200x200' }}" alt="{{ title | escape }}" width="" height=""> 
-                      </span>
-                    {% endif %}
-                    <span>{{ title }}</span>
-                  </button>
-                {% endfor %}  {% endcomment %}
+               {% for image in tab_images %}
+      {% assign index = forloop.index0 %}
+      {% assign title = tab_titles[index] %}
+      {% assign tag = interior_tags[index] %}
+
+      <button
+        class="circle-tab"
+        data-tab="tab-{{ forloop.index0 }}"
+        data-interior-tag-name="{{ tag | escape }}"
+      >
+        {% if image != blank %}
+          <span class="circle-tab-ing">
+            <img 
+              src="{{ image | img_url: '200x200' }}" 
+              alt="{{ title | escape }}" 
+              width="200" height="200"
+            >
+          </span>
+        {% endif %}
+        <span>{{ title }}</span>
+      </button>
+    {% endfor %}
 
             </div>
           </div> 
