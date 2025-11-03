@@ -465,14 +465,14 @@
   "presets": [{ "name": "Interior Collection", "category": "Custom" }]
 }
 {% endschema %}
-<script>
+{% comment %} <script>
 document.querySelector('.exterior')?.addEventListener('click', function() {
   document.querySelectorAll('.filter-bar, .Exterior-wrap').forEach(el => {
     el.classList.toggle('active');
   });
 });
 
-</script>
+</script> {% endcomment %}
 
 <script>
 //available sample script
