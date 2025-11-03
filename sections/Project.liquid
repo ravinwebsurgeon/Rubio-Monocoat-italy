@@ -66,48 +66,6 @@
 </div>
 </div>
 
-{% assign source_collection1 = collections[section.settings.source_collection1] %}
-{% assign tab_images = source_collection1.metafields.custom.species_images.value %}
-{% assign tab_titles = source_collection1.metafields.custom.species_titles.value %}
-{% assign exterior_vertical_tags = source_collection1.metafields.custom.species_vertical_tag_name.value %}
-{% assign exterior_horizontal_tags = source_collection1.metafields.custom.species_tag_name.value %}
-
-<div class="circle-tabs-section exteriour_tabs_section">             
-  <div class="circle-tabs-outer exterior">
-    {% if section.settings.heading2 != blank %}
-      <h3 class="tabs-heading heading-pr">{{ section.settings.heading2 }}</h3>
-    {% endif %}
-    <div class="circle-tabs">        
-       {% for image in tab_images %}
-      {% assign index = forloop.index0 %}
-      {% assign title = tab_titles[index] %}
-      {% assign v_tag = exterior_vertical_tags[index] %}
-      {% assign h_tag = exterior_horizontal_tags[index] %}
-
-      <button 
-        class="circle-tab"
-        data-tab="tab-{{ forloop.index0 }}"
-        data-exterior-v-tag-name="{{ v_tag | escape }}"
-        data-exterior-tag-name="{{ h_tag | escape }}"
-      >
-        {% if image != blank %}
-          <span class="circle-tab-img">
-            <img 
-              src="{{ image | img_url: '200x200' }}" 
-              alt="{{ title | escape }}" 
-              width="200" height="200"
-            >
-          </span>
-        {% endif %}
-        <span>{{ title }}</span>
-      </button>
-    {% endfor %}
-
-    </div>
-  </div> 
-  </div> 
-
-
         <!-- Tabs + Products -->
         <div class="circle-tabs-section interior_tabs_section">             
           <div class="circle-tabs-outer">
@@ -119,7 +77,7 @@
                   {% assign tab_images = source_collection.metafields.custom.species_images.value %}
                   {% assign tab_titles = source_collection.metafields.custom.species_titles.value %}
                   {% assign interior_tags = source_collection.metafields.custom.species_tag_name.value %}
-                  {% comment %} 
+                {% comment %} 
                {% for block in section.blocks %}
                 <button class="circle-tab" data-tab="tab-{{ block.id }}" 
                   data-interior-tag-name={{block.settings.tag_name }}>
