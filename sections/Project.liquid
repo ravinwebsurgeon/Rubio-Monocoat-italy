@@ -490,9 +490,8 @@ document.addEventListener('DOMContentLoaded', function() {
 document.querySelectorAll('.circle-tab').forEach(btn => {
     btn.addEventListener('click', function () {
        let tabs = document.querySelectorAll('.circle-tab')
-       console.log('check',tabs)
         {% comment %} document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove('active')); {% endcomment %}
-        document.querySelectorAll('.tab-products').forEach(c => c.classList.remove('active'));
+        {% comment %} document.querySelectorAll('.tab-products').forEach(c => c.classList.remove('active')); {% endcomment %}
       
         document.querySelectorAll('.circle-tab').forEach(tab => {
         if (tab.classList.contains('active')) {
@@ -504,7 +503,7 @@ document.querySelectorAll('.circle-tab').forEach(btn => {
           c.classList.remove('active');
         }
       });
-        
+        console.log( this.classList,'chek')
         this.classList.add('active');
         document.getElementById(this.dataset.tab).classList.add('active');
         
