@@ -303,11 +303,11 @@
                             data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}" 
                             data-featured="{{ product.featured_image | img_url: '400x' }}" 
                             data-ash="{% if ash_image %}  {{ ash_image | img_url: '400x'}} {%endif %}"
-                            data-beech="{{ beech_image | img_url: '400x'}}"
-                            data-larch="{{ larch_image | img_url: '400x'}}"
-                            data-pine="{{ pine_image | img_url: '400x'}}"
-                            data-oak="{{ oak_image | img_url: '400x'}}"
-                            data-maple="{{ maple_image | img_url: '400x'}}"
+                            data-beech="{% if beech_image %}  {{ beech_image | img_url: '400x'}} {%endif %}"
+                            data-larch="{% if larch_image %}  {{ larch_image | img_url: '400x'}} {%endif %}"
+                            data-pine="{% if pine_image %}  {{ pine_image | img_url: '400x'}} {%endif %}"
+                            data-oak="{% if oak_image %}  {{ oak_image | img_url: '400x'}} {%endif %}"
+                            data-maple="{% if maple_image %}  {{ maple_image | img_url: '400x'}} {%endif %}"
                           >
                             {% if product.metafields.custom.cover_image != blank %}
                               <img class="cover-image" src="{{ product.metafields.custom.cover_image | img_url: ' ' }}" alt="{{ product.title }}" width="" height="">
