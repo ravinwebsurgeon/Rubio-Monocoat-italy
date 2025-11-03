@@ -518,6 +518,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const productTags = product.dataset.tags.split(',').map(tag => tag.trim().toLowerCase());
         {% comment %} const matchPattern = `${parent}_${selectedTag}`; {% endcomment %}
         {% comment %} const matches = productTags.some(tag => tag.includes(matchPattern)); {% endcomment %}
+         console.log(selectedTag,'selectedTag',productTags)
         if (productParentclass == parent && productTags.includes(selectedTag)) {
             let img_wrapper = product.querySelector('.product-image-wrapper')
             let image = img_wrapper.dataset[activeTabText]
