@@ -567,16 +567,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (btnParentClasses.contains('exterior')) {
       parent = 'exterior';
-      let productWrap = document.querySelector('.tab-products-wrap.exterior-wrap')
+      {% comment %} let productWrap = document.querySelector('.tab-products-wrap.exterior-wrap')
       let InteriorProductWrap = document.querySelector('.tab-products-wrap.Interior-wrap')
       productWrap.style.display = 'block';
-      InteriorProductWrap.style.display = 'none';
+      InteriorProductWrap.style.display = 'none'; {% endcomment %}
     } else if (btnParentClasses.contains('interior')) {
       parent = 'interior';
-       let productWrap = document.querySelector('.tab-products-wrap.exterior-wrap')
+       {% comment %} let productWrap = document.querySelector('.tab-products-wrap.exterior-wrap')
       let InteriorProductWrap = document.querySelector('.tab-products-wrap.Interior-wrap')
       productWrap.style.display = 'none';
-      InteriorProductWrap.style.display = 'block';
+      InteriorProductWrap.style.display = 'block'; {% endcomment %}
     }
 
     const activeTabText = activeTab.textContent.trim().toLowerCase();
