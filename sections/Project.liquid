@@ -474,7 +474,8 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (btnparentClasses.contains('interior')) {
         parent = 'interior';
     }
-    {% comment %} let selectedTag = activeTab.textContent.trim().toLowerCase(); {% endcomment %}
+    let activeTabText = activeTab.textContent.trim().toLowerCase();
+    console.log('activeTabText',activeTabText)
      if (parent === 'exterior') {
       selectedTag = activeTab.dataset.exteriorTagName?.trim().toLowerCase() || '';
     } else if (parent === 'interior') {
