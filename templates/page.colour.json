@@ -295,7 +295,7 @@
           "settings": {
             "tab_name": "Pine",
             "exterior_tag_name": "tag_exterior_pine",
-            "exterior_v_tag_name": "",
+            "exterior_v_tag_name": "tag_exterior_vertical_pine",
             "tab_image": "shopify://shop_images/width_2001-ezgif.com-webp-to-png-converter_1.png",
             "tab_collection": ""
           }
