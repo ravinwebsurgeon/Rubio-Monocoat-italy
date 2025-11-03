@@ -495,14 +495,10 @@ document.querySelectorAll('.circle-tab').forEach(btn => {
         {% comment %} document.querySelectorAll('.tab-products').forEach(c => c.classList.remove('active')); {% endcomment %}
       
         document.querySelectorAll('.circle-tab').forEach(tab => {
-        if (tab.classList.contains('active')) {
-          tab.classList.remove('active');
-        }
+        if (tab.classList.contains('active')) { tab.classList.remove('active');}
       });
            document.querySelectorAll('.tab-products').forEach(c => {
-        if (c.classList.contains('active')) {
-          c.classList.remove('active');
-        }
+        if (c.classList.contains('active')) { c.classList.remove('active'); }
       });
         {% comment %} console.log( target,'chek') {% endcomment %}
         target.classList.add('active');
