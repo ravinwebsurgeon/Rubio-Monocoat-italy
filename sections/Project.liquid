@@ -1413,6 +1413,20 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script> 
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const interioBtn = document.querySelector('.Interio');
+  const exteriorWrap = document.querySelector('.Exterior-wrap');
+
+  if (interioBtn && exteriorWrap) {
+    interioBtn.addEventListener('click', function() {
+      exteriorWrap.style.display = 'none';
+    });
+  }
+});
+</script>
+
+
 <style>
 
 .exteriour_tabs_section, .interior_tabs_section{display:none;}
