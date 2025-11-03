@@ -135,12 +135,12 @@
     <div class="tab-productss active">
       <ul class="product-grid collection-{{ tab_collection.handle }}">
         {% for product in tab_collection.products %}
-          {% assign ash_image = product.metafields.custom.exterior_ash_image %}
-          {% assign beech_image = product.metafields.custom.exterior_beech_image %}
-          {% assign larch_image = product.metafields.custom.exterior_larch_image %}
-          {% assign pine_image = product.metafields.custom.exterior_pine_image %}
-          {% assign oak_image = product.metafields.custom.exterior_oak_image %}
-          {% assign maple_image = product.metafields.custom.exterior_maple_image %}   
+          {% assign ash_image = product.metafields.custom.exterior_ash_image.value %}
+          {% assign beech_image = product.metafields.custom.exterior_beech_image.value %}
+          {% assign larch_image = product.metafields.custom.exterior_larch_image.value %}
+          {% assign pine_image = product.metafields.custom.exterior_pine_image.value %}
+          {% assign oak_image = product.metafields.custom.exterior_oak_image.value %}
+          {% assign maple_image = product.metafields.custom.exterior_maple_image.value %}   
           <li class="product-item"
               data-colours="{{ product.metafields.custom.colour_filter2.value | join: ',' }}"
               data-products="{{ product.metafields.custom.product_filter.value | join: ',' }}"
