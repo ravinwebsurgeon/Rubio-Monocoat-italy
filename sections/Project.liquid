@@ -1,7 +1,7 @@
-{% assign source_collection = collections[section.settings.source_collection] %}
+{% comment %} {% assign source_collection = collections[section.settings.source_collection] %}
 {% assign tab_images = source_collection.metafields.custom.species_images.value %}
 {% assign tab_titles = source_collection.metafields.custom.species_titles.value %}
-{% assign interior_tags = source_collection.metafields.custom.species_tag_name.value %}
+{% assign interior_tags = source_collection.metafields.custom.species_tag_name.value %} {% endcomment %}
 
 <div class="cust-project">
   <div class="page-no-width">
@@ -73,7 +73,12 @@
               <h3 class="tabs-heading heading-pr">{{ section.settings.heading2 }}</h3>
             {% endif %}
             <div class="circle-tabs">
-               {% for block in section.blocks %}
+                  {% assign source_collection = collections[section.settings.source_collection] %}
+                  {% assign tab_images = source_collection.metafields.custom.species_images.value %}
+                  {% assign tab_titles = source_collection.metafields.custom.species_titles.value %}
+                  {% assign interior_tags = source_collection.metafields.custom.species_tag_name.value %}
+
+               {% comment %} {% for block in section.blocks %}
                 <button class="circle-tab" data-tab="tab-{{ block.id }}" 
                   data-interior-tag-name={{block.settings.tag_name }}>
                   {% if block.settings.tab_image %}
@@ -84,29 +89,30 @@
                   <span>{{ block.settings.tab_name }}</span>
                 </button>
               {% endfor %} 
-              
-              {% comment %} {% for image in tab_images %}
-      {% assign index = forloop.index0 %}
-      {% assign title = tab_titles[index] %}
-      {% assign tag = interior_tags[index] %}
+               {% endcomment %}
+           
+               {% for image in tab_images %}
+                    {% assign index = forloop.index0 %}
+                    {% assign title = tab_titles[index] %}
+                    {% assign tag = interior_tags[index] %}
 
-      <button
-        class="circle-tab"
-        data-tab="tab-{{ forloop.index0 }}"
-        data-interior-tag-name="{{ tag | escape }}"
-      >
-        {% if image != blank %}
-          <span class="circle-tab-ing">
-            <img 
-              src="{{ image | img_url: '200x200' }}" 
-              alt="{{ title | escape }}" 
-              width="200" height="200"
-            >
-          </span>
-        {% endif %}
-        <span>{{ title }}</span>
-      </button>
-    {% endfor %} {% endcomment %}
+                    <button
+                      class="circle-tab"
+                      data-tab="tab-{{ forloop.index0 }}"
+                      data-interior-tag-name="{{ tag | escape }}"
+                    >
+                      {% if image != blank %}
+                        <span class="circle-tab-ing">
+                          <img 
+                            src="{{ image | img_url: '200x200' }}" 
+                            alt="{{ title | escape }}" 
+                            width="200" height="200"
+                          >
+                        </span>
+                      {% endif %}
+                      <span>{{ title }}</span>
+                    </button>
+                  {% endfor %} 
 
             </div>
           </div> 
