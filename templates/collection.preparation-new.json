@@ -79,6 +79,7 @@
     },
     "how_to_use_category_faq_FJBpMt": {
       "type": "how-to-use-category-faq",
+      "disabled": true,
       "name": "How To Use cat FAQ",
       "settings": {}
     },
