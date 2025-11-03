@@ -552,6 +552,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const products = document.querySelectorAll('.product-item');
     const activeTab = document.querySelector('.circle-tab.active');
     const surfaceItem = document.querySelector('.surface-item.active');
+    let productWrap = document.querySelector('.tab-products-wrap.exterior-wrap')
+    let InteriorProductWrap = document.querySelector('.tab-products-wrap.Interior-wrap')
+    console.log(productWrap.length,'foundit')
     let surface = '';
 
     if (surfaceItem?.classList.contains('vertical')) {
@@ -573,8 +576,7 @@ document.addEventListener('DOMContentLoaded', function() {
       InteriorProductWrap.style.display = 'none'; {% endcomment %}
     } else if (btnParentClasses.contains('interior')) {
       parent = 'interior';
-       {% comment %} let productWrap = document.querySelector('.tab-products-wrap.exterior-wrap')
-      let InteriorProductWrap = document.querySelector('.tab-products-wrap.Interior-wrap')
+       {% comment %} 
       productWrap.style.display = 'none';
       InteriorProductWrap.style.display = 'block'; {% endcomment %}
     }
