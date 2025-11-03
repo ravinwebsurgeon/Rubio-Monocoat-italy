@@ -135,6 +135,12 @@
     <div class="tab-productss active">
       <ul class="product-grid collection-{{ tab_collection.handle }}">
         {% for product in tab_collection.products %}
+          {% assign ash_image = product.metafields.custom.exterior_ash_image %}
+          {% assign beech_image = product.metafields.custom.exterior_beech_image %}
+          {% assign larch_image = product.metafields.custom.exterior_larch_image %}
+          {% assign pine_image = product.metafields.custom.exterior_pine_image %}
+          {% assign oak_image = product.metafields.custom.exterior_oak_image %}
+          {% assign maple_image = product.metafields.custom.exterior_maple_image %}   
           <li class="product-item"
               data-colours="{{ product.metafields.custom.colour_filter2.value | join: ',' }}"
               data-products="{{ product.metafields.custom.product_filter.value | join: ',' }}"
@@ -147,7 +153,14 @@
                 {% if product.featured_image %}
                   <div class="product-image-wrapper"
                        data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}"
-                       data-featured="{{ product.featured_image | img_url: '400x' }}">
+                       data-featured="{{ product.featured_image | img_url: '400x' }}"
+                       data-ash="{{ ash_image | img_url: '400x'}}"
+                      data-beech="{{ beech_image | img_url: '400x'}}"
+                      data-larch="{{ larch_image | img_url: '400x'}}"
+                      data-pine="{{ pine_image | img_url: '400x'}}"
+                      data-oak="{{ oak_image | img_url: '400x'}}"
+                      data-maple="{{ maple_image | img_url: '400x'}}"    
+                  >
                     {% if product.metafields.custom.cover_image != blank %}
                       <img class="cover-image" src="{{ product.metafields.custom.cover_image | img_url: 'master' }}" alt="{{ product.title }}">
                     {% endif %}
