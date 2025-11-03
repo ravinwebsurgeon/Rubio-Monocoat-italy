@@ -455,7 +455,7 @@
 
 
 <script>
- document.addEventListener('DOMContentLoaded', function() {
+ {% comment %} document.addEventListener('DOMContentLoaded', function() {
   const toggle = document.querySelector('.stock-toggle');
   const products = document.querySelectorAll('.product-item');
 
@@ -477,7 +477,7 @@
       }
     });
   });
-});
+}); {% endcomment %}
 
  {% comment %} document.addEventListener('DOMContentLoaded', function () {
   const exteriorSection = document.querySelector('.circle-tabs-section.exteriour_tabs_section');
