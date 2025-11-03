@@ -2,7 +2,6 @@
 {% assign tab_images = source_collection.metafields.custom.species_images.value %}
 {% assign tab_titles = source_collection.metafields.custom.species_titles.value %}
 {% assign interior_tags = source_collection.metafields.custom.species_tag_name.value %}
-{% for title in tab_titles %} {{ title }}{% endfor %}
 
 <div class="cust-project">
   <div class="page-no-width">
@@ -84,7 +83,7 @@
                   <span>{{ block.settings.tab_name }}</span>
                 </button>
               {% endfor %}
-{% comment %} 
+
 
                 {% for image in tab_images %}
                   {% assign index = forloop.index0 %}
@@ -100,7 +99,7 @@
                     {% endif %}
                     <span>{{ title }}</span>
                   </button>
-                {% endfor %}  {% endcomment %}
+                {% endfor %}  
 
 
             </div>
