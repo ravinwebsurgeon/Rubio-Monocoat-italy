@@ -1279,6 +1279,8 @@ document.addEventListener("DOMContentLoaded", function() {
   interiorBtn?.addEventListener("click", function() {
     circleTabsOuter?.classList.add("show-section");
     filterBar?.classList.add("show-section");
+    document.querySelector('.interior_tabs_section > button').setAttribute('enabled', 'enabled');
+    document.querySelector('.exteriour_tabs_section > button').setAttribute('disabled', 'disabled');
 
     // Hide product wrappers
     tabProductsInterior?.classList.remove("show-section");
@@ -1318,9 +1320,10 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll(".surface-toggle").forEach(el => el.classList.remove("active"));
     document.querySelector('.exteriour_tabs_section').classList.add('active');
     document.querySelector('.interior_tabs_section').classList.remove('active')
-    {% comment %} document.querySelector('.interior_tabs_section').style.display="none" {% endcomment %}
-    {% comment %} document.querySelector('.interior_tabs_section > .filter-bar').style.display="block" {% endcomment %}
-    {% comment %} document.querySelector('.interior_tabs_section > .filter-bar').style.visible="visible" {% endcomment %}
+    document.querySelector('.exteriour_tabs_section > button').setAttribute('enabled', 'enabled');
+    document.querySelector('.interior_tabs_section > button').setAttribute('disabled', 'disabled');
+
+
       const section = document.querySelector('.interior_tabs_section');
       section.querySelectorAll(':scope > *:not(.filter-bar)').forEach(el => {
         el.style.display = 'none';
