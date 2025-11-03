@@ -496,6 +496,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log(activeTab,'asasa')
     if (!activeTab) return;
     const btnparentClasses = activeTab.parentNode.parentNode.classList;
+    console.log('btnparentClasses',btnparentClasses)
     let parent = '';
     if (btnparentClasses.contains('exterior')) {
         parent = 'exterior';
