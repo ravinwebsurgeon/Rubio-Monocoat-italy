@@ -307,6 +307,7 @@
       "settings": {
         "heading": "Durogit - Exterior wood oil",
         "heading2": "Choose your species:",
+        "source_collection": "exterior-colors",
         "exterior_collection": "exterior-colors"
       }
     },
