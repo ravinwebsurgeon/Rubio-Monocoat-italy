@@ -635,30 +635,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     let found = false;
     document.querySelectorAll('.main-image-item').forEach(item => {
-      let show = false; // default: hidden
-      const datasetKeys = Object.keys(item.dataset);
+       let show = false;
+    const datasetKeys = Object.keys(item.dataset);
 
-      // No dataset means a general/default image
-      if (datasetKeys.length === 0 && !found) {
-        show = true;
-        found = true;
-      } else {
-        // Check all variant keys
-        let isMatch = true;
-        for (const [key, val] of Object.entries(selectedOptions)) {
-          if (!val) continue; // ignore unselected
-          if (!item.dataset[key]) { isMatch = false; break; }
-          if (normalizeValue(item.dataset[key]) !== normalizeValue(val)) {
-            isMatch = false;
-            break;
-          }
+    // FIRST: Check if this is a matching variant (has dataset attributes)
+    if (!found && datasetKeys.length > 0) {
+      let isMatch = true;
+      
+      for (const [key, val] of Object.entries(selectedOptions)) {
+        if (!val) continue; // skip unselected options
+        
+        // If the item doesn't have this data attribute, it's not a match
+        if (!item.dataset[key]) {
+          isMatch = false;
+          break;
         }
-        if (isMatch && !found) {
-          show = true;
-          found = true;
+        
+        // If values don't match, it's not a match
+        if (normalizeValue(item.dataset[key]) !== normalizeValue(val)) {
+          isMatch = false;
+          break;
         }
       }
-      item.style.display = show ? 'block' : 'none';
+      
+      if (isMatch) {
+        show = true;
+        found = true;
+      }
+    }
+    
+    // SECOND: If no variant found yet, check for general image (no dataset)
+    if (!found && datasetKeys.length === 0) {
+      show = true;
+      found = true;
+    }
+    
+    item.style.display = show ? 'block' : 'none';
 });
 
     const visibleMainSrcs = Array.from(document.querySelectorAll('.main-image-item'))
