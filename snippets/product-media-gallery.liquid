@@ -666,6 +666,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (datasetKeys.length > 0) {
     let isMatch = true;
     for (const [key, val] of Object.entries(selectedOptions)) {
+      console.log(val,'check value')
       if (!val) continue; // ignore unselected options
       if (!item.dataset[key]) { 
         isMatch = false; 
