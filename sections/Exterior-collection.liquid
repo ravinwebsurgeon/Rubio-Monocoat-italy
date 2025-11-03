@@ -1,3 +1,8 @@
+{% assign source_collection = collections[section.settings.source_collection] %}
+{% assign tab_images = source_collection.metafields.custom.species_images.value %}
+{% assign tab_titles = source_collection.metafields.custom.species_titles.value %}
+{% assign interior_tags = source_collection.metafields.custom.species_tag_name.value %}
+
 <div class="circle-tabs-section exteriour_tabs_section">             
   <div class="circle-tabs-outer exterior">
     {% if section.settings.heading2 != blank %}
