@@ -570,13 +570,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (btnParentClasses.contains('exterior')) {
       parent = 'exterior';
-      {% comment %} if(productWrap){productWrap.style.display = 'block';
-      InteriorProductWrap.style.display = 'none'; } {% endcomment %}
+    
     } else if (btnParentClasses.contains('interior')) {
       parent = 'interior';
       
-       {% comment %} if(InteriorProductWrap){productWrap.style.display = 'none';
-      InteriorProductWrap.style.display = 'block';}  {% endcomment %}
     }
 
     const activeTabText = activeTab.textContent.trim().toLowerCase();
