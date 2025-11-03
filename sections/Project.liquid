@@ -535,8 +535,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const products = document.querySelectorAll('.product-item');
   const activeTab = document.querySelector('.circle-tab.active');
   const surfaceItem = document.querySelector('.surface-item.active')
-  console.log('surfaceItem',surfaceItem.textContent)
-  console.log(activeTab, 'active tab');
+  let surface = '';
+  console.log('surfaceItem',surfaceItem.classList)
+   if (surfaceItem.contains('vertical')) {
+    surface = 'vertical';
+  } else if (surfaceItem.contains('horizontal')) {
+    surface = 'horizontal';
+  }
   if (!activeTab) return;
 
   const btnParentClasses = activeTab.parentNode.parentNode.classList;
