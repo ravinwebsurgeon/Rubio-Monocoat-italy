@@ -496,7 +496,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (productParentclass == parent && productTags.includes(selectedTag)) {
             let img_wrapper = product.querySelector('.product-image-wrapper')
             let image = img_wrapper.dataset[activeTabText]
-            img_wrapper.querySelector('img.cover-image').src = image;
+            {% comment %} img_wrapper.querySelector('img.cover-image').src = image; {% endcomment %}
             console.log('found',image)
             product.style.display = 'block';
         } else {
