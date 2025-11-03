@@ -482,8 +482,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     products.forEach(product => {
-        let img_wrapper = product.querySelector('.product-image-wrapper')
-        console.log('img_wrapper',img_wrapper)
         let productParent = product.parentNode.parentNode.parentNode;
         let productParentclass = '';
         if(productParent.classList.contains('Exterior-wrap')) { 
@@ -496,6 +494,8 @@ document.addEventListener('DOMContentLoaded', function() {
         {% comment %} const matchPattern = `${parent}_${selectedTag}`; {% endcomment %}
         {% comment %} const matches = productTags.some(tag => tag.includes(matchPattern)); {% endcomment %}
         if (productParentclass == parent && productTags.includes(selectedTag)) {
+            let img_wrapper = product.querySelector('.product-image-wrapper')
+            console.log('img_wrapper',img_wrapper)
             product.style.display = 'block';
         } else {
             product.style.display = 'none';
