@@ -5,7 +5,7 @@
 {% assign exterior_horizontal_tags = source_collection.metafields.custom.species_tag_name.value %}
 
 <div class="circle-tabs-section exteriour_tabs_section">             
-  <div class="circle-tabs-outer exterior">
+  {% comment %} <div class="circle-tabs-outer exterior">
     {% if section.settings.heading2 != blank %}
       <h3 class="tabs-heading heading-pr">{{ section.settings.heading2 }}</h3>
     {% endif %}
@@ -50,7 +50,7 @@
     {% endfor %}
 
     </div>
-  </div> 
+  </div>  {% endcomment %}
     <!-- Filter bar with slider -->
           {% comment %} <div class="filter-bar">
             <div class="filter-left">
