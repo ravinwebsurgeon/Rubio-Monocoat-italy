@@ -1,4 +1,5 @@
-{% assign tab_images = collection.metafields.custom.species_images.value %}
+{% assign source_page = collections[section.settings.source_page] %}
+{% assign tab_images = source_page.metafields.custom.species_images.value %}
 {% assign tab_titles = collection.metafiels.custom.species_titles.value %}
 {% assign interior_tags = collection.metafields.custom.species_tag_name.value %}
 {% for image in tab_images %} {{ image }}{% endfor %}
@@ -422,8 +423,11 @@
     { "type": "image_picker", "id": "img2", "label": "Exterior Image" },
     { "type": "text", "id": "heading2", "label": "Secondary Heading", "default": "Choose your species:" },
     { "type": "url", "id": "video_url", "label": "Video URL (MP4)" },
-    { "type": "text", "id": "tags_text", "label": "Tags Text" },
-    { "type": "text", "id": "tabs_text", "label": "Tabs" },
+    {
+    "type": "page",
+    "id": "source_page",
+    "label": "Select Page for Images"
+    },
 
     /* ✅ Added fields for surface images */
     { "type": "image_picker", "id": "vertical_surface_img", "label": "Vertical Surface Image" },
