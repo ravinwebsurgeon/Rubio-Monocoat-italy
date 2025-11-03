@@ -475,7 +475,6 @@ document.addEventListener('DOMContentLoaded', function() {
         parent = 'interior';
     }
     let activeTabText = activeTab.textContent.trim().toLowerCase();
-    console.log('activeTabText',activeTabText)
      if (parent === 'exterior') {
       selectedTag = activeTab.dataset.exteriorTagName?.trim().toLowerCase() || '';
     } else if (parent === 'interior') {
@@ -485,7 +484,7 @@ document.addEventListener('DOMContentLoaded', function() {
     products.forEach(product => {
         let productParent = product.parentNode.parentNode.parentNode;
         let productParentclass = '';
-        
+        console.log('assdddd',activeTabText)
         if(productParent.classList.contains('Exterior-wrap')) { 
             productParentclass = 'exterior';
         } else if(productParent.classList.contains('Interior-wrap')) { 
