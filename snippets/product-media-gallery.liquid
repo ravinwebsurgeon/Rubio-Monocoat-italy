@@ -635,7 +635,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     let found = false;
     document.querySelectorAll('.main-image-item').forEach(item => {
-      let show = false; // default: hidden
+      {% comment %} let show = false; // default: hidden
       const datasetKeys = Object.keys(item.dataset);
 
       // No dataset means a general/default image
@@ -658,7 +658,37 @@ document.addEventListener('DOMContentLoaded', () => {
           found = true;
         }
       }
-      item.style.display = show ? 'block' : 'none';
+      item.style.display = show ? 'block' : 'none'; {% endcomment %}
+      let show = false;
+  const datasetKeys = Object.keys(item.dataset);
+
+  // First, check if this is a matching variant
+  if (datasetKeys.length > 0) {
+    let isMatch = true;
+    for (const [key, val] of Object.entries(selectedOptions)) {
+      if (!val) continue; // ignore unselected options
+      if (!item.dataset[key]) { 
+        isMatch = false; 
+        break; 
+      }
+      if (normalizeValue(item.dataset[key]) !== normalizeValue(val)) {
+        isMatch = false;
+        break;
+      }
+    }
+    if (isMatch && !found) {
+      show = true;
+      found = true;
+    }
+  }
+  
+  // If no variant found yet, check for general/default image
+  if (!found && datasetKeys.length === 0) {
+    show = true;
+    found = true;
+  }
+  
+  item.style.display = show ? 'block' : 'none';
 });
 
     const visibleMainSrcs = Array.from(document.querySelectorAll('.main-image-item'))
