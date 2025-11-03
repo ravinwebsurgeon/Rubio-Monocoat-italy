@@ -506,7 +506,7 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (parent === 'interior') {
       selectedTag = activeTab.dataset.interiorTagName?.trim().toLowerCase() || '';
     }
-
+        console.log(selectedTag,'selectedTag')
     products.forEach(product => {
         let productParent = product.parentNode.parentNode.parentNode;
         let productParentclass = '';
@@ -515,7 +515,6 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if(productParent.classList.contains('Interior-wrap')) { 
             productParentclass = 'interior';
         }
-        console.log(productParentclass,'productParentclass')
         const productTags = product.dataset.tags.split(',').map(tag => tag.trim().toLowerCase());
         {% comment %} const matchPattern = `${parent}_${selectedTag}`; {% endcomment %}
         {% comment %} const matches = productTags.some(tag => tag.includes(matchPattern)); {% endcomment %}
