@@ -10,7 +10,7 @@
       <h3 class="tabs-heading heading-pr">{{ section.settings.heading2 }}</h3>
     {% endif %}
     <div class="circle-tabs">
-      {% for block in section.blocks %}
+      {% comment %} {% for block in section.blocks %}
         <button class="circle-tab" data-tab="tab-{{ block.id }}" data-exterior-v-tag-name="{{ block.settings.exterior_v_tag_name }}" data-exterior-tag-name="{{ block.settings.exterior_tag_name }}" data-interior-tag-name={{block.settings.tag_name }}>
           {% if block.settings.tab_image %}
             <span class="circle-tab-ing"> 
@@ -20,24 +20,32 @@
           <span>{{ block.settings.tab_name }}</span>
         </button>
       {% endfor %}
-       {% comment %} 
-        {% for image in tab_images %}
-                  {% assign index = forloop.index0 %}
-                  {% assign title = tab_titles[index] %}
-                  {% assign v_tag = exterior_vertical_tags[index] %}
-                  {% assign h_tag = exterior_horizontal_tags[index] %}
-                  <button class="circle-tab" 
-                    data-tab="tab-{{ forloop.index0 }}" 
-                    data-exterior-tag-name="{{ tag | escape }}">
-                    {% if image != blank %}
-                      <span class="circle-tab-ing"> 
-                        <img src="{{ image | img_url: '200x200' }}" alt="{{ title | escape }}" width="" height=""> 
-                      </span>
-                    {% endif %}
-                    <span>{{ title }}</span>
-                  </button>
-                {% endfor %}
-                   {% endcomment %}
+       {% endcomment %}
+       {% for image in tab_images %}
+      {% assign index = forloop.index0 %}
+      {% assign title = tab_titles[index] %}
+      {% assign v_tag = exterior_vertical_tags[index] %}
+      {% assign h_tag = exterior_horizontal_tags[index] %}
+
+      <button 
+        class="circle-tab"
+        data-tab="tab-{{ forloop.index0 }}"
+        data-exterior-v-tag-name="{{ v_tag | escape }}"
+        data-exterior-tag-name="{{ h_tag | escape }}"
+      >
+        {% if image != blank %}
+          <span class="circle-tab-img">
+            <img 
+              src="{{ image | img_url: '200x200' }}" 
+              alt="{{ title | escape }}" 
+              width="200" height="200"
+            >
+          </span>
+        {% endif %}
+        <span>{{ title }}</span>
+      </button>
+    {% endfor %}
+                
 
 
 
