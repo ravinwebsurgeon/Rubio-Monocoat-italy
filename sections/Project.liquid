@@ -643,7 +643,7 @@ document.querySelectorAll('.circle-tab').forEach(btn => {
   });
 });
     {% comment %} <!-- comment by amanpreet --> {% endcomment %}
-  {% comment %} document.querySelectorAll('.circle-tab').forEach(btn => {
+ document.querySelectorAll('.circle-tab').forEach(btn => {
     btn.addEventListener('click', function () {
       document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove('active','asdf'));
       document.querySelectorAll('.tab-products').forEach(c => c.classList.remove('active'));
@@ -653,7 +653,7 @@ document.querySelectorAll('.circle-tab').forEach(btn => {
 
     });
   
-  }); {% endcomment %}
+  });
   
 
  
