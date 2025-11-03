@@ -3,7 +3,7 @@
 {% assign interior_tag_name = collection.metafields.custom.species_tag_name.value %}
 {% assign tags_text = section.settings.tags_text | split: '.' %}
 {% assign tabs_text = section.settings.tabs_text | split: '.' %}
-{% for tag in tabs_text %}{{tag }}{% endfor %}
+{% comment %} {% for tag in tabs_text %}{{tag }}{% endfor %} {% endcomment %}
 <div class="cust-project">
   <div class="page-no-width">
     <div class="cust-pro-wrap"> 
