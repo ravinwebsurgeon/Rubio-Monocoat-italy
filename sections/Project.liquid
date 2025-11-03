@@ -73,7 +73,7 @@
               <h3 class="tabs-heading heading-pr">{{ section.settings.heading2 }}</h3>
             {% endif %}
             <div class="circle-tabs">
-              {% comment %} {% for block in section.blocks %}
+              {% for block in section.blocks %}
                 <button class="circle-tab" data-tab="tab-{{ block.id }}" data-exterior-tag-name="{{ block.settings.exterior_tag_name }}" data-interior-tag-name={{block.settings.tag_name }}>
                   {% if block.settings.tab_image %}
                     <span class="circle-tab-ing"> 
@@ -82,8 +82,8 @@
                   {% endif %}
                   <span>{{ block.settings.tab_name }}</span>
                 </button>
-              {% endfor %} {% endcomment %}
-              
+              {% endfor %}
+{% comment %}               
                 {% for image in tab_images %}
                   {% assign index = forloop.index0 %}
                   {% assign title = tab_titles[index] %}
@@ -98,7 +98,7 @@
                     {% endif %}
                     <span>{{ title }}</span>
                   </button>
-                {% endfor %}  
+                {% endfor %}   {% endcomment %}
 
             </div>
           </div> 
