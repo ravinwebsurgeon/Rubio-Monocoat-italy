@@ -467,7 +467,9 @@
 {% endschema %}
 <script>
 document.querySelector('.exterior')?.addEventListener('click', function() {
-  document.querySelector('.filter-bar,.Exterior-wrap')?.classList.add('active');
+  document.querySelectorAll('.filter-bar, .Exterior-wrap').forEach(el => {
+    el.classList.toggle('active');
+  });
 });
 
 </script>

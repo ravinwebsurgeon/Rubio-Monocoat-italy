@@ -706,7 +706,6 @@ let foundVariant = false;
     generalImage.style.display = 'block';
   }
 
-
     const visibleMainSrcs = Array.from(document.querySelectorAll('.main-image-item'))
       .filter(item => item.style.display === 'block')
       .map(item => normalizeShopifySrc(item.querySelector('img')?.getAttribute('src')));
