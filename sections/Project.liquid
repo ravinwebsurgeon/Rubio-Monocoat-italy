@@ -302,12 +302,12 @@
                           <div class="product-image-wrapper" 
                             data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}" 
                             data-featured="{{ product.featured_image | img_url: '400x' }}" 
-                            data-ash="{{ ash_image }}"
-                            data-beech="{{ beech_image }}"
-                            data-larch="{{ larch_image }}"
-                            data-pine="{{ pine_image }}"
-                            data-oak="{{ oak_image }}"
-                            data-maple="{{ maple_image }}"
+                            data-ash="{{ ash_image | img_url: '400x'}}"
+                            data-beech="{{ beech_image | img_url: '400x'}}"
+                            data-larch="{{ larch_image | img_url: '400x'}}"
+                            data-pine="{{ pine_image | img_url: '400x'}}"
+                            data-oak="{{ oak_image | img_url: '400x'}}"
+                            data-maple="{{ maple_image | img_url: '400x'}}"
                           >
                             {% if product.metafields.custom.cover_image != blank %}
                               <img class="cover-image" src="{{ product.metafields.custom.cover_image | img_url: ' ' }}" alt="{{ product.title }}" width="" height="">
