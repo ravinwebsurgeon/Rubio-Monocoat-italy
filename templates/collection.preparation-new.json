@@ -71,10 +71,16 @@
         "faq_item_PHKyzj",
         "faq_item_xPnVeM"
       ],
+      "disabled": true,
       "name": "How To Use FAQ NW",
       "settings": {
         "default_image": "shopify://shop_images/aa62a9d8b76bf83cf45b55405d96c568c062b03e.png"
       }
+    },
+    "how_to_use_category_faq_FJBpMt": {
+      "type": "how-to-use-category-faq",
+      "name": "How To Use cat FAQ",
+      "settings": {}
     },
     "collection_compare_products_pYHEaF": {
       "type": "collection-compare-products",
@@ -253,6 +259,7 @@
   "order": [
     "product-grid",
     "how_to_use_faq_news_test_Ltrq6j",
+    "how_to_use_category_faq_FJBpMt",
     "collection_compare_products_pYHEaF",
     "inspired_wooden_floor_GyrTqA",
     "custom_vissits_nomal_ctG9Gz",
