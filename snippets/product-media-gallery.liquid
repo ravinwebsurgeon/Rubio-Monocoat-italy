@@ -666,13 +666,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if (datasetKeys.length > 0) {
     let isMatch = true;
     for (const [key, val] of Object.entries(selectedOptions)) {
-      console.log(val,'check value',item.dataset[key])
       if (!val) continue; // ignore unselected options
       if (!item.dataset[key]) { 
         isMatch = false; 
         break; 
       }
       if (normalizeValue(item.dataset[key]) !== normalizeValue(val)) {
+      console.log( normalizeValue(val),'check value',normalizeValue(item.dataset[key]))
+
         isMatch = false;
         break;
       }
