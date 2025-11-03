@@ -497,6 +497,13 @@ document.addEventListener('DOMContentLoaded', function() {
             let img_wrapper = product.querySelector('.product-image-wrapper')
             let image = img_wrapper.dataset[activeTabText]
             {% comment %} img_wrapper.querySelector('img').src = image; {% endcomment %}
+                 // Get the metafield image for that wood type (Ash, Maple, etc.)
+              const selectedImage = imgWrapper.dataset[activeTabText];
+              const fallback =
+                imgWrapper.dataset[imgWrapper.dataset.defaultView] || imgWrapper.dataset.featured;
+
+              // Show that image if it exists, otherwise fallback
+              img.src = selectedImage && selectedImage !== '' ? selectedImage : fallback;
             console.log('found',image)
             product.style.display = 'block';
         } else {
