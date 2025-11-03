@@ -497,7 +497,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let img_wrapper = product.querySelector('.product-image-wrapper')
             let image = img_wrapper.dataset[activeTabText]
             const noImagePattern = '/shopifycloud/storefront/assets/no-image';
-           if (image && !image.includes(noImagePattern)) {
+           if (image) {
               img_wrapper.querySelector('img.cover-image').src = image;
             }
             console.log('found',image)
