@@ -264,7 +264,7 @@
           "type": "tab",
           "settings": {
             "tab_name": "Larch",
-            "exterior_tag_name": "tag_exterior_larch",
+            "exterior_tag_name": "tag_exterior_horizontal_larch",
             "exterior_v_tag_name": "tag_exterior_vertical_larch",
             "tab_image": "shopify://shop_images/width_20017-ezgif.com-webp-to-png-converter.png",
             "tab_collection": ""
