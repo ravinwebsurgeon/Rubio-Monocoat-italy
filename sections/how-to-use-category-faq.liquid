@@ -1,4 +1,4 @@
-{% if product.metafields.custom.how_to_use_faq_question.value != blank and product.metafields.custom.how_to_use_faq_answer.value != blank %}
+{% if collection.metafields.custom.how_to_use_faq_question.value != blank and collection.metafields.custom.how_to_use_faq_answer.value != blank %}
 <div class="faq-main-container">
   <div class="custom-faq-wrapper">
     <div class="custom-faq-inner">
@@ -6,7 +6,7 @@
       <!-- Left Image -->
       <div class="cust-image-faq">
         <div class="custom-faq-image">
-          {% assign default_image = product.metafields.custom.how_to_use_faq_image1 %}
+          {% assign default_image = collection.metafields.custom.how_to_use_faq_image1 %}
           {% if default_image %}
             <img id="faq-left-image" src="{{ default_image | img_url: '800x' }}" alt="How to use" loading="lazy">
           {% endif %}
@@ -16,8 +16,8 @@
       <!-- Right FAQ Accordion -->
       <div class="cust-faq-content" id="how-to-apply">
         <div class="custom-faq-section">
-          {% assign faq_questions = product.metafields.custom.how_to_use_faq_question.value %}
-          {% assign faq_answers = product.metafields.custom.how_to_use_faq_answer.value %}
+          {% assign faq_questions = collection.metafields.custom.how_to_use_faq_question.value %}
+          {% assign faq_answers = collection.metafields.custom.how_to_use_faq_answer.value %}
 
           {% if faq_questions and faq_answers %}
             {% for question in faq_questions %}
@@ -25,10 +25,10 @@
 
               {% comment %} Assign corresponding image based on FAQ index {% endcomment %}
               {% assign image = blank %}
-              {% if forloop.index0 == 0 %} {% assign image = product.metafields.custom.how_to_use_faq_image1 %} {% endif %}
-              {% if forloop.index0 == 1 %} {% assign image = product.metafields.custom.how_to_use_faq_image2 %} {% endif %}
-              {% if forloop.index0 == 2 %} {% assign image = product.metafields.custom.how_to_use_faq_image3 %} {% endif %}
-              {% if forloop.index0 == 3 %} {% assign image = product.metafields.custom.how_to_use_faq_image4 %} {% endif %}
+              {% if forloop.index0 == 0 %} {% assign image = collection.metafields.custom.how_to_use_faq_image1 %} {% endif %}
+              {% if forloop.index0 == 1 %} {% assign image = collection.metafields.custom.how_to_use_faq_image2 %} {% endif %}
+              {% if forloop.index0 == 2 %} {% assign image = collection.metafields.custom.how_to_use_faq_image3 %} {% endif %}
+              {% if forloop.index0 == 3 %} {% assign image = collection.metafields.custom.how_to_use_faq_image4 %} {% endif %}
 
               <div class="custom-faq-item {% if forloop.first %}active{% endif %}" data-image="{{ image | img_url: '800x' }}">
                 <button type="button" class="custom-faq-question">
