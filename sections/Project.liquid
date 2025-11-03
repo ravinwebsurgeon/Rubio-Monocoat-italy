@@ -491,51 +491,68 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('DOMContentLoaded', function () {
   /* circle tabs */
  function showproducts() {
-  console.log('called???')
-    const products = document.querySelectorAll('.product-item'); 
-    const activeTab = document.querySelector('.circle-tab.active');
-    console.log(activeTab,'asasa')
-    if (!activeTab) return;
-    const btnparentClasses = activeTab.parentNode.parentNode.classList;
-    let parent = '';
-    if (btnparentClasses.contains('exterior')) {
-        parent = 'exterior';
-    } else if (btnparentClasses.contains('interior')) {
-        parent = 'interior';
-    }
-    let activeTabText = activeTab.textContent.trim().toLowerCase();
-     if (parent === 'exterior') {
-      selectedTag = activeTab.dataset.exteriorTagName?.trim().toLowerCase() || '';
-    } else if (parent === 'interior') {
-      selectedTag = activeTab.dataset.interiorTagName?.trim().toLowerCase() || '';
-    }
+  console.log('showproducts called ✅');
 
-    products.forEach(product => {
-        let productParent = product.parentNode.parentNode.parentNode;
-        let productParentclass = '';
-        if(productParent.classList.contains('Exterior-wrap')) { 
-            productParentclass = 'exterior';
-        } else if(productParent.classList.contains('Interior-wrap')) { 
-            productParentclass = 'interior';
-        }
-        
-        const productTags = product.dataset.tags.split(',').map(tag => tag.trim().toLowerCase());
-        {% comment %} const matchPattern = `${parent}_${selectedTag}`; {% endcomment %}
-        {% comment %} const matches = productTags.some(tag => tag.includes(matchPattern)); {% endcomment %}
-        if (productParentclass == parent && productTags.includes(selectedTag)) {
-            let img_wrapper = product.querySelector('.product-image-wrapper')
-            let image = img_wrapper.dataset[activeTabText]
-            const noImagePattern = '/shopifycloud/storefront/assets/no-image';
-           if (image && parent == 'interior') {img_wrapper.querySelector('img.cover-image').src = image;}
-            if (image && parent == 'exterior') {img_wrapper.querySelector('img.featured-image').src = image;}
-            console.log('found',image)
-            product.style.display = 'block';
-        } else {
-            product.style.display = 'none';
-            {% comment %}productParent.querySelector("h4").style.display = 'none'; {% endcomment %}
-        }
-    });
+  const products = document.querySelectorAll('.product-item');
+  const activeTab = document.querySelector('.circle-tab.active');
+  if (!activeTab) return;
+
+  // Find whether we're in interior or exterior section
+  const btnWrapper = activeTab.closest('.interior, .exterior');
+  if (!btnWrapper) return;
+
+  const parent = btnWrapper.classList.contains('interior') ? 'interior' : 'exterior';
+
+  // Get selected tag (from metafield or block)
+  const selectedTag =
+    (parent === 'interior'
+      ? activeTab.dataset.interiorTagName
+      : activeTab.dataset.exteriorTagName) || '';
+
+  const normalizedSelectedTag = selectedTag.trim().toLowerCase().replace(/[-_ ]/g, '');
+
+  console.log('Active tab:', activeTab.textContent.trim());
+  console.log('Parent section:', parent);
+  console.log('Selected tag:', normalizedSelectedTag);
+
+  products.forEach(product => {
+    const productParent = product.closest('.Interior-wrap, .Exterior-wrap');
+    if (!productParent) return;
+
+    const productParentClass = productParent.classList.contains('Interior-wrap')
+      ? 'interior'
+      : 'exterior';
+
+    const productTags = (product.dataset.tags || '')
+      .split(',')
+      .map(tag => tag.trim().toLowerCase().replace(/[-_ ]/g, ''));
+
+    const isMatch =
+      productParentClass === parent &&
+      productTags.some(tag => tag === normalizedSelectedTag);
+
+    if (isMatch) {
+      // Optional: handle dynamic images
+      const imgWrapper = product.querySelector('.product-image-wrapper');
+      const activeTabText = activeTab.textContent.trim().toLowerCase().replace(/ /g, '_');
+      const image = imgWrapper?.dataset[activeTabText];
+
+      if (image && parent === 'interior') {
+        const img = imgWrapper.querySelector('img.cover-image');
+        if (img) img.src = image;
+      }
+      if (image && parent === 'exterior') {
+        const img = imgWrapper.querySelector('img.featured-image');
+        if (img) img.src = image;
+      }
+
+      product.style.display = 'block';
+    } else {
+      product.style.display = 'none';
+    }
+  });
 }
+
 
 // Initialize tabs with proper showproducts call
 document.querySelectorAll('.circle-tab').forEach(btn => {
