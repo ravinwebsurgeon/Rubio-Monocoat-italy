@@ -73,7 +73,7 @@
               <h3 class="tabs-heading heading-pr">{{ section.settings.heading2 }}</h3>
             {% endif %}
             <div class="circle-tabs">
-              {% for block in section.blocks %}
+              {% comment %} {% for block in section.blocks %}
                 <button class="circle-tab" data-tab="tab-{{ block.id }}" data-exterior-tag-name="{{ block.settings.exterior_tag_name }}" data-interior-tag-name={{block.settings.tag_name }}>
                   {% if block.settings.tab_image %}
                     <span class="circle-tab-ing"> 
@@ -83,7 +83,7 @@
                   <span>{{ block.settings.tab_name }}</span>
                 </button>
               {% endfor %}
-{% comment %}               
+              {% endcomment %}
                 {% for image in tab_images %}
                   {% assign index = forloop.index0 %}
                   {% assign title = tab_titles[index] %}
@@ -98,7 +98,7 @@
                     {% endif %}
                     <span>{{ title }}</span>
                   </button>
-                {% endfor %}   {% endcomment %}
+                {% endfor %}   
 
             </div>
           </div> 
@@ -534,7 +534,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 }
-
+{% comment %} 
 // Initialize tabs with proper showproducts call
 document.querySelectorAll('.circle-tab').forEach(btn => {
   btn.addEventListener('click', e => {
@@ -552,6 +552,23 @@ document.querySelectorAll('.circle-tab').forEach(btn => {
     // Call showproducts immediately after tab activation
     if (typeof showproducts === 'function') showproducts();
   });
+}); {% endcomment %}
+document.addEventListener('click', function (e) {
+  const target = e.target.closest('.circle-tab');
+  if (!target) return; // Click not on a tab button
+
+  // Remove active classes
+  document.querySelectorAll('.circle-tab.active, .tab-products.active').forEach(el => {
+    el.classList.remove('active');
+  });
+
+  // Add active class to the clicked tab and its content
+  target.classList.add('active');
+  const tabId = target.dataset.tab;
+  document.getElementById(tabId)?.classList.add('active');
+
+  // Call showproducts() if it exists
+  if (typeof showproducts === 'function') showproducts();
 });
     {% comment %} <!-- comment by amanpreet --> {% endcomment %}
   {% comment %} document.querySelectorAll('.circle-tab').forEach(btn => {
