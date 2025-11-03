@@ -1322,7 +1322,7 @@ document.addEventListener("DOMContentLoaded", function() {
       section.querySelectorAll(':scope > *:not(.filter-bar)').forEach(el => {
         el.style.display = 'none';
       });
-      section.querySelector('.filter-bar').style.display = 'block';
+      section.querySelector('.filter-bar').style.display = 'flex';
     if (!isActive) {
       surfaceOptions?.style.setProperty("display", "flex");
       this.classList.add("active");
