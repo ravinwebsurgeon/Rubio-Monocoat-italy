@@ -1290,9 +1290,9 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector('.interior_tabs_section').classList.add('active')
         let interiorSection = document.querySelector('.interior_tabs_section')
         interiorSection.style.display="block"
-  interiorSection.querySelectorAll(':scope > .circle-tabs-outer').forEach(el => {
-    el.style.display = '';
-  });
+       interiorSection.querySelectorAll(':scope > .circle-tabs-outer').forEach(el => {
+         el.style.display = '';
+     });
 
     {% comment %} tabs_outer.classList.remove('exterior') {% endcomment %}
     surfaceOptions?.style.setProperty("display", "none");
