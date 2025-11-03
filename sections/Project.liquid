@@ -2,7 +2,7 @@
 {% assign tab_images = source_collection.metafields.custom.species_images.value %}
 {% assign tab_titles = source_collection.metafiels.custom.species_titles.value %}
 {% assign interior_tags = source_collection.metafields.custom.species_tag_name.value %}
-{% comment %} {% for image in tab_images %} {{ image }}{% endfor %} {% endcomment %}
+{% for title in tab_titles %} {{ title }}{% endfor %}
 
 <div class="cust-project">
   <div class="page-no-width">
