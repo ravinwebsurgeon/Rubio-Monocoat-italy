@@ -1,5 +1,5 @@
-{% assign source_page = collections[section.settings.source_page] %}
-{% assign tab_images = source_page.metafields.custom.species_images.value %}
+{% assign source_collection = collections[section.settings.source_collection] %}
+{% assign tab_images = source_collection.metafields.custom.species_images.value %}
 {% assign tab_titles = collection.metafiels.custom.species_titles.value %}
 {% assign interior_tags = collection.metafields.custom.species_tag_name.value %}
 {% for image in tab_images %} {{ image }}{% endfor %}
@@ -425,7 +425,7 @@
     { "type": "url", "id": "video_url", "label": "Video URL (MP4)" },
     {
     "type": "collection",
-    "id": "source_page",
+    "id": "source_collection",
     "label": "Select Page for Images"
     },
 
