@@ -482,9 +482,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     products.forEach(product => {
+        let img_wrapper = product.querySelector('.product-image-wrapper')
+        console.log('img_wrapper',img_wrapper)
         let productParent = product.parentNode.parentNode.parentNode;
         let productParentclass = '';
-        console.log('assdddd',activeTabText)
         if(productParent.classList.contains('Exterior-wrap')) { 
             productParentclass = 'exterior';
         } else if(productParent.classList.contains('Interior-wrap')) { 
