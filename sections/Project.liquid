@@ -455,29 +455,33 @@
 
 
 <script>
- {% comment %} document.addEventListener('DOMContentLoaded', function() {
-  const toggle = document.querySelector('.stock-toggle');
-  const products = document.querySelectorAll('.product-item');
-
-  if (!toggle) return;
-
-  toggle.addEventListener('click', function() {
-    toggle.classList.toggle('active'); // add/remove active class
-
-    const showInStock = toggle.classList.contains('active');
-
+//available sample script
+document.addEventListener('DOMContentLoaded', () => {
+  const checkbox = document.getElementById('available-filter');
+ 
+  if (!checkbox) return;
+ 
+  checkbox.addEventListener('change', () => {
+    const showOnlyAvailable = checkbox.checked;
+    const products = document.querySelectorAll('.product-item');
+ 
     products.forEach(product => {
-      const inStock = product.dataset.quantity
-
-      // Show only in-stock products when active
-      if (showInStock && inStock >0) {
-        product.style.display = 'none';
+      const isAvailable = product.getAttribute('data-available') === 'true';
+     
+      if (showOnlyAvailable) {
+        // show only available products
+        if (isAvailable) {
+          product.style.display = '';
+        } else {
+          product.style.display = 'none';
+        }
       } else {
-        product.style.display = 'block';
+        // show all products again
+        product.style.display = '';
       }
     });
   });
-}); {% endcomment %}
+});
 
  {% comment %} document.addEventListener('DOMContentLoaded', function () {
   const exteriorSection = document.querySelector('.circle-tabs-section.exteriour_tabs_section');
