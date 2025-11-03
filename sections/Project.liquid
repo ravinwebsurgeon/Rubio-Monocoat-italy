@@ -1,6 +1,6 @@
 {% assign tab_images = collection.metafields.custom.species_images.value %}
 {% assign tab_titles = collection.metafiels.custom.species_titles.value %}
-{% assign interior_tag_name = collection.metafields.custom.species_tag_name.value %}
+{% assign interior_tags = collection.metafields.custom.species_tag_name.value %}
 
 <div class="cust-project">
   <div class="page-no-width">
@@ -82,6 +82,25 @@
                   <span>{{ block.settings.tab_name }}</span>
                 </button>
               {% endfor %}
+
+
+               {% for image in tab_images %}
+        {% assign index = forloop.index0 %}
+        {% assign title = tab_titles[index] %}
+        {% assign tag = interior_tags[index] %}
+        <button class="circle-tab" 
+          data-tab="tab-{{ forloop.index0 }}" 
+          data-interior-tag-name="{{ tag | escape }}">
+          {% if image != blank %}
+            <span class="circle-tab-ing"> 
+              <img src="{{ image | img_url: '200x200' }}" alt="{{ title | escape }}" width="" height=""> 
+            </span>
+          {% endif %}
+          <span>{{ title }}</span>
+        </button>
+      {% endfor %}
+
+
             </div>
           </div> 
           <!-- Filter bar with slider -->
