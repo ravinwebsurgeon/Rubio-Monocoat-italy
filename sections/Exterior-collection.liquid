@@ -17,7 +17,7 @@
     </div>
   </div> 
     <!-- Filter bar with slider -->
-          <div class="filter-bar">
+          {% comment %} <div class="filter-bar">
             <div class="filter-left">
               <div class="filttter1">
                 <button class="icon-btn color-ic">                
@@ -122,7 +122,7 @@
               <span class="tips-link-txt"> Not sure which colour to choose? Check out our expert tips! </span>
               <span class="tips-link-txt tips-link-mobs"> Check out our expert tips! </span>
             </button>
-          </div>
+          </div> {% endcomment %}
 </div> 
 <div class="tab-products-wrap Exterior-wrap">
   {% if section.settings.heading != blank %}
@@ -189,39 +189,6 @@
     <p>No collection selected or collection is empty.</p>
   {% endif %}
 </div>
-
-{% comment %} <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const surfaceItems = document.querySelectorAll('.surface-item');
-  const horizontalTab = document.querySelector('.collection-exterior-horizontal-surface').closest('.tab-productss');
-  const verticalTab = document.querySelector('.collection-exterior-vertical-surface').closest('.tab-productss');
-
-  // Hide both tabs initially
-  horizontalTab.style.display = 'none';
-  verticalTab.style.display = 'none';
-
-  surfaceItems.forEach(item => {
-    item.addEventListener('click', function() {
-      // Remove active class from all buttons
-      surfaceItems.forEach(btn => btn.classList.remove('active'));
-      this.classList.add('active');
-
-      // Swap logic
-      if(this.classList.contains('vertical')) {
-        // vertical active → show horizontal tab
-        horizontalTab.style.display = 'block';
-        verticalTab.style.display = 'none';
-      } 
-      else if(this.classList.contains('horizontal')) {
-        // horizontal active → show vertical tab
-        verticalTab.style.display = 'block';
-        horizontalTab.style.display = 'none';
-      }
-    });
-  }); 
-});
-</script>  {% endcomment %}
-
 
 
 {% schema %}
