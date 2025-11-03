@@ -497,9 +497,8 @@ document.addEventListener('DOMContentLoaded', function() {
             let img_wrapper = product.querySelector('.product-image-wrapper')
             let image = img_wrapper.dataset[activeTabText]
             const noImagePattern = '/shopifycloud/storefront/assets/no-image';
-           if (image) {
-              img_wrapper.querySelector('img.cover-image').src = image;
-            }
+           if (image && parent == 'interior') {img_wrapper.querySelector('img.cover-image').src = image;}
+            if (image && parent == 'exterior') {img_wrapper.querySelector('img.featured-image').src = image;}
             console.log('found',image)
             product.style.display = 'block';
         } else {
