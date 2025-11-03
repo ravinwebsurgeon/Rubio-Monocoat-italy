@@ -622,7 +622,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Tab + surface + availability combined filter
         shouldShow = (productParentClass === parent) && hasMatchingTag && (!showOnlyAvailable || isAvailable);
       }
- 
       if (shouldShow) {
         const imgWrapper = product.querySelector('.product-image-wrapper');
         const activeTabText = activeTab?.textContent?.trim().toLowerCase();
@@ -680,7 +679,7 @@ document.addEventListener('DOMContentLoaded', function() {
  
   // Run once on load
   showproducts();
-  
+
     {% comment %} <!-- comment by amanpreet --> {% endcomment %}
   {% comment %} document.querySelectorAll('.circle-tab').forEach(btn => {
     btn.addEventListener('click', function () {
