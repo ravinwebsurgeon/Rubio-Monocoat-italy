@@ -128,6 +128,7 @@
           "settings": {
             "tab_name": "Ash",
             "tag_name": "tag_interior_ash",
+            "exterior_tag_name": "",
             "tab_image": "shopify://shop_images/Ellipse_79.png",
             "tab_collection": "douglas-wood"
           }
@@ -137,6 +138,7 @@
           "settings": {
             "tab_name": "Beech",
             "tag_name": "tag_interior_beech",
+            "exterior_tag_name": "",
             "tab_image": "shopify://shop_images/Ellipse_80.png",
             "tab_collection": "pine-wood"
           }
@@ -146,6 +148,7 @@
           "settings": {
             "tab_name": "Larch",
             "tag_name": "tag_interior_larch",
+            "exterior_tag_name": "",
             "tab_image": "shopify://shop_images/Ellipse_81.png",
             "tab_collection": ""
           }
@@ -155,6 +158,7 @@
           "settings": {
             "tab_name": "Pine",
             "tag_name": "tag_interior_pine",
+            "exterior_tag_name": "",
             "tab_image": "shopify://shop_images/Ellipse_79.png",
             "tab_collection": ""
           }
@@ -164,6 +168,7 @@
           "settings": {
             "tab_name": "oak",
             "tag_name": "tag_interior_oak",
+            "exterior_tag_name": "",
             "tab_image": "shopify://shop_images/Ellipse_83.png",
             "tab_collection": ""
           }
@@ -173,6 +178,7 @@
           "settings": {
             "tab_name": "Maple",
             "tag_name": "tag_interior_maple",
+            "exterior_tag_name": "",
             "tab_image": "shopify://shop_images/Ellipse_84.png",
             "tab_collection": ""
           }
@@ -193,6 +199,8 @@
         "img2": "shopify://shop_images/Rectangle_242.png",
         "heading2": "Choose your species:",
         "video_url": "https://cdn.shopify.com/videos/c/o/v/34803a8d2ef04246bbcf01f47ba29801.mp4",
+        "tags_text": "{{ section.settings.interior_collection.metafields.custom.species_tag_name | metafield_text }}",
+        "tabs_text": "{{ section.settings.interior_collection.metafields.custom.species_tag_name | metafield_text }}",
         "vertical_surface_img": "shopify://shop_images/UMO_White.jpg",
         "vertical_surface_collection": "exterior-vertical-surface",
         "horizontal_surface_img": "shopify://shop_images/UMO_pure.jpg",
@@ -282,7 +290,7 @@
           "type": "tab",
           "settings": {
             "tab_name": "Pine",
-            "exterior_tag_name": "",
+            "exterior_tag_name": "tag_exterior_pine",
             "tab_image": "shopify://shop_images/width_2001-ezgif.com-webp-to-png-converter_1.png",
             "tab_collection": ""
           }
