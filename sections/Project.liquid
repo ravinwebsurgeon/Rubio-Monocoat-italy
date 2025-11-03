@@ -598,17 +598,14 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 }
 
-// Initialize tabs with proper showproducts call
 document.querySelectorAll('.circle-tab').forEach(btn => {
   btn.addEventListener('click', e => {
     const target = e.currentTarget;
 
-    // Remove 'active' from any currently active tab and product
     document.querySelectorAll('.circle-tab.active, .tab-products.active').forEach(el => {
       el.classList.remove('active');
     });
 
-    // Add active to the clicked tab and its content
     target.classList.add('active');
     document.getElementById(target.dataset.tab)?.classList.add('active');
 
