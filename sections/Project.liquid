@@ -1279,8 +1279,8 @@ document.addEventListener("DOMContentLoaded", function() {
   interiorBtn?.addEventListener("click", function() {
     circleTabsOuter?.classList.add("show-section");
     filterBar?.classList.add("show-section");
-    document.querySelector('.interior_tabs_section > button').setAttribute('enabled', 'enabled');
-    document.querySelector('.exteriour_tabs_section > button').setAttribute('disabled', 'disabled');
+    {% comment %} document.querySelector('.interior_tabs_section > button').setAttribute('enabled', 'enabled'); {% endcomment %}
+    {% comment %} document.querySelector('.exteriour_tabs_section > button').setAttribute('disabled', 'disabled'); {% endcomment %}
 
     // Hide product wrappers
     tabProductsInterior?.classList.remove("show-section");
@@ -1320,8 +1320,8 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll(".surface-toggle").forEach(el => el.classList.remove("active"));
     document.querySelector('.exteriour_tabs_section').classList.add('active');
     document.querySelector('.interior_tabs_section').classList.remove('active')
-    document.querySelector('.exteriour_tabs_section > button').setAttribute('enabled', 'enabled');
-    document.querySelector('.interior_tabs_section > button').setAttribute('disabled', 'disabled');
+    {% comment %} document.querySelector('.exteriour_tabs_section > button').setAttribute('enabled', 'enabled'); {% endcomment %}
+    {% comment %} document.querySelector('.interior_tabs_section > button').setAttribute('disabled', 'disabled'); {% endcomment %}
 
 
       const section = document.querySelector('.interior_tabs_section');
