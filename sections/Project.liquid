@@ -1290,7 +1290,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector('.interior_tabs_section').classList.add('active')
         let interiorSection = document.querySelector('.interior_tabs_section')
         interiorSection.style.display="block"
-  interiorSection.querySelectorAll(':scope > *').forEach(el => {
+  interiorSection.querySelectorAll(':scope > .circle-tabs-outer').forEach(el => {
     el.style.display = '';
   });
 
