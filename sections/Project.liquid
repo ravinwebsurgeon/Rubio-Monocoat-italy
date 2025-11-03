@@ -624,7 +624,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       } else {
         product.style.display = 'none';
-                product.parentNode.parentNode.classList.remove('active')
+                {% comment %} product.parentNode.parentNode.classList.remove('active') {% endcomment %}
       }
     });
   }
