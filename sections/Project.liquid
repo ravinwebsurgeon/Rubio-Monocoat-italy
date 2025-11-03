@@ -634,7 +634,7 @@ document.querySelectorAll('.circle-tab').forEach(btn => {
   btn.addEventListener('click', e => {
     const target = e.currentTarget;
 
-    document.querySelectorAll('.circle-tab.active, .tab-products.active').forEach(el => {
+    document.querySelectorAll('.circle-tab.active').forEach(el => {
       el.classList.remove('active');
     });
 
