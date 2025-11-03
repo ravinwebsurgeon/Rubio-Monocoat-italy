@@ -88,7 +88,7 @@
                   {% assign index = forloop.index0 %}
                   {% assign title = tab_titles[index] %}
                   {% assign tag = interior_tags[index] %}
-                  <button class="check circle-tab" 
+                  <button class="circle-tab" 
                     data-tab="tab-{{ forloop.index0 }}" 
                     data-interior-tag-name="{{ tag | escape }}">
                     {% if image != blank %}
