@@ -1416,11 +1416,19 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const interioBtn = document.querySelector('.Interio');
+  const exteriorBtn = document.querySelector('.exterior');
   const exteriorWrap = document.querySelector('.Exterior-wrap');
 
-  if (interioBtn && exteriorWrap) {
+  if (interioBtn && exteriorBtn && exteriorWrap) {
+
+    // Hide when clicking Interio
     interioBtn.addEventListener('click', function() {
       exteriorWrap.style.display = 'none';
+    });
+
+    // Show when clicking Exterior
+    exteriorBtn.addEventListener('click', function() {
+      exteriorWrap.style.display = 'block';
     });
   }
 });
