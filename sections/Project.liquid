@@ -1282,13 +1282,6 @@ document.addEventListener("DOMContentLoaded", function() {
     {% comment %} document.querySelector('.interior_tabs_section > button').setAttribute('enabled', 'enabled'); {% endcomment %}
     {% comment %} document.querySelector('.exteriour_tabs_section > button').setAttribute('disabled', 'disabled'); {% endcomment %}
 
-    document.querySelectorAll('.exteriour_tabs_section > button').forEach(btn => {
-      btn.disabled = true; // enable
-    });
-      document.querySelectorAll('.interior_tabs_section > button').forEach(btn => {
-      btn.enabled = true; // enable
-    });
-
     // Hide product wrappers
     tabProductsInterior?.classList.remove("show-section");
     tabProductsExterior?.classList.remove("show-section");
