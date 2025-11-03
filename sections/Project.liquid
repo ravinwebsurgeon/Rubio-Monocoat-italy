@@ -488,7 +488,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Initialize tabs with proper showproducts call
 document.querySelectorAll('.circle-tab').forEach(btn => {
-    btn.addEventListener('click', function () {
+    btn.addEventListener('click', function (e) {
+       const target = e.currentTarget; 
        let tabs = document.querySelectorAll('.circle-tab')
         {% comment %} document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove('active')); {% endcomment %}
         {% comment %} document.querySelectorAll('.tab-products').forEach(c => c.classList.remove('active')); {% endcomment %}
@@ -504,8 +505,8 @@ document.querySelectorAll('.circle-tab').forEach(btn => {
         }
       });
         console.log( this,'chek')
-        this.classList.add('active');
-        document.getElementById(this.dataset.tab).classList.add('active');
+        target.classList.add('active');
+        document.getElementById(target.dataset.tab).classList.add('active');
         
         // Call showproducts immediately after tab activation
         showproducts();
