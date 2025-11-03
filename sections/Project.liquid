@@ -496,18 +496,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
- document.addEventListener('DOMContentLoaded', function () {
+ {% comment %} document.addEventListener('DOMContentLoaded', function () {
   const exteriorSection = document.querySelector('.circle-tabs-section.exteriour_tabs_section');
   const interiorSection = document.querySelector('.circle-tabs-section.interior_tabs_section');
 
   // Ensure both exist before trying to move
   if (exteriorSection && interiorSection) {
+    // Move the exterior section ABOVE the interior section
     interiorSection.parentNode.insertBefore(exteriorSection, interiorSection);
     console.log('✅ Moved exterior section above interior section');
   } else {
     console.warn('⚠️ Could not find one or both sections');
   }
-}); 
+}); {% endcomment %}
 
 
 
