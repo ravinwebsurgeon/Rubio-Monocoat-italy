@@ -497,7 +497,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let img_wrapper = product.querySelector('.product-image-wrapper')
             let image = img_wrapper.dataset[activeTabText]
             console.log(image,'asasa')
-            if(image){
+           if (image && image.trim() !== '') {
               img_wrapper.querySelector('img.cover-image').src = image;
             }
             console.log('found',image)
