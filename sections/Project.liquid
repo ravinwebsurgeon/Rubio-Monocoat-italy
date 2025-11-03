@@ -495,7 +495,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {% comment %} const matches = productTags.some(tag => tag.includes(matchPattern)); {% endcomment %}
         if (productParentclass == parent && productTags.includes(selectedTag)) {
             let img_wrapper = product.querySelector('.product-image-wrapper')
-            console.log('img_wrapper',img_wrapper.dataset.[`${activeTabText}`])
+            console.log('img_wrapper',img_wrapper.dataset.[activeTabText])
             product.style.display = 'block';
         } else {
             product.style.display = 'none';
