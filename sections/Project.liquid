@@ -465,7 +465,12 @@
   "presets": [{ "name": "Interior Collection", "category": "Custom" }]
 }
 {% endschema %}
+<script>
+document.querySelector('.exterior')?.addEventListener('click', function() {
+  document.querySelector('.filter-bar')?.classList.add('active');
+});
 
+</script>
 
 <script>
 //available sample script
