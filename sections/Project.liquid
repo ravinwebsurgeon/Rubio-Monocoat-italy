@@ -491,7 +491,12 @@ document.querySelectorAll('.circle-tab').forEach(btn => {
     btn.addEventListener('click', function () {
        let tabs = document.querySelectorAll('.circle-tab')
        console.log('check',tabs)
-        document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove('active'));
+        {% comment %} document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove('active')); {% endcomment %}
+        document.querySelectorAll('.circle-tab').forEach(tab => {
+        if (tab.classList.contains('active')) {
+          tab.classList.remove('active');
+        }
+      });
         document.querySelectorAll('.tab-products').forEach(c => c.classList.remove('active'));
         
         this.classList.add('active');
