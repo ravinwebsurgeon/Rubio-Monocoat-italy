@@ -299,7 +299,16 @@
                         <div class="product-item-img-col">
                           <a href="{{ product.url }}">
                           {% if product.featured_image %}
-                          <div class="product-image-wrapper" data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}" data-featured="{{ product.featured_image | img_url: '400x' }}">
+                          <div class="product-image-wrapper" 
+                            data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}" 
+                            data-featured="{{ product.featured_image | img_url: '400x' }}" 
+                            data-ash="{{ ash_image }}"
+                            data-beech="{{ beech_image }}"
+                            data-larch="{{ larch_image }}"
+                            data-pine="{{ pine_image }}"
+                            data-oak="{{ oak_image }}"
+                            data-maple="{{ maple_image }}"
+                          >
                             {% if product.metafields.custom.cover_image != blank %}
                               <img class="cover-image" src="{{ product.metafields.custom.cover_image | img_url: ' ' }}" alt="{{ product.title }}" width="" height="">
                             {% endif %}
