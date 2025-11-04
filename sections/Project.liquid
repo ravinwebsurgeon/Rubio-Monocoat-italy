@@ -1312,7 +1312,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector('.interior_tabs_section').classList.add('active')
         let interiorSection = document.querySelector('.interior_tabs_section')
         interiorSection.style.display="block"
-       interiorSection.querySelectorAll(':scope > .circle-tabs-outer, :scope > .tab-products-outer').forEach(el => {
+       interiorSection.querySelectorAll(':scope > .circle-tabs-outer, :scope > .tab-products-outer , :scope > .product-item').forEach(el => {
          el.style.display = '';
      });
 
