@@ -183,19 +183,17 @@
 {% assign textsd = collection.metafields.custom.product_textss.value %}
 
 {% if imagesd and textsd %}
+  {% assign texts_array = textsd | split: '•' %}
   {% for image in imagesd %}
-    {% assign texts = textsd[forloop.index0] %}
+    {% assign current_text = texts_array[forloop.index0] | strip %}
     <div class="meeta-fl">
       {% if image %}
         <span class="immmg">
           <img src="{{ image | img_url: '600x400' }}" alt="icon">
         </span>
       {% endif %}
-      
-      {% if texts %}
-        <span class="mememe">
-          {{ texts }}
-        </span>
+      {% if current_text %}
+        <span class="mememe">{{ current_text }}</span>
       {% endif %}
     </div>
   {% endfor %}
