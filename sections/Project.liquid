@@ -1315,6 +1315,10 @@ document.addEventListener("DOMContentLoaded", function() {
        interiorSection.querySelectorAll(':scope > .circle-tabs-outer, :scope > .tab-products-outer, :scope > li.product-item').forEach(el => {
          el.style.display = '';
      });
+       // Show ALL product items in interior section
+  interiorSection.querySelectorAll('.product-item').forEach(item => {
+    item.style.display = 'block';
+  });
 
     {% comment %} tabs_outer.classList.remove('exterior') {% endcomment %}
     surfaceOptions?.style.setProperty("display", "none");
