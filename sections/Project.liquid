@@ -1377,8 +1377,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Remove active from circle tabs
     circleTabs.forEach(t => t.classList.remove("active"));
      const collectionHandle = "exterior"; // or dynamically set handle
-    const metafields = await fetchCollectionMetafields(collectionHandle);
-     const metafields = await fetchCollectionMetafields(collectionHandle);
+     const metafields = fetchCollectionMetafields(collectionHandle);
     //renderExteriorTabs(metafields);
   });
 
