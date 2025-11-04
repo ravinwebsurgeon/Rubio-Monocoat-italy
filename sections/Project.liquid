@@ -1278,6 +1278,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   
+
   // Sections
   const circleTabsOuter = document.querySelector(".circle-tabs-outer");
   const filterBar = document.querySelector(".filter-bar");
@@ -1376,8 +1377,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Remove active from circle tabs
     circleTabs.forEach(t => t.classList.remove("active"));
-     const collectionHandle = "exterior"; // or dynamically set handle
-     const metafields = fetchCollectionMetafields(collectionHandle);
+     const collectionHandle = "exterior-colors"; // or dynamically set handle
+     //const metafields = fetchCollectionMetafields(collectionHandle);
     //renderExteriorTabs(metafields);
   });
 
