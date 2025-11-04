@@ -1,9 +1,6 @@
 {% assign meta_products = collection.metafields.custom.inspired_wooden_products.value %}
 {% assign meta_images = collection.metafields.custom.inspired_wooden_images.value %}
 {% assign meta_heading = collection.metafields.custom.inspired_wooden_heading.value %}
-{% for pro in meta_products %}
-  {% assign product_handles = product_handles | push: pro.handle %}
-{% endfor %}
 <section class="asdf inspired-collage" data-show="{{ meta_products | json }}">
   <div class="container">
     <div class="collage-header">
@@ -38,7 +35,7 @@
           <div class="collage-item {% if forloop.first %}large{% else %}small{% endif %}"  data-product = {{ product }}
                style="background-image: url('{{ image | img_url: 'master' }}')">
             <a href="javascript:void(0);" 
-               class="product-overlay-btn {{ product_handles[forloop.index0] }}" 
+               class="product-overlay-btn" 
                {% for pro in meta_products%} {% if forloop.index == forloop.parentloop.index %}  data-product-handle="{{ pro.handle }}" {% endif %} {% endfor %}
                  >
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
