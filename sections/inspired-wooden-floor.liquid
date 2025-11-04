@@ -269,76 +269,48 @@ document.addEventListener("DOMContentLoaded", function(){
     const closeBtn = popup.querySelector(".close-hotspot");
 
     btn.addEventListener("click", function(e){
-      e.stopPropagation(); // Prevent event bubbling
       const handle = this.dataset.productHandle;
-      
-      console.log('Clicked product handle:', handle); // Debug log
 
       // Hide all other popups
-      document.querySelectorAll(".hotspot-popup").forEach(p => {
-        if(p !== popup) p.style.display = 'none';
-      });
+      document.querySelectorAll(".hotspot-popup").forEach(p => { if(p !== popup) p.style.display = 'none'; });
 
-      // Toggle current popup
-      if(popup.style.display === 'block') {
-        popup.style.display = 'none';
-        return;
-      }
-
-      // Position popup relative to button
+      // Position popup relative to SVG
       const rect = btn.getBoundingClientRect();
       const parentRect = btn.closest(".collage-item").getBoundingClientRect();
-      
-      // Position the popup below the button
-      popup.style.top = (btn.offsetTop + btn.offsetHeight + 10) + 'px';
-      popup.style.left = '50%';
-      popup.style.transform = 'translateX(-50%)';
+      popup.style.top = (btn.offsetTop + btn.offsetHeight + 5) + 'px';
+      {% comment %} popup.style.left = (btn.offsetLeft) + '%'; {% endcomment %}
 
       // Fetch product data
       fetch(`/products/${handle}.js`)
-        .then(res => {
-          if(!res.ok) throw new Error('Product not found');
-          return res.json();
-        })
+        .then(res => res.json())
         .then(product => {
           content.innerHTML = `
             <img src="${product.images[0]}" alt="${product.title}">
             <h3>${product.title}</h3>
-            <p>${product.body_html ? product.body_html.substring(0, 100) + '...' : ''}</p>
-            <button type="button" class="ajax_add_cart" data-variant-id="${product.variants[0].id}">Add to Cart</button>
+            <p>${product.body_html}</p>
+           {% comment %} <form action="/cart/add" method="post">{% endcomment %} 
+              {% comment %} <select name="id">
+                ${product.variants.map(v => `<option value="${v.id}">${v.title} - $${(v.price/100).toFixed(2)}</option>`).join('')}
+              </select> {% endcomment %}
+              <button type="submit" class="ajax_add_cart" data-variant-id="${product.variants[0].id}">Add to Cart</button>
+            {% comment %} </form>{% endcomment %} 
           `;
-          popup.style.display = "block";
-        })
-        .catch(error => {
-          console.error('Error loading product:', error);
-          content.innerHTML = '<p>Product not found</p>';
           popup.style.display = "block";
         });
     });
 
-    closeBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      popup.style.display = "none";
-    });
+    closeBtn.addEventListener("click", () => popup.style.display = "none");
   });
 
   // Close popup when clicking outside
-  document.addEventListener("click", function(e) {
-    if(!e.target.closest('.hotspot-popup') && !e.target.closest('.product-overlay-btn')) {
+  document.addEventListener("click", e => {
+    if(!e.target.closest(".collage-item")) {
       document.querySelectorAll(".hotspot-popup").forEach(p => p.style.display = 'none');
     }
   });
 
-  // Add to cart functionality
-  document.addEventListener('click', function(e) {
-    if(e.target.classList.contains('ajax_add_cart')) {
-      e.preventDefault();
-      const variantId = e.target.dataset.variantId;
-      // Add your add to cart logic here
-      console.log('Add to cart:', variantId);
-    }
-  });
 });
+
 </script>
 
 {% schema %}
