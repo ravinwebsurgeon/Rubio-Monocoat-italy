@@ -1313,9 +1313,9 @@ document.addEventListener("DOMContentLoaded", function() {
 <script>
 document.addEventListener("DOMContentLoaded", function() {
    function renderTabs(collectionType) {
-      console.log('called from ',collectionType, 'section')
   const tabsContainer = document.querySelector('.circle-tabs-outer .circle-tabs');
   const collectionData = window.collectionDataCache?.[`${collectionType}-colors`]?.metafields;
+      console.log('called from ',collectionType, 'section',collectionData)
   
   if (!collectionData || !tabsContainer) return;
   
@@ -1367,10 +1367,8 @@ document.addEventListener("DOMContentLoaded", function() {
   // -------------------------------
   // INTERIOR CLICK → show tabs + filter only
   interiorBtn?.addEventListener("click", function() {
-   const collectionHandle = "interior"; // or dynamically set handle
-     const metafields = window.collectionDataCache?.['interior-colors']?.metafields || {};
-      console.log('Loaded metafields:', metafields);
-      renderTabs(collectionHandle)
+    const collectionHandle = "interior"; // or dynamically set handle
+    renderTabs(collectionHandle)
     circleTabsOuter?.classList.add("show-section");
     filterBar?.classList.add("show-section");
 
@@ -1453,8 +1451,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Remove active from circle tabs
     circleTabs.forEach(t => t.classList.remove("active"));
      const collectionHandle = "exterior"; // or dynamically set handle
-     const metafields = window.collectionDataCache?.['exterior-colors']?.metafields || {};
-      console.log('Loaded metafields:', metafields);
       renderTabs(collectionHandle)
   });
 
