@@ -149,6 +149,7 @@
         "tab_F969GB",
         "tab_xkPkim"
       ],
+      "disabled": true,
       "name": "product-discription-tab",
       "settings": {
         "instruction": "Instruction"
