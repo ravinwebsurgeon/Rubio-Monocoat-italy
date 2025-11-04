@@ -1302,7 +1302,38 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-   
+   function renderTabs(collectionType) {
+  const tabsContainer = document.querySelector('.circle-tabs-outer .tabs-container');
+  const collectionData = window.collectionDataCache?.[`${collectionType}-colors`]?.metafields;
+  
+  if (!collectionData || !tabsContainer) return;
+  
+  // Clear existing tabs
+  tabsContainer.innerHTML = '';
+  
+  // Create new tabs
+  collectionData.species_titles.forEach((title, index) => {
+    const imageUrl = collectionData.species_images[index];
+    const tagName = collectionData.species_tag_name[index];
+    
+    const tabButton = document.createElement('button');
+    tabButton.className = `circle-tab ${collectionType}-tab`;
+    tabButton.setAttribute('data-tab', `${collectionType}-tab-${index}`);
+    tabButton.setAttribute('data-tag-name', tagName);
+    tabButton.setAttribute('data-collection-type', collectionType);
+    
+    tabButton.innerHTML = `
+      ${imageUrl ? `
+        <span class="circle-tab-ing">
+          <img src="${imageUrl}" alt="${title}" width="200" height="200" loading="lazy">
+        </span>
+      ` : ''}
+      <span>${title}</span>
+    `;
+    
+    tabsContainer.appendChild(tabButton);
+  });
+}
 
   // Sections
   const circleTabsOuter = document.querySelector(".circle-tabs-outer");
@@ -1402,10 +1433,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Remove active from circle tabs
     circleTabs.forEach(t => t.classList.remove("active"));
-     const collectionHandle = "exterior-colors"; // or dynamically set handle
+     const collectionHandle = "exterior"; // or dynamically set handle
      const metafields = window.collectionDataCache?.['exterior-colors']?.metafields || {};
       console.log('Loaded metafields:', metafields);
-     //renderExteriorTabs(metafields)
+     renderTabs(collectionHandle)
   });
 
   // -------------------------------
