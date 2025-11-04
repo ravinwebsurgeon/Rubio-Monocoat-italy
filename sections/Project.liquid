@@ -1460,8 +1460,6 @@ document.addEventListener("click", function(e) {
     }
   });
 });
-
-document.addEventListener('DOMContentLoaded', function() {
  /* circle tabs */
   function showproducts() {
   const checkbox = document.getElementById('available-filter');
@@ -1561,6 +1559,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
  
+document.addEventListener('DOMContentLoaded', function() {
+
   const interiorWrap = document.querySelector('.interior_tabs_section');
   if (interiorWrap) {
     interiorWrap.style.display = 'block';
