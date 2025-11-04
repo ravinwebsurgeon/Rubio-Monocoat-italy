@@ -595,7 +595,7 @@ gap: 21px;
     border:none;
 }
 .preparation-collection .swatch-checkmark {
-    outline: 1px solidrgb(214, 245, 224);
+    outline: 1px solid rgb(214, 245, 224);
     outline-offset: 2px;
     display: block;
     width: 26px;
@@ -610,6 +610,10 @@ gap: 21px;
     border-radius: 50%;
     background: transparent;
 }
+.preparation-collection .color-swatch-input:checked{
+  outline: 1px solid  #396948;
+}
+
 .preparation-collection .color-swatch-input:checked + .swatch-checkmark::after {
     content: "";
     inset: inherit;
