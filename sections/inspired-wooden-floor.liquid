@@ -213,50 +213,6 @@
     left: auto;
     right:22.5%;
 }
-@media(max-width:1820px){
-  .inspired-collage {
-      padding: 50px 0 50px;
-  }
-}
-@media(max-width:1439px){
-  .collage-item {
-    min-height: 300px;
-  }
-  .product-overlay-btn svg {
-      width: 28px;
-      height: 28px;
-  }
-  .collage-grid {
-      margin: 25px 0 0;
-  }
-}
-@media(max-width:991px){
-  .collage-header h2{
-    font-size:24px;
-  }
-      .collage-item {
-        min-height: 200px;
-    }
-}
-@media(max-width:767px){
-  .inspired-collage .container {
-      padding: 0 20px;
-  }
-  .collage-item.large {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-  }
-  .collage-grid {    
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    min-height: inherit;
-    aspect-ratio: 1;
-  }
-  .collage-item {
-        min-height: inherit;
-        aspect-ratio: 1;
-    }
-}
 </style>
 
 <script>
@@ -288,12 +244,12 @@ document.addEventListener("DOMContentLoaded", function(){
             <img src="${product.images[0]}" alt="${product.title}">
             <h3>${product.title}</h3>
             <p>${product.body_html}</p>
-           {% comment %} <form action="/cart/add" method="post">{% endcomment %} 
+            <form action="/cart/add" method="post">
               {% comment %} <select name="id">
                 ${product.variants.map(v => `<option value="${v.id}">${v.title} - $${(v.price/100).toFixed(2)}</option>`).join('')}
               </select> {% endcomment %}
-              <button type="submit" class="ajax_add_cart" data-variant-id="${product.variants[0].id}">Add to Cart</button>
-            {% comment %} </form>{% endcomment %} 
+              <button type="submit">Add to Cart</button>
+            </form>
           `;
           popup.style.display = "block";
         });
@@ -308,9 +264,7 @@ document.addEventListener("DOMContentLoaded", function(){
       document.querySelectorAll(".hotspot-popup").forEach(p => p.style.display = 'none');
     }
   });
-
 });
-
 </script>
 
 {% schema %}
