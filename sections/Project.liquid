@@ -1348,12 +1348,25 @@ document.addEventListener("DOMContentLoaded", function() {
   collectionData.species_titles.forEach((title, index) => {
     const imageUrl = collectionData.species_images[index];
     const tagName = collectionData.species_tag_name[index];
+    const verticaltagName = collectionData.species_vertical_tag_name[index];
+    
     
     const tabButton = document.createElement('button');
     tabButton.className = `circle-tab ${collectionType}-tab`;
     tabButton.setAttribute('data-tab', `${collectionType}-tab-${index}`);
-    tabButton.setAttribute('data-tag-name', tagName);
+    //tabButton.setAttribute('data-tag-name', tagName);
     tabButton.setAttribute('data-collection-type', collectionType);
+
+      if (collectionType === 'exterior') {
+      const h_tag = collectionData.species_h_tag_name?.[index] || '';
+      const v_tag = collectionData.species_v_tag_name?.[index] || '';
+      tabButton.setAttribute('data-exterior-tag-name', h_tag);
+      tabButton.setAttribute('data-exterior-v-tag-name', v_tag);
+    } else {
+      // For interior
+      const tagName = collectionData.species_tag_name?.[index] || '';
+      tabButton.setAttribute('data-interior-tag-name', tagName);
+    }
     
     tabButton.innerHTML = `
       ${imageUrl ? `
