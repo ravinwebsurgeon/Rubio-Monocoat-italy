@@ -179,6 +179,21 @@
             {% endfor %}
             <input type="hidden" class="variant-selector" id="variant-id" name="id" value="{{ card_product.selected_or_first_available_variant.id }}">
           </div>
+          <div class="meeta-fl">
+             {% if image %}
+           <span class="immmg">
+            
+                <img src="{{ image | img_url: '600x400' }}">
+                </span>
+              {% endif %}
+            
+            {% if text %}
+              <span class="mememe">
+                {{ text }}
+                </span>
+              {% endif %}
+           
+          </div>
               <!-- Embed JSON data per product -->
           <script type="application/json" class="product-json">
             {{ card_product | json }}
