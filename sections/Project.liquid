@@ -1367,7 +1367,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // -------------------------------
   // INTERIOR CLICK → show tabs + filter only
   interiorBtn?.addEventListener("click", function() {
-    const collectionHandle = "interior"; // or dynamically set handle
+    const collectionHandle = "interior";
     //renderTabs(collectionHandle)
     circleTabsOuter?.classList.add("show-section");
     filterBar?.classList.add("show-section");
@@ -1385,6 +1385,8 @@ document.addEventListener("DOMContentLoaded", function() {
        interiorSection.querySelectorAll(':scope > .circle-tabs-outer.show-section.interior, :scope > .tab-products-outer, :scope > li.product-item').forEach(el => {
          el.style.display = '';
      });
+     let tabs = document.querySelector('.circle-tabs-outer.show-section.interior')
+     tabs.style.display = 'block'
       let exteriorTabs = document.querySelector('.circle-tabs-outer.exterior')
       exteriorTabs.style.display='none'
        // Show ALL product items in interior section
