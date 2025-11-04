@@ -425,7 +425,7 @@ window.collectionDataCache['exterior-colors'] = {
   metafields: {
     species_titles: {{ exteriorCollection.metafields.custom.species_titles  }},
      species_images:[
-        {% for image_gid in exteriorCollection.metafields.custom.species_images %}
+        {% for image_gid in exteriorCollection.metafields.custom.species_images.value %}
           {% assign image = images[image_gid] %}
           "{{ image | img_url: '200x200' }}"{% unless forloop.last %},{% endunless %}
         {% endfor %}
