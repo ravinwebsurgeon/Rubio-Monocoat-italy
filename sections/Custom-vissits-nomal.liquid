@@ -240,14 +240,14 @@
     });
   });  {% endcomment %}
   $(document).ready(function () {
-  $(".faq-question1").on("click", function () {
-    const $item = $(this).closest(".faq-item1");
-    const $answer = $item.find(".faq-answer1");
-    $item.toggleClass("active");
-    $answer.stop(true, true).slideToggle(300);
-    $item.find(".faq-svg").toggleClass("rotated");
+    $(".faq-question1").on("click", function () {
+      const $item = $(this).closest(".faq-item1");
+      const $answer = $item.find(".faq-answer1");
+      $item.toggleClass("active");
+      $answer.stop(true, true).slideToggle(300);
+      $item.find(".faq-svg").toggleClass("rotated");
+    });
   });
-});
 </script>
 
 {% schema %}
