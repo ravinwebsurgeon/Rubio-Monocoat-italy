@@ -1,5 +1,5 @@
-{% assign meta_products = collection.metafields.custom.inspired_wooden_products.value %}
-{% assign meta_images = collection.metafields.custom.inspired_wooden_images.value %}
+{% assign meta_products = collection.metafields.custom.inspired_wooden_products.value | split: ',' %}
+{% assign meta_images = collection.metafields.custom.inspired_wooden_images.value | split: ',' %}
 
 <section class="asdf inspired-collage" data-show="{{ meta_products | json }}">
   <div class="container">
