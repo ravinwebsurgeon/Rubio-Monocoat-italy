@@ -1305,8 +1305,8 @@ document.addEventListener("DOMContentLoaded", function() {
   // -------------------------------
   // INTERIOR CLICK → show tabs + filter only
     interiorBtn?.addEventListener("click", function() {
-   // let produts_outer = document.querySelector('.tab-products-outer')
-    //produts_outer.style.display='block';
+    let produts_outer = document.querySelector('.tab-products-outer')
+    if(produts_outer){produts_outer.style.display='block';}
       const collectionHandle = "interior";
       renderTabs(collectionHandle)
       circleTabsOuter?.classList.add("show-section");
