@@ -1398,25 +1398,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // -------------------------------
   // INTERIOR CLICK → show tabs + filter only
-  interiorBtn?.addEventListener("click", function() {
-    const collectionHandle = "interior";
-    renderTabs(collectionHandle)
-    circleTabsOuter?.classList.add("show-section");
-    filterBar?.classList.add("show-section");
+    interiorBtn?.addEventListener("click", function() {
+      const collectionHandle = "interior";
+      renderTabs(collectionHandle)
+      circleTabsOuter?.classList.add("show-section");
+      filterBar?.classList.add("show-section");
 
-    // Hide product wrappers
-    tabProductsInterior?.classList.add("show-section");
-    tabProductsExterior?.classList.remove("show-section");
+      // Hide product wrappers
+      tabProductsInterior?.classList.add("show-section");
+      tabProductsExterior?.classList.remove("show-section");
 
-    // Remove active from exterior dropdown
-    exteriorToggle?.classList.remove("active");
-        document.querySelector('.exteriour_tabs_section').classList.remove('active');
-        document.querySelector('.interior_tabs_section').classList.add('active')
-        let interiorSection = document.querySelector('.interior_tabs_section')
-        interiorSection.style.display="block"
-       interiorSection.querySelectorAll(':scope > .circle-tabs-outer.show-section, :scope > .tab-products-outer, :scope > li.product-item').forEach(el => {
-         el.style.display = '';
-     });
+      // Remove active from exterior dropdown
+      exteriorToggle?.classList.remove("active");
+      document.querySelector('.exteriour_tabs_section').classList.remove('active');
+      document.querySelector('.interior_tabs_section').classList.add('active')
+      let interiorSection = document.querySelector('.interior_tabs_section')
+      interiorSection.style.display="block"
+      interiorSection.querySelectorAll(':scope > .circle-tabs-outer.show-section, :scope > .tab-products-outer, :scope > li.product-item').forEach(el => {
+        el.style.display = '';
+      });
       let exteriorTabs = document.querySelector('.circle-tabs-outer.exterior')
       exteriorTabs.style.display='none'
        // Show ALL product items in interior section
@@ -1424,18 +1424,18 @@ document.addEventListener("DOMContentLoaded", function() {
         item.style.display = 'block';
       });
 
-    {% comment %} tabs_outer.classList.remove('exterior') {% endcomment %}
-    surfaceOptions?.style.setProperty("display", "none");
-    surfaceOptions?.querySelectorAll(".surface-item").forEach(i => i.classList.remove("active"));
+      {% comment %} tabs_outer.classList.remove('exterior') {% endcomment %}
+      surfaceOptions?.style.setProperty("display", "none");
+      surfaceOptions?.querySelectorAll(".surface-item").forEach(i => i.classList.remove("active"));
 
-    // Remove active from circle tabs
-    circleTabs.forEach(t => t.classList.remove("active"));
+        // Remove active from circle tabs
+        circleTabs.forEach(t => t.classList.remove("active"));
 
-    // Mark Interior as active
-    interiorBtn.classList.add("active");
-    tabs_outer.classList.add('interior')
+        // Mark Interior as active
+        interiorBtn.classList.add("active");
+        tabs_outer.classList.add('interior')
     
-  });
+    });
 
   // -------------------------------
   // EXTERIOR CLICK → toggle dropdown
