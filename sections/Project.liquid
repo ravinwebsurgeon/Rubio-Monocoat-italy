@@ -1258,8 +1258,8 @@ document.addEventListener("DOMContentLoaded", function() {
         tabButton.setAttribute('data-collection-type', collectionType);
 
         if (collectionType === 'exterior') {
-          const h_tag = collectionData.species_h_tag_name?.[index] || '';
-          const v_tag = collectionData.species_v_tag_name?.[index] || '';
+          const h_tag = collectionData.species_tag_name?.[index] || '';
+          const v_tag = collectionData.species_vertical_tag_name?.[index] || '';
           tabButton.setAttribute('data-exterior-tag-name', h_tag);
           tabButton.setAttribute('data-exterior-v-tag-name', v_tag);
         } else {
