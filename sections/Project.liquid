@@ -1376,6 +1376,9 @@ document.addEventListener("DOMContentLoaded", function() {
       
         tabsContainer.appendChild(tabButton);
       });
+       // Make sure the tabs container is visible
+        const circleTabsOuter = document.querySelector('.circle-tabs-outer');
+        circleTabsOuter?.classList.add('show-section');
     }
 
   // Sections
