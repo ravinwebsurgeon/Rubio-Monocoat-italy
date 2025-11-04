@@ -418,6 +418,31 @@
   </div>
 </div>
 
+<script class="exterior-colors">
+{% assign exteriorCollection = collections['exterior-colors'] %}
+window.collectionDataCache = window.collectionDataCache || {};
+window.collectionDataCache['exterior-colors'] = {
+  metafields: {
+    species_titles: {{ exteriorCollection.metafields.custom.species_titles | json }},
+    species_images: {{ exteriorCollection.metafields.custom.species_images | json }},
+    species_tag_name: {{ exteriorCollection.metafields.custom.species_tag_name | json }},
+    species_vertical_tag_name: {{ exteriorCollection.metafields.custom.species_vertical_tag_name | json }}
+  }
+};
+</script>
+
+<script class="interior-colors">
+{% assign interiorCollection = collections['interior-colors'] %}
+window.collectionDataCache = window.collectionDataCache || {};
+window.collectionDataCache['interior-colors'] = {
+  metafields: {
+    species_titles: {{ interiorCollection.metafields.custom.species_titles | json }},
+    species_images: {{ interiorCollection.metafields.custom.species_images | json }},
+    species_tag_name: {{ interiorCollection.metafields.custom.species_tag_name | json }},
+    species_vertical_tag_name: {{ interiorCollection.metafields.custom.species_vertical_tag_name | json }}
+  }
+};
+</script>
 
 
 {% schema %}
@@ -1378,8 +1403,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // Remove active from circle tabs
     circleTabs.forEach(t => t.classList.remove("active"));
      const collectionHandle = "exterior-colors"; // or dynamically set handle
-     //const metafields = fetchCollectionMetafields(collectionHandle);
-    //renderExteriorTabs(metafields);
+     const metafields = window.collectionDataCache?.['exterior-colors']?.metafields || {};
+      console.log('Loaded metafields:', metafields);
   });
 
   // -------------------------------
