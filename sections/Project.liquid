@@ -457,8 +457,7 @@ window.collectionDataCache['interior-colors'] = {
       {% endfor %}
     ],
     species_images: [
-      {% for image_gid in interiorCollection.metafields.custom.species_images.value %}
-        {% assign image = images[image_gid] %}
+      {% for image in interiorCollection.metafields.custom.species_images.value %}
         '{{ image | img_url: '200x200' }}'{% unless forloop.last %},{% endunless %}
       {% endfor %}
     ],
