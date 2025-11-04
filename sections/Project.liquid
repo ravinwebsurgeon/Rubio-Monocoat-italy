@@ -1439,8 +1439,8 @@ document.addEventListener("click", function(e) {
       tabProductsInterior?.classList.add("show-section");
       tabProductsExterior?.classList.remove("show-section");
       let interiorSection = document.querySelector('.interior_tabs_section')
-     interiorSection.querySelectorAll('.product-item').forEach(item => {
-        item.style.display = 'block';
+       interiorSection.querySelectorAll('.product-item').forEach(item => {
+        item.style.display = 'block !important';
       });
     } else if (surfaceOptions?.querySelector(".surface-item.active")) {
       tabProductsExterior?.classList.add("show-section");
