@@ -1348,8 +1348,8 @@ document.addEventListener("DOMContentLoaded", function() {
   exteriorToggle?.addEventListener("click", function(e) {
     e.stopPropagation();
     const isActive = this.classList.contains("active");
-     let tabs_outer = document.querySelector('.circle-tabs-outer')
-     tabs_outer.classList.add('exterior') 
+    {% comment %} let tabs_outer = document.querySelector('.circle-tabs-outer') {% endcomment %}
+    {% comment %} tabs_outer.classList.add('exterior') {% endcomment %}
     // Close all dropdowns first
     document.querySelectorAll(".surface-options").forEach(opt => opt.style.display = "none");
     document.querySelectorAll(".surface-toggle").forEach(el => el.classList.remove("active"));
@@ -2387,13 +2387,12 @@ li.product-item {
 }
 
 {% comment %} test {% endcomment %}
-{% comment %}
  .circle-tabs-section.interior_tabs_section .filter-bar.active {
     margin-bottom: -50px;
     position: relative;
     top: 315px;
 }
-{% endcomment %}
+
 .tab-products-wrap.Exterior-wrap.active{
     margin-top: 150px;
 }
