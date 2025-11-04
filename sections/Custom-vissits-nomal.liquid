@@ -223,7 +223,7 @@
 </style>
 
 <script>
- document.addEventListener("DOMContentLoaded", function() {
+ {% comment %} document.addEventListener("DOMContentLoaded", function() {
     const faqItems = document.querySelectorAll(".faq-item1");
 
     faqItems.forEach(item => {
@@ -238,8 +238,8 @@
         }
       });
     });
-  }); 
-  {% comment %} $(document).ready(function () {
+  });  {% endcomment %}
+  $(document).ready(function () {
   $(".faq-question1").on("click", function () {
     const $item = $(this).closest(".faq-item1");
     const $answer = $item.find(".faq-answer1");
@@ -253,7 +253,7 @@
     // Optionally rotate the single arrow SVG
     $item.find(".faq-svg").toggleClass("rotated");
   });
-}); {% endcomment %}
+});
 </script>
 
 {% schema %}
