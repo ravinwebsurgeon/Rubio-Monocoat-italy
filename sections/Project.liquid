@@ -1514,7 +1514,10 @@ document.addEventListener("click", function(e) {
         selectedTags = [interiorTag];
       }
     }
- 
+  console.log('Active Tab:', activeTab?.dataset);
+console.log('Parent:', parent);
+console.log('Selected Tags:', selectedTags);
+console.log('Surface:', surface);
     products.forEach(product => {
       const productParent = product.closest('.Exterior-wrap, .Interior-wrap');
       const productParentClass = productParent?.classList.contains('Exterior-wrap')
