@@ -1348,8 +1348,10 @@ document.addEventListener("DOMContentLoaded", function() {
   exteriorToggle?.addEventListener("click", function(e) {
     e.stopPropagation();
     const isActive = this.classList.contains("active");
-    {% comment %} tabs_outer.classList.add('exterior') {% endcomment %}
     // Close all dropdowns first
+        let tabs_outer = document.querySelector('.circle-tabs-outer') 
+    tabs_outer.display='block'
+    tabs_outer.classList.add('exterior')
     document.querySelectorAll(".surface-options").forEach(opt => opt.style.display = "none");
     document.querySelectorAll(".surface-toggle").forEach(el => el.classList.remove("active"));
     document.querySelector('.exteriour_tabs_section').classList.add('active');
@@ -1373,8 +1375,7 @@ document.addEventListener("DOMContentLoaded", function() {
     filterBar?.classList.remove("show-section");
     tabProductsInterior?.classList.remove("show-section");
     tabProductsExterior?.classList.add("show-section");
-    let tabs_outer = document.querySelector('.circle-tabs-outer') 
-    tabs_outer.display='block'
+
     let exteriorSection = document.querySelector('.exteriour_tabs_section')
     exteriorSection.style.display = "block";
     exteriorSection.querySelectorAll(':scope > li.product-item').forEach(el => {
