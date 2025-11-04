@@ -424,7 +424,12 @@ window.collectionDataCache = window.collectionDataCache || {};
 window.collectionDataCache['exterior-colors'] = {
   metafields: {
     species_titles: {{ exteriorCollection.metafields.custom.species_titles  }},
-    species_images: {{ exteriorCollection.metafields.custom.species_images  }},
+     species_images:[
+        {% for image_gid in exteriorCollection.metafields.custom.species_images %}
+          {% assign image = images[image_gid] %}
+          "{{ image | img_url: '200x200' }}"{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
     species_tag_name: {{ exteriorCollection.metafields.custom.species_tag_name  }},
     species_vertical_tag_name: {{ exteriorCollection.metafields.custom.species_vertical_tag_name }}
   }
