@@ -1357,7 +1357,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelector('.interior_tabs_section').classList.remove('active')
 
       const section = document.querySelector('.interior_tabs_section');
-      section.querySelectorAll(':scope > *:not(.filter-bar), :scope > *not(.circle-tabs-outer)').forEach(el => {
+      section.querySelectorAll(':scope > *:not(.filter-bar)').forEach(el => {
         el.style.display = 'none';
       });
       section.querySelector('.filter-bar').style.display = 'flex';
