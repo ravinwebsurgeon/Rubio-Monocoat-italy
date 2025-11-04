@@ -1303,7 +1303,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <script>
 document.addEventListener("DOMContentLoaded", function() {
    function renderTabs(collectionType) {
-  const tabsContainer = document.querySelector('.circle-tabs-outer .tabs-container');
+  const tabsContainer = document.querySelector('.circle-tabs-outer .circle-tabs');
   const collectionData = window.collectionDataCache?.[`${collectionType}-colors`]?.metafields;
   
   if (!collectionData || !tabsContainer) return;
