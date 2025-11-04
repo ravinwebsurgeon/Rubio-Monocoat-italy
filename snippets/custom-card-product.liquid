@@ -242,3 +242,85 @@
 }
 
 </style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".product-card-wrapper").forEach(card => {
+    const variantInput = card.querySelector(".variant-selector");
+    const colorSwatches = card.querySelectorAll(".color-swatch-input");
+    const selects = card.querySelectorAll(".option-variant-selector");
+    const productJsonEl = card.querySelector(".product-json");
+    const addToCartBtn = card.querySelector(".product_cart_btn");
+    
+    if (!productJsonEl) return;
+    const productData = JSON.parse(productJsonEl.textContent);
+
+    // Handle color swatch selection
+    colorSwatches.forEach(swatch => {
+      swatch.addEventListener("change", () => {
+        const selectedOptions = getSelectedOptions(card);
+        const matchedVariant = findVariant(productData, selectedOptions);
+        if (matchedVariant) {
+          variantInput.value = matchedVariant.id;
+        }
+      });
+    });
+
+    // Handle dropdown variant change
+    selects.forEach(select => {
+      select.addEventListener("change", () => {
+        const selectedOptions = getSelectedOptions(card);
+        const matchedVariant = findVariant(productData, selectedOptions);
+        if (matchedVariant) {
+          variantInput.value = matchedVariant.id;
+        }
+      });
+    });
+
+    // Handle Add to Cart
+    if (addToCartBtn) {
+      addToCartBtn.addEventListener("click", async e => {
+        e.preventDefault();
+        const variantId = variantInput.value;
+        const body = JSON.stringify({ items: [{ id: variantId, quantity: 1 }] });
+
+        addToCartBtn.disabled = true;
+        addToCartBtn.textContent = "Adding...";
+
+        const res = await fetch("/cart/add.js", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body
+        });
+
+        addToCartBtn.disabled = false;
+        addToCartBtn.textContent = "Add Into Cart";
+
+        if (res.ok) {
+          document.dispatchEvent(new CustomEvent("cart:refresh"));
+        } else {
+          alert("Failed to add to cart. Please try again.");
+        }
+      });
+    }
+
+    // Utility functions
+    function getSelectedOptions(wrapper) {
+      const options = [];
+      wrapper.querySelectorAll(".pro_variant_options").forEach(group => {
+        const colorInput = group.querySelector(".color-swatch-input:checked");
+        const selectInput = group.querySelector("select");
+        if (colorInput) options.push(colorInput.value);
+        else if (selectInput) options.push(selectInput.value);
+      });
+      return options;
+    }
+
+    function findVariant(product, selectedOptions) {
+      return product.variants.find(variant => {
+        return JSON.stringify(variant.options) === JSON.stringify(selectedOptions);
+      });
+    }
+  });
+});
+</script>
