@@ -1302,7 +1302,39 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  
+    function renderExteriorTabs(metafields) {
+    const getValue = key => metafields.find(f => f.key === key)?.value || "";
+
+    const titles = JSON.parse(getValue("species_titles") || "[]");
+    const images = JSON.parse(getValue("species_images") || "[]");
+    const verticalTags = JSON.parse(getValue("species_vertical_tag_name") || "[]");
+    const horizontalTags = JSON.parse(getValue("species_tag_name") || "[]");
+
+    let html = "";
+
+    images.forEach((image, index) => {
+      const title = titles[index] || "";
+      const vTag = verticalTags[index] || "";
+      const hTag = horizontalTags[index] || "";
+
+      html += `
+        <button 
+          class="circle-tab"
+          data-tab="tab-${index}"
+          data-exterior-v-tag-name="${vTag}"
+          data-exterior-tag-name="${hTag}"
+        >
+          ${image ? `
+            <span class="circle-tab-img">
+              <img src="${image}" alt="${title}" width="200" height="200">
+            </span>` : ""}
+          <span>${title}</span>
+        </button>
+      `;
+    });
+
+    circleTabsContainer.innerHTML = html;
+  }
 
   // Sections
   const circleTabsOuter = document.querySelector(".circle-tabs-outer");
@@ -1405,6 +1437,7 @@ document.addEventListener("DOMContentLoaded", function() {
      const collectionHandle = "exterior-colors"; // or dynamically set handle
      const metafields = window.collectionDataCache?.['exterior-colors']?.metafields || {};
       console.log('Loaded metafields:', metafields);
+      renderExteriorTabs(metafields)
   });
 
   // -------------------------------
