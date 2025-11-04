@@ -1368,7 +1368,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // INTERIOR CLICK → show tabs + filter only
   interiorBtn?.addEventListener("click", function() {
     const collectionHandle = "interior"; // or dynamically set handle
-    renderTabs(collectionHandle)
+    //renderTabs(collectionHandle)
     circleTabsOuter?.classList.add("show-section");
     filterBar?.classList.add("show-section");
 
@@ -1451,7 +1451,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Remove active from circle tabs
     circleTabs.forEach(t => t.classList.remove("active"));
      const collectionHandle = "exterior"; // or dynamically set handle
-      renderTabs(collectionHandle)
+      //renderTabs(collectionHandle)
   });
 
   // -------------------------------
