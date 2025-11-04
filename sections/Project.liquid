@@ -442,13 +442,12 @@ window.collectionDataCache = window.collectionDataCache || {};
 window.collectionDataCache['interior-colors'] = {
   metafields: {
     species_titles: {{ interiorCollection.metafields.custom.species_titles  }},
-    species_images:{{ interiorCollection.metafields.custom.species_images }}
-     {% comment %}species_images:[
-        {% for image_gid in interiorCollection.metafields.custom.species_images %}
+    species_images:[
+        {% for image_gid in interiorCollection.metafields.custom.species_images.value %}
           {% assign image = images[image_gid] %}
           "{{ image | img_url: '200x200' }}"{% unless forloop.last %},{% endunless %}
         {% endfor %}
-      ],{% endcomment %}
+      ],
     species_tag_name: {{ interiorCollection.metafields.custom.species_tag_name  }},
     species_vertical_tag_name: {{ interiorCollection.metafields.custom.species_vertical_tag_name  }}
   }
