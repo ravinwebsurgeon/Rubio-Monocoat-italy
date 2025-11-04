@@ -1,5 +1,6 @@
 {% assign meta_products = collection.metafields.custom.inspired_wooden_products.value %}
 {% assign meta_images = collection.metafields.custom.inspired_wooden_images.value %}
+{% assign meta_heading = collection.metafields.custom.inspired_wooden_heading.value %}
 
 <section class="asdf inspired-collage" data-show="{{ meta_products | json }}">
   <div class="container">
@@ -8,7 +9,7 @@
       <p>{{ section.settings.subheading }}</p>
     </div>
     <div class="collage-grid">
-     {% comment %} {% for block in section.blocks %}
+      {% for block in section.blocks %}
         {% assign product = block.settings.product %}
         {% if product %}
           <div class="collage-item {% if forloop.first %}large{% else %}small{% endif %}" style="background-image: url('{{ block.settings.background_image | img_url: 'master' }}')">
@@ -25,7 +26,7 @@
           </div>
         {% endif %}
       {% endfor %}
-{% endcomment %}
+{% comment %}
 
       {% for image in meta_images %}
         {% assign handle = meta_products[forloop.index0] %}
@@ -50,6 +51,7 @@
           </div>
         {% endif %}
       {% endfor %}
+{% endcomment %}
 
 
     </div>
