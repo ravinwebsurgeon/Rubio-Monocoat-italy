@@ -23,7 +23,7 @@
           <span>{{ block.settings.tab_name }}</span>
         </button>
       {% endfor %} {% endcomment %}
-         
+         {% comment %} 
        {% for image in tab_images %}
       {% assign index = forloop.index0 %}
       {% assign title = tab_titles[index] %}
@@ -48,7 +48,7 @@
         <span>{{ title }}</span>
       </button>
     {% endfor %}
-
+ {% endcomment %}
     </div>
   </div> 
     <!-- Filter bar with slider -->
