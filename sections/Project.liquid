@@ -1383,7 +1383,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector('.interior_tabs_section').classList.add('active')
         let interiorSection = document.querySelector('.interior_tabs_section')
         interiorSection.style.display="block"
-       interiorSection.querySelectorAll(':scope > .circle-tabs-outer.show-section interior, :scope > .tab-products-outer, :scope > li.product-item').forEach(el => {
+       interiorSection.querySelectorAll(':scope > .circle-tabs-outer.show-section.interior, :scope > .tab-products-outer, :scope > li.product-item').forEach(el => {
          el.style.display = '';
      });
       let exteriorTabs = document.querySelector('.circle-tabs-outer.exterior')
