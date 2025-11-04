@@ -547,32 +547,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <script>
 //available sample script
-document.addEventListener('DOMContentLoaded', () => {
-  const checkbox = document.getElementById('available-filter');
- 
-  if (!checkbox) return;
- 
-  checkbox.addEventListener('change', () => {
-    const showOnlyAvailable = checkbox.checked;
-    const products = document.querySelectorAll('.product-item');
- 
-    products.forEach(product => {
-      const isAvailable = product.getAttribute('data-available') === 'true';
-     
-      if (showOnlyAvailable) {
-        // show only available products
-        if (isAvailable) {
-          product.style.display = '';
-        } else {
-          product.style.display = 'none';
-        }
-      } else {
-        // show all products again
-        product.style.display = '';
-      }
-    });
-  });
-});
 
  {% comment %} document.addEventListener('DOMContentLoaded', function () {
   const exteriorSection = document.querySelector('.circle-tabs-section.exteriour_tabs_section');
@@ -1437,13 +1411,13 @@ document.addEventListener("click", function(e) {
     circleTab.classList.add("active");
     
     // Determine which wrapper to show
-   // if (interiorBtn?.classList.contains("active")) {
-    //  tabProductsInterior?.classList.add("show-section");
-   //   tabProductsExterior?.classList.remove("show-section");
-   // } else if (surfaceOptions?.querySelector(".surface-item.active")) {
-   //   tabProductsExterior?.classList.add("show-section");
-   //   tabProductsInterior?.classList.remove("show-section");
-   // }
+    if (interiorBtn?.classList.contains("active")) {
+      tabProductsInterior?.classList.add("show-section");
+      tabProductsExterior?.classList.remove("show-section");
+    } else if (surfaceOptions?.querySelector(".surface-item.active")) {
+      tabProductsExterior?.classList.add("show-section");
+      tabProductsInterior?.classList.remove("show-section");
+    }
 
     // Do NOT close the exterior dropdown
     // surfaceOptions.style.display = "flex"; // already open
