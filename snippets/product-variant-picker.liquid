@@ -93,10 +93,7 @@
     {% endif %}
   </div>
   </div>
-<div class="product-description">
-  {{ product.description }}
 
-</div>
 
 
 
@@ -122,6 +119,10 @@ if (actionBtn && suitedSection) {
 }
 
   </script>
+  <div class="product-description">
+  {{ product.description }}
+
+</div>
 {% endif %}
     
     {% render 'product-variant-options',
