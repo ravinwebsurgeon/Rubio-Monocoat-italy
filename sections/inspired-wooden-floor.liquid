@@ -310,14 +310,9 @@ document.addEventListener("DOMContentLoaded", function(){
   });
 
 //Add via ajax
-  document.querySelectorAll('.ajax_add_cart').forEach(function (button) {
+  let button  = document.querySelectorAll('.ajax_add_cart')
         button.addEventListener('click', function () {
             const variantId = button.dataset.variantId;
-
-            if (!variantId) {
-                alert("Please select a variant.");
-                return;
-            }
 
             fetch('/cart/add.js', {
                 method: 'POST',
@@ -341,8 +336,8 @@ document.addEventListener("DOMContentLoaded", function(){
                 alert("Something went wrong.");
             });
         });
-    });
-});
+       });
+
 
 function updateCartCount(totalQuantityAdded) {
   const cartCounts = document.querySelectorAll('.cart-count-bubble > span');
@@ -383,9 +378,6 @@ function refreshCartDrawer() {
     })
     .catch((error) => { console.error('Error refreshing cart drawer:', error); });
 }
-
-
-
 });
 
 
