@@ -194,3 +194,51 @@
     </div>
   </div>
 {%- endif -%}
+<style>
+  .color-swatch-group {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.color-swatch {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.color-swatch:hover {
+  transform: scale(1.1);
+  border-color: #000;
+}
+
+.color-swatch-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.color-swatch-input:checked + .swatch-checkmark::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #000;
+}
+
+.swatch-checkmark::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: transparent;
+}
+
+</style>
