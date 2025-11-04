@@ -1348,8 +1348,8 @@ document.addEventListener("DOMContentLoaded", function() {
   exteriorToggle?.addEventListener("click", function(e) {
     e.stopPropagation();
     const isActive = this.classList.contains("active");
-    {% comment %} let tabs_outer = document.querySelector('.circle-tabs-outer') {% endcomment %}
-    {% comment %} tabs_outer.classList.add('exterior') {% endcomment %}
+     let tabs_outer = document.querySelector('.circle-tabs-outer')
+     tabs_outer.classList.add('exterior') 
     // Close all dropdowns first
     document.querySelectorAll(".surface-options").forEach(opt => opt.style.display = "none");
     document.querySelectorAll(".surface-toggle").forEach(el => el.classList.remove("active"));
@@ -1357,7 +1357,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelector('.interior_tabs_section').classList.remove('active')
 
       const section = document.querySelector('.interior_tabs_section');
-      section.querySelectorAll(':scope > *:not(.filter-bar)').forEach(el => {
+      section.querySelectorAll(':scope > *:not(.filter-bar), :scope > *not(.circle-tabs-outer)').forEach(el => {
         el.style.display = 'none';
       });
       section.querySelector('.filter-bar').style.display = 'flex';
