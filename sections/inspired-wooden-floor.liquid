@@ -325,11 +325,6 @@ document.addEventListener('click', function(e) {
 function handleAddToCart(button) {
   const variantId = button.dataset.variantId;
 
-  if (!variantId) {
-    alert("Please select a variant.");
-    return;
-  }
-
   // Show loading state
   const originalText = button.textContent;
   button.textContent = 'Adding...';
@@ -350,7 +345,7 @@ function handleAddToCart(button) {
   .then(data => {
     console.log('Added to cart:', data);
     button.textContent = 'Added!';
-    updateCartCount();
+    updateCartCount(1);
     refreshCartDrawer();
     
     setTimeout(() => {
