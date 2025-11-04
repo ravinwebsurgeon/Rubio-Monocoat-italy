@@ -1301,7 +1301,11 @@ document.addEventListener("DOMContentLoaded", function() {
   interiorBtn?.addEventListener("click", function() {
     circleTabsOuter?.classList.add("show-section");
     filterBar?.classList.add("show-section");
-
+    let interiorSection = document.querySelector('.interior_tabs_section')
+        interiorSection.style.display="block"
+       interiorSection.querySelectorAll(' :scope > .tab-products-outer , :scope > .tab-products').forEach(el => {
+         el.style.display = 'block';
+     });
     // Hide product wrappers
     tabProductsInterior?.classList.remove("show-section");
     tabProductsExterior?.classList.remove("show-section");
