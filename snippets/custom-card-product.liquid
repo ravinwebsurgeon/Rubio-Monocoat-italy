@@ -179,8 +179,8 @@
             {% endfor %}
             <input type="hidden" class="variant-selector" id="variant-id" name="id" value="{{ card_product.selected_or_first_available_variant.id }}">
           </div>
-           {% assign imagesd = collection.metafields.custom.product_iconss.value %}
-    {% assign textsd = collection.metafields.custom.product_textss.value %}
+           {% assign imagesd = card_product..metafields.custom.product_iconss.value %}
+    {% assign textsd = card_product..metafields.custom.product_textss.value %}
      {% if imagesd and textsd %}
       {% for image in imagesd %}
         {% assign texts = textsd[forloop.index0] %}
