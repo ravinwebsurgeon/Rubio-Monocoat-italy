@@ -1382,7 +1382,11 @@ document.addEventListener("DOMContentLoaded", function() {
     exteriorSection.querySelectorAll(':scope > li.product-item').forEach(el => {
          el.style.display = '';
      });
- 
+      let productWraper = document.querySelector('.tab-products-wrap.Exterior-wrap.active')
+      // Show ALL product items in exterior section
+      productWraper.querySelectorAll('.product-item').forEach(item => {
+        item.style.display = 'block';
+      });
       let exteriorTabs = document.querySelector('.circle-tabs-outer.exterior')
       exteriorTabs.style.display='block'
     // Remove active from circle tabs
