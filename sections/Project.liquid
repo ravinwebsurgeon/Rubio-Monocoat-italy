@@ -1468,45 +1468,103 @@ document.addEventListener("click", function(e) {
 });
  /* circle tabs */
   function showproducts() {
-    const products = document.querySelectorAll('.product-item'); 
-    const activeTab = document.querySelector('.circle-tab.active');
-    console.log(activeTab,'asasa')
-    if (!activeTab) return;
-    const btnparentClasses = activeTab.parentNode.parentNode.classList;
-    let parent = '';
-    if (btnparentClasses.contains('exterior')) {
-        parent = 'exterior';
-    } else if (btnparentClasses.contains('interior')) {
-        parent = 'interior';
-    }
-    {% comment %} let selectedTag = activeTab.textContent.trim().toLowerCase(); {% endcomment %}
-     if (parent === 'exterior') {
-      selectedTag = activeTab.dataset.exteriorTagName?.trim().toLowerCase() || '';
-    } else if (parent === 'interior') {
-      selectedTag = activeTab.dataset.interiorTagName?.trim().toLowerCase() || '';
-    }
+  console.log('called???')
+  const checkbox = document.getElementById('available-filter');
 
-    products.forEach(product => {
-        let productParent = product.parentNode.parentNode.parentNode;
-        let productParentclass = '';
-        
-        if(productParent.classList.contains('Exterior-wrap')) { 
-            productParentclass = 'exterior';
-        } else if(productParent.classList.contains('Interior-wrap')) { 
-            productParentclass = 'interior';
-        }
-        
-        const productTags = product.dataset.tags.split(',').map(tag => tag.trim().toLowerCase());
-        {% comment %} const matchPattern = `${parent}_${selectedTag}`; {% endcomment %}
-        {% comment %} const matches = productTags.some(tag => tag.includes(matchPattern)); {% endcomment %}
-        if (productParentclass == parent && productTags.includes(selectedTag)) {
-            product.style.display = 'block';
+    const products = document.querySelectorAll('.product-item');
+    const activeTab = document.querySelector('.circle-tab.active');
+    const surfaceItem = document.querySelector('.surface-item.active');
+ 
+    let productWrap = document.querySelector('.tab-products-wrap.exterior-wrap');
+    let InteriorProductWrap = document.querySelector('.tab-products-wrap.Interior-wrap');
+ 
+    let surface = '';
+    if (surfaceItem?.classList.contains('vertical')) {
+      surface = 'vertical';
+    } else if (surfaceItem?.classList.contains('horizontal')) {
+      surface = 'horizontal';
+    }
+ 
+    const showOnlyAvailable = checkbox?.checked === true;
+ 
+    let parent = '';
+    let selectedTags = [];
+ 
+    if (activeTab) {
+      const btnParentClasses = activeTab.parentNode.parentNode.classList;
+ 
+      if (btnParentClasses.contains('exterior')) {
+        parent = 'exterior';
+      } else if (btnParentClasses.contains('interior')) {
+        parent = 'interior';
+      }
+ 
+      if (parent === 'exterior') {
+        let exteriorMainTag = activeTab.dataset.exteriorTagName?.trim().toLowerCase() || '';
+        let exteriorVerticalTag = activeTab.dataset.exteriorVTagName?.trim().toLowerCase() || '';
+ 
+        // ✅ Use vertical tag if surface = vertical, otherwise main tag
+        if (surface === 'vertical') {
+          selectedTags = [exteriorVerticalTag].filter(Boolean);
         } else {
-            product.style.display = 'none';
-            {% comment %}productParent.querySelector("h4").style.display = 'none'; {% endcomment %}
+          selectedTags = [exteriorMainTag].filter(Boolean);
         }
+      } else if (parent === 'interior') {
+        const interiorTag = activeTab.dataset.interiorTagName?.trim().toLowerCase() || '';
+        selectedTags = [interiorTag];
+      }
+    }
+ 
+    products.forEach(product => {
+      const productParent = product.closest('.Exterior-wrap, .Interior-wrap');
+      const productParentClass = productParent?.classList.contains('Exterior-wrap')
+        ? 'exterior'
+        : productParent?.classList.contains('Interior-wrap')
+          ? 'interior'
+          : '';
+ 
+      const productTags = product.dataset.tags
+        ?.split(',')
+        .map(tag => tag.trim().toLowerCase()) || [];
+ 
+      const hasMatchingTag = selectedTags.length > 0
+        ? selectedTags.some(tag => productTags.includes(tag))
+        : true; 
+ 
+      const isAvailable = product.dataset.available === 'true' || product.dataset.available === true;
+ 
+      // ✅ Main filtering logic
+      let shouldShow = false;
+ 
+      if (!activeTab) {
+        // No circle tab selected
+        shouldShow = !showOnlyAvailable || isAvailable;
+      } else {
+        // Tab + surface + availability combined filter
+        shouldShow = (productParentClass === parent) && hasMatchingTag && (!showOnlyAvailable || isAvailable);
+      }
+      if (shouldShow) {
+        const imgWrapper = product.querySelector('.product-image-wrapper');
+        const activeTabText = activeTab?.textContent?.trim().toLowerCase();
+ 
+        if (imgWrapper && activeTabText) {
+          const image = imgWrapper?.dataset[activeTabText];
+          if (image) {
+            if (parent === 'interior') {
+              const coverImg = imgWrapper.querySelector('img.cover-image');
+              if (coverImg) coverImg.src = image;
+            } else if (parent === 'exterior') {
+              const featImg = imgWrapper.querySelector('img.featured-image');
+              if (featImg) featImg.src = image;
+            }
+          }
+        }
+        product.style.display = 'block';
+      } else {
+        product.style.display = 'none';
+      }
     });
-}
+  }
  
 document.addEventListener('DOMContentLoaded', function() {
 
