@@ -1362,7 +1362,13 @@ document.addEventListener("DOMContentLoaded", function() {
     circleTabsOuter?.classList.remove("show-section");
     filterBar?.classList.remove("show-section");
     tabProductsInterior?.classList.remove("show-section");
-    tabProductsExterior?.classList.remove("show-section");
+    tabProductsExterior?.classList.add("show-section");
+
+    let exteriorSection = document.querySelector('.exteriour_tabs_section')
+          // Show ALL product items in interior section
+      exteriorSection.querySelectorAll('.product-item').forEach(item => {
+        item.style.display = 'block';
+      });
 
     // Remove active from circle tabs
     circleTabs.forEach(t => t.classList.remove("active"));
