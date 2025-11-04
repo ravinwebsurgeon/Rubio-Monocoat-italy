@@ -797,10 +797,12 @@ gap: 21px;
   .all-products .product-grid,.preparation-collection .grid{
     grid-template-columns: repeat(2, 1fr);
   }
-  
+  .preparation-collection.page-width {
+    padding: 0 20px;
+  }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .all-products .product-grid,.preparation-collection .grid {
     grid-template-columns: 1fr;
   }
