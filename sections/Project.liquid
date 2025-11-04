@@ -1346,51 +1346,62 @@ document.addEventListener("DOMContentLoaded", function() {
   // -------------------------------
   // EXTERIOR CLICK → toggle dropdown
   exteriorToggle?.addEventListener("click", function(e) {
-    e.stopPropagation();
-    const isActive = this.classList.contains("active");
-    {% comment %} let tabs_outer = document.querySelector('.circle-tabs-outer') {% endcomment %}
-    {% comment %} tabs_outer.classList.add('exterior') {% endcomment %}
-    // Close all dropdowns first
-    document.querySelectorAll(".surface-options").forEach(opt => opt.style.display = "none");
-    document.querySelectorAll(".surface-toggle").forEach(el => el.classList.remove("active"));
-    document.querySelector('.exteriour_tabs_section').classList.add('active');
-    document.querySelector('.interior_tabs_section').classList.remove('active')
+  e.stopPropagation();
+  const isActive = this.classList.contains("active");
+  
+  // Close all dropdowns first
+  document.querySelectorAll(".surface-options").forEach(opt => opt.style.display = "none");
+  document.querySelectorAll(".surface-toggle").forEach(el => el.classList.remove("active"));
+  document.querySelector('.exteriour_tabs_section').classList.add('active');
+  document.querySelector('.interior_tabs_section').classList.remove('active');
 
-      const section = document.querySelector('.interior_tabs_section');
-      section.querySelectorAll(':scope > *:not(.filter-bar)').forEach(el => {
-        el.style.display = 'none';
-      });
-      section.querySelector('.filter-bar').style.display = 'flex';
-    if (!isActive) {
-      surfaceOptions?.style.setProperty("display", "flex");
-      this.classList.add("active");
-    }
+  const section = document.querySelector('.interior_tabs_section');
+  section.querySelectorAll(':scope > *:not(.filter-bar)').forEach(el => {
+    el.style.display = 'none';
+  });
+  section.querySelector('.filter-bar').style.display = 'flex';
+  
+  if (!isActive) {
+    surfaceOptions?.style.setProperty("display", "flex");
+    this.classList.add("active");
+  }
 
-    // Remove active from Interior
-    interiorBtn?.classList.remove("active");
-    tabs_outer.classList.remove('interior')
-    // Hide circle tabs + filter until a surface is selected
+  // Remove active from Interior
+  interiorBtn?.classList.remove("active");
+  tabs_outer.classList.remove('interior');
+  
+  // Show/hide appropriate sections
+  if (this.classList.contains("active")) {
+    circleTabsOuter?.classList.add("show-section");
+    filterBar?.classList.add("show-section");
+    tabProductsExterior?.classList.add("show-section");
+  } else {
     circleTabsOuter?.classList.remove("show-section");
     filterBar?.classList.remove("show-section");
-    tabProductsInterior?.classList.remove("show-section");
-    tabProductsExterior?.classList.add("show-section");
+    tabProductsExterior?.classList.remove("show-section");
+  }
+  
+  tabProductsInterior?.classList.remove("show-section");
 
-    let exteriorSection = document.querySelector('.exteriour_tabs_section')
-    exteriorSection.style.display = "block";
-    exteriorSection.querySelectorAll(':scope > li.product-item').forEach(el => {
-         el.style.display = '';
-     });
-          // Show ALL product items in exterior section
-      exteriorSection.querySelectorAll('.product-item').forEach(item => {
-        item.style.display = 'block';
-      });
- let exteriorTabs = document.querySelector('.circle-tabs-outer.exterior')
-      exteriorTabs.style.display='block'
-    // Remove active from circle tabs
-    circleTabs.forEach(t => t.classList.remove("active"));
-     const collectionHandle = "exterior"; // or dynamically set handle
-      renderTabs(collectionHandle)
+  let exteriorSection = document.querySelector('.exteriour_tabs_section');
+  exteriorSection.style.display = "block";
+  exteriorSection.querySelectorAll(':scope > li.product-item').forEach(el => {
+    el.style.display = '';
   });
+  
+  exteriorSection.querySelectorAll('.product-item').forEach(item => {
+    item.style.display = 'block';
+  });
+  
+  let exteriorTabs = document.querySelector('.circle-tabs-outer.exterior');
+  exteriorTabs.style.display = 'block';
+  
+  // Remove active from circle tabs
+  document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove("active"));
+  
+  const collectionHandle = "exterior";
+  renderTabs(collectionHandle);
+});
 
   // -------------------------------
   // SURFACE ITEM CLICK → show tabs + filter only
