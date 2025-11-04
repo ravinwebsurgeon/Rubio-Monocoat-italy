@@ -1384,7 +1384,7 @@ document.addEventListener("DOMContentLoaded", function() {
      });
      console.log(exteriorSection,'exteriorSection')
       // Show ALL product items in exterior section
-      exteriorSection.querySelectorAll('.product-item').forEach(item => {
+      document.querySelectorAll('.tab-products-wrap.Exterior-wrap.active > .product-item').forEach(item => {
         item.style.display = 'block';
       });
       let exteriorTabs = document.querySelector('.circle-tabs-outer.exterior')
