@@ -179,25 +179,26 @@
             {% endfor %}
             <input type="hidden" class="variant-selector" id="variant-id" name="id" value="{{ card_product.selected_or_first_available_variant.id }}">
           </div>
-  {% assign imagesd = collection.metafields.custom.product_iconss.value %}
-{% assign textsd = collection.metafields.custom.product_textss.value %}
+  {% for product in collection.products %}
+  {% assign icons = product.metafields.custom.product_iconss.value %}
+  {% assign texts = product.metafields.custom.product_textss.value %}
 
-{% if imagesd and textsd %}
-  {% assign texts_array = textsd | split: '•' %}
-  {% for image in imagesd %}
-    {% assign current_text = texts_array[forloop.index0] | strip %}
-    <div class="meeta-fl">
-      {% if image %}
-        <span class="immmg">
-          <img src="{{ image | img_url: '600x400' }}" alt="icon">
-        </span>
-      {% endif %}
-      {% if current_text %}
-        <span class="mememe">{{ current_text }}</span>
-      {% endif %}
-    </div>
-  {% endfor %}
-{% endif %}
+  {% if icons and texts %}
+    {% for icon in icons %}
+      {% assign label = texts[forloop.index0] %}
+      <div class="meeta-fl">
+        {% if icon %}
+          <span class="immmg">
+            <img src="{{ icon | image_url: width: 600 }}" alt="{{ label | escape }}">
+          </span>
+        {% endif %}
+        {% if label %}
+          <span class="mememe">{{ label }}</span>
+        {% endif %}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endfor %}
 
               <!-- Embed JSON data per product -->
           <script type="application/json" class="product-json">
