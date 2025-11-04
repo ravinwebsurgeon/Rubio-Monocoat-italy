@@ -288,12 +288,12 @@ document.addEventListener("DOMContentLoaded", function(){
             <img src="${product.images[0]}" alt="${product.title}">
             <h3>${product.title}</h3>
             <p>${product.body_html}</p>
-            <form action="/cart/add" method="post">
+           {% comment %} <form action="/cart/add" method="post">{% endcomment %} 
               {% comment %} <select name="id">
                 ${product.variants.map(v => `<option value="${v.id}">${v.title} - $${(v.price/100).toFixed(2)}</option>`).join('')}
               </select> {% endcomment %}
               <button type="submit" class="ajax_add_cart" data-variant-id="${product.variants[0].id}">Add to Cart</button>
-            </form>
+            {% comment %} </form>{% endcomment %} 
           `;
           popup.style.display = "block";
         });
