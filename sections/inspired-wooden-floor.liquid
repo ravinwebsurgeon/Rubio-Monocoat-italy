@@ -37,6 +37,7 @@
                style="background-image: url('{{ image | img_url: 'master' }}')">
             <a href="javascript:void(0);" 
                class="product-overlay-btn" 
+                data-product-handle="{{ product.handle }}" 
                 {% for pro in meta_products%} {% if forloop.index0 == forloop.parentloop.index0 %}  data-product-handle="{{ pro.handle }}" {% endif %} {% endfor %}
                  >
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
