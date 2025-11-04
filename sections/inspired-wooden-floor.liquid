@@ -312,16 +312,16 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 // Event delegation for add to cart buttons
-document.addEventListener('click', function(e) {
-  if (e.target.classList.contains('ajax_add_cart') || 
-      e.target.closest('.ajax_add_cart')) {
+//document.addEventListener('click', function(e) {
+ // if (e.target.classList.contains('ajax_add_cart') || 
+ //     e.target.closest('.ajax_add_cart')) {
     
-    const button = e.target.classList.contains('ajax_add_cart') ? 
-                   e.target : e.target.closest('.ajax_add_cart');
+ //   const button = e.target.classList.contains('ajax_add_cart') ? 
+ //                  e.target : e.target.closest('.ajax_add_cart');
     
-    handleAddToCart(button);
-  }
-});
+ //   handleAddToCart(button);
+ // }
+//});
 
 function handleAddToCart(button) {
   const variantId = button.dataset.variantId;
@@ -417,6 +417,8 @@ function refreshCartDrawer() {
       if (cartDrawer && newCartDrawer) {
         cartDrawer.replaceWith(newCartDrawer);
         document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
+        newCartDrawer.classList.add('active', 'animate');
+
       }
     })
     .catch((error) => { console.error('Error refreshing cart drawer:', error); });
