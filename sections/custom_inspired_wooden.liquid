@@ -1,11 +1,11 @@
 {% assign source_page = pages[section.settings.source_page] %}
 {% assign product_handles = section.settings.Products | parse_json %}
 {% comment %} {% assign inspired_products = source_page.metafields.custom.inspired_wooden_product.value %} {% endcomment %}
-{% assign meta_products = collection.metafields.custom.inspired_wooden_products.value %}
+
 {% assign inspired_wooden_images = source_page.metafields.custom.inspired_wooden_images.value %}
 {% comment %} {% assign heading = source_page.metafields.custom.inspired_wooden_heading.value %} {% endcomment %}
 {% comment %} {% assign subheading = source_page.metafields.custom.inspired_wooden_subheading.value %} {% endcomment %}
-<section class="inspired-collage-section" data-show="{{ meta_products | json }}">
+<section class="inspired-collage-section">
   <div class="container">
     <div class="collage-header-main">
       <h2>{{ section.settings.heading }}</h2>
