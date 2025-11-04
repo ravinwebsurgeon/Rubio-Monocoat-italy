@@ -1380,9 +1380,9 @@ document.addEventListener("DOMContentLoaded", function() {
       let exteriorTabs = document.querySelector('.circle-tabs-outer.exterior')
       exteriorTabs.style.display='none'
        // Show ALL product items in interior section
-  interiorSection.querySelectorAll('.product-item').forEach(item => {
-    item.style.display = 'block';
-  });
+      interiorSection.querySelectorAll('.product-item').forEach(item => {
+        item.style.display = 'block';
+      });
 
     {% comment %} tabs_outer.classList.remove('exterior') {% endcomment %}
     surfaceOptions?.style.setProperty("display", "none");
@@ -1394,6 +1394,10 @@ document.addEventListener("DOMContentLoaded", function() {
     // Mark Interior as active
     interiorBtn.classList.add("active");
     tabs_outer.classList.add('interior')
+     const collectionHandle = "interior"; // or dynamically set handle
+     const metafields = window.collectionDataCache?.['interior-colors']?.metafields || {};
+      console.log('Loaded metafields:', metafields);
+      renderTabs(collectionHandle)
   });
 
   // -------------------------------
