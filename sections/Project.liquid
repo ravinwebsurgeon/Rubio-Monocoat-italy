@@ -1382,9 +1382,10 @@ document.addEventListener("DOMContentLoaded", function() {
     exteriorSection.querySelectorAll(':scope > li.product-item').forEach(el => {
          el.style.display = '';
      });
+     let productWrapper = document.querySelectorAll('.tab-products-wrap.Exterior-wrap.active > .product-item')
      console.log(exteriorSection,'exteriorSection')
       // Show ALL product items in exterior section
-      document.querySelectorAll('.tab-products-wrap.Exterior-wrap.active > .product-item').forEach(item => {
+      productWrapper.forEach(item => {
         item.style.display = 'block';
       });
       let exteriorTabs = document.querySelector('.circle-tabs-outer.exterior')
