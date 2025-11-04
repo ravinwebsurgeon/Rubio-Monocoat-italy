@@ -1517,29 +1517,34 @@ document.addEventListener("DOMContentLoaded", function() {
   });
    
   // -------------------------------
-  // CIRCLE TAB CLICK → show correct product wrapper
-  circleTabs.forEach(tab => {
-    tab.addEventListener("click", function(e) {
-      e.stopPropagation(); // Prevent closing dropdown
-
-      // Remove active from all tabs
-      circleTabs.forEach(t => t.classList.remove("active"));
-      this.classList.add("active");
-      {% comment %} showproducts(); {% endcomment %}
-      // Determine which wrapper to show
-      if (interiorBtn?.classList.contains("active")) {
-        tabProductsInterior?.classList.add("show-section");
-        tabProductsExterior?.classList.remove("show-section");
-      } else if (surfaceOptions?.querySelector(".surface-item.active")) {
-        tabProductsExterior?.classList.add("show-section");
-        tabProductsInterior?.classList.remove("show-section");
-      }
-
-      // Do NOT close the exterior dropdown
-      // surfaceOptions.style.display = "flex"; // already open
-    });
+document.addEventListener("click", function(e) {
+  // Check if clicked element is a circle tab or inside a circle tab
+  const circleTab = e.target.closest('.circle-tab');
   
-  });
+  if (circleTab) {
+    e.stopPropagation(); // Prevent closing dropdown
+
+    // Remove active from all tabs
+    document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove("active"));
+    
+    // Add active to clicked tab
+    circleTab.classList.add("active");
+    
+    // Determine which wrapper to show
+    if (interiorBtn?.classList.contains("active")) {
+      tabProductsInterior?.classList.add("show-section");
+      tabProductsExterior?.classList.remove("show-section");
+    } else if (surfaceOptions?.querySelector(".surface-item.active")) {
+      tabProductsExterior?.classList.add("show-section");
+      tabProductsInterior?.classList.remove("show-section");
+    }
+
+    // Do NOT close the exterior dropdown
+    // surfaceOptions.style.display = "flex"; // already open
+    
+    console.log('Circle tab clicked:', circleTab.getAttribute('data-tab'));
+  }
+});
 
   // -------------------------------
   // Click outside dropdown → close exterior dropdown
