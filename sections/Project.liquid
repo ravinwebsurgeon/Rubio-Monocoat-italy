@@ -1365,7 +1365,11 @@ document.addEventListener("DOMContentLoaded", function() {
     tabProductsExterior?.classList.add("show-section");
 
     let exteriorSection = document.querySelector('.exteriour_tabs_section')
-          // Show ALL product items in interior section
+
+    exteriorSection.querySelectorAll(':scope > .circle-tabs-outer, :scope > li.product-item').forEach(el => {
+         el.style.display = '';
+     });
+          // Show ALL product items in exterior section
       exteriorSection.querySelectorAll('.product-item').forEach(item => {
         item.style.display = 'block';
       });
