@@ -16,22 +16,28 @@
 
       <!-- Right Column -->
       <div class="faq-right">
-        {% for block in section.blocks %}
-          <div class="faq-item1">
-            <button class="faq-question1">
-              <span>{{ block.settings.question }}</span>
-              <span class="faq-icon">
-                <svg class="faq-svg" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5 7.5L10 12.5L15 7.5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-            </button>
-            <div class="faq-answer1">
-              <p>{{ block.settings.answer }}</p>
+        {% assign faq_questions = collection.metafields.custom.faq_question.value %}
+        {% assign faq_answers = collection.metafields.custom.faq_answer.value %}
+
+        {% if faq_questions and faq_answers %}
+          {% for question in faq_questions %}
+            {% assign answer = faq_answers[forloop.index0] %}
+            <div class="faq-item1">
+              <button class="faq-question1">
+                <span>{{ question }}</span>
+                <span class="faq-icon">
+                  <svg class="faq-svg" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 7.5L10 12.5L15 7.5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer1">
+                <p>{{ answer }}</p>
+              </div>
             </div>
-          </div>
-        {% endfor %}
+          {% endfor %}
+        {% endif %}
 
         <div class="mobile-display-block">
           {% if section.settings.button_label != blank and section.settings.button_link != blank %}
@@ -49,15 +55,15 @@
 <style>
 .visit-faq-section-sect {
   background-color: #f8f8f8;
-  padding:50px 30px;
+  padding: 50px 30px;
 }
 .visit-faq-section {
-    padding: 40px 50px;
-    background: #fff;
-    max-width: 1700px;
-    margin: 0 auto;
-    border-radius: 20px;
-    width:100%;
+  padding: 40px 50px;
+  background: #fff;
+  max-width: 1700px;
+  margin: 0 auto;
+  border-radius: 20px;
+  width: 100%;
 }
 .faq-container {
   display: flex;
@@ -65,8 +71,8 @@
   max-width: 100%;
 }
 .visit-faq-section .faq-left {
-  max-width:320px;
-  width:100%;
+  max-width: 320px;
+  width: 100%;
   align-self: center;
 }
 .faq-heading1 {
@@ -74,34 +80,33 @@
   font-weight: 700;
   margin-bottom: 40px;
   color: #000;
-  line-height:normal;
-  margin-top:0;
+  line-height: normal;
+  margin-top: 0;
 }
 .faq-btn {
-    background: #12322b;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 160px;
+  background: #12322b;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 160px;
 }
 .visit-faq-section .faq-right {
-  max-width:900px;
-  width:100%;
+  max-width: 900px;
+  width: 100%;
   background-color: #ffffff;
-  padding: 0 0;
   border-radius: 20px;
 }
 .faq-item1 {
   border-top: 1px solid #000;
   padding: 33px 0;
 }
-.faq-item1:first-child{
+.faq-item1:first-child {
   border: none;
 }
 .faq-question1 {
@@ -116,13 +121,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 0;
-  letter-spacing: normal;
-  line-height: normal;
-  font-family: Frutiger Neue LT W1G;
-  color:#000;
-}
-.faq-question1 span{
-  color:#000;
+  font-family: "Frutiger Neue LT W1G", sans-serif;
+  color: #000;
 }
 .faq-answer1 {
   display: none;
@@ -130,9 +130,8 @@
   font-size: 16px;
   line-height: normal;
   color: #000;
-  font-family: Frutiger Neue LT W1G;
+  font-family: "Frutiger Neue LT W1G", sans-serif;
   margin-top: 0;
-  letter-spacing: normal;
 }
 .faq-answer1 p {
   margin-bottom: 0;
@@ -144,13 +143,14 @@
 .faq-svg {
   transition: transform 0.3s ease;
 }
-.mobile-display-block{
-  display:none;
+.mobile-display-block {
+  display: none;
 }
- 
+
+/* Responsive */
 @media(max-width: 1900px) { 
   .visit-faq-section {
-    padding:40px;
+    padding: 40px;
   }
   .faq-container {
     gap: 50px;
@@ -171,29 +171,26 @@
 @media(max-width:991px) { 
   .faq-container {
     gap: 50px;
-    flex-direction:column;
+    flex-direction: column;
   }
   .visit-faq-section .faq-left,
   .visit-faq-section .faq-right {
     max-width: 100%;
-    width: 100%;
   }
-  .mobile-display-block{
-    display:block;
-    margin-top:15px;
+  .mobile-display-block {
+    display: block;
+    margin-top: 15px;
   }
-  .mobile-display-block a{
-    margin:auto;
+  .mobile-display-block a {
+    margin: auto;
   }
-  .desktop-display-block{
-    display:none;
+  .desktop-display-block {
+    display: none;
   }
 }
-
 @media(max-width:767px) { 
   .visit-faq-section {
-    padding: 20px 20px;
-    width: 100%;
+    padding: 20px;
     border-radius: 10px;
   }
   .faq-heading1 {
@@ -206,7 +203,6 @@
     font-size: 14px;
     margin: 0 auto;
     max-width: 110px;
-    width: 100%;
   }
   .faq-container {
     gap: 20px;
@@ -221,23 +217,26 @@
   .faq-answer1 {
     font-size: 12px;
   }
-  .desktop-display-block{
-    display:none;
-  }
 }
 </style>
 
 <script>
-$(document).ready(function () {
-  $(".faq-question1").on("click", function () {
-    const $item = $(this).closest(".faq-item1");
-    const $answer = $item.find(".faq-answer1");
+  document.addEventListener("DOMContentLoaded", function() {
+    const faqItems = document.querySelectorAll(".faq-item1");
 
-    $item.toggleClass("active");
-    $answer.stop(true, true).slideToggle(300);
-    $item.find(".faq-svg").toggleClass("rotated");
+    faqItems.forEach(item => {
+      const question = item.querySelector(".faq-question1");
+      question.addEventListener("click", () => {
+        item.classList.toggle("active");
+        const answer = item.querySelector(".faq-answer1");
+        if (item.classList.contains("active")) {
+          answer.style.display = "block";
+        } else {
+          answer.style.display = "none";
+        }
+      });
+    });
   });
-});
 </script>
 
 {% schema %}
@@ -262,34 +261,9 @@ $(document).ready(function () {
       "label": "Button Link"
     }
   ],
-  "blocks": [
-    {
-      "type": "faq_item",
-      "name": "FAQ Item",
-      "settings": [
-        {
-          "type": "text",
-          "id": "question",
-          "label": "Question",
-          "default": "Sample question?"
-        },
-        {
-          "type": "textarea",
-          "id": "answer",
-          "label": "Answer",
-          "default": "This is a sample answer to the question."
-        }
-      ]
-    }
-  ],
   "presets": [
     {
-      "name": "Custom HTML FAQ",
-      "blocks": [
-        { "type": "faq_item" },
-        { "type": "faq_item" },
-        { "type": "faq_item" }
-      ]
+      "name": "Custom HTML FAQ"
     }
   ]
 }

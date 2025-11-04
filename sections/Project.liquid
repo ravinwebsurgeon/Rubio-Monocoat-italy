@@ -1357,7 +1357,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Remove active from Interior
     interiorBtn?.classList.remove("active");
-  tabs_outer.classList.remove('interior')
+    tabs_outer.classList.remove('interior')
     // Hide circle tabs + filter until a surface is selected
     circleTabsOuter?.classList.remove("show-section");
     filterBar?.classList.remove("show-section");
@@ -1376,6 +1376,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Remove active from circle tabs
     circleTabs.forEach(t => t.classList.remove("active"));
+     const metafields = await fetchCollectionMetafields(collectionHandle);
+    //renderExteriorTabs(metafields);
   });
 
   // -------------------------------
