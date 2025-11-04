@@ -284,7 +284,7 @@ document.addEventListener("DOMContentLoaded", function(){
       fetch(`/products/${handle}.js`)
         .then(res => res.json())
         .then(product => {
-          const firstVariantId = product.variants.find(v => v.available)?.id || product.variants[0]?.id;
+          const firstVariantId = product.variants[0].id;
 
           content.innerHTML = `
             <img src="${product.images[0]}" alt="${product.title}">
