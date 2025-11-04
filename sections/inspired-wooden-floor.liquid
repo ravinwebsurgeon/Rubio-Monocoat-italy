@@ -284,6 +284,8 @@ document.addEventListener("DOMContentLoaded", function(){
       fetch(`/products/${handle}.js`)
         .then(res => res.json())
         .then(product => {
+          const firstVariantId = product.variants.find(v => v.available)?.id || product.variants[0]?.id;
+
           content.innerHTML = `
             <img src="${product.images[0]}" alt="${product.title}">
             <h3>${product.title}</h3>
@@ -292,7 +294,7 @@ document.addEventListener("DOMContentLoaded", function(){
               {% comment %} <select name="id">
                 ${product.variants.map(v => `<option value="${v.id}">${v.title} - $${(v.price/100).toFixed(2)}</option>`).join('')}
               </select> {% endcomment %}
-              <button type="submit">Add to Cart</button>
+              <button type="submit" class="ajax_add_cart" data-variant-id =`${firstVariantId}`>Add to Cart</button>
             </form>
           `;
           popup.style.display = "block";
