@@ -1449,9 +1449,21 @@ document.addEventListener("click", function(e) {
   }
 });
  
-  /* circle tabs */
+ 
+  // -------------------------------
+  // Click outside dropdown → close exterior dropdown
+  document.addEventListener("click", function(e) {
+    
+    if (!exteriorToggle?.contains(e.target) && !surfaceOptions?.contains(e.target)) {
+      surfaceOptions?.style.setProperty("display", "none");
+      exteriorToggle?.classList.remove("active");
+    }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+ /* circle tabs */
   function showproducts() {
-  console.log('checkd')
   const checkbox = document.getElementById('available-filter');
 
     const products = document.querySelectorAll('.product-item');
@@ -1549,18 +1561,6 @@ document.addEventListener("click", function(e) {
     });
   }
  
-  // -------------------------------
-  // Click outside dropdown → close exterior dropdown
-  document.addEventListener("click", function(e) {
-    
-    if (!exteriorToggle?.contains(e.target) && !surfaceOptions?.contains(e.target)) {
-      surfaceOptions?.style.setProperty("display", "none");
-      exteriorToggle?.classList.remove("active");
-    }
-  });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
   const interiorWrap = document.querySelector('.interior_tabs_section');
   if (interiorWrap) {
     interiorWrap.style.display = 'block';
