@@ -1382,11 +1382,11 @@ document.addEventListener("DOMContentLoaded", function() {
     exteriorSection.querySelectorAll(':scope > li.product-item').forEach(el => {
          el.style.display = '';
      });
-          // Show ALL product items in exterior section
+      // Show ALL product items in exterior section
       exteriorSection.querySelectorAll('.product-item').forEach(item => {
         item.style.display = 'block';
       });
- let exteriorTabs = document.querySelector('.circle-tabs-outer.exterior')
+      let exteriorTabs = document.querySelector('.circle-tabs-outer.exterior')
       exteriorTabs.style.display='block'
     // Remove active from circle tabs
     circleTabs.forEach(t => t.classList.remove("active"));
