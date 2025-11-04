@@ -1412,11 +1412,7 @@ document.addEventListener("DOMContentLoaded", function() {
       // Keep exterior dropdown open
       surfaceOptions.style.display = "flex";
       exteriorToggle.classList.add("active");
-      let productWrapper = document.querySelector('.tab-products-wrap.Exterior-wrap.active')
-      // Show ALL product items in exterior section
-      productWrapper.querySelectorAll('.product-item').forEach(item => {
-        item.style.display = 'block';
-      });
+
       // Remove active from circle tabs
       circleTabs.forEach(t => t.classList.remove("active"));
     });
