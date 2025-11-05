@@ -3689,5 +3689,5 @@ input[type="radio"].swatch-input__input:checked + label .variant-note {
 }
 
 .tab-products .product-item .product-image-wrapper img {
-  border-radius: 4px !important;
+  border-radius: 7px !important;
 }
