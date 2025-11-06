@@ -1649,25 +1649,25 @@ document.addEventListener('DOMContentLoaded', function() {
   const interioBtn = document.querySelector('.Interio');
   const exteriorBtn = document.querySelector('.exterior-main');
 
-  // Hide both by default
+  // Hide by default
   [circleTabsSection, exteriorWrap].forEach(el => {
     if (el) el.style.display = 'none';
   });
 
-  // Function to show both
-  function showSections() {
-    if (circleTabsSection) circleTabsSection.style.display = 'block';
-    if (exteriorWrap) exteriorWrap.style.display = 'block';
-  }
-
-  // Click on Interior
+  // When click on Interior
   if (interioBtn) {
-    interioBtn.addEventListener('click', showSections);
+    interioBtn.addEventListener('click', function() {
+      if (circleTabsSection) circleTabsSection.style.display = 'block';
+      if (exteriorWrap) exteriorWrap.style.display = 'none';
+    });
   }
 
-  // Click on Exterior
+  // When click on Exterior
   if (exteriorBtn) {
-    exteriorBtn.addEventListener('click', showSections);
+    exteriorBtn.addEventListener('click', function() {
+      if (circleTabsSection) circleTabsSection.style.display = 'block';
+      if (exteriorWrap) exteriorWrap.style.display = 'block';
+    });
   }
 });
 
