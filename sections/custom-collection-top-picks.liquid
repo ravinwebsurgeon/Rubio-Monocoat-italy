@@ -34,7 +34,7 @@
       {% assign i = forloop.index0 %}
       <div class="top-picks-product-card">
         <div class="slider-product-image">
-            <img src="{{ product.featured_image | img_url: 'master' }}" />
+            <img src="{{ product.featured_image | img_url: 'master' }}" width="" height="" />
           <div class="top-product-desc">
             <p>{{ descriptions[i] }}</p>
           </div>
