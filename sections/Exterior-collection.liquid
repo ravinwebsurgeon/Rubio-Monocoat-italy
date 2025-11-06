@@ -203,6 +203,11 @@
                   </div>
                 {% endif %}
               </a>
+              {% if product.metafields.custom.badge != blank %}
+  <div class="product-badge">
+    {{ product.metafields.custom.badge }}
+  </div>
+{% endif %}
               {% comment %} <div class="plus-show">{% render 'Cs-plus-icon' %}</div> {% endcomment %}
             </div>
 
