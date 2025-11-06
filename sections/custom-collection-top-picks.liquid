@@ -13,8 +13,7 @@
     </h2>
     
   </div>
-
-  <div class="top_picks_carousel">
+  <div style="position:relative;">    
     <div class="top-silder-arrows">
       <div class="prev-item-btn">
         <button type="button" class="cert-prev">
@@ -31,6 +30,7 @@
         </button>
       </div>
     </div>
+    <div class="top_picks_carousel">
     {% for product in product_list %}
       {% assign i = forloop.index0 %}
       <div class="top-picks-product-card">
@@ -52,6 +52,8 @@
       </div>
     {% endfor %}
   </div>
+  </div>
+  
 </section>
 {% endif %}
 
