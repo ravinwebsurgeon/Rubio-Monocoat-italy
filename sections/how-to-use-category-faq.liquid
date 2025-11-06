@@ -165,30 +165,21 @@ $(document).ready(function() {
       $item.removeClass("active");
       $answer.slideUp(300);
     } else {
+      // Close all other items
       $(".custom-faq-item").removeClass("active").find(".custom-faq-answer").slideUp(300);
+
+      // Open clicked
       $item.addClass("active");
       $answer.slideDown(300);
 
-      // Update media
-      var newVideo = $item.data("video");
+      // Change left image
       var newImage = $item.data("image");
-      var $mediaContainer = $("#faq-left-media");
-
-      $mediaContainer.empty(); // clear previous content
-
-      if (newVideo && newVideo !== "null" && newVideo !== "") {
-        $mediaContainer.html(
-          `<video controls autoplay muted loop playsinline style="width:100%;border-radius:10px;">
-            <source src="${newVideo}" type="video/mp4">
-          </video>`
-        );
-      } else if (newImage) {
-        $mediaContainer.html(`<img src="${newImage}" alt="How to use" loading="lazy" style="border-radius:10px;width:100%;">`);
+      if (newImage) {
+        $("#faq-left-image").attr("src", newImage);
       }
     }
   });
 });
-
 </script>
 
 {% schema %} 
