@@ -642,20 +642,19 @@ const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input')
 
   </style>
 <script>
-  // Show loader immediately if body has class 'templatepage-colour'
+  // Only run on your color page
   if (document.body.classList.contains('templatepage-colour')) {
-    const loader = document.getElementById('page-loader');
-    loader.style.display = 'flex';
-
     window.addEventListener('load', function() {
-      // Keep loader for 5 seconds after page loads
+      const loader = document.getElementById('page-loader');
+      // Keep loader visible for 5 seconds after page loads
       setTimeout(() => {
         loader.classList.add('hidden');
-        setTimeout(() => loader.remove(), 600);
-      }, 4000);
+        setTimeout(() => loader.remove(), 600); // remove after fade-out
+      }, 5000);
     });
   }
 </script>
+
 
 
 
