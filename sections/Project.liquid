@@ -350,6 +350,14 @@
                           </div>
                           {% endif %} 
                           </a>
+
+                          {% if product.metafields.custom.badge != blank %}
+  <div class="product-badge">
+    {{ product.metafields.custom.badge }}
+  </div>
+{% endif %}
+
+
                            <button
             class="
                             wishlist_button card-prod main-{{ forloop.index0 }}  {%- if card_product.available == false -%}sold-wish{% endif %}
