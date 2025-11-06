@@ -3000,6 +3000,32 @@ li.product-item {
   z-index: 2;
 }
 
+#page-loader {
+  position: fixed;
+  inset: 0;
+  background: #fff; /* or use your brand color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+#page-loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-logo img {
+  width: 120px; /* adjust logo size */
+  height: auto;
+  animation: fadeIn 1s ease-in-out infinite alternate;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0.4; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1.05); }
+}
 
 </style>
 
