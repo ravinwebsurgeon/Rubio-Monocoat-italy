@@ -203,7 +203,7 @@ $(document).ready(function() {
       console.log(newImage,'image')
 
       $mediaContainer.fadeOut(200, function() {
-        $mediaContainer.empty();
+        $mediaContainer.innerHTML='';
 
         console.log('mediaContainer',$mediaContainer)
          if (newImage) {
