@@ -1643,48 +1643,6 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Hide all by default
-  const allSections = document.querySelectorAll('.interior, .exterior, .filter-bar, .Interior-wrap, .Exterior-wrap');
-  allSections.forEach(el => el.style.display = 'none');
-
-  const interioBtn = document.querySelector('.Interio');
-  const exteriorBtn = document.querySelector('.exterior-main');
-
-  if (interioBtn) {
-    interioBtn.addEventListener('click', function() {
-      // Remove active from both
-      interioBtn.classList.remove('active');
-      exteriorBtn?.classList.remove('active');
-
-      // Add active to this
-      this.classList.add('active');
-
-      // Show Interior-related
-      document.querySelectorAll('.interior, .filter-bar, .Interior-wrap').forEach(el => el.style.display = 'block');
-
-      // Hide Exterior-related
-      document.querySelectorAll('.exterior, .Exterior-wrap').forEach(el => el.style.display = 'none');
-    });
-  }
-
-  if (exteriorBtn) {
-    exteriorBtn.addEventListener('click', function() {
-      // Remove active from both
-      interioBtn?.classList.remove('active');
-      exteriorBtn.classList.remove('active');
-
-      // Add active to this
-      this.classList.add('active');
-
-      // Show Exterior-related
-      document.querySelectorAll('.exterior, .filter-bar, .Exterior-wrap').forEach(el => el.style.display = 'block');
-
-      // Hide Interior-related
-      document.querySelectorAll('.interior, .Interior-wrap').forEach(el => el.style.display = 'none');
-    });
-  }
-});
 
 </script>
 
