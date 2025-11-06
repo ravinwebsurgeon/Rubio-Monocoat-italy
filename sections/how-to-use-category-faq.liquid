@@ -35,10 +35,10 @@
               {% if forloop.index0 == 3 %} {% assign image = collection.metafields.custom.how_to_use_faq_image4 %} {% endif %}
 
               {% assign video = blank %}
-              {% if forloop.index0 == 0 %} {% assign video = collection.metafields.custom.how_to_use_faq_video1.value %} {% endif %}
-              {% if forloop.index0 == 1 %} {% assign video = collection.metafields.custom.how_to_use_faq_video2.value %} {% endif %}
-              {% if forloop.index0 == 2 %} {% assign video = collection.metafields.custom.how_to_use_faq_video3.value %} {% endif %}
-              {% if forloop.index0 == 3 %} {% assign video = collection.metafields.custom.how_to_use_faq_video4.value %} {% endif %}
+              {% if forloop.index0 == 0 %} {% assign video = collection.metafields.custom.how_to_use_faq_video1 %} {% endif %}
+              {% if forloop.index0 == 1 %} {% assign video = collection.metafields.custom.how_to_use_faq_video2 %} {% endif %}
+              {% if forloop.index0 == 2 %} {% assign video = collection.metafields.custom.how_to_use_faq_video3 %} {% endif %}
+              {% if forloop.index0 == 3 %} {% assign video = collection.metafields.custom.how_to_use_faq_video4 %} {% endif %}
 
               <div class="custom-faq-item {% if forloop.first %}active{% endif %}" 
                 data-image="{{ image | img_url: '800x' }}"
