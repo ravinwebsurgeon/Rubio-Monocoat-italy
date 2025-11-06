@@ -32,6 +32,10 @@
           "disabled": true,
           "settings": {}
         },
+        "custom_icons_8bakgM": {
+          "type": "custom_icons",
+          "settings": {}
+        },
         "order_sample_DiQkkf": {
           "type": "order-sample",
           "settings": {}
@@ -71,6 +75,7 @@
         "title",
         "description",
         "price",
+        "custom_icons_8bakgM",
         "order_sample_DiQkkf",
         "variant_picker",
         "quantity_selector",
