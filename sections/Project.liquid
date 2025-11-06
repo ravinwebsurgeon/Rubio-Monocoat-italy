@@ -1643,7 +1643,34 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const circleTabsSection = document.querySelector('.circle-tabs-section');
+  const interioBtn = document.querySelector('.Interio');
+  const exteriorBtn = document.querySelector('.exterior-main');
 
+  // Hide by default
+  if (circleTabsSection) {
+    circleTabsSection.style.display = 'none';
+  }
+
+  // When click on Interior
+  if (interioBtn) {
+    interioBtn.addEventListener('click', function() {
+      if (circleTabsSection) {
+        circleTabsSection.style.display = 'block';
+      }
+    });
+  }
+
+  // When click on Exterior
+  if (exteriorBtn) {
+    exteriorBtn.addEventListener('click', function() {
+      if (circleTabsSection) {
+        circleTabsSection.style.display = 'block';
+      }
+    });
+  }
+});
 </script>
 
 <style>
