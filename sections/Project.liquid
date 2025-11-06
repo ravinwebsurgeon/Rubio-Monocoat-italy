@@ -1580,7 +1580,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script> 
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+{% comment %} document.addEventListener('DOMContentLoaded', function() {
   const interioBtn = document.querySelector('.Interio');
   const exteriorBtn = document.querySelector('.exterior');
   const exteriorWrap = document.querySelector('.Exterior-wrap');
@@ -1597,7 +1597,7 @@ document.addEventListener('DOMContentLoaded', function() {
       exteriorWrap.style.display = 'block';
     });
   }
-});
+}); {% endcomment %}
 
 
 {% comment %} clear all button hide and page load functionality {% endcomment %}
