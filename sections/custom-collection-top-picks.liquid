@@ -11,6 +11,10 @@
     <h2>
       {{ heading }}
     </h2>
+    
+  </div>
+
+  <div class="top_picks_carousel">
     <div class="top-silder-arrows">
       <div class="prev-item-btn">
         <button type="button" class="cert-prev">
@@ -27,9 +31,6 @@
         </button>
       </div>
     </div>
-  </div>
-
-  <div class="top_picks_carousel">
     {% for product in product_list %}
       {% assign i = forloop.index0 %}
       <div class="top-picks-product-card">
