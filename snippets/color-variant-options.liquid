@@ -63,6 +63,7 @@
       <span class="visually-hidden">{{ value | escape }}</span>
       {{ label_unavailable }}
     {%- endcapture -%}
+    <div class="variant_oprions_detail">
     {%
       render 'swatch-input',
       id: input_id,
@@ -78,7 +79,7 @@
       swatchIndex:forloop.index0
     %}
     <div class="color_value"><p>{{ value | escape }}</p></div>
-
+</div>
   {%- elsif picker_type == 'button' -%}
     {% comment %}
       Default button picker, modified for Size option
