@@ -323,6 +323,52 @@
     <img src="https://cdn.shopify.com/s/files/1/0680/7647/0314/files/c9c497e60074546a8f0f6d2160b8e855556ae226.png?v=1757665103" alt="Site Logo">
   </div>
 </div>
+  <style>
+#page-loader {
+  position: fixed;
+  inset: 0;
+  background: #fff; /* change to brand color or gradient if needed */
+  display: flex;    /* visible immediately */
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#page-loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-logo img {
+  width: 180px;
+  height: auto;
+  animation: fadePulse 2s infinite ease-in-out;
+}
+
+@keyframes fadePulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.95); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+  </style>
+<script>
+  // Show loader immediately if body has class 'templatepage-colour'
+  if (document.body.classList.contains('templatepage-colour')) {
+    const loader = document.getElementById('page-loader');
+    loader.style.display = 'flex';
+
+    window.addEventListener('load', function() {
+      // Keep loader for 5 seconds after page loads
+      setTimeout(() => {
+        loader.classList.add('hidden');
+        setTimeout(() => loader.remove(), 600);
+      }, 4000);
+    });
+  }
+</script>
+
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
