@@ -778,7 +778,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (variantIdInput.value !== lastVariant) {
       lastVariant = variantIdInput.value;
       console.log('Variant changed:', lastVariant);
-
+        document.querySelectorAll('.order_sample .button-text').forEach(btn => {
+            btn.textContent = 'order sample';
+        });
       // If content was already expanded, reapply display
       const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
       moreContentDivs.forEach(div => {
@@ -803,13 +805,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 </script>
-<script>
-document.addEventListener('variant:changed', (event) => {
-  document.querySelectorAll('.order_sample .button-text').forEach(btn => {
-    btn.textContent = 'order sample';
-  });
-});
-</script>
+
 
 
 
