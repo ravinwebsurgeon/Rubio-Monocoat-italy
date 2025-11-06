@@ -1645,32 +1645,32 @@ document.addEventListener("DOMContentLoaded", function() {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const circleTabsSection = document.querySelector('.circle-tabs-section');
+  const exteriorWrap = document.querySelector('.Exterior-wrap');
   const interioBtn = document.querySelector('.Interio');
   const exteriorBtn = document.querySelector('.exterior-main');
 
-  // Hide by default
-  if (circleTabsSection) {
-    circleTabsSection.style.display = 'none';
+  // Hide both by default
+  [circleTabsSection, exteriorWrap].forEach(el => {
+    if (el) el.style.display = 'none';
+  });
+
+  // Function to show both
+  function showSections() {
+    if (circleTabsSection) circleTabsSection.style.display = 'block';
+    if (exteriorWrap) exteriorWrap.style.display = 'block';
   }
 
-  // When click on Interior
+  // Click on Interior
   if (interioBtn) {
-    interioBtn.addEventListener('click', function() {
-      if (circleTabsSection) {
-        circleTabsSection.style.display = 'block';
-      }
-    });
+    interioBtn.addEventListener('click', showSections);
   }
 
-  // When click on Exterior
+  // Click on Exterior
   if (exteriorBtn) {
-    exteriorBtn.addEventListener('click', function() {
-      if (circleTabsSection) {
-        circleTabsSection.style.display = 'block';
-      }
-    });
+    exteriorBtn.addEventListener('click', showSections);
   }
 });
+
 </script>
 
 <style>
