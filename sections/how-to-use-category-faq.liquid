@@ -187,7 +187,6 @@ $(document).ready(function() {
   $(".custom-faq-question").on("click", function() {
     var $item = $(this).closest(".custom-faq-item");
     var $answer = $item.find(".custom-faq-answer");
-console.log($item,'asa')
     if ($item.hasClass("active")) {
       $item.removeClass("active");
       $answer.slideUp(300);
@@ -207,12 +206,15 @@ console.log($item,'asa')
         $mediaContainer.empty();
 
         if (newVideo && newVideo !== "null" && newVideo !== "") {
+          console.log('vide exist')
           $mediaContainer.html(
             `<video controls autoplay muted loop playsinline style="width:100%;border-radius:10px;">
               <source src="${newVideo}" type="video/mp4">
             </video>`
           );
         } else if (newImage) {
+                    console.log('Image exist')
+
           $mediaContainer.html(
             `<img src="${newImage}" alt="How to use" loading="lazy" style="border-radius:10px;width:100%;">`
           );
