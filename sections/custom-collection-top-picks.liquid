@@ -31,7 +31,7 @@
   <div class="top_picks_carousel">
     {% for product in product_list %}
       {% assign i = forloop.index0 %}
-      <div class="certificate-card">
+      <div class="top-picks-product-card">
         <div class="certificates-img">
             <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ titles[i] | escape }}">
           <div class="certificate-desc">
@@ -127,7 +127,7 @@
   }
  
 
-   .top_picks_slider .certificate-card {
+   .top_picks_slider .top-picks-product-card {
     border-radius: 20px;
     text-align: center;
     margin: 0 10px;
@@ -136,7 +136,7 @@
     display: flex;
     flex-direction: column;
   }
-  .certificate-card .certificates-img {
+  .top-picks-product-card .certificates-img {
     background-color: #E1E9E4;
     position: relative;
     padding-bottom: 316px;
@@ -144,7 +144,7 @@
     border-top-right-radius: 20px;
     overflow: hidden;
   }
-  .certificate-card img {
+  .top-picks-product-card img {
     max-width: 277px;
     width: 100%;
     height: 100%;
@@ -155,7 +155,7 @@
     object-fit: contain;
     transition: opacity 0.3s ease;
   }
-  .certificate-card h3 {
+  .top-picks-product-card h3 {
     margin: 0;
     font-family: Frutiger Neue LT W1G;
     font-weight: 500;
@@ -206,11 +206,11 @@
     flex-direction: column;
     border-radius: 20px 20px 0 0;
 }
-  .certificate-card.active .certificate-desc {
+  .top-picks-product-card.active .certificate-desc {
     opacity: 1;
     transform: translateY(0);
   }
-  .certificate-card.active img {
+  .top-picks-product-card.active img {
     opacity: 0;
   }
   .top_picks_slider .certificate-puls-btn button.cert-plus:after {
@@ -246,7 +246,7 @@
     .top_picks_slider {
         padding: 50px 20px;
     }
-    .top_picks_slider .certificate-card .certificates-img {
+    .top_picks_slider .top-picks-product-card .certificates-img {
         padding-bottom: 190px;
     }
   }
@@ -320,7 +320,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Accordion toggle
   document.querySelectorAll(".cert-plus").forEach(btn => {
     btn.addEventListener("click", function() {
-      const card = this.closest(".certificate-card");
+      const card = this.closest(".top-picks-product-card");
       card.classList.toggle("active");
       this.textContent = card.classList.contains("active") ? "×" : "i";
     });
