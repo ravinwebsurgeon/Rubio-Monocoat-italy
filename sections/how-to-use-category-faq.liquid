@@ -211,6 +211,7 @@ $(document).ready(function() {
         // Prefer video if available (change order if you want image priority)
         if (newVideo && newVideo !== "null" && newVideo !== "") {
           // append video element
+          $mediaContainer.classList.add('video-media')
           $mediaContainer.html(
             `<video controls autoplay muted loop playsinline style="width:100%;border-radius:10px;">
               <source src="${newVideo}" type="video/mp4">
@@ -219,14 +220,11 @@ $(document).ready(function() {
           console.log('video inserted:', newVideo);
         } else if (newImage && newImage !== "null" && newImage !== "") {
           // append image
+          $mediaContainer.classList.add('image-media')
           $mediaContainer.html(
             `<img src="${newImage}" alt="How to use" loading="lazy" style="border-radius:10px;width:100%;">`
           );
           console.log('image inserted:', newImage);
-        } else {
-          // nothing available — optional placeholder
-          $mediaContainer.html(`<div class="media-placeholder">No media</div>`);
-          console.log('no media available');
         }
 
         $mediaContainer.fadeIn(100);
