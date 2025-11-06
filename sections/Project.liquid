@@ -1343,7 +1343,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Mark Interior as active
         interiorBtn.classList.add("active");
         tabs_outer.classList.add('interior')
-        tabs_outer.classList.remove('exterior')    
+        tabs_outer.classList.remove('exterior1')    
     });
 
   // -------------------------------
@@ -1354,7 +1354,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Close all dropdowns first
         let tabs_outer = document.querySelector('.circle-tabs-outer') 
     tabs_outer.display='block'
-    tabs_outer.classList.add('exterior') 
+    tabs_outer.classList.add('exterior1') 
     tabs_outer.classList.remove('interior')
     document.querySelectorAll(".surface-options").forEach(opt => opt.style.display = "none");
     document.querySelectorAll(".surface-toggle").forEach(el => el.classList.remove("active"));
@@ -1386,7 +1386,7 @@ document.addEventListener("DOMContentLoaded", function() {
          el.style.display = '';
      });
   
-      let exteriorTabs = document.querySelector('.circle-tabs-outer.exterior')
+      let exteriorTabs = document.querySelector('.circle-tabs-outer.exterior1')
       exteriorTabs.style.display='block'
     // Remove active from circle tabs
     circleTabs.forEach(t => t.classList.remove("active"));
