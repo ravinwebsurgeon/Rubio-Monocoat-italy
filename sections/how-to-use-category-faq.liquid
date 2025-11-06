@@ -205,18 +205,18 @@ $(document).ready(function() {
       $mediaContainer.fadeOut(200, function() {
         $mediaContainer.empty();
 
-        if (newVideo && newVideo !== "null" && newVideo !== "") {
+         if (newImage) {
+            console.log('Image exist')
+          $mediaContainer.html(
+            `<img src="${newImage}" alt="How to use" loading="lazy" style="border-radius:10px;width:100%;">`
+          );
+        }
+        else if (newVideo && newVideo !== "null" && newVideo !== "") {
           console.log('vide exist')
           $mediaContainer.html(
             `<video controls autoplay muted loop playsinline style="width:100%;border-radius:10px;">
               <source src="${newVideo}" type="video/mp4">
             </video>`
-          );
-        } else if (newImage) {
-                    console.log('Image exist')
-
-          $mediaContainer.html(
-            `<img src="${newImage}" alt="How to use" loading="lazy" style="border-radius:10px;width:100%;">`
           );
         }
 
