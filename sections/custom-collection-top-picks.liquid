@@ -288,42 +288,149 @@
       font-size: 18px;
     }
   }
+
+
+  .certificate-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  padding: 50px 0;
+  overflow: hidden; /* Keep everything inside the container */
+}
+
+.certificate-slider {
+  width: 100%;
+  overflow: hidden;
+  padding: 0 50px; /* Safe space for arrows */
+  box-sizing: border-box;
+  position: relative;
+}
+
+.swiper-wrapper {
+  display: flex;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.certificate-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  padding: 20px;
+  max-width: 280px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.certificate-card:hover {
+  transform: translateY(-5px);
+}
+
+.certificates-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.certificate-all-content h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.cert-view-btn {
+  display: inline-block;
+  background: #111;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cert-view-btn:hover {
+  background: #444;
+}
+
+/* Swiper arrows */
+.certificate-slider .swiper-button-prev,
+.certificate-slider .swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.certificate-slider .swiper-button-prev {
+  left: 10px; /* inside padding */
+}
+
+.certificate-slider .swiper-button-next {
+  right: 10px; /* inside padding */
+}
+
+/* Pagination */
+.certificate-slider .swiper-pagination {
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .certificate-slider {
+    padding: 0 35px;
+  }
+
+  .certificate-slider .swiper-button-prev,
+  .certificate-slider .swiper-button-next {
+    width: 32px;
+    height: 32px;
+  }
+
+  .certificate-slider .swiper-button-prev {
+    left: 5px;
+  }
+
+  .certificate-slider .swiper-button-next {
+    right: 5px;
+  }
+}
 </style>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  // Init Slick
-  $('.top_picks_carousel').slick({
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    infinite: false,
-    prevArrow: $('.cert-prev'),
-    nextArrow: $('.cert-next'),
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1
-        }
-      },
-      {
-        breakpoint: 767,
-        settings: {
-          slidesToShow: 1,
-          dots: true,
-          arrows: false
-        }
-      }
-    ]
-  });
-
-  // Accordion toggle
-  document.querySelectorAll(".cert-plus").forEach(btn => {
-    btn.addEventListener("click", function() {
-      const card = this.closest(".top-picks-product-card");
-      card.classList.toggle("active");
-      this.textContent = card.classList.contains("active") ? "×" : "i";
-    });
+document.addEventListener('DOMContentLoaded', function() {
+  new Swiper('.certificate-slider', {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    loop: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+      1024: { slidesPerView: 3 },
+      768: { slidesPerView: 2 },
+      480: { slidesPerView: 1 },
+    },
   });
 });
 </script>
