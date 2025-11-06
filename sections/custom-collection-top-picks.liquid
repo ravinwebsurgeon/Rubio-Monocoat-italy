@@ -34,7 +34,7 @@
       <div class="certificate-card">
         <div class="certificates-img">
           {% if image %}
-            <img src="{{ product.featured_image }}" alt="{{ titles[i] | escape }}">
+            <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ titles[i] | escape }}">
           {% endif %}
           <div class="certificate-desc">
             <p>{{ descriptions[i] }}</p>
