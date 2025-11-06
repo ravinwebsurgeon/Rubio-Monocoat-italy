@@ -27,9 +27,9 @@
 {% endif %}
 <style>
 
-.right_image_section{
+{% comment %} .right_image_section{
     background-color:#f0f4f2;
-}    
+}     {% endcomment %}
 .section_content{
     display:flex;
     align-items: center;
@@ -41,7 +41,7 @@
     width:100%;
     display:block;
 }
-.right_image_section button.contact_btn {
+{% comment %} .right_image_section button.contact_btn {
     border: none;
     padding: 12px 30px;
     border-radius: 33px;
@@ -80,7 +80,10 @@
     .right_image_section .left_text_content {
         padding: 20px;
     }
-}
+    .section_content {
+        flex-wrap: wrap;
+    }
+} {% endcomment %}
 
 
 </style>
