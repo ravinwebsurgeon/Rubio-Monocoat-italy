@@ -117,11 +117,17 @@
       "type": "discover_similar_color",
       "name": "Discover Similar Section",
       "settings": {}
+    },
+    "color_right_section_MnBFdt": {
+      "type": "color-right-section",
+      "name": "Right Image Section",
+      "settings": {}
     }
   },
   "order": [
     "main",
     "related-products",
-    "discover_similar_color_BmQUge"
+    "discover_similar_color_BmQUge",
+    "color_right_section_MnBFdt"
   ]
 }
