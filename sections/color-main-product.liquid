@@ -323,7 +323,7 @@
                                     section_id: section.id,
                                     show_pickup_availability: true
                                 -%}
-                                    {%- form 'product',
+                                    {% comment %} {%- form 'product',
                                         product,
                                         id: product_form_id,
                                         class: 'form',
@@ -343,7 +343,7 @@
                                         class="product-variant-id"
                                         >
                                         <button type="submit" name="add" class="product-form__submit order_sample">Order Sample</button>
-                                {%- endform -%}
+                                {%- endform -%} {% endcomment %}
                             </div>
                             <div class="diffrent_volumes_button">
                                 <button class="different_volume">Order different volumes</button>
