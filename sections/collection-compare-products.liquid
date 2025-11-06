@@ -6,37 +6,6 @@
 {% assign des_benefits_raw = collection.metafields.custom.compare_product_des_benefits.value %}
 {% assign des_moment_raw = collection.metafields.custom.compare_product_des_moment.value %}
 
-
-<div class="comapre_products_section">
-    <div class="compare_products_data">
-        <div class="compare_products_heading">
-            <h2>{{ heading }}</h2>
-        </div>
-        <div class="compare_products">
-            {% for product in products %}
-                <div class="product_data">
-                    <div class="product_media_content">
-                        <a href="{{ product.url }}">
-                            <img src="{{ product.featured_image | img_url: "small" }}" />
-                        </a>
-                    </div>
-                    <div class="product_title">
-                        <p>{{ product.title }}</p>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-
-    {% comment %} <div class="products_description_conent">
-        <div class="heading_lists">
-            {% for text in des_headings %}
-                <div class="des_content">
-                    <h2>{{ text }}</h2>
-                </div>
-            {% endfor %}
-        </div>
-    </div> {% endcomment %}
 {% if des_purpose_raw[0] != nil %}
   {% assign des_purpose = des_purpose_raw %}
 {% else %}
@@ -72,42 +41,56 @@
   {% assign max_rows = des_moment.size %}
 {% endif %}
 
-<div class="compare-table-wrapper">
-    <table class="compare-table vertical-layout">
-      <tbody>
-        <tr>
-          <th>{{ des_headings[0] }}</th>
+<div class="comapre_products_section">
+    <div class="compare_products_data">
+      <div class="compare_products_heading">
+        <h2>{{ heading }}</h2>
+      </div>
+      <div class="compare_products">
+        {% for product in products %}
+            <div class="product_data">
+              <div class="product_media_content">
+                <a href="{{ product.url }}">
+                  <img src="{{ product.featured_image | img_url: "small" }}" />
+                </a>
+              </div>
+              <div class="product_title">
+                <p>{{ product.title }}</p>
+              </div>
+            </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="compare-table-wrapper">
+      <table class="compare-table vertical-layout">
+        <tbody>
+          <tr>
+            <th>{{ des_headings[0] }}</th>
             {% for item in des_purpose %}
-             <td> <div class="compare-cell">{{ item | strip }}</div></td>
+              <td> <div class="compare-cell">{{ item | strip }}</div></td>
             {% endfor %}
-          
-        </tr>
-        <tr>
-          <th>{{ des_headings[1] }}</th>
+          </tr>
+          <tr>
+            <th>{{ des_headings[1] }}</th>
             {% for item in des_suitable %}
-             <td> <div class="compare-cell">{{ item | strip }}</div> </td>
+              <td> <div class="compare-cell">{{ item | strip }}</div> </td>
             {% endfor %}
-        </tr>
-        <tr>
-          <th>{{ des_headings[2] }}</th>
-          
+          </tr>
+          <tr>
+            <th>{{ des_headings[2] }}</th>
             {% for item in des_benefits %}
-             <td> <div class="compare-cell">{{ item | strip }}</div> </td>
+              <td> <div class="compare-cell">{{ item | strip }}</div> </td>
             {% endfor %}
-         
-        </tr>
-        <tr>
-          <th>{{ des_headings[3] }}</th>
+          </tr>
+          <tr>
+            <th>{{ des_headings[3] }}</th>
             {% for item in des_moment %}
-            <td><div class="compare-cell">{{ item | strip }}</div></td>
+              <td><div class="compare-cell">{{ item | strip }}</div></td>
             {% endfor %}
-        </tr>
-      </tbody>
-    </table>  
-</div>
-
-
-
+          </tr>
+        </tbody>
+      </table>  
+    </div>
 </div>
 <style>
     .compare_products{display:flex;}
