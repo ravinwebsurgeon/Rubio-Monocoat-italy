@@ -1,6 +1,6 @@
-  {% assign images = collection.metafields.custom.top_picks_images.value %}
-  {% assign titles = collection.metafields.custom.top_picks_titles.value %}
-  
+  {% comment %} {% assign images = collection.metafields.custom.top_picks_images.value %}
+  {% assign titles = collection.metafields.custom.top_picks_titles.value %} {% endcomment %}
+
   {% assign descriptions = collection.metafields.custom.top_picks_desc.value %}
   {% assign product_list = collection.metafields.custom.top_picks_product.value %}
   {% assign heading = collection.metafields.custom.top_picks_heading.value %}
@@ -34,7 +34,7 @@
       {% assign i = forloop.index0 %}
       <div class="top-picks-product-card">
         <div class="certificates-img">
-            <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ titles[i] | escape }}">
+            <img src="{{ product.featured_image | img_url: 'master' }}" />
           <div class="certificate-desc">
             <p>{{ descriptions[i] }}</p>
           </div>
