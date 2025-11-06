@@ -1,5 +1,8 @@
 {% assign faq_btn_text = collection.metafields.custom.faq_btn_text.value %}
 {% assign faq_btn_link = collection.metafields.custom.faq_btn_link.value %}
+   {% assign faq_questions = collection.metafields.custom.faq_question.value %}
+        {% assign faq_answers = collection.metafields.custom.faq_answer.value %}
+{% if faq_questions != blank and faq_answers !=blank %}
 <section class="visit-faq-section-sect">
   <div class="visit-faq-section" id="faqs">
     <div class="faq-container">
@@ -18,8 +21,7 @@
 
       <!-- Right Column -->
       <div class="faq-right">
-        {% assign faq_questions = collection.metafields.custom.faq_question.value %}
-        {% assign faq_answers = collection.metafields.custom.faq_answer.value %}
+     
 
         {% if faq_questions and faq_answers %}
           {% for question in faq_questions %}
@@ -53,7 +55,7 @@
     </div>
   </div>
 </section>
-
+{% endif %}
 <style>
 .visit-faq-section-sect {
   background-color: #f8f8f8;
