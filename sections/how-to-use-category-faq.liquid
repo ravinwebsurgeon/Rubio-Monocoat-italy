@@ -204,7 +204,7 @@ $(document).ready(function() {
       console.log($mediaContainer,'mediaContainer')
 
         // inside your click handler, after determining newVideo/newImage and $mediaContainer:
-      $mediaContainer.fadeOut(200, function() {
+      $mediaContainer.fadeOut(100, function() {
         // this callback 'this' is the DOM element; but use jQuery methods for consistency
         $mediaContainer.empty(); // correct way to clear jQuery object content
 
@@ -229,7 +229,7 @@ $(document).ready(function() {
           console.log('no media available');
         }
 
-        $mediaContainer.fadeIn(200);
+        $mediaContainer.fadeIn(100);
       });
     }
   });
