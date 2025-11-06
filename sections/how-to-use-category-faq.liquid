@@ -34,7 +34,16 @@
               {% if forloop.index0 == 2 %} {% assign image = collection.metafields.custom.how_to_use_faq_image3 %} {% endif %}
               {% if forloop.index0 == 3 %} {% assign image = collection.metafields.custom.how_to_use_faq_image4 %} {% endif %}
 
-              <div class="custom-faq-item {% if forloop.first %}active{% endif %}" data-image="{{ image | img_url: '800x' }}">
+              {% assign video = blank %}
+              {% if forloop.index0 == 0 %} {% assign video = collection.metafields.custom.how_to_use_faq_video1.value %} {% endif %}
+              {% if forloop.index0 == 1 %} {% assign video = collection.metafields.custom.how_to_use_faq_video2.value %} {% endif %}
+              {% if forloop.index0 == 2 %} {% assign video = collection.metafields.custom.how_to_use_faq_video3.value %} {% endif %}
+              {% if forloop.index0 == 3 %} {% assign video = collection.metafields.custom.how_to_use_faq_video4.value %} {% endif %}
+
+              <div class="custom-faq-item {% if forloop.first %}active{% endif %}" 
+                data-image="{{ image | img_url: '800x' }}"
+                data-video="{{ video }}"
+              >
                 <button type="button" class="custom-faq-question">
                   <h3>{{ question }}</h3>
                   <span class="custom-faq-icon">
@@ -156,21 +165,30 @@ $(document).ready(function() {
       $item.removeClass("active");
       $answer.slideUp(300);
     } else {
-      // Close all other items
       $(".custom-faq-item").removeClass("active").find(".custom-faq-answer").slideUp(300);
-
-      // Open clicked
       $item.addClass("active");
       $answer.slideDown(300);
 
-      // Change left image
+      // Update media
+      var newVideo = $item.data("video");
       var newImage = $item.data("image");
-      if (newImage) {
-        $("#faq-left-image").attr("src", newImage);
+      var $mediaContainer = $("#faq-left-media");
+
+      $mediaContainer.empty(); // clear previous content
+
+      if (newVideo && newVideo !== "null" && newVideo !== "") {
+        $mediaContainer.html(
+          `<video controls autoplay muted loop playsinline style="width:100%;border-radius:10px;">
+            <source src="${newVideo}" type="video/mp4">
+          </video>`
+        );
+      } else if (newImage) {
+        $mediaContainer.html(`<img src="${newImage}" alt="How to use" loading="lazy" style="border-radius:10px;width:100%;">`);
       }
     }
   });
 });
+
 </script>
 
 {% schema %} 
