@@ -77,17 +77,17 @@
         "default_image": "shopify://shop_images/aa62a9d8b76bf83cf45b55405d96c568c062b03e.png"
       }
     },
-    "how_to_use_category_faq_FJBpMt": {
-      "type": "how-to-use-category-faq",
-      "name": "How To Use cat FAQ",
-      "settings": {}
-    },
     "collection_compare_products_pYHEaF": {
       "type": "collection-compare-products",
       "name": "Compare Product Section",
       "settings": {
         "heading": "Latest from the blog"
       }
+    },
+    "how_to_use_category_faq_FJBpMt": {
+      "type": "how-to-use-category-faq",
+      "name": "How To Use cat FAQ",
+      "settings": {}
     },
     "custom_collection_top_picks_WXYNDP": {
       "type": "custom-collection-top-picks",
@@ -219,8 +219,8 @@
   "order": [
     "product-grid",
     "how_to_use_faq_news_test_Ltrq6j",
-    "how_to_use_category_faq_FJBpMt",
     "collection_compare_products_pYHEaF",
+    "how_to_use_category_faq_FJBpMt",
     "custom_collection_top_picks_WXYNDP",
     "inspired_wooden_floor_GyrTqA",
     "custom_vissits_nomal_ctG9Gz",
