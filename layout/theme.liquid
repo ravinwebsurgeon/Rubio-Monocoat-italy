@@ -318,6 +318,14 @@
   </head>
 
   <body class="template{{ template | handle }} gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+    {% if body_class contains 'templatepage-colour' %}
+  <div id="page-loader">
+    <div class="loader-logo">
+      <img src="https://cdn.shopify.com/s/files/1/0680/7647/0314/files/c9c497e60074546a8f0f6d2160b8e855556ae226.png?v=1757665103" alt="Site Logo">
+    </div>
+  </div>
+{% endif %}
+
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
