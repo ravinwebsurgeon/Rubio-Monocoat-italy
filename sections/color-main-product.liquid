@@ -315,7 +315,27 @@
                    <div class="order_buttons">
                         <div class="sample_buttons_outer">
                             <div class="sample_order_button">
-                                <button class="order_sample">Order Sample</button>
+                                    {%- form 'product',
+                                        product,
+                                        id: product_form_id,
+                                        class: 'form',
+                                        novalidate: 'novalidate',
+                                        data-type: 'add-to-cart-form'
+                                    -%}
+                                        <input
+                                        type="hidden"
+                                        name="id"
+                                        value="{{ product.selected_or_first_available_variant.id }}"
+                                        {% if product.selected_or_first_available_variant.available == false
+                                            or quantity_rule_soldout
+                                            or product.selected_or_first_available_variant == null
+                                        %}
+                                            disabled
+                                        {% endif %}
+                                        class="product-variant-id"
+                                        >
+                                            <button class="order_sample">Order Sample</button>
+                                {%- endform -%}
                             </div>
                             <div class="diffrent_volumes_button">
                                 <button class="different_volume">Order different volumes</button>
