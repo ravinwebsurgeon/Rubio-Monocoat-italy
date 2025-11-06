@@ -271,6 +271,8 @@ document.addEventListener("DOMContentLoaded", function(){
     const popup = btn.closest(".collage-item").querySelector(".hotspot-popup");
     const content = popup.querySelector(".hotspot-content");
     const closeBtn = popup.querySelector(".close-hotspot");
+    const metaDescription = btn.closest('.collage-item').dataset.productDesc;
+
 
     btn.addEventListener("click", function(e){
       const handle = this.dataset.productHandle;
@@ -291,7 +293,7 @@ document.addEventListener("DOMContentLoaded", function(){
           content.innerHTML = `
             <img src="${product.images[0]}" alt="${product.title}">
             <h3>${product.title}</h3>
-            <p>${product.body_html}</p>
+            <p>${metaDescription}</p>
            {% comment %} <form action="/cart/add" method="post">{% endcomment %} 
               {% comment %} <select name="id">
                 ${product.variants.map(v => `<option value="${v.id}">${v.title} - $${(v.price/100).toFixed(2)}</option>`).join('')}
