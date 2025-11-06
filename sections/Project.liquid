@@ -1605,32 +1605,46 @@ document.addEventListener("DOMContentLoaded", function() {
   const clearBtnContainer = document.querySelector(".clear-choosens-btn-container");
   const clearButton = document.getElementById("clearchoosens");
 
-  function checkActiveStates() {
-    const interioActive = document.querySelector(".Interio.active");
-    const exteriorActive = document.querySelector(".exterior.active");
-    const surfaceActive = document.querySelector(".surface-toggle.active");
+  const interioBtn = document.querySelector(".Interio");
+  const exteriorBtn = document.querySelector(".exterior");
+  const surfaceToggle = document.querySelector(".surface-toggle");
 
-    if (interioActive || exteriorActive || surfaceActive) {
+  function updateClearButtonVisibility() {
+    const isActive =
+      interioBtn?.classList.contains("active") ||
+      exteriorBtn?.classList.contains("active") ||
+      surfaceToggle?.classList.contains("active");
+
+    if (isActive) {
       clearBtnContainer.classList.add("show");
     } else {
       clearBtnContainer.classList.remove("show");
     }
   }
 
-  // Check on page load
-  checkActiveStates();
+  // Attach click listeners to these elements
+  [interioBtn, exteriorBtn, surfaceToggle].forEach(btn => {
+    if (btn) {
+      btn.addEventListener("click", function() {
+        // Toggle "active" state (if not handled elsewhere)
+        // If your theme already adds/removes 'active', remove this toggle line
+        btn.classList.toggle("active");
 
-  // Recheck whenever user clicks anywhere (useful if classes change dynamically)
-  document.addEventListener("click", function() {
-    checkActiveStates();
+        // Update visibility after click
+        updateClearButtonVisibility();
+      });
+    }
   });
 
-  // Button click -> reload page
+  // Clear All button reloads page
   if (clearButton) {
     clearButton.addEventListener("click", function() {
       location.reload();
     });
   }
+
+  // Initial check
+  updateClearButtonVisibility();
 });
 
 </script>
