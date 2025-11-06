@@ -126,7 +126,7 @@ if (actionBtn && suitedSection) {
  
 {% endif %}
     
-    {% render 'product-variant-options',
+    {% render 'color-variant-options',
       product: product,
       option: option,
       block: block,
@@ -213,7 +213,7 @@ if (actionBtn && suitedSection) {
 </legend>
 
           
-          {% render 'product-variant-options',
+          {% render 'color-variant-options',
             product: product,
             option: option,
             block: block,
@@ -241,7 +241,7 @@ if (actionBtn && suitedSection) {
               name="options[{{ option.name | escape }}]"
               form="{{ product_form_id }}"
             >
-              {% render 'product-variant-options',
+              {% render 'color-variant-options',
                 product: product,
                 option: option,
                 block: block,
