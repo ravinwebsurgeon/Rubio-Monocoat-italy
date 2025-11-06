@@ -242,7 +242,7 @@
                     <p>Interior</p>
                   </div>
                   <div class="custom_toxin_icon">
-                    <img src="{{ product.metafields.custom.icontoxin.value }}"><p>Toxin Free</p>
+                    <img src="{{ product.metafields.custom.icontoxin.value | img_url: 'small'}}"><p>Toxin Free</p>
                   </div>
                 </div>
               {%- when 'description' -%}
