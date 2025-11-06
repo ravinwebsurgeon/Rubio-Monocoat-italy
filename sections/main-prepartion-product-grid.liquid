@@ -6,15 +6,15 @@
 {% assign slider_images = collection.metafields.custom.surface_images.value %}
 {% assign surface_header = collection.metafields.custom.surface_header.value %}
 
-
 <div class="custom_collection_main">
+{% if cat_heading != blank %}
     <div class="collection_header_main">
       <div class="page-center">
         <div class="header_main_heading"><h2>{{ cat_heading }}</h2></div>
         <div class="header_main_subheading">{{ cat_subheading }}</div>
       </div>        
     </div>
-
+  {% endif %}
     <div class="collection_surface_section">
         <div class="collection_surface_content">
             <div class="collection_surface_header">
