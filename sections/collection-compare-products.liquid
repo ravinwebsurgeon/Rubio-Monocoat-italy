@@ -47,24 +47,31 @@
         <div class="compare_products_heading">
           <h2>{{ heading }}</h2>
         </div>
-        <div class="compare_products">
-          {% for product in products %}
-              <div class="product_data">
-                <div class="product_media_content">
-                  <a href="{{ product.url }}">
-                    <img src="{{ product.featured_image | img_url: "small" }}" />
-                  </a>
-                </div>
-                <div class="product_title">
-                  <p>{{ product.title }}</p>
-                </div>
-              </div>
-          {% endfor %}
-        </div>
+        
       </div>
       <div class="compare-table-wrapper">
         <table class="compare-table vertical-layout">
           <tbody>
+            <tr>
+              <th></th>
+              <td>
+              <div class="compare_products">
+                        {% for product in products %}
+                            <div class="product_data">
+                              <div class="product_media_content">
+                                <a href="{{ product.url }}">
+                                  <img src="{{ product.featured_image | img_url: "small" }}" />
+                                </a>
+                              </div>
+                              <div class="product_title">
+                                <p>{{ product.title }}</p>
+                              </div>
+                            </div>
+                        {% endfor %}
+                      </div>
+
+              </td>
+            </tr>
             <tr>
               <th>{{ des_headings[0] }}</th>
               {% for item in des_purpose %}
