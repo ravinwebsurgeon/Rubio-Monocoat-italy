@@ -315,7 +315,7 @@
                    <div class="order_buttons">
                         <div class="sample_buttons_outer">
                             <div class="sample_order_button">
-                                    {%- form 'product',
+                                    {% comment %} {%- form 'product',
                                         product,
                                         id: product_form_id,
                                         class: 'form',
@@ -335,7 +335,15 @@
                                         class="product-variant-id"
                                         >
                                             <button type="submit" name="add" class="product-form__submit order_sample">Order Sample</button>
-                                {%- endform -%}
+                                {%- endform -%} {% endcomment %}
+                                   <form method="post" action="/cart/add" id="product_form_{{ product.id }}">
+      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+      <div class="product-form__controls-group product-form__quantity">
+        <label for="Quantity-{{ section.id }}">Quantity</label>
+        <input type="number" id="Quantity-{{ section.id }}" name="quantity" value="1" min="1" class="quantity-selector">
+      </div>
+      <button type="submit" name="add" class="button button--full-width">Add to cart</button>
+    </form>
                             </div>
                             <div class="diffrent_volumes_button">
                                 <button class="different_volume">Order different volumes</button>
