@@ -205,6 +205,12 @@
   .compare-table {
     width: 1024px;
  }
+ .compare-table-wrapper {
+    -ms-scroll-snap-type: x mandatory;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;
+}
 }
 @media (max-width: 767px) {
   .compare-table th, .compare-table td {
