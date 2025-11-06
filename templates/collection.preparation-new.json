@@ -210,6 +210,11 @@
       "settings": {
         "main_heading": "Oiling Other Surfaces?"
       }
+    },
+    "custom_collection_top_picks_WXYNDP": {
+      "type": "custom-collection-top-picks",
+      "name": "Cat Top Picks Slider",
+      "settings": {}
     }
   },
   "order": [
@@ -217,6 +222,7 @@
     "how_to_use_faq_news_test_Ltrq6j",
     "how_to_use_category_faq_FJBpMt",
     "collection_compare_products_pYHEaF",
+    "custom_collection_top_picks_WXYNDP",
     "inspired_wooden_floor_GyrTqA",
     "custom_vissits_nomal_ctG9Gz",
     "other_surfaces_slider_3bmEdY"
