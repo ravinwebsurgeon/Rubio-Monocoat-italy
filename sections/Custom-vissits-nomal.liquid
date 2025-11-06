@@ -1,3 +1,5 @@
+{% assign faq_btn_text = collection.metafields.custom.faq_btn_text.value %}
+{% assign faq_btn_link = collection.metafields.custom.faq_btn_link.value %}
 <section class="visit-faq-section-sect">
   <div class="visit-faq-section" id="faqs">
     <div class="faq-container">
@@ -6,9 +8,9 @@
       <div class="faq-left">
         <h2 class="faq-heading1">{{ section.settings.heading }}</h2>
         <div class="desktop-display-block">
-          {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-            <a href="{{ section.settings.button_link }}" class="faq-btn">
-              {{ section.settings.button_label }}
+          {% if faq_btn_text != blank and faq_btn_link != blank %}
+            <a href="{{ faq_btn_link }}" class="faq-btn">
+              {{ faq_btn_text }}
             </a>
           {% endif %}
         </div>
