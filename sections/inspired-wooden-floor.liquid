@@ -274,7 +274,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     btn.addEventListener("click", function(e){
       const handle = this.dataset.productHandle;
-   const metaDescription = btn.closest('.collage-item').dataset.productDesc;
+   const metaDescription = btn.closest('.product-overlay-btn').dataset.productDesc;
     console.log(metaDescription,'metaDescription')
       // Hide all other popups
       document.querySelectorAll(".hotspot-popup").forEach(p => { if(p !== popup) p.style.display = 'none'; });
