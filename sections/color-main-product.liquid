@@ -801,8 +801,15 @@ document.addEventListener('DOMContentLoaded', () => {
     div.style.overflow = 'hidden';
   });
 });
-</script>
 
+</script>
+<script>
+document.addEventListener('variant:changed', (event) => {
+  document.querySelectorAll('.order_sample .button-text').forEach(btn => {
+    btn.textContent = btn.dataset.defaultText;
+  });
+});
+</script>
 
 
 
