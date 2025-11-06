@@ -1,3 +1,30 @@
+{% assign heading = product.metafields.custom.right_image_heading.value %}
+{% assign subheading_text = product.metafields.custom.right_image_text.value %}
+{% assign btn_text = product.metafields.custom.right_image_btn.value %}
+{% assign btn_link = product.metafields.custom.right_image_btn_link.value %}
+{% assign Image = product.metafields.custom.right_image_file.value %}
+
+
+{% if heading != blank and product.metafields.custom.right_image_file != blank %}
+    <div class="right_image_section">
+        <div class="section_content">
+            <div class="left_text_content">
+                <div class="headings">
+                    <h2>{{ heading }}</h2>
+                    <p>{{ subheading_text }}</p>
+                </div>
+                <div class="btn_content">
+                    <a href="{{ btn_link }}"><button class="contact_btn">{{ btn_text }}</button></a>
+                </div>
+            </div>
+            <div class="right_media_content">
+                <div class="image_data">
+                    <img src="{{ Image | img_url: 'master' }}">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
 
 {% schema %}
 {
