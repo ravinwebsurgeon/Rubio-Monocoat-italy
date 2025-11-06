@@ -1604,16 +1604,15 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener("DOMContentLoaded", function() {
   const clearBtnContainer = document.querySelector(".clear-choosens-btn-container");
   const clearButton = document.getElementById("clearchoosens");
-
-  const interioBtn = document.querySelector(".Interio");
-  const exteriorBtn = document.querySelector(".exterior");
-  const surfaceToggle = document.querySelector(".surface-toggle");
+  const interio = document.querySelector(".Interio");
+  const exterior = document.querySelector(".exterior");
+  const surface = document.querySelector(".surface-toggle");
 
   function updateClearButtonVisibility() {
     const isActive =
-      interioBtn?.classList.contains("active") ||
-      exteriorBtn?.classList.contains("active") ||
-      surfaceToggle?.classList.contains("active");
+      interio?.classList.contains("active") ||
+      exterior?.classList.contains("active") ||
+      surface?.classList.contains("active");
 
     if (isActive) {
       clearBtnContainer.classList.add("show");
@@ -1622,31 +1621,25 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  // Attach click listeners to these elements
-  [interioBtn, exteriorBtn, surfaceToggle].forEach(btn => {
-    if (btn) {
-      btn.addEventListener("click", function() {
-        // Toggle "active" state (if not handled elsewhere)
-        // If your theme already adds/removes 'active', remove this toggle line
-        btn.classList.toggle("active");
+  // Initial check
+  updateClearButtonVisibility();
 
-        // Update visibility after click
-        updateClearButtonVisibility();
-      });
-    }
+  // Observe changes in class attributes for these elements
+  [interio, exterior, surface].forEach(el => {
+    if (!el) return;
+    const observer = new MutationObserver(() => {
+      updateClearButtonVisibility();
+    });
+    observer.observe(el, { attributes: true, attributeFilter: ["class"] });
   });
 
-  // Clear All button reloads page
+  // Button click -> reload page
   if (clearButton) {
     clearButton.addEventListener("click", function() {
       location.reload();
     });
   }
-
-  // Initial check
-  updateClearButtonVisibility();
 });
-
 </script>
 
 
