@@ -56,22 +56,20 @@
               <th></th>
               {% for product in products %}
               <td>
-              <div class="compare_product">
-                    <div class="product_data">
-                      <div class="product_media_content">
-                        <a href="{{ product.url }}">
-                          <img src="{{ product.featured_image | img_url: "small" }}" />
-                        </a>
-                      </div>
-                      <div class="product_title">
-                        <p>{{ product.title }}</p>
-                      </div>
+                <div class="compare_product">
+                  <div class="product_data">
+                    <div class="product_media_content">
+                      <a href="{{ product.url }}">
+                        <img src="{{ product.featured_image | img_url: "small" }}" />
+                      </a>
                     </div>
-                
-              </div>
-
+                    <div class="product_title">
+                      <p>{{ product.title }}</p>
+                    </div>
+                  </div>
+                </div>
               </td>
-               {% endfor %}
+              {% endfor %}
             </tr>
             <tr>
               <th>{{ des_headings[0] }}</th>
