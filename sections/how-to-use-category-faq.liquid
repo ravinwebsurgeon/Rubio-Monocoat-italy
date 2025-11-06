@@ -42,7 +42,7 @@
 
               <div class="custom-faq-item {% if forloop.first %}active{% endif %}" 
                 data-image="{{ image | img_url: '800x' }}"
-                data-video="{{ video }}"
+               data-video="{% if video %}{{ video | file_url }}{% endif %}"
               >
                 <button type="button" class="custom-faq-question">
                   <h3>{{ question }}</h3>
