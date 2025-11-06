@@ -1,6 +1,7 @@
 {% assign meta_products = collection.metafields.custom.inspired_wooden_products.value %}
 {% assign meta_images = collection.metafields.custom.inspired_wooden_images.value %}
 {% assign meta_heading = collection.metafields.custom.inspired_wooden_heading.value %}
+{% if meta_images != blank and meta_products != blank %}
 <section class="asdf inspired-collage" data-show="{{ meta_products | json }}">
   <div class="container">
     <div class="collage-header">
@@ -61,7 +62,7 @@
     </div>
   </div>  
 </section>
-
+{% endif %}
 <style>
 .inspired-collage{
   padding:100px 0 50px;
