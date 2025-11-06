@@ -271,7 +271,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const popup = btn.closest(".collage-item").querySelector(".hotspot-popup");
     const content = popup.querySelector(".hotspot-content");
     const closeBtn = popup.querySelector(".close-hotspot");
-    const metaDescription = btn.closest('.collage-item').dataset.productDesc;
+    const metaDescription = btn.closest('.collage-item').dataset;
     console.log(metaDescription,'metaDescription')
 
     btn.addEventListener("click", function(e){
