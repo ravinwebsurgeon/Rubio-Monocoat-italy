@@ -804,33 +804,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Find this product section’s submit button
-  const submitBtn = document.querySelector('#ProductSubmitButton-{{ section.id }} span');
-
-  if (!submitBtn) return;
-
-  // Function to force label
-  const setOrderSampleLabel = () => {
-    submitBtn.textContent = 'Order Sample';
-  };
-
-  // Initially set it
-  setOrderSampleLabel();
-
-  // Listen for variant changes on this section
-  document.addEventListener('variant:change', function(e) {
-    // only affect this section
-    const sectionId = '{{ section.id }}';
-    const sectionEl = e.target.closest(`[data-section-id="${sectionId}"]`);
-    if (!sectionEl) return;
-
-    // wait a tick so Shopify’s script runs first
-    setTimeout(setOrderSampleLabel, 50);
+document.addEventListener('variant:changed', (event) => {
+  document.querySelectorAll('.order_sample .button-text').forEach(btn => {
+    btn.textContent = 'order sample';
   });
 });
 </script>
-
 
 
 
