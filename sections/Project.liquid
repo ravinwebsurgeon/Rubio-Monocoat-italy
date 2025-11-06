@@ -310,7 +310,7 @@
           </div>
           <div class="tab-products-outer">
              <div class="tab-products-wrap Interior-wrap">
-                <h4 class="oil-head">Oil Plus 2C - Interior wood oil</h4>
+                <h4 class="oil-head">{{ page.metafields.custom.color_interior }}</h4>
                 {% for block in section.blocks %}
                 {% comment %} {% assign tab_collection = block.settings.tab_collection %} {% endcomment %}
                 {% assign tab_collection = section.settings.interior_collection %}
