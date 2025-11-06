@@ -1,10 +1,10 @@
-{% assign images = collection.metafields.custom.top_picks_images.value %}
-{% assign titles = collection.metafields.custom.top_picks_titles.value %}
-{% assign descriptions = collection.metafields.custom.top_picks_desc.value %}
-{% assign product_list = collection.metafields.custom.top_picks_product.value %}
-{% assign heading = collection.metafields.custom.top_picks_heading.value %}
+  {% assign images = collection.metafields.custom.top_picks_images.value %}
+  {% assign titles = collection.metafields.custom.top_picks_titles.value %}
+  {% assign descriptions = collection.metafields.custom.top_picks_desc.value %}
+  {% assign product_list = collection.metafields.custom.top_picks_product.value %}
+  {% assign heading = collection.metafields.custom.top_picks_heading.value %}
 
-{% if product_list != blank %}
+  {% if product_list != blank %}
 <section class="top_picks_slider">
   <div class="top-picks-header">
     <h2>
@@ -50,6 +50,7 @@
     {% endfor %}
   </div>
 </section>
+{% endif %}
 
 <style>
   .top_picks_slider .certificate-all-content {
@@ -66,8 +67,7 @@
     position: relative;
     height:100%;
   }
-  
-  .top_picks_slider .ctificte-btn--pulsss {
+.top_picks_slider .ctificte-btn--pulsss {
     justify-content: end;
     display: flex;
     margin-top: 0;
@@ -78,21 +78,18 @@
     bottom: 0;
     align-items: center;
     padding: 0 10px;
-  }
-  
+}
   .top_picks_slider {
     padding: 100px 30px;
     max-width: 1745px;
     margin: 0 auto;
   }
-  
   .top-picks-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 50px;
   }
-  
   .top-picks-header h2 {
     font-family: Frutiger Neue LT W1G;
     font-weight: 700;
@@ -100,21 +97,17 @@
     line-height: 45px;
     margin: 0;
   }
-  
   .top_picks_slider .certificates-arrows button {
     background: transparent;
     border: 0;
     padding: 0;
   }
-  
   .top_picks_slider .certificates-arrows button svg {
     width: 20px;
     height: 20px;
     display: block;
     cursor: pointer;
-    fill: #000;
   }
-  
   .top_picks_slider .certificates-arrows .prev-btn, 
   .top_picks_slider .certificates-arrows .next-btn {
     width: 40px;
@@ -125,26 +118,16 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
   }
-  
-  .top_picks_slider .certificates-arrows .prev-btn:hover, 
-  .top_picks_slider .certificates-arrows .next-btn:hover {
-    background-color: #183029;
-    border-color: #183029;
-  }
-  
-  .top_picks_slider .certificates-arrows .prev-btn:hover svg, 
-  .top_picks_slider .certificates-arrows .next-btn:hover svg {
-    fill: #fff;
-  }
-  
   .top_picks_slider .certificates-arrows {
     display: flex;
     gap: 10px;
+    cursor: pointer;
+    transition:all ease 0.3s;
   }
-  
-  .top_picks_slider .top-picks-product-card {
+ 
+
+   .top_picks_slider .top-picks-product-card {
     border-radius: 20px;
     text-align: center;
     margin: 0 10px;
@@ -153,7 +136,6 @@
     display: flex;
     flex-direction: column;
   }
-  
   .top-picks-product-card .certificates-img {
     background-color: #E1E9E4;
     position: relative;
@@ -162,7 +144,6 @@
     border-top-right-radius: 20px;
     overflow: hidden;
   }
-  
   .top-picks-product-card img {
     max-width: 277px;
     width: 100%;
@@ -174,7 +155,6 @@
     object-fit: contain;
     transition: opacity 0.3s ease;
   }
-  
   .top-picks-product-card h3 {
     margin: 0;
     font-family: Frutiger Neue LT W1G;
@@ -185,7 +165,6 @@
     color:#fff;
     padding-right: 36px;
   }
-  
   .top_picks_slider .certificate-puls-btn button.cert-plus {
     background: 0;
     border: 0;
@@ -193,10 +172,7 @@
     padding: 0;
     cursor: pointer;
     color:#fff;
-    position: relative;
-    z-index: 2;
   }
-  
   .top_picks_slider .certificate-puls-btn {
     width: 24px;
     height: 24px;
@@ -206,19 +182,10 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .top_picks_slider .certificate-puls-btn:hover {
-    background-color: #fff;
-  }
-  
-  .top_picks_slider .certificate-puls-btn:hover .cert-plus {
-    color: #183029;
   }
 
-  /* Accordion effect */
-  .certificate-desc {
+  /* Accordion effect (expand upward into image area) */
+ .certificate-desc {
     position: absolute;
     inset: 0;
     background: #183029;
@@ -238,53 +205,28 @@
     overflow: auto;
     flex-direction: column;
     border-radius: 20px 20px 0 0;
-    z-index: 1;
-  }
-  
+}
   .top-picks-product-card.active .certificate-desc {
     opacity: 1;
     transform: translateY(0);
   }
-  
   .top-picks-product-card.active img {
     opacity: 0;
   }
+  .top_picks_slider .certificate-puls-btn button.cert-plus:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  .top_picks_slider .slick-list {
+    display: flex;
+  }
 
-  /* Slick slider styles */
-  .top_picks_carousel .slick-list {
-    overflow: hidden;
-  }
-  
-  .top_picks_carousel .slick-track {
-    display: flex !important;
-  }
-  
-  .top_picks_carousel .slick-slide {
-    float: none;
-    height: auto;
-  }
-  
-  .top_picks_carousel .slick-slide > div {
-    height: 100%;
-  }
-  
-  /* Slick arrow customization */
-  .top_picks_carousel .slick-arrow {
-    position: static;
-    transform: none;
-  }
-  
-  .top_picks_carousel .slick-arrow:before {
-    display: none;
-  }
-  
-  .top_picks_carousel .slick-disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-  
-  .top_picks_carousel .slick-disabled button {
-    cursor: not-allowed;
+  .top_picks_slider .slick-list .slick-track {
+    display: flex;
   }
 
   @media(max-width:1900px){
@@ -298,8 +240,8 @@
     .top-picks-header {
       margin-bottom: 30px;
     }
+    
   }
-  
   @media(max-width:991px){
     .top_picks_slider {
         padding: 50px 20px;
@@ -308,7 +250,6 @@
         padding-bottom: 190px;
     }
   }
-  
   @media(max-width:767px){
     .top-picks-header h2 {
         font-size: 24px;
@@ -324,14 +265,13 @@
         transform: translateY(-40%);
         left: 18px;
         right: 18px;
-        display: none;
+        display:none;
     }
     .top_picks_slider .certificates-arrows button svg {
       width: 12px;
       height: 12px;
     }
-    .top_picks_slider .certificates-arrows .prev-btn,  
-    .top_picks_slider .certificates-arrows .next-btn {
+    .top_picks_slider .certificates-arrows .prev-btn,  .top_picks_slider .certificates-arrows .next-btn {
       width: 24px;
       height: 24px;
       border: 1px solid rgba(0, 0, 0, 0.2);
@@ -347,201 +287,46 @@
     .top_picks_slider .certificate-puls-btn button.cert-plus {
       font-size: 18px;
     }
-    
-    /* Show arrows on mobile when not using dots */
-    .top_picks_slider .certificates-arrows.mobile-arrows {
-      display: flex;
-    }
   }
 </style>
-
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  // Check if jQuery and Slick are available
-  function initializeSlider() {
-    if (typeof jQuery === 'undefined' || typeof jQuery.fn.slick === 'undefined') {
-      console.error('jQuery or Slick slider not loaded');
-      // Fallback to vanilla JS if Slick not available
-      initializeVanillaSlider();
-      return;
-    }
-    
-    const $carousel = $('.top_picks_carousel');
-    
-    if ($carousel.length) {
-      $carousel.slick({
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        infinite: false,
-        prevArrow: $('.cert-prev'),
-        nextArrow: $('.cert-next'),
-        responsive: [
-          {
-            breakpoint: 1200,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 1
-            }
-          },
-          {
-            breakpoint: 991,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 1
-            }
-          },
-          {
-            breakpoint: 767,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
-              dots: true,
-              arrows: false,
-              appendDots: $('.top_picks_slider')
-            }
-          }
-        ]
-      });
-      
-      console.log('Slick slider initialized successfully');
-    }
-  }
+  // Init Slick
+  $('.top_picks_carousel').slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    infinite: false,
+    prevArrow: $('.cert-prev'),
+    nextArrow: $('.cert-next'),
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1,
+          dots: true,
+          arrows: false
+        }
+      }
+    ]
+  });
 
-  // Vanilla JavaScript fallback slider
-  function initializeVanillaSlider() {
-    const carousel = document.querySelector('.top_picks_carousel');
-    const prevBtn = document.querySelector('.cert-prev');
-    const nextBtn = document.querySelector('.cert-next');
-    const cards = document.querySelectorAll('.top-picks-product-card');
-    
-    if (!carousel || !prevBtn || !nextBtn) return;
-    
-    let currentIndex = 0;
-    let cardsToShow = getCardsToShow();
-    
-    function getCardsToShow() {
-      if (window.innerWidth <= 767) return 1;
-      if (window.innerWidth <= 991) return 2;
-      if (window.innerWidth <= 1200) return 3;
-      return 4;
-    }
-    
-    function updateCarousel() {
-      const cardWidth = 100 / cardsToShow;
-      const translateX = -currentIndex * cardWidth;
-      carousel.style.transform = `translateX(${translateX}%)`;
-      updateArrowStates();
-    }
-    
-    function updateArrowStates() {
-      const maxIndex = Math.max(0, cards.length - cardsToShow);
-      
-      prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
-      prevBtn.disabled = currentIndex === 0;
-      
-      nextBtn.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
-      nextBtn.disabled = currentIndex >= maxIndex;
-    }
-    
-    function nextSlide() {
-      const maxIndex = Math.max(0, cards.length - cardsToShow);
-      if (currentIndex < maxIndex) {
-        currentIndex++;
-        updateCarousel();
-      }
-    }
-    
-    function prevSlide() {
-      if (currentIndex > 0) {
-        currentIndex--;
-        updateCarousel();
-      }
-    }
-    
-    // Add CSS for vanilla slider
-    const style = document.createElement('style');
-    style.textContent = `
-      .top_picks_carousel {
-        display: flex;
-        transition: transform 0.3s ease;
-        width: 100%;
-      }
-      .top-picks-product-card {
-        flex: 0 0 ${100/4}%;
-        min-width: 0;
-      }
-      @media (max-width: 1200px) {
-        .top-picks-product-card { flex: 0 0 ${100/3}%; }
-      }
-      @media (max-width: 991px) {
-        .top-picks-product-card { flex: 0 0 50%; }
-      }
-      @media (max-width: 767px) {
-        .top-picks-product-card { flex: 0 0 100%; }
-      }
-    `;
-    document.head.appendChild(style);
-    
-    // Event listeners
-    prevBtn.addEventListener('click', prevSlide);
-    nextBtn.addEventListener('click', nextSlide);
-    window.addEventListener('resize', function() {
-      cardsToShow = getCardsToShow();
-      currentIndex = Math.min(currentIndex, Math.max(0, cards.length - cardsToShow));
-      updateCarousel();
+  // Accordion toggle
+  document.querySelectorAll(".cert-plus").forEach(btn => {
+    btn.addEventListener("click", function() {
+      const card = this.closest(".top-picks-product-card");
+      card.classList.toggle("active");
+      this.textContent = card.classList.contains("active") ? "×" : "i";
     });
-    
-    // Initialize
-    updateCarousel();
-    console.log('Vanilla slider initialized');
-  }
-
-  // Accordion toggle functionality
-  function initializeAccordion() {
-    document.querySelectorAll(".cert-plus").forEach(btn => {
-      btn.addEventListener("click", function(e) {
-        e.stopPropagation();
-        const card = this.closest(".top-picks-product-card");
-        const isActive = card.classList.contains("active");
-        
-        // Close all other accordions
-        document.querySelectorAll(".top-picks-product-card.active").forEach(activeCard => {
-          if (activeCard !== card) {
-            activeCard.classList.remove("active");
-            activeCard.querySelector(".cert-plus").textContent = "i";
-          }
-        });
-        
-        // Toggle current accordion
-        card.classList.toggle("active");
-        this.textContent = card.classList.contains("active") ? "×" : "i";
-      });
-    });
-    
-    // Close accordion when clicking outside
-    document.addEventListener("click", function() {
-      document.querySelectorAll(".top-picks-product-card.active").forEach(card => {
-        card.classList.remove("active");
-        card.querySelector(".cert-plus").textContent = "i";
-      });
-    });
-  }
-
-  // Initialize everything
-  function initializeAll() {
-    initializeSlider();
-    initializeAccordion();
-  }
-
-  // Wait for DOM to be fully ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeAll);
-  } else {
-    initializeAll();
-  }
+  });
 });
 </script>
-{% endif %}
 
 {% schema %}
 {
