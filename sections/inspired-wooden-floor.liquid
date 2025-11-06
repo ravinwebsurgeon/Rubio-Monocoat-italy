@@ -247,10 +247,13 @@
   .inspired-collage .container {
       padding: 0 20px;
   }
-
   .collage-grid {    
     min-height: inherit;
     aspect-ratio: 1;
+    -ms-scroll-snap-type: x mandatory;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;
   }
   .collage-item {
         min-height: inherit;
