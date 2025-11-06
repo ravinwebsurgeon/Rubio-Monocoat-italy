@@ -1,6 +1,8 @@
-  {% assign images = product.metafields.custom.certificates_images.value %}
-  {% assign titles = product.metafields.custom.certificates_titles.value %}
-  {% assign descriptions = product.metafields.custom.certificates_descriptions.value %}
+  {% assign images = collection.metafields.custom.top_picks_images.value %}
+  {% assign titles = collection.metafields.custom.top_picks_titles.value %}
+  {% comment %} {% assign descriptions = collection.metafields.custom.certificates_descriptions.value %} {% endcomment %}
+  {% assign product_list = collection.metafields.custom.top_picks_product.value %}
+
   {% if images != blank %}
 <section class="certificates-slider">
   <div class="certificates-header">
