@@ -642,21 +642,21 @@ const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input')
       50% { opacity: 1; transform: scale(1); }
     }
   </style>
+<script>
+  // Show loader immediately if body has class 'templatepage-colour'
+  if (document.body.classList.contains('templatepage-colour')) {
+    const loader = document.getElementById('page-loader');
+    loader.style.display = 'flex';
 
-{% if body_class contains 'templatepage-colour' %}
-  <script>
     window.addEventListener('load', function() {
-      const loader = document.getElementById('page-loader');
-      if (loader) {
-        // Keep loader visible for 5 seconds after page loads
-        setTimeout(() => {
-          loader.classList.add('hidden');
-          setTimeout(() => loader.remove(), 600); // remove from DOM after fade
-        }, 5000);
-      }
+      // Keep loader for 5 seconds after page loads
+      setTimeout(() => {
+        loader.classList.add('hidden');
+        setTimeout(() => loader.remove(), 600);
+      }, 5000);
     });
-  </script>
-{% endif %}
+  }
+</script>
 
 
 
