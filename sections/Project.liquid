@@ -1599,25 +1599,28 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+
+
 document.addEventListener("DOMContentLoaded", function() {
   const clearBtnContainer = document.querySelector(".clear-choosens-btn-container");
   const clearButton = document.getElementById("clearchoosens");
 
   function checkActiveStates() {
     const interioActive = document.querySelector(".Interio.active");
+    const exteriorActive = document.querySelector(".exterior.active");
     const surfaceActive = document.querySelector(".surface-toggle.active");
 
-    if (interioActive || surfaceActive) {
+    if (interioActive || exteriorActive || surfaceActive) {
       clearBtnContainer.classList.add("show");
     } else {
       clearBtnContainer.classList.remove("show");
     }
   }
 
-  // Initial check on page load
+  // Check on page load
   checkActiveStates();
 
-  // Recheck whenever user clicks anywhere (in case active classes change)
+  // Recheck whenever user clicks anywhere (useful if classes change dynamically)
   document.addEventListener("click", function() {
     checkActiveStates();
   });
