@@ -35,7 +35,7 @@
       <div class="top-picks-product-card">
         <div class="slider-product-image">
             <img src="{{ product.featured_image | img_url: 'master' }}" />
-          <div class="pro-desc">
+          <div class="top-product-desc">
             <p>{{ descriptions[i] }}</p>
           </div>
         </div>
@@ -186,7 +186,7 @@
   }
 
   /* Accordion effect (expand upward into image area) */
- .pro-desc {
+ .top-product-desc {
     position: absolute;
     inset: 0;
     background: #183029;
@@ -207,7 +207,7 @@
     flex-direction: column;
     border-radius: 20px 20px 0 0;
 }
-  .top-picks-product-card.active .pro-desc {
+  .top-picks-product-card.active .top-product-desc {
     opacity: 1;
     transform: translateY(0);
   }
