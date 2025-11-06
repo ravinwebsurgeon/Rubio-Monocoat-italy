@@ -30,10 +30,10 @@
         {%- if picker_type == 'swatch' -%}
   <fieldset class="js product-form__input product-form__input--swatch">
     <legend class="form__label">
-    view this {{ option.name }} on:
-      <span data-selected-value>
+    View this {{ option.name }} on
+      {% comment %} <span data-selected-value>
         {{- option.selected_value -}}
-      </span>
+      </span> {% endcomment %}
     </legend>
 
 
