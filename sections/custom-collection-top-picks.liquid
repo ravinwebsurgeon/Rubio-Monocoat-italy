@@ -28,7 +28,7 @@
     </div>
   </div>
 
-  <div class="certificates-carousel">
+  <div class="top_picks_carousel">
     {% for product in product_list %}
       {% assign i = forloop.index0 %}
       <div class="certificate-card">
@@ -292,7 +292,7 @@
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   // Init Slick
-  $('.certificates-carousel').slick({
+  $('.top_picks_carousel').slick({
     slidesToShow: 4,
     slidesToScroll: 1,
     infinite: false,
