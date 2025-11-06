@@ -127,14 +127,14 @@
                       </h2>
                     </a>
                   </div>
-                  <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                  {% comment %} <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                     {%- render 'price',
                       product: product,
                       use_variant: true,
                       show_badges: true,
                       price_class: 'price--large'
                     -%}
-                  </div>
+                  </div> {% endcomment %}
                 </div>
 
               {%- when 'shipping_info' -%}
