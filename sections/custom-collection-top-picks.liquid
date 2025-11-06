@@ -323,7 +323,7 @@ document.addEventListener("DOMContentLoaded", function() {
     btn.addEventListener("click", function() {
       const card = this.closest(".top-picks-product-card");
       card.classList.toggle("active");
-      this.textContent = card.classList.contains("active") ? "×" : "i";
+      this.textContent = card.classList.contains("active") ? "×" : "+";
     });
   });
 });
