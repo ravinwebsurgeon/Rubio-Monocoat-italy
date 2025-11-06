@@ -291,7 +291,7 @@
                   <p class="stock-status out-of-stock">Out of stock</p>
                 {% endif %}
 
-                <div class="quantity-add-to-cart">
+                {% comment %} <div class="quantity-add-to-cart">
                   <div
                     id="Quantity-Form-{{ section.id }}"
                     class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
@@ -525,7 +525,7 @@
                     section_id: section.id,
                     show_pickup_availability: true
                   -%}
-                </div>
+                </div> {% endcomment %}
               {%- when 'popup' -%}
                 <modal-opener
                   class="product-popup-modal__opener quick-add-hidden"
