@@ -315,6 +315,14 @@
                    <div class="order_buttons">
                         <div class="sample_buttons_outer">
                             <div class="sample_order_button">
+
+                                 {%- render 'buy-buttons',
+                    block: block,
+                    product: product,
+                    product_form_id: product_form_id,
+                    section_id: section.id,
+                    show_pickup_availability: true
+                  -%}
                                     {%- form 'product',
                                         product,
                                         id: product_form_id,
