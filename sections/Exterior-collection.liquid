@@ -161,7 +161,7 @@
 </div> 
 <div class="tab-products-wrap Exterior-wrap">
   {% if section.settings.heading != blank %}
-    <h4 class="oil-head">{{ section.settings.heading }}</h4>
+    <h4 class="oil-head">{{ page.metafields.custom.color_exterior }}</h4>
   {% endif %}
 
   {% assign tab_collection = collections[section.settings.exterior_collection] %}
