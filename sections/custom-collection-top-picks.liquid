@@ -1,0 +1,339 @@
+  {% assign images = product.metafields.custom.certificates_images.value %}
+  {% assign titles = product.metafields.custom.certificates_titles.value %}
+  {% assign descriptions = product.metafields.custom.certificates_descriptions.value %}
+  {% if images != blank %}
+<section class="certificates-slider">
+  <div class="certificates-header">
+    <h2>
+      {{ product.metafields.custom.certificates_section_heading }}
+    </h2>
+    <div class="certificates-arrows">
+      <div class="prev-btn">
+        <button type="button" class="cert-prev">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+            <path d="M169.4 297.4C156.9 309.9 156.9 330.2 169.4 342.7L361.4 534.7C373.9 547.2 394.2 547.2 406.7 534.7C419.2 522.2 419.2 501.9 406.7 489.4L237.3 320L406.6 150.6C419.1 138.1 419.1 117.8 406.6 105.3C394.1 92.8 373.8 92.8 361.3 105.3L169.3 297.3z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="next-btn">
+        <button type="button" class="cert-next">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+            <path d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="certificates-carousel">
+    {% for image in images %}
+      {% assign i = forloop.index0 %}
+      <div class="certificate-card">
+        <div class="certificates-img">
+          {% if image %}
+            <img src="{{ image | img_url: 'master' }}" alt="{{ titles[i] | escape }}">
+          {% endif %}
+          <div class="certificate-desc">
+            <p>{{ descriptions[i] }}</p>
+          </div>
+        </div>
+        <div class="certificate-all-content">
+          <h3>{{ titles[i] }}</h3>
+          <div class="ctificte-btn--pulsss">
+            <div class="certificate-puls-btn">
+              <button class="cert-plus" type="button">i</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<style>
+  .certificates-slider .certificate-all-content {
+    border: 1px solid #183029;
+    border-top: 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 15px;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    display:flex;
+    background-color:#183029;
+    position: relative;
+    height:100%;
+  }
+.certificates-slider .ctificte-btn--pulsss {
+    justify-content: end;
+    display: flex;
+    margin-top: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    align-items: center;
+    padding: 0 10px;
+}
+  .certificates-slider {
+    padding: 100px 30px;
+    max-width: 1745px;
+    margin: 0 auto;
+  }
+  .certificates-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+  .certificates-header h2 {
+    font-family: Frutiger Neue LT W1G;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 45px;
+    margin: 0;
+  }
+  .certificates-slider .certificates-arrows button {
+    background: transparent;
+    border: 0;
+    padding: 0;
+  }
+  .certificates-slider .certificates-arrows button svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+    cursor: pointer;
+  }
+  .certificates-slider .certificates-arrows .prev-btn, 
+  .certificates-slider .certificates-arrows .next-btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .certificates-slider .certificates-arrows {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+    transition:all ease 0.3s;
+  }
+ 
+
+   .certificates-slider .certificate-card {
+    border-radius: 20px;
+    text-align: center;
+    margin: 0 10px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .certificate-card .certificates-img {
+    background-color: #E1E9E4;
+    position: relative;
+    padding-bottom: 316px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    overflow: hidden;
+  }
+  .certificate-card img {
+    max-width: 277px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: block;
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+  }
+  .certificate-card h3 {
+    margin: 0;
+    font-family: Frutiger Neue LT W1G;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: normal;
+    text-align: left;
+    color:#fff;
+    padding-right: 36px;
+  }
+  .certificates-slider .certificate-puls-btn button.cert-plus {
+    background: 0;
+    border: 0;
+    font-size: 18px;
+    padding: 0;
+    cursor: pointer;
+    color:#fff;
+  }
+  .certificates-slider .certificate-puls-btn {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  /* Accordion effect (expand upward into image area) */
+ .certificate-desc {
+    position: absolute;
+    inset: 0;
+    background: #183029;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    font-size: 14px;
+    line-height: 22px;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.4s ease;
+    height: 96%;
+    top: auto;
+    overflow: auto;
+    flex-direction: column;
+    border-radius: 20px 20px 0 0;
+}
+  .certificate-card.active .certificate-desc {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .certificate-card.active img {
+    opacity: 0;
+  }
+  .certificates-slider .certificate-puls-btn button.cert-plus:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  .certificates-slider .slick-list {
+    display: flex;
+  }
+
+  .certificates-slider .slick-list .slick-track {
+    display: flex;
+  }
+
+  @media(max-width:1900px){
+    .certificates-slider {
+      padding: 50px 30px;
+    }
+    .certificates-header h2 {
+      font-size: 28px;
+      line-height: normal;
+    }
+    .certificates-header {
+      margin-bottom: 30px;
+    }
+    
+  }
+  @media(max-width:991px){
+    .certificates-slider {
+        padding: 50px 20px;
+    }
+    .certificates-slider .certificate-card .certificates-img {
+        padding-bottom: 190px;
+    }
+  }
+  @media(max-width:767px){
+    .certificates-header h2 {
+        font-size: 24px;
+    }
+    .certificates-slider {
+        padding: 30px 20px;
+        position: relative;
+    }
+    .certificates-slider .certificates-arrows {
+        position: absolute;
+        z-index: 1;
+        top: 53%;
+        transform: translateY(-40%);
+        left: 18px;
+        right: 18px;
+        display:none;
+    }
+    .certificates-slider .certificates-arrows button svg {
+      width: 12px;
+      height: 12px;
+    }
+    .certificates-slider .certificates-arrows .prev-btn, .certificates-slider .certificates-arrows .next-btn {
+      width: 24px;
+      height: 24px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+    .certificates-slider .certificates-arrows .next-btn{
+      margin-left:auto;
+    }
+   
+    .certificates-slider .certificate-puls-btn {
+      width: 24px;
+      height: 24px;
+    }
+    .certificates-slider .certificate-puls-btn button.cert-plus {
+      font-size: 18px;
+    }
+  }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Init Slick
+  $('.certificates-carousel').slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    infinite: false,
+    prevArrow: $('.cert-prev'),
+    nextArrow: $('.cert-next'),
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1,
+          dots: true,
+          arrows: false
+        }
+      }
+    ]
+  });
+
+  // Accordion toggle
+  document.querySelectorAll(".cert-plus").forEach(btn => {
+    btn.addEventListener("click", function() {
+      const card = this.closest(".certificate-card");
+      card.classList.toggle("active");
+      this.textContent = card.classList.contains("active") ? "×" : "i";
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Top Picks Slider",
+  "presets": [
+    {
+      "name": "Top Picks Slider"
+    }
+  ]
+}
+{% endschema %}
