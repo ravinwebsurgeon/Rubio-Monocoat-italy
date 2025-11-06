@@ -19,7 +19,7 @@
           <div class="slide-item">
             <a href="{{ link }}" class="slide-card">
               {% if image %}
-                <img src="{{ image | img_url: '600x400' }}" alt="{{ text }}">
+                <img src="{{ image | img_url: '600x400' }}" alt="{{ text }}" width="" height="">
               {% endif %}
               {% if text %}
                 <p class="slide-title">{{ text }}</p>
