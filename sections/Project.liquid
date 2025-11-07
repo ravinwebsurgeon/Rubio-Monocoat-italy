@@ -358,7 +358,7 @@
 {% endif %}
 
 
-                           <button
+      {% comment %} <button
             class="
                             wishlist_button card-prod main-{{ forloop.index0 }}  {%- if card_product.available == false -%}sold-wish{% endif %}
             "
@@ -378,7 +378,7 @@
 
               </g>
             </svg>
-          </button>
+          </button> {% endcomment %}
                           {% comment %} <div class="plus-show">{% render 'Cs-plus-icon' %}</div> {% endcomment %}
                         </div> 
                         <div class="product-item-conts">
