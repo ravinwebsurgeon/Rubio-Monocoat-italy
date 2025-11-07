@@ -232,7 +232,9 @@
                     >
                       <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5z"/>
                     </svg>
-                    <p>Interior</p>
+                    <p>
+                      {{ product.metafields.custom.customproducttypetag.value }}
+                    </p>
                   </div>
                   <div class="custom_toxin_icon">
                     <img src="{{ product.metafields.custom.icontoxin.value | img_url: 'small'}}"><p>Toxin Free</p>
