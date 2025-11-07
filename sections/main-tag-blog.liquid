@@ -74,6 +74,10 @@
                       {% endfor %}
                       {% endcomment %}
                     <h2>Categories</h2>
+                    {% for link in linklists.blogs.links %}
+  {% assign blog = link.object %}
+ {{ blog.title }}
+{% endfor %}
                     {% assign blog_handles = "news,updates,stories,collection,tag" | split: "," %}
                         {% for handle in blog_handles %}
                             {% assign this_blog = blogs[handle] %}
