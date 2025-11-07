@@ -64,7 +64,7 @@
           <p id="popup-product-subtitle"></p>
           <div class="popup-actions">
             <button class="btn-view-product">View Product</button>
-            <button class="ajax_Add_to_cart" data-variant-id>Addto Cart</button>
+            <button class="product_cart_btn ajax_Add_to_cart" data-variant-id>Addto Cart</button>
           </div>
         </div>
       </div>
@@ -451,9 +451,9 @@ section.top_picks_slider.custom_categrysss .slider-product-image{
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 //add product into cart
-document.querySelectorAll('.product_cart_btn').forEach(function (button) {
-        button.addEventListener('click', function () {
-            const variantId = button.dataset.variantId;
+const cart_button = document.querySelector('.product_cart_btn')
+        cart_button.addEventListener('click', function () {
+            const variantId = cart_button.dataset.variantId;
             fetch('/cart/add.js', {
                 method: 'POST',
                 headers: {
@@ -476,8 +476,7 @@ document.querySelectorAll('.product_cart_btn').forEach(function (button) {
                 alert("Something went wrong.");
             });
         });
-    });
-
+    
 function updateCartCount(totalQuantityAdded) {
     const cartCounts = document.querySelectorAll('.cart-count-bubble > span');
     const customCount = document.querySelector('.custom-cart-count-bubble > span');
