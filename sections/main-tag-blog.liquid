@@ -75,12 +75,12 @@
                       {% endcomment %}
                     <h2>Categories</h2>
 
-                    {% assign all_blogs = shop.blogs %}
-                    <ul>
-                      {% for blog in all_blogs %}
-                        <li><a href="{{ [blog.url] }}">{{ blog.title }}</a></li>
-                      {% endfor %}
-                    </ul>
+                  {% for link in linklists.blogs.links %}
+  {% assign blog = link.object %}
+  {% for article in blog.articles %}
+    <a href="{{ article.url }}">{{ article.title }}</a>
+  {% endfor %}
+{% endfor %}
 
                     {% assign blog_handles = "news,updates,stories,collection,tag" | split: "," %}
                         {% for handle in blog_handles %}
