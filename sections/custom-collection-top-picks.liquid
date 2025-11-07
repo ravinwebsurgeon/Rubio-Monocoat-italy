@@ -451,10 +451,9 @@ section.top_picks_slider.custom_categrysss .slider-product-image{
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 //add product into cart
-const cart_button = document.querySelector('.product_cart_btn')
-console.log(cart_button,'cart_button')
-        cart_button.addEventListener('click', function () {
-            const variantId = cart_button.dataset.variantId;
+document.querySelectorAll('.product_cart_btn').forEach(function (button) {
+        button.addEventListener('click', function () {
+            const variantId = button.dataset.variantId;
             fetch('/cart/add.js', {
                 method: 'POST',
                 headers: {
@@ -477,7 +476,8 @@ console.log(cart_button,'cart_button')
                 alert("Something went wrong.");
             });
         });
-    
+    });
+
 function updateCartCount(totalQuantityAdded) {
     const cartCounts = document.querySelectorAll('.cart-count-bubble > span');
     const customCount = document.querySelector('.custom-cart-count-bubble > span');
