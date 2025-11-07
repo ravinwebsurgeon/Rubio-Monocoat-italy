@@ -58,7 +58,9 @@
                     {% assign blog_handles = "news,updates,stories,collection,tag" | split: "," %}
                         {% for handle in blog_handles %}
                             {% assign this_blog = blogs[handle] %}
-                            {% if this_blog %}
+                            {% assign count = this_blog.articles_count | default: 0 | plus: 0 %}
+
+                            {% if count > 0  %}
                                 <p>
                                     <a href="{{ this_blog.url }}">
                                         {{ this_blog.title }}
