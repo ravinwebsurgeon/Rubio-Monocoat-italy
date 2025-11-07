@@ -74,7 +74,7 @@
                             {{ article.content }}
                         </div>
                         <div class="article__tags__content">
-                          {{ article.tags }}
+                          {{ article.tags |join: ' ' }}
                         </div>
 
                     {% comment %} {%- when 'share' -%}
