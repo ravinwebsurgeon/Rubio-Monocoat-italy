@@ -1509,13 +1509,13 @@ document.addEventListener("click", function(e) {
  
   // -------------------------------
   // Click outside dropdown → close exterior dropdown
-  document.addEventListener("click", function(e) {
+  {% comment %} document.addEventListener("click", function(e) {
     
     if (!exteriorToggle?.contains(e.target) && !surfaceOptions?.contains(e.target)) {
       surfaceOptions?.style.setProperty("display", "none");
       exteriorToggle?.classList.remove("active");
     }
-  });
+  }); {% endcomment %}
 });
  /* circle tabs */
   function showproducts() {
