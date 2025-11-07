@@ -1399,7 +1399,7 @@ document.addEventListener("DOMContentLoaded", function() {
     tabs_outer.classList.add('exterior') 
     tabs_outer.classList.remove('interior')
     document.querySelectorAll(".surface-options").forEach(opt => opt.style.display = "none");
-    document.querySelectorAll(".surface-toggle").forEach(el => el.classList.remove("active"));
+    {% comment %} document.querySelectorAll(".surface-toggle").forEach(el => el.classList.remove("active")); {% endcomment %}
     document.querySelector('.exteriour_tabs_section').classList.add('active');
     document.querySelector('.interior_tabs_section').classList.remove('active')
 
