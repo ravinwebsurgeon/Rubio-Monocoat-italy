@@ -56,10 +56,10 @@
                     </div>
                 </div> {% endcomment %}
                 <form role="search" method="get" action="/search">
-  <input type="search" name="q" placeholder="Search blog posts…" value="{{ search.terms }}">
-  <input type="hidden" name="type" value="article">
-  <button type="submit">Search</button>
-</form>
+                    <input type="search" name="q" placeholder="Search blog posts…" value="{{ search.terms }}">
+                    <input type="hidden" name="type" value="article">
+                    <button type="submit">Search</button>
+                </form>
 
                 <div class="blogs_list">
                     {% comment %} {% for blog_item in blogs %}
