@@ -71,7 +71,7 @@
                     {% comment %} {% for blog_item in blogs %}
                         <h2><a href="{{ blog_item.url }}">{{ blog_item.title }}</a></h2>
                     {% endfor %} {% endcomment %}
-                        <h2>Categories</h2>
+                    <h2>Categories</h2>
                     {% assign blog_handles = "news,updates,stories,collection,tag" | split: "," %}
                         {% for handle in blog_handles %}
                             {% assign this_blog = blogs[handle] %}
