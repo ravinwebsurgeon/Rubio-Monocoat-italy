@@ -76,7 +76,6 @@
                         {% for handle in blog_handles %}
                             {% assign this_blog = blogs[handle] %}
                             {% assign count = this_blog.articles_count | default: 0 | plus: 0 %}
-
                             {% if count > 0  %}
                                 <p>
                                     <a href="{{ this_blog.url }}">
