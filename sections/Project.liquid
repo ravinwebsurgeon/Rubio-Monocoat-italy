@@ -1374,7 +1374,7 @@ document.addEventListener("DOMContentLoaded", function() {
       interiorSection.querySelectorAll('.product-item').forEach(item => {
         item.style.display = 'block';
       });
-      document.querySelector('Exterior-wrap').style.display = 'none'
+      document.querySelector('.Exterior-wrap').style.display = 'none'
       {% comment %} tabs_outer.classList.remove('exterior') {% endcomment %}
       surfaceOptions?.style.setProperty("display", "none");
       surfaceOptions?.querySelectorAll(".surface-item").forEach(i => i.classList.remove("active"));
