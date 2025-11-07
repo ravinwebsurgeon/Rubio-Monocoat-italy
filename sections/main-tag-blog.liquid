@@ -101,7 +101,7 @@
                 {% assign text = blog.metafields.custom.blog_contact_text.value %}
                 {% assign method_text = blog.metafields.custom.blog_contact_method_text.value %}
                 <div class="contact_image_section">
-                    <img src="{{ image }}" />
+                    <img src="{{ image | img_url: 'small' }}" />
                 </div>
                  <div class="contact_image_section">
                     <h2>{{ heading }}</h2>
