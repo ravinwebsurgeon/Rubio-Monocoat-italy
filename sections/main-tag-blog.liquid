@@ -95,6 +95,19 @@
                     </div>
                 </div>
             </div>
+            <div class="blog_contact_us_section">
+                {% assign heading = blog.metafields.custom.blog_contact_heading.value %}
+                {% assign image = blog.metafields.custom.blog_contact_image.value %}
+                {% assign text = blog.metafields.custom.blog_contact_text.value %}
+                {% assign method_text = blog.metafields.custom.blog_contact_method_text.value %}
+                <div class="contact_image_section">
+                    <img src="{{ image }}" />
+                </div>
+                 <div class="contact_image_section">
+                    <h2>{{ heading }}</h2>
+                    <p>{{ text }}</p>
+                </div>
+            </div>
         </div>
     </div>
     {%- if paginate.pages > 1 -%}
