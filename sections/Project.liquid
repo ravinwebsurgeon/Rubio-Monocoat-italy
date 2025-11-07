@@ -1509,7 +1509,9 @@ document.addEventListener("click", function(e) {
  
   // -------------------------------
   // Click outside dropdown → close exterior dropdown
-  {% comment %} document.addEventListener("click", function(e) {
+  {% comment %} 
+   comment by amanpreet for show exterior main when we choose any circle tab
+   document.addEventListener("click", function(e) {
     
     if (!exteriorToggle?.contains(e.target) && !surfaceOptions?.contains(e.target)) {
       surfaceOptions?.style.setProperty("display", "none");
