@@ -58,6 +58,8 @@
                     {% assign blog_handles = "news,updates,stories,collection,tag" | split: "," %}
                         {% for handle in blog_handles %}
                             {% assign blog = blogs[handle] %}
+                              <p>Handle: {{ handle }} — Blog exists? {{ blog.title }}</p>
+
                             {% if blog %}
                                 <p>
                                     <a href="{{ blog.url }}">
