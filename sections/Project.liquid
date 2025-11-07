@@ -1732,6 +1732,13 @@ document.addEventListener('DOMContentLoaded', function() {
     pointer-events: auto;
     height: auto; /* this will get handled dynamically in JS */
   }
+  .modal-open .circle-tabs-section.interior_tabs_section.toggle-section.active {
+    transform: inherit;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
 </style>
 
 <script>
