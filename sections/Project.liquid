@@ -46,7 +46,7 @@
     <div class="exter-btn">Exterior</div>
 
     <!-- Hidden surface options -->
-    <div class="surface-options" id="exterior-surfaces" >
+    <div class="surface-options" id="exterior-surfaces" style="display:none;">
   <div class="surface-item vertical" data-collection="{{ section.settings.vertical_surface_collection.handle }}">
     <span class="surfaces-img-spn">
       <img src="{{ section.settings.vertical_surface_img | img_url: 'master' }}" alt="Vertical surface">
@@ -619,8 +619,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const colourMatch    = !selectedColour || productColours.includes(selectedColour);
       const productMatch   = !selectedProduct || productProducts.includes(selectedProduct);
       const availableMatch = !showAvailable || productAvailable;
-
-      product.style.display = (colourMatch && productMatch && availableMatch) ? '' : 'none';
+{% comment %} 
+      product.style.display = (colourMatch && productMatch && availableMatch) ? '' : 'none'; {% endcomment %}
     });
   }
 
