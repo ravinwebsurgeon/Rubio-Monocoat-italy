@@ -46,6 +46,7 @@
             <div class="search_section">
                 <h2>Search For Blogs</h2>
                 <div class="blog_list">
+                    <pre>{{ blogs }}</pre>
                     {% for blog in blogs %}
                         {{ blog.title }}
                     {% endfor %}
