@@ -18,7 +18,7 @@
                         </div>
                     {%- when 'featured_image' -%}
                         {%- if article.image -%}
-                            <div 
+                            {% comment %} <div 
                                 class="article-template__hero-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
                                 {{ block.shopify_attributes }}
                             >
@@ -46,7 +46,10 @@
                                         alt="{{ article.image.alt | escape }}"
                                     >
                                 </div>
-                            </div>
+                            </div> {% endcomment %}
+                            <div class="tag__card__media">
+                              <img src="{{ article.image | image_url: width: 300 }}" alt="{{ article.title | escape }}">
+                          </div>
                         {%- endif -%}
 
                     {%- when 'title' -%}
