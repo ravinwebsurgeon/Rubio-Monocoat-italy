@@ -1659,32 +1659,52 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Hide by default
   [circleTabsSection, exteriorWrap].forEach(el => {
-    if (el) el.style.display = 'none';
+    if (el) {
+      el.style.display = 'none';
+      el.style.opacity = 0;
+      el.style.transition = 'opacity 0.3s ease';
+    }
   });
+
+  function fadeIn(el) {
+    if (!el) return;
+    el.style.display = 'block';
+    requestAnimationFrame(() => {
+      el.style.opacity = 1;
+    });
+  }
+
+  function fadeOut(el) {
+    if (!el) return;
+    el.style.opacity = 0;
+    setTimeout(() => {
+      el.style.display = 'none';
+    }, 300); // match transition time
+  }
 
   // When click on Interior
   if (interioBtn) {
     interioBtn.addEventListener('click', function() {
-      if (circleTabsSection) circleTabsSection.style.display = 'block';
-      if (exteriorWrap) exteriorWrap.style.display = 'none';
+      fadeIn(circleTabsSection);
+      fadeOut(exteriorWrap);
     });
   }
 
   // When click on Exterior
   if (exteriorBtn) {
     exteriorBtn.addEventListener('click', function() {
-      if (circleTabsSection) circleTabsSection.style.display = 'block';
-      if (exteriorWrap) exteriorWrap.style.display = 'block';
+      fadeIn(circleTabsSection);
+      fadeIn(exteriorWrap);
     });
   }
 });
-
 </script>
+
 
 <style>
 
-.exteriour_tabs_section, .interior_tabs_section{display:none;}
-.exteriour_tabs_section.active, .interior_tabs_section.active{display:block;}
+{% comment %} .exteriour_tabs_section, .interior_tabs_section{display:none;}
+.exteriour_tabs_section.active, .interior_tabs_section.active{display:block;} {% endcomment %}
 
 .cust-project{
   font-family: Frutiger Neue LT W1G;
