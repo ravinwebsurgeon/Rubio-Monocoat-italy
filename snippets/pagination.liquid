@@ -59,7 +59,7 @@
           </li>
         {%- endfor -%}
 
-        {%- if paginate.next -%}
+        {% comment %} {%- if paginate.next -%}
           <li>
             <a
               href="{{ paginate.next.url }}{{ anchor }}"
@@ -71,7 +71,19 @@
               </span>
             </a>
           </li>
-        {%- endif -%}
+        {%- endif -%} {% endcomment %}
+
+          {%- if paginate.next -%}
+          <li>
+            <a
+              href="{{ paginate.next.url }}{{ anchor }}"
+              class="pagination__item pagination__item--next link motion-reduce"
+              aria-label="{{ 'general.pagination.next' | t }}"
+            >
+              Next <span class="pagination__arrow">›</span>
+            </a>
+          </li>
+        {% endif %}
       </ul>
     </nav>
   </div>
