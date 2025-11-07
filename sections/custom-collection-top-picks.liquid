@@ -464,7 +464,7 @@ document.addEventListener("DOMContentLoaded", function() {
         title: "{{ product.title | escape }}",
         subtitle: "{{ product.metafields.custom.collectionproduct_subtitle.value | escape }}",
         description: "{{ descriptions[i] | escape }}",
-        variantId: "{{ product.variants.first.id }}"
+        variantId: "{{ product.variants.first.id }}",
         url: "{{ product.url }}"
       }{% unless forloop.last %},{% endunless %}
     {% endfor %}
