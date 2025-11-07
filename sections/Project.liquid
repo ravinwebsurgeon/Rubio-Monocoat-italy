@@ -1408,6 +1408,8 @@ document.addEventListener("DOMContentLoaded", function() {
         el.style.display = 'none';
       });
       section.querySelector('.filter-bar').style.display = 'flex';
+      let products_wrapper = document.querySelector('.collection-exterior-colors');
+      console.log(products_wrapper,'products_wrapper')
     if (!isActive) {
       surfaceOptions?.style.setProperty("display", "flex");
       this.classList.add("active");
