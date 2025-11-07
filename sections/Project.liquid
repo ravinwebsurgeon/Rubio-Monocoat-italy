@@ -1682,12 +1682,11 @@ document.addEventListener('DOMContentLoaded', function() {
 </script> {% endcomment %}
 
 <style>
-  /* Smooth toggle base style */
   .toggle-section {
     opacity: 0;
     visibility: hidden;
-    transform: translateY(15px);
-    transition: all 0.35s ease;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
   }
   .toggle-section.active {
     opacity: 1;
@@ -1698,26 +1697,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const exteriorBtn = document.querySelector('.exterior');
-  const toggleTargets = document.querySelectorAll('.filter-bar, .Exterior-wrap');
+  const circleTabsSection = document.querySelector('.circle-tabs-section');
+  const exteriorWrap = document.querySelector('.Exterior-wrap');
+  const interioBtn = document.querySelector('.Interio');
+  const exteriorBtn = document.querySelector('.exterior-main');
 
-  // Apply base toggle class
-  toggleTargets.forEach(el => el.classList.add('toggle-section'));
+  // Add toggle-section class to both for transition control
+  [circleTabsSection, exteriorWrap].forEach(el => {
+    if (el) el.classList.add('toggle-section');
+  });
 
-  if (exteriorBtn) {
-    exteriorBtn.addEventListener('click', function(event) {
-      event.stopPropagation(); // prevent immediate outside click trigger
-      toggleTargets.forEach(el => el.classList.toggle('active'));
+  // Initially hide both
+  [circleTabsSection, exteriorWrap].forEach(el => {
+    if (el) el.classList.remove('active');
+  });
+
+  // Interior click
+  if (interioBtn) {
+    interioBtn.addEventListener('click', function() {
+      if (circleTabsSection) circleTabsSection.classList.add('active');
+      if (exteriorWrap) exteriorWrap.classList.remove('active');
     });
   }
 
-  // Close when clicking outside
-  document.addEventListener('click', function(event) {
-    const isClickInside = event.target.closest('.filter-bar, .Exterior-wrap, .exterior');
-    if (!isClickInside) {
-      toggleTargets.forEach(el => el.classList.remove('active'));
-    }
-  });
+  // Exterior click
+  if (exteriorBtn) {
+    exteriorBtn.addEventListener('click', function() {
+      if (circleTabsSection) circleTabsSection.classList.add('active');
+      if (exteriorWrap) exteriorWrap.classList.add('active');
+    });
+  }
 });
 </script>
 
