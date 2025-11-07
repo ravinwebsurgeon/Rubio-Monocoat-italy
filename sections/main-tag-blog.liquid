@@ -55,13 +55,12 @@
                         <h2><a href="{{ blog_item.url }}">{{ blog_item.title }}</a></h2>
                     {% endfor %}
 
-                    {% assign blog_handles = "news,updates,stories,Blog,collection" | split: "," %}
-
+                    {% assign blog_handles = "news,updates,stories,blog,collection" | split: "," %}
                         {% for handle in blog_handles %}
-                        {% assign blog = blogs[handle] %}
-                        {% if blog %}
-                            <h2><a href="{{ blog.url }}">{{ blog.title }}</a></h2>
-                        {% endif %}
+                            {% assign blog = blogs[handle] %}
+                            {% if blog %}
+                                <h2><a href="{{ blog.url }}">{{ blog.title }}</a></h2>
+                            {% endif %}
                         {% endfor %}
                 </div>
             </div>
