@@ -710,33 +710,37 @@ document.addEventListener('DOMContentLoaded', function() {
   } {% endcomment %}
 
   /* video modal */
+/* video modal */
 const openBtn = document.getElementById('openVideo'),
       modal = document.getElementById('videoModal'),
       closeBtn = document.getElementById('closeVideo'),
       video = document.getElementById('expertVideo');
 
 if (openBtn && modal && closeBtn && video) {
-  openBtn.addEventListener('click', () => {
+
+  function openModal() {
+    // 👉 Add class instantly before anything else
+    document.body.classList.add('modal-open');
     modal.classList.add('active');
-    document.body.classList.add('modal-open'); // ✅ add class to body
     video.currentTime = 0;
-    video.play();
-  });
+    // small async play to avoid lag
+    setTimeout(() => video.play(), 0);
+  }
 
   function closeModal() {
+    document.body.classList.remove('modal-open');
     modal.classList.remove('active');
-    document.body.classList.remove('modal-open'); // ✅ remove class from body
     video.pause();
   }
 
+  openBtn.addEventListener('click', openModal);
   closeBtn.addEventListener('click', closeModal);
 
   modal.addEventListener('click', e => {
-    if (e.target === modal) {
-      closeModal();
-    }
+    if (e.target === modal) closeModal();
   });
 }
+
 
 
   /* Product grid layout slider functionality */
@@ -1733,12 +1737,12 @@ document.addEventListener('DOMContentLoaded', function() {
     height: auto; /* this will get handled dynamically in JS */
   }
   .modal-open .circle-tabs-section.interior_tabs_section.toggle-section.active {
-    transform: inherit;
-}
+        transform: inherit;
+    }
 
-body.modal-open {
-    overflow: hidden;
-}
+    body.modal-open {
+        overflow: hidden;
+    }
 </style>
 
 <script>
