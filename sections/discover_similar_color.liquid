@@ -33,9 +33,19 @@
       {% for product in product_list %}
         {% assign i = forloop.index0 %}
         <div class="top-picks-product-card">
-          <div class="slider-product-image">
+          {% comment %} <div class="slider-product-image">
               <img src="{{ product.featured_image | img_url: 'master' }}" width="" height="" />
-          </div>
+          </div> {% endcomment %}
+{% if product.featured_image %}
+
+            <div class="slider-product-image">
+    <img class="featured-image" src="{{ product.featured_image | img_url: 'master' }}" width="" height="" />
+    {% if product.metafields.custom.cover_image != blank %}
+      <img class="cover-image" src="{{ product.metafields.custom.cover_image | img_url: 'master' }}" alt="{{ product.title }}" width="" height="">
+    {% endif %}
+  </div>
+{% endif %}
+          
           <div class="top-product-content">
             <h3>{{ product.title }}</h3>
             <p>{{ product.metafields.custom.collectionproduct_subtitle.value }}</p>
@@ -76,6 +86,49 @@
 {% endif %}
 
 <style>
+
+.slider-product-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-product-image .featured-image,
+.slider-product-image .cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.slider-product-image .featured-image {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slider-product-image .cover-image {
+  opacity: 0;
+  z-index: 2;
+}
+
+/* Hover effect */
+.top-picks-product-card:hover .cover-image {
+  opacity: 1;
+}
+
+.top-picks-product-card:hover .featured-image {
+  opacity: 0;
+}
+
+/* Optional: Add scale effect for smooth transition */
+.top-picks-product-card:hover .featured-image,
+.top-picks-product-card:hover .cover-image {
+  transform: scale(1.05);
+}
+
+
   .top_picks_slider .top-product-content {
     border: 1px solid #183029;
     border-top: 0;
