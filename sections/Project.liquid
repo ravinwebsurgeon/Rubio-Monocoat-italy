@@ -686,7 +686,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
  
   /* video modal */
-  const openBtn = document.getElementById('openVideo'),
+  {% comment %} const openBtn = document.getElementById('openVideo'),
         modal = document.getElementById('videoModal'),
         closeBtn = document.getElementById('closeVideo'),
         video = document.getElementById('expertVideo');
@@ -707,7 +707,37 @@ document.addEventListener('DOMContentLoaded', function() {
         video.pause();
       }
     });
+  } {% endcomment %}
+
+  /* video modal */
+const openBtn = document.getElementById('openVideo'),
+      modal = document.getElementById('videoModal'),
+      closeBtn = document.getElementById('closeVideo'),
+      video = document.getElementById('expertVideo');
+
+if (openBtn && modal && closeBtn && video) {
+  openBtn.addEventListener('click', () => {
+    modal.classList.add('active');
+    document.body.classList.add('modal-open'); // ✅ add class to body
+    video.currentTime = 0;
+    video.play();
+  });
+
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.classList.remove('modal-open'); // ✅ remove class from body
+    video.pause();
   }
+
+  closeBtn.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', e => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+}
+
 
   /* Product grid layout slider functionality */
   const gridLayoutInput = document.getElementById('gridLayout');
