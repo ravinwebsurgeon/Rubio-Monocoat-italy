@@ -359,8 +359,7 @@
 
 
       {% comment %} <button
-            class="
-                            wishlist_button card-prod main-{{ forloop.index0 }}  {%- if card_product.available == false -%}sold-wish{% endif %}
+            class="wishlist_button card-prod main-{{ forloop.index0 }}  {%- if card_product.available == false -%}sold-wish{% endif %}
             "
             onclick="toggleWishlist(this)"
             data-id="{{ card_product.id }}"
