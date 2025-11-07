@@ -91,12 +91,13 @@
                 <div class="Blog_tags_list_main">
                     <div class="tag_list">
                         {% assign all_tags = '' %}
-                        {% comment %} {% for blog in blogs %} {% endcomment %}
-                        {% for tag in blog %}
-                            {% assign all_tags = tag.tags | append: tag | append: ',' %}
+                        {% for blog in blogs %}
+                        {% for tag in blog.all_tags %}
+                            {% unless all_tags contains tag %}
+                            {% assign all_tags = all_tags | append: tag | append: ',' %}
+                            {% endunless %}
                         {% endfor %}
-                        {% comment %} {% endfor %} {% endcomment %}
-                         {{ all_tags }}
+                        {% endfor %}
                     </div>
                 </div>
             </div>
