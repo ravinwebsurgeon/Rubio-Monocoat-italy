@@ -90,8 +90,7 @@
                 </div>
                 <div class="Blog_tags_list_main">
                     <div class="tag_list">
-                        {% assign all_tags = '' %}
-                          {% for tag in blogs[recipes].tags %}
+                          {% for tag in blog.tags %}
                         <h2>{{ tag }}</h2>
                     {% endfor %}
                     </div>
