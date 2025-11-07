@@ -35,9 +35,6 @@
         <div class="top-picks-product-card">
           <div class="slider-product-image">
               <img src="{{ product.featured_image | img_url: 'master' }}" width="" height="" />
-            <div class="top-product-desc">
-              <p>{{ descriptions[i] }}</p>
-            </div>
           </div>
           <div class="top-product-content">
             <h3>{{ product.title }}</h3>
@@ -52,6 +49,29 @@
       {% endfor %}
     </div>
   </div>
+
+  
+  <!-- Product Detail Popup -->
+  <div id="product-detail-popup" class="product-popup">
+    <div class="popup-overlay"></div>
+    <div class="popup-content">
+      <button class="popup-close">&times;</button>
+      <div class="popup-body">
+        <div class="popup-image">
+          <img id="popup-product-image" src="" alt="" />
+        </div>
+        <div class="popup-details">
+          <h3 id="popup-product-title"></h3>
+          <p id="popup-product-subtitle"></p>
+          <div class="popup-actions">
+            <button class="btn-view-product">View Product</button>
+            <button class="product_cart_btn ajax_Add_to_cart" data-variant-id>Addto Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 </section>
 {% endif %}
 
