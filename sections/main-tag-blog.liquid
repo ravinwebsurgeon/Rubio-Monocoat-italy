@@ -74,7 +74,6 @@
                       {% endfor %}
                       {% endcomment %}
                     <h2>Categories</h2>
-
                     {% assign blog_handles = "news,updates,stories,collection,tag" | split: "," %}
                         {% for handle in blog_handles %}
                             {% assign this_blog = blogs[handle] %}
