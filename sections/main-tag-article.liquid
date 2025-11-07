@@ -52,7 +52,7 @@
                           </div>
                         {%- endif -%}
 
-                    {%- when 'title' -%}
+                    {% comment %} {%- when 'title' -%}
                         <div class="article__title_content">
                             <h2 class="article-template__title">
                                 {{ article.title | escape }}
@@ -67,7 +67,7 @@
                                 <span>{{ article.author }}</span>
                                 </span>
                             {%- endif -%}
-                          </div>
+                          </div> {% endcomment %}
 
                     {%- when 'content' -%}
                         <div class="article__content__des">
