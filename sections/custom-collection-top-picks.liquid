@@ -53,6 +53,28 @@
   </div>
   </div>
   
+  
+  <!-- Product Detail Popup -->
+  <div id="product-detail-popup" class="product-popup">
+    <div class="popup-overlay"></div>
+    <div class="popup-content">
+      <button class="popup-close">&times;</button>
+      <div class="popup-body">
+        <div class="popup-image">
+          <img id="popup-product-image" src="" alt="" />
+        </div>
+        <div class="popup-details">
+          <h3 id="popup-product-title"></h3>
+          <p id="popup-product-subtitle"></p>
+          <div class="popup-actions">
+            <button class="btn-view-product">View Product</button>
+            <button class="product_cart_btn ajax_Add_to_cart" data-variant-id>Addto Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </section>
 {% endif %}
 
@@ -346,6 +368,107 @@ section.top_picks_slider.custom_categrysss .slider-product-image{
 </style>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+//add product into cart
+document.querySelectorAll('.product_cart_btn').forEach(function (button) {
+        button.addEventListener('click', function () {
+            const variantId = button.dataset.variantId;
+            fetch('/cart/add.js', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    id: variantId,
+                    quantity: 1
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Added to cart:', data);
+                updateCartCount(1);
+                refreshCartDrawer();
+            })
+            .catch(error => {
+                console.error('Error adding to cart:', error);
+                alert("Something went wrong.");
+            });
+        });
+    });
+
+function updateCartCount(totalQuantityAdded) {
+    const cartCounts = document.querySelectorAll('.cart-count-bubble > span');
+    const customCount = document.querySelector('.custom-cart-count-bubble > span');
+
+    if (cartCounts.length > 0) {
+        // Update all cart bubbles (standard or custom)
+        cartCounts.forEach(count => {
+            const currentNumber = Number(count.textContent) || 0;
+            const newNumber = currentNumber + totalQuantityAdded;
+            count.textContent = newNumber;
+            count.parentNode.style.display = 'block';
+            count.parentNode.style.visibility = 'visible';
+        });
+    } else if (customCount) {
+        // Update existing custom bubble
+        let number = Number(customCount.textContent) || 0;
+        customCount.textContent = number + totalQuantityAdded;
+        customCount.parentNode.style.display = 'block';
+        customCount.parentNode.style.visibility = 'visible';
+    } else {
+        // Create new bubble if none exists
+        const mainCartBubble = document.querySelector('.header__icon--cart');
+        if (mainCartBubble) {
+            const newCount = document.createElement('div');
+            newCount.classList.add('custom-cart-count-bubble','cart-count-bubble');
+
+            const newCountSpan = document.createElement('span');
+            newCountSpan.textContent = totalQuantityAdded;
+
+            newCount.appendChild(newCountSpan);
+            mainCartBubble.appendChild(newCount);
+            newCount.style.display = "block";
+            newCount.style.visibility = "visible";
+        }
+    }
+}
+
+function refreshCartDrawer() {
+  const cartDrawer = document.querySelector('cart-drawer');
+
+  fetch(`${routes.cart_url}?sections=cart-drawer`)
+    .then(response => response.json())
+    .then(sections => {
+      const newCartDrawerHtml = sections['cart-drawer'];
+      const newDocument = new DOMParser().parseFromString(newCartDrawerHtml, 'text/html');
+      const newCartDrawer = newDocument.querySelector('cart-drawer');
+
+      if (cartDrawer && newCartDrawer) {
+        cartDrawer.replaceWith(newCartDrawer);
+        document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
+        newCartDrawer.classList.add('active', 'animate');
+      }
+    })
+    .catch((error) => { console.error('Error refreshing cart drawer:', error); });
+}
+
+
+
+  // Store product data for popup
+  const productData = [
+    {% for product in product_list %}
+      {% assign i = forloop.index0 %}
+      {
+        image: "{{ product.featured_image | img_url: 'master' }}",
+        title: "{{ product.title | escape }}",
+        subtitle: "{{ product.metafields.custom.collectionproduct_subtitle.value | escape }}",
+        description: "{{ descriptions[i] | escape }}",
+        variantId: "{{ product.variants.first.id }}",
+        url: "{{ product.url }}"
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+
   // Init Slick
   $('.top_picks_carousel').slick({
     slidesToShow: 5,
@@ -372,15 +495,75 @@ document.addEventListener("DOMContentLoaded", function() {
     ]
   });
 
-  // Accordion toggle
+  // Popup functionality
+  const popup = document.getElementById('product-detail-popup');
+  const popupImage = document.getElementById('popup-product-image');
+  const popupTitle = document.getElementById('popup-product-title');
+  const popupSubtitle = document.getElementById('popup-product-subtitle');
+  const popupDescription = document.getElementById('popup-product-description');
+  const viewProductBtn = document.querySelector('.btn-view-product');
+  const cartBtn = document.querySelector('.ajax_Add_to_cart');
+  let currentProductIndex = 0;
+  let currentProductUrl = '';
+
+  // Open popup when plus button is clicked
   document.querySelectorAll(".cert-plus").forEach(btn => {
     btn.addEventListener("click", function() {
-      const card = this.closest(".top-picks-product-card");
-      card.classList.toggle("active");
-      this.textContent = card.classList.contains("active") ? "×" : "+";
+      const productIndex = parseInt(this.getAttribute('data-product-index'));
+      currentProductIndex = productIndex;
+      
+      // Update button to show minus
+      this.textContent = "x";
+      this.classList.add('active');
+      // Show popup with product details
+      showProductPopup(productIndex);
     });
   });
+  // Close popup
+  document.querySelector('.popup-close').addEventListener('click', closePopup);
+  document.querySelector('.popup-overlay').addEventListener('click', closePopup);
+
+  // View product button
+  viewProductBtn.addEventListener('click', function() {
+    window.location.href = currentProductUrl;
+  });
+
+  function showProductPopup(index) {
+    const product = productData[index];
+    
+    popupImage.src = product.image;
+    popupImage.alt = product.title;
+    popupTitle.textContent = product.title;
+    popupSubtitle.textContent = product.subtitle;
+    currentProductUrl = product.url;
+    variantId= product.variantId
+    cartBtn.setAttribute('data-variant-id',variantId)
+    popup.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    document.body.classList.add('custom-popup-overlay')
+  }
+
+  function closePopup() {
+    popup.style.display = 'none';
+    document.body.style.overflow = 'auto';
+        document.body.classList.remove('custom-popup-overlay')
+
+    // Reset all plus buttons
+    document.querySelectorAll(".cert-plus").forEach(btn => {
+      btn.textContent = "+";
+      btn.classList.remove('active');
+    });
+  }
+
+  // Close popup with Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closePopup();
+    }
+  });
 });
+
+
 </script>
 
 {% schema %}
