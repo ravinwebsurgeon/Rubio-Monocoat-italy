@@ -1,4 +1,4 @@
-{% comment %} {% assign images = collection.metafields.custom.top_picks_images.value %}
+  {% comment %} {% assign images = collection.metafields.custom.top_picks_images.value %}
   {% assign titles = collection.metafields.custom.top_picks_titles.value %} {% endcomment %}
 
   {% assign descriptions = collection.metafields.custom.top_picks_desc.value %}
@@ -35,40 +35,22 @@
       <div class="top-picks-product-card">
         <div class="slider-product-image">
             <img src="{{ product.featured_image | img_url: 'master' }}" width="" height="" />
+          <div class="top-product-desc">
+            <p>{{ descriptions[i] }}</p>
+          </div>
         </div>
         <div class="top-product-content">
           <h3>{{ product.title }}</h3>
           <p>{{ product.metafields.custom.collectionproduct_subtitle.value }}</p>
           <div class="ctificte-btn--pulsss">
             <div class="certificate-puls-btn">
-              <button class="cert-plus" type="button" data-product-index="{{ i }}">+</button>
+              <button class="cert-plus" type="button">+</button>
             </div>
           </div>
         </div>
       </div>
     {% endfor %}
   </div>
-  </div>
-  
-  <!-- Product Detail Popup -->
-  <div id="product-detail-popup" class="product-popup">
-    <div class="popup-overlay"></div>
-    <div class="popup-content">
-      <button class="popup-close">&times;</button>
-      <div class="popup-body">
-        <div class="popup-image">
-          <img id="popup-product-image" src="" alt="" />
-        </div>
-        <div class="popup-details">
-          <h3 id="popup-product-title"></h3>
-          <p id="popup-product-subtitle"></p>
-          <div class="popup-actions">
-            <button class="btn-view-product">View Product</button>
-            <button class="product_cart_btn ajax_Add_to_cart" data-variant-id>Addto Cart</button>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
   
 </section>
@@ -251,107 +233,43 @@ section.top_picks_slider.custom_categrysss .slider-product-image{
     cursor: pointer;
   }
 
-  /* Product Detail Popup Styles */
-  .product-popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-  }
-  
-  .popup-overlay {
+  /* Accordion effect (expand upward into image area) */
+ .top-product-desc {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-  }
-  
-  .popup-content {
-    position: relative;
-    background: white;
-    max-width: 500px;
-    width: 90%;
-    max-height: 80vh;
-    margin: 10vh auto;
-    border-radius: 20px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .popup-close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 10;
-    width: 30px;
-    height: 30px;
+    inset: 0;
+    background: #183029;
+    color: #fff;
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.8);
-  }
-  
-  .popup-body {
-    display: flex;
-    height: 100%;
+    text-align: left;
+    font-size: 14px;
+    line-height: 22px;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.4s ease;
+    height: 96%;
+    top: auto;
     overflow: auto;
-  }
-  
-  .popup-image {
-    flex: 0 0 50%;
-    padding: 20px;
-  }
-  
-  .popup-image img {
-    width: 200px;
-    height: auto;
-    border-radius: 10px;
-  }
-  
-  .popup-details {
-    flex: 1;
-    padding: 30px;
-    display: flex;
     flex-direction: column;
+    border-radius: 20px 20px 0 0;
+}
+  .top-picks-product-card.active .top-product-desc {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .popup-details h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #183029;
+  .top-picks-product-card.active img {
+    opacity: 0;
   }
-  
-  .popup-details p {
-    color: #666;
-    margin-bottom: 15px;
+  .top_picks_slider .certificate-puls-btn button.cert-plus:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
   }
-  
-  .popup-description {
-    margin: 20px 0;
-    flex-grow: 1;
-  }
-  
-  .popup-actions {
-    margin-top: 20px;
-  }
-  
-
-  /* Active state for plus button */
-  .cert-plus.active {
-    transform: rotate(45deg);
-  }
-
   .top_picks_slider .slick-list {
     display: flex;
   }
@@ -371,8 +289,8 @@ section.top_picks_slider.custom_categrysss .slider-product-image{
     .top-picks-header {
       margin-bottom: 30px;
     }
+    
   }
-  
   @media(max-width:991px){
     .top_picks_slider {
         padding: 50px 20px;
@@ -380,16 +298,7 @@ section.top_picks_slider.custom_categrysss .slider-product-image{
     .top_picks_slider .top-picks-product-card .slider-product-image {
         padding-bottom: 190px;
     }
-    
-    .popup-body {
-      flex-direction: column;
-    }
-    
-    .popup-image {
-      flex: 0 0 auto;
-    }
   }
-  
   @media(max-width:767px){
     .top-picks-header h2 {
         font-size: 24px;
@@ -433,124 +342,10 @@ section.top_picks_slider.custom_categrysss .slider-product-image{
     .top_picks_slider .certificate-puls-btn button.cert-plus {
       font-size: 18px;
     }
-    
-    .popup-content {
-      width: 95%;
-      margin: 5vh auto;
-    }
-    
-    .popup-details {
-      padding: 20px;
-    }
-    
-    .popup-details h3 {
-      font-size: 20px;
-    }
   }
 </style>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-//add product into cart
-document.querySelectorAll('.product_cart_btn').forEach(function (button) {
-        button.addEventListener('click', function () {
-            const variantId = button.dataset.variantId;
-            fetch('/cart/add.js', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    id: variantId,
-                    quantity: 1
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Added to cart:', data);
-                updateCartCount(1);
-                refreshCartDrawer();
-            })
-            .catch(error => {
-                console.error('Error adding to cart:', error);
-                alert("Something went wrong.");
-            });
-        });
-    });
-
-function updateCartCount(totalQuantityAdded) {
-    const cartCounts = document.querySelectorAll('.cart-count-bubble > span');
-    const customCount = document.querySelector('.custom-cart-count-bubble > span');
-
-    if (cartCounts.length > 0) {
-        // Update all cart bubbles (standard or custom)
-        cartCounts.forEach(count => {
-            const currentNumber = Number(count.textContent) || 0;
-            const newNumber = currentNumber + totalQuantityAdded;
-            count.textContent = newNumber;
-            count.parentNode.style.display = 'block';
-            count.parentNode.style.visibility = 'visible';
-        });
-    } else if (customCount) {
-        // Update existing custom bubble
-        let number = Number(customCount.textContent) || 0;
-        customCount.textContent = number + totalQuantityAdded;
-        customCount.parentNode.style.display = 'block';
-        customCount.parentNode.style.visibility = 'visible';
-    } else {
-        // Create new bubble if none exists
-        const mainCartBubble = document.querySelector('.header__icon--cart');
-        if (mainCartBubble) {
-            const newCount = document.createElement('div');
-            newCount.classList.add('custom-cart-count-bubble','cart-count-bubble');
-
-            const newCountSpan = document.createElement('span');
-            newCountSpan.textContent = totalQuantityAdded;
-
-            newCount.appendChild(newCountSpan);
-            mainCartBubble.appendChild(newCount);
-            newCount.style.display = "block";
-            newCount.style.visibility = "visible";
-        }
-    }
-}
-
-function refreshCartDrawer() {
-  const cartDrawer = document.querySelector('cart-drawer');
-
-  fetch(`${routes.cart_url}?sections=cart-drawer`)
-    .then(response => response.json())
-    .then(sections => {
-      const newCartDrawerHtml = sections['cart-drawer'];
-      const newDocument = new DOMParser().parseFromString(newCartDrawerHtml, 'text/html');
-      const newCartDrawer = newDocument.querySelector('cart-drawer');
-
-      if (cartDrawer && newCartDrawer) {
-        cartDrawer.replaceWith(newCartDrawer);
-        document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
-        newCartDrawer.classList.add('active', 'animate');
-      }
-    })
-    .catch((error) => { console.error('Error refreshing cart drawer:', error); });
-}
-
-
-
-  // Store product data for popup
-  const productData = [
-    {% for product in product_list %}
-      {% assign i = forloop.index0 %}
-      {
-        image: "{{ product.featured_image | img_url: 'master' }}",
-        title: "{{ product.title | escape }}",
-        subtitle: "{{ product.metafields.custom.collectionproduct_subtitle.value | escape }}",
-        description: "{{ descriptions[i] | escape }}",
-        variantId: "{{ product.variants.first.id }}",
-        url: "{{ product.url }}"
-      }{% unless forloop.last %},{% endunless %}
-    {% endfor %}
-  ];
-
   // Init Slick
   $('.top_picks_carousel').slick({
     slidesToShow: 5,
@@ -577,75 +372,15 @@ function refreshCartDrawer() {
     ]
   });
 
-  // Popup functionality
-  const popup = document.getElementById('product-detail-popup');
-  const popupImage = document.getElementById('popup-product-image');
-  const popupTitle = document.getElementById('popup-product-title');
-  const popupSubtitle = document.getElementById('popup-product-subtitle');
-  const popupDescription = document.getElementById('popup-product-description');
-  const viewProductBtn = document.querySelector('.btn-view-product');
-  const cartBtn = document.querySelector('.ajax_Add_to_cart');
-  let currentProductIndex = 0;
-  let currentProductUrl = '';
-
-  // Open popup when plus button is clicked
+  // Accordion toggle
   document.querySelectorAll(".cert-plus").forEach(btn => {
     btn.addEventListener("click", function() {
-      const productIndex = parseInt(this.getAttribute('data-product-index'));
-      currentProductIndex = productIndex;
-      
-      // Update button to show minus
-      this.textContent = "x";
-      this.classList.add('active');
-      // Show popup with product details
-      showProductPopup(productIndex);
+      const card = this.closest(".top-picks-product-card");
+      card.classList.toggle("active");
+      this.textContent = card.classList.contains("active") ? "×" : "+";
     });
-  });
-  // Close popup
-  document.querySelector('.popup-close').addEventListener('click', closePopup);
-  document.querySelector('.popup-overlay').addEventListener('click', closePopup);
-
-  // View product button
-  viewProductBtn.addEventListener('click', function() {
-    window.location.href = currentProductUrl;
-  });
-
-  function showProductPopup(index) {
-    const product = productData[index];
-    
-    popupImage.src = product.image;
-    popupImage.alt = product.title;
-    popupTitle.textContent = product.title;
-    popupSubtitle.textContent = product.subtitle;
-    currentProductUrl = product.url;
-    variantId= product.variantId
-    cartBtn.setAttribute('data-variant-id',variantId)
-    popup.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-    document.body.classList.add('custom-popup-overlay')
-  }
-
-  function closePopup() {
-    popup.style.display = 'none';
-    document.body.style.overflow = 'auto';
-        document.body.classList.remove('custom-popup-overlay')
-
-    // Reset all plus buttons
-    document.querySelectorAll(".cert-plus").forEach(btn => {
-      btn.textContent = "+";
-      btn.classList.remove('active');
-    });
-  }
-
-  // Close popup with Escape key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      closePopup();
-    }
   });
 });
-
-
 </script>
 
 {% schema %}
