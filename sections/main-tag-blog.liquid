@@ -51,9 +51,9 @@
             <div class="search_section">
                 <h2>Search our blog</h2>
                 <div class="blog_list">
-                    {% for blog_item in blogs %}
+                    {% comment %} {% for blog_item in blogs %}
                         <h2><a href="{{ blog_item.url }}">{{ blog_item.title }}</a></h2>
-                    {% endfor %}
+                    {% endfor %} {% endcomment %}
 
                     {% assign blog_handles = "news,updates,stories,blog,collection,tag" | split: "," %}
                         {% for handle in blog_handles %}
