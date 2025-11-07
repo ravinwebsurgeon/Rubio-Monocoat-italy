@@ -80,10 +80,10 @@
                             {% assign count = this_blog.articles_count | default: 0 | plus: 0 %}
                             {% if count > 0  %}
                                 <p>
-                                    <a href="{{ this_blog.url }}">
-                                        {{ this_blog.title }}
-                                        {% if this_blog.articles_count > 0 %}<span>({{ this_blog.articles_count }})</span>{% endif %}
-                                    </a>
+                                  <a href="{{ this_blog.url }}">
+                                      {{ this_blog.title }}
+                                      {% if this_blog.articles_count > 0 %}<span>({{ this_blog.articles_count }})</span>{% endif %}
+                                  </a>
                                 </p>
                             {% else %}
                             {% endif %}
