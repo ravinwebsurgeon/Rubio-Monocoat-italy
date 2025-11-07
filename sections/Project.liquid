@@ -1687,7 +1687,8 @@ document.addEventListener('DOMContentLoaded', function() {
     visibility: hidden;
     transform: translateY(20px);
     pointer-events: none;
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .toggle-section.active {
     opacity: 1;
@@ -1698,44 +1699,46 @@ document.addEventListener('DOMContentLoaded', function() {
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const circleTabsSection = document.querySelector('.circle-tabs-section');
-  const exteriorWrap = document.querySelector('.Exterior-wrap');
-  const interioBtn = document.querySelector('.Interio');
-  const exteriorBtn = document.querySelector('.exterior-main');
+document.addEventListener("DOMContentLoaded", function() {
+  const circleTabsSection = document.querySelector(".circle-tabs-section");
+  const exteriorWrap = document.querySelector(".Exterior-wrap");
+  const interioBtn = document.querySelector(".Interio");
+  const exteriorBtn = document.querySelector(".exterior-main");
 
-  // Setup default state
-  [circleTabsSection, exteriorWrap].forEach(el => {
-    if (el) el.classList.add('toggle-section');
-    if (el) el.classList.remove('active');
+  const allEls = [circleTabsSection, exteriorWrap];
+  allEls.forEach(el => {
+    if (el) el.classList.add("toggle-section");
+    if (el) el.classList.remove("active");
   });
 
-  // Helper: reset + activate to re-trigger animation
-  function activateSmooth(el) {
+  // 👇 Helper: transition reset that *always* re-triggers smoothly
+  function showSmooth(el) {
     if (!el) return;
-    el.classList.remove('active');
-    void el.offsetWidth; // force reflow (this is the secret sauce)
-    el.classList.add('active');
-  }
-
-  function deactivateSmooth(el) {
-    if (!el) return;
-    el.classList.remove('active');
-  }
-
-  // Interior button
-  if (interioBtn) {
-    interioBtn.addEventListener('click', function() {
-      activateSmooth(circleTabsSection);
-      deactivateSmooth(exteriorWrap);
+    el.classList.remove("active");
+    el.style.transition = "none"; // temporarily disable transition
+    el.offsetHeight; // force reflow
+    el.style.transition = "";
+    requestAnimationFrame(() => {
+      el.classList.add("active");
     });
   }
 
-  // Exterior button
+  function hideSmooth(el) {
+    if (!el) return;
+    el.classList.remove("active");
+  }
+
+  if (interioBtn) {
+    interioBtn.addEventListener("click", () => {
+      showSmooth(circleTabsSection);
+      hideSmooth(exteriorWrap);
+    });
+  }
+
   if (exteriorBtn) {
-    exteriorBtn.addEventListener('click', function() {
-      activateSmooth(circleTabsSection);
-      activateSmooth(exteriorWrap);
+    exteriorBtn.addEventListener("click", () => {
+      showSmooth(circleTabsSection);
+      showSmooth(exteriorWrap);
     });
   }
 });
