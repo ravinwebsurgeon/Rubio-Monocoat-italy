@@ -1694,36 +1694,38 @@ document.addEventListener('DOMContentLoaded', function() {
   function initElement(el) {
     if (!el) return;
     el.style.opacity = 0;
-    el.style.transform = 'translateY(25px)';
+    el.style.transform = 'translateY(20px)';
     el.style.transition = `opacity ${transitionDuration}ms cubic-bezier(0.25, 0.8, 0.25, 1),
                            transform ${transitionDuration}ms cubic-bezier(0.25, 0.8, 0.25, 1)`;
-    el.style.visibility = 'hidden';
-    el.style.position = 'relative';
+    el.style.pointerEvents = 'none';
+    el.style.display = 'none';
   }
 
   [circleTabsSection, exteriorWrap].forEach(initElement);
 
   function smoothShow(el) {
     if (!el) return;
-    el.style.visibility = 'visible';
-    el.style.opacity = 1;
-    el.style.transform = 'translateY(0)';
+    el.style.display = 'block';
     el.style.pointerEvents = 'auto';
+    requestAnimationFrame(() => {
+      el.style.opacity = 1;
+      el.style.transform = 'translateY(0)';
+    });
   }
 
   function smoothHide(el) {
     if (!el) return;
     el.style.opacity = 0;
-    el.style.transform = 'translateY(25px)';
+    el.style.transform = 'translateY(20px)';
     el.style.pointerEvents = 'none';
+    // Instead of setting display:none immediately, delay slightly
     setTimeout(() => {
       if (parseFloat(el.style.opacity) === 0) {
-        el.style.visibility = 'hidden';
+        el.style.display = 'none';
       }
-    }, transitionDuration);
+    }, transitionDuration + 50); // give time to finish transition
   }
 
-  // Interior click
   if (interioBtn) {
     interioBtn.addEventListener('click', function() {
       smoothShow(circleTabsSection);
@@ -1731,7 +1733,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Exterior click
   if (exteriorBtn) {
     exteriorBtn.addEventListener('click', function() {
       smoothShow(circleTabsSection);
@@ -1740,7 +1741,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
-
 
 
 <style>
