@@ -1690,48 +1690,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const transitionDuration = 600; // ms
 
-  // Initial setup
-  function initElement(el) {
+  function setInitial(el) {
     if (!el) return;
-    el.style.opacity = 0;
+    el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
-    el.style.transition = `opacity ${transitionDuration}ms cubic-bezier(0.25, 0.8, 0.25, 1),
-                           transform ${transitionDuration}ms cubic-bezier(0.25, 0.8, 0.25, 1)`;
+    el.style.transition = `opacity ${transitionDuration}ms ease, transform ${transitionDuration}ms ease`;
     el.style.pointerEvents = 'none';
     el.style.display = 'none';
-    el.dataset.visible = 'false'; // track visibility state
   }
 
-  [circleTabsSection, exteriorWrap].forEach(initElement);
+  [circleTabsSection, exteriorWrap].forEach(setInitial);
 
   function smoothShow(el) {
-    if (!el || el.dataset.visible === 'true') return; // already visible
-
-    el.dataset.visible = 'true';
+    if (!el) return;
     el.style.display = 'block';
-
-    // force reflow before transition
-    void el.offsetWidth;
-
+    el.offsetHeight; // 🔥 force reflow to restart transition every time
     el.style.pointerEvents = 'auto';
-    el.style.opacity = 1;
+    el.style.opacity = '1';
     el.style.transform = 'translateY(0)';
   }
 
   function smoothHide(el) {
-    if (!el || el.dataset.visible === 'false') return; // already hidden
-
-    el.dataset.visible = 'false';
-    el.style.opacity = 0;
+    if (!el) return;
+    el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.pointerEvents = 'none';
-
-    // keep it visible until fade-out completes
     setTimeout(() => {
-      if (el.dataset.visible === 'false') {
+      if (el.style.opacity === '0') {
         el.style.display = 'none';
       }
-    }, transitionDuration + 10);
+    }, transitionDuration);
   }
 
   if (interioBtn) {
@@ -1743,12 +1731,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (exteriorBtn) {
     exteriorBtn.addEventListener('click', function() {
-      smoothShow(circleTabsSection);
       smoothShow(exteriorWrap);
+      smoothShow(circleTabsSection);
     });
   }
 });
 </script>
+
 
 
 
