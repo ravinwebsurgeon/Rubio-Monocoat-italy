@@ -57,13 +57,12 @@
 
                     {% assign blog_handles = "news,updates,stories,collection,tag" | split: "," %}
                         {% for handle in blog_handles %}
-                            {% assign blog = blogs[handle] %}
-
-                            {% if blog %}
+                            {% assign this_blog = blogs[handle] %}
+                            {% if this_blog %}
                                 <p>
-                                    <a href="{{ blog.url }}">
-                                        {{ blog.title }}
-                                        {% if blog.articles_count > 0 %}<span>({{ blog.articles_count }})</span>{% endif %}
+                                    <a href="{{ this_blog.url }}">
+                                        {{ this_blog.title }}
+                                        {% if this_blog.articles_count > 0 %}<span>({{ this_blog.articles_count }})</span>{% endif %}
                                     </a>
                                 </p>
                             {% else %}
