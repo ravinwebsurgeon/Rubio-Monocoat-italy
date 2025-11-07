@@ -74,12 +74,6 @@
                       {% endfor %}
                       {% endcomment %}
                     <h2>Categories</h2>
-{% for other_blog in blogs %}
-  {% if other_blog.handle != blog.handle %}
-    <h3>Other Blog: {{ other_blog.title }}</h3>
-    
-  {% endif %}
-{% endfor %}
                     {% assign blog_handles = "news,updates,stories,collection,tag" | split: "," %}
                         {% for handle in blog_handles %}
                             {% assign this_blog = blogs[handle] %}
