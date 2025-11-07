@@ -464,6 +464,7 @@ document.addEventListener("DOMContentLoaded", function() {
         title: "{{ product.title | escape }}",
         subtitle: "{{ product.metafields.custom.collectionproduct_subtitle.value | escape }}",
         description: "{{ descriptions[i] | escape }}",
+        variantId: "{{ product.variants.first.id }}"
         url: "{{ product.url }}"
       }{% unless forloop.last %},{% endunless %}
     {% endfor %}
@@ -502,6 +503,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const popupSubtitle = document.getElementById('popup-product-subtitle');
   const popupDescription = document.getElementById('popup-product-description');
   const viewProductBtn = document.querySelector('.btn-view-product');
+  const cartBtn = document.querySelector('.ajax_Add_to_cart');
   let currentProductIndex = 0;
   let currentProductUrl = '';
 
@@ -536,7 +538,8 @@ document.addEventListener("DOMContentLoaded", function() {
     popupTitle.textContent = product.title;
     popupSubtitle.textContent = product.subtitle;
     currentProductUrl = product.url;
-    
+    variantId= product.variantId
+    cartBtn.setAttribute('data-variant-id',variantId)
     popup.style.display = 'block';
     document.body.style.overflow = 'hidden';
   }
