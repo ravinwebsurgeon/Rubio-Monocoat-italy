@@ -158,7 +158,8 @@
         <div class="tag__article__image">
             {%- if show_image == true and article.image -%}
                 <div class="tag__card__media">
-                    <img src="{{ article.image.src | image_url: 'medium' }}" />
+                    {% comment %} <img src="{{ article.image.src | image_url: 'medium' }}" /> {% endcomment %}
+                    <img src="{{ article.image | image_url: width: 600 }}" alt="{{ article.title | escape }}">
                 </div>
                 <div class="tag__card_title">
                     <h3 class="tag__card__heading{% if show_excerpt %} h2{% endif %}">
