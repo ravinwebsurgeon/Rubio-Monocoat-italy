@@ -1737,11 +1737,13 @@ document.addEventListener('DOMContentLoaded', function() {
     visibility: hidden;
     transform: translateY(20px);
     transition: all 0.4s ease;
+    height:1px;
   }
   .toggle-section.active {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+    height:100%;
   }
 {% comment %} .exteriour_tabs_section, .interior_tabs_section{display:none;} {% endcomment %}
 .exteriour_tabs_section.active, .interior_tabs_section.active{display:block;}
