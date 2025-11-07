@@ -1681,64 +1681,46 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script> {% endcomment %}
 
+<style>
+  /* Smooth toggle base style */
+  .toggle-section {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.35s ease;
+  }
+  .toggle-section.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+</style>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const circleTabsSection = document.querySelector('.circle-tabs-section');
-  const exteriorWrap = document.querySelector('.Exterior-wrap');
-  const interioBtn = document.querySelector('.Interio');
-  const exteriorBtn = document.querySelector('.exterior-main');
+  const exteriorBtn = document.querySelector('.exterior');
+  const toggleTargets = document.querySelectorAll('.filter-bar, .Exterior-wrap');
 
-  const transitionDuration = 600; // ms
-
-  function init(el) {
-    if (!el) return;
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = `opacity ${transitionDuration}ms ease, transform ${transitionDuration}ms ease`;
-    el.style.pointerEvents = 'none';
-    el.style.display = 'none';
-  }
-
-  [circleTabsSection, exteriorWrap].forEach(init);
-
-  function smoothShow(el) {
-    if (!el) return;
-    el.style.display = 'block';
-    el.style.pointerEvents = 'auto';
-    // 🔥 Force reflow to restart transition
-    void el.offsetWidth;
-    el.style.opacity = '1';
-    el.style.transform = 'translateY(0)';
-  }
-
-  function smoothHide(el) {
-    if (!el) return;
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.pointerEvents = 'none';
-    // remove after animation completes
-    setTimeout(() => {
-      if (el.style.opacity === '0') {
-        el.style.display = 'none';
-      }
-    }, transitionDuration);
-  }
-
-  if (interioBtn) {
-    interioBtn.addEventListener('click', function() {
-      smoothShow(circleTabsSection);
-      smoothHide(exteriorWrap);
-    });
-  }
+  // Apply base toggle class
+  toggleTargets.forEach(el => el.classList.add('toggle-section'));
 
   if (exteriorBtn) {
-    exteriorBtn.addEventListener('click', function() {
-      smoothShow(exteriorWrap);
-      smoothShow(circleTabsSection);
+    exteriorBtn.addEventListener('click', function(event) {
+      event.stopPropagation(); // prevent immediate outside click trigger
+      toggleTargets.forEach(el => el.classList.toggle('active'));
     });
   }
+
+  // Close when clicking outside
+  document.addEventListener('click', function(event) {
+    const isClickInside = event.target.closest('.filter-bar, .Exterior-wrap, .exterior');
+    if (!isClickInside) {
+      toggleTargets.forEach(el => el.classList.remove('active'));
+    }
+  });
 });
 </script>
+
 
 
 <style>
