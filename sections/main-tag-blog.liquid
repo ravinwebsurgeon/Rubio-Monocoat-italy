@@ -75,7 +75,7 @@
                       {% endcomment %}
                     <h2>Categories</h2>
 
-                    {% assign all_blogs = [shop.blogs] %}
+                    {% assign all_blogs = shop.blogs %}
                     <ul>
                       {% for blog in all_blogs %}
                         <li><a href="{{ [blog.url] }}">{{ blog.title }}</a></li>
