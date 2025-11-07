@@ -1687,43 +1687,53 @@ document.addEventListener('DOMContentLoaded', function() {
   const exteriorWrap = document.querySelector('.Exterior-wrap');
   const interioBtn = document.querySelector('.Interio');
   const exteriorBtn = document.querySelector('.exterior-main');
+  const transitionDuration = 500; // ms
 
-  const transitionDuration = 600; // ms
+  // Common wrapper (to prevent height jump)
+  const wrapper = document.createElement('div');
+  wrapper.style.position = 'relative';
+  wrapper.style.minHeight = '1px';
+  wrapper.style.width = '100%';
 
-  // Initial setup
-  function initElement(el) {
-    if (!el) return;
-    el.style.opacity = 0;
-    el.style.transform = 'translateY(25px)';
-    el.style.transition = `opacity ${transitionDuration}ms cubic-bezier(0.25, 0.8, 0.25, 1),
-                           transform ${transitionDuration}ms cubic-bezier(0.25, 0.8, 0.25, 1)`;
-    el.style.visibility = 'hidden';
-    el.style.position = 'relative';
+  // Move both sections inside wrapper (preserves layout)
+  if (circleTabsSection && exteriorWrap) {
+    const parent = circleTabsSection.parentNode;
+    parent.insertBefore(wrapper, circleTabsSection);
+    wrapper.appendChild(circleTabsSection);
+    wrapper.appendChild(exteriorWrap);
   }
 
-  [circleTabsSection, exteriorWrap].forEach(initElement);
+  function setup(el) {
+    if (!el) return;
+    el.style.position = 'absolute';
+    el.style.top = '0';
+    el.style.left = '0';
+    el.style.right = '0';
+    el.style.opacity = '0';
+    el.style.pointerEvents = 'none';
+    el.style.transition = `opacity ${transitionDuration}ms ease, transform ${transitionDuration}ms ease`;
+    el.style.transform = 'translateY(15px)';
+  }
+
+  [circleTabsSection, exteriorWrap].forEach(setup);
 
   function smoothShow(el) {
     if (!el) return;
-    el.style.visibility = 'visible';
-    el.style.opacity = 1;
-    el.style.transform = 'translateY(0)';
     el.style.pointerEvents = 'auto';
+    el.style.zIndex = '2';
+    el.style.opacity = '1';
+    el.style.transform = 'translateY(0)';
   }
 
   function smoothHide(el) {
     if (!el) return;
-    el.style.opacity = 0;
-    el.style.transform = 'translateY(25px)';
     el.style.pointerEvents = 'none';
-    setTimeout(() => {
-      if (parseFloat(el.style.opacity) === 0) {
-        el.style.visibility = 'hidden';
-      }
-    }, transitionDuration);
+    el.style.zIndex = '1';
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(15px)';
   }
 
-  // Interior click
+  // Click actions
   if (interioBtn) {
     interioBtn.addEventListener('click', function() {
       smoothShow(circleTabsSection);
@@ -1731,7 +1741,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Exterior click
   if (exteriorBtn) {
     exteriorBtn.addEventListener('click', function() {
       smoothShow(circleTabsSection);
@@ -1740,7 +1749,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
-
 
 
 <style>
