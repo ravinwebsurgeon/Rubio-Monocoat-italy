@@ -1650,7 +1650,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-<script>
+{% comment %} <script>
 document.addEventListener('DOMContentLoaded', function() {
   const circleTabsSection = document.querySelector('.circle-tabs-section');
   const exteriorWrap = document.querySelector('.Exterior-wrap');
@@ -1679,11 +1679,59 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+</script> {% endcomment %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const circleTabsSection = document.querySelector('.circle-tabs-section');
+  const exteriorWrap = document.querySelector('.Exterior-wrap');
+  const interioBtn = document.querySelector('.Interio');
+  const exteriorBtn = document.querySelector('.exterior-main');
+
+  // Add toggle-section class to both for transition control
+  [circleTabsSection, exteriorWrap].forEach(el => {
+    if (el) el.classList.add('toggle-section');
+  });
+
+  // Initially hide both
+  [circleTabsSection, exteriorWrap].forEach(el => {
+    if (el) el.classList.remove('active');
+  });
+
+  // Interior click
+  if (interioBtn) {
+    interioBtn.addEventListener('click', function() {
+      if (circleTabsSection) circleTabsSection.classList.add('active');
+      if (exteriorWrap) exteriorWrap.classList.remove('active');
+    });
+  }
+
+  // Exterior click
+  if (exteriorBtn) {
+    exteriorBtn.addEventListener('click', function() {
+      if (circleTabsSection) circleTabsSection.classList.add('active');
+      if (exteriorWrap) exteriorWrap.classList.add('active');
+    });
+  }
+});
 </script>
 
-<style>
 
-.exteriour_tabs_section, .interior_tabs_section{display:none;}
+<style>
+.toggle-section {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    height:1px;
+  }
+  .toggle-section.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    height:100%;
+  }
+{% comment %} .exteriour_tabs_section, .interior_tabs_section{display:none;} {% endcomment %}
 .exteriour_tabs_section.active, .interior_tabs_section.active{display:block;}
 
 .cust-project{
