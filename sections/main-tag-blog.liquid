@@ -68,12 +68,13 @@
                     </form>
                 </div>
                 <div class="blogs_list">
-                      {% for blog_item in blogs.all %}
+                    {% comment %}
+                      {% for blog_item in blogs %}
                         <h2><a href="{{ blog_item.url }}">{{ blog_item.title }}</a></h2>
                       {% endfor %}
-                      
+                      {% endcomment %}
                     <h2>Categories</h2>
-                    {% comment %} {% assign blog_handles = "news,updates,stories,collection,tag" | split: "," %}
+                    {% assign blog_handles = "news,updates,stories,collection,tag" | split: "," %}
                         {% for handle in blog_handles %}
                             {% assign this_blog = blogs[handle] %}
                             {% assign count = this_blog.articles_count | default: 0 | plus: 0 %}
@@ -86,7 +87,7 @@
                                 </p>
                             {% else %}
                             {% endif %}
-                        {% endfor %} {% endcomment %}
+                        {% endfor %}
                 </div>
                 <div class="Blog_tags_list_main">
                     <div class="tag_list">
