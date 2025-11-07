@@ -36,15 +36,14 @@
           {% comment %} <div class="slider-product-image">
               <img src="{{ product.featured_image | img_url: 'master' }}" width="" height="" />
           </div> {% endcomment %}
-{% if product.featured_image %}
-
-            <div class="slider-product-image">
-    <img class="featured-image" src="{{ product.featured_image | img_url: 'master' }}" width="" height="" />
-    {% if product.metafields.custom.cover_image != blank %}
-      <img class="cover-image" src="{{ product.metafields.custom.cover_image | img_url: 'master' }}" alt="{{ product.title }}" width="" height="">
-    {% endif %}
-  </div>
-{% endif %}
+          {% if product.featured_image %}
+              <div class="slider-product-image">
+                <img class="featured-image" src="{{ product.featured_image | img_url: 'master' }}" width="" height="" />
+                {% if product.metafields.custom.cover_image != blank %}
+                  <img class="cover-image" src="{{ product.metafields.custom.cover_image | img_url: 'master' }}" alt="{{ product.title }}" width="" height="">
+                {% endif %}
+              </div>
+          {% endif %}
           
           <div class="top-product-content">
             <h3>{{ product.title }}</h3>
