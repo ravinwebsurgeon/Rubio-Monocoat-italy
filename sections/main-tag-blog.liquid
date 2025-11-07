@@ -107,6 +107,13 @@
                     <h2>{{ heading }}</h2>
                     <p>{{ text }}</p>
                 </div>
+                <div class="contact__method">
+                    {% for text in method_text %}
+                        <div class="content_data">
+                            <p>{{ text }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
