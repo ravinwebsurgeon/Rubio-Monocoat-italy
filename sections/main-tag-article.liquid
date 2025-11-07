@@ -11,7 +11,7 @@
 <div class="tag-card-section-main">
     <div class="tag__article__card__wrapper">
         <div class="tag__article__image">
-            {%- if show_image == true and article.image -%}
+            {%- if article.image -%}
                 <div class="tag__card__media">
                     <img src="{{ article.image | image_url: width: 300 }}" alt="{{ article.title | escape }}">
                 </div>
