@@ -1687,18 +1687,13 @@ document.addEventListener('DOMContentLoaded', function() {
     visibility: hidden;
     transform: translateY(20px);
     pointer-events: none;
-    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                visibility 0s linear 0.5s; /* hides after fade */
+    transition: opacity 0.5s ease, transform 0.5s ease;
   }
   .toggle-section.active {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
     pointer-events: auto;
-    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                visibility 0s linear 0s; /* show instantly */
   }
 </style>
 
@@ -1709,44 +1704,42 @@ document.addEventListener('DOMContentLoaded', function() {
   const interioBtn = document.querySelector('.Interio');
   const exteriorBtn = document.querySelector('.exterior-main');
 
-  // Add class if not present
+  // Setup default state
   [circleTabsSection, exteriorWrap].forEach(el => {
-    if (el && !el.classList.contains('toggle-section')) {
-      el.classList.add('toggle-section');
-    }
-  });
-
-  // Hide all initially
-  [circleTabsSection, exteriorWrap].forEach(el => {
+    if (el) el.classList.add('toggle-section');
     if (el) el.classList.remove('active');
   });
 
-  // Show interior
+  // Helper: reset + activate to re-trigger animation
+  function activateSmooth(el) {
+    if (!el) return;
+    el.classList.remove('active');
+    void el.offsetWidth; // force reflow (this is the secret sauce)
+    el.classList.add('active');
+  }
+
+  function deactivateSmooth(el) {
+    if (!el) return;
+    el.classList.remove('active');
+  }
+
+  // Interior button
   if (interioBtn) {
     interioBtn.addEventListener('click', function() {
-      if (circleTabsSection) circleTabsSection.classList.add('active');
-      if (exteriorWrap) {
-        exteriorWrap.classList.remove('active');
-        // reflow trick to reset transition each time
-        void exteriorWrap.offsetWidth;
-      }
+      activateSmooth(circleTabsSection);
+      deactivateSmooth(exteriorWrap);
     });
   }
 
-  // Show exterior
+  // Exterior button
   if (exteriorBtn) {
     exteriorBtn.addEventListener('click', function() {
-      if (circleTabsSection) circleTabsSection.classList.add('active');
-      if (exteriorWrap) {
-        // reflow trick before activating again
-        void exteriorWrap.offsetWidth;
-        exteriorWrap.classList.add('active');
-      }
+      activateSmooth(circleTabsSection);
+      activateSmooth(exteriorWrap);
     });
   }
 });
 </script>
-
 
 
 
