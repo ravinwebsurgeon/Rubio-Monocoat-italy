@@ -91,13 +91,9 @@
                 <div class="Blog_tags_list_main">
                     <div class="tag_list">
                         {% assign all_tags = '' %}
-                        {% for blog in blogs %}
-                        {% for tag in blog.all_tags %}
-                            {% unless all_tags contains tag %}
-                            {% assign all_tags = all_tags | append: tag | append: ',' %}
-                            {% endunless %}
-                        {% endfor %}
-                        {% endfor %}
+                          {% for tag in blogs[recipes].tags %}
+                        <h2>{{ tag }}</h2>
+                    {% endfor %}
                     </div>
                 </div>
             </div>
