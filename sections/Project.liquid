@@ -1687,14 +1687,20 @@ document.addEventListener('DOMContentLoaded', function() {
     visibility: hidden;
     transform: translateY(20px);
     pointer-events: none;
-    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 0;
+    overflow: hidden;
+    transition:
+      opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+      height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
+
   .toggle-section.active {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
     pointer-events: auto;
+    height: auto; /* this will get handled dynamically in JS */
   }
 </style>
 
@@ -1711,20 +1717,34 @@ document.addEventListener("DOMContentLoaded", function() {
     if (el) el.classList.remove("active");
   });
 
-  // 👇 Helper: transition reset that *always* re-triggers smoothly
+  // 👇 Height + fade-slide animation controller
   function showSmooth(el) {
     if (!el) return;
+    const sectionHeight = el.scrollHeight + "px";
+
     el.classList.remove("active");
-    el.style.transition = "none"; // temporarily disable transition
+    el.style.transition = "none";
+    el.style.height = "1px";
     el.offsetHeight; // force reflow
     el.style.transition = "";
+    el.style.height = sectionHeight;
+
     requestAnimationFrame(() => {
       el.classList.add("active");
+      el.style.height = sectionHeight;
+      // reset to auto after animation ends
+      setTimeout(() => {
+        el.style.height = "auto";
+      }, 600);
     });
   }
 
   function hideSmooth(el) {
     if (!el) return;
+    const sectionHeight = el.scrollHeight + "px";
+    el.style.height = sectionHeight;
+    el.offsetHeight;
+    el.style.height = "1px";
     el.classList.remove("active");
   }
 
