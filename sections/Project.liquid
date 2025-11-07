@@ -1650,7 +1650,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-<script>
+{% comment %} <script>
 document.addEventListener('DOMContentLoaded', function() {
   const circleTabsSection = document.querySelector('.circle-tabs-section');
   const exteriorWrap = document.querySelector('.Exterior-wrap');
@@ -1659,52 +1659,93 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Hide by default
   [circleTabsSection, exteriorWrap].forEach(el => {
-    if (el) {
-      el.style.display = 'none';
-      el.style.opacity = 0;
-      el.style.transition = 'opacity 0.3s ease';
-    }
+    if (el) el.style.display = 'none';
   });
-
-  function fadeIn(el) {
-    if (!el) return;
-    el.style.display = 'block';
-    requestAnimationFrame(() => {
-      el.style.opacity = 1;
-    });
-  }
-
-  function fadeOut(el) {
-    if (!el) return;
-    el.style.opacity = 0;
-    setTimeout(() => {
-      el.style.display = 'none';
-    }, 300); // match transition time
-  }
 
   // When click on Interior
   if (interioBtn) {
     interioBtn.addEventListener('click', function() {
-      fadeIn(circleTabsSection);
-      fadeOut(exteriorWrap);
+      if (circleTabsSection) circleTabsSection.style.display = 'block';
+      if (exteriorWrap) exteriorWrap.style.display = 'none';
     });
   }
 
   // When click on Exterior
   if (exteriorBtn) {
     exteriorBtn.addEventListener('click', function() {
-      fadeIn(circleTabsSection);
-      fadeIn(exteriorWrap);
+      if (circleTabsSection) circleTabsSection.style.display = 'block';
+      if (exteriorWrap) exteriorWrap.style.display = 'block';
+    });
+  }
+});
+
+</script> {% endcomment %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const circleTabsSection = document.querySelector('.circle-tabs-section');
+  const exteriorWrap = document.querySelector('.Exterior-wrap');
+  const interioBtn = document.querySelector('.Interio');
+  const exteriorBtn = document.querySelector('.exterior-main');
+
+  const transitionDuration = 600; // ms
+
+  function setup(el) {
+    if (!el) return;
+    el.style.opacity = 0;
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = `opacity ${transitionDuration}ms cubic-bezier(0.25, 0.8, 0.25, 1),
+                           transform ${transitionDuration}ms cubic-bezier(0.25, 0.8, 0.25, 1)`;
+    el.style.display = 'none';
+  }
+
+  // Setup initial styles
+  [circleTabsSection, exteriorWrap].forEach(setup);
+
+  // Helper to show smoothly
+  function smoothShow(el) {
+    if (!el) return;
+    el.style.display = 'block';
+    // force reflow for restart transition
+    void el.offsetWidth;
+    el.style.opacity = 1;
+    el.style.transform = 'translateY(0)';
+  }
+
+  // Helper to hide smoothly
+  function smoothHide(el) {
+    if (!el) return;
+    el.style.opacity = 0;
+    el.style.transform = 'translateY(20px)';
+    setTimeout(() => {
+      el.style.display = 'none';
+    }, transitionDuration);
+  }
+
+  // Interior click
+  if (interioBtn) {
+    interioBtn.addEventListener('click', function() {
+      smoothShow(circleTabsSection);
+      smoothHide(exteriorWrap);
+    });
+  }
+
+  // Exterior click
+  if (exteriorBtn) {
+    exteriorBtn.addEventListener('click', function() {
+      smoothShow(circleTabsSection);
+      smoothShow(exteriorWrap);
     });
   }
 });
 </script>
 
 
+
 <style>
 
-{% comment %} .exteriour_tabs_section, .interior_tabs_section{display:none;}
-.exteriour_tabs_section.active, .interior_tabs_section.active{display:block;} {% endcomment %}
+.exteriour_tabs_section, .interior_tabs_section{display:none;}
+.exteriour_tabs_section.active, .interior_tabs_section.active{display:block;}
 
 .cust-project{
   font-family: Frutiger Neue LT W1G;
