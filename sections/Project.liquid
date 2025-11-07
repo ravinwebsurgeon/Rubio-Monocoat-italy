@@ -1691,7 +1691,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-<script>
+{% comment %} <script>
 document.addEventListener('DOMContentLoaded', function() {
   const circleTabsSection = document.querySelector('.circle-tabs-section');
   const exteriorWrap = document.querySelector('.Exterior-wrap');
@@ -1720,9 +1720,9 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-</script> 
+</script> {% endcomment %}
 
-{% comment %} smooth show and hide <style>
+<style>
   .toggle-section {
     opacity: 0;
     visibility: hidden;
@@ -1750,9 +1750,9 @@ document.addEventListener('DOMContentLoaded', function() {
     body.modal-open {
         overflow: hidden;
     }
-</style> {% endcomment %}
+</style>
 
-{% comment %} Smoth show hide<script>
+<script>
 document.addEventListener("DOMContentLoaded", function() {
   const circleTabsSection = document.querySelector(".circle-tabs-section");
   const exteriorWrap = document.querySelector(".Exterior-wrap");
@@ -1810,14 +1810,14 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 });
-</script> {% endcomment %}
+</script>
 
 
 
 <style>
 
-{% comment %} .exteriour_tabs_section, .interior_tabs_section{display:none;} {% endcomment %}
-.exteriour_tabs_section.active, .interior_tabs_section.active{display:block;} 
+{% comment %} .exteriour_tabs_section, .interior_tabs_section{display:none;}
+.exteriour_tabs_section.active, .interior_tabs_section.active{display:block;} {% endcomment %}
 
 .cust-project{
   font-family: Frutiger Neue LT W1G;
