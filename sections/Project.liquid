@@ -1495,7 +1495,8 @@ document.addEventListener("click", function(e) {
     } else if (surfaceOptions?.querySelector(".surface-item.active")) {
       tabProductsExterior?.classList.add("show-section");
       tabProductsInterior?.classList.remove("show-section");
-      document.querySelector('.surface-toggle').classList.add('active')
+      let exterior_main = document.querySelector('.surface-toggle')
+      exterior_main.classList.add('active');
     }
 
     // Do NOT close the exterior dropdown
