@@ -96,6 +96,7 @@
                             {% assign all_tags = tag.tags | append: tag | append: ',' %}
                         {% endfor %}
                         {% comment %} {% endfor %} {% endcomment %}
+                         {{ all_tags }}
                     </div>
                 </div>
             </div>
