@@ -1,6 +1,13 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
 
 <article class="article-template">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ routes.root_url }}">Home</a>
+    <span class="separator">›</span>
+    <a href="{{ blog.url }}">{{ blog.title }}</a>
+    <span class="separator">›</span>
+    <span aria-current="page">{{ article.title }}</span>
+    </nav>
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when '@app' -%}
