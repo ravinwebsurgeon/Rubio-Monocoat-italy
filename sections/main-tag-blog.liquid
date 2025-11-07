@@ -55,12 +55,16 @@
                         <input id="blog_search" type="text" placeholder="Search posts here..." class="input-search-text">
                     </div>
                 </div> {% endcomment %}
-                <form role="search" method="get" action="/search">
-                    <input type="search" name="q" placeholder="Search blog posts…" value="{{ search.terms }}">
-                    <input type="hidden" name="type" value="article">
-                    <button type="submit">Search</button>
-                </form>
-
+               <form role="search" method="get" action="/search" class="blog-search-form">
+  <input 
+    type="search" 
+    name="q" 
+    placeholder="Search blog posts…" 
+    value="{{ search.terms | escape }}" 
+    aria-label="Search blog posts"
+  >
+  <input type="hidden" name="type" value="article">
+</form>
                 <div class="blogs_list">
                     {% comment %} {% for blog_item in blogs %}
                         <h2><a href="{{ blog_item.url }}">{{ blog_item.title }}</a></h2>
