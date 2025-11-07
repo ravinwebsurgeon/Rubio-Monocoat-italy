@@ -1699,31 +1699,39 @@ document.addEventListener('DOMContentLoaded', function() {
                            transform ${transitionDuration}ms cubic-bezier(0.25, 0.8, 0.25, 1)`;
     el.style.pointerEvents = 'none';
     el.style.display = 'none';
+    el.dataset.visible = 'false'; // track visibility state
   }
 
   [circleTabsSection, exteriorWrap].forEach(initElement);
 
   function smoothShow(el) {
-    if (!el) return;
+    if (!el || el.dataset.visible === 'true') return; // already visible
+
+    el.dataset.visible = 'true';
     el.style.display = 'block';
+
+    // force reflow before transition
+    void el.offsetWidth;
+
     el.style.pointerEvents = 'auto';
-    requestAnimationFrame(() => {
-      el.style.opacity = 1;
-      el.style.transform = 'translateY(0)';
-    });
+    el.style.opacity = 1;
+    el.style.transform = 'translateY(0)';
   }
 
   function smoothHide(el) {
-    if (!el) return;
+    if (!el || el.dataset.visible === 'false') return; // already hidden
+
+    el.dataset.visible = 'false';
     el.style.opacity = 0;
     el.style.transform = 'translateY(20px)';
     el.style.pointerEvents = 'none';
-    // Instead of setting display:none immediately, delay slightly
+
+    // keep it visible until fade-out completes
     setTimeout(() => {
-      if (parseFloat(el.style.opacity) === 0) {
+      if (el.dataset.visible === 'false') {
         el.style.display = 'none';
       }
-    }, transitionDuration + 50); // give time to finish transition
+    }, transitionDuration + 10);
   }
 
   if (interioBtn) {
@@ -1741,6 +1749,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
+
 
 
 <style>
