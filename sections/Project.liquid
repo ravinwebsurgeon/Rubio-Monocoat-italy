@@ -1690,7 +1690,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const transitionDuration = 600; // ms
 
-  function setInitial(el) {
+  function init(el) {
     if (!el) return;
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
@@ -1699,13 +1699,14 @@ document.addEventListener('DOMContentLoaded', function() {
     el.style.display = 'none';
   }
 
-  [circleTabsSection, exteriorWrap].forEach(setInitial);
+  [circleTabsSection, exteriorWrap].forEach(init);
 
   function smoothShow(el) {
     if (!el) return;
     el.style.display = 'block';
-    el.offsetHeight; // 🔥 force reflow to restart transition every time
     el.style.pointerEvents = 'auto';
+    // 🔥 Force reflow to restart transition
+    void el.offsetWidth;
     el.style.opacity = '1';
     el.style.transform = 'translateY(0)';
   }
@@ -1715,6 +1716,7 @@ document.addEventListener('DOMContentLoaded', function() {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.pointerEvents = 'none';
+    // remove after animation completes
     setTimeout(() => {
       if (el.style.opacity === '0') {
         el.style.display = 'none';
@@ -1737,8 +1739,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
-
-
 
 
 <style>
