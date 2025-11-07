@@ -536,9 +536,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const exteriorBtn = document.querySelector('.exterior');
   const toggleTargets = document.querySelectorAll('.filter-bar, .Exterior-wrap');
 
-  // Apply base toggle class
-  toggleTargets.forEach(el => el.classList.add('toggle-section'));
-
   if (exteriorBtn) {
     exteriorBtn.addEventListener('click', function(event) {
       event.stopPropagation(); // prevent immediate outside click trigger
