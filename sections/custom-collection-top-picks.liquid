@@ -452,6 +452,7 @@ section.top_picks_slider.custom_categrysss .slider-product-image{
 document.addEventListener("DOMContentLoaded", function() {
 //add product into cart
 const cart_button = document.querySelector('.product_cart_btn')
+console.log(cart_button,'cart_button')
         cart_button.addEventListener('click', function () {
             const variantId = cart_button.dataset.variantId;
             fetch('/cart/add.js', {
