@@ -70,10 +70,7 @@
                           </div>
 
                     {%- when 'content' -%}
-                        <div 
-                            class="article-template__content page-width page-width--narrow rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-                            {{ block.shopify_attributes }}
-                        >
+                        <div class="article__content__des">
                             {{ article.content }}
                         </div>
 
