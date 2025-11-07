@@ -183,7 +183,7 @@
                                 <span>{{ 'blogs.article.comments' | t: count: article.comments_count }}</span>
                             {%- endif -%}
                         </div>
-                        <a href="{{ article.url }}" class="read-more-btn">{{ aarticle.tags | join: ',' }}</a>
+                        <a href="{{ article.url }}" class="read-more-btn">{{ aarticle.tags }}</a>
                     {%- endif -%}
                 </div>
             {% endif %}
