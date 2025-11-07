@@ -55,11 +55,13 @@
                         <h2><a href="{{ blog_item.url }}">{{ blog_item.title }}</a></h2>
                     {% endfor %} {% endcomment %}
 
-                    {% assign blog_handles = "news,updates,stories,blog,collection,tag" | split: "," %}
+                    {% assign blog_handles = "news,updates,stories,collection,tag" | split: "," %}
                         {% for handle in blog_handles %}
                             {% assign blog = blogs[handle] %}
                             {% if blog %}
-                                <h2><a href="{{ blog.url }}">{{ blog.title }}( {{ blog.articles_count }})</a></h2>
+                                <p>
+                                    <a href="{{ blog.url }}">{{ blog.title }}<span>( {{ blog.articles_count }})</span></a>
+                                </p>
                             {% endif %}
                         {% endfor %}
                 </div>
