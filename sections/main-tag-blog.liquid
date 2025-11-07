@@ -43,7 +43,14 @@
         {%- endfor -%}
         </div>
         <div class="search_blogs_section">
-            
+            <div class="search_section">
+                <h2>Search For Blogs</h2>
+                <div class="blog_list">
+                    {% for blog in blog %}
+                        {{ blog.title }}
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
     {%- if paginate.pages > 1 -%}
