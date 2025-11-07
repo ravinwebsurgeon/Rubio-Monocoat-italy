@@ -59,7 +59,7 @@
                         {% for handle in blog_handles %}
                             {% assign blog = blogs[handle] %}
                             {% if blog %}
-                                <h2><a href="{{ blog.url }}">{{ blog.title }}</a></h2>
+                                <h2><a href="{{ blog.url }}">{{ blog.title }}( {{ blog.articles_count }})</a></h2>
                             {% endif %}
                         {% endfor %}
                 </div>
