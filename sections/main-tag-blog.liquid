@@ -50,11 +50,16 @@
         <div class="search_blogs_section">
             <div class="search_section">
                 <h2>Search our blog</h2>
-                <div class="blog__search__field search">
+                {% comment %} <div class="blog__search__field search">
                     <div class="control">
                         <input id="blog_search" type="text" placeholder="Search posts here..." class="input-search-text">
                     </div>
-                </div>
+                </div> {% endcomment %}
+                <form role="search" method="get" action="/search">
+  <input type="search" name="q" placeholder="Search blog posts…" value="{{ search.terms }}">
+  <input type="hidden" name="type" value="article">
+  <button type="submit">Search</button>
+</form>
 
                 <div class="blogs_list">
                     {% comment %} {% for blog_item in blogs %}
