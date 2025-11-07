@@ -619,8 +619,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const colourMatch    = !selectedColour || productColours.includes(selectedColour);
       const productMatch   = !selectedProduct || productProducts.includes(selectedProduct);
       const availableMatch = !showAvailable || productAvailable;
-{% comment %} 
-      product.style.display = (colourMatch && productMatch && availableMatch) ? '' : 'none'; {% endcomment %}
+
+      product.style.display = (colourMatch && productMatch && availableMatch) ? '' : 'none';
     });
   }
 
