@@ -71,14 +71,14 @@
             </div>
           </div>
         {%- endif -%}
-        <div class="card__content">
-          <div class="card__information">
-            <h3 class="card__heading{% if show_excerpt %} h2{% endif %}">
+        <div class="tag__card__content">
+          <div class="tag__card__information">
+            <h3 class="tag__card__heading{% if show_excerpt %} h2{% endif %}">
               <a href="{{ article.url }}" class="full-unstyled-link">
                 {{ article.title | truncate: 50 | escape }}
               </a>
             </h3>
-            <div class="article-card__info caption-with-letter-spacing h5">
+            <div class="tag-article-card__info caption-with-letter-spacing h5">
               {%- if show_date -%}
                 <span class="circle-divider">{{ article.published_at | time_tag: format: 'date' }}</span>
               {%- endif -%}
@@ -88,7 +88,7 @@
             </div>
             {%- if show_excerpt -%}
               {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
-                <p class="article-card__excerpt rte-width">
+                <p class="tag-article-card__excerpt rte-width">
                   {%- if article.excerpt.size > 0 -%}
                     {{ article.excerpt | strip_html | truncatewords: 30 }}
                   {%- else -%}
@@ -96,7 +96,7 @@
                   {%- endif -%}
                 </p>
               {%- endif -%}
-              <div class="article-card__footer">
+              <div class="tag-article-card__footer">
                 {%- if article.comments_count > 0 and blog.comments_enabled? -%}
                   <span>{{ 'blogs.article.comments' | t: count: article.comments_count }}</span>
                 {%- endif -%}
@@ -104,15 +104,15 @@
             {%- endif -%}
           </div>
           {%- if show_badge -%}
-            <div class="card__badge {{ settings.badge_position }}">
-              <span class="badge color-{{ settings.color_schemes | first }}">{{ 'blogs.article.blog' | t }}</span>
+            <div class="tag__card__badge {{ settings.badge_position }}">
+              <span class="tag__badge color-{{ settings.color_schemes | first }}">{{ 'blogs.article.blog' | t }}</span>
             </div>
           {%- endif -%}
         </div>
       </div>
-      <div class="card__content">
-        <div class="card__information">
-          <div class="article-card__info caption-with-letter-spacing h5">
+      <div class="tag__card__content">
+        <div class="tag__card__information">
+          <div class="tag-article-card__info caption-with-letter-spacing h5">
             {%- if show_date -%}
               <span class="circle-divider">{{ article.published_at | time_tag: format: 'date' }}</span>
             {%- endif -%}
@@ -120,7 +120,7 @@
               <span>{{ article.author }}</span>
             {%- endif -%}
           </div>
-          <h3 class="card__heading{% if show_excerpt %} h2{% endif %}">
+          <h3 class="tag__card__heading{% if show_excerpt %} h2{% endif %}">
             <a href="{{ article.url }}" class="full-unstyled-link">
               {{ article.title | truncate: 50 | escape }}
             </a>
@@ -128,7 +128,7 @@
           
           {%- if show_excerpt -%}
             {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
-              <p class="article-card__excerpt rte-width">
+              <p class="tag-article-card__excerpt rte-width">
                 {%- if article.excerpt.size > 0 -%}
                   {{ article.excerpt | strip_html | truncate: 100 }}
                 {%- else -%}
@@ -136,7 +136,7 @@
                 {%- endif -%}
               </p>
             {%- endif -%}
-            <div class="article-card__footer">
+            <div class="tag-article-card__footer">
               {%- if article.comments_count > 0 and blog.comments_enabled? -%}
                 <span>{{ 'blogs.article.comments' | t: count: article.comments_count }}</span>
               {%- endif -%}
@@ -145,8 +145,8 @@
           {%- endif -%}
         </div>
         {%- if show_badge -%}
-          <div class="card__badge {{ settings.badge_position }}">
-            <span class="badge color-{{ settings.color_schemes | first }}">{{ 'blogs.article.blog' | t }}</span>
+          <div class="tag__card__badge {{ settings.badge_position }}">
+            <span class="tag__badge color-{{ settings.color_schemes | first }}">{{ 'blogs.article.blog' | t }}</span>
           </div>
         {%- endif -%}
       </div>
