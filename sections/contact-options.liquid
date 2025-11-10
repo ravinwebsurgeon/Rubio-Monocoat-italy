@@ -40,7 +40,7 @@
         {% for block in section.blocks %}
           {% if block.type == 'team_member' %}
           <div class="team-member">
-            <img src="{{ block.settings.photo | img_url: '100x100' }}" alt="{{ block.settings.name }}">
+            <img src="{{ block.settings.photo | img_url: '100x100' }}" alt="{{ block.settings.name }}" width="" height=""> 
             <div class="team-info">
               <strong>{{ block.settings.name }}</strong>
               <span>{{ block.settings.role }}</span>
