@@ -968,8 +968,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const productItem = this.closest(".product-item");
       const productLink = productItem.querySelector("a[href]");
       if (productLink) window.location.href = productLink.href;
-      let variantVlaue = document.querySelector('.circle-tab.active')
-      let modifiedText = variantVlaue.trim().toLowerCase();
+      let variantVlaue = document.querySelector('.circle-tab.active').trim()
+      let modifiedText = variantVlaue.toLowerCase();
       localStorage.removeItem('myvariant');
       localStorage.setItem('myvariant',modifiedText);
       
