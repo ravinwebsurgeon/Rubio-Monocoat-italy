@@ -95,7 +95,7 @@
                         <input type="hidden" name="type" value="article">
                     </form>
                 </div>
-                <div class="blogs_list">
+                {% comment %} <div class="blogs_list">
                     <h2>Categories</h2>
                     {% assign blog_handles = "news,updates,stories,collection,tag" | split: "," %}
                         {% for handle in blog_handles %}
@@ -111,7 +111,28 @@
                             {% else %}
                             {% endif %}
                         {% endfor %}
+                </div> {% endcomment %}
+                <div class="blogs_list">
+                  <h2>Categories</h2>
+                  <ul>
+                    {% assign blog_handles = "news,updates,stories,collection,tag" | split: "," %}
+                    {% for handle in blog_handles %}
+                      {% assign this_blog = blogs[handle] %}
+                      {% assign count = this_blog.articles_count | default: 0 | plus: 0 %}
+                      {% if count > 0 %}
+                        <li>
+                          <a href="{{ this_blog.url }}">
+                            {{ this_blog.title }}
+                            {% if this_blog.articles_count > 0 %}
+                              <span>({{ this_blog.articles_count }})</span>
+                            {% endif %}
+                          </a>
+                        </li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
                 </div>
+
                 <div class="Blog_tags_list_main">
                     <div class="tag_list">
                         <h2>Tags</h2>
