@@ -1234,8 +1234,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (parts.length === 2) return decodeURIComponent(parts.pop().split(';').shift());
   }
 
+  function selectVariant(color)
+  {
+  console.log("Found variant from cookie:", color);
+  
+  }
   const receivedData = getCookie("myvariant");
-  console.log("Found variant from cookie:", receivedData);
+  if(receivedData) selectVariant(receivedData)
 });
 
 </script>
