@@ -967,12 +967,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const productItem = this.closest(".product-item");
       const productLink = productItem.querySelector("a[href]");
-      if (productLink) window.location.href = productLink.href;
-      let variantVlaue = document.querySelector('.circle-tab.active').trim()
-      let modifiedText = variantVlaue.toLowerCase();
-      localStorage.removeItem('myvariant');
-      localStorage.setItem('myvariant',modifiedText);
+      {% comment %} if (productLink) window.location.href = productLink.href; {% endcomment %}
+      let variantValue = document.querySelector('.circle-tab.active').trim()
+      let modifiedText = variantValue.toLowerCase();
+      document.cookie = `myvariant=${encodeURIComponent(modifiedText)}; path=/; max-age=3600`;
       
+      if (productLink){
+        setTimeout(() => {
+          window.location.href = productLink.href;
+        }, 100);
+      }
 
     });
   });
