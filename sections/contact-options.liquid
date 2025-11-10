@@ -1,0 +1,308 @@
+<section class="contact-advice-section">
+  <div class="page-width contact-grid">
+    <!-- LEFT SIDE -->
+    <div class="contact-options">
+      <h2>{{ section.settings.left_heading }}</h2>
+      <p class="availability">
+        <span class="status-dot"></span> {{ section.settings.availability_text }}
+      </p>
+
+      <div class="contact-buttons">
+        {% for block in section.blocks %}
+          {% if block.type == 'contact_method' %}
+          <div class="contact-item">
+            <div class="contact-icon">
+              {{ block.settings.icon_svg }}
+            </div>
+            <div class="contact-content">
+              <a href="{{ block.settings.link }}" target="_blank" class="contact-title">{{ block.settings.title }}</a>
+              {% if block.settings.subtitle != blank %}
+                <span class="contact-subtitle">{{ block.settings.subtitle }}</span>
+              {% endif %}
+            </div>
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="advice-card">
+      <h2>{{ section.settings.right_heading }}</h2>
+      <p>{{ section.settings.right_description }}</p>
+
+      <div class="advice-buttons">
+        <a href="{{ section.settings.call_link }}" class="advice-btn">{{ section.settings.call_text }}</a>
+        <a href="{{ section.settings.email_link }}" class="advice-btn">{{ section.settings.email_text }}</a>
+      </div>
+
+      <div class="advice-team">
+        {% for block in section.blocks %}
+          {% if block.type == 'team_member' %}
+          <div class="team-member">
+            <img src="{{ block.settings.photo | img_url: '100x100' }}" alt="{{ block.settings.name }}">
+            <div class="team-info">
+              <strong>{{ block.settings.name }}</strong>
+              <span>{{ block.settings.role }}</span>
+            </div>
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.contact-advice-section {
+  padding: 60px 0;
+  font-family: inherit;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: flex-start;
+}
+.contact-options h2 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #163b2d;
+  margin-bottom: 15px;
+}
+.availability {
+  font-size: 15px;
+  color: #163b2d;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 25px;
+}
+.status-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #1c6d39;
+  border-radius: 50%;
+  display: inline-block;
+}
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f3f3f3;
+  border-radius: 30px;
+  padding: 12px 20px;
+  transition: all 0.3s ease;
+}
+.contact-item:hover {
+  background: #e8e8e8;
+}
+.contact-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: #163b2d;
+}
+.contact-content {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 15px;
+}
+.contact-title {
+  color: #000;
+  font-weight: 500;
+  text-decoration: none;
+}
+.contact-subtitle {
+  color: #555;
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* Right Card */
+.advice-card {
+  background-color: #dee7e4;
+  border-radius: 12px;
+  padding: 30px;
+}
+.advice-card h2 {
+  color: #163b2d;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.advice-card p {
+  color: #000;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+.advice-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+.advice-btn {
+  background: #fff;
+  color: #000;
+  border-radius: 25px;
+  padding: 8px 20px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.advice-btn:hover {
+  background: #d8d8d8;
+}
+.advice-team {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.team-member {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.team-member img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.team-info strong {
+  display: block;
+  color: #000;
+  font-weight: 600;
+}
+.team-info span {
+  font-size: 14px;
+  color: #333;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Contact & Advice Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "left_heading",
+      "label": "Left Heading",
+      "default": "Contact Options"
+    },
+    {
+      "type": "text",
+      "id": "availability_text",
+      "label": "Availability Text",
+      "default": "Our team is available mo - fr from 8:30 am - 5:00 PM"
+    },
+    {
+      "type": "text",
+      "id": "right_heading",
+      "label": "Right Heading",
+      "default": "Tailor - made Advice"
+    },
+    {
+      "type": "textarea",
+      "id": "right_description",
+      "label": "Right Description",
+      "default": "Our experts are available on working days from 8:30 a.m. to 5:00 p.m. for free product advice."
+    },
+    {
+      "type": "text",
+      "id": "call_text",
+      "label": "Call Button Text",
+      "default": "Call us"
+    },
+    {
+      "type": "url",
+      "id": "call_link",
+      "label": "Call Button Link"
+    },
+    {
+      "type": "text",
+      "id": "email_text",
+      "label": "Email Button Text",
+      "default": "Email us"
+    },
+    {
+      "type": "url",
+      "id": "email_link",
+      "label": "Email Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "contact_method",
+      "name": "Contact Method",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "icon_svg",
+          "label": "Icon SVG"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Ask via chat"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "team_member",
+      "name": "Team Member",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "photo",
+          "label": "Photo"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Thomas"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Role",
+          "default": "Technical Service Engineer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact & Advice Section"
+    }
+  ]
+}
+{% endschema %}
