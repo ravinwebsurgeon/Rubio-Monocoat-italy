@@ -1,31 +1,14 @@
-{% assign related_articles = "" %}
+{% assign current_article = article %}
+{% assign related_count = 0 %}
 
-{% for article_tag in article.tags %}
-  {% for related in blog.articles %}
-    {% if related.id != article.id and related.tags contains article_tag %}
-      {% unless related_articles contains related.handle %}
-        {% assign related_articles = related_articles | append: related.handle | append: "," %}
-      {% endunless %}
+<h3>Related Posts</h3>
+<ul>
+  {% for related_article in blog.articles %}
+    {% if related_article.id != current_article.id and related_count < 3 %}
+      <li>
+        <a href="{{ related_article.url }}">{{ related_article.title }}</a>
+      </li>
+      {% assign related_count = related_count | plus: 1 %}
     {% endif %}
   {% endfor %}
-{% endfor %}
-
-{% assign related_list = related_articles | split: "," %}
-{% if related_list.size > 1 %}
-  <div class="related-articles">
-    <h3>Related Articles</h3>
-    <ul>
-     {% for related in blog.articles %}
-  {% if related_list contains related.handle and related.id != article.id %}
-    <li>
-      <a href="{{ related.url }}">{{ related.title }}</a>
-    </li>
-    {% assign count = count | plus: 1 %}
-    {% if count == 4 %}
-      {% break %}
-    {% endif %}
-  {% endif %}
-{% endfor %}
-    </ul>
-  </div>
-{% endif %}
+</ul>
