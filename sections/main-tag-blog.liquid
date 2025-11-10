@@ -93,7 +93,11 @@
                 <div class="Blog_tags_list_main">
                     <div class="tag_list">
                         <h2>Tags</h2>
-                        {% for tag in blog.tags %}<p>{{ tag }}</p>{% endfor %}
+                        {% for tag in blog.tags %}
+                          <a href="/blogs/{{blog.handle}}/tagged/{{tag}}">
+                            <p>{{ tag }}</p>
+                          </a>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
