@@ -3,9 +3,7 @@
     <div class="in_article_content">
         <ul>
         {% for a in in_this %}
-            <li>
-            <p></p>{{ a.title }}
-            </li>
+            <li><a href="{{ a.url }}"><p>{{ a.title }}</p></a></li>
         {% endfor %}
         </ul>
     </div>
