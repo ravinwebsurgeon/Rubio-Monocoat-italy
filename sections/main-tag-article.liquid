@@ -109,38 +109,54 @@
               {% for i in sections %}
                 {% assign image_key = "imagelist" | append: i %}
                 {% assign content_key = "textcontent" | append: i %}
+                {% assign video_key = "videolist" | append: i %}
 
                 {% assign image_list = article.metafields.custom[image_key].value %}
                 {% assign content_list = article.metafields.custom[content_key].value %}
+                {% assign video_list = article.metafields.custom[video_key].value %}
                 {% assign mod_check = forloop.index | modulo: 2 %}
 
                 {% if image_list != blank or content_list != blank %}
                   <div class="divider"></div>
-                  <div class="custom_info_data custom_info_data_{{ i }} {% if mod_check == 0 %}reverse-layout{% endif %} ">
-                    <div class="media_section">
-                      {% for image in image_list %}
-                        <div class="image_data">
-                          <img src="{{ image | img_url: 'master' }}" width="300" height="300" alt="Article image {{ forloop.index }}">
-                        </div>
-                      {% endfor %}
+                  <div class="">
+                    <div class="custom_info_data custom_info_data_{{ i }} {% if mod_check == 0 %}reverse-layout{% endif %} ">
+                      <div class="media_section">
+                        {% for image in image_list %}
+                          <div class="image_data">
+                            <img src="{{ image | img_url: 'master' }}" width="300" height="300" alt="Article image {{ forloop.index }}">
+                          </div>
+                        {% endfor %}
+                      </div>
+                      <div class="textcontent_section">
+                        {% for text_data in content_list %}
+                          <div class="text_information">
+                            <p class="info__{{ forloop.index }}">{{ text_data }}</p>
+                          </div>
+                        {% endfor %}
+                      </div>
                     </div>
-                    <div class="textcontent_section">
-                      {% for text_data in content_list %}
-                        <div class="text_information">
-                          <p class="info__{{ forloop.index }}">{{ text_data }}</p>
-                        </div>
-                      {% endfor %}
+                    <div class="video_section">
+                      {% if video_list != blank %}
+                        <div class="video_section">
+                          {% for video in video_list %}
+                            <div class="video_data">
+                              {{ video | media_tag:
+                                 autoplay: section.settings.autoplay, 
+                                loop: section.settings.loop,
+                                controls: true,
+                                muted: true
+                              }}
+                            </div>
+                            {% endfor %}
+                            </div>
+                        {% endif %}
                     </div>
                   </div>
                 {% endif %}
               {% endfor %}
             </div>
 
-          {% if shown %}
-            <div class="parent_blog_detail">
-              <p>Article Posted in <a href="{{ blog.url }}" class="parent_blog">{{ blog.title }}</a></p>
-            </div>
-          {% endif %}
+          {% if shown %} <div class="parent_blog_detail"><p>Article Posted in <a href="{{ blog.url }}" class="parent_blog">{{ blog.title }}</a></p></div> {% endif %}
           {% if products %}  {% render 'related-articles-products' , products:products %} {% endif %}
           {% if related_articles %}  {% render 'related-articles' , articles:related_articles %} {% endif %}
         </div>
