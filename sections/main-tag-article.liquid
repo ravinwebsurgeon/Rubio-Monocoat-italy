@@ -172,13 +172,14 @@
                             value="{{ search.terms | escape }}" 
                             aria-label="Search blog posts"
                         >
-                        <input type="hidden" name="type" value="article">
                         <button type="submit" class="search-button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
                               <circle cx="11" cy="11" r="8"></circle>
                               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                             </svg>
                         </button>
+                        <input type="hidden" name="type" value="article">
+
                     </form>
                 </div>
                 {% comment %} <div class="blogs_list">
