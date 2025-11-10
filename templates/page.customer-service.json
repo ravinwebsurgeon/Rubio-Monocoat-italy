@@ -67,6 +67,22 @@
             "button_text": "Interior products",
             "button_link": ""
           }
+        },
+        "image_block_rFNrHV": {
+          "type": "image_block",
+          "settings": {
+            "block_image": "shopify://shop_images/t_4.jpg",
+            "button_text": "Exterior Products",
+            "button_link": ""
+          }
+        },
+        "image_block_eWaRwC": {
+          "type": "image_block",
+          "settings": {
+            "block_image": "shopify://shop_images/width_200.jpg",
+            "button_text": "Maintenance products",
+            "button_link": ""
+          }
         }
       },
       "block_order": [
@@ -74,7 +90,9 @@
         "image_block_6x34jJ",
         "image_block_VK4FrP",
         "image_block_RfDBJw",
-        "image_block_gK6EXi"
+        "image_block_gK6EXi",
+        "image_block_rFNrHV",
+        "image_block_eWaRwC"
       ],
       "name": "Image Blocks with Button",
       "settings": {
