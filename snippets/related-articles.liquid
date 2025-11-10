@@ -1,25 +1,45 @@
-{% assign current_article = article %}
-{% assign related_articles = '' | split: '' %}
+{% assign related_articles = "" %}
+{% assign max_related = 4 %}
 
-{% for article in blog.articles %}
-  {% if article.id != current_article.id %}
-    {% comment %} Check if articles share any tags {% endcomment %}
+{% for a in blog.articles %}
+  {% if a.id != article.id %}
+    {% assign match = false %}
     {% for tag in article.tags %}
-      {% if current_article.tags contains tag %}
-        {% assign related_articles = related_articles | push: article %}
-        {% break %}
+      {% if a.tags contains tag %}
+        {% assign match = true %}
       {% endif %}
     {% endfor %}
+
+    {% if match %}
+      {% assign related_articles = related_articles | append: a.handle | append: "," %}
+    {% endif %}
   {% endif %}
 {% endfor %}
 
-<h3>Related Posts</h3>
-{% if related_articles.size > 0 %}
-  <ul>
-    {% for related_article in related_articles limit: 3 %}
-      <li>
-        <a href="{{ related_article.url }}">{{ related_article.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
+{% assign related_list = related_articles | split: "," | uniq %}
+
+{% if related_list.size > 0 %}
+  <div class="related-articles">
+    <h3>Related Posts</h3>
+    <div class="related-articles-grid">
+      {% assign count = 0 %}
+      {% for a in blog.articles %}
+        {% if related_list contains a.handle %}
+          <article class="related-item">
+            <a href="{{ a.url }}">
+              {% if a.image %}
+                <img src="{{ a.image | image_url: width: 400 }}" alt="{{ a.title }}">
+              {% endif %}
+              <h4>{{ a.title }}</h4>
+              <p>{{ a.excerpt | strip_html | truncate: 80 }}</p>
+            </a>
+          </article>
+          {% assign count = count | plus: 1 %}
+          {% if count >= max_related %}
+            {% break %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
 {% endif %}
