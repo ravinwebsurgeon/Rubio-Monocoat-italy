@@ -5,7 +5,14 @@
         <ul>
             {% for product in products %}
                 <li>
-                   
+                    <div class="article-product-item">
+                        <a href="{{ product.url }}">
+                            <div class="article-product-image">
+                                <img src="{{ product.featured_image |img_url: 'width:350'  }}">
+                            </div>
+                            <div class="article-product-title"><p>{{ product.title }}</p></div>
+                        </a>
+                    </div>
                 </li>
             {% endfor %}
         </ul>
