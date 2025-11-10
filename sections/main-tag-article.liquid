@@ -80,7 +80,13 @@
                             </span>
                           </div>
                           <div class="post-info">
-                            <span class="post-est">reading time: 6 minutes</span>
+                              {% assign words = article.content | strip_html | split: ' ' %}
+                              {% assign words_count = words.size %}
+                              {% assign reading_time = words_count | divided_by: 200 %}
+                              {% if reading_time < 1 %}
+                                {% assign reading_time = 1 %}
+                              {% endif %}
+                            <span class="post-est">Reading time: {{ reading_time }} minute{% if reading_time > 1 %}s{% endif %}</span>
                           </div>
                           <div class="article__tags__content">
                             {{ article.tags |join: ' ' }}
