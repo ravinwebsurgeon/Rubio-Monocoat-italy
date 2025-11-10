@@ -1,14 +1,27 @@
 {% assign current_article = article %}
-{% assign related_count = 0 %}
+{% assign related_articles = '' | split: '' %}
+
+{% for article in blog.articles %}
+  {% if article.id != current_article.id %}
+    {% comment %} Check if articles share any tags {% endcomment %}
+    {% for tag in article.tags %}
+      {% if current_article.tags contains tag %}
+        {% assign related_articles = related_articles | push: article %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
 
 <h3>Related Posts</h3>
-<ul>
-  {% for related_article in blog.articles %}
-    {% if related_article.id != current_article.id and related_count < 3 %}
+{% if related_articles.size > 0 %}
+  <ul>
+    {% for related_article in related_articles limit: 3 %}
       <li>
         <a href="{{ related_article.url }}">{{ related_article.title }}</a>
       </li>
-      {% assign related_count = related_count | plus: 1 %}
-    {% endif %}
-  {% endfor %}
-</ul>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No related posts found.</p>
+{% endif %}
