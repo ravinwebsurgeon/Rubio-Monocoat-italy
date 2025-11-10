@@ -279,7 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Handle Add to Cart
     if (addToCartBtn) {
-      addToCartBtn.addEventListener("click", async e => {
+      {% comment %} addToCartBtn.addEventListener("click", async e => {
         e.preventDefault();
         const variantId = variantInput.value;
         const body = JSON.stringify({ items: [{ id: variantId, quantity: 1 }] });
@@ -301,7 +301,35 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           alert("Failed to add to cart. Please try again.");
         }
-      });
+      }); {% endcomment %}
+
+      document.querySelectorAll('.product_cart_btn').forEach(function (button) {
+        button.addEventListener('click', function () {
+            const variantId = button.dataset.variantId;
+            fetch('/cart/add.js', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    id: variantId,
+                    quantity: 1
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Added to cart:', data);
+                {% comment %} updateCartCount(1); {% endcomment %}
+                {% comment %} refreshCartDrawer(); {% endcomment %}
+            })
+            .catch(error => {
+                console.error('Error adding to cart:', error);
+                alert("Something went wrong.");
+            });
+        });
+    });
+
     }
 
     // Utility functions
