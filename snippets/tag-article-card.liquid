@@ -158,8 +158,10 @@
         <div class="tag__article__image">
             {%- if show_image == true and article.image -%}
                 <div class="tag__card__media">
-                    <img src="{{ article.image | image_url: width: 300 }}" alt="{{ article.title | escape }}">
-                </div>
+                    <a href="{{ article.url }}">
+                      <img src="{{ article.image | image_url: width: 300 }}" alt="{{ article.title | escape }}">
+                    </a>
+                    </div>
             {% endif %}
         </div>
         <div class="tag__card_title">
