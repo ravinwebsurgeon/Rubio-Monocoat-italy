@@ -319,7 +319,15 @@ section.top_picks_slider.custom_categrysss .slider-product-image{
     z-index: 1000;
     align-items:center;
   }
-  
+  .popup-image img {
+    width: 100%;
+    padding: 12px;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    border-radius: 0;
+    aspect-ratio: 1;
+}
   .popup-overlay {
     position: absolute;
     top: 0;
@@ -348,14 +356,9 @@ section.top_picks_slider.custom_categrysss .slider-product-image{
   }
   
   .popup-image {
-    flex: 0 0 50%;
-    padding: 20px;
-  }
-  
-  .popup-image img {
-    width: 200px;
-    height: auto;
-    border-radius: 10px;
+       width: 55%;
+    background-color: #f5f5f5;
+    border-radius: 12px 0 0 12px;
   }
   
   .popup-details {
