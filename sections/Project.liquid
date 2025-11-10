@@ -969,7 +969,9 @@ document.addEventListener("DOMContentLoaded", function () {
       const productLink = productItem.querySelector("a[href]");
       if (productLink) window.location.href = productLink.href;
       let variantVlaue = document.querySelector('.circle-tab.active')
-      localStorage.setItem('myvariant', variantVlaue.textContent);
+      let modifiedText = variantVlaue.trim().toLowerCase();
+      localStorage.setItem('myvariant',modifiedText);
+      
 
     });
   });
