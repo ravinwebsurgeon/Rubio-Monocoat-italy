@@ -72,6 +72,7 @@
         <div class="popup-details">
           <h3 id="popup-product-title"></h3>
           <p id="popup-product-subtitle"></p>
+          <p id="popup-product-description"></p>
           <div class="popup-actions">
             <button class="btn-view-product">View Product</button>
             <button class="product_cart_btn ajax_Add_to_cart" data-variant-id>Addto Cart</button>
@@ -600,7 +601,7 @@ function refreshCartDrawer() {
         image: "{{ product.featured_image | img_url: 'master' }}",
         title: "{{ product.title | escape }}",
         subtitle: "{{ product.metafields.custom.collectionproduct_subtitle.value | escape }}",
-        description: "{{ descriptions[i] | escape }}",
+        description: "{{ product.description }}",
         variantId: "{{ product.variants.first.id }}",
         url: "{{ product.url }}"
       }{% unless forloop.last %},{% endunless %}
@@ -673,6 +674,7 @@ function refreshCartDrawer() {
     popupImage.alt = product.title;
     popupTitle.textContent = product.title;
     popupSubtitle.textContent = product.subtitle;
+    popupDescription.textContent = product.description;
     currentProductUrl = product.url;
     variantId= product.variantId
     cartBtn.setAttribute('data-variant-id',variantId)
