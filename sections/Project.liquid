@@ -970,6 +970,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (productLink) window.location.href = productLink.href;
       let variantVlaue = document.querySelector('.circle-tab.active')
       let modifiedText = variantVlaue.trim().toLowerCase();
+      localStorage.removeItem('myvariant');
       localStorage.setItem('myvariant',modifiedText);
       
 
