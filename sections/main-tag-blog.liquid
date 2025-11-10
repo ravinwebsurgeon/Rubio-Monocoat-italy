@@ -74,21 +74,22 @@
                       {% endfor %}
                       {% endcomment %}
                     <h2>Categories</h2>
-
+                   <ul class="blogs_list_ul">
                     {% assign blog_handles = "news,updates,stories,collection,tag" | split: "," %}
                         {% for handle in blog_handles %}
                             {% assign this_blog = blogs[handle] %}
                             {% assign count = this_blog.articles_count | default: 0 | plus: 0 %}
                             {% if count > 0  %}
-                                <p>
+                                <li>
                                   <a href="{{ this_blog.url }}">
-                                      {{ this_blog.title }}
-                                      {% if this_blog.articles_count > 0 %}<span>({{ this_blog.articles_count }})</span>{% endif %}
+                                      {{ this_blog.title }}                                     
                                   </a>
-                                </p>
+                                  {% if this_blog.articles_count > 0 %}<span>({{ this_blog.articles_count }})</span>{% endif %}
+                                </li>
                             {% else %}
                             {% endif %}
                         {% endfor %}
+                    </ul>
                 </div>
                 <div class="Blog_tags_list_main">
                     <div class="tag_list">

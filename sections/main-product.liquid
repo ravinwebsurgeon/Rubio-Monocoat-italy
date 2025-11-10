@@ -1236,7 +1236,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function selectVariant(color)
   {
-  console.log("Found variant from cookie:", color);
+    console.log("Found variant from cookie:", color);
+    let allOptions = document.querySelectorAll('.swatch-input__input');
+    allOptions.forEach((option) => {
+      if (option.value.trim().toLowerCase() === color.trim().toLowerCase()) {
+        option.checked = true;
+      }
+    });
   
   }
   const receivedData = getCookie("myvariant");
