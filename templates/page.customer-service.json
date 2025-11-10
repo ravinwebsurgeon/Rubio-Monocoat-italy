@@ -35,10 +35,28 @@
             "button_text": "Order",
             "button_link": "#"
           }
+        },
+        "image_block_6x34jJ": {
+          "type": "image_block",
+          "settings": {
+            "block_image": "shopify://shop_images/t_1.jpg",
+            "button_text": "Delivery",
+            "button_link": ""
+          }
+        },
+        "image_block_VK4FrP": {
+          "type": "image_block",
+          "settings": {
+            "block_image": "shopify://shop_images/uri_ifs___M_1096a194-606c-403c-9d7c-d7f91a3b1270.webp",
+            "button_text": "Delivery",
+            "button_link": ""
+          }
         }
       },
       "block_order": [
-        "image_block_fcQDc7"
+        "image_block_fcQDc7",
+        "image_block_6x34jJ",
+        "image_block_VK4FrP"
       ],
       "name": "Image Blocks with Button",
       "settings": {
