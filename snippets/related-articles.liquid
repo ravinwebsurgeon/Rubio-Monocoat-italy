@@ -1,30 +1,31 @@
-{% assign current_article = article %}
 {% assign related_articles = "" %}
 
-{% for a in blog.articles %}
-  {% if a.id != current_article.id %}
-    {% assign common_tags = a.tags | where: "value", current_article.tags %}
-    {% if a.tags | join: ',' | downcase contains current_article.tags.first | downcase %}
-      {% assign related_articles = related_articles | append: a.handle | append: "," %}
+{% for article_tag in article.tags %}
+  {% for related in blog.articles %}
+    {% if related.id != article.id and related.tags contains article_tag %}
+      {% unless related_articles contains related.handle %}
+        {% assign related_articles = related_articles | append: related.handle | append: "," %}
+      {% endunless %}
     {% endif %}
-  {% endif %}
+  {% endfor %}
 {% endfor %}
 
-{% assign related_list = related_articles | split: "," | uniq %}
-
-{% if related_list.size > 0 %}
+{% assign related_list = related_articles | split: "," %}
+{% if related_list.size > 1 %}
   <div class="related-articles">
     <h3>Related Articles</h3>
     <ul>
-      {% for a in blog.articles %}
-        {% if related_list contains a.handle %}
-          <li>
-            <a href="{{ a.url }}">{{ a.title }}</a>
-          </li>
-        {% endif %}
-      {% endfor %}
+     {% for related in blog.articles %}
+  {% if related_list contains related.handle and related.id != article.id %}
+    <li>
+      <a href="{{ related.url }}">{{ related.title }}</a>
+    </li>
+    {% assign count = count | plus: 1 %}
+    {% if count == 4 %}
+      {% break %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
     </ul>
   </div>
-{% else %}
-  <p>No related articles found.</p>
 {% endif %}
