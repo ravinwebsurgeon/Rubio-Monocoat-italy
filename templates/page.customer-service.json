@@ -128,12 +128,39 @@
             "subtitle": "shop@rubiomonocoat.com",
             "link": "mailto:shop@rubiomonocoat.com"
           }
+        },
+        "team_member_jNKWWh": {
+          "type": "team_member",
+          "settings": {
+            "photo": "shopify://shop_images/width_200_1.jpg",
+            "name": "Thomas",
+            "role": "Technical Service Engineer"
+          }
+        },
+        "team_member_DxJkEh": {
+          "type": "team_member",
+          "settings": {
+            "photo": "shopify://shop_images/width_200_2.jpg",
+            "name": "Patrick",
+            "role": "Technical Service Engineer"
+          }
+        },
+        "team_member_W8EVBN": {
+          "type": "team_member",
+          "settings": {
+            "photo": "shopify://shop_images/width_200.png",
+            "name": "Jannick",
+            "role": "Technical Service Engineer"
+          }
         }
       },
       "block_order": [
         "contact_method_mVcVkc",
         "contact_method_TxekfM",
-        "contact_method_JF4YCW"
+        "contact_method_JF4YCW",
+        "team_member_jNKWWh",
+        "team_member_DxJkEh",
+        "team_member_W8EVBN"
       ],
       "name": "Contact options",
       "settings": {
