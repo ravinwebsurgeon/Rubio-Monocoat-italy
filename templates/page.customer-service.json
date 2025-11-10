@@ -98,11 +98,60 @@
       "settings": {
         "main_heading": "Our Featured Categories"
       }
+    },
+    "contact_options_FYkrkp": {
+      "type": "contact-options",
+      "blocks": {
+        "contact_method_mVcVkc": {
+          "type": "contact_method",
+          "settings": {
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-message-square-text-icon lucide-message-square-text\"><path d=\"M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z\"></path><path d=\"M7 11h10\"></path><path d=\"M7 15h6\"></path><path d=\"M7 7h8\"></path></svg>",
+            "title": "Ask via chat",
+            "subtitle": "",
+            "link": ""
+          }
+        },
+        "contact_method_TxekfM": {
+          "type": "contact_method",
+          "settings": {
+            "icon_svg": "<?xml version=\"1.0\"?><svg id=\"Layer_1\" style=\"enable-background:new 0 0 128 128;\" version=\"1.1\" viewbox=\"0 0 128 128\" xmlns=\"http://www.w3.org/2000/svg\" xml:space=\"preserve\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g><path d=\"M53,13H7v4c0,57.3,46.7,104,104,104h4V75H73.6L54.2,94.4C45.6,88,38.1,80.3,32,71.4l21-21V13z M76.9,83H107v29.9   c-16.8-0.7-32.5-5.7-46-14L76.9,83z M45,47.1L27.6,64.5C20.2,51.6,15.7,36.8,15.1,21H45V47.1z\"></path></g></svg>",
+            "title": "Contact us by phone",
+            "subtitle": "+32 51 335 335",
+            "link": ""
+          }
+        },
+        "contact_method_JF4YCW": {
+          "type": "contact_method",
+          "settings": {
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-mail-icon lucide-mail\"><path d=\"m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7\"></path><rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\"></rect></svg>",
+            "title": "Send  an email",
+            "subtitle": "shop@rubiomonocoat.com",
+            "link": "mailto:shop@rubiomonocoat.com"
+          }
+        }
+      },
+      "block_order": [
+        "contact_method_mVcVkc",
+        "contact_method_TxekfM",
+        "contact_method_JF4YCW"
+      ],
+      "name": "Contact options",
+      "settings": {
+        "left_heading": "Contact Options",
+        "availability_text": "Our team is available mo - fr from 8:30 am - 5:00 PM",
+        "right_heading": "Tailor - made Advice",
+        "right_description": "Our experts are available on working days from 8:30 a.m. to 5:00 p.m. for free product advice.",
+        "call_text": "Call us",
+        "call_link": "",
+        "email_text": "Email us",
+        "email_link": ""
+      }
     }
   },
   "order": [
     "main",
     "custom_faq_banner_mxfxLm",
-    "image_block_with_button_w63mgR"
+    "image_block_with_button_w63mgR",
+    "contact_options_FYkrkp"
   ]
 }
