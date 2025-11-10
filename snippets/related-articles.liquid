@@ -31,7 +31,7 @@
                 <img src="{{ a.image | image_url: width: 400 }}" alt="{{ a.title }}">
               {% endif %}
               <h4>{{ a.title }}</h4>
-              <p>{{ a.excerpt | strip_html | truncate: 80 }}</p>
+              <p>{{ a.description | strip_html | truncate: 80 }}</p>
             </a>
           </article>
           {% assign count = count | plus: 1 %}
