@@ -48,8 +48,10 @@
                                 </div>
                             </div> {% endcomment %}
                             <div class="tag__card__media">
-                              <img src="{{ article.image | image_url: width: 500 }}" alt="{{ article.title | escape }}">
-                          </div>
+                              <a href="{{ article.url }}">
+                                <img src="{{ article.image | image_url: width: 500 }}" alt="{{ article.title | escape }}">
+                              </a>
+                              </div>
                         {%- endif -%}
 
                     {% comment %} {%- when 'title' -%}
