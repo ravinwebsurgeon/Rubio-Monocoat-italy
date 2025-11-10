@@ -674,7 +674,7 @@ function refreshCartDrawer() {
     popupImage.alt = product.title;
     popupTitle.textContent = product.title;
     popupSubtitle.textContent = product.subtitle;
-    popupDescription.textContent = product.description;
+    popupDescription.innerHTML  = product.description;
     currentProductUrl = product.url;
     variantId= product.variantId
     cartBtn.setAttribute('data-variant-id',variantId)
