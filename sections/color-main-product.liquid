@@ -908,6 +908,7 @@ document.addEventListener('DOMContentLoaded', () => {
     allOptions.forEach((option) => {
       if (option.value.trim().toLowerCase() === color.trim().toLowerCase()) {
         option.checked = true;
+        option.dispatchEvent(new Event("change", { bubbles: true }));
       }
     });
   
