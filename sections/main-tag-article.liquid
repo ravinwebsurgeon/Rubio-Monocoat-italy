@@ -73,13 +73,18 @@
                         <div class="article__content__des">
                             {{ article.content }}
                         </div>
-                        <div class="published_data">
-                          <span class="circle-divider caption-with-letter-spacing">
-                            {{- article.published_at | time_tag: format: 'date' -}}
-                          </span>
-                        </div>
-                        <div class="article__tags__content">
-                          {{ article.tags |join: ' ' }}
+                        <div class="published_data_content">
+                          <div class="published_data">
+                            <span class="circle-divider caption-with-letter-spacing">
+                              {{- article.published_at | time_tag: format: 'date' -}}
+                            </span>
+                          </div>
+                          <div class="post-info">
+                            <span class="post-est">reading time: 6 minutes</span>
+                          </div>
+                          <div class="article__tags__content">
+                            {{ article.tags |join: ' ' }}
+                          </div>
                         </div>
 
                 {%- endcase -%}
