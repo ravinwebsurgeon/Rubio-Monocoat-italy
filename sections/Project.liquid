@@ -968,8 +968,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const productItem = this.closest(".product-item");
       const productLink = productItem.querySelector("a[href]");
       {% comment %} if (productLink) window.location.href = productLink.href; {% endcomment %}
-      {% comment %} let variantValue = document.querySelector('.circle-tab.active') {% endcomment %}
-      {% comment %} let modifiedText = variantValue.trim().toLowerCase(); {% endcomment %}
+      let variantValue = document.querySelector('.circle-tab.active')
+      let modifiedText = variantValue.trim().toLowerCase();
       {% comment %} document.cookie = `myvariant=${encodeURIComponent(modifiedText)}; path=/; max-age=3600`; {% endcomment %}
 
       if (productLink){
