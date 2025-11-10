@@ -95,28 +95,36 @@
 
                 {%- endcase -%}
             {%- endfor -%}
-            <div class="divider"></div>
-            {% assign image_list = article.metafields.custom.imagelist1.value %}
-            {% assign content_list = article.metafields.custom.textcontent1.value %}
             
-            {% if content_list != blank %}
-              <div class="custom_info_data">
-                <div class="media_section">
-                  {% for image in image_list %}
-                    <div class="image_data">
-                      <img src="{{ image | img_url: 'master' }}" width="300" height="300">
-                    </div>
-                  {% endfor %}
+            {% assign sections = (1..4) %}
+
+            {% for i in sections %}
+              {% assign image_key = "imagelist" | append: i %}
+              {% assign content_key = "textcontent" | append: i %}
+
+              {% assign image_list = article.metafields.custom[image_key].value %}
+              {% assign content_list = article.metafields.custom[content_key].value %}
+
+              {% if image_list != blank or content_list != blank %}
+                <div class="divider"></div>
+                <div class="custom_info_data custom_info_data_{{ i }}">
+                  <div class="media_section">
+                    {% for image in image_list %}
+                      <div class="image_data">
+                        <img src="{{ image | img_url: 'master' }}" width="300" height="300" alt="Article image {{ forloop.index }}">
+                      </div>
+                    {% endfor %}
+                  </div>
+                  <div class="textcontent_section">
+                    {% for text_data in content_list %}
+                      <div class="text_information">
+                        <p class="info__{{ forloop.index }}">{{ text_data }}</p>
+                      </div>
+                    {% endfor %}
+                  </div>
                 </div>
-                <div class="textcontent_section">
-                   {% for text_data in content_list %}
-                    <div class="text_information">
-                      <p class="info__{{forloop.index}}">{{ text_data }}</p>
-                    </div>
-                  {% endfor %}
-                </div>
-              </div>
-            {% endif %}
+              {% endif %}
+            {% endfor %}
         </div>
   <div class="search_blogs_section">
             <div class="search_section">
