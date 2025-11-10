@@ -31,8 +31,8 @@
                 <img src="{{ a.image | image_url: width: 400 }}" alt="{{ a.title }}">
               {% endif %}
               <h4>{{ a.title }}</h4>
-              <p>{{ a.content | strip_html | truncate: 80 }}</p>
             </a>
+            <p>{{ a.content | strip_html | truncate: 80 }}</p>
           </article>
           {% assign count = count | plus: 1 %}
           {% if count >= max_related %}
