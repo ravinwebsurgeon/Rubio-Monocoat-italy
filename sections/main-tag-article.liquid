@@ -104,10 +104,11 @@
 
               {% assign image_list = article.metafields.custom[image_key].value %}
               {% assign content_list = article.metafields.custom[content_key].value %}
+              {% assign mod_check = forloop.index | modulo: 2 %}
 
               {% if image_list != blank or content_list != blank %}
                 <div class="divider"></div>
-                <div class="custom_info_data custom_info_data_{{ i }}">
+                <div class="custom_info_data custom_info_data_{{ i }} {% if mod_check == 0 %}reverse-layout{% endif %} ">
                   <div class="media_section">
                     {% for image in image_list %}
                       <div class="image_data">
