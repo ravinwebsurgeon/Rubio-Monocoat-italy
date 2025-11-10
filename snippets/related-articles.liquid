@@ -58,9 +58,11 @@
                             <h4>{{ related_article.title }}</h4>
                         </a>
                         <p>{{ related_article.content  }}</p>
-                        {% for tag in related_article.tags %}
-                            <p>{{ tag }}</p>
-                        {% endfor %}
+                        <div class="related_articles_tag">
+                            {% for tag in related_article.tags %}
+                                <p>{{ tag }}</p>
+                            {% endfor %}
+                        </div>
                     </article>
                 </li>
             {% endfor %}
