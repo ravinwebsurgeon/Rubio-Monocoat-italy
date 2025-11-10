@@ -53,7 +53,7 @@
         <div class="image-block" {{ block.shopify_attributes }}>
           {% if block.settings.block_image %}
             <div class="image-container">
-              <img src="{{ block.settings.block_image | img_url: 'master' }}" alt="Block Image" loading="lazy">
+              <img src="{{ block.settings.block_image | img_url: 'master' }}" alt="Block Image" loading="lazy" width="" height="">
               {% if block.settings.button_text != blank %}
                 <a href="{{ block.settings.button_link }}" class="image-button">
                   {{ block.settings.button_text }}
@@ -72,11 +72,14 @@
   padding: 60px 0;
   text-align: center;
 }
-.image-button-section .section-heading {
-  font-size: 16px;
-  margin-bottom: 40px;
-  font-weight: 600;
-  line-height:22px;
+.image-button-section h2 {
+    line-height: 22px;
+    letter-spacing: normal;
+    font-family: Frutiger Neue LT W1G;
+    font-weight: 600;
+    font-size: 22px;
+    margin: 0;
+    color: #000;
 }
 .image-button-section .image-blocks {
   display: grid;
