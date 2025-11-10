@@ -1228,6 +1228,9 @@ document.addEventListener('DOMContentLoaded', () => {
     div.style.overflow = 'hidden';
   });
 });
+
+    const receivedData = localStorage.getItem('myvariant'); // or sessionStorage.getItem()
+    console.log(receivedData,'found it');
 </script>
 <style>
   .product-description {
