@@ -131,7 +131,9 @@
               <p>Article Posted in <a href="{{ blog.url }}" class="parent_blog">{{ blog.title }}</a></p>
             </div>
             {% assign related_articles = article.metafields.custom.related_blog_list.value %}
+            {% assign products = article.metafields.custom.related_blog_product.value %}
 
+          {% if products %}  {% render 'related-articles-products' , products:products %} {% endif %}
           {% if related_articles %}  {% render 'related-articles' , articles:related_articles %} {% endif %}
         </div>
   <div class="search_blogs_section">
