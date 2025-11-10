@@ -129,6 +129,7 @@
             <div class="parent_blog_detail">
               <p>Article Posted in <a href="{{ blog.url }}" class="parent_blog">{{ blog.title }}</a></p>
             </div>
+            {% render 'related-articles' , article:article %}
         </div>
   <div class="search_blogs_section">
             <div class="search_section">
