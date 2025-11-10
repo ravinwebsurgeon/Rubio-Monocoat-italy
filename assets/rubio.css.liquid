@@ -1344,6 +1344,51 @@ nav.breadcrumb a {
     outline: none;
     box-shadow: none;
 }
+
+
+.article_content_main .custom_info_data {
+    display: flex;
+}
+.related-articles-products ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.related-articles-products ul .article-product-image img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    object-fit: cover;
+}
+.related-articles-products .article-product-item a {
+    display: block;
+}
+.related-articles-products .related-products-grid h3 {
+    line-height: 22px;
+    letter-spacing: normal;
+    font-family: Frutiger Neue LT W1G;
+    font-weight: 600;
+    font-size: 28px;
+    margin: 0 0 30px;
+    color: #000;
+    text-align: left;
+}
+.related-articles-products ul .article-product-image {
+    padding-top: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+
 /* =============== Blog Css End Here ============== */
 
 .localization-wrapper .localization-selector[aria-expanded="false"]+.disclosure__list-wrapper {
