@@ -141,8 +141,8 @@
                           {% for video in video_list %}
                             <div class="video_data">
                               {{ video | media_tag:
-                                 autoplay: section.settings.autoplay, 
-                                loop: section.settings.loop,
+                                 autoplay: true, 
+                                loop: true,
                                 controls: true,
                                 muted: true
                               }}
