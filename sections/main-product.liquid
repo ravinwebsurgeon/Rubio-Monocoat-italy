@@ -1243,6 +1243,8 @@ document.addEventListener('DOMContentLoaded', () => {
     allOptions.forEach((option) => {
       if (option.value.trim().toLowerCase() === color.trim().toLowerCase()) {
         option.checked = true;
+      }else {
+      console.log('variant not matched')
       }
     });
   
