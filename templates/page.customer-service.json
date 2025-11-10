@@ -11,13 +11,23 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "custom_faq_banner_mxfxLm": {
+      "type": "custom-faq-banner",
+      "name": "faq banner",
+      "settings": {
+        "heading": "Customer Service",
+        "text": "Discover the answer to our frequently asked questions."
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "custom_faq_banner_mxfxLm"
   ]
 }
