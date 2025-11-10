@@ -1,4 +1,4 @@
-{% assign related_articles = "" %}
+{% comment %} {% assign related_articles = "" %}
 {% assign max_related = 4 %}
 
 {% for a in blog.articles %}
@@ -42,4 +42,25 @@
       {% endfor %}
     </div>
   </div>
-{% endif %}
+{% endif %} {% endcomment %}
+
+<div class="related-articles">
+    <div class="related-articles-grid">
+        <h3>Related Posts</h3>
+        <ul>
+            {% for related_article in related_articles %}
+                <li>
+                    <article class="related-item">
+                        <a href="{{ related_article.url }}">
+                            {% if related_article.image %}
+                            <img src="{{ related_article.image | image_url: width: 400 }}" alt="{{ a.title }}">
+                            {% endif %}
+                            <h4>{{ related_article.title }}</h4>
+                        </a>
+                        <p>{{ related_article.content  }}</p>
+                    </article>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
