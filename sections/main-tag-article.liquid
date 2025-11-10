@@ -5,6 +5,7 @@
 {% assign in_this_content = article.metafields.custom.in_this_article.value %}
 
 <article class="article-template">
+  <div class="page-width">
     <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="{{ routes.root_url }}">Home</a>
         <span class="separator">›</span>
@@ -470,6 +471,7 @@
       </div>
     </div>
   {%- endif -%}
+</div>
 </article>
 
 <style>
