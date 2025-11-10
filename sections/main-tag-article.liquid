@@ -79,6 +79,10 @@
 
                 {%- endcase -%}
             {%- endfor -%}
+             <span class="circle-divider caption-with-letter-spacing">
+            {{- article.published_at | time_tag: format: 'date' -}}
+            </span>
+
         </div>
   <div class="search_blogs_section">
             <div class="search_section">
