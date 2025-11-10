@@ -132,7 +132,7 @@
             </div>
             {% assign related_articles = article.metafields.custom.related_blog_list.value %}
 
-          {% if related_articles %}  {% render 'related-articles' , article:related_articles %} {% endif %}
+          {% if related_articles %}  {% render 'related-articles' , articles:related_articles %} {% endif %}
         </div>
   <div class="search_blogs_section">
             <div class="search_section">
