@@ -969,7 +969,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const productLink = productItem.querySelector("a[href]");
       {% comment %} if (productLink) window.location.href = productLink.href; {% endcomment %}
       let variantValue = document.querySelector('.circle-tab.active')
-      let modifiedText = variantValue.toLowerCase();
+      let modifiedText = variantValue.textContent.trim().toLowerCase();
       {% comment %} document.cookie = `myvariant=${encodeURIComponent(modifiedText)}; path=/; max-age=3600`; {% endcomment %}
 
       if (productLink){
