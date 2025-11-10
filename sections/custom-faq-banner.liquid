@@ -10,7 +10,56 @@
 </section>
 
 <style>
+.custom-info-container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 50px;
+  color: #000;
+}
 
+.custom-info-heading {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-align: left;
+  font-family: "Frutiger Neue LT W1G", sans-serif;
+}
+
+.custom-info-text {
+  font-size: 18px;
+  font-weight: 400;
+  max-width: 600px;
+  line-height: 1.6;
+  text-align: left;
+  font-family: "Frutiger Neue LT W1G", sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .custom-info-section {
+    height: auto;
+    padding: 60px 0;
+  }
+  .custom-info-heading {
+    font-size: 28px;
+  }
+  .custom-info-text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .custom-info-container {
+    padding: 0 20px;
+  }
+  .custom-info-heading {
+    font-size: 24px;
+  }
+  .custom-info-text {
+    font-size: 15px;
+  }
+}
 </style>
 
 {% schema %}
