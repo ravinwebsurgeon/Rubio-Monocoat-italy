@@ -1227,10 +1227,17 @@ document.addEventListener('DOMContentLoaded', () => {
     div.style.visibility = 'hidden';
     div.style.overflow = 'hidden';
   });
+
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return decodeURIComponent(parts.pop().split(';').shift());
+  }
+
+  const receivedData = getCookie("myvariant");
+  console.log("Found variant from cookie:", receivedData);
 });
 
-    const receivedData = localStorage.getItem('myvariant'); // or sessionStorage.getItem()
-    console.log(receivedData,'found it');
 </script>
 <style>
   .product-description {
