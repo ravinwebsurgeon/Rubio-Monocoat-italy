@@ -188,7 +188,7 @@
                     {%- endif -%}
                 </div>
                 {% for tag in  article.tags  %}
-                  <a href="{{ article.url }}" class="read-more-btn">{{ tag }}</a>
+                  <a href="{{ blog.url }}/tagged/{{ tag | handleize }}" class="read-more-btn">{{ tag }}</a>
                 {% endfor %}
             {%- endif -%}
         </div>
