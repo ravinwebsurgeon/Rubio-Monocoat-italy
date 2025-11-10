@@ -1244,10 +1244,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (option.value.trim().toLowerCase() === color.trim().toLowerCase()) {
         option.checked = true;
         option.dispatchEvent(new Event("change", { bubbles: true }));
-
-      // ✅ Also click its label (some themes use label click listeners)
-      {% comment %} const label = option.closest("label") || document.querySelector(`label[for="${option.id}"]`); {% endcomment %}
-      {% comment %} if (label) label.click(); {% endcomment %}
       }else {
       console.log('variant not matched')
       }
