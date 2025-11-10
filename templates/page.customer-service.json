@@ -24,10 +24,31 @@
         "heading": "Customer Service",
         "text": "Discover the answer to our frequently asked questions."
       }
+    },
+    "image_block_with_button_w63mgR": {
+      "type": "image-block-with-button",
+      "blocks": {
+        "image_block_fcQDc7": {
+          "type": "image_block",
+          "settings": {
+            "block_image": "shopify://shop_images/t.jpg",
+            "button_text": "Order",
+            "button_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_fcQDc7"
+      ],
+      "name": "Image Blocks with Button",
+      "settings": {
+        "main_heading": "Our Featured Categories"
+      }
     }
   },
   "order": [
     "main",
-    "custom_faq_banner_mxfxLm"
+    "custom_faq_banner_mxfxLm",
+    "image_block_with_button_w63mgR"
   ]
 }
