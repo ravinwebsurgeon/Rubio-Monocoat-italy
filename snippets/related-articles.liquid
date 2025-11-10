@@ -1,0 +1,33 @@
+{% assign related_articles = "" %}
+
+{% for article_tag in article.tags %}
+  {% for related in blog.articles %}
+    {% if related.id != article.id and related.tags contains article_tag %}
+      {% unless related_articles contains related.handle %}
+        {% assign related_articles = related_articles | append: related.handle | append: "," %}
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+{% assign related_list = related_articles | split: "," %}
+
+{% if related_list.size > 1 %}
+  <div class="related-articles">
+    <h3>Related Articles</h3>
+    <ul>
+      {% for handle in related_list limit: 4 %}
+        {% if handle != "" %}
+          {% assign related_article = articles[handle] %}
+          {% if related_article %}
+            <li>
+              <a href="{{ related_article.url }}">
+                {{ related_article.title }}
+              </a>
+            </li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
