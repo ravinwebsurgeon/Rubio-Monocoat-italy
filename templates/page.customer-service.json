@@ -55,7 +55,16 @@
         "image_block_RfDBJw": {
           "type": "image_block",
           "settings": {
-            "button_text": "Shop Now",
+            "block_image": "shopify://shop_images/t_2.jpg",
+            "button_text": "Recycle",
+            "button_link": ""
+          }
+        },
+        "image_block_gK6EXi": {
+          "type": "image_block",
+          "settings": {
+            "block_image": "shopify://shop_images/t_3.jpg",
+            "button_text": "Interior products",
             "button_link": ""
           }
         }
@@ -64,7 +73,8 @@
         "image_block_fcQDc7",
         "image_block_6x34jJ",
         "image_block_VK4FrP",
-        "image_block_RfDBJw"
+        "image_block_RfDBJw",
+        "image_block_gK6EXi"
       ],
       "name": "Image Blocks with Button",
       "settings": {
