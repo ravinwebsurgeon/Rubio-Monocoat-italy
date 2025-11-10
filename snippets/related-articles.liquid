@@ -60,7 +60,7 @@
                         <p>{{ related_article.content  }}</p>
                         <div class="related_articles_tag">
                             {% for tag in related_article.tags %}
-                                <p>{{ tag }}</p>
+                                <a href="{{ blog.url }}/tagged/{{ tag | handleize }}"><p>{{ tag }}</p></a>
                             {% endfor %}
                         </div>
                     </article>
