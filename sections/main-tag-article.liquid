@@ -2,6 +2,7 @@
 {% assign shown = article.metafields.custom.show_published_detail.value %}
 {% assign related_articles = article.metafields.custom.related_blog_list.value %}
 {% assign products = article.metafields.custom.related_blog_product.value %}
+{% assign in_this_content = article.metafields.custom.in_this_article.value %}
 
 <article class="article-template">
     <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -99,6 +100,10 @@
                 {%- endcase -%}
             {%- endfor -%}
             {% comment %} metafields data {% endcomment %}
+            {% if in_this_content %}
+              {% render 'in_this_article_section' in_this:in_this_content %}
+            {% endif %}
+
             {% assign sections = (1..4) %}
             <div class="information_section">
               {% for i in sections %}
