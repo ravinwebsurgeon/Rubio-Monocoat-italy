@@ -1,4 +1,7 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+{% assign shown = article.metafields.custom.show_published_detail.value %}
+{% assign related_articles = article.metafields.custom.related_blog_list.value %}
+{% assign products = article.metafields.custom.related_blog_product.value %}
 
 <article class="article-template">
     <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -127,14 +130,12 @@
                 {% endif %}
               {% endfor %}
             </div>
-            {% assign shown = article.metafields.custom.show_published_detail.value %}
-            {% if shown %}<div class="parent_blog_detail">
+
+          {% if shown %}
+            <div class="parent_blog_detail">
               <p>Article Posted in <a href="{{ blog.url }}" class="parent_blog">{{ blog.title }}</a></p>
             </div>
-            {% endif %}
-            {% assign related_articles = article.metafields.custom.related_blog_list.value %}
-            {% assign products = article.metafields.custom.related_blog_product.value %}
-
+          {% endif %}
           {% if products %}  {% render 'related-articles-products' , products:products %} {% endif %}
           {% if related_articles %}  {% render 'related-articles' , articles:related_articles %} {% endif %}
         </div>
