@@ -924,7 +924,16 @@ document.addEventListener('DOMContentLoaded', () => {
   if(receivedData) selectVariant(receivedData)
 });
 
+document.addEventListener('DOMContentLoaded', function () {
 
+  setInterval(() => {
+    const custom_btn = document.querySelector('.order_sample');
+    if (custom_btn) {
+      console.log('change btn');
+      custom_btn.textContent = 'Order sample';
+    }
+  }, 3000);
+});
 
 </script>
 
