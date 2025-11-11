@@ -314,6 +314,7 @@ document.addEventListener("DOMContentLoaded", function(){
   document.addEventListener("click", e => {
     if(!e.target.closest(".collage-item")) {
       document.querySelectorAll(".hotspot-popup").forEach(p => p.style.display = 'none');
+      document.body.classList.remove('hotspot-popup-body')
     }
   });
 
