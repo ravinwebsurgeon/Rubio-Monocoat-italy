@@ -271,12 +271,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const canContinue = variant.inventory_policy === "continue";
       console.log(variant,'asas')
       if (variant.available) {
-        addToCartBtn.classList.add("disabled-btn");
-        addToCartBtn.disabled = true;
-        {% comment %} addToCartBtn.textContent = "Out of Stock"; {% endcomment %}
-      } else {
         addToCartBtn.classList.remove("disabled-btn");
         addToCartBtn.disabled = false;
+        {% comment %} addToCartBtn.textContent = "Out of Stock"; {% endcomment %}
+      } else {
+        addToCartBtn.classList.add("disabled-btn");
+        addToCartBtn.disabled = true;
         {% comment %} addToCartBtn.textContent = "Add to Cart"; {% endcomment %}
       }
     }
