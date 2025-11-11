@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!variant) return;
       const qty = variant.inventory_quantity || 0;
       const canContinue = variant.inventory_policy === "continue";
-      console.log(qty,'asas')
+      console.log(variant,'asas')
       if (qty <= 0 && !canContinue) {
         addToCartBtn.classList.add("disabled-btn");
         addToCartBtn.disabled = true;
