@@ -1165,7 +1165,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // --- Show/Hide Filters Panel ---
   filterByBtn.addEventListener('click', () => {
     filtersPanel.style.display = (filtersPanel.style.display === 'block') ? 'none' : 'block';
-
+filtersPanel.classList.add('open')
     // Reset default tab to Colour
     filterBtns.forEach(btn => btn.classList.remove('active'));
     filterBtns[0].classList.add('active');
