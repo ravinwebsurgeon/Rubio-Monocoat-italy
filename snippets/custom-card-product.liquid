@@ -291,36 +291,20 @@ document.addEventListener("DOMContentLoaded", () => {
         addToCartBtn.disabled = true;
         addToCartBtn.textContent = "Adding...";
 
-            fetch('/cart/add.js', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    id: variantId,
-                    quantity: 1
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Added to cart:', data);
-                updateCartCount(1);
-                refreshCartDrawer();
-            })
-            .catch(error => {
-                console.error('Error adding to cart:', error);
-                alert("Something went wrong.");
-            });
+        const res = await fetch("/cart/add.js", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body
+        });
 
         addToCartBtn.disabled = false;
         addToCartBtn.textContent = "Add Into Cart";
 
-        {% comment %} if (res.ok) {
+        if (res.ok) {
           document.dispatchEvent(new CustomEvent("cart:refresh"));
         } else {
           alert("Failed to add to cart. Please try again.");
-        } {% endcomment %}
+        }
       });
     }
 
