@@ -134,15 +134,13 @@
 }
 {% comment %}hover effect on images end{% endcomment %}
 
-
-
   .top_picks_slider .top-product-content {
     border: 1px solid #183029;
     border-top: 0;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     padding: 15px;
-    gap:3px 10px;
+    gap: 10px;
     justify-content: space-between;
     align-items: center;
     display:flex;
@@ -231,7 +229,7 @@ section.top_picks_slider.custom_categrysss .top-picks-header {
     flex-direction: column;
   }
   section.top_picks_slider.custom_categrysss .top-product-content{
- text-align:left;
+  text-align:left;
   display: flex;
   background-color:transparent;
   border-color:transparent;
@@ -294,7 +292,7 @@ section.top_picks_slider.custom_categrysss .slider-product-image{
     text-align: left;
     color:#fff;
     padding-right: 36px;
-     width: calc(100% - 28px);
+    width: calc(100% - 28px);
   }
   .top_picks_slider .certificate-puls-btn button.cert-plus {
     background: 0;
@@ -478,7 +476,86 @@ button.popup-close {
     }
   }
   
+  @media(max-width:991px){
+    .top_picks_slider {
+        padding: 50px 20px;
+    }
+    .top_picks_slider .top-picks-product-card .slider-product-image {
+        padding-bottom: 190px;
+    }
+  }
+  
+  @media(max-width:767px){
+    .top-picks-header h2 {
+        font-size: 24px;
+    }
+    .top_picks_slider {
+        padding: 30px 20px;
+        position: relative;
+    }
+    .top_picks_slider .top-silder-arrows {
+        position: absolute;
+        z-index: 1;
+        top: 53%;
+        transform: translateY(-40%);
+        left: 18px;
+        right: 18px;
+        display:none;
+    }
+    .custom_categrysss .top_picks_carousel {
+        padding: 0;
+    }
+    section.top_picks_slider.custom_categrysss {
+        width: 100%;
+    }
+    .top_picks_slider .top-silder-arrows button svg {
+      width: 12px;
+      height: 12px;
+    }
+    .top_picks_slider .top-silder-arrows .prev-item-btn,  .top_picks_slider .top-silder-arrows .next-item-btn {
+      width: 24px;
+      height: 24px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+    .top_picks_slider  .top-silder-arrows .next-item-btn{
+      margin-left:auto;
+    }
+   
+    .top_picks_slider .certificate-puls-btn {
+      width: 24px;
+      height: 24px;
+    }
+    .top_picks_slider .certificate-puls-btn button.cert-plus {
+      font-size: 18px;
+    }
+    
+    .popup-content {
+      width: 95%;
+      margin: 5vh auto;
+    }
+    
+    .popup-details {
+        padding: 20px;
+        width: 100%;
+    }
+    .popup-image {
+      width: 100%;
+      background-color: #f5f5f5;
+      border-radius: 12px 0 0 12px;
+    }
+    .popup-body {
+      flex-wrap: wrap;
+    }    
+    .popup-details h3 {
+      font-size: 20px;
+      margin-top: 0;
+    }
+    .popup-actions button {
+        flex: 1;
+    }
+  }
 </style>
+
  <script>
 document.addEventListener("DOMContentLoaded", function() {
 //add product into cart
