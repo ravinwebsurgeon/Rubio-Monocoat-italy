@@ -288,12 +288,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const variantId = variantInput.value;
         const body = JSON.stringify({ items: [{ id: variantId, quantity: 1 }] });
 
-        {% comment %} addToCartBtn.disabled = true;
+        addToCartBtn.disabled = true;
         addToCartBtn.textContent = "Adding..."; 
-
+        
         addToCartBtn.disabled = false;
-        addToCartBtn.textContent = "Add Into Cart"; {% endcomment %}
-        handleAddToCart(variantId, addToCartBtn)
+        addToCartBtn.textContent = "Add Into Cart";
+        handleAddToCart(variantId)
 
         {% comment %} const res = await fetch("/cart/add.js", {
           method: "POST",
