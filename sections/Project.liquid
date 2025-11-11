@@ -223,7 +223,7 @@
           </div>
           
  <!-- Filters Panel (hidden by default) -->
-<div id="filtersPanel" class="filters-panel" style="display: none;">
+<div id="filtersPanel" class="filters-panel">
   <div class="fil-color-outers">
   <!-- Buttons -->
   <div class="filter-buttons">
@@ -1163,19 +1163,28 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // --- Show/Hide Filters Panel ---
-  filterByBtn.addEventListener('click', () => {
-    filtersPanel.style.display = (filtersPanel.style.display === 'block') ? 'none' : 'block';
+filterByBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // prevent closing immediately
+  filtersPanel.classList.toggle('open');
 
-    // Reset default tab to Colour
-    filterBtns.forEach(btn => btn.classList.remove('active'));
-    filterBtns[0].classList.add('active');
+  // Reset default tab to Colour
+  filterBtns.forEach(btn => btn.classList.remove('active'));
+  filterBtns[0].classList.add('active');
 
-    filtersPanel.classList.add('open')
-
-    filterOptions.forEach(panel => {
-      panel.style.display = (panel.id === 'colour-options') ? 'flex' : 'none';
-    });
+  filterOptions.forEach(panel => {
+    panel.style.display = (panel.id === 'colour-options') ? 'flex' : 'none';
   });
+});
+
+// Prevent clicks inside from closing it
+filtersPanel.addEventListener('click', e => e.stopPropagation());
+
+// Click outside to close
+document.addEventListener('click', (e) => {
+  if (!filtersPanel.contains(e.target) && !filterByBtn.contains(e.target)) {
+    filtersPanel.classList.remove('open');
+  }
+});
 
   // --- Switch Tabs ---
   filterBtns.forEach(btn => {
@@ -3182,6 +3191,12 @@ li.product-item {
   to { opacity: 1; transform: scale(1.05); }
 }
 
+#filtersPanel {
+  display: none;
+}
+#filtersPanel.open {
+  display: block;
+}
 </style>
 
 
