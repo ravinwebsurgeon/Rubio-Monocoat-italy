@@ -917,6 +917,46 @@ document.addEventListener('DOMContentLoaded', () => {
   if(receivedData) selectVariant(receivedData)
 });
 
+
+// Specific fix for color variant picker
+document.addEventListener('variant:changed', function(event) {
+  const variant = event.detail.variant;
+  
+  // Show loading spinner
+  const button = document.querySelector('.product-form__submit');
+  const spinner = button?.querySelector('.loading-spinner');
+  
+  if (button && spinner) {
+    button.classList.add('loading');
+    spinner.style.display = 'block';
+    button.disabled = true;
+    
+    // Hide after media updates (images, price, etc.)
+    setTimeout(() => {
+      button.classList.remove('loading');
+      spinner.style.display = 'none';
+      button.disabled = !variant.available;
+    }, 400);
+  }
+});
+
+// Also listen to swatch changes directly
+document.querySelectorAll('.swatch-input__input').forEach(swatch => {
+  swatch.addEventListener('change', function() {
+    const button = document.querySelector('.product-form__submit');
+    const spinner = button?.querySelector('.loading-spinner');
+    
+    if (button && spinner) {
+      button.classList.add('loading');
+      spinner.style.display = 'block';
+      
+      setTimeout(() => {
+        button.classList.remove('loading');
+        spinner.style.display = 'none';
+      }, 300);
+    }
+  });
+});
 </script>
 
 
