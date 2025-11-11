@@ -42,9 +42,9 @@
       >
         {% if card_product.featured_media %}
           <div class="card__media {% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
-            <a href="{{ card_product.url }}">
+           
               <div class="media media--transparent media--hover-effect">
-              
+             
               <img
                 srcset="
                   {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
@@ -66,7 +66,7 @@
                 width="{{ card_product.featured_media.width }}"
                 height="{{ card_product.featured_media.height }}"
               >
-
+  <a href="{{ card_product.url }}">
               {% if card_product.media[1] != null and show_secondary_image %}
                 <img
                   src="{{ card_product.media[1] | image_url: width: 533 }}"
@@ -74,8 +74,9 @@
                   loading="lazy"
                 >
               {% endif %}
+              </a>
             </div>
-          </a>
+          
           </div>
         {% endif %}
 
