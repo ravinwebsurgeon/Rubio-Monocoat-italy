@@ -291,10 +291,10 @@ document.addEventListener("DOMContentLoaded", () => {
         addToCartBtn.disabled = true;
         addToCartBtn.textContent = "Adding..."; 
         
+
+        handleAddToCart(variantId,button)
         addToCartBtn.disabled = false;
         addToCartBtn.textContent = "Add Into Cart";
-        handleAddToCart(variantId,button)
-
         {% comment %} const res = await fetch("/cart/add.js", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
