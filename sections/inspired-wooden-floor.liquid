@@ -299,6 +299,7 @@ document.addEventListener("DOMContentLoaded", function(){
               <button type="submit" class="ajax_add_cart {% unless first_variant.available %} disabled-btn {% endunless %}" data-variant-id="${product.variants[0].id}" {% unless first_variant.available %} disabled {% endunless %}>Add to Cart</button>
             {% comment %} </form>{% endcomment %} 
           `;
+          console.log(product,'checkProducts')
           popup.style.display = "block";
           document.body.classList.add('hotspot-popup-body')
         });
