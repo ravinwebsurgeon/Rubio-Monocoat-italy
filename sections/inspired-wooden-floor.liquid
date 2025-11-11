@@ -297,7 +297,7 @@ document.addEventListener("DOMContentLoaded", function(){
               </select> {% endcomment %}
               {% assign first_variant = product.variants.first %}
 
-              <button type="submit" class="ajax_add_cart" data-variant-id="${product.variants[0].id}"{% unless first_variant.available %} disabled {% endunless %}>Add to Cart</button>
+              <button type="submit" class="ajax_add_cart" data-variant-id="${product.variants[0].id}" {% unless first_variant.available %} disabled {% endunless %}>Add to Cart</button>
             {% comment %} </form>{% endcomment %} 
           `;
           popup.style.display = "block";
