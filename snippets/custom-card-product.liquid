@@ -291,10 +291,11 @@ document.addEventListener("DOMContentLoaded", () => {
         {% comment %} addToCartBtn.disabled = true; {% endcomment %}
         addToCartBtn.textContent = "Adding..."; 
         
-      setTimeout(() => {
-        addToCartBtn.textContent = "Add Into Cart";
-      }, 1000);
+          setTimeout(() => {
+            addToCartBtn.textContent = "Add Into Cart";
+          }, 1000);
         {% comment %} handleAddToCart(variantId,btn) {% endcomment %}
+
         {% comment %} addToCartBtn.disabled = false; {% endcomment %}
         {% comment %} addToCartBtn.textContent = "Add Into Cart"; {% endcomment %}
         {% comment %} const res = await fetch("/cart/add.js", {
