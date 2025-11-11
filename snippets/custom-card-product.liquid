@@ -281,7 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    {% comment %} // Handle Add to Cart
+    // Handle Add to Cart
     if (addToCartBtn) {
       addToCartBtn.addEventListener("click", async e => {
         e.preventDefault();
@@ -306,7 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
           alert("Failed to add to cart. Please try again.");
         }
       });
-    } {% endcomment %}
+    }
 
     // Utility functions
     function getSelectedOptions(wrapper) {
