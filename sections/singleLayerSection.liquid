@@ -22,7 +22,7 @@
                                 {% endfor %}
                             </select> {% endcomment %}
                               {% for option in product.options_with_values %}
-                                <div class="pro_variant_options">
+                                <div class="pro_variant_options slect-box-sec">
                                 <select class="option-variant-selector" name="option-variant-selector" id="ProductSelect-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
                                 {% for value in option.values %}
                                     <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>
