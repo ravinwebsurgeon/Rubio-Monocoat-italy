@@ -1483,7 +1483,11 @@ document.querySelector('.Exterior-wrap').style.display = 'block'
   // -------------------------------
 document.addEventListener("click", function(e) {
   // Check if clicked element is a circle tab or inside a circle tab
+  if (filtersPanel.style.display === 'block') {
+  filtersPanel.style.display = 'none';
+}
   const circleTab = e.target.closest('.circle-tab');
+
   if (circleTab) {
     e.stopPropagation(); // Prevent closing dropdown
 
