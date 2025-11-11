@@ -1159,6 +1159,26 @@ select.addon-popup-variant:focus {
 .custom-popup-overlay cart-drawer.drawer.active {
     z-index: 9999;
 }
+.hotspot-popup-body {
+    overflow: hidden;
+}
+
+.hotspot-popup-body:after {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 9;
+    background-color: #000;
+    opacity: 0.5;
+}
+
+.hotspot-popup-body .hotspot-popup {
+    position: fixed;
+    z-index: 999;
+}
 .contact__method .content_data a {
     display: flex;
     align-items: center;
