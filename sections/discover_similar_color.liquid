@@ -36,6 +36,7 @@
           {% comment %} <div class="slider-product-image">
               <img src="{{ product.featured_image | img_url: 'master' }}" width="" height="" />
           </div> {% endcomment %}
+           <a href="{{ product.url }}">
            {% if product.featured_image %}
             <div class="slider-product-image">
               {% if product.metafields.custom.cover_image != blank %}
@@ -43,6 +44,7 @@
               {% endif %}
               <img class="featured-image" src="{{ product.featured_image | img_url: 'master' }}" width="" height="" />
             </div>
+          </a>
           {% endif %}
           
           <div class="top-product-content">
