@@ -106,7 +106,7 @@
           <!-- Variant Section with Swatch Support -->
           <div class="custom_added_variants">
             {% for option in card_product.options_with_values %}
-              <div class="pro_variant_options variant__{{ forloop.index }}">
+              <div class="pro_variant_options variant__{{ option.name }}">
                 {% assign downcase_name = option.name | downcase %}
                 {% if downcase_name contains 'color' or downcase_name contains 'colour' %}
                   <div class="color-swatch-group" data-index="option{{ forloop.index }}">
