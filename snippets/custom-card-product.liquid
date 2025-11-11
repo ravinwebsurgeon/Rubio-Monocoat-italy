@@ -270,7 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const qty = variant.inventory_quantity || 0;
       const canContinue = variant.inventory_policy === "continue";
       console.log(variant,'asas')
-      if (variant.available && !canContinue) {
+      if (variant.available) {
         addToCartBtn.classList.add("disabled-btn");
         addToCartBtn.disabled = true;
         {% comment %} addToCartBtn.textContent = "Out of Stock"; {% endcomment %}
