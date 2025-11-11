@@ -289,7 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const body = JSON.stringify({ items: [{ id: variantId, quantity: 1 }] });
 
         addToCartBtn.disabled = true;
-        addToCartBtn.textContent = "Adding..."; 
+        {% comment %} addToCartBtn.textContent = "Adding...";  {% endcomment %}
         
 
         handleAddToCart(variantId,button)
