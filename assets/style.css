@@ -1,6 +1,9 @@
 .swatch-input__input:disabled+.swatch-input__label>.swatch, .swatch-input__input.visually-disabled+.swatch-input__label>.swatch{
     opacity:1 !important;
 }
+body.templateproduct-colorproduct.overflow-hidden div#sticky-add-to-cart {
+    display: none !important;
+}
 .announcement-bar__announcement {
     gap: 10px;
     align-items: center !important;
