@@ -881,7 +881,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       const custom_btn = document.querySelector('.order_sample');
       if (custom_btn) {
-        custom_btn.textContent = 'Order sample';
+        {% comment %} custom_btn.textContent = 'Order sample'; {% endcomment %}
+         console.log('as')
       }
     }, 200);
        
