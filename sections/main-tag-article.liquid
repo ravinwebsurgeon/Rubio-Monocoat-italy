@@ -76,8 +76,10 @@
 
                     {%- when 'content' -%}
                       {% assign atricle_title = article.metafields.custom.article_titile.value %}
+                      {% assign atricle_link = article.metafields.custom.article_title_link.value %}
+                      
                         <div class="article__content__des">
-                          <h3>{{ atricle_title }}</h3>
+                          <a href="{{ atricle_link  }}"><h3>{{ atricle_title }}</h3></a>
                             {{ article.content }}
                         </div>
                         <div class="published_data_content">
