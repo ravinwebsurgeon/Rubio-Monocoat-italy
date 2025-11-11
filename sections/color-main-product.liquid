@@ -878,8 +878,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (variantIdInput.value !== lastVariant) {
       lastVariant = variantIdInput.value;
       console.log('Variant changed:', lastVariant);
-       let custom_btn = document.querySelector('.order_sample.product-form__submit')
-        if(custom_btn){custom_btn.textContent = 'Order sample';}
+ 
        
       // If content was already expanded, reapply display
       const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
