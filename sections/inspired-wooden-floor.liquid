@@ -288,7 +288,7 @@ document.addEventListener("DOMContentLoaded", function(){
         .then(res => res.json())
         .then(product => {
           const firstVariant = product.variants[0];
-          const isAvailable =  firstVariant.available;
+          const isAvailable =  product.available;
           content.innerHTML = `
             <img src="${product.images[0]}" alt="${product.title}">
             <h3>${product.title}</h3>
