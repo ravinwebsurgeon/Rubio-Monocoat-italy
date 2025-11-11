@@ -330,9 +330,12 @@ function handleAddToCart(variantId) {
   {% comment %} const variantId = button.dataset.variantId; {% endcomment %}
 
   // Show loading state
-  const originalText = button.textContent;
-  button.textContent = 'Adding...';
-  button.disabled = true;
+  if(button)
+  {
+    const originalText = button.textContent;
+    button.textContent = 'Adding...';
+    button.disabled = true;
+  }
 
   fetch('/cart/add.js', {
     method: 'POST',
@@ -348,20 +351,20 @@ function handleAddToCart(variantId) {
   .then(response => response.json())
   .then(data => {
     console.log('Added to cart:', data);
-    button.textContent = 'Added!';
+    if(button) {button.textContent = 'Added!'; }
     updateCartCount(1);
     refreshCartDrawer();
     
     setTimeout(() => {
-      button.textContent = originalText;
-      button.disabled = false;
+      if(button) { button.textContent = originalText;
+      button.disabled = false; }
     }, 2000);
   })
   .catch(error => {
     console.error('Error adding to cart:', error);
     alert("Something went wrong.");
-    button.textContent = originalText;
-    button.disabled = false;
+    if(button) { button.textContent = originalText;
+    button.disabled = false; }
   });
 }
 function updateCartCount(totalQuantityAdded) {
