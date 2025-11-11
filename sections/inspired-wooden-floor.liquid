@@ -322,11 +322,11 @@ document.addEventListener('click', function(e) {
     const button = e.target.classList.contains('ajax_add_cart') ? 
                    e.target : e.target.closest('.ajax_add_cart');
     let variantId = button.dataset.variantId
-    handleAddToCart(variantId);
+    handleAddToCart(variantId,button);
   }
 });
 
-function handleAddToCart(variantId) {
+function handleAddToCart(variantId,button) {
   {% comment %} const variantId = button.dataset.variantId; {% endcomment %}
 
   // Show loading state
