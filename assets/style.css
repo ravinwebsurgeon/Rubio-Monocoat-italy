@@ -1533,7 +1533,11 @@ section.product-features-section .section-heading {
     top: 40px;
 }
 .header__icon--menu .icon path {
+    /* filter: invert(1); */
     filter: invert(1);
+  -webkit-filter: invert(1);
+  transform: translateZ(0);
+  will-change: filter;
 }
 .scrolled-past-header .header__icon--menu .icon path{
    filter: none;
