@@ -1805,9 +1805,9 @@ a.header__icon.header__icon--account.link.focus-inset.small-hide span img {
     height: 26px;
 }
 
-.header__icon--menu .icon path {
+/* .header__icon--menu .icon path {
     fill: #fff;
-}
+} */
 
 .banner-image {
     border-radius: 0;
