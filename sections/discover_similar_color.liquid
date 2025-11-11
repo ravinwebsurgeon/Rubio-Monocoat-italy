@@ -654,6 +654,7 @@ function refreshCartDrawer() {
         subtitle: "{{ product.metafields.custom.collectionproduct_subtitle.value | escape }}",
         description: "{{ product.description }}",
         variantId: "{{ product.variants.first.id }}",
+        inventory_quantity: {{ product.variants.first.inventory_quantity | default: 0 }},
         url: "{{ product.url }}"
       }{% unless forloop.last %},{% endunless %}
     {% endfor %}
@@ -728,6 +729,13 @@ function refreshCartDrawer() {
     popupDescription.innerHTML = product.description
     currentProductUrl = product.url;
     variantId= product.variantId
+
+    let qty = product.inventory_quantity
+    if(qty == 0){
+      cartBtn.classList.add('disabled-btn')
+      cartBtn.disabled = true;
+    }
+
     cartBtn.setAttribute('data-variant-id',variantId)
     popup.style.display = 'flex';
     document.body.style.overflow = 'hidden';
