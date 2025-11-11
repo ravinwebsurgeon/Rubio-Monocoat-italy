@@ -2071,6 +2071,29 @@ nav.breadcrumb a {
         padding-top: 32px;
         padding-bottom: 32px;
     }
+    .hotspot-popup-body {
+    overflow: hidden;
+}
+
+.hotspot-popup-body:after {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 9;
+    background-color: #000;
+    opacity: 0.5;
+}
+
+.hotspot-popup-body .hotspot-popup {
+    position: fixed;
+    z-index: 999;
+    top: 50% !important;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
+}
     .article_content_main .custom_info_data{
          flex-wrap: wrap;
 
