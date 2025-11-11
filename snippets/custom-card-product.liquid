@@ -289,8 +289,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const body = JSON.stringify({ items: [{ id: variantId, quantity: 1 }] });
 
         {% comment %} addToCartBtn.disabled = true; {% endcomment %}
-        {% comment %} addToCartBtn.textContent = "Adding...";  {% endcomment %}
+        addToCartBtn.textContent = "Adding..."; 
         
+      setTimeout(() => {
+        addToCartBtn.textContent = "Add Into Cart";
+      }, 3000);
         handleAddToCart(variantId,btn)
         {% comment %} addToCartBtn.disabled = false; {% endcomment %}
         {% comment %} addToCartBtn.textContent = "Add Into Cart"; {% endcomment %}
