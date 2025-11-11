@@ -729,6 +729,7 @@ function refreshCartDrawer() {
     currentProductUrl = product.url;
     variantId= product.variantId
     let qty = product.inventory_quantity
+    console.log(qty,'check qty')
     if(qty){
       cartBtn.classList.add('disabled-btn')
       cartBtn.disabled = true;
