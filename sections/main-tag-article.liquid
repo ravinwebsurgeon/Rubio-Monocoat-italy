@@ -140,7 +140,7 @@
                       {% if video_list != blank %}
                         <div class="video_section">
                           {% for video in video_list %}
-                            <div class="video_data">
+                            <div class="article_video_data">
                               {{ video | media_tag:
                                  autoplay: true, 
                                 loop: true,
@@ -474,7 +474,9 @@
   {%- endif -%}
 </div>
 </article>
-
+<style>
+  .article_video_data video{width:100%;}
+</style>
 
 <script type="application/ld+json">
   {{ article | structured_data }}
