@@ -299,10 +299,15 @@ document.addEventListener("DOMContentLoaded", function(){
             {% comment %} </form>{% endcomment %} 
           `;
           popup.style.display = "block";
+          document.body.classList.add('.hotspot-popup-body')
         });
     });
 
-    closeBtn.addEventListener("click", () => popup.style.display = "none");
+    {% comment %} closeBtn.addEventListener("click", () => popup.style.display = "none"); {% endcomment %}
+    closeBtn.addEventListener("click", () => {
+      popup.style.display = "none";
+      document.body.classList.remove("hotspot-popup-body");
+    });
   });
 
   // Close popup when clicking outside
