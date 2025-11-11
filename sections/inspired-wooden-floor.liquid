@@ -287,6 +287,8 @@ document.addEventListener("DOMContentLoaded", function(){
       fetch(`/products/${handle}.js`)
         .then(res => res.json())
         .then(product => {
+          const firstVariant = product.variants[0];
+          const isAvailable =  firstVariant.available;
           content.innerHTML = `
             <img src="${product.images[0]}" alt="${product.title}">
             <h3>${product.title}</h3>
@@ -295,7 +297,7 @@ document.addEventListener("DOMContentLoaded", function(){
               {% comment %} <select name="id">
                 ${product.variants.map(v => `<option value="${v.id}">${v.title} - $${(v.price/100).toFixed(2)}</option>`).join('')}
               </select> {% endcomment %}
-              <button type="submit" class="ajax_add_cart if(!product.available) disabled-btn" data-variant-id="${product.variants[0].id}" {% unless first_variant.available %} disabled {% endunless %}>Add to Cart</button>
+              <button type="submit" class="ajax_add_cart  ${!isAvailable ? 'disabled-btn' : ''}" data-variant-id="${product.variants[0].id}" {% unless first_variant.available %} disabled {% endunless %}>Add to Cart</button>
             {% comment %} </form>{% endcomment %} 
           `;
           console.log(product,'checkProducts')
