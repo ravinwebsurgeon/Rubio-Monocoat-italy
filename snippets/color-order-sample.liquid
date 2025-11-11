@@ -151,8 +151,10 @@
   {%- endif -%}
 </div>
 <script>
+  document.addEventListener('DOMContentLoaded', function() {
     {% comment %} const variantInput = document.querySelector('.product-variant-id'); {% endcomment %}
   const productForm = document.querySelector('#{{ product_form_id }}');
   const submitButton = document.querySelector('#ProductSubmitButton-{{ section_id }}');
   console.log(productForm,submitButton);
+  });
 </script>
