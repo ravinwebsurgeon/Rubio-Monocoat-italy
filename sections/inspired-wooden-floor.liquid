@@ -330,7 +330,7 @@ function handleAddToCart(variantId,button) {
   {% comment %} const variantId = button.dataset.variantId; {% endcomment %}
 
   // Show loading state
-  if(button.length > 0)
+  if(button)
   {
     const originalText = button.textContent;
     button.textContent = 'Adding...';
