@@ -291,8 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
         addToCartBtn.disabled = true;
         addToCartBtn.textContent = "Adding..."; 
         
-        let button = '';
-        handleAddToCart(variantId,button)
+        handleAddToCart(variantId)
         addToCartBtn.disabled = false;
         addToCartBtn.textContent = "Add Into Cart";
         {% comment %} const res = await fetch("/cart/add.js", {
