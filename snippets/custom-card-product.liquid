@@ -164,7 +164,7 @@
           <div class="custom_action_btns">
             <div class="product_actions_btns">
               <a href="{{ card_product.url }}"><button class="product_link_btn">More Info</button></a>
-              <button class="product_cart_btn this_button">Add Into Cart</button>
+              <button class="product_cart_btn11  ajax_add_cart">Add Into Cart</button>
             </div>
           </div>
         </div>
@@ -291,20 +291,20 @@ document.addEventListener("DOMContentLoaded", () => {
         addToCartBtn.disabled = true;
         addToCartBtn.textContent = "Adding...";
 
-        const res = await fetch("/cart/add.js", {
+        {% comment %} const res = await fetch("/cart/add.js", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body
-        });
+        }); {% endcomment %}
 
         addToCartBtn.disabled = false;
         addToCartBtn.textContent = "Add Into Cart";
 
-        if (res.ok) {
+        {% comment %} if (res.ok) {
           document.dispatchEvent(new CustomEvent("cart:refresh"));
         } else {
           alert("Failed to add to cart. Please try again.");
-        }
+        } {% endcomment %}
       });
     }
 
