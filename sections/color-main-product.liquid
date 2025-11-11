@@ -878,13 +878,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (variantIdInput.value !== lastVariant) {
       lastVariant = variantIdInput.value;
       console.log('Variant changed:', lastVariant);
-    setTimeout(() => {
-      const custom_btn = document.querySelector('.order_sample');
-      if (custom_btn) {
-        {% comment %} custom_btn.textContent = 'Order sample'; {% endcomment %}
-         console.log('change btn')
-      }
-    }, 200);
        
       // If content was already expanded, reapply display
       const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
