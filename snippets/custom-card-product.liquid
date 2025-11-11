@@ -294,7 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         addToCartBtn.textContent = "Add Into Cart";
       }, 1000);
-        handleAddToCart(variantId,btn)
+        handleAddToCart(variantId,button = null)
         {% comment %} addToCartBtn.disabled = false; {% endcomment %}
         {% comment %} addToCartBtn.textContent = "Add Into Cart"; {% endcomment %}
         {% comment %} const res = await fetch("/cart/add.js", {
