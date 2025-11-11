@@ -296,7 +296,7 @@ document.addEventListener("DOMContentLoaded", () => {
           headers: { "Content-Type": "application/json" },
           body
         }); {% endcomment %}
-
+        handleAddToCart(variantId)
         addToCartBtn.disabled = false;
         addToCartBtn.textContent = "Add Into Cart";
 
