@@ -878,7 +878,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (variantIdInput.value !== lastVariant) {
       lastVariant = variantIdInput.value;
       console.log('Variant changed:', lastVariant);
- 
+    setTimeout(() => {
+      const custom_btn = document.querySelector('.order_sample');
+      if (custom_btn && custom_btn.textContent.includes('Add to Cart')) {
+        custom_btn.textContent = 'Order sample';
+      }
+    }, 200);
        
       // If content was already expanded, reapply display
       const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
