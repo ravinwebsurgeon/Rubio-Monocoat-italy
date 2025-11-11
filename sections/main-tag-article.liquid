@@ -95,7 +95,7 @@
                           </div>
                           <div class="article__tags__content">
                             {% comment %} {{ article.tags |join: ' ' }} {% endcomment %}
-                            {% for tag in  article.tags %} {{ tag }} {% endfor %}
+                            {% for tag in  article.tags %}<p> {{ tag }} </p>{% endfor %}
                           </div>
                         </div>
 
