@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const colorSwatches = card.querySelectorAll(".color-swatch-input");
     const selects = card.querySelectorAll(".option-variant-selector");
     const productJsonEl = card.querySelector(".product-json");
-    const addToCartBtn = card.querySelector(".this_button");
+    const addToCartBtn = card.querySelector(".product_cart_btn");
     
     if (!productJsonEl) return;
     const productData = JSON.parse(productJsonEl.textContent);
