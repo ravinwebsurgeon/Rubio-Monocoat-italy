@@ -1483,7 +1483,13 @@ document.querySelector('.Exterior-wrap').style.display = 'block'
   // -------------------------------
 document.addEventListener("click", function(e) {
   // Check if clicked element is a circle tab or inside a circle tab
-  if (filtersPanel.style.display == 'block') {filtersPanel.style.display = 'none';}
+  if (filtersPanel.classList.contains('open')) {
+      // If click target is NOT inside the panel and NOT the toggle button, close
+      if (!filtersPanel.contains(e.target) && !filterByBtn.contains(e.target)) {
+        filtersPanel.classList.remove('open');
+      }
+    }
+
   const circleTab = e.target.closest('.circle-tab');
 
   if (circleTab) {
