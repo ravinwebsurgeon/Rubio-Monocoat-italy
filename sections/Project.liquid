@@ -1165,10 +1165,12 @@ document.addEventListener('DOMContentLoaded', function() {
   // --- Show/Hide Filters Panel ---
   filterByBtn.addEventListener('click', () => {
     filtersPanel.style.display = (filtersPanel.style.display === 'block') ? 'none' : 'block';
-filtersPanel.classList.add('open')
+
     // Reset default tab to Colour
     filterBtns.forEach(btn => btn.classList.remove('active'));
     filterBtns[0].classList.add('active');
+
+    filtersPanel.classList.add('open')
 
     filterOptions.forEach(panel => {
       panel.style.display = (panel.id === 'colour-options') ? 'flex' : 'none';
@@ -1483,12 +1485,12 @@ document.querySelector('.Exterior-wrap').style.display = 'block'
   // -------------------------------
 document.addEventListener("click", function(e) {
   // Check if clicked element is a circle tab or inside a circle tab
-  if (filtersPanel.classList.contains('open')) {
+  {% comment %} if (filtersPanel.classList.contains('open')) {
       // If click target is NOT inside the panel and NOT the toggle button, close
       if (!filtersPanel.contains(e.target) && !filterByBtn.contains(e.target)) {
         filtersPanel.classList.remove('open');
       }
-    }
+    } {% endcomment %}
 
   const circleTab = e.target.closest('.circle-tab');
 
