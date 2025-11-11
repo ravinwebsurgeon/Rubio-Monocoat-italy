@@ -111,7 +111,6 @@
                 {% if downcase_name contains 'color' or downcase_name contains 'colour' %}
                   <div class="color-swatch-group" data-index="option{{ forloop.index }}">
                     {% for value in option.values %}
-                       {% assign matching_variant = card_product.variants | where: 'option' | first %}
                         {% assign matching_variant = card_product.variants | where: option.name, value | first %}
                       <label
                         class="color-swatch"
