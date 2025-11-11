@@ -77,7 +77,7 @@
           <div id="popup-product-description"></div>
           <div class="popup-actions">
             <button class="btn-view-product">View Product</button>
-            <button class="custom_product_cart_btn ajax_Add_to_cart" data-variant-id>Addto Cart</button>
+            <button class="custom_product_cart_btn ajax_Add_to_cart" data-variant-id>Add to Cart</button>
           </div>
         </div>
       </div>
@@ -653,6 +653,7 @@ function refreshCartDrawer() {
         subtitle: "{{ product.metafields.custom.collectionproduct_subtitle.value | escape }}",
         description: "{{ product.description }}",
         variantId: "{{ product.variants.first.id }}",
+        inventory_quantity: {{ product.variants.first.inventory_quantity | default: 0 }},
         url: "{{ product.url }}"
       }{% unless forloop.last %},{% endunless %}
     {% endfor %}
@@ -727,6 +728,11 @@ function refreshCartDrawer() {
     popupDescription.innerHTML  = product.description;
     currentProductUrl = product.url;
     variantId= product.variantId
+    let qty = product.inventory_quantity
+    if(qty){
+      cartBtn.classList.add('disabled-btn')
+      cartBtn.disabled = true;
+    }
     cartBtn.setAttribute('data-variant-id',variantId)
     popup.style.display = 'flex';
     document.body.style.overflow = 'hidden';
