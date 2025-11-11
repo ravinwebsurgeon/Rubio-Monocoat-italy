@@ -93,10 +93,10 @@
                               {% endif %}
                             <span class="post-est"> <img src="https://cdn.shopify.com/s/files/1/0680/7647/0314/files/clock.png?v=1762778865" width="" height=""> reading time:6 minute{% if reading_time > 1 %}s{% endif %} </span>
                           </div>
-                          <div class="article__tags__content">
+                          
                             {% comment %} {{ article.tags |join: ' ' }} {% endcomment %}
-                            {% for tag in  article.tags %}<p> {{ tag }} </p>{% endfor %}
-                          </div>
+                            {% for tag in  article.tags %}<div class="article__tags__content"><p> {{ tag }} </p></div>{% endfor %}
+                          
                         </div>
 
                 {%- endcase -%}
