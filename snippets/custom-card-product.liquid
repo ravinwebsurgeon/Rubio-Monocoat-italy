@@ -291,7 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
         addToCartBtn.disabled = true;
         {% comment %} addToCartBtn.textContent = "Adding...";  {% endcomment %}
         
-
+        let button = '';
         handleAddToCart(variantId,button)
         addToCartBtn.disabled = false;
         addToCartBtn.textContent = "Add Into Cart";
