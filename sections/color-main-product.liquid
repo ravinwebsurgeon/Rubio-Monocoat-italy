@@ -878,8 +878,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (variantIdInput.value !== lastVariant) {
       lastVariant = variantIdInput.value;
       console.log('Variant changed:', lastVariant);
-       {% comment %} let custom_btn = document.querySelector('.order_sample') {% endcomment %}
-            {% comment %} custom_btn.textContent = 'Order sample'; {% endcomment %}
+
        
       // If content was already expanded, reapply display
       const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
