@@ -297,7 +297,7 @@ document.addEventListener("DOMContentLoaded", function(){
               {% comment %} <select name="id">
                 ${product.variants.map(v => `<option value="${v.id}">${v.title} - $${(v.price/100).toFixed(2)}</option>`).join('')}
               </select> {% endcomment %}
-              <button type="submit" class="ajax_add_cart  ${!isAvailable ? 'disabled-btn' : ''}" if(!isAvailable){disabled} data-variant-id="${product.variants[0].id}" {% unless first_variant.available %} disabled {% endunless %}>Add to Cart</button>
+              <button type="submit" class="ajax_add_cart  ${!isAvailable ? 'disabled-btn' : ''}" ${isAvailable ? '' : 'disabled'} data-variant-id="${product.variants[0].id}" {% unless first_variant.available %} disabled {% endunless %}>Add to Cart</button>
             {% comment %} </form>{% endcomment %} 
           `;
           console.log(product,'checkProducts')
