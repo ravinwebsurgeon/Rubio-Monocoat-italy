@@ -163,7 +163,7 @@
 
           <!-- Embed product JSON -->
           <script type="application/json" class="product-json">{{ card_product | json }}</script>
-        {% assign first_variant = product.variants.first %}
+        {% assign first_variant = card_product.variants.first %}
 
           <div class="custom_action_btns">
             <div class="product_actions_btns">
