@@ -40,7 +40,7 @@
             <div class="hotspot-popup">
               <span class="close-hotspot">&times;</span>
               <div class="hotspot-content">
-                <img src="{{ sub_images[forloop.index0] | replace: '//', 'https://'  }}" >
+                <img src="{{ sub_images[forloop.index0] | img_url: '300px' }}" >
                 <h3>{{ sub_texts[forloop.index0] }}</h3>
                  {% if btn_texts[forloop.index0] %}
                     <a href="btn_links[forloop.index0]">
