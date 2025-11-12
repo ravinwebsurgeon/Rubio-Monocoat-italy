@@ -1729,7 +1729,7 @@ document.addEventListener("DOMContentLoaded", function() {
       console.log(circleTabs,'asas')
       circleTabs.forEach(t => t.classList.remove("active"));
       surface_items.forEach(t => t.classList.remove('active'));
-      surface_options.forEach(t=>t.style.display = "none"))
+      {% comment %} surface_options.forEach(t=> t.style.display = "none")) {% endcomment %}
     });
   }
 });
