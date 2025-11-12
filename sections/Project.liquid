@@ -1727,6 +1727,8 @@ document.addEventListener("DOMContentLoaded", function() {
       let product_outer = document.querySelector('.tab-products-outer')
       let exterior_products = document.querySelectorAll('.tab-products-wrap')
       let exterior_circle_outer = document.querySelector('.circle-tabs-outer.exterior')
+      const availableFilter = document.getElementById('available-filter');
+
       {% comment %} location.reload(); {% endcomment %}
 
       if(interio.classList.contains('active')){interio.classList.remove('active')}
@@ -1734,11 +1736,15 @@ document.addEventListener("DOMContentLoaded", function() {
       if(circle_tabs_outer.classList.contains('active-circle-outer')){circle_tabs_outer.classList.remove('active-circle-outer')}
       circleTabs.forEach(t => t.classList.remove("active"));
       surface_items.forEach(t => t.classList.remove('active'));
+
       surface_options.forEach(t=> t.style.display = "none")
       product_item.forEach(t=>t.style.display = 'block')
       exterior_products.forEach(t=>t.style.display = 'block')
       product_outer.style.display = 'block'
       exterior_circle_outer.style.display = 'none'
+      if (availableFilter && availableFilter.checked) {
+    availableFilter.checked = false;
+    }
     });
   }
 });
