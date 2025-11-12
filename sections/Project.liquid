@@ -1725,6 +1725,7 @@ document.addEventListener("DOMContentLoaded", function() {
       let surface_options = document.querySelectorAll('.surface-options')
       let product_item = document.querySelectorAll('.product-item')
       let product_outer = document.querySelectorAll('.tab-products-outer')
+      let exterior_products = document.querySelector('.tab-products-wrap')
       {% comment %} location.reload(); {% endcomment %}
 
       if(interio.classList.contains('active')){interio.classList.remove('active')}
@@ -1735,6 +1736,7 @@ document.addEventListener("DOMContentLoaded", function() {
       surface_options.forEach(t=> t.style.display = "none")
       product_item.forEach(t=>t.style.display = 'block')
       product_outer.forEach(t=>t.style.display = 'block')
+      exterior_products.style.display = 'block'
 
     });
   }
