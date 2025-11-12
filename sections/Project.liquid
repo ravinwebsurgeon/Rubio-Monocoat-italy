@@ -1718,6 +1718,7 @@ document.addEventListener("DOMContentLoaded", function() {
   if (clearButton) {
     clearButton.addEventListener("click", function() {
       {% comment %} location.reload(); {% endcomment %}
+       console.log('clicked')
        document.querySelectorAll('.interiorBtn, .exteriorToggle, .circleTabs, .surface-item, .circle-tabs-outer').forEach(element => {
           element.classList.remove('active');
           if (element.classList.contains('circle-tabs-outer')) {
