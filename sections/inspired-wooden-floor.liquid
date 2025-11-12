@@ -6,7 +6,9 @@
 {% assign sub_texts = collection.metafields.custom.inspired_wooden_subtext.value %}
 {% assign btn_texts = collection.metafields.custom.inspired_wooden_btn_text.value %}
 {% assign btn_links = collection.metafields.custom.inspired_wooden_btn_link.value %}
-
+{% for img in sub_images %} 
+  <img src="{{ img }}" />"
+{% endfor %}
 {% if meta_images != blank and meta_products != blank %}
 <section class="asdf inspired-collage" data-show="{{ meta_products | json }}">
   <div class="container">
