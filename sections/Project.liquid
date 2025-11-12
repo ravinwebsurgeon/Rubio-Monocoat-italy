@@ -1718,13 +1718,16 @@ document.addEventListener("DOMContentLoaded", function() {
   if (clearButton) {
     clearButton.addEventListener("click", function() {
       {% comment %} location.reload(); {% endcomment %}
-       document.querySelectorAll('.interiorBtn, .exteriorToggle, .circleTabs, .surface-item, .circle-tabs-outer').forEach(element => {
+       {% comment %} document.querySelectorAll('.interiorBtn, .exteriorToggle, .circleTabs, .surface-item, .circle-tabs-outer').forEach(element => {
          console.log(element.classList,'classes')
         if (element.classList.contains('active')) {element.classList.remove('active');}
           if (element.classList.contains('circle-tabs-outer')) {
             element.classList.remove('active-circle-outer');
           }
-      });
+      }); {% endcomment %}
+      if(interiorBtn.classList.contains('active')){interiorBtn.classList.remove('active')}
+if(exteriorToggle.classList.contains('active')){exteriorToggle.classList.remove('active')}
+
     });
   }
 });
