@@ -1719,13 +1719,14 @@ document.addEventListener("DOMContentLoaded", function() {
   // Button click -> reload page
   if (clearButton) {
     clearButton.addEventListener("click", function() {
-      let circleTabs = document.querySelectorAll('.circle-tab')
+      //get fresh items & classes
+      let circleTabs = document.querySelectorAll('.circle-tab') 
       let surface_items = document.querySelectorAll('.surface-item')
       let surface_options = document.querySelectorAll('.surface-options')
       let product_item = document.querySelectorAll('.product-item')
       let product_outer = document.querySelectorAll('.tab-products-outer')
       {% comment %} location.reload(); {% endcomment %}
-       
+
       if(interio.classList.contains('active')){interio.classList.remove('active')}
       if(surface.classList.contains('active')){surface.classList.remove('active')}
       if(circle_tabs_outer.classList.contains('active-circle-outer')){circle_tabs_outer.classList.remove('active-circle-outer')}
