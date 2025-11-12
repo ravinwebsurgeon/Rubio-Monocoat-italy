@@ -704,36 +704,6 @@ function refreshCartDrawer() {
     ]
   });
 
-let btn_elements = document.querySelectorAll('.ctificte-btn--pulsss');
-{% comment %} 
-btn_elements.forEach(function(element) {
-    const parent = element.closest('.custom_product_cart_btn')?.parentElement;
-    
-    if (parent) {
-      console.log(parent,'found')
-        parent.addEventListener('mouseenter', function() {
-            element.style.display = 'none';
-            element.closest('.custom_product_cart_btn').style.display = 'block';
-        });
-        
-        parent.addEventListener('mouseleave', function() {
-            element.style.display = 'flex';
-            element.closest('.custom_product_cart_btn').style.display = 'none';
-        });
-    }
-}); {% endcomment %}
-
-
-  const cartBtn = document.querySelector('.ajax_Add_to_cart');
-  let qty = product.inventory_quantity
-  console.log(productData,'check qty')
-  if(qty == 0){
-      cartBtn.classList.add('disabled-btn')
-      cartBtn.disabled = true;
-  }
-  cartBtn.setAttribute('data-variant-id',variantId)
-
-
   {% comment %} // Popup functionality
   const popup = document.getElementById('product-detail-popup');
   const popupImage = document.getElementById('popup-product-image');
