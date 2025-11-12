@@ -1722,6 +1722,7 @@ document.addEventListener("DOMContentLoaded", function() {
       let circleTabs = document.querySelectorAll('.circle-tab')
       let surface_items = document.querySelectorAll('.surface-item')
       let surface_options = document.querySelectorAll('.surface-options')
+      let product_item = document.querySelectorAll('.product-item')
       {% comment %} location.reload(); {% endcomment %}
       if(interio.classList.contains('active')){interio.classList.remove('active')}
       if(surface.classList.contains('active')){surface.classList.remove('active')}
@@ -1730,6 +1731,8 @@ document.addEventListener("DOMContentLoaded", function() {
       circleTabs.forEach(t => t.classList.remove("active"));
       surface_items.forEach(t => t.classList.remove('active'));
       surface_options.forEach(t=> t.style.display = "none")
+      product_item.forEach(t=>t.style.display = 'block')
+
     });
   }
 });
