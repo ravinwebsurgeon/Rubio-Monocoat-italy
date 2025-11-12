@@ -684,7 +684,29 @@ function refreshCartDrawer() {
     ]
   });
 
-  // Popup functionality
+  let btn_elemenst = document.querySelectorAll('.ctificte-btn--pulsss')
+  btn_elemenst.forEach(function(element) {
+     element.addEventListener('mouseover', function() {
+      element.style.backgroundColor = 'blue';
+    });
+    element.addEventListener('mouseout', function() {
+      element.style.backgroundColor = 'red';
+    });
+  });
+ 
+
+
+  const cartBtn = document.querySelector('.ajax_Add_to_cart');
+  let qty = product.inventory_quantity
+  console.log(productData,'check qty')
+  if(qty == 0){
+      cartBtn.classList.add('disabled-btn')
+      cartBtn.disabled = true;
+  }
+  cartBtn.setAttribute('data-variant-id',variantId)
+
+
+  {% comment %} // Popup functionality
   const popup = document.getElementById('product-detail-popup');
   const popupImage = document.getElementById('popup-product-image');
   const popupTitle = document.getElementById('popup-product-title');
@@ -756,7 +778,7 @@ function refreshCartDrawer() {
     if (e.key === 'Escape') {
       closePopup();
     }
-  });
+  }); {% endcomment %}
 });
 
 
