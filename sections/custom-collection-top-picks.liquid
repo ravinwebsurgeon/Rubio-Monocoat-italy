@@ -686,7 +686,7 @@ function refreshCartDrawer() {
   });
 
 let btn_elements = document.querySelectorAll('.ctificte-btn--pulsss');
-
+{% comment %} 
 btn_elements.forEach(function(element) {
     const parent = element.closest('.custom_product_cart_btn')?.parentElement;
     
@@ -702,7 +702,7 @@ btn_elements.forEach(function(element) {
             element.closest('.custom_product_cart_btn').style.display = 'none';
         });
     }
-});
+}); {% endcomment %}
 
 
   const cartBtn = document.querySelector('.ajax_Add_to_cart');
