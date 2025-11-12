@@ -687,10 +687,13 @@ function refreshCartDrawer() {
   let btn_elemenst = document.querySelectorAll('.ctificte-btn--pulsss')
   btn_elemenst.forEach(function(element) {
      element.addEventListener('mouseover', function() {
-      element.style.backgroundColor = 'blue';
+      element.style.display = 'none';
+      element.closest('.custom_product_cart_btn').style.display = 'block'
     });
     element.addEventListener('mouseout', function() {
-      element.style.backgroundColor = 'red';
+      element.style.display = 'block';
+            element.closest('.custom_product_cart_btn').style.display = 'none'
+
     });
   });
  
