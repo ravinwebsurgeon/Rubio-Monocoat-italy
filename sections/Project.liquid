@@ -1721,6 +1721,7 @@ document.addEventListener("DOMContentLoaded", function() {
     clearButton.addEventListener("click", function() {
       let circleTabs = document.querySelectorAll('.circle-tab')
       let surface_items = document.querySelectorAll('.surface-item')
+      let surface_options = document.querySelectorAll('.surface-options')
       {% comment %} location.reload(); {% endcomment %}
       if(interio.classList.contains('active')){interio.classList.remove('active')}
       if(surface.classList.contains('active')){surface.classList.remove('active')}
@@ -1728,6 +1729,7 @@ document.addEventListener("DOMContentLoaded", function() {
       console.log(circleTabs,'asas')
       circleTabs.forEach(t => t.classList.remove("active"));
       surface_items.forEach(t => t.classList.remove('active'));
+      surface_options.forEach(t=>t.style.display = "none"))
     });
   }
 });
