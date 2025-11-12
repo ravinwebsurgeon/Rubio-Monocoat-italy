@@ -1180,11 +1180,11 @@ filterByBtn.addEventListener('click', (e) => {
 filtersPanel.addEventListener('click', e => e.stopPropagation());
 
 // Click outside to close
-{% comment %} document.addEventListener('click', (e) => {
+document.addEventListener('click', (e) => {
   if (!filtersPanel.contains(e.target) && !filterByBtn.contains(e.target)) {
     filtersPanel.classList.remove('open');
   }
-}); {% endcomment %}
+});
 
   // --- Switch Tabs ---
   filterBtns.forEach(btn => {
