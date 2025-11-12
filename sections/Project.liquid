@@ -1417,7 +1417,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const isActive = this.classList.contains("active");
     // Close all dropdowns first
         let tabs_outer = document.querySelector('.circle-tabs-outer') 
-    {% comment %} tabs_outer.display='block' {% endcomment %}
+    {% comment %} tabs_outer.display='block' today(12-nov) {% endcomment %}
     tabs_outer.classList.add('exterior') 
     tabs_outer.classList.remove('interior')
     document.querySelectorAll(".surface-options").forEach(opt => opt.style.display = "none");
@@ -1458,7 +1458,7 @@ document.querySelector('.Exterior-wrap').style.display = 'block'
      });
   
       let exteriorTabs = document.querySelector('.circle-tabs-outer.exterior')
-      exteriorTabs.style.display='block'
+      {% comment %} exteriorTabs.style.display='block' {% endcomment %}
     // Remove active from circle tabs
     circleTabs.forEach(t => t.classList.remove("active"));
      const collectionHandle = "exterior"; // or dynamically set handle
