@@ -1690,7 +1690,6 @@ document.addEventListener("DOMContentLoaded", function() {
   const surface = document.querySelector(".surface-toggle");
   let circle_tabs_outer = document.querySelector('.circle-tabs-outer') 
   let surface_options_parent = document.getElementById('exterior-surfaces')
-  let circleTabs = document.querySelectorAll('.circle-tab')
 
   function updateClearButtonVisibility() {
     const isActive =
@@ -1720,6 +1719,8 @@ document.addEventListener("DOMContentLoaded", function() {
   // Button click -> reload page
   if (clearButton) {
     clearButton.addEventListener("click", function() {
+    let circleTabs = document.querySelectorAll('.circle-tab')
+
       {% comment %} location.reload(); {% endcomment %}
       if(interio.classList.contains('active')){interio.classList.remove('active')}
       if(surface.classList.contains('active')){surface.classList.remove('active')}
