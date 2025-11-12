@@ -1741,7 +1741,7 @@ document.addEventListener("DOMContentLoaded", function() {
       product_item.forEach(t=>t.style.display = 'block')
       exterior_products.forEach(t=>t.style.display = 'block')
       product_outer.style.display = 'block'
-      exterior_circle_outer.style.display = 'none'
+      if(exterior_circle_outer)exterior_circle_outer.style.display = 'none'
       if (availableFilter && availableFilter.checked) {
         console.log('found',availableFilter)
     availableFilter.checked = false;
