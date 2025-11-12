@@ -170,13 +170,22 @@
               </svg>
               <form action="{{ localization.form_action }}" method="post" class="locale-form">
                 <input type="hidden" name="locale_code" id="locale-code">
-                <select onchange="this.form.submit()">
+                {% comment %} <select onchange="this.form.submit()">
                   {% for locale in shop.enabled_locales %}
                     <option value="{{ locale.iso_code }}" {% if locale.iso_code == localization.locale.iso_code %}selected{% endif %}>
                       {{ locale.iso_code | upcase }}
                     </option>
                   {% endfor %}
-                </select>
+                </select> {% endcomment %}
+                <select onchange="this.form.submit()">
+                {% for locale in shop.enabled_locales %}
+                  {% if locale.iso_code == 'en' %}
+                    <option value="{{ locale.iso_code }}" selected>
+                      ENG
+                    </option>
+                  {% endif %}
+                {% endfor %}
+              </select>
               </form>
             </div>
         </div>
