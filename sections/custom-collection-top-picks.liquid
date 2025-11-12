@@ -624,21 +624,21 @@ function updateCartCount(totalQuantityAdded) {
 function refreshCartDrawer() {
   const cartDrawer = document.querySelector('cart-drawer');
 
-  fetch(`${routes.cart_url}?sections=cart-drawer`)
-    .then(response => response.json())
-    .then(sections => {
-      const newCartDrawerHtml = sections['cart-drawer'];
-      const newDocument = new DOMParser().parseFromString(newCartDrawerHtml, 'text/html');
-      const newCartDrawer = newDocument.querySelector('cart-drawer');
+    fetch(`${routes.cart_url}?sections=cart-drawer`)
+      .then(response => response.json())
+      .then(sections => {
+        const newCartDrawerHtml = sections['cart-drawer'];
+        const newDocument = new DOMParser().parseFromString(newCartDrawerHtml, 'text/html');
+        const newCartDrawer = newDocument.querySelector('cart-drawer');
 
-      if (cartDrawer && newCartDrawer) {
-        cartDrawer.replaceWith(newCartDrawer);
-        document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
-        newCartDrawer.classList.add('active', 'animate');
-      }
-    })
-    .catch((error) => { console.error('Error refreshing cart drawer:', error); });
-}
+        if (cartDrawer && newCartDrawer) {
+          cartDrawer.replaceWith(newCartDrawer);
+          document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
+          newCartDrawer.classList.add('active', 'animate');
+        }
+      })
+      .catch((error) => { console.error('Error refreshing cart drawer:', error); });
+  }
 
 
 
