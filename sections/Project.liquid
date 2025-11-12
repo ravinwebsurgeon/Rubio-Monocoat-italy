@@ -1375,6 +1375,7 @@ document.addEventListener("DOMContentLoaded", function() {
       renderTabs(collectionHandle)
       circleTabsOuter?.classList.add("show-section");
       filterBar?.classList.add("show-section");
+      circleTabsOuter.classList.add('active-circle-outer')
 
       // Hide product wrappers
       tabProductsInterior?.classList.add("show-section");
@@ -1423,7 +1424,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll(".surface-toggle").forEach(el => el.classList.remove("active"));
     document.querySelector('.exteriour_tabs_section').classList.add('active');
     document.querySelector('.interior_tabs_section').classList.remove('active')
-
+    circleTabsOuter.classList.add('active-circle-outer')
       const section = document.querySelector('.interior_tabs_section');
       section.querySelectorAll(':scope > *:not(.filter-bar)').forEach(el => {
         el.style.display = 'none';
