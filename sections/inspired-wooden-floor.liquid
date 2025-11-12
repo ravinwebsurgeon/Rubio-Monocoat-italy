@@ -39,7 +39,10 @@
 
             <div class="hotspot-popup">
               <span class="close-hotspot">&times;</span>
-              <div class="hotspot-content"></div>
+              <div class="hotspot-content">
+                <img src="{{ sub_images[forloop.index0] | img_url: '300x' }}" alt="Hotspot content">
+                <h3>{{ sub_texts[forloop.index0] }}</h3>
+              </div>
             </div>
           </div>
         {% endif %}
