@@ -88,7 +88,26 @@
 
 <style>
 .cart_btn_main {display:none;}
-.certificate-puls-btn:hover .cart_btn_main {display:block;}
+.cart_btn_main {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Show cart button when hovering the parent container */
+.ctificte-btn--pulsss:hover .cart_btn_main {
+    display: flex;
+}
+
+/* Hide plus button when hovering the parent container */
+.ctificte-btn--pulsss:hover .certificate-puls-btn {
+    display: none;
+}
 {% comment %}hover effect on images{% endcomment %}
 .slider-product-image {
   position: relative;
