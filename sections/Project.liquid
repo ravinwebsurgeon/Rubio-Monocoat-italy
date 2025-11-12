@@ -1725,10 +1725,10 @@ document.addEventListener("DOMContentLoaded", function() {
       let product_item = document.querySelectorAll('.product-item')
       let product_outer = document.querySelectorAll('.tab-products-outer')
       {% comment %} location.reload(); {% endcomment %}
+       
       if(interio.classList.contains('active')){interio.classList.remove('active')}
       if(surface.classList.contains('active')){surface.classList.remove('active')}
       if(circle_tabs_outer.classList.contains('active-circle-outer')){circle_tabs_outer.classList.remove('active-circle-outer')}
-      console.log(circleTabs,'asas')
       circleTabs.forEach(t => t.classList.remove("active"));
       surface_items.forEach(t => t.classList.remove('active'));
       surface_options.forEach(t=> t.style.display = "none")
