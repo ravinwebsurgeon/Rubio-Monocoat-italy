@@ -33,10 +33,6 @@
     {% for product in product_list %}
       {% assign i = forloop.index0 %}
       <div class="top-picks-product-card">
-        {% comment %} <div class="slider-product-image">
-            <img src="{{ product.featured_image | img_url: 'master' }}" width="" height="" />
-        </div> {% endcomment %}
-
          {% if product.featured_image %}
             <div class="slider-product-image">
               <a href="{{ product.url }}">
