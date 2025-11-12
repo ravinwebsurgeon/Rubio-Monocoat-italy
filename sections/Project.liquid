@@ -1688,6 +1688,9 @@ document.addEventListener("DOMContentLoaded", function() {
   const interio = document.querySelector(".Interio");
   const exterior = document.querySelector(".exterior");
   const surface = document.querySelector(".surface-toggle");
+  let circle_tabs_outer = document.querySelector('.circle-tabs-outer') 
+  let surface_options_parent = document.getElementById('exterior-surfaces')
+  let circleTabs = document.querySelector('.surface-item')
 
   function updateClearButtonVisibility() {
     const isActive =
@@ -1727,7 +1730,9 @@ document.addEventListener("DOMContentLoaded", function() {
       }); {% endcomment %}
       if(interio.classList.contains('active')){interio.classList.remove('active')}
       if(surface.classList.contains('active')){surface.classList.remove('active')}
+      if(circle_tabs_outer.classList.contains('active-circle-outer')){circle_tabs_outer.classList.remove('active-circle-outer')}
 
+        circleTabs.forEach(t => t.classList.remove("active"));
     });
   }
 });
