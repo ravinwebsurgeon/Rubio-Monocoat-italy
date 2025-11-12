@@ -7,7 +7,6 @@
 {% assign btn_texts = collection.metafields.custom.inspired_wooden_btn_text.value %}
 {% assign btn_links = collection.metafields.custom.inspired_wooden_btn_link.value %}
 
-<p><strong>Sub Images:</strong> {{ sub_images | json }}</p>
 {% if meta_images != blank and meta_products != blank %}
 <section class="asdf inspired-collage" data-show="{{ meta_products | json }}">
   <div class="container">
@@ -41,7 +40,7 @@
             <div class="hotspot-popup">
               <span class="close-hotspot">&times;</span>
               <div class="hotspot-content">
-                <img src="{{ sub_images[forloop.index0] | image_url: '300px' }}" >
+                <img src="{{ sub_images[forloop.index0] | replace: '//', 'https://'  }}" >
                 <h3>{{ sub_texts[forloop.index0] }}</h3>
                  {% if btn_texts[forloop.index0] %}
                     <a href="btn_links[forloop.index0]">
