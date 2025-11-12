@@ -1719,10 +1719,10 @@ document.addEventListener("DOMContentLoaded", function() {
     clearButton.addEventListener("click", function() {
       {% comment %} location.reload(); {% endcomment %}
        document.querySelectorAll('.interiorBtn, .exteriorToggle, .circleTabs, .surface-item, .circle-tabs-outer').forEach(element => {
-    element.classList.remove('active');
-    if (element.classList.contains('circle-tabs-outer')) {
+        element.classList.remove('active');
+      if (element.classList.contains('circle-tabs-outer')) {
         element.classList.remove('active-circle-outer');
-    }
+      }
 });
     });
   }
