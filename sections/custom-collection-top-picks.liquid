@@ -87,26 +87,29 @@
 {% endif %}
 
 <style>
-.cart_btn_main {display:none;}
+.ctificte-btn--pulsss {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.certificate-puls-btn {
+    display: block;
+    cursor: pointer;
+}
+
 .cart_btn_main {
     display: none;
     position: absolute;
-    top: 0;
+    top: 100%; /* Show below the plus button */
     left: 0;
     right: 0;
-    bottom: 0;
-    align-items: center;
-    justify-content: center;
+    margin-top: 5px; /* Add some spacing */
 }
 
-/* Show cart button when hovering the parent container */
-.ctificte-btn--pulsss:hover .cart_btn_main {
-    display: flex;
-}
-
-/* Hide plus button when hovering the parent container */
-.ctificte-btn--pulsss:hover .certificate-puls-btn {
-    display: none;
+.certificate-puls-btn:hover + .cart_btn_main {
+    display: block;
 }
 {% comment %}hover effect on images{% endcomment %}
 .slider-product-image {
