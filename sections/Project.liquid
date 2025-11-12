@@ -1726,6 +1726,7 @@ document.addEventListener("DOMContentLoaded", function() {
       let product_item = document.querySelectorAll('.product-item')
       let product_outer = document.querySelector('.tab-products-outer')
       let exterior_products = document.querySelectorAll('.tab-products-wrap')
+      let exterior_circle_outer = document.querySelector('.circle-tabs-outer.exterior')
       {% comment %} location.reload(); {% endcomment %}
 
       if(interio.classList.contains('active')){interio.classList.remove('active')}
@@ -1737,6 +1738,7 @@ document.addEventListener("DOMContentLoaded", function() {
       product_item.forEach(t=>t.style.display = 'block')
       exterior_products.forEach(t=>t.style.display = 'block')
       product_outer.style.display = 'block'
+      exterior_circle_outer.style.display = 'none'
     });
   }
 });
