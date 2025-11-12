@@ -1717,7 +1717,13 @@ document.addEventListener("DOMContentLoaded", function() {
   // Button click -> reload page
   if (clearButton) {
     clearButton.addEventListener("click", function() {
-      location.reload();
+      {% comment %} location.reload(); {% endcomment %}
+       document.querySelectorAll('.interiorBtn, .exteriorToggle, .circleTabs, .surface-item, .circle-tabs-outer').forEach(element => {
+    element.classList.remove('active');
+    if (element.classList.contains('circle-tabs-outer')) {
+        element.classList.remove('active-circle-outer');
+    }
+});
     });
   }
 });
