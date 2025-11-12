@@ -335,7 +335,7 @@ document.addEventListener('click', function(e) {
   }
 });
 
-{% comment %} function handleAddToCart(variantId,button) {
+function handleAddToCart(variantId,button) {
   {% comment %} const variantId = button.dataset.variantId; {% endcomment %}
 
   // Show loading state
@@ -432,7 +432,7 @@ function refreshCartDrawer() {
       }
     })
     .catch((error) => { console.error('Error refreshing cart drawer:', error); });
-} {% endcomment %}
+}
 </script>
 
 {% schema %}
