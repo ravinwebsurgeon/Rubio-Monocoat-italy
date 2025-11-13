@@ -197,9 +197,9 @@
                         data-maple="{% if maple_image %}{{ maple_image | img_url: '400x'}} {%endif %}" 
                         data-default-view="cover"  
                   >
-                    {% if product.metafields.custom.cover_image != blank %}
+                    {% comment %} {% if product.metafields.custom.cover_image != blank %} {% endcomment %}
                               <img class="cover-image {% unless product.featured_image %}show_as_feature{%endunless %}" src="{{ product.metafields.custom.cover_image | img_url: ' ' }}" alt="{{ product.title }}" width="" height="">
-                            {% endif %}
+                            {% comment %} {% endif %} {% endcomment %}
                             <img class="featured-image {% unless product.featured_image %} no-featured-image {%endunless %}" src="{{ product.featured_image | img_url: ' ' }}" alt="{{ product.title | escape }}" width="" height="">
                           </div>
                 {% comment %} {% endif %} {% endcomment %}
