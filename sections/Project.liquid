@@ -1636,11 +1636,15 @@ console.log('Surface:', surface);
           const image = imgWrapper?.dataset[activeTabText];
           if (image) {
             if (parent === 'interior') {
-              const coverImg = imgWrapper.querySelector('img.cover-image');
-              if (coverImg) {coverImg.src = image;}
+              const coverImg = imgWrapper.querySelectorAll('img.cover-image');
+              if (coverImg) {
+                coverImg.forEach(img => {img.src = image; });    
+                }
             } else if (parent === 'exterior') {
-              const featImg = imgWrapper.querySelector('img.cover-image');
-              if (featImg) {featImg.src = image; }
+              const featImg = imgWrapper.querySelectorAll('img.cover-image');
+               if (featImg) {
+                featImg.forEach(img => {img.src = image; });    
+                }
             }
           }
         }
