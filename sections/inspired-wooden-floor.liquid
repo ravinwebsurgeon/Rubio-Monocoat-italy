@@ -20,11 +20,10 @@
       {% for image in meta_images %}
         {% assign current_image = sub_images[forloop.index0] %}
         {%  assign has_valid_image = true %}
-        {% if current_image != blank %}
+       <p class="something" style="display:none;"> {{ current_image }}</p>
           {% if current_image contains 'no-image' %}
             {% assign has_valid_image = false %}
           {% endif %}
-        {% endif %}
 
         {% assign handle = meta_products[forloop.index0] %}
         {% assign product = all_products[handle] %}
