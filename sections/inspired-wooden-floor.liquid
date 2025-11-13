@@ -24,10 +24,8 @@
         {% assign current_image = '' %}
 
     {% for img in sub_images %}
-      {% comment %} <p class="something">{{ img | img_url }}</p> {% endcomment %}
       {% if forloop.index0 == forloop.parentloop.index0 %}
         {% assign current_image = img | img_url %}
-        {% comment %} <p class="something">{{ current_image }}</p> {% endcomment %}
       {% endif %}
     {% endfor %}
     
@@ -58,11 +56,11 @@
             <div class="hotspot-popup">
               <span class="close-hotspot">&times;</span>
               <div class="hotspot-content">
-                  {% for img in sub_images %}
-                    {% if forloop.index0 == forloop.parentloop.index0 %}
-                      <img  src="{{ img | img_url: '300px' }}"/>
-                    {% endif %}
-                  {% endfor %}
+                  {% comment %} {% for img in sub_images %} {% endcomment %}
+                    {% comment %} {% if forloop.index0 == forloop.parentloop.index0 %} {% endcomment %}
+                      <img  src="{{ current_image | img_url: '300px' }}"/>
+                    {% comment %} {% endif %} {% endcomment %}
+                  {% comment %} {% endfor %} {% endcomment %}
                 <h3>{{ sub_texts[forloop.index0] }}</h3>
                  {% if btn_texts[forloop.index0] %}
                     <a href="{{ btn_links[forloop.index0] }}">
