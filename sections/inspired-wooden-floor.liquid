@@ -20,7 +20,6 @@
       {% for image in meta_images %}
         {% assign current_image = sub_images[forloop.index0] | img_url %}
         {%  assign has_valid_image = true %}
-       <p class="something" style="display:none;"><img src="{{ current_image }}"></p>
           {% if current_image contains 'no-image' %}
             {% assign has_valid_image = false %}
           {% endif %}
@@ -30,7 +29,7 @@
         {% if product %}
           <div class="collage-item {% if forloop.first %}large{% else %}small{% endif %}"  data-product = {{ product }}
                style="background-image: url('{{ image | img_url: 'master' }}')">
-              {% if sub_texts[forloop.index0] != blank or btn_texts[forloop.index0] !=blank or sub_images[forloop.index0] != blank %}
+              {% if sub_texts[forloop.index0] != blank or btn_texts[forloop.index0] !=blank or has_valid_image %}
               <a href="javascript:void(0);" 
                class="product-overlay-btn" 
                {% for pro in meta_products%} 
