@@ -27,7 +27,9 @@
           {% endif %}
         {% endfor %}
         {% assign valid = true %}
-{% if current_image contains 'no-image' %}{% assign valid = false %}{% endif %}
+        {% assign clean_image = current_image | strip | unescape %}
+
+{% if clean_image contains 'no-image' %}{% assign valid = false %}{% endif %}
 
 
         {% if product %}
