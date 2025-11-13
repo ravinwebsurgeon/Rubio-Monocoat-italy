@@ -23,7 +23,6 @@
         {% assign valid = false %}
   {% assign current_image = '' %}
 
-  {% if sub_images and sub_images.size > 0 %}
     {% for img in sub_images %}
       <p class="something">{{ img  }}</p>
       {% if forloop.index0 == forloop.parentloop.index0 %}
@@ -36,7 +35,6 @@
         {% assign valid = true %}
       {% endunless %}
     {% endif %}
-  {% endif %}
 
         {% if product %}
           <div class="collage-item {% if forloop.first %}large{% else %}small{% endif %}"  data-product = {{ product }}
