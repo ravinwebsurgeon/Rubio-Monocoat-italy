@@ -2,7 +2,7 @@
 {% assign meta_images = collection.metafields.custom.inspired_wooden_images.value %}
 {% assign meta_heading = collection.metafields.custom.inspired_wooden_heading.value %}
 
-{% assign sub_images = collection.metafields.custom.inspired_wooden_subimage.value %}
+{% assign sub_images = collection.metafields.custom.inspired_wooden_subimage %}
 {% assign sub_texts = collection.metafields.custom.inspired_wooden_subtext.value %}
 {% assign btn_texts = collection.metafields.custom.inspired_wooden_btn_text.value %}
 {% assign btn_links = collection.metafields.custom.inspired_wooden_btn_link.value %}
@@ -18,7 +18,7 @@
     </div>
     <div class="collage-grid">
       {% for image in meta_images %}
-        {% assign current_image = sub_images[forloop.index0] | img_url %}
+        {% assign current_image = sub_images[forloop.index0]  %}
         {%  assign has_valid_image = true %}
           {% if current_image contains 'no-image' %}
             {% assign has_valid_image = false %}
@@ -48,7 +48,7 @@
             <div class="hotspot-popup">
               <span class="close-hotspot">&times;</span>
               <div class="hotspot-content">
-                  {% for img in sub_images %}
+                  {% for img in sub_images.value %}
                     {% if forloop.index0 == forloop.parentloop.index0 %}
                       <img  src="{{ img | img_url: '300px' }}"/>
                     {% endif %}
