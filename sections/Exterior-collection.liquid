@@ -185,7 +185,7 @@
             
             <div class="product-item-img-col">
               <a href="{{ product.url }}">
-                {% if product.featured_image %}
+                {% comment %} {% if product.featured_image %} {% endcomment %}
                   <div class="product-image-wrapper"
                        data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}"
                        data-featured="{{ product.featured_image | img_url: '400x' }}"
@@ -202,7 +202,7 @@
                             {% endif %}
                             <img class="featured-image" src="{{ product.featured_image | img_url: ' ' }}" alt="{{ product.title | escape }}" width="" height="">
                           </div>
-                {% endif %}
+                {% comment %} {% endif %} {% endcomment %}
               </a>
               {% if product.metafields.custom.badge != blank %}
   <div class="product-badge">
