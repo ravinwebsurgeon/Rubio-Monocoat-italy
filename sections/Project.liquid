@@ -1728,6 +1728,7 @@ document.addEventListener("DOMContentLoaded", function() {
       let exterior_products = document.querySelectorAll('.tab-products-wrap')
       let exterior_circle_outer = document.querySelector('.circle-tabs-outer.exterior')
       const availableFilter = document.getElementById('available-filter');
+      let color_filters = document.querySelectorAll('.filter-item.colours')
 
       {% comment %} location.reload(); {% endcomment %}
 
@@ -1742,10 +1743,8 @@ document.addEventListener("DOMContentLoaded", function() {
       exterior_products.forEach(t=>t.style.display = 'block')
       product_outer.style.display = 'block'
       if(exterior_circle_outer)exterior_circle_outer.style.display = 'none'
-      if (availableFilter && availableFilter.checked) {
-        console.log('found',availableFilter)
-    availableFilter.checked = false;
-    }
+      color_filters.forEach(t=> t.classList.remove('active'));
+      if (availableFilter && availableFilter.checked) {availableFilter.checked = false;}
     });
   }
 });
