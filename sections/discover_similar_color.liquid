@@ -710,7 +710,7 @@ function refreshCartDrawer() {
     ]
   });
 
-  // Popup functionality
+  {% comment %} // Popup functionality
   const popup = document.getElementById('product-detail-popup');
   const popupImage = document.getElementById('popup-product-image');
   const popupTitle = document.getElementById('popup-product-title');
@@ -783,7 +783,7 @@ function refreshCartDrawer() {
     if (e.key === 'Escape') {
       closePopup();
     }
-  });
+  }); {% endcomment %}
 });
 
 
