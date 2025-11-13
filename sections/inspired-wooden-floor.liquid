@@ -25,6 +25,7 @@
 
   {% if sub_images and sub_images.size > 0 %}
     {% for img in sub_images %}
+      <p class="something">{{ img  }}</p>
       {% if forloop.index0 == forloop.parentloop.index0 %}
         {% assign current_image = img | img_url %}
       {% endif %}
