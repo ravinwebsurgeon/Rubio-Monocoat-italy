@@ -23,7 +23,6 @@
           {% if current_image contains 'no-image' %}
             {% assign has_valid_image = false %}
           {% endif %}
-
         {% assign handle = meta_products[forloop.index0] %}
         {% assign product = all_products[handle] %}
         {% if product %}
