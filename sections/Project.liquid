@@ -1637,10 +1637,10 @@ console.log('Surface:', surface);
           if (image) {
             if (parent === 'interior') {
               const coverImg = imgWrapper.querySelector('img.cover-image');
-              if (coverImg) {coverImg.src = image;coverImg.style.opacity = '1'}
+              if (coverImg) {coverImg.src = image;coverImg.style.opacity = '1'}else{coverImg.style.opacity = '0'}
             } else if (parent === 'exterior') {
               const featImg = imgWrapper.querySelector('img.cover-image');
-              if (featImg) {featImg.src = image; featImg.style.opacity = '1'}
+              if (featImg) {featImg.src = image; featImg.style.opacity = '1'}else{featImg.style.opacity = '0'}
             }
           }
         }
