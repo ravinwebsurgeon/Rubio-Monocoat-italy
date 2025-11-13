@@ -20,10 +20,17 @@
       {% for image in meta_images %}
         {% assign handle = meta_products[forloop.index0] %}
         {% assign product = all_products[handle] %}
+
+      {% for img in sub_images %}
+          {% if forloop.index0 == forloop.parentloop.index0 %}
+            {% assign current_image = img | img_url %}
+          {% endif %}
+        {% endfor %}
+
         {% if product %}
           <div class="collage-item {% if forloop.first %}large{% else %}small{% endif %}"  data-product = {{ product }}
                style="background-image: url('{{ image | img_url: 'master' }}')">
-              {% if sub_texts[forloop.index0] != blank or btn_texts[forloop.index0] !=blank %}
+              {% if sub_texts[forloop.index0] != blank or btn_texts[forloop.index0] !=blank or current_image %}
               <a href="javascript:void(0);" 
                class="product-overlay-btn" 
                {% for pro in meta_products%} 
