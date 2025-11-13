@@ -23,7 +23,7 @@
 
       {% for img in sub_images %}
           {% if forloop.index0 == forloop.parentloop.index0 %}
-            {% assign current_image = img | img_url %}
+            {% assign current_image = img  %}
           {% endif %}
         {% endfor %}
 
