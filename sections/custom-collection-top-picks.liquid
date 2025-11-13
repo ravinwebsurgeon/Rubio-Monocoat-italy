@@ -52,7 +52,7 @@
               <button class="cert-plus" type="button" data-product-index="{{ i }}">+</button>
             </div>
             <div class="cart_btn_main">
-              <button class="custom_product_cart_btn" data-variant-id="{{  product.selected_or_first_available_variant.id }}">Order Sample</button>
+              <button class="custom_product_cart_btn {% unless product.available %} disabled-btn {% endunless %}" data-variant-id="{{  product.selected_or_first_available_variant.id }}" {% unless product.available %} disabled {% endunless %}>Order Sample</button>
             </div>
           </div>
         </div>
