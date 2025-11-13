@@ -21,7 +21,7 @@
         {% assign handle = meta_products[forloop.index0] %}
         {% assign product = all_products[handle] %}
         {% assign valid = false %}
-  {% assign current_image = '' %}
+        {% assign current_image = '' %}
 
     {% for img in sub_images %}
       {% comment %} <p class="something">{{ img | img_url }}</p> {% endcomment %}
@@ -31,16 +31,14 @@
       {% endif %}
     {% endfor %}
     
-    {% if current_image and current_image != '' %}
-      {% unless current_image contains 'no-image' %}
+    {% if current_image != '' %}
         {% assign valid = true %}
-      {% endunless %}
     {% endif %}
 
         {% if product %}
           <div class="collage-item {% if forloop.first %}large{% else %}small{% endif %}"  data-product = {{ product }}
                style="background-image: url('{{ image | img_url: 'master' }}')">
-              {% if sub_texts[forloop.index0] != blank or btn_texts[forloop.index0] !=blank or current_image %}
+              {% if sub_texts[forloop.index0] != blank or btn_texts[forloop.index0] !=blank or valid %}
               <a href="javascript:void(0);" 
                class="product-overlay-btn" 
                {% for pro in meta_products%} 
