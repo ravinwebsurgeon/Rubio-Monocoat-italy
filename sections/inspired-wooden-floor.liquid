@@ -19,11 +19,11 @@
     <div class="collage-grid">
       {% for image in meta_images %}
         {% assign current_image = sub_images[forloop.index0] %}
-
+        {%  assign has_valid_image = true %}
         {% if current_image != blank %}
-          {% unless current_image contains 'no-image' %}
-            {% assign has_valid_image = true %}
-          {% endunless %}
+          {% if current_image contains 'no-image' %}
+            {% assign has_valid_image = false %}
+          {% endif %}
         {% endif %}
 
         {% assign handle = meta_products[forloop.index0] %}
