@@ -26,6 +26,9 @@
             {% assign current_image = img | img_url %}
           {% endif %}
         {% endfor %}
+        {% assign valid = true %}
+{% if current_image contains 'no-image' %}{% assign valid = false %}{% endif %}
+
 
         {% if product %}
           <div class="collage-item {% if forloop.first %}large{% else %}small{% endif %}"  data-product = {{ product }}
