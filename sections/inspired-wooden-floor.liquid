@@ -56,11 +56,14 @@
             <div class="hotspot-popup">
               <span class="close-hotspot">&times;</span>
               <div class="hotspot-content">
-                  {% for img in sub_images %}
+                  {% comment %} {% for img in sub_images %}
                     {% if forloop.index0 == forloop.parentloop.index0 %}
                       <img  src="{{ current_image | img_url: '300px' }}"/>
                     {% endif %}
-                  {% endfor %}
+                  {% endfor %} {% endcomment %}
+                   {% if current_image != blank %}
+                    <img src="{{ current_image | img_url: '300px' }}" alt="">
+                  {% endif %}
                 <h3>{{ sub_texts[forloop.index0] }}</h3>
                  {% if btn_texts[forloop.index0] %}
                     <a href="{{ btn_links[forloop.index0] }}">
