@@ -346,7 +346,7 @@
                             {% if product.metafields.custom.cover_image != blank %}
                               <img class="cover-image {% unless product.featured_image %}show_as_feature{%endunless %} {% unless  product.metafields.custom.cover_image %} no-cover-image {% endunless %} " src="{{ product.metafields.custom.cover_image | img_url: ' ' }}" alt="{{ product.title }}" width="" height="">
                             {% endif %}
-                            <img class="featured-image {% unless product.featured_image %} no-featured-image {%endunless %} {% unless  product.metafields.custom.cover_image %} cover-image show_as_cover {% endunless %}" src="{{ product.featured_image | img_url: ' ' }}" alt="{{ product.title | escape }}" width="" height="">
+                            <img class="featured-image {% unless product.featured_image %} no-featured-image {%endunless %} {% unless  product.metafields.custom.cover_image %} cover_image show_as_cover {% endunless %}" src="{{ product.featured_image | img_url: ' ' }}" alt="{{ product.title | escape }}" width="" height="">
                           </div>
                           {% comment %} {% endif %}  {% endcomment %}
                           </a>
