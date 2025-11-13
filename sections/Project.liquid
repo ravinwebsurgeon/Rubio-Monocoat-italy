@@ -2332,7 +2332,7 @@ button.icon-btn.filter span {
 .product-image-wrapper[data-default-view="featured"] .featured-image.no-featured-image {opacity: 0;}
 .product-image-wrapper[data-default-view="featured"] .show_as_feature {opacity: 1;}
 
-.product-image-wrapper[data-default-view="featured"]  .cover-image.no-cover-image {opacity:0}
+{% comment %} .product-image-wrapper[data-default-view="featured"]  .cover-image.no-cover-image {opacity:0}
 .product-image-wrapper[data-default-view="featured"]  .show_as_cover {opacity:1}
 .product-image-wrapper[data-default-view="featured"]:hover  .cover-image.no-cover-image {opacity:0}
 .product-image-wrapper[data-default-view="featured"]:hover  .show_as_cover {opacity:1}
@@ -2340,7 +2340,7 @@ button.icon-btn.filter span {
 .product-image-wrapper[data-default-view="cover"]  .cover-image.no-cover-image {opacity:0}
 .product-image-wrapper[data-default-view="cover"]  .show_as_cover {opacity:1}
 .product-image-wrapper[data-default-view="cover"]:hover .cover-image.no-cover-image {opacity:0}
-.product-image-wrapper[data-default-view="cover"]:hover  .show_as_cover{opacity:1}
+.product-image-wrapper[data-default-view="cover"]:hover  .show_as_cover{opacity:1} {% endcomment %}
 /* Hover always overrides the default */
  {% comment %} .product-image-wrapper:hover .cover-image {
   opacity: 1 !important;
