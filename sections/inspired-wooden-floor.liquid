@@ -48,7 +48,7 @@
                   {% endfor %}
                 <h3>{{ sub_texts[forloop.index0] }}</h3>
                  {% if btn_texts[forloop.index0] %}
-                    <a href="btn_links[forloop.index0]">
+                    <a href="{{ btn_links[forloop.index0] }}">
                       <button type="submit" class="ajax_add_cart">{{ btn_texts[forloop.index0] }}</button>
                     </a>
                 {% endif %}
