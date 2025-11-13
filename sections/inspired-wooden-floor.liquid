@@ -40,7 +40,7 @@
         {% if product %}
           <div class="collage-item {% if forloop.first %}large{% else %}small{% endif %}"  data-product = {{ product }}
                style="background-image: url('{{ image | img_url: 'master' }}')">
-              {% if sub_texts[forloop.index0] != blank or btn_texts[forloop.index0] !=blank  %}
+              {% if sub_texts[forloop.index0] != blank or btn_texts[forloop.index0] !=blank or valid %}
               <a href="javascript:void(0);" 
                class="product-overlay-btn" 
                {% for pro in meta_products%} 
