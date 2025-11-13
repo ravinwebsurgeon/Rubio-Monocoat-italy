@@ -20,16 +20,22 @@
       {% for image in meta_images %}
         {% assign handle = meta_products[forloop.index0] %}
         {% assign product = all_products[handle] %}
-{% comment %} 
-      {% for img in sub_images %}
-          {% if forloop.index0 == forloop.parentloop.index0 %}
-            {% assign current_image = img | img_url %}
-          {% endif %}
-        {% endfor %}
-        {% assign valid = true %}
+        {% assign valid = false %}
+  {% assign current_image = '' %}
 
-{% if current_image contains 'no-image' %}{% assign valid = false %}{% endif %}
- {% endcomment %}
+  {% if sub_images and sub_images.size > 0 %}
+    {% for img in sub_images %}
+      {% if forloop.index0 == forloop.parentloop.index0 %}
+        {% assign current_image = img | img_url %}
+      {% endif %}
+    {% endfor %}
+    
+    {% if current_image and current_image != '' %}
+      {% unless current_image contains 'no-image' %}
+        {% assign valid = true %}
+      {% endunless %}
+    {% endif %}
+  {% endif %}
 
         {% if product %}
           <div class="collage-item {% if forloop.first %}large{% else %}small{% endif %}"  data-product = {{ product }}
