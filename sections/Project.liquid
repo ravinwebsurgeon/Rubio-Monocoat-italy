@@ -1637,14 +1637,18 @@ console.log('Surface:', surface);
           if (image) {
             if (parent === 'interior') {
               const coverImg = imgWrapper.querySelectorAll('img.cover-image');
+              const cover_image = imgWrapper.querySelector('img.cover_image');
               if (coverImg) {
                 coverImg.forEach(img => {img.src = image; });    
                 }
+              if(cover_image){cover_image.src = image;}
             } else if (parent === 'exterior') {
               const featImg = imgWrapper.querySelectorAll('img.cover-image');
+              const cover_image_exterior = imgWrapper.querySelector('img.cover_image');
                if (featImg) {
                 featImg.forEach(img => {img.src = image; });    
                 }
+                if(cover_image_exterior){cover_image_exterior.src = image;}
             }
           }
         }
