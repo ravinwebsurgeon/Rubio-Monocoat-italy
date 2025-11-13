@@ -583,7 +583,7 @@ button.popup-close {
  <script>
 document.addEventListener("DOMContentLoaded", function() {
 //add product into cart
-document.querySelectorAll('.product_cart_btn').forEach(function (button) {
+document.querySelectorAll('.custom_product_cart_btn').forEach(function (button) {
         button.addEventListener('click', function () {
             const variantId = button.dataset.variantId;
             fetch('/cart/add.js', {
