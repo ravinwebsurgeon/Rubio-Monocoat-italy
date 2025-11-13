@@ -332,7 +332,7 @@
                       data-product-id="{{ product.variants.first.id }}">                        
                         <div class="product-item-img-col">
                           <a href="{{ product.url }}">
-                          {% comment %} {% if product.featured_image %} {% endcomment %}
+                          {% if product.featured_image %}
                           <div class="product-image-wrapper" 
                             data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}" 
                             data-featured="{{ product.featured_image | img_url: '400x' }}" 
@@ -345,11 +345,10 @@
                           >
                             {% if product.metafields.custom.cover_image != blank %}
                               <img class="cover-image" src="{{ product.metafields.custom.cover_image | img_url: ' ' }}" alt="{{ product.title }}" width="" height="">
-                            {% else %}
+                            {% endif %}
                             <img class="featured-image" src="{{ product.featured_image | img_url: ' ' }}" alt="{{ product.title | escape }}" width="" height="">
-                          {% endif %}
                           </div>
-                          {% comment %} {% endif %}  {% endcomment %}
+                          {% endif %} 
                           </a>
 
                           {% if product.metafields.custom.badge != blank %}
