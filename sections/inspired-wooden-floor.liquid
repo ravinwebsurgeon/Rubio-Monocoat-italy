@@ -24,7 +24,7 @@
   {% assign current_image = '' %}
 
     {% for img in sub_images %}
-      {% comment %} <p class="something">{{ img  }}</p> {% endcomment %}
+      <p class="something">{{ img | img_url }}</p>
       {% if forloop.index0 == forloop.parentloop.index0 %}
         {% assign current_image = img | img_url %}
       {% endif %}
