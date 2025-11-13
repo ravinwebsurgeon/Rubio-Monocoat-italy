@@ -20,7 +20,7 @@
       {% for image in meta_images %}
         {% assign current_image = sub_images[forloop.index0] %}
         {%  assign has_valid_image = true %}
-       <p class="something" style="display:none;"> {{ current_image }}</p>
+       <p class="something" style="display:none;"><img src="{{ current_image | img_url}}"></p>
           {% if current_image contains 'no-image' %}
             {% assign has_valid_image = false %}
           {% endif %}
