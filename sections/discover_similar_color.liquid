@@ -51,7 +51,6 @@
             <h3>{{ product.title }}</h3>
             <p>{{ product.metafields.custom.collectionproduct_subtitle.value }}</p>
             <div class="ctificte-btn--pulsss">
-              <span class="add__sample">Add Sample</span>
               <div class="certificate-puls-btn">
                 <button class="cert-plus custom_plus_product_cart_btn 
                   {% comment %} {% unless product.available %}disabled-btn{% endunless %} {% endcomment %}
@@ -60,7 +59,8 @@
                   data-product-index="{{ i }}" 
                    data-variant-id="{{  product.selected_or_first_available_variant.id }}"
                    {% comment %} {% unless product.available %} disabled {% endunless %}  {% endcomment %}
-                >+</button>
+                >+
+               <span class="add__sample">Add Sample</span></button>
               </div>
                <div class="cart_btn_main">
               {% comment %} <button class="custom_product_cart_btn product_cart_btn 
