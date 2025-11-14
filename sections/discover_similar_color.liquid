@@ -59,7 +59,8 @@
                   data-product-index="{{ i }}" 
                    data-variant-id="{{  product.selected_or_first_available_variant.id }}"
                    {% comment %} {% unless product.available %} disabled {% endunless %}  {% endcomment %}
-                >+</button>
+                >+
+               <span class="add__sample">Add Sample</span></button>
               </div>
                <div class="cart_btn_main">
               {% comment %} <button class="custom_product_cart_btn product_cart_btn 
@@ -122,7 +123,8 @@
     display: none;
 } {% endcomment %}
 
-
+.add__sample {display:none;visibility: hidden;}
+.custom_plus_product_cart_btn:hover .add__sample{display:block;visibility:visible}
 {% comment %}hover effect on images{% endcomment %}
 .slider-product-image {
   position: relative;
