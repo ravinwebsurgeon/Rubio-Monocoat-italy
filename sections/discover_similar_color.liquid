@@ -617,6 +617,7 @@ document.querySelectorAll('.custom_plus_product_cart_btn').forEach(function (but
             .then(data => {
                 console.log('Added to cart:', data);
                 button.querySelector('.add__sample').textContent = 'Added'
+                button.querySelector('.plus___icon').textContent = '✔';
                 updateCartCount(1);
                 refreshCartDrawer();
             })
