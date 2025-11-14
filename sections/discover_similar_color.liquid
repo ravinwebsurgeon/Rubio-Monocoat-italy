@@ -678,7 +678,10 @@ function refreshCartDrawer() {
       if (cartDrawer && newCartDrawer) {
         cartDrawer.replaceWith(newCartDrawer);
         document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
-        {% comment %} document.querySelector('.added__message').style.display = 'block' {% endcomment %}
+        document.querySelector('.added__message').classList.add('active-message')
+        setTimeout(() => {
+          message.classList.remove('active-message');
+        }, 5000);
         {% comment %} newCartDrawer.classList.add('active', 'animate'); {% endcomment %}
       }
     })
