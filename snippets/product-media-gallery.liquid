@@ -886,40 +886,43 @@ document.querySelectorAll('.swiper-slide').forEach(slide => {
   updateGallery();
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-const thumbnails = document.querySelectorAll('.thumbnail-item');
-const modal = document.querySelector('.fullscreen-modal');
-const modalImg = modal.querySelector('img');
-const closeBtn = modal.querySelector('.close-fullscreen');
+document.addEventListener("DOMContentLoaded", function () {
 
-// Open fullscreen
-thumbnails.forEach(thumbnail => {
-    thumbnail.addEventListener('click', function (e) {
-        e.preventDefault();
+    const modal = document.querySelector('.fullscreen-modal');
+    const modalImg = modal.querySelector('img');
+    const closeBtn = modal.querySelector('.close-fullscreen');
 
-        modalImg.src = thumbnail.querySelector('img').src;
-        modal.classList.add('active');
+    // ---- SELECT ALL CLICKABLE IMAGES ----
+    const thumbnails = document.querySelectorAll('.thumbnail-item img');
+    const mainImages = document.querySelectorAll('.main-image-item img');
+
+    // Combine them into one list
+    const allImages = [...thumbnails, ...mainImages];
+
+    // ---- OPEN FULLSCREEN ----
+    allImages.forEach(img => {
+        img.addEventListener('click', function (e) {
+            e.preventDefault();
+            modalImg.src = img.src;   // Image clicked becomes fullscreen
+            modal.classList.add('active');
+        });
     });
-});
 
-// Function to close fullscreen with animation
-function closeModal() {
-    modal.classList.add('closing');
-
-    setTimeout(() => {
-        modal.classList.remove('active', 'closing');
-    }, 350); // same as your CSS animation duration
-}
-
-// Close button click
-closeBtn.addEventListener('click', closeModal);
-
-// Click outside the image to close
-modal.addEventListener('click', function (e) {
-    if (e.target === modal) {
-        closeModal();
+    // ---- CLOSE FULLSCREEN ----
+    function closeModal() {
+        modal.classList.add('closing');
+        setTimeout(() => {
+            modal.classList.remove('active', 'closing');
+        }, 350);
     }
-});
+
+    // Close button
+    closeBtn.addEventListener('click', closeModal);
+
+    // Click on dark background (not image)
+    modal.addEventListener('click', e => {
+        if (e.target === modal) closeModal();
+    });
 });
 </script>
 
