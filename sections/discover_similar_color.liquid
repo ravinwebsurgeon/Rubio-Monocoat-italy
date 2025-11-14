@@ -52,7 +52,7 @@
             <p>{{ product.metafields.custom.collectionproduct_subtitle.value }}</p>
             <div class="ctificte-btn--pulsss">
               <div class="certificate-puls-btn">
-                <button class="cert-plus custom_product_cart_btn 
+                <button class="cert-plus custom_plus_product_cart_btn 
                   {% comment %} {% unless product.available %}disabled-btn{% endunless %} {% endcomment %}
                    " 
                   type="button" 
@@ -591,7 +591,7 @@ button.popup-close {
  <script>
 document.addEventListener("DOMContentLoaded", function() {
 //add product into cart
-document.querySelectorAll('.custom_product_cart_btn').forEach(function (button) {
+document.querySelectorAll('.custom_plus_product_cart_btn').forEach(function (button) {
         button.addEventListener('click', function () {
             const variantId = button.dataset.variantId;
             fetch('/cart/add.js', {
