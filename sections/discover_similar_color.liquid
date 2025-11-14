@@ -124,7 +124,13 @@
 } {% endcomment %}
 
 .add__sample {display:none;visibility: hidden;}
-.custom_plus_product_cart_btn:hover .add__sample{display:block;visibility:visible}
+.custom_plus_product_cart_btn:hover .add__sample{
+  display:block;
+  visibility:visible;
+  position:absolute;
+  top:0;
+  right:0;
+}
 {% comment %}hover effect on images{% endcomment %}
 .slider-product-image {
   position: relative;
