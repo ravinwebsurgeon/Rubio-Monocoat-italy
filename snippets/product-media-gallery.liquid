@@ -494,6 +494,63 @@
 }
 .thumbnail-item video{width:100%;}
 .main-image-item video{width:100%;}
+
+{% comment %} full image popup design{% endcomment %}
+
+.fullscreen-modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    z-index: 9999999;
+    transition: opacity .35s ease, visibility .35s ease;
+}
+
+.fullscreen-modal.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.fullscreen-modal img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+
+    transform: scale(.8);
+    transition: transform .35s ease;
+}
+
+.fullscreen-modal.active img {
+    transform: scale(1);
+}
+
+.fullscreen-modal.closing img {
+    transform: scale(0.6);
+}
+
+/* Close button */
+.close-fullscreen {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 40px;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10000000;
+}
+
 {% endstyle %}
 
 {% comment %} <script>
@@ -827,6 +884,42 @@ document.querySelectorAll('.swiper-slide').forEach(slide => {
 
   // Initial call
   updateGallery();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+const thumbnails = document.querySelectorAll('.thumbnail-item');
+const modal = document.querySelector('.fullscreen-modal');
+const modalImg = modal.querySelector('img');
+const closeBtn = modal.querySelector('.close-fullscreen');
+
+// Open fullscreen
+thumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        modalImg.src = thumbnail.querySelector('img').src;
+        modal.classList.add('active');
+    });
+});
+
+// Function to close fullscreen with animation
+function closeModal() {
+    modal.classList.add('closing');
+
+    setTimeout(() => {
+        modal.classList.remove('active', 'closing');
+    }, 350); // same as your CSS animation duration
+}
+
+// Close button click
+closeBtn.addEventListener('click', closeModal);
+
+// Click outside the image to close
+modal.addEventListener('click', function (e) {
+    if (e.target === modal) {
+        closeModal();
+    }
+});
 });
 </script>
 
