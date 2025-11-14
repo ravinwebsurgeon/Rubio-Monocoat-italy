@@ -681,7 +681,7 @@ function refreshCartDrawer() {
         document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
         document.querySelector('.added__message').classList.add('active-message')
         setTimeout(() => {
-          message.classList.remove('active-message');
+          document.querySelector('.added__message').classList.remove('active-message');
         }, 5000);
         {% comment %} newCartDrawer.classList.add('active', 'animate'); {% endcomment %}
       }
