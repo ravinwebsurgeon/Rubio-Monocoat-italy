@@ -741,9 +741,11 @@ function updateSampleButtons() {
         if (inCart) {
           button.querySelector('.add__sample').textContent = 'Added';
           button.classList.add('added');
+          button.querySelector('.plus___icon').textContent = '✔';
         } else {
           button.querySelector('.add__sample').textContent = 'Add Sample';
           button.classList.remove('added');
+          button.querySelector('.plus___icon').textContent = '+';
         }
       });
     });
