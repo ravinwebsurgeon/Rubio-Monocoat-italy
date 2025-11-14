@@ -678,7 +678,8 @@ function refreshCartDrawer() {
       if (cartDrawer && newCartDrawer) {
         cartDrawer.replaceWith(newCartDrawer);
         document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
-        newCartDrawer.classList.add('active', 'animate');
+        {% comment %} document.querySelector('.added__message').style.display = 'block' {% endcomment %}
+        {% comment %} newCartDrawer.classList.add('active', 'animate'); {% endcomment %}
       }
     })
     .catch((error) => { console.error('Error refreshing cart drawer:', error); });
