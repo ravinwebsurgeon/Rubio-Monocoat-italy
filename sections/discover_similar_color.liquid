@@ -58,11 +58,11 @@
                 >+</button>
               </div>
                <div class="cart_btn_main">
-              <button class="custom_product_cart_btn product_cart_btn 
+              {% comment %} <button class="custom_product_cart_btn product_cart_btn 
                 {% unless product.available %} disabled-btn {% endunless %}" 
                  data-variant-id="{{  product.selected_or_first_available_variant.id }}" 
                  {% unless product.available %} disabled {% endunless %}
-                >i</button>
+                >i</button> {% endcomment %}
             </div>
             </div>
           </div>
