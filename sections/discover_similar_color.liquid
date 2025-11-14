@@ -727,6 +727,50 @@ function refreshCartDrawer() {
     ]
   });
 
+
+  // Function to update all buttons based on cart contents
+function updateSampleButtons() {
+  fetch('/cart.js')
+    .then(res => res.json())
+    .then(cart => {
+      document.querySelectorAll('.custom_plus_product_cart_btn').forEach(button => {
+        const variantId = parseInt(button.dataset.variantId);
+        const inCart = cart.items.some(item => item.variant_id === variantId);
+
+        if (inCart) {
+          button.querySelector('.add__sample').textContent = 'Added';
+          button.classList.add('added');
+        } else {
+          button.querySelector('.add__sample').textContent = 'Add Sample';
+          button.classList.remove('added');
+        }
+      });
+    });
+}
+
+// Initial check on page load
+updateSampleButtons();
+
+// Add click event to add item
+document.querySelectorAll('.custom_plus_product_cart_btn').forEach(button => {
+  button.addEventListener('click', function() {
+    const variantId = parseInt(this.dataset.variantId);
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items: [{ id: variantId, quantity: 1 }] })
+    })
+    .then(res => res.json())
+    .then(() => {
+      updateSampleButtons(); // Update all buttons after add
+    });
+  });
+});
+
+// Optional: Watch cart changes (remove items) every 2-3 seconds
+setInterval(updateSampleButtons, 2000);
+
   
 });
 
