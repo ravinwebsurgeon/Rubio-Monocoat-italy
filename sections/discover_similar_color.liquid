@@ -726,82 +726,50 @@ function refreshCartDrawer() {
       }
     ]
   });
-
-  {% comment %} // Popup functionality
-  const popup = document.getElementById('product-detail-popup');
-  const popupImage = document.getElementById('popup-product-image');
-  const popupTitle = document.getElementById('popup-product-title');
-  const popupSubtitle = document.getElementById('popup-product-subtitle');
-  const popupDescription = document.getElementById('popup-product-description');
-  const viewProductBtn = document.querySelector('.btn-view-product');
-  const cartBtn = document.querySelector('.ajax_Add_to_cart');
-  let currentProductIndex = 0;
-  let currentProductUrl = '';
-
-  // Open popup when plus button is clicked
-  document.querySelectorAll(".cert-plus").forEach(btn => {
-    btn.addEventListener("click", function() {
-      const productIndex = parseInt(this.getAttribute('data-product-index'));
-      currentProductIndex = productIndex;
-      
-      // Update button to show minus
-      this.textContent = "x";
-      this.classList.add('active');
-      // Show popup with product details
-      showProductPopup(productIndex);
-    });
-  });
-  // Close popup
-  document.querySelector('.popup-close').addEventListener('click', closePopup);
-  document.querySelector('.popup-overlay').addEventListener('click', closePopup);
-
-  // View product button
-  viewProductBtn.addEventListener('click', function() {
-    window.location.href = currentProductUrl;
-  });
-
-  function showProductPopup(index) {
-    const product = productData[index];
-    
-    popupImage.src = product.image;
-    popupImage.alt = product.title;
-    popupTitle.textContent = product.title;
-    popupSubtitle.textContent = product.subtitle;
-    popupDescription.innerHTML = product.description
-    currentProductUrl = product.url;
-    variantId= product.variantId
-
-    let qty = product.inventory_quantity
-    if(qty == 0){
-      cartBtn.classList.add('disabled-btn')
-      cartBtn.disabled = true;
-    }
-
-    cartBtn.setAttribute('data-variant-id',variantId)
-    popup.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-    document.body.classList.add('custom-popup-overlay')
-  }
-
-  function closePopup() {
-    popup.style.display = 'none';
-    document.body.style.overflow = 'auto';
-        document.body.classList.remove('custom-popup-overlay')
-
-    // Reset all plus buttons
-    document.querySelectorAll(".cert-plus").forEach(btn => {
-      btn.textContent = "+";
-      btn.classList.remove('active');
-    });
-  }
-
-  // Close popup with Escape key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      closePopup();
-    }
-  }); {% endcomment %}
 });
+
+// Function to update all buttons based on cart contents
+function updateSampleButtons() {
+  fetch('/cart.js')
+    .then(res => res.json())
+    .then(cart => {
+      document.querySelectorAll('.sample-btn').forEach(button => {
+        const variantId = parseInt(button.dataset.variant);
+        const inCart = cart.items.some(item => item.variant_id === variantId);
+
+        if (inCart) {
+          button.querySelector('.add__sample').textContent = 'Added';
+          button.classList.add('added');
+        } else {
+          button.querySelector('.add__sample').textContent = 'Add Sample';
+          button.classList.remove('added');
+        }
+      });
+    });
+}
+
+// Initial check on page load
+updateSampleButtons();
+
+// Add click event to add item
+document.querySelectorAll('.sample-btn').forEach(button => {
+  button.addEventListener('click', function() {
+    const variantId = parseInt(this.dataset.variant);
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items: [{ id: variantId, quantity: 1 }] })
+    })
+    .then(res => res.json())
+    .then(() => {
+      updateSampleButtons(); // Update all buttons after add
+    });
+  });
+});
+
+// Optional: Watch cart changes (remove items) every 2-3 seconds
+setInterval(updateSampleButtons, 2000);
 
 
 </script>
