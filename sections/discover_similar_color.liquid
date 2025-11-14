@@ -52,7 +52,10 @@
             <p>{{ product.metafields.custom.collectionproduct_subtitle.value }}</p>
             <div class="ctificte-btn--pulsss">
               <div class="certificate-puls-btn">
-                <button class="cert-plus" type="button" data-product-index="{{ i }}">+</button>
+                <button class="cert-plus" type="button" 
+                  data-product-index="{{ i }}" 
+                   data-variant-id="{{  product.selected_or_first_available_variant.id }}" 
+                >+</button>
               </div>
                <div class="cart_btn_main">
               <button class="custom_product_cart_btn product_cart_btn 
@@ -68,7 +71,7 @@
     </div>
   </div>
 
-  
+{% comment %}   
   <!-- Product Detail Popup -->
   <div id="product-detail-popup" class="product-popup">
     <div class="popup-overlay"></div>
@@ -89,13 +92,13 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> {% endcomment %}
   
 </section>
 {% endif %}
 
 <style>
-.cart_btn_main {
+{% comment %} .cart_btn_main {
     display: none;
     position: absolute;
     top: 0;
@@ -113,7 +116,7 @@
 /* Hide plus button when hovering the parent container */
 .ctificte-btn--pulsss:hover .certificate-puls-btn {
     display: none;
-}
+} {% endcomment %}
 
 
 {% comment %}hover effect on images{% endcomment %}
