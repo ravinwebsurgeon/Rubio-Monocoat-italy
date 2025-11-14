@@ -564,7 +564,13 @@
                 %}
 
               {%- when 'variant_picker' -%}
-                {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+                {% assign oil_calculator = product.metafields.custom.oil_calculator.value %}
+                {% render 'product-variant-picker', 
+                  product: product, 
+                  block: block, 
+                  product_form_id: product_form_id,
+                  oil_calculator:oil_calculator
+                %}
               {%- when 'buy_buttons' -%}
 
 <div class="product-addons-wrapper">
