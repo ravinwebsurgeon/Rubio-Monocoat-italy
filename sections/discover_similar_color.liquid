@@ -616,6 +616,7 @@ document.querySelectorAll('.custom_plus_product_cart_btn').forEach(function (but
             .then(response => response.json())
             .then(data => {
                 console.log('Added to cart:', data);
+                button.querySelector('.add__sample').textContent = 'Added'
                 updateCartCount(1);
                 refreshCartDrawer();
             })
