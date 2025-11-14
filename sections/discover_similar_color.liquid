@@ -726,9 +726,8 @@ function refreshCartDrawer() {
       }
     ]
   });
-});
 
-// Function to update all buttons based on cart contents
+  // Function to update all buttons based on cart contents
 function updateSampleButtons() {
   fetch('/cart.js')
     .then(res => res.json())
@@ -770,6 +769,9 @@ document.querySelectorAll('.sample-btn').forEach(button => {
 
 // Optional: Watch cart changes (remove items) every 2-3 seconds
 setInterval(updateSampleButtons, 2000);
+
+});
+
 
 
 </script>
