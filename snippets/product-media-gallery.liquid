@@ -374,9 +374,9 @@
              {% endunless %}  {% endcomment %}
              style="display: none;">
             {% if media.media_type == 'image' %}
-              {% comment %} <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}" data-type="image"> {% endcomment %}
+              <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}" data-type="image">
                 <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
-              {% comment %} </a> {% endcomment %}
+              </a>
             {% elsif media.media_type == 'video' %}
               {{ media | video_tag: controls: false, autoplay: true, loop: true, muted: true }}
             {% endif %}
