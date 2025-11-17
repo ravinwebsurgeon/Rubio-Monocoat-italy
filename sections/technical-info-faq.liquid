@@ -49,8 +49,15 @@
 
                 <div class="tech-info-answer">
                   {% if t_question contains 'Download' or t_question contains 'download' %}
-                    <a href="{{ t_answer }}" class="tech-download-btn" onclick="forceDownload(event, this.href)">Download File</a>
-                  {% else %}
+                      {%  if t_answer contains ',' %}
+                        {% assign urls = t_answer | split: ',' %}
+                          {% for url in urls %}
+                            <a href="{{ url | strip }}" class="tech-download-btn" onclick="forceDownload(event, this.href)">Download File</a>
+                          {% endfor %}
+                      {% else %}
+                      <a href="{{ t_answer }}" class="tech-download-btn" onclick="forceDownload(event, this.href)">Download File</a>
+                      {% endif %}
+                   {% else %}
                     <p>{{ t_answer }}</p>
                   {% endif %}
                   <div class="technical_content_here">
