@@ -319,7 +319,9 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   // Accordion toggle
-  document.querySelectorAll(".cert-plus").forEach(btn => {
+  {% comment %} document.querySelectorAll(".cert-plus").forEach(btn => { {% endcomment %}
+  document.querySelectorAll(".certificate-card").forEach(btn => {
+    
     {% comment %} 
      btn.addEventListener("click", function() {
       const card = this.closest(".certificate-card");
