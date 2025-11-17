@@ -331,14 +331,32 @@
 <script>
 function forceDownload(e, url) {
   e.preventDefault();
+
+  // Trim the URL to remove accidental spaces
+  url = url.trim();
+
+  // Get the file name from URL
   const fileName = url.split('/').pop().split('?')[0];
+
+  // Create a temporary link
   const a = document.createElement('a');
   a.href = url;
   a.setAttribute('download', fileName);
+
+  // Append to body and trigger click
   document.body.appendChild(a);
   a.click();
+
+  // Remove the temporary link
   document.body.removeChild(a);
 }
+
+// Optional: if some <a> are dynamically added after page load, attach event via JS
+document.addEventListener('click', function(e) {
+  if (e.target.matches('.tech-download-btn')) {
+    forceDownload(e, e.target.href);
+  }
+});
 </script>
 <script>
 $(document).ready(function () {
