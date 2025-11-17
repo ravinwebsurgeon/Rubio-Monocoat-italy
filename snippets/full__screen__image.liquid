@@ -1,5 +1,47 @@
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+    const modal = document.querySelector('.fullscreen-modal');
+    const modalImg = modal.querySelector('img');
+    const closeBtn = modal.querySelector('.close-fullscreen');
+
+    // ---- SELECT ALL CLICKABLE IMAGES ----
+    const thumbnails = document.querySelectorAll('.thumbnail-item img');
+    const mainImages = document.querySelectorAll('.main-image-item img');
+
+    // Combine them into one list
+    const allImages = [...thumbnails, ...mainImages];
+
+    // ---- OPEN FULLSCREEN ----
+    allImages.forEach(img => {
+        img.addEventListener('click', function (e) {
+            e.preventDefault();
+            modalImg.src = img.src;   // Image clicked becomes fullscreen
+            modal.classList.add('active');
+        });
+    });
+
+    // ---- CLOSE FULLSCREEN ----
+    function closeModal() {
+        modal.classList.add('closing');
+        setTimeout(() => {
+            modal.classList.remove('active', 'closing');
+        }, 350);
+    }
+
+    // Close button
+    closeBtn.addEventListener('click', closeModal);
+
+    // Click on dark background (not image)
+    modal.addEventListener('click', e => {
+        if (e.target === modal) closeModal();
+    });
+});
+
+</script>
+
 <style>
-    
 .fullscreen-modal {
     position: fixed; 
     top: 0; left: 0;
