@@ -320,7 +320,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Accordion toggle
   {% comment %} document.querySelectorAll(".cert-plus").forEach(btn => { {% endcomment %}
-  document.querySelectorAll(".certificate-card").forEach(btn => {
+  document.querySelectorAll(".certificate-card").forEach(card => {
     
     {% comment %} 
      btn.addEventListener("click", function() {
@@ -329,15 +329,15 @@ document.addEventListener("DOMContentLoaded", function() {
       this.textContent = card.classList.contains("active") ? "×" : "i";
     }); 
     {% endcomment %}
-    btn.addEventListener("mouseenter", function() {
-      const card = this.closest(".certificate-card");
-      card.classList.add("active");
-      this.textContent = card.classList.contains("active") ? "×" : "i";
+    card.addEventListener("mouseenter", function() {
+      const btn = this.closest(".cert-plus");
+      this.classList.add("active");
+      btn.textContent = card.classList.contains("active") ? "×" : "i";
     })
-    btn.addEventListener("mouseleave", function() {
-      const card = this.closest(".certificate-card");
-      card.classList.remove("active");
-      this.textContent = card.classList.contains("active") ? "×" : "i";
+    card.addEventListener("mouseleave", function() {
+      const btn = this.closest(".cert-plus");
+      this.classList.remove("active");
+      btn.textContent = card.classList.contains("active") ? "×" : "i";
     });
 
   });
