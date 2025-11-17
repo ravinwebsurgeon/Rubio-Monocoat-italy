@@ -8,20 +8,15 @@
 
 <script>
  document.addEventListener("DOMContentLoaded", function () {
-
     const modal = document.querySelector('.fullscreen-modal');
     const modalImg = document.querySelector('.fs-img');
     const modalVideo = document.querySelector('.fs-video');
     const closeBtn = document.querySelector('.close-fullscreen');
 
-    const thumbnailImages = [...document.querySelectorAll('.thumbnail-item img')]
-        .filter(img => !img.closest('video'));
-
+    // Collect IMAGE and VIDEO media:
+    const thumbnailImages = [...document.querySelectorAll('.thumbnail-item img')].filter(img => !img.closest('video'));
     const thumbnailVideos = [...document.querySelectorAll('.thumbnail-item video')];
-
-    const mainImages = [...document.querySelectorAll('.main-image-item img')]
-        .filter(img => !img.closest('video'));
-
+    const mainImages = [...document.querySelectorAll('.main-image-item img')].filter(img => !img.closest('video'));
     const mainVideos = [...document.querySelectorAll('.main-image-item video')];
 
     const allMedia = [
@@ -31,48 +26,56 @@
         ...mainVideos
     ];
 
-    // ------------------------------------------------------
-    // OPEN MODAL
-    // ------------------------------------------------------
+    // -------------------------------------------------------
+    // SMOOTH OPEN
+    // -------------------------------------------------------
     allMedia.forEach(el => {
-        el.addEventListener('click', () => {
+        el.addEventListener('click', async () => {
 
-            modal.classList.remove("closing");
-
+            // Hide media first (so it animates)
             modalImg.style.display = "none";
             modalVideo.style.display = "none";
             modalVideo.pause();
+            modalVideo.src = ""; // avoid video loading jump
+
+            // Activate modal background only first
+            modal.classList.add("active");
+
+            // Wait 1 frame → allows fade to begin
+            await new Promise(requestAnimationFrame);
 
             if (el.tagName.toLowerCase() === "video") {
-                const source = el.querySelector('source').src;
 
+                const source = el.querySelector('source').src;
                 modalVideo.src = source;
                 modalVideo.style.display = "block";
 
-                // start video AFTER modal visible (smooth)
-                setTimeout(() => modalVideo.play(), 120);
+                // Wait 1 frame → allows smooth scale animation
+                await new Promise(requestAnimationFrame);
+
+                modalVideo.play();
 
             } else {
+
                 modalImg.src = el.src;
                 modalImg.style.display = "block";
-            }
 
-            modal.classList.add("active");
+                // Wait 1 frame → smooth scale animation
+                await new Promise(requestAnimationFrame);
+            }
         });
     });
 
-    // ------------------------------------------------------
-    // CLOSE MODAL (smooth)
-    // ------------------------------------------------------
+    // -------------------------------------------------------
+    // SMOOTH CLOSE
+    // -------------------------------------------------------
     function closeModal() {
-
         modal.classList.add("closing");
         modal.classList.remove("active");
 
-        // Smooth out animation before removing content
         setTimeout(() => {
             modalVideo.pause();
-            modalVideo.src = ""; // prevent pop
+            modalVideo.src = "";
             modal.classList.remove("closing");
         }, 350);
     }
@@ -82,7 +85,8 @@
     modal.addEventListener("click", e => {
         if (e.target === modal) closeModal();
     });
-    });
+});
+
 </script>
 
 <style>
