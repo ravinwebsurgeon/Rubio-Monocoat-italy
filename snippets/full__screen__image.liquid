@@ -81,7 +81,6 @@
     position: fixed; 
     top: 0; left: 0;
     width: 100vw; height: 100vh;
-
     background: rgba(0,0,0,0.85);
     display: flex;
     justify-content: center;
@@ -101,26 +100,32 @@
     pointer-events: auto;
 }
 
-.fullscreen-modal img {
+.fullscreen-modal img,
+.fullscreen-modal video {
     max-width: 90vw;
     max-height: 90vh;
-    object-fit: contain;
-
-    transform: scale(.8);
-    transition: transform .35s ease;
+    transform: scale(.7);
+    opacity: 0;
+    transition: transform .35s ease, opacity .35s ease;
 }
 
-.fullscreen-modal.active img {
+/* MEDIA visible and animated */
+.fullscreen-modal.active img,
+.fullscreen-modal.active video {
     transform: scale(1);
+    opacity: 1;
 }
 
-.fullscreen-modal.closing img {
-    transform: scale(0.6);
+/* Closing animation */
+.fullscreen-modal.closing img,
+.fullscreen-modal.closing video {
+    transform: scale(.6);
+    opacity: 0;
 }
 
 /* Close button */
 .close-fullscreen {
-    position: absolute;
+    position: fixed;
     top: 20px;
     right: 25px;
     font-size: 40px;
