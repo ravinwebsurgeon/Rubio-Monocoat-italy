@@ -23,7 +23,7 @@
         const mainImages = document.querySelectorAll('.main-image-item img');
 
         const allMedia = [...thumbnailImages, ...thumbnailVideos, ...mainImages];
-
+        console.log(allMedia,'tested');
         // ---- OPEN FULLSCREEN ----
         allMedia.forEach(item => {
             item.addEventListener('click', function (e) {
