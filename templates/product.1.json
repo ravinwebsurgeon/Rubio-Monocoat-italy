@@ -46,6 +46,10 @@
             "swatch_shape": "circle"
           }
         },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
         "icon_with_text_hk7wi6": {
           "type": "icon-with-text",
           "settings": {
@@ -60,10 +64,6 @@
             "image_3": "shopify://shop_images/Pantone_2.png",
             "heading_3": "100% secure payments"
           }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -83,8 +83,8 @@
         "product_features_8xTHk7",
         "price",
         "variant_picker",
-        "icon_with_text_hk7wi6",
         "quantity_selector",
+        "icon_with_text_hk7wi6",
         "buy_buttons",
         "shipping_info_dQ4qci"
       ],
