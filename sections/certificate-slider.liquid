@@ -3,7 +3,9 @@
   {% assign titles = product.metafields.custom.certificates_titles.value %}
   {% assign descriptions = product.metafields.custom.certificates_descriptions.value %}
   {% assign items = product.metafields.custom.technical_des_content | parse_json %}
-
+{% for item in items %}
+              {{ item.html  }}
+            {% endfor %}
 
   {% if images != blank %}
 <section class="certificates-slider">
