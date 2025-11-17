@@ -149,4 +149,20 @@
     z-index: 10000000;
 }
 
+.fullscreen-modal img,
+.fullscreen-modal video {
+    max-width: 90vw;
+    max-height: 90vh;
+
+    transform: scale(.7);
+    opacity: 0;
+    transition: transform .35s ease, opacity .35s ease;
+}
+
+.fullscreen-modal.active img,
+.fullscreen-modal.active video {
+    transform: scale(1);
+    opacity: 1;
+}
+
 </style>
