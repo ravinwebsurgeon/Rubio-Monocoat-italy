@@ -394,7 +394,7 @@
       "type": "custom-vedio-banner",
       "name": "Video Banner with Overlay",
       "settings": {
-        "video_url": "",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/fe06d251fe1b4a468eb3cb0b00f672a9.mp4",
         "subheading": "",
         "heading": "Making the Difference",
         "button_link": "#",
