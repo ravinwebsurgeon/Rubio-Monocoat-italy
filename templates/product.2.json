@@ -61,6 +61,10 @@
             "swatch_shape": "circle"
           }
         },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
         "icon_with_text_496ywe": {
           "type": "icon-with-text",
           "settings": {
@@ -75,10 +79,6 @@
             "image_3": "shopify://shop_images/Pantone_2.png",
             "heading_3": "100% secure payments"
           }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -107,8 +107,8 @@
         "product_features_UxLDqk",
         "price",
         "variant_picker",
-        "icon_with_text_496ywe",
         "quantity_selector",
+        "icon_with_text_496ywe",
         "buy_buttons",
         "share",
         "shipping_info_dQ4qci"
@@ -151,7 +151,9 @@
     "durogrit_features_V8Cdig": {
       "type": "durogrit-features",
       "name": "DuroGrit (Metafields)",
-      "settings": {}
+      "settings": {
+        "mobile_svg_icon": ""
+      }
     },
     "video_product_QCpLrH": {
       "type": "video-product",
@@ -194,10 +196,14 @@
       ],
       "name": "Video with Products",
       "settings": {
+        "custom_class": "",
         "heading": "Cleaning has never been easier",
-        "video_url": "https://cdn.shopify.com/videos/c/o/v/d1ecb683406f4f61befd2623ad86a0e9.mp4",
+        "video_link": "",
         "button_link": "shopify://collections/all",
-        "button_label": "View All Products"
+        "button_label": "View All Products",
+        "cart_icon_link": "",
+        "move_icon_link": "",
+        "delay_time": 6
       }
     },
     "how_to_use_faq_metafield_7LfmP7": {
@@ -325,6 +331,7 @@
       ],
       "name": "icons section",
       "settings": {
+        "custom_class": "",
         "show_on_desktop": true,
         "show_on_mobile": true
       }
