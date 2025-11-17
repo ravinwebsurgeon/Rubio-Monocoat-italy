@@ -118,7 +118,9 @@
   <div class="custom_price_value" style="display:flex;">
        {% if current_variant.metafields.custom.custom_cost_value != blank %}
       <div class="variant-custom-cost">
-        {{ current_variant.metafields.custom.custom_cost_value }}
+        {% assign cost_string = current_variant.metafields.custom.custom_cost_value %}
+        {% assign cost_numeric = cost_string | times: 1 %}
+        {{ cost_numeric }}
       </div>
       <span>/</span>
     {% endif %}
