@@ -2,6 +2,9 @@
   {% assign images = product.metafields.custom.certificates_images.value %}
   {% assign titles = product.metafields.custom.certificates_titles.value %}
   {% assign descriptions = product.metafields.custom.certificates_descriptions.value %}
+  {% assign items = product.metafields.custom.technical_des_content | parse_json %}
+
+
   {% if images != blank %}
 <section class="certificates-slider">
   <div class="certificates-header">
@@ -36,6 +39,10 @@
           {% endif %}
           <div class="certificate-desc">
             <p>{{ descriptions[i] }}</p>
+            {{ items[i] }}
+            {% comment %} {% for item in items %}
+              {{ item.html | raw }}
+            {% endfor %} {% endcomment %}
           </div>
         </div>
         <div class="certificate-all-content">
