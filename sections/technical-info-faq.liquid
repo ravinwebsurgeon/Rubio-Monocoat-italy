@@ -70,7 +70,7 @@
         {% for t_question in t_questions %}
           {% assign t_answer = t_answers[forloop.index0] %}
           <tr class="tech-info-row">
-            <td class="tech-info-question-td">{{ t_question }}</td>
+            <th class="tech-info-question-td">{{ t_question }}</th>
             <td class="tech-info-answer-td">
               {% if t_question contains 'Download' or t_question contains 'download' %}
                 <a href="{{ t_answer }}" class="tech-download-btn" onclick="forceDownload(event, this.href)">Download File</a>
