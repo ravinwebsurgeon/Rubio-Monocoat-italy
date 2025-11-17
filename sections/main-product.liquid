@@ -136,7 +136,8 @@
                       </h2>
                     </a>
                   </div>
-                  <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                  {% unless product.availabel %}
+                    <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                     {%- render 'price',
                       product: product,
                       use_variant: true,
@@ -144,6 +145,7 @@
                       price_class: 'price--large'
                     -%}
                   </div>
+                {% endunless %}
                 </div>
 
               {%- when 'shipping_info' -%}
