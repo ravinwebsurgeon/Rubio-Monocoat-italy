@@ -54,10 +54,10 @@
                     <p>{{ t_answer }}</p>
                   {% endif %}
                   <div class="technical_content_here">
-                    {% if items.size > forloop.index0 %}
-                      {{ items[forloop.index0].html }}
-                    {% endif %}
-                  </div>
+                  {% comment %} {% if items.size > forloop.index0 %}
+                    {{ items[forloop.index0].html }}
+                  {% endif %} {% endcomment %}
+                </div>
                </div>
               </div>
             {% endfor %}
