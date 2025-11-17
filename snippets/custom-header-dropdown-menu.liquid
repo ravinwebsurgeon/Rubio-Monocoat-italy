@@ -147,8 +147,8 @@
                                     </g>
                                   </svg>
                                 </button>
+                                 <div class="video_tag"><div class="product-badge">Bestseller</div></div>
                                 <div class="video_text_content" style="display:none;">
-                                  {% comment %} <div class="video_tag"><div class="product-badge">Bestseller</div></div> {% endcomment %}
                                   <div class="video_text">
                                     <h2>{{ block.settings.video_text }}</h2>
                                    <a href="{{ block.settings.video_btn_link }}"><button class="custom_video_btn">{{ block.settings.video_btn }}</button></a>
@@ -195,7 +195,9 @@
 
 
 <style>
-  .video_text_content{position:absolute;bottom:0;z-index:9999;color:#fff;}
+  .video_text_content , .video_tag{position:absolute;;z-index:9999;color:#fff;}
+  .video_text_content {bottom:0}
+  .video_tag{top:0;}
   .video_text_content button{border:0;background:transparent;}
   .video_text_content h2,.video_text_content button{color:#fff;}
 .shown-link {
