@@ -53,10 +53,11 @@
                   {% else %}
                     <p>{{ t_answer }}</p>
                   {% endif %}
-                  <div class="technical_content_here">
+                  {% comment %} <div class="technical_content_here">
                     {% for item in items %} 
-                      {{ item.html  }} {% endfor %}
-                  </div>
+                      {{ item.html  }}
+                        {% endfor %}
+                  </div> {% endcomment %}
                </div>
               </div>
             {% endfor %}
