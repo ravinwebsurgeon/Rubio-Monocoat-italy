@@ -35,7 +35,9 @@
           {% if t_questions and t_answers %}
             {% for t_question in t_questions %}
               {% assign t_answer = t_answers[forloop.index0] %}
-              <div class="tech-info-item {% if forloop.first %}active{% endif %}">
+              <div class="tech-info-item
+                 {% comment %} {% if forloop.first %}actives{% endif %} {% endcomment %}
+                  ">
                 <button type="button" class="tech-info-question">
                   <span>{{ t_question }}</span>
                   <span class="tech-info-icon">
