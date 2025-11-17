@@ -6,9 +6,9 @@
  {% assign image = product.metafields.custom.tech_info_image.value %}
  {% assign items = product.metafields.custom.technical_des_content.value | parse_json %}
 
-{% comment %} {% for item in items %}
+{% for item in items %}
   {{ item.html  }}
-{% endfor %}  {% endcomment %}
+{% endfor %} 
 {% if product.metafields.custom.technical_info_faq_question.value != blank and product.metafields.custom.technical_info_faq_answer.value != blank %}
 <div class="tech-info-wrapper-sec">
   <div class="tech-info-wrapper page-width" id="technical-info">
@@ -53,9 +53,6 @@
                   {% else %}
                     <p>{{ t_answer }}</p>
                   {% endif %}
-                  {% for item in items %}
-                    {{ item.html  }}
-                  {% endfor %}
                   <div class="technical_content_here">
                   {% comment %} {% if items.size > forloop.index0 %}
                     {{ items[forloop.index0].html }}
