@@ -108,7 +108,7 @@
       </div>
 
       {% if option.name == 'Size' and current_variant %}
-  <div class="variant-price testCode">
+  <div class="variant-price">
     {{ current_variant.price | money }}
   </div>
   {% if current_variant.metafields.custom.custom_size_note != blank %}
