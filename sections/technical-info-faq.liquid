@@ -7,7 +7,7 @@
  {% assign items = product.metafields.custom.technical_des_content.value | parse_json %}
 
 {% for item in items %}
-  {{ item.html  }}
+  {{ item.html | raw  }}
 {% endfor %} 
 {% if product.metafields.custom.technical_info_faq_question.value != blank and product.metafields.custom.technical_info_faq_answer.value != blank %}
 <div class="tech-info-wrapper-sec">
