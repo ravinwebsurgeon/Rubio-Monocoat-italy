@@ -1,45 +1,70 @@
 <div class="fullscreen-modal-main">
-    <div class="fullscreen-modal"><img src="" alt="Full Image"></div>
-    <div class="close-modal-image"><button class="close-fullscreen">×</button></div>
+    <div class="fullscreen-modal">
+        <img class="fs-img" src="" alt="">
+        <video class="fs-video" controls playsinline></video>
+    </div>
+    <button class="close-fullscreen">×</button>
 </div>
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const modal = document.querySelector('.fullscreen-modal');
-        const modalImg = modal.querySelector('img');
-        const closeBtn = modal.parentNode.querySelector('.close-fullscreen');
 
-        // ---- SELECT ALL CLICKABLE IMAGES ----
-        const thumbnails = document.querySelectorAll('.thumbnail-item img');
-        const mainImages = document.querySelectorAll('.main-image-item img');
+    const modal = document.querySelector('.fullscreen-modal');
+    const modalImg = document.querySelector('.fs-img');
+    const modalVideo = document.querySelector('.fs-video');
+    const closeBtn = document.querySelector('.close-fullscreen');
 
-        // Combine them into one list
-        const allImages = [...thumbnails, ...mainImages];
+    // Collect:
+    // - all IMAGES not inside video
+    // - all VIDEOS
+    const imageThumbs = [...document.querySelectorAll('.thumbnail-item img')]
+        .filter(img => !img.closest('video'));
 
-        // ---- OPEN FULLSCREEN ----
-        allImages.forEach(img => {
-            img.addEventListener('click', function (e) {
-                e.preventDefault();
-                modalImg.src = img.src;   // Image clicked becomes fullscreen
-                modal.classList.add('active');
-            });
-        });
+    const videoThumbs = [...document.querySelectorAll('.thumbnail-item video')];
 
-        // ---- CLOSE FULLSCREEN ----
-        function closeModal() {
-            modal.classList.add('closing');
-            setTimeout(() => {
-                modal.classList.remove('active', 'closing');
-            }, 350);
-        }
+    const mainImages = [...document.querySelectorAll('.main-image-item img')];
 
-        // Close button
-        closeBtn.addEventListener('click', closeModal);
+    const allMedia = [...imageThumbs, ...videoThumbs, ...mainImages];
 
-        // Click on dark background (not image)
-        modal.addEventListener('click', e => {
-            if (e.target === modal) closeModal();
+    // Open modal
+    allMedia.forEach(el => {
+        el.addEventListener('click', () => {
+
+            // Hide both first
+            modalImg.style.display = "none";
+            modalVideo.style.display = "none";
+            modalVideo.pause();
+
+            if (el.tagName.toLowerCase() === "video") {
+                // --- USER CLICKED VIDEO ---
+                const source = el.querySelector('source').src;
+                modalVideo.src = source;
+                modalVideo.style.display = "block";
+                modalVideo.play();
+
+            } else {
+                // --- USER CLICKED IMAGE ---
+                modalImg.src = el.src;
+                modalImg.style.display = "block";
+            }
+
+            modal.classList.add("active");
         });
     });
+
+    // Close modal
+    function closeModal() {
+        modal.classList.remove("active");
+        modalVideo.pause();
+        modalVideo.src = "";
+    }
+
+    closeBtn.addEventListener("click", closeModal);
+
+    modal.addEventListener("click", e => {
+        if (e.target === modal) closeModal();
+    });
+});
 
 </script>
 
