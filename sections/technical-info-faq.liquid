@@ -5,7 +5,7 @@
  {% assign tech_info_heading = product.metafields.custom.tech_info_heading.value %}
  {% assign image = product.metafields.custom.tech_info_image.value %}
 {% if product.metafields.custom.technical_info_faq_question.value != blank and product.metafields.custom.technical_info_faq_answer.value != blank %}
-<div class="tech-info-wrapper-sec">
+{% comment %} <div class="tech-info-wrapper-sec">
   <div class="tech-info-wrapper page-width" id="technical-info">
     <div class="tech-info-inner">
 
@@ -54,7 +54,48 @@
       </div>
     </div>
   </div>
+</div> {% endcomment %}
+
+<div class="tech-info-wrapper-sec">
+  <div class="tech-info-wrapper page-width" id="technical-info">
+    <div class="tech-info-inner">
+
+      <!-- Left Side: Questions -->
+      <div class="tech-info-left">
+        {% if tech_info_heading != blank %}
+          <h2 class="tech-info-heading">{{ tech_info_heading  }}</h2>
+        {% endif %}
+        <ul class="tech-info-questions-list">
+          {% assign t_questions = product.metafields.custom.technical_info_faq_question.value %}
+          {% assign t_answers = product.metafields.custom.technical_info_faq_answer.value %}
+          {% for t_question in t_questions %}
+            <li class="tech-info-question-item {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
+              {{ t_question }}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Right Side: Answers -->
+      <div class="tech-info-content">
+        <div class="tech-info-answers">
+          {% for t_answer in t_answers %}
+            <div class="tech-info-answer {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
+              {% assign t_question = t_questions[forloop.index0] %}
+              {% if t_question contains 'Download' or t_question contains 'download' %}
+                <a href="{{ t_answer }}" class="tech-download-btn" onclick="forceDownload(event, this.href)">Download File</a>
+              {% else %}
+                <p>{{ t_answer }}</p>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
+
 {% endif %}
 
 
