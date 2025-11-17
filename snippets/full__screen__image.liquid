@@ -7,43 +7,51 @@
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+ document.addEventListener("DOMContentLoaded", function () {
 
     const modal = document.querySelector('.fullscreen-modal');
     const modalImg = document.querySelector('.fs-img');
     const modalVideo = document.querySelector('.fs-video');
     const closeBtn = document.querySelector('.close-fullscreen');
 
-    // Collect:
-    // - all IMAGES not inside video
-    // - all VIDEOS
-    const imageThumbs = [...document.querySelectorAll('.thumbnail-item img')]
-        .filter(img => !img.closest('video'));
+    // ---- THUMBNAILS ----
+    const thumbnailImages = [...document.querySelectorAll('.thumbnail-item img')]
+        .filter(img => !img.closest('video'));   // ignore poster images
 
-    const videoThumbs = [...document.querySelectorAll('.thumbnail-item video')];
+    const thumbnailVideos = [...document.querySelectorAll('.thumbnail-item video')];
 
-    const mainImages = [...document.querySelectorAll('.main-image-item img')];
+    // ---- MAIN IMAGES ----
+    const mainImages = [...document.querySelectorAll('.main-image-item img')]
+        .filter(img => !img.closest('video'));   // ignore posters here too
 
-    const allMedia = [...imageThumbs, ...videoThumbs, ...mainImages];
+    const mainVideos = [...document.querySelectorAll('.main-image-item video')];
 
-    // Open modal
+    // Merge everything clickable
+    const allMedia = [
+        ...thumbnailImages,
+        ...thumbnailVideos,
+        ...mainImages,
+        ...mainVideos
+    ];
+
+    // ---- OPEN MODAL ----
     allMedia.forEach(el => {
         el.addEventListener('click', () => {
 
-            // Hide both first
+            // Reset
             modalImg.style.display = "none";
             modalVideo.style.display = "none";
             modalVideo.pause();
 
             if (el.tagName.toLowerCase() === "video") {
-                // --- USER CLICKED VIDEO ---
+                // User clicked a VIDEO
                 const source = el.querySelector('source').src;
                 modalVideo.src = source;
                 modalVideo.style.display = "block";
                 modalVideo.play();
 
             } else {
-                // --- USER CLICKED IMAGE ---
+                // User clicked an IMAGE
                 modalImg.src = el.src;
                 modalImg.style.display = "block";
             }
@@ -52,7 +60,7 @@
         });
     });
 
-    // Close modal
+    // ---- CLOSE MODAL ----
     function closeModal() {
         modal.classList.remove("active");
         modalVideo.pause();
