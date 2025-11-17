@@ -329,35 +329,42 @@
 }
 </style>
 <script>
-function forceDownload(e, url) {
+async function forceDownload(e, url) {
   e.preventDefault();
-
-  // Trim the URL to remove accidental spaces
   url = url.trim();
 
-  // Get the file name from URL
-  const fileName = url.split('/').pop().split('?')[0];
+  try {
+    // Fetch the file as a Blob
+    const response = await fetch(url);
+    const blob = await response.blob();
 
-  // Create a temporary link
-  const a = document.createElement('a');
-  a.href = url;
-  a.setAttribute('download', fileName);
+    // Get the filename from the URL
+    const fileName = url.split('/').pop().split('?')[0];
 
-  // Append to body and trigger click
-  document.body.appendChild(a);
-  a.click();
+    // Create a temporary link
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
 
-  // Remove the temporary link
-  document.body.removeChild(a);
+    // Cleanup
+    document.body.removeChild(a);
+    URL.revokeObjectURL(a.href);
+  } catch (err) {
+    console.error('Download failed:', err);
+    alert('Unable to download file.');
+  }
 }
 
-// Optional: if some <a> are dynamically added after page load, attach event via JS
+// Attach to dynamically added links
 document.addEventListener('click', function(e) {
   if (e.target.matches('.tech-download-btn')) {
     forceDownload(e, e.target.href);
   }
 });
 </script>
+
 <script>
 $(document).ready(function () {
   $(".tech-info-question").on("click", function () {
