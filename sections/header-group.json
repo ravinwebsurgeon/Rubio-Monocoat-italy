@@ -58,6 +58,8 @@
             "menu_title": "Interior",
             "block_heading": "",
             "video": "shopify://files/videos/7492602-uhd_4096_2160_25fps.mp4",
+            "video_text": "add text",
+            "video_btn": "btn text",
             "block_subtext": "",
             "block_link": ""
           }
@@ -68,6 +70,8 @@
             "menu_title": "Tools",
             "block_heading": "Apply oil easier",
             "block_image": "shopify://shop_images/Rectangle_241.png",
+            "video_text": "",
+            "video_btn": "",
             "block_subtext": "Shop Now",
             "block_link": "#"
           }
@@ -78,6 +82,8 @@
             "menu_title": "Tools",
             "block_heading": "Keep your wood intop condition",
             "block_image": "shopify://shop_images/DSC05232.jpg",
+            "video_text": "",
+            "video_btn": "",
             "block_subtext": "Shop Now",
             "block_link": "#"
           }
@@ -88,6 +94,8 @@
             "menu_title": "Colours & Samples",
             "block_heading": "",
             "video": "shopify://files/videos/5895457-uhd_3840_2160_30fps.mp4",
+            "video_text": "",
+            "video_btn": "",
             "block_subtext": "",
             "block_link": ""
           }
@@ -98,6 +106,8 @@
             "menu_title": "Exterior",
             "block_heading": "",
             "block_image": "shopify://shop_images/Untitled_410_x_400_px_1.png",
+            "video_text": "",
+            "video_btn": "",
             "block_subtext": "",
             "block_link": ""
           }
