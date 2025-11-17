@@ -136,7 +136,7 @@
                       </h2>
                     </a>
                   </div>
-                  {% unless product.availabel %}
+                  {% unless product.available %}
                     <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                     {%- render 'price',
                       product: product,
