@@ -53,9 +53,11 @@
                   {% else %}
                     <p>{{ t_answer }}</p>
                   {% endif %}
+                  {% comment %} <div class="technical_content_here">
                     {% for item in items %} 
                       {% if forloop.index0 == forloop.parentLoop.index0 %}{{ item.html  }} {% endif %}
                         {% endfor %}
+                  </div> {% endcomment %}
                </div>
               </div>
             {% endfor %}
