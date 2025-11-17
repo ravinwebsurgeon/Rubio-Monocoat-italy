@@ -395,8 +395,8 @@
       "name": "Video Banner with Overlay",
       "settings": {
         "video_url": "https://cdn.shopify.com/videos/c/o/v/fe06d251fe1b4a468eb3cb0b00f672a9.mp4",
-        "subheading": "Making the Difference",
-        "heading": "We match words with deeds. On top of our ecological products, we are also planting trees and supporting social and ecological initiatives in impoverished regions. In late 2024, our CO2 reduction actions earned us the Taking Climate Action Site Certificate, a proud milestone in our sustainable journey.",
+        "subheading": "",
+        "heading": "Making the Difference",
         "button_link": "#",
         "button_label": ""
       }
