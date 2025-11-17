@@ -111,8 +111,8 @@
   <div class="variant-price">
     {{ current_variant.price | money }}
   </div>
-
-  {% comment %} <div class="custom_price_value">
+  
+  <div class="custom_price_value">
        {% if current_variant.metafields.custom.custom_cost_value != blank %}
       <div class="variant-custom-cost">
         {{ current_variant.metafields.custom.custom_cost_value }}
@@ -123,7 +123,7 @@
         {{ current_variant.metafields.custom.custom_m2 }}
       </div>
     {% endif %}
-  </div> {% endcomment %}
+  </div>
 
   {% if current_variant.metafields.custom.custom_size_note != blank %}
     <div class="variant-note">
