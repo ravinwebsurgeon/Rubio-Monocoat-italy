@@ -151,7 +151,7 @@
                                 <div class="video_text_content">
                                   <div class="video_text">
                                     <h2>{{ block.settings.video_text }}</h2>
-                                   <a href="{{ block.settings.video_btn_link }}"><button class="custom_video_btn">{{ block.settings.video_btn }}</button></a>
+                                   <p class="custom_video_subtext">{{ block.settings.video_subtext }}</p>
                                   </div>
                                 </div>
                               </div>
@@ -198,8 +198,7 @@
   .video_text_content , .video_tag__badge{position:absolute;;z-index:9999;color:#fff;width:100%;}
   .video_text_content {bottom:0}
   .video_tag__badge{top:0;}
-  .video_text_content button{border:0;background:transparent;}
-  .video_text_content h2,.video_text_content button{color:#fff;margin:0;}
+  .video_text_content h2,.video_text_content .custom_video_subtext{color:#fff;margin:0;}
 .shown-link {display: flex;}
 .custom_header__inline-menu ul.custom_list-menu {
     padding: 0;
