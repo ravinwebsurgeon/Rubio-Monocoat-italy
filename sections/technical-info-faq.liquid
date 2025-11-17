@@ -69,7 +69,7 @@
 
         {% for t_question in t_questions %}
           {% assign t_answer = t_answers[forloop.index0] %}
-          <tr class="tech-info-row">
+          <tr class="tech-info-row border-bottom">
             <th class="tech-info-question-td">{{ t_question }}</th>
             <td class="tech-info-answer-td">
               {% if t_question contains 'Download' or t_question contains 'download' %}
@@ -90,7 +90,9 @@
 
 
 <style>
+  .tech-info-table{border-collapse:collapse;}
   .tech-info-question-td{text-align:start;}
+  .border-bottom{border-bottom:0.1px solid #8080804d;}
 .tech-info-wrapper {
   padding: 40px 50px;
   border-radius: 20px;
