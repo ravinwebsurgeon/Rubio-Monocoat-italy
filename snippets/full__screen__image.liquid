@@ -1,25 +1,50 @@
 <div class="fullscreen-modal-main">
-    <div class="fullscreen-modal"><img src="" alt="Full Image"></div>
-    <div class="close-modal-image"><button class="close-fullscreen">×</button></div>
+    <div class="fullscreen-modal">
+        <img class="fullscreen-image" src="" alt="Full Image">
+        <video class="fullscreen-video" controls playsinline></video>
+    </div>
+
+    <div class="close-modal-image">
+        <button class="close-fullscreen">×</button>
+    </div>
 </div>
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const modal = document.querySelector('.fullscreen-modal');
-        const modalImg = modal.querySelector('img');
+        const modalImg = modal.querySelector('.fullscreen-image');
+        const modalVideo = modal.querySelector('.fullscreen-video');
         const closeBtn = modal.parentNode.querySelector('.close-fullscreen');
 
-        // ---- SELECT ALL CLICKABLE IMAGES ----
-        const thumbnails = document.querySelectorAll('.thumbnail-item img');
+        // Select all clickable MEDIA (images + videos)
+        const thumbnailImages = document.querySelectorAll('.thumbnail-item img');
+        const thumbnailVideos = document.querySelectorAll('.thumbnail-item video');
+
         const mainImages = document.querySelectorAll('.main-image-item img');
 
-        // Combine them into one list
-        const allImages = [...thumbnails, ...mainImages];
+        const allMedia = [...thumbnailImages, ...thumbnailVideos, ...mainImages];
 
         // ---- OPEN FULLSCREEN ----
-        allImages.forEach(img => {
-            img.addEventListener('click', function (e) {
+        allMedia.forEach(item => {
+            item.addEventListener('click', function (e) {
                 e.preventDefault();
-                modalImg.src = img.src;   // Image clicked becomes fullscreen
+
+                // Hide both initially
+                modalImg.style.display = 'none';
+                modalVideo.style.display = 'none';
+                modalVideo.pause();
+
+                if (item.tagName.toLowerCase() === 'video') {
+                    // Open video in modal
+                    modalVideo.src = item.querySelector('source').src;
+                    modalVideo.style.display = 'block';
+                    modalVideo.play();
+                } else {
+                    // Open image in modal
+                    modalImg.src = item.src;
+                    modalImg.style.display = 'block';
+                }
+
                 modal.classList.add('active');
             });
         });
@@ -29,73 +54,38 @@
             modal.classList.add('closing');
             setTimeout(() => {
                 modal.classList.remove('active', 'closing');
+                modalVideo.pause();
+                modalVideo.src = ""; // Stop load after closing
             }, 350);
         }
 
-        // Close button
         closeBtn.addEventListener('click', closeModal);
 
-        // Click on dark background (not image)
         modal.addEventListener('click', e => {
             if (e.target === modal) closeModal();
         });
     });
 
+
 </script>
 
 <style>
-.fullscreen-modal {
-    position: fixed; 
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-
-    background: rgba(0,0,0,0.85);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-
-    z-index: 9999999;
-    transition: opacity .35s ease, visibility .35s ease;
-}
-
-.fullscreen-modal.active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-.fullscreen-modal img {
+.fullscreen-modal img,
+.fullscreen-modal video {
     max-width: 90vw;
     max-height: 90vh;
     object-fit: contain;
-
     transform: scale(.8);
     transition: transform .35s ease;
 }
 
-.fullscreen-modal.active img {
+.fullscreen-modal.active img,
+.fullscreen-modal.active video {
     transform: scale(1);
 }
 
-.fullscreen-modal.closing img {
+.fullscreen-modal.closing img,
+.fullscreen-modal.closing video {
     transform: scale(0.6);
 }
-
-/* Close button */
-.close-fullscreen {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    font-size: 40px;
-    color: #fff;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 10000000;
-}
-
 </style>
