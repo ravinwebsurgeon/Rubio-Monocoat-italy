@@ -1,19 +1,19 @@
 <div class="fullscreen-modal-main">
     <div class="fullscreen-modal">
-        <img class="fs-img" src="" alt="">
-        <video class="fs-video" controls playsinline></video>
+        <img class="fs-img fs-media" />
+        <video class="fs-video fs-media" controls playsinline></video>
     </div>
     <button class="close-fullscreen">×</button>
 </div>
 
 <script>
  document.addEventListener("DOMContentLoaded", function () {
+
     const modal = document.querySelector('.fullscreen-modal');
     const modalImg = document.querySelector('.fs-img');
     const modalVideo = document.querySelector('.fs-video');
     const closeBtn = document.querySelector('.close-fullscreen');
 
-    // Collect IMAGE and VIDEO media:
     const thumbnailImages = [...document.querySelectorAll('.thumbnail-item img')].filter(img => !img.closest('video'));
     const thumbnailVideos = [...document.querySelectorAll('.thumbnail-item video')];
     const mainImages = [...document.querySelectorAll('.main-image-item img')].filter(img => !img.closest('video'));
@@ -26,57 +26,65 @@
         ...mainVideos
     ];
 
-    // -------------------------------------------------------
-    // SMOOTH OPEN
-    // -------------------------------------------------------
+    // ----------------------------------------------------------
+    // OPEN — SMOOTH VERSION
+    // ----------------------------------------------------------
     allMedia.forEach(el => {
         el.addEventListener('click', async () => {
 
-            // Hide media first (so it animates)
+            // Reset
+            modalImg.classList.remove("show");
+            modalVideo.classList.remove("show");
+
             modalImg.style.display = "none";
             modalVideo.style.display = "none";
             modalVideo.pause();
-            modalVideo.src = ""; // avoid video loading jump
+            modalVideo.src = "";
 
-            // Activate modal background only first
+            // Step 1 — Open modal background ONLY
             modal.classList.add("active");
 
-            // Wait 1 frame → allows fade to begin
-            await new Promise(requestAnimationFrame);
+            // Wait for fade-in
+            await new Promise(r => setTimeout(r, 120));
 
+            // Step 2 — Now show media inside smoothly
             if (el.tagName.toLowerCase() === "video") {
+                const source = el.querySelector("source").src;
 
-                const source = el.querySelector('source').src;
                 modalVideo.src = source;
                 modalVideo.style.display = "block";
 
-                // Wait 1 frame → allows smooth scale animation
-                await new Promise(requestAnimationFrame);
-
-                modalVideo.play();
+                // Allow it to appear after layout
+                requestAnimationFrame(() => {
+                    modalVideo.classList.add("show");
+                    modalVideo.play();
+                });
 
             } else {
-
                 modalImg.src = el.src;
                 modalImg.style.display = "block";
 
-                // Wait 1 frame → smooth scale animation
-                await new Promise(requestAnimationFrame);
+                requestAnimationFrame(() => {
+                    modalImg.classList.add("show");
+                });
             }
+
         });
     });
 
-    // -------------------------------------------------------
-    // SMOOTH CLOSE
-    // -------------------------------------------------------
+    // ----------------------------------------------------------
+    // CLOSE
+    // ----------------------------------------------------------
     function closeModal() {
-        modal.classList.add("closing");
+
         modal.classList.remove("active");
+
+        modalImg.classList.remove("show");
+        modalVideo.classList.remove("show");
 
         setTimeout(() => {
             modalVideo.pause();
             modalVideo.src = "";
-            modal.classList.remove("closing");
         }, 350);
     }
 
@@ -149,20 +157,44 @@
     z-index: 10000000;
 }
 
-.fullscreen-modal img,
-.fullscreen-modal video {
+/* Modal background fade */
+.fullscreen-modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity .35s ease, visibility .35s ease;
+    z-index: 9999999;
+}
+
+.fullscreen-modal.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Media starts invisible, fades later */
+.fs-media {
     max-width: 90vw;
     max-height: 90vh;
-
-    transform: scale(.7);
     opacity: 0;
-    transition: transform .35s ease, opacity .35s ease;
+    transform: scale(.85);
+    transition: opacity .25s ease, transform .25s ease;
 }
 
-.fullscreen-modal.active img,
-.fullscreen-modal.active video {
-    transform: scale(1);
+.fs-media.show {
     opacity: 1;
+    transform: scale(1);
 }
+
 
 </style>
