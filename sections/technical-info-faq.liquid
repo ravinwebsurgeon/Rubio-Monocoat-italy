@@ -53,6 +53,9 @@
                   {% else %}
                     <p>{{ t_answer }}</p>
                   {% endif %}
+                  {% for item in items %}
+  {{ item.html  }}
+{% endfor %}
                   <div class="technical_content_here">
                   {% comment %} {% if items.size > forloop.index0 %}
                     {{ items[forloop.index0].html }}
