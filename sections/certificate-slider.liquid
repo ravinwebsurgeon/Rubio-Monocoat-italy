@@ -330,7 +330,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }); 
     {% endcomment %}
     card.addEventListener("mouseenter", function() {
-      const btn = this.closest(".certificate-all-content > .cert-plus");
+      const btn = this.closest(".certificate-all-content");
       console.log(btn,'asdasd')
       this.classList.add("active");
       btn.textContent =  "×";
