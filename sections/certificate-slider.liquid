@@ -332,12 +332,12 @@ document.addEventListener("DOMContentLoaded", function() {
     card.addEventListener("mouseenter", function() {
       const btn = this.closest(".cert-plus");
       this.classList.add("active");
-      btn.textContent = card.classList.contains("active") ? "×" : "i";
+      btn.textContent =  "×";
     })
     card.addEventListener("mouseleave", function() {
       const btn = this.closest(".cert-plus");
       this.classList.remove("active");
-      btn.textContent = card.classList.contains("active") ? "×" : "i";
+      btn.textContent = "i";
     });
 
   });
