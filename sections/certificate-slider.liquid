@@ -320,11 +320,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Accordion toggle
   document.querySelectorAll(".cert-plus").forEach(btn => {
-    {% comment %} btn.addEventListener("click", function() {
+    {% comment %} 
+     btn.addEventListener("click", function() {
       const card = this.closest(".certificate-card");
       card.classList.toggle("active");
       this.textContent = card.classList.contains("active") ? "×" : "i";
-    }); {% endcomment %}
+    }); 
+    {% endcomment %}
     btn.addEventListener("mouseenter", function() {
       const card = this.closest(".certificate-card");
       card.classList.add("active");
