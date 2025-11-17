@@ -58,42 +58,33 @@
 
 <div class="tech-info-wrapper-sec">
   <div class="tech-info-wrapper page-width" id="technical-info">
-    <div class="tech-info-inner">
-        {% if tech_info_heading != blank %}
-          <h2 class="tech-info-heading">{{ tech_info_heading  }}</h2>
-        {% endif %}
-      <!-- Left Side: Questions -->
-      <div class="tech-info-left">
-        <ul class="tech-info-questions-list">
-          {% assign t_questions = product.metafields.custom.technical_info_faq_question.value %}
-          {% assign t_answers = product.metafields.custom.technical_info_faq_answer.value %}
-          {% for t_question in t_questions %}
-            <li class="tech-info-question-item {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
-              {{ t_question }}
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
+    {% if tech_info_heading != blank %}
+      <h2 class="tech-info-heading">{{ tech_info_heading }}</h2>
+    {% endif %}
 
-      <!-- Right Side: Answers -->
-      <div class="tech-info-content">
-        <div class="tech-info-answers">
-          {% for t_answer in t_answers %}
-            <div class="tech-info-answer {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
-              {% assign t_question = t_questions[forloop.index0] %}
+    <table class="tech-info-table">
+      <tbody>
+        {% assign t_questions = product.metafields.custom.technical_info_faq_question.value %}
+        {% assign t_answers = product.metafields.custom.technical_info_faq_answer.value %}
+
+        {% for t_question in t_questions %}
+          {% assign t_answer = t_answers[forloop.index0] %}
+          <tr class="tech-info-row">
+            <td class="tech-info-question-td">{{ t_question }}</td>
+            <td class="tech-info-answer-td">
               {% if t_question contains 'Download' or t_question contains 'download' %}
                 <a href="{{ t_answer }}" class="tech-download-btn" onclick="forceDownload(event, this.href)">Download File</a>
               {% else %}
                 <p>{{ t_answer }}</p>
               {% endif %}
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-
-    </div>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </div>
 </div>
+
 
 {% endif %}
 
