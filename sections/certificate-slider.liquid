@@ -39,10 +39,10 @@
           {% endif %}
           <div class="certificate-desc">
             <p>{{ descriptions[i] }}</p>
-            {{ items[i] }}
-            {% comment %} {% for item in items %}
+            {% comment %} {{ items[i] }} {% endcomment %}
+            {% for item in items %}
               {{ item.html | raw }}
-            {% endfor %} {% endcomment %}
+            {% endfor %}
           </div>
         </div>
         <div class="certificate-all-content">
