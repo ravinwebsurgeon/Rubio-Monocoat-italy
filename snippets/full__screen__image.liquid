@@ -1,12 +1,12 @@
-<div class="fullscreen-modal">
-    <div class="fullscreen-modal-content"><img src="" alt="Full Image"></div>
+<div class="fullscreen-modal-main">
+    <div class="fullscreen-modal"><img src="" alt="Full Image"></div>
     <div class="close-modal-image"><button class="close-fullscreen">×</button></div>
 </div>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const modal = document.querySelector('.fullscreen-modal');
         const modalImg = modal.querySelector('img');
-        const closeBtn = modal.querySelector('.close-fullscreen');
+        const closeBtn = modal.parentNode.querySelector('.close-fullscreen');
 
         // ---- SELECT ALL CLICKABLE IMAGES ----
         const thumbnails = document.querySelectorAll('.thumbnail-item img');
