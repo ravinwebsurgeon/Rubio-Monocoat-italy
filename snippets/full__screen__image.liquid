@@ -14,19 +14,16 @@
     const modalVideo = document.querySelector('.fs-video');
     const closeBtn = document.querySelector('.close-fullscreen');
 
-    // ---- THUMBNAILS ----
     const thumbnailImages = [...document.querySelectorAll('.thumbnail-item img')]
-        .filter(img => !img.closest('video'));   // ignore poster images
+        .filter(img => !img.closest('video'));
 
     const thumbnailVideos = [...document.querySelectorAll('.thumbnail-item video')];
 
-    // ---- MAIN IMAGES ----
     const mainImages = [...document.querySelectorAll('.main-image-item img')]
-        .filter(img => !img.closest('video'));   // ignore posters here too
+        .filter(img => !img.closest('video'));
 
     const mainVideos = [...document.querySelectorAll('.main-image-item video')];
 
-    // Merge everything clickable
     const allMedia = [
         ...thumbnailImages,
         ...thumbnailVideos,
@@ -34,24 +31,28 @@
         ...mainVideos
     ];
 
-    // ---- OPEN MODAL ----
+    // ------------------------------------------------------
+    // OPEN MODAL
+    // ------------------------------------------------------
     allMedia.forEach(el => {
         el.addEventListener('click', () => {
 
-            // Reset
+            modal.classList.remove("closing");
+
             modalImg.style.display = "none";
             modalVideo.style.display = "none";
             modalVideo.pause();
 
             if (el.tagName.toLowerCase() === "video") {
-                // User clicked a VIDEO
                 const source = el.querySelector('source').src;
+
                 modalVideo.src = source;
                 modalVideo.style.display = "block";
-                modalVideo.play();
+
+                // start video AFTER modal visible (smooth)
+                setTimeout(() => modalVideo.play(), 120);
 
             } else {
-                // User clicked an IMAGE
                 modalImg.src = el.src;
                 modalImg.style.display = "block";
             }
@@ -60,11 +61,20 @@
         });
     });
 
-    // ---- CLOSE MODAL ----
+    // ------------------------------------------------------
+    // CLOSE MODAL (smooth)
+    // ------------------------------------------------------
     function closeModal() {
+
+        modal.classList.add("closing");
         modal.classList.remove("active");
-        modalVideo.pause();
-        modalVideo.src = "";
+
+        // Smooth out animation before removing content
+        setTimeout(() => {
+            modalVideo.pause();
+            modalVideo.src = ""; // prevent pop
+            modal.classList.remove("closing");
+        }, 350);
     }
 
     closeBtn.addEventListener("click", closeModal);
@@ -72,7 +82,8 @@
     modal.addEventListener("click", e => {
         if (e.target === modal) closeModal();
     });
-});
+    });
+
 
 </script>
 
