@@ -111,6 +111,20 @@
   <div class="variant-price">
     {{ current_variant.price | money }}
   </div>
+
+  {% comment %} <div class="custom_price_value">
+       {% if current_variant.metafields.custom.custom_cost_value != blank %}
+      <div class="variant-custom-cost">
+        {{ current_variant.metafields.custom.custom_cost_value }}
+      </div>
+    {% endif %}
+    {% if current_variant.metafields.custom.custom_m2 != blank %}
+      <div class="variant-custom-price">
+        {{ current_variant.metafields.custom.custom_m2 }}
+      </div>
+    {% endif %}
+  </div> {% endcomment %}
+
   {% if current_variant.metafields.custom.custom_size_note != blank %}
     <div class="variant-note">
       {{ current_variant.metafields.custom.custom_size_note | metafield_tag }}
