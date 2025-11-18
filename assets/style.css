@@ -29,6 +29,9 @@ details[open] .modal-overlay:after {
     padding: 0;
     cursor: pointer;
 }
+.overflow-hidden div#sticky-add-to-cart {
+    z-index: 1;
+}
 .product-image-overlay .section-header.shopify-section-group-header-group {
     z-index: 2;
 }
