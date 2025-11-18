@@ -43,6 +43,7 @@
 
             // Step 1 — Open modal background ONLY
             modal.classList.add("active");
+            document.body.classList.add('.product-image-overlay')
 
             // Wait for fade-in
             await new Promise(r => setTimeout(r, 120));
@@ -81,6 +82,7 @@
 
         modalImg.classList.remove("show");
         modalVideo.classList.remove("show");
+            document.body.classList.remove('.product-image-overlay')
 
         setTimeout(() => {
             modalVideo.pause();
