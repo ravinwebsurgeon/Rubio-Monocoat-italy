@@ -634,7 +634,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-    
+{% comment %}     
 <script>
 document.querySelectorAll('variant-selects').forEach(vs => {
   // find the fieldset that has "Grösse" in legend
@@ -654,6 +654,45 @@ const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input')
       </button>
     `);
   }
+});
+</script> {% endcomment %}
+<script>
+document.querySelectorAll('variant-selects').forEach(vs => {
+
+  // Find the fieldset that has "color" in the legend
+  const sizeFieldset = Array.from(vs.querySelectorAll('fieldset'))
+    .find(fs => fs.querySelector('legend')?.textContent.trim().toLowerCase().includes('color'));
+
+  if (!sizeFieldset) return;
+
+  const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input');
+
+  // Add "See More" button only once
+  if (swatchInputs.length > 17 && !vs.querySelector('#customSeeMoreBtn')) {
+    sizeFieldset.insertAdjacentHTML(
+      'afterend',
+      `
+        <button id="customSeeMoreBtn" class="SeeMoreBtn">
+          See More
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      `
+    );
+  }
+
+  // Handle variant change — re-append hidden SeeMoreContent
+  vs.addEventListener('change', () => {
+    const hiddenContent = vs.querySelector('.SeeMoreContent');
+
+    if (hiddenContent && getComputedStyle(hiddenContent).display === 'none') {
+      hiddenContent.style.display = 'block';
+      hiddenContent.style.visibility = 'visible';
+      hiddenContent.style.height = 'auto';
+    }
+  });
+
 });
 </script>
   </body>
