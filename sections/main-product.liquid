@@ -1235,13 +1235,11 @@ document.addEventListener('DOMContentLoaded', () => {
           div.style.overflow = 'visible';
         }
       });
-            insertButtonIfNeeded();
-
+      insertButtonIfNeeded();
     }
   });
 
   observer.observe(variantIdInput, { attributes: true, attributeFilter: ['value'] });
-  
   // Initial render: hide content initially
   const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
   moreContentDivs.forEach(div => {
