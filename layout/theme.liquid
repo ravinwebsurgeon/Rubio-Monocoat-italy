@@ -690,6 +690,11 @@ const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input')
         .addEventListener('click', showMoreContent);
     }
   }
+  document.addEventListener('click', (e) => {
+  if (e.target.closest('#customSeeMoreBtn')) {
+    showMoreContent();
+  }
+});
 </script>
   </body>
 </html>
