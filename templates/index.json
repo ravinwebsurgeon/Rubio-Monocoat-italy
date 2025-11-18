@@ -176,7 +176,7 @@
       ],
       "custom_css": [
         ".custom-collections-section {background-color: #ffff;}",
-        ".custom-collections-section img {border-radius: 12px;}"
+        ".custom-collections-section img {border-radius: 10px;}"
       ],
       "name": "custom collection",
       "settings": {
