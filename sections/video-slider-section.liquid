@@ -527,9 +527,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (activeDrawer) {
           activeDrawer.setAttribute('tabindex', '-1');
           activeDrawer.focus();
-        }else{
-          body.classList.remove('overflow-hidden');
-        
         }
       })
       .catch(err => console.error('Cart drawer update failed:', err));

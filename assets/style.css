@@ -4422,9 +4422,9 @@ section.video-products-section{
     }
 }
 @media(max-width:1199px){
-    .header__icons {
+    /* .header__icons {
         gap: 15px;
-    }
+    } */
 }
 
 
