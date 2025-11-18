@@ -4948,25 +4948,25 @@ button.addons-toggle {
     background: none;
 }
 .product-addons-wrapper {
-border: 1px solid #eee;
-border-radius: 8px;
-margin: 15px 0;
-background: #fff;
-padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin: 15px 0;
+    background: #fff;
+    padding: 10px;
 }
 .addons-header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
 }
 .addon-item {
-display: flex;
-align-items: center;
-padding: 10px;
-border-radius: 10px;
-background: #f9f9f9;
-margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    background: #f9f9f9;
+    margin-bottom: 10px;
 }
 .addon-item input[type="checkbox"] {
 margin-right: 10px;
