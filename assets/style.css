@@ -4964,7 +4964,7 @@ cursor: pointer;
 display: flex;
 align-items: center;
 padding: 10px;
-border-radius: 8px;
+border-radius: 10px;
 background: #f9f9f9;
 margin-bottom: 10px;
 }
