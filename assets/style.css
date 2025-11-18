@@ -30,7 +30,9 @@ details[open] .modal-overlay:after {
     cursor: pointer;
 }
 
-
+#customSeeMoreBtn svg {
+    vertical-align: middle;
+}
 .customer-reviews .cust-rev-section .review-card {
     width: 100%;
 }
