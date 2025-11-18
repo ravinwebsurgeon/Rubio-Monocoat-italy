@@ -634,7 +634,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-    
+{% comment %}     
 <script>
 document.querySelectorAll('variant-selects').forEach(vs => {
   // find the fieldset that has "Grösse" in legend
@@ -655,6 +655,6 @@ const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input')
     `);
   }
 }); 
-</script>
+</script> {% endcomment %}
   </body>
 </html>
