@@ -378,13 +378,13 @@
 </style>
 
 <script>
-  document.addEventListener("click", function (e) {
+  {% comment %} document.addEventListener("click", function (e) {
   const drawer = document.querySelector('cart-drawer.drawer.animate.active');
 console.log('checked',drawer)
   if (drawer) {
     document.body.classList.remove('overflow-hidden');
   }
-});
+}); {% endcomment %}
 
 document.addEventListener("DOMContentLoaded", function () {
   var swiper = new Swiper(".inspired-slider", {
