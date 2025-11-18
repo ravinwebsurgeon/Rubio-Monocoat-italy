@@ -634,7 +634,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-{% comment %}     
+    
 <script>
 document.querySelectorAll('variant-selects').forEach(vs => {
   // find the fieldset that has "Grösse" in legend
@@ -655,49 +655,41 @@ const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input')
     `);
   }
 });
-</script> {% endcomment %}
-<script>
-  function AddButton(){
-    document.querySelectorAll('variant-selects, .variant-selects').forEach(vs => {
 
-  const sizeFieldset = Array.from(vs.querySelectorAll('fieldset')).find(fs =>
-    fs.querySelector('legend')?.textContent.trim().toLowerCase().includes('color')
-  );
+ function insertButtonIfNeeded() {
+    const vs = document.querySelector('variant-selects');
+    if (!vs) return;
 
-  if (!sizeFieldset) return;
+    const sizeFieldset = Array.from(vs.querySelectorAll('fieldset')).find(fs =>
+      fs.querySelector('legend')?.textContent.trim().toLowerCase().includes('color')
+    );
+    if (!sizeFieldset) return;
 
-  const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input');
+    const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input');
+    const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
 
-  // Prevent duplicate button
-  if (swatchInputs.length > 17 && !vs.querySelector('#customSeeMoreBtn')) {
+    const contentHidden = Array.from(moreContentDivs).some(div =>
+      window.getComputedStyle(div).display === 'none'
+    );
 
-    const btnHTML = `
-      <button id="customSeeMoreBtn" class="SeeMoreBtn">
-        See More
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" 
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-      </button>
-    `;
+    const buttonExists = !!vs.querySelector('#customSeeMoreBtn');
 
-    sizeFieldset.insertAdjacentHTML('afterend', btnHTML);
+    // 👉 Re-insert button only when content is hidden and button is missing
+    if (swatchInputs.length > 17 && contentHidden && !buttonExists) {
+      sizeFieldset.insertAdjacentHTML('afterend', `
+        <button id="customSeeMoreBtn">
+          See More 
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      `);
+
+      // re-bind click
+      document.getElementById('customSeeMoreBtn')
+        .addEventListener('click', showMoreContent);
+    }
   }
-});
-  }
-const observer = new MutationObserver(() => {
-  const vs = document.querySelector('variant-selects, .variant-selects');
-  if (vs && !vs.querySelector('#customSeeMoreBtn')) {
-    // re-run your button logic here
-    AddButton();
-  }
-});
-
-// Observe Shopify dynamic changes
-observer.observe(document.body, { childList: true, subtree: true });
 </script>
-
-
   </body>
 </html>
