@@ -518,6 +518,7 @@ document.addEventListener("DOMContentLoaded", function () {
           cartDrawer.open();
         } else {
           body.classList.add('js-drawer-open');
+          body.classList.remove('overflow-hidden');
           const drawer = document.querySelector('.cart-drawer');
           if (drawer) drawer.classList.add('active');
           if (overlay) overlay.style.display = 'block';
