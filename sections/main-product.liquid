@@ -1214,13 +1214,10 @@ document.addEventListener('DOMContentLoaded', () => {
       seeMoreBtn.style.display = 'none'; // hide the button after click
     }
   }
-  document.addEventListener("click", (e) => {
+
+document.addEventListener("click", (e) => {
   if (e.target.closest("#customSeeMoreBtn")) {
     showMoreContent();
-  }
-
-  if (seeMoreBtn) {
-    seeMoreBtn.addEventListener('click', showMoreContent);
   }
 
   // Watch for variant changes
