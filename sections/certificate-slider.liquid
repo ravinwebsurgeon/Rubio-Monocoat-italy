@@ -353,6 +353,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
   });
 });
+  document.querySelectorAll(".cert-plus").forEach(btn => {
+     btn.addEventListener("click", function() {
+      const card = this.closest(".certificate-card");
+      card.classList.remove("active");
+      this.textContent = card.classList.contains("active") ? "×" : "i";
+    }); 
+   });
+
 </script>
 
 {% schema %}
