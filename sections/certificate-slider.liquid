@@ -3,9 +3,9 @@
   {% assign titles = product.metafields.custom.certificates_titles.value %}
   {% assign descriptions = product.metafields.custom.certificates_descriptions.value %}
   {% assign items = product.metafields.custom.technical_des_content | parse_json %}
-{% for item in items %}
+{% comment %} {% for item in items %}
               {{ item.html  }}
-            {% endfor %}
+            {% endfor %} {% endcomment %}
 
   {% if images != blank %}
 <section class="certificates-slider">
@@ -139,7 +139,7 @@
  
 
    .certificates-slider .certificate-card {
-    border-radius: 20px;
+    border-radius: 10px;
     text-align: center;
     margin: 0 10px;
     overflow: hidden;
@@ -151,8 +151,8 @@
     background-color: #E1E9E4;
     position: relative;
     padding-bottom: 316px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     overflow: hidden;
   }
   .certificate-card img {
@@ -215,7 +215,7 @@
     top: auto;
     overflow: auto;
     flex-direction: column;
-    border-radius: 20px 20px 0 0;
+    border-radius: 10px 10px 0 0;
 }
   .certificate-card.active .certificate-desc {
     opacity: 1;
