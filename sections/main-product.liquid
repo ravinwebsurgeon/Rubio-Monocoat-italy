@@ -1196,16 +1196,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-   const productForm = document.querySelector('form[action="/cart/add"]');
+  const productForm = document.querySelector('form[action="/cart/add"]');
   if (!productForm) return;
 
   const variantIdInput = productForm.querySelector('input[name="id"]');
+  const seeMoreBtn = document.getElementById('customSeeMoreBtn');
 
-  function getSeeMoreButton() {
-    return document.getElementById('customSeeMoreBtn');
-  }
-
-  // Expand options
   function showMoreContent() {
     const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
     moreContentDivs.forEach(div => {
@@ -1214,48 +1210,45 @@ document.addEventListener('DOMContentLoaded', () => {
       div.style.overflow = 'visible';
     });
 
-    const btn = getSeeMoreButton();
-    if (btn) btn.style.display = 'none';
+    if (seeMoreBtn) {
+      seeMoreBtn.style.display = 'none'; // hide the button after click
+    }
   }
 
-  // Bind click on initial load
-  if (getSeeMoreButton()) {
-    getSeeMoreButton().addEventListener('click', showMoreContent);
+  if (seeMoreBtn) {
+    seeMoreBtn.addEventListener('click', showMoreContent);
   }
 
-  // Variant observer
+  // Watch for variant changes
   let lastVariant = variantIdInput.value;
   const observer = new MutationObserver(() => {
-
     if (variantIdInput.value !== lastVariant) {
       lastVariant = variantIdInput.value;
+      console.log('Variant changed:', lastVariant);
 
-      const currentBtn = getSeeMoreButton();
+      // If content was already expanded, reapply display
+      const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
+      moreContentDivs.forEach(div => {
+        if (seeMoreBtn.style.display === 'none') {
+          div.style.setProperty('display', 'inline-block', 'important');
+          div.style.visibility = 'visible';
+          div.style.overflow = 'visible';
+        }
+      });
+            insertButtonIfNeeded();
 
-      // If user already clicked previously → keep expanded
-      if (currentBtn && currentBtn.style.display === 'none') {
-        showMoreContent();
-      }
-
-      // Reinsert button if needed
-      insertButtonIfNeeded();
-
-      // Bind click on NEW button
-      if (getSeeMoreButton()) {
-        getSeeMoreButton().addEventListener('click', showMoreContent);
-      }
     }
   });
 
   observer.observe(variantIdInput, { attributes: true, attributeFilter: ['value'] });
-
-  // Hide extended content initially
-  document.querySelectorAll('.SeeMoreContent').forEach(div => {
+  
+  // Initial render: hide content initially
+  const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
+  moreContentDivs.forEach(div => {
     div.style.setProperty('display', 'none', 'important');
     div.style.visibility = 'hidden';
     div.style.overflow = 'hidden';
   });
-
 
   //select variant if redirection from colour page
 
