@@ -127,6 +127,30 @@
 .added__message{display:none;}
 .added__message.active-message{display:block;position:absolute;top:0;right:0}
 .add__sample {display:none;visibility: hidden;}
+span.add__sample {
+    background: #d7e5f7;     /* light blue background */
+    color: #1a4fa3;          /* blue text */
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    position: absolute;
+    line-height: 1.3;
+    font-weight: 500;
+}
+
+/* small arrow (pointer) bottom-right */
+span.add__sample:after {
+    content: "";
+    position: absolute;
+    right: 12px;
+    bottom: -8px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #d7e5f7;
+}
+
 .custom_plus_product_cart_btn:hover .add__sample{
     display: block;
     visibility: visible;
