@@ -172,9 +172,18 @@
                     <a href="{{- block.settings.block_link -}}"></a>
                   {% endif %}
                   </div>
-                                                <div class="video__btn__content">
-                                  <a href="{{ block.settings.video_btn_link }}"><button>{{ block.settings.video_btn }}</button></a>
-                              </div>
+                <div class="video__btn__content">
+                    <a href="{{ block.settings.video_btn_link }}">
+                      {% if block.settings.video_btn %}
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2"
+                              stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                      {% endif %}
+                    </a>
+                </div>
                 {% endif %}
               {% endif %}
             {% endfor %}
