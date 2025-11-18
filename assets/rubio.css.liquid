@@ -2121,12 +2121,13 @@ button.custom_product_cart_btn {
     }
     .product-section .product-features {
         gap: 8px;
-        flex-wrap: wrap;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
     }
     .product-section .product-features .feature-item {
-        width: 30%;
-        max-width: 90px;
+        min-width: 100px;
         flex: 1;
+        padding-bottom: 5px;
     }
     .product .slider-mobile-gutter {
         width: 100%;
