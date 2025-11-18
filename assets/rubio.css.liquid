@@ -2487,3 +2487,16 @@ button.custom_product_cart_btn {
 .templateproduct-product-tools .jump-links-section {
     display: none !important;
 }
+
+@media(min-width:992px) and (max-width:1024px){
+    .product-section .product-features {
+        gap: 8px;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+    }
+    .product-section .product-features .feature-item {
+        min-width: 100px;
+        flex: 1;
+        padding-bottom: 5px;
+    }
+} 
