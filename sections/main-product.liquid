@@ -1200,49 +1200,44 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!productForm) return;
 
   const variantIdInput = productForm.querySelector('input[name="id"]');
-  const seeMoreBtn = document.getElementById('customSeeMoreBtn');
-  let isExpanded = false;
 
-  function showMoreContent() {
-    const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
-    moreContentDivs.forEach(div => {
-      div.style.setProperty('display', 'inline-block', 'important');
-      div.style.visibility = 'visible';
-      div.style.overflow = 'visible';
-    });
-    if (seeMoreBtn) {seeMoreBtn.style.display = 'none';}
-    isExpanded = true;  // Content has been expanded
-  }
-  if (seeMoreBtn) {seeMoreBtn.addEventListener('click', showMoreContent);}
+  // Global flag to track expanded state
+  if (typeof window.seeMoreExpanded === 'undefined') window.seeMoreExpanded = false;
 
   // Watch for variant changes
   let lastVariant = variantIdInput.value;
   const observer = new MutationObserver(() => {
     if (variantIdInput.value !== lastVariant) {
       lastVariant = variantIdInput.value;
-      console.log('Variant changed:', lastVariant);
-      if (!isExpanded) {
-        const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
+
+      const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
+
+      if (!window.seeMoreExpanded) {
+        // If content not expanded, reset to hidden
         moreContentDivs.forEach(div => {
-          if (seeMoreBtn.style.display === 'none') {
-            div.style.setProperty('display', 'inline-block', 'important');
-            div.style.visibility = 'visible';
-            div.style.overflow = 'visible';
-          }
+          div.style.setProperty('display', 'none', 'important');
+          div.style.visibility = 'hidden';
+          div.style.overflow = 'hidden';
         });
-      insertButtonIfNeeded();
       }
+
+      // Try inserting the button if needed
+      insertButtonIfNeeded();
     }
   });
 
   observer.observe(variantIdInput, { attributes: true, attributeFilter: ['value'] });
-  // Initial render: hide content initially
+
+  // Initial render: hide content
   const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
   moreContentDivs.forEach(div => {
     div.style.setProperty('display', 'none', 'important');
     div.style.visibility = 'hidden';
     div.style.overflow = 'hidden';
   });
+
+  // Insert button on page load if needed
+  insertButtonIfNeeded();
 
   //select variant if redirection from colour page
 
