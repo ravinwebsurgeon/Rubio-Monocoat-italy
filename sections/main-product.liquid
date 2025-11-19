@@ -1237,9 +1237,11 @@ document.addEventListener('DOMContentLoaded', () => {
             div.style.visibility = 'visible';
             div.style.overflow = 'visible';
           }
+          if(div.style.display == 'none'){
+      insertButtonIfNeeded();
+          }
         });
       }
-      insertButtonIfNeeded();
     }
   });
 
