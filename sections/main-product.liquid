@@ -1225,10 +1225,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (variantIdInput.value !== lastVariant) {
       lastVariant = variantIdInput.value;
       console.log('Variant changed:', lastVariant);
-      const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
-      const contentHidden = Array.from(moreContentDivs).some(div =>
-        window.getComputedStyle(div).display === 'none'
-      );
+
       // If content was already expanded, reapply display
       const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
       moreContentDivs.forEach(div => {
@@ -1238,7 +1235,7 @@ document.addEventListener('DOMContentLoaded', () => {
           div.style.overflow = 'visible';
         }
       });
-      if(contentHidden){insertButtonIfNeeded();}
+      insertButtonIfNeeded();
     }
   });
 
