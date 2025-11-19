@@ -450,9 +450,9 @@
           {% endunless %}  {% endcomment %}
            style="display: none;">
           {% if media.media_type == 'image' %}
-            <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}" data-type="image">
+            {% comment %} <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}" data-type="image"> {% endcomment %}
               <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
-            </a>
+            {% comment %} </a> {% endcomment %}
           {% elsif media.media_type == 'video' %}
             {{ media | video_tag: controls: false, autoplay: true, loop: true, muted: true }}
           {% endif %}
