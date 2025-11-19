@@ -796,7 +796,7 @@ function updateSampleButtons() {
 updateSampleButtons();
 
 // Add click event to add item
-document.querySelectorAll('.custom_plus_product_cart_btn').forEach(button => {
+{% comment %} document.querySelectorAll('.custom_plus_product_cart_btn').forEach(button => {
   button.addEventListener('click', function() {
     const variantId = parseInt(this.dataset.variantId);
 
@@ -810,7 +810,7 @@ document.querySelectorAll('.custom_plus_product_cart_btn').forEach(button => {
       updateSampleButtons(); // Update all buttons after add
     });
   });
-});
+}); {% endcomment %}
 
 // Optional: Watch cart changes (remove items) every 2-3 seconds
 setInterval(updateSampleButtons, 2000);
