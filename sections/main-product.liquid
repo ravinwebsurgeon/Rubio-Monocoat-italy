@@ -136,7 +136,7 @@
                       </h2>
                     </a>
                   </div>
-                  {% if product.available %}
+                  {% comment %} {% if product.available %} {% endcomment %}
                     <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                     {%- render 'price',
                       product: product,
@@ -145,7 +145,7 @@
                       price_class: 'price--large'
                     -%}
                   </div>
-                {% endif %}
+                {% comment %} {% endif %} {% endcomment %}
                 </div>
 
               {%- when 'shipping_info' -%}
