@@ -744,46 +744,30 @@ function refreshCartDrawer() {
   ];
 
   // Init Slick
-  // Init Slick
-$('.top_picks_carousel').on('init', function(event, slick) {
-  toggleNavButtons(slick);
-}).slick({
-  slidesToShow: 5,
-  slidesToScroll: 1,
-  infinite: false,
-   arrows: true,
-  prevArrow: $('.cert-prev'),
-  nextArrow: $('.cert-next'),
-  responsive: [
-    {
-      breakpoint: 1200,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1
+  $('.top_picks_carousel').slick({
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    infinite: false,
+    prevArrow: $('.cert-prev'),
+    nextArrow: $('.cert-next'),
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1,
+          dots: true,
+          arrows: false
+        }
       }
-    },
-    {
-      breakpoint: 767,
-      settings: {
-        slidesToShow: 1,
-        dots: true,
-        arrows: false
-      }
-    }
-  ]
-});
-
-// Function to toggle nav buttons
-function toggleNavButtons(slick) {
-  const totalSlides = slick.slideCount;
-  const slidesToShow = slick.options.slidesToShow;
-
-  if (totalSlides <= slidesToShow) {
-    $('.cert-prev, .cert-next').hide(); // Hide buttons if there are less than slidesToShow
-  } else {
-    $('.cert-prev, .cert-next').show(); // Show buttons otherwise
-  }
-}
+    ]
+  });
 
 
   // Function to update all buttons based on cart contents
