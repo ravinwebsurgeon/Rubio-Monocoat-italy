@@ -1230,6 +1230,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('Variant changed:', lastVariant);
       if (!isExpanded) {
         console.log('check on variant')
+      // If content was already expanded, reapply display
       const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
       moreContentDivs.forEach(div => {
         if (seeMoreBtn.style.display === 'none') {
