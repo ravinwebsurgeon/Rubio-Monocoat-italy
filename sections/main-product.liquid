@@ -338,7 +338,7 @@
                         {{- 'products.product.quantity.label' | t -}}
                       {%- endif -%}
                     </span>
-                    {% if product.available %}
+                    {% comment %} {% if product.available %}
                     <label
                       class="quantity__label form__label"
                       for="Quantity-{{ section.id }}"
@@ -354,7 +354,7 @@
                         >
                       </span>
                     </label> 
-                  {% endif %}
+                  {% endif %} {% endcomment %}
                     <div class="price-per-item__container">
                       <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
                         <button class="quantity__button" name="minus" type="button">
