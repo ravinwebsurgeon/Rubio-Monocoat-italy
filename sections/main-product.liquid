@@ -1196,25 +1196,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const productForm = document.querySelector('form[action="/cart/add"]');
+ const productForm = document.querySelector('form[action="/cart/add"]');
   if (!productForm) return;
 
   const variantIdInput = productForm.querySelector('input[name="id"]');
   const seeMoreBtn = document.getElementById('customSeeMoreBtn');
 
-  function showMoreContent() {
-    const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
-    moreContentDivs.forEach(div => {
-      div.style.setProperty('display', 'inline-block', 'important');
-      div.style.visibility = 'visible';
-      div.style.overflow = 'visible';
-    });
-
-    if (seeMoreBtn) {
-      seeMoreBtn.style.display = 'none'; // hide the button after click
-    }
-  }
-
+  // Bind click event for initial button
   if (seeMoreBtn) {
     seeMoreBtn.addEventListener('click', showMoreContent);
   }
@@ -1229,17 +1217,20 @@ document.addEventListener('DOMContentLoaded', () => {
       // If content was already expanded, reapply display
       const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
       moreContentDivs.forEach(div => {
-        if (seeMoreBtn.style.display === 'none') {
+        if (seeMoreBtn && seeMoreBtn.style.display === 'none') {
           div.style.setProperty('display', 'inline-block', 'important');
           div.style.visibility = 'visible';
           div.style.overflow = 'visible';
         }
       });
+      
+      // Re-insert button if needed
       insertButtonIfNeeded();
     }
   });
 
   observer.observe(variantIdInput, { attributes: true, attributeFilter: ['value'] });
+  
   // Initial render: hide content initially
   const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
   moreContentDivs.forEach(div => {
@@ -1247,6 +1238,7 @@ document.addEventListener('DOMContentLoaded', () => {
     div.style.visibility = 'hidden';
     div.style.overflow = 'hidden';
   });
+});
 
   //select variant if redirection from colour page
 
