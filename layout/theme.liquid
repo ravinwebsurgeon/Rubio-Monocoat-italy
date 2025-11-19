@@ -634,7 +634,8 @@ document.addEventListener('DOMContentLoaded', function () {
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-  <script>
+  
+    <script>
 function insertButtonIfNeeded() {
     const vs = document.querySelector('variant-selects');
     if (!vs) return;
@@ -647,9 +648,12 @@ function insertButtonIfNeeded() {
     const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input');
     const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
 
+    // Check if content is hidden
     const contentHidden = Array.from(moreContentDivs).some(div =>
         window.getComputedStyle(div).display === 'none'
     );
+
+    // Button already exists
     const buttonExists = !!vs.querySelector('#customSeeMoreBtn');
 
     // Insert button only if content is hidden AND button does not exist
@@ -666,28 +670,20 @@ function insertButtonIfNeeded() {
         const newButton = document.getElementById('customSeeMoreBtn');
         if (newButton) {
             newButton.addEventListener('click', () => {
-                showMoreContent1(newButton);
+                const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
+                moreContentDivs.forEach(div => {
+                    div.style.setProperty('display', 'inline-block', 'important');
+                    div.style.visibility = 'visible';
+                    div.style.overflow = 'visible';
+                });
+                newButton.style.display = 'none';
+                window.seeMoreExpanded = true; // Mark as expanded
             });
         }
     }
 }
-
-function showMoreContent1(button) {
-    const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
-    moreContentDivs.forEach(div => {
-        div.style.setProperty('display', 'inline-block', 'important');
-        div.style.visibility = 'visible';
-        div.style.overflow = 'visible';
-    });
-
-    if (button) {
-        button.style.display = 'none';
-    }
-
-    // Mark content as expanded
-    window.seeMoreExpanded = true;
-}
 </script>
+
 
   </body>
 </html>
