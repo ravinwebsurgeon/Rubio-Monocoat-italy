@@ -353,6 +353,32 @@ document.addEventListener("DOMContentLoaded", function() {
 
   });
 });
+
+// Select all elements with the class "cert-plus"
+const certPlusElements = document.querySelectorAll(".cert-plus");
+
+// Function to add class for mobile screens
+function addClassForMobile() {
+  // Check if the screen width is less than or equal to 768px (you can adjust this value)
+  if (window.innerWidth <= 768) {
+    certPlusElements.forEach(element => {
+      element.classList.add("cert-plus-mobile"); // Replace "mobile-class" with the class you want to add
+    });
+  } else {
+    // Optionally remove the class if the screen is not mobile size
+    certPlusElements.forEach(element => {
+      element.classList.remove("cert-plus-mobile");
+    });
+  }
+}
+
+// Call the function initially
+addClassForMobile();
+
+// Add an event listener to handle screen resizing
+window.addEventListener("resize", addClassForMobile);
+
+
   document.querySelectorAll(".cert-plus").forEach(btn => {
      btn.addEventListener("click", function() {
       {% comment %} const card = this.closest(".certificate-card");
