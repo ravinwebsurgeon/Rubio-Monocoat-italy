@@ -655,18 +655,7 @@ const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input')
     `);
   }
 });
-  function showMoreContent() {
-    const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
-    moreContentDivs.forEach(div => {
-      div.style.setProperty('display', 'inline-block', 'important');
-      div.style.visibility = 'visible';
-      div.style.overflow = 'visible';
-    });
 
-    if (seeMoreBtn) {
-      seeMoreBtn.style.display = 'none'; // hide the button after click
-    }
-  }
  function insertButtonIfNeeded() {
     const vs = document.querySelector('variant-selects');
     if (!vs) return;
