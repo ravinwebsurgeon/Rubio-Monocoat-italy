@@ -679,7 +679,7 @@ const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input')
 
     const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input');
     const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
-
+console.log(moreContentDivs,'checkData')
     const contentHidden = Array.from(moreContentDivs).some(div =>
       window.getComputedStyle(div).display === 'none'
     );
