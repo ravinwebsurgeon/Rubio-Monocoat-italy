@@ -32,7 +32,7 @@
           {% assign t_questions = product.metafields.custom.technical_info_faq_question.value %}
           {% assign t_answers = product.metafields.custom.technical_info_faq_answer.value %}
 
-          {% if t_questions and t_answers %}
+          {% if t_questions and product.metafields.custom.technical_des_content.value  %}
             {% for t_question in t_questions %}
               {% assign t_answer = t_answers[forloop.index0] %}
               <div class="tech-info-item
