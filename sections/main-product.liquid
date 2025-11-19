@@ -1244,13 +1244,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   observer.observe(variantIdInput, { attributes: true, attributeFilter: ['value'] });
-  {% comment %} // Initial render: hide content initially
+  // Initial render: hide content initially
   const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
   moreContentDivs.forEach(div => {
     div.style.setProperty('display', 'none', 'important');
     div.style.visibility = 'hidden';
     div.style.overflow = 'hidden';
-  }); {% endcomment %}
+  });
 
   //select variant if redirection from colour page
 
