@@ -656,6 +656,18 @@ const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input')
   }
 });
 
+  function showMoreContent1() {
+    const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
+    moreContentDivs.forEach(div => {
+      div.style.setProperty('display', 'inline-block', 'important');
+      div.style.visibility = 'visible';
+      div.style.overflow = 'visible';
+    });
+
+    if (seeMoreBtn) {
+      seeMoreBtn.style.display = 'none'; // hide the button after click
+    }
+  }
  function insertButtonIfNeeded() {
     const vs = document.querySelector('variant-selects');
     if (!vs) return;
@@ -690,7 +702,7 @@ const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input')
         .addEventListener('click', showMoreContent); {% endcomment %}
     const newButton = document.getElementById('customSeeMoreBtn');
     if (newButton) {
-      newButton.addEventListener('click', showMoreContent);
+      newButton.addEventListener('click', showMoreContent1);
     }
     }
   }
