@@ -1228,7 +1228,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (variantIdInput.value !== lastVariant) {
       lastVariant = variantIdInput.value;
       console.log('Variant changed:', lastVariant);
-      {% comment %} if (!isExpanded) { {% endcomment %}
+      if (!isExpanded) {
         console.log('check on variant')
       const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
       moreContentDivs.forEach(div => {
@@ -1238,8 +1238,8 @@ document.addEventListener('DOMContentLoaded', () => {
           div.style.overflow = 'visible';
         }
       });
-      insertButtonIfNeeded();
-       {% comment %} } {% endcomment %}
+      {% comment %} insertButtonIfNeeded(); {% endcomment %}
+       }
     }
   });
 
