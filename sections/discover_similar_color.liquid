@@ -815,7 +815,27 @@ document.querySelectorAll('.custom_plus_product_cart_btn').forEach(button => {
 setInterval(updateSampleButtons, 2000);
 });
 
+// Delete a specific item from cart
+function removeItem(line) {
+  fetch('/cart/change.js', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ line: line, quantity: 0 }) // quantity 0 = delete
+  })
+  .then(res => res.json())
+  .then(cart => {
+    updateSampleButtons();    // Update buttons
+    refreshCartDrawer();      // Refresh minicart
+  })
+  .catch(err => console.error(err));
+}
 
+document.addEventListener('click', function(e) {
+  if(e.target.matches('.cutom-remove-class')) { // change selector as needed
+    const line = parseInt(e.target.dataset.line); // get line number
+    removeItem(line);
+  }
+});
 
 </script>
 
