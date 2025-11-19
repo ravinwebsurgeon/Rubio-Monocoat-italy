@@ -116,15 +116,12 @@
   </div> {% endcomment %}
 
   <div class="custom_price_value" style="display:flex;">
-       {% if current_variant.metafields.custom.custom_cost_value != blank %}
-      <div class="variant-custom-cost">
-        {{ current_variant.metafields.custom.custom_cost_value | money }}
-      </div>
-      <span>/</span>
-    {% endif %}
-    {% if current_variant.metafields.custom.custom_m2 != blank %}
-      <div class="variant-custom-price">
-        {{ current_variant.metafields.custom.custom_m2 }}
+      {% if  current_variant.metafields.custom.cost_m2_list != blank %}
+      <div class="variant-custom-cost__m2">
+          {% assign values_list = current_variant.metafields.custom.cost_m2_list.value %}
+          {% for val in values_list %}
+            <div>{{ val }}</div>
+          {% endfor %}
       </div>
     {% endif %}
   </div>
