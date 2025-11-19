@@ -1229,9 +1229,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const contentHidden = Array.from(moreContentDivs).some(div =>
         window.getComputedStyle(div).display === 'none'
       );
-      if (contentHidden) {
-        insertButtonIfNeeded();
-      }
       // If content was already expanded, reapply display
       const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
       moreContentDivs.forEach(div => {
@@ -1241,7 +1238,7 @@ document.addEventListener('DOMContentLoaded', () => {
           div.style.overflow = 'visible';
         }
       });
-      {% comment %} insertButtonIfNeeded(); {% endcomment %}
+      if(contentHidden){insertButtonIfNeeded();}
     }
   });
 
