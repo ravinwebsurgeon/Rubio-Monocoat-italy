@@ -651,8 +651,9 @@ document.querySelectorAll('.custom_plus_product_cart_btn').forEach(function (but
             .then(response => response.json())
             .then(data => {
                 console.log('Added to cart:', data);
-                button.querySelector('.add__sample').textContent = 'Sample Added'
-                button.querySelector('.plus___icon').textContent = '✔';
+                {% comment %} button.querySelector('.add__sample').textContent = 'Sample Added' {% endcomment %}
+                {% comment %} button.querySelector('.plus___icon').textContent = '✔'; {% endcomment %}
+                updateSampleButtons()
                 updateCartCount(1);
                 refreshCartDrawer();
             })
@@ -778,7 +779,7 @@ function updateSampleButtons() {
         const inCart = cart.items.some(item => item.variant_id === variantId);
 
         if (inCart) {
-          button.querySelector('.add__sample').textContent = 'Added';
+          button.querySelector('.add__sample').textContent = 'Sample Added';
           button.classList.add('added');
           button.querySelector('.plus___icon').textContent = '✔';
         } else {
