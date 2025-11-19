@@ -656,7 +656,7 @@ const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input')
   }
 });
 
-  function showMoreContent1() {
+  function showMoreContent1(newButton) {
     const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
     moreContentDivs.forEach(div => {
       div.style.setProperty('display', 'inline-block', 'important');
@@ -664,8 +664,8 @@ const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input')
       div.style.overflow = 'visible';
     });
 
-    if (seeMoreBtn) {
-      seeMoreBtn.style.display = 'none'; // hide the button after click
+    if (newButton) {
+      newButton.style.display = 'none'; // hide the button after click
     }
   }
  function insertButtonIfNeeded() {
@@ -700,10 +700,10 @@ const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input')
       // re-bind click
       {% comment %} document.getElementById('customSeeMoreBtn')
         .addEventListener('click', showMoreContent); {% endcomment %}
-    const newButton = document.getElementById('customSeeMoreBtn');
-    if (newButton) {
-      newButton.addEventListener('click', showMoreContent1);
-    }
+        const newButton = document.getElementById('customSeeMoreBtn');
+        if (newButton) {
+          newButton.addEventListener('click', showMoreContent1(newButton));
+        }
     }
   }
 </script>
