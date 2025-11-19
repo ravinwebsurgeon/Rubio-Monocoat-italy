@@ -1201,7 +1201,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const variantIdInput = productForm.querySelector('input[name="id"]');
   const seeMoreBtn = document.getElementById('customSeeMoreBtn');
-  let isExpanded = false;  // Tracks if content has been expanded
+  let isExpanded = false;
 
   function showMoreContent() {
     const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
@@ -1211,32 +1211,25 @@ document.addEventListener('DOMContentLoaded', () => {
       div.style.overflow = 'visible';
     });
 
-    // Hide the "See More" button
     if (seeMoreBtn) {
-      seeMoreBtn.style.display = 'none';
+      seeMoreBtn.style.display = 'none'; // hide the button after click
     }
+        isExpanded = true;  // Content has been expanded
 
-    // Mark content as expanded
-    isExpanded = true;
   }
 
   if (seeMoreBtn) {
     seeMoreBtn.addEventListener('click', showMoreContent);
   }
 
-  // Watch for variant changes and update button visibility accordingly
+  // Watch for variant changes
   let lastVariant = variantIdInput.value;
   const observer = new MutationObserver(() => {
     if (variantIdInput.value !== lastVariant) {
       lastVariant = variantIdInput.value;
       console.log('Variant changed:', lastVariant);
-
-      // If content was already expanded, do nothing
-      if (isExpanded) {
-        return; // Skip reinserting the button if content is already expanded
-      }
-
-      // If content is still hidden, re-insert the button
+      if (!isExpanded) {
+      // If content was already expanded, reapply display
       const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
       moreContentDivs.forEach(div => {
         if (seeMoreBtn.style.display === 'none') {
@@ -1245,13 +1238,12 @@ document.addEventListener('DOMContentLoaded', () => {
           div.style.overflow = 'visible';
         }
       });
-
-      insertButtonIfNeeded(); // Re-insert button if needed
+      insertButtonIfNeeded();
+       }
     }
   });
 
   observer.observe(variantIdInput, { attributes: true, attributeFilter: ['value'] });
-
   // Initial render: hide content initially
   const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
   moreContentDivs.forEach(div => {
@@ -1260,8 +1252,6 @@ document.addEventListener('DOMContentLoaded', () => {
     div.style.overflow = 'hidden';
   });
 
-  // Insert the button if content is hidden
-  insertButtonIfNeeded();
   //select variant if redirection from colour page
 
   function getCookie(name) {
