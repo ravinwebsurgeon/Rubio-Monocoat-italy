@@ -1196,12 +1196,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const productForm = document.querySelector('form[action="/cart/add"]');
+  const productForm = document.querySelector('form[action="/cart/add"]');
   if (!productForm) return;
 
   const variantIdInput = productForm.querySelector('input[name="id"]');
   const seeMoreBtn = document.getElementById('customSeeMoreBtn');
-  let isExpanded = false;  // Track if content is expanded
+  let isExpanded = false;
 
   function showMoreContent() {
     const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
@@ -1212,9 +1212,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if (seeMoreBtn) {
-      seeMoreBtn.style.display = 'none'; // Hide the button after click
+      seeMoreBtn.style.display = 'none'; // hide the button after click
     }
-    isExpanded = true;  // Mark content as expanded
+        isExpanded = true;  // Content has been expanded
+
   }
 
   if (seeMoreBtn) {
@@ -1227,25 +1228,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (variantIdInput.value !== lastVariant) {
       lastVariant = variantIdInput.value;
       console.log('Variant changed:', lastVariant);
-
-      // Only reapply styles if the content is not expanded
       if (!isExpanded) {
-        const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
-        moreContentDivs.forEach(div => {
-          // Check if content is hidden and reapply the styles
-          if (window.getComputedStyle(div).display === 'none') {
-            div.style.setProperty('display', 'none', 'important');
-            div.style.visibility = 'hidden';
-            div.style.overflow = 'hidden';
-          }
-        });
-        insertButtonIfNeeded();
-      }
+        console.log('check on variant')
+      const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
+      moreContentDivs.forEach(div => {
+        if (seeMoreBtn.style.display === 'none') {
+          div.style.setProperty('display', 'inline-block', 'important');
+          div.style.visibility = 'visible';
+          div.style.overflow = 'visible';
+        }
+      });
+      insertButtonIfNeeded();
+       }
     }
   });
 
   observer.observe(variantIdInput, { attributes: true, attributeFilter: ['value'] });
-
   // Initial render: hide content initially
   const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
   moreContentDivs.forEach(div => {
@@ -1254,8 +1252,6 @@ document.addEventListener('DOMContentLoaded', () => {
     div.style.overflow = 'hidden';
   });
 
-  // Insert the button if content is hidden
-  insertButtonIfNeeded();
   //select variant if redirection from colour page
 
   function getCookie(name) {
