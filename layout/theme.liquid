@@ -686,8 +686,12 @@ const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input')
       `);
 
       // re-bind click
-      document.getElementById('customSeeMoreBtn')
-        .addEventListener('click', showMoreContent);
+      {% comment %} document.getElementById('customSeeMoreBtn')
+        .addEventListener('click', showMoreContent); {% endcomment %}
+    const newButton = document.getElementById('customSeeMoreBtn');
+    if (newButton) {
+      newButton.addEventListener('click', showMoreContent);
+    }
     }
   }
 </script>
