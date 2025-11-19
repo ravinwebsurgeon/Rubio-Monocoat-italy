@@ -306,7 +306,7 @@
 
                 {% if product.available %}
                   <p class="stock-status in-stock">In stock – Ready to be shipped</p>
-                {% else %}
+                {% endif %}
                   {% comment %} <p class="stock-status out-of-stock">Out of stock</p>  {% endcomment %}
                     <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                     {%- render 'price',
@@ -316,7 +316,7 @@
                       price_class: 'price--large'
                     -%}
                   </div> 
-                {% endif %}
+                
               
 
                 <div class="quantity-add-to-cart">
@@ -355,6 +355,7 @@
                       </span>
                     </label> 
                   {% endif %} {% endcomment %}
+
                     <div class="price-per-item__container">
                       <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
                         <button class="quantity__button" name="minus" type="button">
