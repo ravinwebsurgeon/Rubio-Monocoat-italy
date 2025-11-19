@@ -1215,11 +1215,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!window.seeMoreExpanded) {
         // Only hide content if user never clicked "See More"
-        {% comment %} moreContentDivs.forEach(div => {
+        moreContentDivs.forEach(div => {
           div.style.setProperty('display', 'none', 'important');
           div.style.visibility = 'hidden';
           div.style.overflow = 'hidden';
-        }); {% endcomment %}
+        });
 
         // Only insert button if content is hidden
         insertButtonIfNeeded();
