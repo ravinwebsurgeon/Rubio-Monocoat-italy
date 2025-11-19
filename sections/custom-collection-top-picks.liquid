@@ -700,9 +700,28 @@ function refreshCartDrawer() {
           arrows: false
         }
       }
-    ]
+    ],
+      onInit: function() {
+    toggleArrowsVisibility();
+  },
+  // Check every time Slick updates (e.g., when slides change or after resizing)
+  onSetPosition: function() {
+    toggleArrowsVisibility();
+  }
   });
+// Function to toggle the visibility of the arrows section
+function toggleArrowsVisibility() {
+  var $carousel = $('.top_picks_carousel');
+  var totalSlides = $carousel.slick('getSlick').slideCount; // Get total number of slides
+  var slidesToShow = $carousel.slick('getSlick').options.slidesToShow; // Get the current slidesToShow setting
 
+  // If there are more slides than slidesToShow, show the arrows section
+  if (totalSlides > slidesToShow) {
+    $('.cert-prev, .cert-next').parent().show(); // Show the arrow container (if not enough slides, hide it)
+  } else {
+    $('.cert-prev, .cert-next').parent().hide(); // Hide the entire arrow container
+  }
+}
   {% comment %} // Popup functionality
   const popup = document.getElementById('product-detail-popup');
   const popupImage = document.getElementById('popup-product-image');
