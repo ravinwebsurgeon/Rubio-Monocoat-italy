@@ -1222,14 +1222,14 @@ document.addEventListener('DOMContentLoaded', () => {
       lastVariant = variantIdInput.value;
       console.log('Variant changed:', lastVariant);
       if (!isExpanded) {
-        const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
+        {% comment %} const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
         moreContentDivs.forEach(div => {
           if (seeMoreBtn.style.display === 'none') {
             div.style.setProperty('display', 'inline-block', 'important');
             div.style.visibility = 'visible';
             div.style.overflow = 'visible';
           }
-        });
+        }); {% endcomment %}
       insertButtonIfNeeded();
 
       }
