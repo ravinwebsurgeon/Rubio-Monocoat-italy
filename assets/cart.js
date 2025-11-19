@@ -147,20 +147,12 @@ class CartItems extends HTMLElement {
   updateQuantity(line, quantity, event, name, variantId) {
     this.enableLoading(line);
 
-    // const body = JSON.stringify({
-    //   line,
-    //   quantity,
-    //   sections: this.getSectionsToRender().map((section) => section.section),
-    //   sections_url: window.location.pathname,
-    // });
-
     const body = JSON.stringify({
-  line,                // This is the line number of the item being updated.
-  quantity,            // This is the new quantity (0 for removal).
-  sections: ['main-cart-items'],  // Only update the 'main-cart-items' section.
-  sections_url: window.location.pathname,
-});
-
+      line,
+      quantity,
+      sections: this.getSectionsToRender().map((section) => section.section),
+      sections_url: window.location.pathname,
+    });
     const eventTarget = event.currentTarget instanceof CartRemoveButton ? 'clear' : 'change';
 
     fetch(`${routes.cart_change_url}`, { ...fetchConfig(), ...{ body } })
