@@ -1243,12 +1243,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   observer.observe(variantIdInput, { attributes: true, attributeFilter: ['value'] });
   // Initial render: hide content initially
-  const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
+  {% comment %} const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
   moreContentDivs.forEach(div => {
     div.style.setProperty('display', 'none', 'important');
     div.style.visibility = 'hidden';
     div.style.overflow = 'hidden';
-  });
+  }); {% endcomment %}
 
   //select variant if redirection from colour page
 
