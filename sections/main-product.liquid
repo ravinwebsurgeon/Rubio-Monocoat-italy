@@ -1231,7 +1231,13 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       }
-      insertButtonIfNeeded();
+      let checkStatus =  document.querySelectorAll('.SeeMoreContent');
+       checkStatus.forEach(div => {
+    const isVisible = window.getComputedStyle(div).display === 'inline-block';
+    
+    if (!isVisible) {    insertButtonIfNeeded();}
+  })
+  
     }
   });
 
