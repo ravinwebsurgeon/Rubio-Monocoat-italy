@@ -655,7 +655,7 @@ const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input')
     `);
   }
 });
-let isExpanded = false;
+
   function showMoreContent1(newButton) {
     const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
     moreContentDivs.forEach(div => {
@@ -667,7 +667,6 @@ let isExpanded = false;
     if (newButton) {
       newButton.style.display = 'none'; // hide the button after click
     }
-    isExpanded = true; 
   }
  function insertButtonIfNeeded() {
     const vs = document.querySelector('variant-selects');
