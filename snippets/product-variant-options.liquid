@@ -122,11 +122,11 @@
     {% endif %}
   </div>
 
-  {% if current_variant.metafields.custom.custom_size_note != blank %}
+  {% comment %} {% if current_variant.metafields.custom.custom_size_note != blank %}
     <div class="variant-note">
       {{ current_variant.metafields.custom.custom_size_note | metafield_tag }}
     </div>
-  {% endif %}
+  {% endif %} {% endcomment %}
 {% endif %}
 
     </label>
