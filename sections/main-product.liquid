@@ -1196,12 +1196,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const productForm = document.querySelector('form[action="/cart/add"]');
+   const productForm = document.querySelector('form[action="/cart/add"]');
   if (!productForm) return;
 
   const variantIdInput = productForm.querySelector('input[name="id"]');
 
-  // Global flag to track expanded state
+  // Global flag to track expanded state (i.e., if user clicked "See More")
   if (typeof window.seeMoreExpanded === 'undefined') window.seeMoreExpanded = false;
 
   // Watch for variant changes
@@ -1210,6 +1210,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (variantIdInput.value !== lastVariant) {
       lastVariant = variantIdInput.value;
 
+      // Get all the content divs
       const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
 
       if (!window.seeMoreExpanded) {
@@ -1223,7 +1224,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Only insert button if content is hidden
         insertButtonIfNeeded();
       }
-      // If content was expanded, do nothing on variant change
+      // If content was expanded, don't hide it on variant change
     }
   });
 
