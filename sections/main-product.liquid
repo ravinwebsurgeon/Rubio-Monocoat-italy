@@ -1213,16 +1213,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
 
       if (!window.seeMoreExpanded) {
-        // If content not expanded, reset to hidden
+        // Only hide content if user never clicked "See More"
         moreContentDivs.forEach(div => {
           div.style.setProperty('display', 'none', 'important');
           div.style.visibility = 'hidden';
           div.style.overflow = 'hidden';
         });
-      }
 
-      // Try inserting the button if needed
-      insertButtonIfNeeded();
+        // Only insert button if content is hidden
+        insertButtonIfNeeded();
+      }
+      // If content was expanded, do nothing on variant change
     }
   });
 
