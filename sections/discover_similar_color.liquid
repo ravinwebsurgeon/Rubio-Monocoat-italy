@@ -660,6 +660,16 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     ]
   });
+let arrows_check = document.querySelector('.cert-prev-discover');
+let arrows_nxt_check = document.querySelector('.cert-next-discover');
+
+if (arrows_check && arrows_check.classList.contains('slick-hidden')) {
+  arrows_check.parentNode.parentNode.style.display = 'none';
+}
+
+if (arrows_nxt_check && arrows_nxt_check.classList.contains('slick-hidden')) {
+  arrows_nxt_check.parentNode.parentNode.style.display = 'none';
+}
 
 //add product into cart
 document.querySelectorAll('.custom_plus_product_cart_btn').forEach(function (button) {
