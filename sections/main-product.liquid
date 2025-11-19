@@ -1228,9 +1228,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (variantIdInput.value !== lastVariant) {
       lastVariant = variantIdInput.value;
       console.log('Variant changed:', lastVariant);
-      if (!isExpanded) {
+      {% comment %} if (!isExpanded) { {% endcomment %}
         console.log('check on variant')
-      // If content was already expanded, reapply display
       const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
       moreContentDivs.forEach(div => {
         if (seeMoreBtn.style.display === 'none') {
@@ -1240,7 +1239,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
       insertButtonIfNeeded();
-       }
+       {% comment %} } {% endcomment %}
     }
   });
 
