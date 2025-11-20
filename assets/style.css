@@ -1723,8 +1723,8 @@ button.disclosure__button span,.disclosure__button{
 }
 .change_variants {
     color: #396948;
-    text-decoration: none;
 }
+.change_variants:hover{text-decoration: none;}
 .sticky-btn {
     background: #FEC110;
     cursor: pointer;
