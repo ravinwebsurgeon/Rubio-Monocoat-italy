@@ -360,6 +360,10 @@
 
 </script>
 
+<script>
+  window.Shopify = window.Shopify || {};
+  window.Shopify.product = {{ product | json }};
+</script>
   </head>
 
   <body class="template{{ template | handle }} gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
