@@ -131,6 +131,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Application",
+            "menu_image": "shopify://shop_images/icon_application.svg",
             "tag_title": ""
           }
         },
