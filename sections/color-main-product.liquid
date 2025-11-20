@@ -677,7 +677,6 @@
         <span class="sticky-price" id="sticky-price">
           {{ product.selected_or_first_available_variant.price | money }}
         </span>
-        <a href="#variant-selects-{{ section.id }}"><span class="change_variants">Change</span></a>
       </div>
     </div>
 
@@ -691,6 +690,7 @@
       >
       <button type="submit" class="sticky-btn">Add to Cart</button>
     </form>
+      <a href="#variant-selects-{{ section.id }}"><span class="change_variants">Change</span></a>
   </div>
 </div>
 
