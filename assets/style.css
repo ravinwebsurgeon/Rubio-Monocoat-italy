@@ -1,3 +1,64 @@
+@font-face {
+    font-family: 'Frutiger Neue LT W1G Book';
+    src: url('FrutigerNeueLTW1G-Bold.eot');
+    src: url('FrutigerNeueLTW1G-Bold.eot?#iefix') format('embedded-opentype'),
+        url('FrutigerNeueLTW1G-Bold.woff2') format('woff2'),
+        url('FrutigerNeueLTW1G-Bold.woff') format('woff'),
+        url('FrutigerNeueLTW1G-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Frutiger Neue LT W1G Cn XBlack';
+    src: url('FrutigerNeueLTW1G-CnXBlk.eot');
+    src: url('FrutigerNeueLTW1G-CnXBlk.eot?#iefix') format('embedded-opentype'),
+        url('FrutigerNeueLTW1G-CnXBlk.woff2') format('woff2'),
+        url('FrutigerNeueLTW1G-CnXBlk.woff') format('woff'),
+        url('FrutigerNeueLTW1G-CnXBlk.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Frutiger Neue LT W1G Cn Book';
+    src: url('FrutigerNeueLTW1G-CnBook.eot');
+    src: url('FrutigerNeueLTW1G-CnBook.eot?#iefix') format('embedded-opentype'),
+        url('FrutigerNeueLTW1G-CnBook.woff2') format('woff2'),
+        url('FrutigerNeueLTW1G-CnBook.woff') format('woff'),
+        url('FrutigerNeueLTW1G-CnBook.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Frutiger Neue LT W1G';
+    src: url('FrutigerNeueLTW1G-Light.eot');
+    src: url('FrutigerNeueLTW1G-Light.eot?#iefix') format('embedded-opentype'),
+        url('FrutigerNeueLTW1G-Light.woff2') format('woff2'),
+        url('FrutigerNeueLTW1G-Light.woff') format('woff'),
+        url('FrutigerNeueLTW1G-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Frutiger Neue LT W1G';
+    src: url('https://cdn.shopify.com/s/files/1/0680/7647/0314/files/FrutigerNeueLTW1G-Medium.eot?v=1763636636');
+    src: url('FrutigerNeueLTW1G-Medium.eot?#iefix') format('embedded-opentype'),
+        url('FrutigerNeueLTW1G-Medium.woff2') format('woff2'),
+        url('FrutigerNeueLTW1G-Medium.woff') format('woff'),
+        url('FrutigerNeueLTW1G-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 .swatch-input__input:disabled+.swatch-input__label>.swatch, .swatch-input__input.visually-disabled+.swatch-input__label>.swatch{
     opacity:1 !important;
 }
