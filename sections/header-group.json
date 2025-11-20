@@ -179,7 +179,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Maintenance",
-            "menu_image": "shopify://shop_images/cycle_100dp_183029_FILL0_wght400_GRAD0_opsz48.svg",
+            "menu_image": "shopify://shop_images/arrows-counter-clockwise-bold.svg",
             "tag_title": ""
           }
         },
