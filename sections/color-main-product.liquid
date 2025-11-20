@@ -884,7 +884,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (variantIdInput.value !== lastVariant) {
       lastVariant = variantIdInput.value;
       console.log('Variant changed:', lastVariant);
-       
+      
+    if (window.Shopify && window.Shopify.product && window.Shopify.product.variants) {
+      // Find the selected variant by ID
+      const detailedVariant = window.Shopify.product.variants.find(variant => variant.id == variantIdInput.value);
+      console.log(detailedVariant,'detailedVariant')
+       if (detailedVariant) {
+        const price = detailedVariant.price;
+        const currency = Shopify.currency.active || 'USD';
+        const currencyFormattedNumber = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: currency
+              }).format(price/100);
+        let changePriceFor = document.querySelector('.custom_added_price')
+        let oldPrice = changePriceFor.querySelector('.price-item.price-item--regular')
+        oldPrice.textContent = `${currencyFormattedNumber}`;
+       }
+    }
+
       // If content was already expanded, reapply display
       const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
       moreContentDivs.forEach(div => {
