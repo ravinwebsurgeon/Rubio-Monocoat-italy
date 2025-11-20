@@ -204,7 +204,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let isPaused = false;
   const slideWidth = slides[0].offsetWidth;
   const totalSlides = slides.length;
-  const delay = {{ section.settings.delay_time | default: 6 }} * 1000;
+  {% comment %} const delay = {{ section.settings.delay_time | default: 6 }} * 1000; {% endcomment %}
+  const delay = {{ product.metafields.custom.vide_product_delay.value | default: 6 | plus: 0 }}* 1000;
 console.log(delay,'acheckdelay')
   wrapper.addEventListener("mouseenter", () => (isPaused = true));
   wrapper.addEventListener("mouseleave", () => (isPaused = false));
