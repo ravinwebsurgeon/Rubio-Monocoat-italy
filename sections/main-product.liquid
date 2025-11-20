@@ -1214,6 +1214,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  function formatMoney(price) {
+  return Shopify.formatMoney(price, "{{ shop.money_format }}");
+}
    const productForm = document.querySelector('form[action="/cart/add"]');
   if (!productForm) return;
 
