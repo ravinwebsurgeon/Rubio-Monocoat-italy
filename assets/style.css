@@ -1527,6 +1527,8 @@ section.product-features-section {
 
 section.product-features-section .section-heading {
     color: #000 !important;
+    font-family: 'Frutiger Neue LT W1G Cn XBlack';
+    font-weight: 900;
 }
 
 .product-features-section .features-wrapper {
