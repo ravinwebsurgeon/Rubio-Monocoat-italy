@@ -162,8 +162,8 @@
         "custom_images_wnVmdD": {
           "type": "Custom_images",
           "settings": {
-            "sub-menu_title": "Wood type",
-            "menu_image": "shopify://shop_images/container_1.png",
+            "sub-menu_title": "Wood Type",
+            "menu_image": "shopify://shop_images/icon_woodtype.svg",
             "tag_title": ""
           }
         },
@@ -171,7 +171,6 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Cleaning",
-            "menu_image": "shopify://shop_images/download_4.svg",
             "tag_title": ""
           }
         },
