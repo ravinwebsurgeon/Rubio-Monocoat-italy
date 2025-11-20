@@ -1650,6 +1650,13 @@ console.log('Surface:', surface);
                 }
                 if(cover_image_exterior){cover_image_exterior.src = image;}
             }
+          }else {
+            const featureDeafult = imgWrapper.querySelector('img.featured-image');
+            const covrDeafault = imgWrapper.querySelectorAll('img.cover-image');
+            featureDeafult.style.display = 'block'
+            featureDeafult.style.opacity = '1'
+            covrDeafault.style.display = 'none'
+            covrDeafault.style.opacity = '0'
           }
         }
         product.style.display = 'block';
