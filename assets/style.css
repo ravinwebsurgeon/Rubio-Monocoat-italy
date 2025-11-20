@@ -1004,7 +1004,10 @@ section.video-products-section .container {
     color: #000000;
     margin: 0 0 30px;
 }
-
+section.inspired-slider-section h2 {
+    font-family: 'Frutiger Neue LT W1G Cn XBlack';
+    font-weight: 900;
+}
 a.view-button {
     max-width: 242px !important;
     width: 100%;
