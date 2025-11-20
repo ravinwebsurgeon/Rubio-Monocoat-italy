@@ -1116,7 +1116,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <span class="sticky-price" id="sticky-price">
           {{ product.selected_or_first_available_variant.price | money }}
         </span>
-        <span class="change_variants"></span>
+        <a href="#variant-selects-{{ section.id }}"><span class="change_variants"></span></a>
       </div>
     </div>
 
