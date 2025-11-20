@@ -170,13 +170,17 @@
     <div class="tab-productss active">
       <ul class="product-grid collection-{{ tab_collection.handle }}">
         {% for product in tab_collection.products %}
-          {% assign ash_image = product.metafields.custom.exterior_ash_image.value %}
-          {% assign beech_image = product.metafields.custom.exterior_beech_image.value %}
+          {% comment %} {% assign ash_image = product.metafields.custom.exterior_ash_image.value %} {% endcomment %}
+          {% comment %} {% assign beech_image = product.metafields.custom.exterior_beech_image.value %} {% endcomment %}
           {% assign larch_image = product.metafields.custom.exterior_larch_image.value %}
           {% assign pine_image = product.metafields.custom.exterior_pine_image.value %}
-          {% assign oak_image = product.metafields.custom.exterior_oak_image.value %}
+          {% comment %} {% assign oak_image = product.metafields.custom.exterior_oak_image.value %} {% endcomment %}
           {% assign maple_image = product.metafields.custom.exterior_maple_image.value %}  
           {% assign douglas_image = product.metafields.custom.exterior_douglas_image.value %} 
+          {% assign ipe_image = product.metafields.custom.exterior_ipe_image.value %}
+          {% assign teak_image = product.metafields.custom.exterior_teak_image.value %}
+          {% assign thermowood_image  = product.metafields.custom.exterior_thermowood_image.value %}
+
           <li class="product-item"
               data-colours="{{ product.metafields.custom.colour_filter2.value | join: ',' }}"
               data-products="{{ product.metafields.custom.product_filter.value | join: ',' }}"
@@ -190,13 +194,17 @@
                   <div class="product-image-wrapper"
                        data-cover="{{ product.metafields.custom.cover_image | img_url: 'master' }}"
                        data-featured="{{ product.featured_image | img_url: '400x' }}"
-                       data-ash="{% if ash_image %}{{ ash_image | img_url: '400x'}} {%endif %}"
-                        data-beech="{% if beech_image %}{{ beech_image | img_url: '400x'}} {%endif %}"
+                       {% comment %} data-ash="{% if ash_image %}{{ ash_image | img_url: '400x'}} {%endif %}" {% endcomment %}
+                        {% comment %} data-beech="{% if beech_image %}{{ beech_image | img_url: '400x'}} {%endif %}" {% endcomment %}
                         data-larch="{% if larch_image %}{{ larch_image | img_url: '400x'}} {%endif %}"
                         data-pine="{% if pine_image %}{{ pine_image | img_url: '400x'}} {%endif %}"
-                        data-oak="{% if oak_image %}{{ oak_image | img_url: '400x'}} {%endif %}"
+                        {% comment %} data-oak="{% if oak_image %}{{ oak_image | img_url: '400x'}} {%endif %}" {% endcomment %}
                         data-maple="{% if maple_image %}{{ maple_image | img_url: '400x'}} {%endif %}" 
                         data-douglas="{% if douglas_image %}{{ douglas_image | img_url: '400x'}} {%endif %}" 
+                        data-ipe="{% if ipe_image %}{{ ipe_image | img_url: '400x'}} {%endif %}" 
+                        data-teak="{% if teak_image %}{{ teak_image | img_url: '400x'}} {%endif %}" 
+                        data-thermowood="{% if thermowood_image %}{{ thermowood_image | img_url: '400x'}} {%endif %}" 
+                       
                         data-default-view="cover"  
                   >
                     {% comment %} {% if product.metafields.custom.cover_image != blank %} {% endcomment %}
