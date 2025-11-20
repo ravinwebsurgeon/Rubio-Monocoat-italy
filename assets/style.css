@@ -1721,7 +1721,10 @@ button.disclosure__button span,.disclosure__button{
     line-height: normal;
     font-family: Frutiger Neue LT W1G;
 }
-
+.change_variants {
+    color: #396948;
+    text-decoration: none;
+}
 .sticky-btn {
     background: #FEC110;
     cursor: pointer;
