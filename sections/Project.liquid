@@ -1652,8 +1652,8 @@ console.log('Surface:', surface);
             }
           }else {
               const featureDefault = imgWrapper?.dataset.featured;
-              console.log(featureDefault,'asadad')
-           
+              const addDeafult = imgWrapper.querySelector('img.cover_image');
+              if(addDeafult){addDeafult.src = featureDefault;}           
           }
         }
         product.style.display = 'block';
