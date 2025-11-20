@@ -102,7 +102,11 @@
             <h3 class="card__heading h5">{{ card_product.title | escape }}</h3>
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
           </div>
-
+          {%- if card_product.description != blank -%}
+            <div class="product__description rte quick-add-hidden">
+              {{ card_product.description }}
+            </div>
+          {%- endif -%}
           <!-- Variant Section with Swatch Support -->
           <div class="custom_added_variants">
             {% for option in card_product.options_with_values %}
