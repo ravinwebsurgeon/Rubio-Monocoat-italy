@@ -180,102 +180,32 @@
       
 <svg width="670" height="700" viewBox="0 0 634 672" fill="none" xmlns="http://www.w3.org/2000/svg">
 <style>
-.animat {
-  transform-origin: center;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+.ring-wrapper {
+  max-width: 500px;
+  width: 80vw;
+}
+.tree-rings .cls-1 {
+  fill: none;
+  stroke: #b9cbc5;
+  stroke-miterlimit: 10;
+  stroke-width: 1;
+  stroke-dasharray: 500 30;
+  animation: ring-dash 10s linear infinite alternate;
 }
 
-/* Example floating animations */
-.ani1 {
-  animation-name: float1;
-  animation-duration: 6s;
-}
-.ani2 {
-  animation-name: float2;
-  animation-duration: 8s;
-}
-.ani3 {
-  animation-name: float3;
-  animation-duration: 5s;
-}
-.ani4 {
-  animation-name: float4;
-  animation-duration: 7s;
-}
-.ani5 {
-  animation-name: float5;
-  animation-duration: 6.5s;
-}
-.ani6 {
-  animation-name: float6;
-  animation-duration: 5.5s;
-}
-.ani7 {
-  animation-name: float7;
-  animation-duration: 6.2s;
-}
-.ani8 {
-  animation-name: float8;
-  animation-duration: 7.3s;
-}
-
-/* Keyframes for smooth random floating effect */
-@keyframes float1 {
-  0%   { transform: translate(0, 0) }
-  25%  { transform: translate(0, -4px) }
-  50%  { transform: translate(-5px, 4px) }
-  75%  { transform: translate(3px, -2px) }
-  100% { transform: translate(0, 0) }
-}
-@keyframes float2 {
-  0%   { transform: translate(0, 0) }
-  25%  { transform: translate(-4px, 4px) }
-  50%  { transform: translate(5px, -3px) }
-  75%  { transform: translate(-3px, 2px) }
-  100% { transform: translate(0, 0) }
-}
-@keyframes float3 {
-  0%   { transform: translate(0, 0) }
-  25%  { transform: translate(5px, 5px) }
-  50%  { transform: translate(-5px, -5px) }
-  75%  { transform: translate(8px, -3px) }
-  100% { transform: translate(0, 0) }
-}
-@keyframes float4 {
-  0%   { transform: translate(0, 0) }
-  25%  { transform: translate(-6px, -4px) }
-  50%  { transform: translate(6px, 4px) }
-  75%  { transform: translate(-3px, 7px) }
-  100% { transform: translate(0, 0) }
-}
-@keyframes float5 {
-  0%   { transform: translate(0, 0) }
-  25%  { transform: translate(4px, -6px) }
-  50%  { transform: translate(-4px, 6px) }
-  75%  { transform: translate(7px, 3px) }
-  100% { transform: translate(0, 0) }
-}
-@keyframes float6 {
-  0%   { transform: translate(0, 0) }
-  25%  { transform: translate(-5px, 5px) }
-  50%  { transform: translate(5px, -5px) }
-  75%  { transform: translate(-7px, -2px) }
-  100% { transform: translate(0, 0) }
-}
-@keyframes float7 {
-  0%   { transform: translate(0, 0) }
-  25%  { transform: translate(6px, -4px) }
-  50%  { transform: translate(-6px, 4px) }
-  75%  { transform: translate(3px, -6px) }
-  100% { transform: translate(0, 0) }
-}
-@keyframes float8 {
-  0%   { transform: translate(0, 0) }
-  25%  { transform: translate(-4px, 6px) }
-  50%  { transform: translate(4px, -6px) }
-  75%  { transform: translate(-6px, -3px) }
-  100% { transform: translate(0, 0) }
+@keyframes ring-dash {
+  0% {
+    stroke-dashoffset: 0;
+    opacity: 0.55;
+  }
+  50% {
+    stroke-dashoffset: -60;
+    opacity: 0.7;
+  }
+  100% {
+    stroke-dashoffset: -120;
+    opacity: 0.55;
+  }
 }
 </style>
 <ellipse cx="479" cy="110.592" rx="110" ry="109.408" fill="#F8D55B" class="ani1 animat"/>
