@@ -1236,12 +1236,11 @@ document.addEventListener('DOMContentLoaded', () => {
        if (detailedVariant) {
         const price = detailedVariant.price;
         const currency = Shopify.currency.active || 'USD';
-         const formattedPrice = price/100;
-        console.log(`Selected Variant Price: ${(price)}`,currency,new Intl.NumberFormat('en-US').format(formattedPrice));
+         const formattedPrice = new Intl.NumberFormat('en-US').format(price/100);
 
-        {% comment %} let changePriceFor = document.querySelector('.custom_added_price')
+        let changePriceFor = document.querySelector('.custom_added_price')
         let oldPrice = changePriceFor.querySelector('.price-item.price-item--regular')
-        oldPrice.textContent = `${price}`; {% endcomment %}
+        oldPrice.textContent = `${formattedPrice}`;
        }
     }
 
