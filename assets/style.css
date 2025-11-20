@@ -1014,8 +1014,8 @@ a.view-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
     font-style: Bold;
     font-size: 20px;
     leading-trim: NONE;
