@@ -1238,9 +1238,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const currency = Shopify.currency.active || 'USD';
          const formattedPrice = new Intl.NumberFormat('en-US').format(price/100);
 
+         const currencyFormattedNumber = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: currency
+              }).format(price);
         let changePriceFor = document.querySelector('.custom_added_price')
         let oldPrice = changePriceFor.querySelector('.price-item.price-item--regular')
-        oldPrice.textContent = `${currrency} ${formattedPrice}`;
+        oldPrice.textContent = `${currencyFormattedNumber}`;
        }
     }
 
