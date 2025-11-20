@@ -12,11 +12,11 @@
 
 @font-face {
     font-family: 'Frutiger Neue LT W1G Cn XBlack';
-    src: url('FrutigerNeueLTW1G-CnXBlk.eot');
+    src: url('https://cdn.shopify.com/s/files/1/0680/7647/0314/files/FrutigerNeueLTW1G-CnXBlk.eot?v=1763636635');
     src: url('FrutigerNeueLTW1G-CnXBlk.eot?#iefix') format('embedded-opentype'),
-        url('FrutigerNeueLTW1G-CnXBlk.woff2') format('woff2'),
-        url('FrutigerNeueLTW1G-CnXBlk.woff') format('woff'),
-        url('FrutigerNeueLTW1G-CnXBlk.ttf') format('truetype');
+        url('https://cdn.shopify.com/s/files/1/0680/7647/0314/files/FrutigerNeueLTW1G-CnXBlk.woff2?v=1763636634') format('woff2'),
+        url('https://cdn.shopify.com/s/files/1/0680/7647/0314/files/FrutigerNeueLTW1G-CnXBlk.woff?v=1763636635') format('woff'),
+        url('https://cdn.shopify.com/s/files/1/0680/7647/0314/files/FrutigerNeueLTW1G-CnXBlk.ttf?v=1763636635') format('truetype');
     font-weight: 900;
     font-style: normal;
     font-display: swap;
@@ -36,11 +36,11 @@
 
 @font-face {
     font-family: 'Frutiger Neue LT W1G';
-    src: url('FrutigerNeueLTW1G-Light.eot');
+    src: url('https://cdn.shopify.com/s/files/1/0680/7647/0314/files/FrutigerNeueLTW1G-Light.eot?v=1763636635');
     src: url('FrutigerNeueLTW1G-Light.eot?#iefix') format('embedded-opentype'),
-        url('FrutigerNeueLTW1G-Light.woff2') format('woff2'),
-        url('FrutigerNeueLTW1G-Light.woff') format('woff'),
-        url('FrutigerNeueLTW1G-Light.ttf') format('truetype');
+        url('https://cdn.shopify.com/s/files/1/0680/7647/0314/files/FrutigerNeueLTW1G-Light.woff2?v=1763636635') format('woff2'),
+        url('https://cdn.shopify.com/s/files/1/0680/7647/0314/files/FrutigerNeueLTW1G-Light.woff?v=1763636634') format('woff'),
+        url('https://cdn.shopify.com/s/files/1/0680/7647/0314/files/FrutigerNeueLTW1G-Light.ttf?v=1763636634') format('truetype');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
