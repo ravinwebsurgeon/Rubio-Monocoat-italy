@@ -681,16 +681,18 @@
     </div>
 
     <!-- Add to Cart -->
-    <form method="post" action="/cart/add" class="sticky-form">
-      <input
-        type="hidden"
-        name="id"
-        id="sticky-variant-id"
-        value="{{ product.selected_or_first_available_variant.id }}"
-      >
-      <button type="submit" class="sticky-btn">Add to Cart</button>
-    </form>
+    <div>
+      <form method="post" action="/cart/add" class="sticky-form">
+        <input
+          type="hidden"
+          name="id"
+          id="sticky-variant-id"
+          value="{{ product.selected_or_first_available_variant.id }}"
+        >
+        <button type="submit" class="sticky-btn">Add to Cart</button>
+      </form>
       <a href="#variant-selects-{{ section.id }}"><span class="change_variants">Change</span></a>
+    </div>
   </div>
 </div>
 
