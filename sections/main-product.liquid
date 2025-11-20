@@ -320,7 +320,7 @@
                   <p class="stock-status in-stock">In stock – Ready to be shipped</p>
                 {% endif %}
                   {% comment %} <p class="stock-status out-of-stock">Out of stock</p>  {% endcomment %}
-                    <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                   <div class="custom_added_price"> <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                     {%- render 'price',
                       product: product,
                       use_variant: true,
@@ -328,7 +328,7 @@
                       price_class: 'price--large'
                     -%}
                   </div> 
-                
+                </div>
               
 
                 <div class="quantity-add-to-cart">
@@ -1235,6 +1235,9 @@ document.addEventListener('DOMContentLoaded', () => {
        if (detailedVariant) {
         const price = detailedVariant.price;
         console.log(`Selected Variant Price: ${(price)}`);
+        let changePriceFor = document.querySelector('.custom_added_price')
+        let oldPrice = changePriceFor.querySelector('.price-item.price-item--regular')
+        oldPrice.textContent = `${price}`;
        }
     }
 
