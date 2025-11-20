@@ -1232,6 +1232,10 @@ document.addEventListener('DOMContentLoaded', () => {
       // Find the selected variant by ID
       const detailedVariant = window.Shopify.product.variants.find(variant => variant.id == variantIdInput.value);
       console.log(detailedVariant,'detailedVariant')
+       if (detailedVariant) {
+        const price = detailedVariant.price;
+        console.log(`Selected Variant Price: ${Shopify.formatMoney(price)}`);
+       }
     }
 
 
