@@ -175,7 +175,7 @@
           {% assign larch_image = product.metafields.custom.exterior_larch_image.value %}
           {% assign pine_image = product.metafields.custom.exterior_pine_image.value %}
           {% comment %} {% assign oak_image = product.metafields.custom.exterior_oak_image.value %} {% endcomment %}
-          {% assign maple_image = product.metafields.custom.exterior_maple_image.value %}  
+          {% comment %} {% assign maple_image = product.metafields.custom.exterior_maple_image.value %}   {% endcomment %}
           {% assign douglas_image = product.metafields.custom.exterior_douglas_image.value %} 
           {% assign ipe_image = product.metafields.custom.exterior_ipe_image.value %}
           {% assign teak_image = product.metafields.custom.exterior_teak_image.value %}
@@ -199,7 +199,7 @@
                         data-larch="{% if larch_image %}{{ larch_image | img_url: '400x'}} {%endif %}"
                         data-pine="{% if pine_image %}{{ pine_image | img_url: '400x'}} {%endif %}"
                         {% comment %} data-oak="{% if oak_image %}{{ oak_image | img_url: '400x'}} {%endif %}" {% endcomment %}
-                        data-maple="{% if maple_image %}{{ maple_image | img_url: '400x'}} {%endif %}" 
+                        {% comment %} data-maple="{% if maple_image %}{{ maple_image | img_url: '400x'}} {%endif %}"  {% endcomment %}
                         data-douglas="{% if douglas_image %}{{ douglas_image | img_url: '400x'}} {%endif %}" 
                         data-ipe="{% if ipe_image %}{{ ipe_image | img_url: '400x'}} {%endif %}" 
                         data-teak="{% if teak_image %}{{ teak_image | img_url: '400x'}} {%endif %}" 
