@@ -139,7 +139,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Preparation",
-            "menu_image": "shopify://shop_images/notepad-text.png",
+            "menu_image": "shopify://shop_images/file-text-bold.svg",
             "tag_title": ""
           }
         },
