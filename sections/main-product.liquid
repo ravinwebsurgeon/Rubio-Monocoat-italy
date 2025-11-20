@@ -1214,7 +1214,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  
+  function formatMoney(price, currency) {
+  // Format the price (dividing by 100 because Shopify stores prices in cents)
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: currency,
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  }).format(price / 100); // Divide price by 100 to convert from cents to dollars
+}
    const productForm = document.querySelector('form[action="/cart/add"]');
   if (!productForm) return;
 
@@ -1236,7 +1244,8 @@ document.addEventListener('DOMContentLoaded', () => {
        if (detailedVariant) {
         const price = detailedVariant.price;
         const currency = Shopify.currency.active || 'USD';
-        console.log(`Selected Variant Price: ${(price)}`,currency);
+         const formattedPrice = formatMoney(price, currency);
+        console.log(`Selected Variant Price: ${(price)}`,currency,formattedPrice);
 
         {% comment %} let changePriceFor = document.querySelector('.custom_added_price')
         let oldPrice = changePriceFor.querySelector('.price-item.price-item--regular')
