@@ -136,7 +136,7 @@
                       </h2>
                     </a>
                   </div>
-                  {% if product.available %}
+                  {% comment %} {% if product.available %}
                     <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                     {%- render 'price',
                       product: product,
@@ -145,7 +145,7 @@
                       price_class: 'price--large'
                     -%}
                   </div>
-                {% endif %}
+                {% endif %} {% endcomment %}
                 </div>
 
               {%- when 'shipping_info' -%}
@@ -248,6 +248,18 @@
                     {{ product.description }}
                   </div>
                 {%- endif -%}
+
+                {% if product.available %}
+                    <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                    {%- render 'price',
+                      product: product,
+                      use_variant: true,
+                      show_badges: true,
+                      price_class: 'price--large'
+                    -%}
+                  </div>
+                {% endif %}
+
                 {% comment %} icon section code {% endcomment %}
               {%- when 'product_features' -%}
                 <div class="product-features" {{ block.shopify_attributes }}>
