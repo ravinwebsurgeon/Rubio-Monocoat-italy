@@ -139,7 +139,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Preparation",
-            "menu_image": "shopify://shop_images/file-text-bold.svg",
+            "menu_image": "shopify://shop_images/icon_preparation.svg",
             "tag_title": ""
           }
         },
@@ -187,7 +187,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Doors",
-            "menu_image": "shopify://shop_images/width_100-ezgif.com-webp-to-png-converter.png",
+            "menu_image": "shopify://shop_images/icon_door.svg",
             "tag_title": ""
           }
         },
@@ -419,7 +419,6 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Floors",
-            "menu_image": "shopify://shop_images/floor_1.png",
             "tag_title": ""
           }
         },
