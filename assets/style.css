@@ -24,11 +24,11 @@
 
 @font-face {
     font-family: 'Frutiger Neue LT W1G Cn Book';
-    src: url('FrutigerNeueLTW1G-CnBook.eot');
+    src: url('https://cdn.shopify.com/s/files/1/0680/7647/0314/files/FrutigerNeueLTW1G-CnBook.eot?v=1763636635');
     src: url('FrutigerNeueLTW1G-CnBook.eot?#iefix') format('embedded-opentype'),
-        url('FrutigerNeueLTW1G-CnBook.woff2') format('woff2'),
-        url('FrutigerNeueLTW1G-CnBook.woff') format('woff'),
-        url('FrutigerNeueLTW1G-CnBook.ttf') format('truetype');
+        url('https://cdn.shopify.com/s/files/1/0680/7647/0314/files/FrutigerNeueLTW1G-CnBook.woff2?v=1763636634') format('woff2'),
+        url('https://cdn.shopify.com/s/files/1/0680/7647/0314/files/FrutigerNeueLTW1G-CnBook.woff?v=1763636635') format('woff'),
+        url('https://cdn.shopify.com/s/files/1/0680/7647/0314/files/FrutigerNeueLTW1G-CnBook.ttf?v=1763636635') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
