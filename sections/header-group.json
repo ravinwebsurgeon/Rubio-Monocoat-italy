@@ -171,6 +171,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Cleaning",
+            "menu_image": "shopify://shop_images/icon_cleaning-maintenance.svg",
             "tag_title": ""
           }
         },
