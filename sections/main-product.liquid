@@ -1227,8 +1227,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const observer = new MutationObserver(() => {
     if (variantIdInput.value !== lastVariant) {
       lastVariant = variantIdInput.value;
-        {% comment %} const detailedVariant = Shopify.product.variants.find(variant => variant.id == variantIdInput.value); {% endcomment %}
-console.log(Shopify.product,'dsfes');
+
+    if (window.Shopify && window.Shopify.product && window.Shopify.product.variants) {
+      // Find the selected variant by ID
+      const detailedVariant = window.Shopify.product.variants.find(variant => variant.id == variantIdInput.value);
+      console.log(detailedVariant,'detailedVariant')
+    }
 
 
       // Get all the content divs
