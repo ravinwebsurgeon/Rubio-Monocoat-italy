@@ -419,7 +419,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Floors",
-            "menu_image": "shopify://shop_images/vector-square.png",
+            "menu_image": "shopify://shop_images/floor_1.png",
             "tag_title": ""
           }
         },
