@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'Frutiger Neue LT W1G Book';
-    src: url('FrutigerNeueLTW1G-Bold.eot');
+    src: url('https://cdn.shopify.com/s/files/1/0680/7647/0314/files/FrutigerNeueLTW1G-Bold.eot?v=1763636635');
     src: url('FrutigerNeueLTW1G-Bold.eot?#iefix') format('embedded-opentype'),
         url('FrutigerNeueLTW1G-Bold.woff2') format('woff2'),
         url('FrutigerNeueLTW1G-Bold.woff') format('woff'),
-        url('FrutigerNeueLTW1G-Bold.ttf') format('truetype');
+        url('https://cdn.shopify.com/s/files/1/0680/7647/0314/files/FrutigerNeueLTW1G-Bold.ttf?v=1763636635') format('truetype');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
