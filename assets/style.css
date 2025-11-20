@@ -1577,8 +1577,8 @@ section.product-features-section .section-heading {
     font-size: 18px;
     color: #000;
     margin: 0;
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 300;
     line-height: normal;
     opacity: 0.5;
 }
