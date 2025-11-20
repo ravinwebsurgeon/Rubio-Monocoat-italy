@@ -48,7 +48,7 @@
                 </button>
 
                 <div class="tech-info-answer">
-                  {% if t_question contains 'Download' or t_question contains 'download' %}
+                  {% comment %} {% if t_question contains 'Download' or t_question contains 'download' %}
                       {%  if t_answer contains ',' %}
                         {% assign urls = t_answer | split: ',' %}
                           {% for url in urls %}
@@ -59,7 +59,7 @@
                       {% endif %}
                    {% else %}
                     <p>{{ t_answer }}</p>
-                  {% endif %}
+                  {% endif %} {% endcomment %}
                   <div class="technical_content_here">
                   {% if items.size > forloop.index0 %}
                     {{ items[forloop.index0].html }}
