@@ -1236,8 +1236,7 @@ document.addEventListener('DOMContentLoaded', () => {
        if (detailedVariant) {
         const price = detailedVariant.price;
         console.log(`Selected Variant Price: ${(price)}`);
-           const formattedPrice = Shopify.formatMoney(price, "{{ shop.money_format }}");
-        console.log(`Selected Variant Price: ${formattedPrice}`);
+
         {% comment %} let changePriceFor = document.querySelector('.custom_added_price')
         let oldPrice = changePriceFor.querySelector('.price-item.price-item--regular')
         oldPrice.textContent = `${price}`; {% endcomment %}
