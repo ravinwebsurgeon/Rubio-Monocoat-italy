@@ -1733,7 +1733,7 @@ button.disclosure__button span,.disclosure__button{
     border: 1px solid #FEC110;
     transition: all ease 0.3s;
     font-family: Frutiger Neue LT W1G;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     width:140px;
 }
 .sticky-btn:hover, .sticky-btn:focus {
