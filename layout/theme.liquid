@@ -314,6 +314,51 @@
 
 
 {{ 'https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css' | stylesheet_tag }}
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  const links = document.querySelectorAll('a[href^="#"]'); // Select all anchor links
+
+  // Smooth scroll for each link
+  links.forEach(link => {
+    link.addEventListener("click", function(event) {
+      event.preventDefault();  // Prevent the default anchor jump
+
+      // Get the target section element
+      const targetId = link.getAttribute("href").substring(1); // Get the ID without '#'
+      const targetElement = document.getElementById(targetId);
+
+      // If the target element exists, scroll to it smoothly
+      if (targetElement) {
+        smoothScrollTo(targetElement);
+      }
+    });
+  });
+
+  function smoothScrollTo(target) {
+    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset; // Get the target position
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    const duration = 800; // Scroll duration (in ms)
+    let startTime = null;
+
+    // Animate the scroll using requestAnimationFrame
+    function animation(currentTime) {
+      if (startTime === null) startTime = currentTime;
+      const elapsedTime = currentTime - startTime;
+      const scrollProgress = Math.min(elapsedTime / duration, 1); // Normalize progress
+
+      window.scrollTo(0, startPosition + distance * scrollProgress); // Scroll to the desired position
+
+      if (elapsedTime < duration) {
+        requestAnimationFrame(animation); // Continue animating until duration is reached
+      }
+    }
+
+    requestAnimationFrame(animation); // Start the smooth scroll animation
+  }
+});
+
+</script>
 
   </head>
 
