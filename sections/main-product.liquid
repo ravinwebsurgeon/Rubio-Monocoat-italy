@@ -1227,6 +1227,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const observer = new MutationObserver(() => {
     if (variantIdInput.value !== lastVariant) {
       lastVariant = variantIdInput.value;
+    console.log(lastVariant,'currentVariant')
 
       // Get all the content divs
       const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
