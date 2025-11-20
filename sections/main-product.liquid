@@ -1236,8 +1236,8 @@ document.addEventListener('DOMContentLoaded', () => {
        if (detailedVariant) {
         const price = detailedVariant.price;
         const currency = Shopify.currency.active || 'USD';
-         {% comment %} const formattedPrice = formatMoney(price, currency); {% endcomment %}
-        {% comment %} console.log(`Selected Variant Price: ${(price)}`,currency,formattedPrice); {% endcomment %}
+         const formattedPrice = price/100;
+        console.log(`Selected Variant Price: ${(price)}`,currency,formattedPrice);
 
         {% comment %} let changePriceFor = document.querySelector('.custom_added_price')
         let oldPrice = changePriceFor.querySelector('.price-item.price-item--regular')

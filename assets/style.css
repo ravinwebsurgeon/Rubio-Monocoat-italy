@@ -981,6 +981,8 @@ section.customer-reviews {
 }
 section.video-products-section h2 {
     margin-bottom: 40px;
+    font-family: 'Frutiger Neue LT W1G Cn XBlack';
+    font-weight:900;
 }
 
 section.video-products-section {background: #f8f8f8;margin-bottom: 100px;}
