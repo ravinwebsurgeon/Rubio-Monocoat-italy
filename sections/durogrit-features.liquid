@@ -132,22 +132,22 @@
 
     <!-- Left column -->
     <ul class="product-features left-col">
-      {% for i in (0..last_index) %}
-        {% assign mod = i | modulo: 2 %}
-        {% if mod == 0 and titles[i] %}
-          <li>
-           {% if section.settings.mobile_svg_icon != blank %}
-    <span class="mobile-only-icon">
-      {{ section.settings.mobile_svg_icon }}
-    </span>
-  {% endif %}
-            <strong>{{ titles[i] }}</strong>
-            {% if descriptions[i] %}
-              <p>{{ descriptions[i] }}</p>
-            {% endif %}
-          </li>
-        {% endif %}
-      {% endfor %}
+    {% for i in (0..last_index) %}
+      {% assign mod = i | modulo: 2 %}
+      {% if mod == 0 and titles[i] %}
+        <li>
+          {% if section.settings.mobile_svg_icon != blank %}
+        <span class="mobile-only-icon">
+          {{ section.settings.mobile_svg_icon }}
+        </span>
+      {% endif %}
+          <strong>{{ titles[i] }}</strong>
+          {% if descriptions[i] %}
+            <p>{{ descriptions[i] }}</p>
+          {% endif %}
+        </li>
+      {% endif %}
+    {% endfor %}
     </ul>
 
     <!-- Center image -->
