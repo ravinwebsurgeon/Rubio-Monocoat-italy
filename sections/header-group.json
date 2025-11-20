@@ -427,7 +427,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Wood Oil",
-            "menu_image": "shopify://shop_images/paint-bucket-bold.svg",
+            "menu_image": "shopify://shop_images/icon_can.svg",
             "tag_title": "Bestseller"
           }
         }
