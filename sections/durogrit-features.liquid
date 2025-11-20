@@ -153,9 +153,7 @@
     <!-- Center image -->
     {% if center_image != blank %}
       <div class="feature-image">
-        <img 
-          src="{{ center_image | image_url: width: 600 }}" 
-          alt="{{ product.title }} feature image">
+        <img src="{{ center_image | image_url: width: 600 }}" alt="{{ product.title }} feature image" width="" height="">
       </div>
     {% endif %}
 
