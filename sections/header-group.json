@@ -179,7 +179,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Maintenance",
-            "menu_image": "shopify://shop_images/arrows-counter-clockwise-bold_7de09ed3-fb6a-4881-9a44-ece92b39095f.svg",
+            "menu_image": "shopify://shop_images/icon_maintenance.svg",
             "tag_title": ""
           }
         },
