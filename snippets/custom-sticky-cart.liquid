@@ -21,7 +21,7 @@
         </span>
 
         <span class="sticky-price" id="sticky-price">
-          {{ product.selected_or_first_available_variant.price | money }}
+          {{ product.selected_or_first_available_variant.price | money_with_currency }}
         </span>
       </div>
     </div>
