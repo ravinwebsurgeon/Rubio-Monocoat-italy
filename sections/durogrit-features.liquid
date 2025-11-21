@@ -221,11 +221,8 @@
     margin-right: 6px;
     vertical-align: middle;
   }
-  {% comment %} .ring-wrapper {
-  max-width: 500px;
-  width: 80vw;
-} {% endcomment %}
-.tree-rings .cls-1 {
+
+{% comment %} .tree-rings .cls-1 {
   fill: none;
   stroke: #b9cbc5;
   stroke-miterlimit: 10;
@@ -247,6 +244,35 @@
     stroke-dashoffset: -120;
     opacity: 0.55;
   }
+} {% endcomment %}
+
+/* Base look for the rings */
+.tree-rings .cls-1 {
+fill: none;
+stroke: #dce5e2;
+stroke-miterlimit: 10;
+stroke-width: 1;
+
+/* subtle dashed line for movement */
+stroke-dasharray: 500 30;
+
+/* very gentle shimmer */
+animation: ring-dash 10s linear infinite alternate;
+}
+
+/* Subtle shimmer animation */
+@keyframes ring-dash {
+0% {
+stroke-dashoffset: 0;
+opacity: 0.3;
+}
+50% {
+stroke-dashoffset: -60;
+opacity: 0.45;
+}
+100% {
+stroke-dashoffset: -120;
+opacity: 0.3;
 }
 
   @media (max-width: 767px) {
