@@ -765,8 +765,8 @@ function refreshCartDrawer() {
         setTimeout(() => {
           document.querySelector('.added__message').classList.remove('active-message');
         }, 5000);
-        document.querySelector('.rebuy-cart').style.display = 'none'
-        document.body.classList.remove('smart-cart--enabled','rebuy-cart-visible')
+        {% comment %} document.querySelector('.rebuy-cart').style.display = 'none' {% endcomment %}
+        {% comment %} document.body.classList.remove('smart-cart--enabled','rebuy-cart-visible') {% endcomment %}
         {% comment %} newCartDrawer.classList.add('active', 'animate'); {% endcomment %}
       }
     })
