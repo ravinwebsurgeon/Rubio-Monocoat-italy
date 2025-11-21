@@ -1536,6 +1536,7 @@ section.product-features-section .section-heading {
     font-weight: 900;
     position: relative;
     z-index: 9;
+    margin-bottom:30px;
 }
 
 /* .product-features-section .features-wrapper {
