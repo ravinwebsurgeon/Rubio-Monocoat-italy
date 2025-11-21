@@ -757,7 +757,7 @@ function refreshCartDrawer() {
         setTimeout(() => {
           document.querySelector('.added__message').classList.remove('active-message');
         }, 5000);
-        newCartDrawer.classList.add('active', 'animate');
+        {% comment %} newCartDrawer.classList.add('active', 'animate'); {% endcomment %}
       }
     })
     .catch((error) => { console.error('Error refreshing cart drawer:', error); });
