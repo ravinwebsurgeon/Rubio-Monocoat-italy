@@ -160,6 +160,8 @@
               {{ card_product.title | escape }}
             </a>
           </h3>
+        <div class="checkMate">{{ card_product.metafields.custom.short_description.value }}</div>
+
           <div class="card-information">
             {%- if show_vendor -%}
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
@@ -288,7 +290,6 @@
             {%- endif -%}
           </div>
         </div>
-        <div class="checkMate">{{ card_product.metafields.custom.short_description.value }}</div>
         {% assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id %}
         {% if quick_add == 'standard' %}
           <div class="quick-add no-js-hidden">
