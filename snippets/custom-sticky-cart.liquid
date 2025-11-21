@@ -76,16 +76,24 @@ document.addEventListener('DOMContentLoaded', function () {
   function updateStickyBar() {
     const variant = getCurrentSelectedVariant();
     if (!variant) return;
+    const moneyFormat = window.Shopify?.shop?.money_format || '{{ shop.money_format }}';
+    const currencyCode = window.Shopify?.currency?.active || '{{ cart.currency.iso_code }}' || 'USD';
 
     stickyOptionsEl.textContent = variant.options.filter(Boolean).join(' / ');
 
     if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
-      stickyPriceEl.innerHTML = Shopify.formatMoney(
+      {% comment %} stickyPriceEl.innerHTML = Shopify.formatMoney(
         variant.price,
         window.meta?.money_format || '{{ shop.money_format }}'
-      );
+      ); {% endcomment %}
+      stickyPriceEl.innerHTML = Shopify.formatMoney(variant.price, moneyFormat);
     } else {
-      stickyPriceEl.textContent = (variant.price / 100).toFixed(2);
+      {% comment %} stickyPriceEl.textContent = (variant.price / 100).toFixed(2); {% endcomment %}
+       const formattedPrice = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: currencyCode
+    }).format(variant.price / 100);
+    stickyPriceEl.textContent = formattedPrice;
     }
 
     stickyVariantIdEl.value = variant.id;
