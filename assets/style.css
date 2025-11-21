@@ -1606,7 +1606,7 @@ section.product-features-section .section-heading {
 }
 
 .product-features-section .feature-image img {
-  max-width: 320px;
+  /* max-width: 320px; */
   height: 674px;
   object-fit: contain;
    position:relative;
