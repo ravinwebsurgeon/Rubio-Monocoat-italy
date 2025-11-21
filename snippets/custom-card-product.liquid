@@ -76,10 +76,10 @@
                   {% endif %}
                 </a>
               </div>
-              {% comment %} {% assign product_badge = product.metafields.custom.badge.value %}
-              <div class="custom-product-badge">
-                {{ product_badge }}
-              </div> {% endcomment %}
+              {% if card_product.metafields.custom.badge != blank %}
+              <div class="custom-product-badge product-badge">
+                 {{ card_product.metafields.custom.badge }}
+              </div> {% endif %}
           </div>
         {% endif %}
 
