@@ -1536,7 +1536,7 @@ section.product-features-section .section-heading {
     font-weight: 900;
 }
 
-.product-features-section .features-wrapper {
+/* .product-features-section .features-wrapper {
     max-width: 1255px;
     margin: 0 auto;
     padding: 0 30px;
@@ -1546,6 +1546,17 @@ section.product-features-section .section-heading {
     justify-content:center;
     position:relative;
     z-index:1;
+} */
+ .product-features-section .features-wrapper {
+    max-width: 1255px;
+    margin: 0 auto;
+    padding: 10px 30px 30px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
 }
 
 .product-features-section .product-features {
