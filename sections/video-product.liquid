@@ -70,9 +70,9 @@
                     <img src="{{ section.settings.cart_icon | img_url: '40x' }}" alt="Add to Cart">
                   
                 </a>
-                <a href="javascript:void(0);" class="slide-next-btn gg-{{ forloop.index }}">
+                {% comment %} <a href="javascript:void(0);" class="slide-next-btn gg-{{ forloop.index }}">
                     <img src="{{ section.settings.move_icon | img_url: '40x' }}" alt="Next Products">
-                </a>
+                </a> {% endcomment %}
               </div>
             </div>
           {% endif %}

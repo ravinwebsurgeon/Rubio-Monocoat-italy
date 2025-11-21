@@ -45,11 +45,11 @@
                             <img src="{{ block.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
                           </a>
                         {% endif %}
-                        {% if block.settings.icon_2 %}
+                        {% comment %} {% if block.settings.icon_2 %}
                           <a href="javascript:void(0);" class="slide-next-btn gg-{{ forloop.index }}">
                             <img src="{{ block.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
                           </a>
-                        {% endif %}
+                        {% endif %} {% endcomment %}
                       </div>
                     </div>
                   {% endif %}
