@@ -412,10 +412,10 @@
       "name": "Video Banner with Overlay",
       "settings": {
         "video_url": "https://cdn.shopify.com/videos/c/o/v/fe06d251fe1b4a468eb3cb0b00f672a9.mp4",
-        "subheading": "Hello",
+        "subheading": "",
         "heading": "Protecting Wood. Preserving Nature.",
         "button_link": "#",
-        "button_label": "More Info"
+        "button_label": ""
       }
     },
     "custom_blog_section_W9ehre": {
