@@ -249,7 +249,7 @@
                   </div>
                 {%- endif -%}
 
-                {% if product.available %}
+                {% comment %} {% if product.available %}
                     <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                     {%- render 'price',
                       product: product,
@@ -258,7 +258,7 @@
                       price_class: 'price--large'
                     -%}
                   </div>
-                {% endif %}
+                {% endif %} {% endcomment %}
 
                 {% comment %} icon section code {% endcomment %}
               {%- when 'product_features' -%}
