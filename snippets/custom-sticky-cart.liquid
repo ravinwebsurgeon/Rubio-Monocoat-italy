@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ===== Update sticky bar info =====
-  {% comment %} function updateStickyBar() {
+  function updateStickyBar() {
     const variant = getCurrentSelectedVariant();
     if (!variant) return;
 
@@ -93,36 +93,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if (variant.featured_image && stickyImgEl) {
       stickyImgEl.src = variant.featured_image.src;
     }
-  } {% endcomment %}
-function updateStickyBar() {
-  const variant = getCurrentSelectedVariant();
-  if (!variant) return;
-
-  // Update options (like color, size, etc.)
-  stickyOptionsEl.textContent = variant.options.filter(Boolean).join(' / ');
-
-  // Check if Shopify object and formatMoney method exist
-  if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
-    // Format the price with the currency symbol
-    stickyPriceEl.innerHTML = Shopify.formatMoney(
-      variant.price,
-      window.meta?.money_format || '{{ shop.money_format }}'
-    );
-  } else {
-    // Fallback: Display price without currency symbol
-    stickyPriceEl.textContent = (variant.price / 100).toFixed(2);
   }
 
-  // Set the variant ID in the hidden input element
-  stickyVariantIdEl.value = variant.id;
-
-  // Update the variant image if available
-  if (variant.featured_image && stickyImgEl) {
-    stickyImgEl.src = variant.featured_image.src;
-  }
-}
-  setInterval(updateStickyBar, 1000);
-  updateStickyBar();
+  {% comment %} setInterval(updateStickyBar, 1000); {% endcomment %}
+  {% comment %} updateStickyBar(); {% endcomment %}
 
   // ===== Trigger main Add to Cart when sticky clicked =====
   stickyForm.addEventListener('submit', function (e) {
