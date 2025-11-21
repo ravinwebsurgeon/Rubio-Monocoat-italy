@@ -104,6 +104,10 @@
                 >
               {%- endif -%}
             </div>
+             {% if card_product.metafields.custom.badge != blank %}
+              <div class="custom-product-badge product-badge">
+                 {{ card_product.metafields.custom.badge }}
+              </div> {% endif %}
           </div>
         {%- endif -%}
         <div class="card__content">
