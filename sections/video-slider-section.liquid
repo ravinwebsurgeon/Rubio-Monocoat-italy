@@ -427,19 +427,15 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(res => res.json())
         .then(product => {
             let colorOption = null;
-            let colorValue = null;
             const colorOptionIndex = product.options.findIndex(option => option.name.toLowerCase() === "color");
             if (colorOptionIndex !== -1) {
               // Find the first variant with a color value
               const firstColorVariant = product.variants.find(variant => variant.options[colorOptionIndex]);
               if (firstColorVariant) {
                 colorOption = firstColorVariant.options[colorOptionIndex];
-                const variantImage = product.variants.find(variant => variant.options[colorOptionIndex] === colorOption)?.image;
-                if (variantImage) {
-                  colorSwatchImage = variantImage.src;  // Save the variant image URL
-                }
               }
             }
+
          document.getElementById("inspired-proouter").innerHTML = `
                   <div class="product-image-wrap">
                     <a href="${product.url}">
@@ -447,7 +443,6 @@ document.addEventListener("DOMContentLoaded", function () {
                       <div class="product-info-wrap">
                         <p id="product-vendor" class="vendor">${product.vendor}</p>
                         <p id="product-title" class="title">${product.title}</p>
-                        <img src="${colorSwatchImage}" alt="Color Swatch" class="color-swatch">
                         ${colorOption ? `<p id="color_value" class="color-option">${colorOption}</p>` : ''}
                         <p id="product-price" class="price">Strating from ${product.price}</p>
                       </div>
