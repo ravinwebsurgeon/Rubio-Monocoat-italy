@@ -241,6 +241,36 @@
     "video_products_home_8dwaBA": {
       "type": "video_products-home",
       "blocks": {
+        "product_block_YBnHge": {
+          "type": "product_block",
+          "settings": {
+            "product": "scrubby-holder",
+            "icon_1": "shopify://shop_images/Shopping_Bag.png",
+            "icon_1_link": "",
+            "icon_2_link": "",
+            "product_card_bg_color": "#ffffff",
+            "product_card_border_radius": 20,
+            "product_title_color": "#000000",
+            "product_title_font_size": 20,
+            "price_color": "#2f4f2f",
+            "price_font_size": 14
+          }
+        },
+        "product_block_xDy89z": {
+          "type": "product_block",
+          "settings": {
+            "product": "almond",
+            "icon_1": "shopify://shop_images/Shopping_Bag.png",
+            "icon_1_link": "",
+            "icon_2_link": "",
+            "product_card_bg_color": "#ffffff",
+            "product_card_border_radius": 20,
+            "product_title_color": "#000000",
+            "product_title_font_size": 20,
+            "price_color": "#2f4f2f",
+            "price_font_size": 14
+          }
+        },
         "product_block_dpxKAB": {
           "type": "product_block",
           "settings": {
@@ -274,6 +304,8 @@
         }
       },
       "block_order": [
+        "product_block_YBnHge",
+        "product_block_xDy89z",
         "product_block_dpxKAB",
         "product_block_dXkcwP"
       ],
