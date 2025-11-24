@@ -9,7 +9,9 @@
       <div class="animated-div" data-aos="fade-up">
       <h4 class="subheading">{{ section.settings.subheading }}</h4>
       <h2 class="main-heading">{{ section.settings.heading }}</h2>
-      {% if section.settings.custom_content %}<p>{{ section.settings.custom_content }}</p>{% endif %}
+      {% if section.settings.custom_content %}
+        <p class="video_overlay_content">{{ section.settings.custom_content }}</p>
+      {% endif %}
       {% if section.settings.button_label != blank %}
       <a href="{{ section.settings.button_link }}" class="read-more-btn">
         {{ section.settings.button_label }}
