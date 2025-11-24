@@ -427,34 +427,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateProductInfo() {
     const centerSlide = document.querySelector(".inspired-slide.swiper-slide-active");
     if (!centerSlide) return;
-
-    const title = centerSlide.getAttribute("data-product-title");
-    const img = centerSlide.getAttribute("data-product-img");
-    const url = centerSlide.getAttribute("data-product-url");
-    const vendor = centerSlide.getAttribute("data-product-vendor");
-    const price = centerSlide.getAttribute("data-product-price");
-    const variantId = centerSlide.getAttribute("data-variant-id");
-
-    {% comment %} document.getElementById("inspired-proouter").innerHTML = `
-      <div class="product-image-wrap">
-        <a href="${url}">
-          <img id="product-img" src="${img}" alt="${title}">
-          <div class="product-info-wrap">
-            <p id="product-vendor" class="vendor">${vendor}</p>
-            <p id="product-title" class="title">${title}</p>
-            <p id="product-price" class="price">${price}</p>
-          </div>
-        </a>
-        <div class="atc-btn-wrap">
-          {% comment %} <a href="javascript:void(0)" class="add-to-cart-btn" data-variant-id="${variantId}">
-            <img src="{{ 'icon-cart.svg' | asset_url }}" alt="Cart Icon">
-          </a> {% endcomment %}
-          <a href="${url}">i</a> 
-        </div>
-      </div>
-    `; {% endcomment %}
-
-    //New code
     const handle = centerSlide.getAttribute("data-product-hanlde");
 
       // Fetch product data
