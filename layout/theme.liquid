@@ -685,7 +685,6 @@ document.addEventListener('DOMContentLoaded', function () {
     {%- endif -%}
   <script>
 function insertButtonIfNeeded() {
-  console.log('asad')
   const vs = document.querySelector('variant-selects');
   if (!vs) return;
 
@@ -701,7 +700,7 @@ function insertButtonIfNeeded() {
   const contentHidden = Array.from(moreContentDivs).some(div =>
     window.getComputedStyle(div).display === 'none'
   );
-
+console.log(contentHidden,'adsadadew')
   // Button already exists
   const buttonExists = !!vs.querySelector('#customSeeMoreBtn');
 
