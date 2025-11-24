@@ -24,7 +24,7 @@
       data-product-price="{{ prod.price | money }}"
       data-variant-id="{{ prod.selected_or_first_available_variant.id }}"
       data-video-url="{{ current_video }}"
-      data-product-hanlde = {{ product_links[forloop.index0].handle }}
+      data-product-hanlde = {{ product_links[forloop.index0] }}
     >
       {% if current_video != blank %}
         <video muted playsinline preload="auto" loop>
