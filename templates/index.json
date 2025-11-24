@@ -398,7 +398,7 @@
       "name": "Two Column Colour Grid",
       "settings": {
         "heading": "Popular interior colours",
-        "subtext": "Choose a colour to see how it looks on the stairs",
+        "subtext": "Choose a colour to see how it looks",
         "right_image": "shopify://shop_images/c480c7a225fa3e29070c858b00b7e45dae5ded2b.png",
         "button_label": "View All Colours",
         "button_link": "shopify://collections"
