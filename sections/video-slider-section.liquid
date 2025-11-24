@@ -458,8 +458,8 @@ document.addEventListener("DOMContentLoaded", function () {
                       <div class="product-info-wrap">
                         <p id="product-vendor" class="vendor">${product.vendor}</p>
                         <p id="product-title" class="title">${product.title}</p>
-                        ${colorOption ? `<span class="product_swatch" style="background:${swatch_color}"></span>
-                          <p id="product_color" class="color-option">${colorOption}</p>` : ''}
+                        ${colorOption ? `<p id="product_color" class="color-option">
+                          <span class="product_swatch" style="background:${swatch_color}"></span>${colorOption}</p>` : ''}
                         <p id="product-price" class="price">Strating from ${formattedPrice}</p>
                       </div>
                     {% comment %} </a> {% endcomment %}
