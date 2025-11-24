@@ -427,7 +427,6 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(res => res.json())
         .then(product => {
             let colorOption = null;
-            let swatchColor = null;
             let swatchValue = null;
             const colorOptionIndex = product.options.findIndex(option => option.name.toLowerCase() === "color");
             if (colorOptionIndex !== -1) {
@@ -435,7 +434,7 @@ document.addEventListener("DOMContentLoaded", function () {
               const firstColorVariant = product.variants.find(variant => variant.options[colorOptionIndex]);
               if (firstColorVariant) {
                 colorOption = firstColorVariant.options[colorOptionIndex];
-                swatchValue = firstColorVariant.swatch.color.rgb;
+                {% comment %} swatchValue = firstColorVariant.swatch.color.rgb; {% endcomment %}
               }
             }
             const lowestPriceVariant = product.variants.reduce((lowest, current) => {
