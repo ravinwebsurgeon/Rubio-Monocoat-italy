@@ -427,15 +427,20 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(res => res.json())
         .then(product => {
             let colorOption = null;
+            let colorSwatchImage = null; 
             const colorOptionIndex = product.options.findIndex(option => option.name.toLowerCase() === "color");
             if (colorOptionIndex !== -1) {
               // Find the first variant with a color value
               const firstColorVariant = product.variants.find(variant => variant.options[colorOptionIndex]);
               if (firstColorVariant) {
                 colorOption = firstColorVariant.options[colorOptionIndex];
+                const variantImage = product.variants.find(variant => variant.options[colorOptionIndex] === colorOption)?.image;
+                if (variantImage) {
+                  colorSwatchImage = variantImage.src;  // Save the variant image URL
+                }
               }
             }
-
+            console.log(colorSwatchImage,'asdsa')
          document.getElementById("inspired-proouter").innerHTML = `
                   <div class="product-image-wrap">
                     <a href="${product.url}">
