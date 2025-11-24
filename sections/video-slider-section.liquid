@@ -449,7 +449,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 style: "currency",
                 currency: "{{ shop.currency }}",
               });
-              console.log(swatchValue,'swatch')
+              console.log(`<span class="product_swatch" style="background:${swatch_color}"></span>`,'swatch')
             document.getElementById("inspired-proouter").innerHTML = `
                   <div class="product-image-wrap">
                     {% comment %} <a href="${product.url}"> {% endcomment %}
