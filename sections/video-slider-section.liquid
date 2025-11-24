@@ -435,7 +435,7 @@ document.addEventListener("DOMContentLoaded", function () {
               if (firstColorVariant) {
                 colorOption = firstColorVariant.options[colorOptionIndex];
                 {% comment %} swatchValue = firstColorVariant.swatch.color.rgb; {% endcomment %}
-                 console.log(firstColorVariant,'asda')
+                 console.log(firstColorVariant.swatch,'asda')
               }
             }
             const lowestPriceVariant = product.variants.reduce((lowest, current) => {
