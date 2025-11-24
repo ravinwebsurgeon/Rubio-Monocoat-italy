@@ -428,13 +428,14 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(product => {
             let colorOption = null;
             let swatchColor = null;
+            let swatchValue = null;
             const colorOptionIndex = product.options.findIndex(option => option.name.toLowerCase() === "color");
             if (colorOptionIndex !== -1) {
               // Find the first variant with a color value
               const firstColorVariant = product.variants.find(variant => variant.options[colorOptionIndex]);
               if (firstColorVariant) {
                 colorOption = firstColorVariant.options[colorOptionIndex];
-                let swatchValue = firstColorVariant.swatch.color.rgb;
+                swatchValue = firstColorVariant.swatch.color.rgb;
               }
             }
             const lowestPriceVariant = product.variants.reduce((lowest, current) => {
