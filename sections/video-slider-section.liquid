@@ -16,10 +16,12 @@
   {% for prod in product_links %}
     {% assign current_video = video_urls[forloop.index0].url %}
     {% assign product_handle   = prod | split: 'products/' | last %}
-
+    {% assign product = all_products[product_handle] %}
+    {% assign inspired_product_colors = product.metafields.custom.inspired_product_colors.value %}
     <div 
       class="swiper-slide inspired-slide"
       data-product-hanlde = {{ product_handle }}
+      data-product-color = {{ inspired_product_colors[0] }}
     >
       {% if current_video != blank %}
         <video muted playsinline preload="auto" loop>
