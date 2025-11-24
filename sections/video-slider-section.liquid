@@ -15,6 +15,8 @@
   
   {% for prod in related_products %}
     {% assign current_video = video_urls[forloop.index0].url %}
+    {% assign product_handle   = product_links[0] | split: 'products/' | last %}
+
     <div 
       class="swiper-slide inspired-slide"
       data-product-title="{{ prod.title }}"
@@ -24,7 +26,7 @@
       data-product-price="{{ prod.price | money }}"
       data-variant-id="{{ prod.selected_or_first_available_variant.id }}"
       data-video-url="{{ current_video }}"
-      data-product-hanlde = {{ product_links[forloop.index0] }}
+      data-product-hanlde = {{ product_handle }}
     >
       {% if current_video != blank %}
         <video muted playsinline preload="auto" loop>
