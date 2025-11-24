@@ -427,6 +427,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(res => res.json())
         .then(product => {
             let colorOption = null;
+            let swatchColor = null;
             const colorOptionIndex = product.options.findIndex(option => option.name.toLowerCase() === "color");
             if (colorOptionIndex !== -1) {
               // Find the first variant with a color value
