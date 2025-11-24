@@ -436,7 +436,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 colorOption = firstColorVariant.options[colorOptionIndex];
               }
             }
-            const formattedPrice = (product.price / 100).toLocaleString(undefined, {
+            const lowestPriceVariant = product.variants.reduce((lowest, current) => {
+              return current.price < lowest.price ? current : lowest;
+            });
+            const formattedPrice = (lowestPriceVariant.price / 100).toLocaleString(undefined, {
                 style: "currency",
                 currency: "{{ shop.currency }}",
               });
