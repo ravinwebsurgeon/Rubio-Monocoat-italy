@@ -1,7 +1,7 @@
 {% unless product.tags contains 'inspired_video_slider' %}
 <section class="inspired-slider-section product___page">
   <div class="container">
-    {% if product.metafields.custom.inspired_heading != blank %}
+    {% if product.metafields.custom.inspired_heading != blank and product.metafields.custom.inspired_product_list.value %}
       <h2 class="slider-heading">{{ product.metafields.custom.inspired_heading  }}</h2>
     {% endif %}
   </div>
