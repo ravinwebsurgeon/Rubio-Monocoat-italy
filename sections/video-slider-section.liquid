@@ -420,12 +420,8 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateProductInfo() {
     const centerSlide = document.querySelector(".inspired-slide.swiper-slide-active");
     if (!centerSlide) return;
-
-    
-
     //New code
     const handle = centerSlide.getAttribute("data-product-hanlde");
-
       // Fetch product data
       fetch(`/products/${handle}.js`)
         .then(res => res.json())
