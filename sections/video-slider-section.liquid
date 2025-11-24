@@ -435,7 +435,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const price = centerSlide.getAttribute("data-product-price");
     const variantId = centerSlide.getAttribute("data-variant-id");
 
-    document.getElementById("inspired-proouter").innerHTML = `
+    {% comment %} document.getElementById("inspired-proouter").innerHTML = `
       <div class="product-image-wrap">
         <a href="${url}">
           <img id="product-img" src="${img}" alt="${title}">
@@ -452,7 +452,34 @@ document.addEventListener("DOMContentLoaded", function () {
           <a href="${url}">i</a> 
         </div>
       </div>
-    `;
+    `; {% endcomment %}
+
+    //New code
+    const handle = centerSlide.getAttribute("data-product-hanlde");
+
+      // Fetch product data
+      fetch(`/products/${handle}.js`)
+        .then(res => res.json())
+        .then(product => {
+         document.getElementById("inspired-proouter").innerHTML = `
+                  <div class="product-image-wrap">
+                    <a href="${product.url}">
+                      <img id="product-img" src="${product.images[0]}" alt="${product.title}">
+                      <div class="product-info-wrap">
+                        <p id="product-vendor" class="vendor">${product.vendor}</p>
+                        <p id="product-title" class="title">${product.title}</p>
+                        <p id="product-price" class="price">${product.price}</p>
+                      </div>
+                    </a>
+                    <div class="atc-btn-wrap">
+                      {% comment %} <a href="javascript:void(0)" class="add-to-cart-btn" data-variant-id="${variantId}">
+                        <img src="{{ 'icon-cart.svg' | asset_url }}" alt="Cart Icon">
+                      </a> {% endcomment %}
+                      <a href="${url}">i</a> 
+                    </div>
+                  </div>
+                `;
+        });
   }
 
   // ✅ Delegate Add to Cart click for all slider buttons
