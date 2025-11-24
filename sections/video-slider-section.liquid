@@ -436,6 +436,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 colorOption = firstColorVariant.options[colorOptionIndex];
               }
             }
+            const formattedPrice = (product.price / 100).toLocaleString(undefined, {
+                style: "currency",
+                currency: "{{ shop.currency }}",
+              });
+
 
          document.getElementById("inspired-proouter").innerHTML = `
                   <div class="product-image-wrap">
@@ -445,7 +450,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <p id="product-vendor" class="vendor">${product.vendor}</p>
                         <p id="product-title" class="title">${product.title}</p>
                         ${colorOption ? `<p id="color_value" class="color-option">${colorOption}</p>` : ''}
-                        <p id="product-price" class="price">Strating from ${product.price}</p>
+                        <p id="product-price" class="price">Strating from ${formattedPrice}</p>
                       </div>
                     </a>
                     <div class="atc-btn-wrap">
