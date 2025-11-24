@@ -687,11 +687,11 @@ document.addEventListener('DOMContentLoaded', function () {
 function insertButtonIfNeeded() {
   const vs = document.querySelector('variant-selects');
   if (!vs) return;
-console.log('onLoad')
   const sizeFieldset = Array.from(vs.querySelectorAll('fieldset')).find(fs =>
     fs.querySelector('legend')?.textContent.trim().toLowerCase().includes('color')
   );
   if (!sizeFieldset) return;
+console.log('onLoad',sizeFieldset)
 
   const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input');
   const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
