@@ -688,7 +688,7 @@ function insertButtonIfNeeded() {
   const vs = document.querySelector('variant-selects');
   if (!vs) return;
   const sizeFieldset = Array.from(vs.querySelectorAll('fieldset')).find(fs =>
-    fs.querySelector('legend')?.textContent.trim().toLowerCase().includes('color')
+    fs.querySelector('legend')?.textContent.trim().toLowerCase().includes('colour')
   );
   if (!sizeFieldset) return;
 console.log('onLoad',sizeFieldset)
