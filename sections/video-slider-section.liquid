@@ -426,6 +426,7 @@ document.addEventListener("DOMContentLoaded", function () {
       fetch(`/products/${handle}.js`)
         .then(res => res.json())
         .then(product => {
+          console.log(product,'asdasd')
          document.getElementById("inspired-proouter").innerHTML = `
                   <div class="product-image-wrap">
                     <a href="${product.url}">
