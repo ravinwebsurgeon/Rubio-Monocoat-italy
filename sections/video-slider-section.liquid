@@ -19,13 +19,6 @@
 
     <div 
       class="swiper-slide inspired-slide"
-      {% comment %} data-product-title="{{ prod.title }}"
-      data-product-img="{{ prod.featured_image | img_url: '600x600' }}"
-      data-product-url="{{ prod.url }}"
-      data-product-vendor="{{ prod.vendor }}"
-      data-product-price="{{ prod.price | money }}"
-      data-variant-id="{{ prod.selected_or_first_available_variant.id }}"
-      data-video-url="{{ current_video }}" {% endcomment %}
       data-product-hanlde = {{ product_handle }}
     >
       {% if current_video != blank %}
