@@ -17,7 +17,7 @@
     {% assign current_video = video_urls[forloop.index0].url %}
     {% assign product_handle   = prod | split: 'products/' | last %}
     {% assign product = all_products[product_handle] %}
-    {% assign inspired_product_colors = product.metafields.custom.inspired_product_colors.value %}
+    {% assign inspired_product_colors = product.metafields.custom.inspired_product_colors %}
     <div 
       class="swiper-slide inspired-slide"
       data-product-hanlde = {{ product_handle }}
