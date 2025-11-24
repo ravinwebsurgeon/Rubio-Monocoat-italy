@@ -15,7 +15,7 @@
   
   {% for prod in related_products %}
     {% assign current_video = video_urls[forloop.index0].url %}
-    {% assign product_handle   = product_links[0] | split: 'products/' | last %}
+    {% assign product_handle   = product_links[0] | split: 'products' | last %}
 
     <div 
       class="swiper-slide inspired-slide"
