@@ -10,7 +10,7 @@
   <div class="swiper inspired-slider" id="inspiration">
     <div class="swiper-wrapper">
   {% assign video_urls = product.metafields.custom.inspired_videos.value %}
-  {% assign related_products = product.metafields.custom.inspired_products.value %}
+  {% comment %} {% assign related_products = product.metafields.custom.inspired_products.value %} {% endcomment %}
   {% assign product_links = product.metafields.custom.inspired_product_list.value %}
   
   {% for prod in product_links %}
