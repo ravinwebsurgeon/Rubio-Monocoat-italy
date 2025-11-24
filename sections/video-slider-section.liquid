@@ -425,6 +425,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!centerSlide) return;
     //New code
     const handle = centerSlide.getAttribute("data-product-hanlde");
+    const swatch_color = centerSlide.getAttribute("data-product-color");
       // Fetch product data
       fetch(`/products/${handle}.js`)
         .then(res => res.json())
@@ -456,7 +457,8 @@ document.addEventListener("DOMContentLoaded", function () {
                       <div class="product-info-wrap">
                         <p id="product-vendor" class="vendor">${product.vendor}</p>
                         <p id="product-title" class="title">${product.title}</p>
-                        ${colorOption ? `<p id="product_color" class="color-option">${colorOption}</p>` : ''}
+                        ${colorOption ? `<span class="product_swatch" style="background:${swatch_color}"></span>
+                          <p id="product_color" class="color-option">${colorOption}</p>` : ''}
                         <p id="product-price" class="price">Strating from ${formattedPrice}</p>
                       </div>
                     {% comment %} </a> {% endcomment %}
