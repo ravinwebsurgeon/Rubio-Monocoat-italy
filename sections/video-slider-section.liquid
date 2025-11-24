@@ -11,7 +11,7 @@
     <div class="swiper-wrapper">
   {% assign video_urls = product.metafields.custom.inspired_videos.value %}
   {% assign related_products = product.metafields.custom.inspired_products.value %}
-  {% assign product_links = custom.inspired_product_list.value %}
+  {% assign product_links = product.metafields.custom.inspired_product_list.value %}
   
   {% for prod in related_products %}
     {% assign current_video = video_urls[forloop.index0].url %}
