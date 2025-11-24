@@ -691,9 +691,9 @@ function insertButtonIfNeeded() {
     fs.querySelector('legend')?.textContent.trim().toLowerCase().includes('color')
   ); {% endcomment %}
   const sizeFieldset = Array.from(vs.querySelectorAll('fieldset')).find(fs =>
-  fs.querySelector('legend')?.textContent.trim().toLowerCase().includes('color') ||
-  fs.querySelector('legend')?.textContent.trim().toLowerCase().includes('colour')
-);
+    fs.querySelector('legend')?.textContent.trim().toLowerCase().includes('color') ||
+    fs.querySelector('legend')?.textContent.trim().toLowerCase().includes('colour')
+  );
   if (!sizeFieldset) return;
 
   const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input');
