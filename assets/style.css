@@ -2305,6 +2305,15 @@ a.colour-button {
     line-height: 100%;
     letter-spacing: 0%;
 }
+/* Add font families */
+h2.main-heading {
+    font-family: Frutiger Neue Condensed XBlack;
+}
+
+p.video_overlay_content {
+    font-family: Frutiger Neue Medium;
+}
+
 
 .video-bg {
     height: 430px !important;
