@@ -28,20 +28,10 @@
             {% assign color_img =   first_swatch.image | image_url: width: 50 %}
         {% endif %} 
       {% endcomment %}
-       {% assign color_objects = product.metafields.custom.color.value %}
-       {% assign color_obj = color_objects[0] %}
-        {% assign name = color_obj.name %}
-        {% assign hex = color_obj.hex %}
-        {% assign image = color_obj.image %}
-
-
     <div 
       class="swiper-slide inspired-slide"
       data-product-hanlde = {{ product_handle }}
       data-product-color = '{{ cleaned_rgb }}'
-      data-name = '{{ name }}'
-      data-hex = '{{ hex }}'
-      data-imag = '{{ image | image_url: width: 100 }}'
     >
       {% if current_video != blank %}
         <video muted playsinline preload="auto" loop>
