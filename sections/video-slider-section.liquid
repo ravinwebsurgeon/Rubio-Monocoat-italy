@@ -22,13 +22,12 @@
     {% for option in product.options_with_values %}
       {% assign first_value = option.values[0] %}
       {% assign color = first_value.swatch.color.rgb %}
-
     {% endfor %}
     <div 
       class="swiper-slide inspired-slide"
       data-product-hanlde = {{ product_handle }}
       data-product-color = '{{ cleaned_rgb }}'
-      data-color = '{{ color }}'
+      data-color = '{{ first_value }}{{ color }}'
     >
       {% if current_video != blank %}
         <video muted playsinline preload="auto" loop>
