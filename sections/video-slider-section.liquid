@@ -23,8 +23,17 @@
       {% assign first_value = option.values[0] %}
       {% assign color = first_value.swatch.color.rgb %}
     {% endfor %} {% endcomment %}
+     {% assign color_option = product.options_with_values | where: "name", "Color" | first %}
+
+{% if color_option %}
+  {% comment %} {% assign first_value = color_option.values[0] %} {% endcomment %}
+
+  {% assign first_swatch = color_option.swatches[0] %} 
+
+    {% assign color = first_swatch.color.rgb %}
+{% endif %}
     <div 
-      class="swiper-slide inspired-slide"
+      class="swiper-slide inspired-slide {{ color }}"
       data-product-hanlde = {{ product_handle }}
       data-product-color = '{{ cleaned_rgb }}'
     >
