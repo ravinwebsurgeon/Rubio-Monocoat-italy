@@ -33,9 +33,10 @@
     {% assign color = first_swatch.color.rgb %}
 {% endif %}
     <div 
-      class="swiper-slide inspired-slide {{ color }}"
+      class="swiper-slide inspired-slide"
       data-product-hanlde = {{ product_handle }}
       data-product-color = '{{ cleaned_rgb }}'
+      data-color =' {{ color }}'
     >
       {% if current_video != blank %}
         <video muted playsinline preload="auto" loop>
