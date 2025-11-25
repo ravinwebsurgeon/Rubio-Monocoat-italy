@@ -462,7 +462,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <p id="product-vendor" class="vendor">${product.vendor}</p>
                         <p id="product-title" class="title">${product.title}</p>
                         ${colorOption ? `<p id="product_color" class="color-option">
-                          <span class="product_swatch" style="background:${swatch_color}"></span>${colorOption}</p>` : ''}
+                          <span class="product_swatch" style="background:${swatch_color}"></span><span>${colorOption}</span></p>` : ''}
                         <p id="product-price" class="price">Starting from ${formattedPrice}</p>
                       </div>
                     {% comment %} </a> {% endcomment %}
