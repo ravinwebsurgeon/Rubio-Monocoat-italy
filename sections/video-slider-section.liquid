@@ -19,11 +19,16 @@
     {% assign product = all_products[product_handle] %}
     {% assign inspired_product_colors = product.metafields.custom.inspired_product_colors.value %}
     {% assign cleaned_rgb = inspired_product_colors[0] | strip | strip_newlines %}
+    {% for option in product.options_with_values %}
+      {% assign first_value = option.values[0] %}
+      {% assign color = first_value.swatch.color.rgb %}
 
+    {% endfor %}
     <div 
       class="swiper-slide inspired-slide"
       data-product-hanlde = {{ product_handle }}
       data-product-color = '{{ cleaned_rgb }}'
+      data-color = '{{ color }}'
     >
       {% if current_video != blank %}
         <video muted playsinline preload="auto" loop>
