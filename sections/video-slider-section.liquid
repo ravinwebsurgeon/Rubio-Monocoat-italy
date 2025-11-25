@@ -24,19 +24,18 @@
       {% assign color = first_value.swatch.color.rgb %}
     {% endfor %} {% endcomment %}
      {% assign color_option = product.options_with_values | where: "name", "Color" | first %}
-
 {% if color_option %}
-  {% comment %} {% assign first_value = color_option.values[0] %} {% endcomment %}
-
+  {% assign first_value = color_option.values[0] %}
   {% assign first_swatch = color_option.swatches[0] %} 
-
     {% assign color = first_swatch.color.rgb %}
+     {% assign color_img =   first_swatch.image | image_url: width: 50 %}
 {% endif %}
     <div 
       class="swiper-slide inspired-slide"
       data-product-hanlde = {{ product_handle }}
       data-product-color = '{{ cleaned_rgb }}'
       data-color =' {{ color }}'
+      data-color-img = '{{ color_img }}'
     >
       {% if current_video != blank %}
         <video muted playsinline preload="auto" loop>
