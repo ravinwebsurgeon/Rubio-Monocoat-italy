@@ -218,8 +218,8 @@
 .inspired-product-info div#inspired-proouter .atc-btn-wrap a {
     width: 36px;
     height: 36px;
-    border: 1px solid #ccc;
-    border-radius: 30px;
+    {% comment %} border: 1px solid #ccc; {% endcomment %}
+    {% comment %} border-radius: 30px; {% endcomment %}
     justify-content: center;
     align-items: center;
 }
@@ -228,10 +228,10 @@
     filter: invert(1);
     height: auto;
 }
-.inspired-product-info div#inspired-proouter .atc-btn-wrap a:hover {
+{% comment %} .inspired-product-info div#inspired-proouter .atc-btn-wrap a:hover {
     background-color: #000;
     color:#fff;
-}
+} {% endcomment %}
 .inspired-product-info div#inspired-proouter .atc-btn-wrap a:hover img {
     filter: none;
 }
