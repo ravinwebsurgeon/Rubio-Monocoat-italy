@@ -777,24 +777,17 @@ a.colour-button {
     border-radius: 10px !important;
     overflow: hidden;
 }
-
-
 .blog .article-card__image-wrapper.card__media {
     border-radius: 10px;
     overflow: hidden !important;
 }
-
 .blog .article-card__image-wrapper.card__media {
     border-radius: 20px !important;
     background-color: transparent !important;
 }
-
 .blog .card__inner {
     border-radius: 10px !important;
 }
-
-
-
 section.customer-reviews .container {
     max-width: 1760px;
     padding: 72px 30px 72px;
