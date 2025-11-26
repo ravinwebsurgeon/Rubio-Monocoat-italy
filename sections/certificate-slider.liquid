@@ -349,14 +349,6 @@ document.addEventListener("DOMContentLoaded", function() {
   // Accordion toggle
   {% comment %} document.querySelectorAll(".cert-plus").forEach(btn => { {% endcomment %}
   document.querySelectorAll(".certificate-card").forEach(card => {
-    
-    {% comment %} 
-     btn.addEventListener("click", function() {
-      const card = this.closest(".certificate-card");
-      card.classList.remove("active");
-      this.textContent = card.classList.contains("active") ? "×" : "i";
-    }); 
-    {% endcomment %}
     card.addEventListener("mouseenter", function() {
       const btn = card.querySelector(".certificate-all-content>.ctificte-btn--pulsss>.certificate-puls-btn>button.cert-plus");
       console.log(btn,'asdasd')
@@ -374,16 +366,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Select all elements with the class "cert-plus"
 const certPlusElements = document.querySelectorAll(".cert-plus");
-
 // Function to add class for mobile screens
 function addClassForMobile() {
-  // Check if the screen width is less than or equal to 768px (you can adjust this value)
   if (window.innerWidth <= 768) {
     certPlusElements.forEach(element => {
       element.classList.add("cert-plus-mobile"); // Replace "mobile-class" with the class you want to add
     });
   } else {
-    // Optionally remove the class if the screen is not mobile size
     certPlusElements.forEach(element => {
       element.classList.remove("cert-plus-mobile");
     });
@@ -392,7 +381,6 @@ function addClassForMobile() {
 
 // Call the function initially
 addClassForMobile();
-
 // Add an event listener to handle screen resizing
 window.addEventListener("resize", addClassForMobile);
 
