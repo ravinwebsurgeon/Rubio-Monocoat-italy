@@ -25,9 +25,7 @@
       assign ratio = 1
     endif
   -%}
- {% comment %} {% for option in card_product.options_with_values %}
-  {% render 'quick-cart-view', product:product %}
- {% endfor %} {% endcomment %}
+
   <div class="card-wrapper product-card-wrapper underline-links-hover">
     <div
       class="card card--{{ settings.card_style }}
