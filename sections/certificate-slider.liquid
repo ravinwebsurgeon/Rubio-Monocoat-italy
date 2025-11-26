@@ -390,7 +390,7 @@ window.addEventListener("resize", addClassForMobile);
       card.classList.remove("active");
       this.textContent = card.classList.contains("active") ? "×" : "i"; {% endcomment %}
       const card = this.closest(".certificate-card");
-      card.classList.add("active");
+      card.classList.toggle("active");
       console.log('clicked on mobile',card)
       this.textContent = card.classList.contains("active") ? "×" : "i";
     }); 
