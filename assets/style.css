@@ -4390,6 +4390,9 @@ section.video-products-section{
     ul.list-menu.list-menu--inline {
         gap: 15px;
     }
+    section.video-products-section h2{
+        font-size:28px;
+    }
     .custom-sv-animate svg {
     max-width: 600px;
 }
