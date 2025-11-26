@@ -380,6 +380,11 @@ document.addEventListener("click", function(e) {
 
     // Toggle button icon
     e.target.textContent = "i";
+    if (window.innerWidth <= 768) {
+      const card = e.target.closest(".certificate-card");
+      card.classList.toggle("active");
+      e.target.textContent = "i";
+    }
   }
 });
 {% comment %} 
