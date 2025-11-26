@@ -1920,11 +1920,9 @@ a.header__icon.header__icon--account.link.focus-inset.small-hide span img {
 }
 
 .custom-banner-wrapper h1 {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
-    font-style: Bold;
+    font-family: 'Frutiger Neue LT W1G Cn XBlack';
+    font-weight: 900;
     font-size: 36px;
-    leading-trim: NONE;
     line-height: 46px;
     letter-spacing: 0;
     margin-bottom: 10px;
