@@ -777,6 +777,9 @@ a.colour-button {
     border-radius: 10px !important;
     overflow: hidden;
 }
+.video_overlay_content {
+    font-weight: 500;
+}
 .blog .article-card__image-wrapper.card__media {
     border-radius: 10px;
     overflow: hidden !important;
