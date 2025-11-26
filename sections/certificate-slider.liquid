@@ -378,7 +378,6 @@ function addClassForMobile() {
     });
   }
 }
-
 // Call the function initially
 addClassForMobile();
 // Add an event listener to handle screen resizing
@@ -392,7 +391,7 @@ window.addEventListener("resize", addClassForMobile);
       this.textContent = card.classList.contains("active") ? "×" : "i"; {% endcomment %}
       const card = this.closest(".certificate-card");
       card.classList.toggle("active");
-      console.log('clicked on mobile')
+      console.log('clicked on mobile',card)
       this.textContent = card.classList.contains("active") ? "×" : "i";
     }); 
    });
