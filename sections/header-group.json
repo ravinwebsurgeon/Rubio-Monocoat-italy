@@ -38,7 +38,7 @@
       "settings": {
         "review_link": "#",
         "review_text": "Reviews",
-        "service_link": "#",
+        "service_link": "shopify://pages/customer-service",
         "service_text": "Customer Service",
         "auto_rotate": true,
         "change_slides_speed": 3,
