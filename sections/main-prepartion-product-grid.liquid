@@ -667,7 +667,7 @@ customCarts.forEach(function(my_cart) {
 }
 
 
-    document.querySelectorAll('.product_cart_btn').forEach(function (button) {
+    {% comment %} document.querySelectorAll('.product_cart_btn').forEach(function (button) {
         button.addEventListener('click', function () {
             const productBlock = button.closest('.card__information');
             const variantSelect = productBlock.querySelector('.variant-selector');
@@ -694,7 +694,7 @@ customCarts.forEach(function(my_cart) {
                 alert("Something went wrong.");
             });
         });
-    });
+    }); {% endcomment %}
 });
 
 function updateCartCount(totalQuantityAdded) {
