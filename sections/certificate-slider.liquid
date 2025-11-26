@@ -364,11 +364,23 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
-document.querySelector(".cert-plus.active").addEventListener("click", function() {
+{% comment %} document.querySelector(".cert-plus.active").addEventListener("click", function() {
   console.log('clicked on active')
       const card = this.closest(".certificate-card");
       card.classList.remove("active");
       this.textContent = card.classList.contains("active") ? "×" : "i";
+}); {% endcomment %}
+document.addEventListener("click", function(e) {
+  if (e.target.classList.contains("cert-plus")) {
+    
+    const card = e.target.closest(".certificate-card");
+
+    // Toggle card active state
+    card.classList.toggle("active");
+
+    // Toggle button icon
+    e.target.textContent = card.classList.contains("active") ? "×" : "i";
+  }
 });
 {% comment %} 
 // Select all elements with the class "cert-plus"
