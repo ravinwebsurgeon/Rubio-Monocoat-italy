@@ -1709,7 +1709,7 @@ button.disclosure__button span,.disclosure__button{
 .Sticky_price_section {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
     flex-wrap: wrap;
 }
 .sticky-price {
@@ -1732,7 +1732,7 @@ button.disclosure__button span,.disclosure__button{
     color: #0f2d1c;
     border-radius: 50px;
     font-size: 14px;
-    padding: 10px;
+    padding: 9px 10px 6px;
     border: 1px solid #FEC110;
     transition: all ease 0.3s;
     font-family: Frutiger Neue LT W1G;
