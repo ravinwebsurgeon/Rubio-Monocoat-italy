@@ -58,7 +58,12 @@
     font-display: swap;
 }
 
-
+.rebuy-cart__flyout {
+    z-index: 21474836389 !important;
+}
+.rebuy-cart__background{
+    z-index: 21474836379 !important;
+}
 .swatch-input__input:disabled+.swatch-input__label>.swatch, .swatch-input__input.visually-disabled+.swatch-input__label>.swatch{
     opacity:1 !important;
 }
