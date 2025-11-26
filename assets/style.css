@@ -1714,7 +1714,7 @@ button.disclosure__button span,.disclosure__button{
     font-family: Frutiger Neue LT W1G;
 }
 .change_variants {
-    color: #396948;
+    color: #000;
 }
 .change_variants:hover{text-decoration: none;}
 .sticky-btn {
