@@ -393,6 +393,7 @@ window.addEventListener("resize", addClassForMobile);
       {% comment %} const card = this.closest(".certificate-card");
       card.classList.remove("active");
       this.textContent = card.classList.contains("active") ? "×" : "i"; {% endcomment %}
+      console.log('clicked')
       const card = this.closest(".certificate-card");
       card.classList.toggle("active");
       this.textContent = card.classList.contains("active") ? "×" : "i";
