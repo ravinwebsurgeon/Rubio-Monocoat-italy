@@ -353,16 +353,22 @@ document.addEventListener("DOMContentLoaded", function() {
       const btn = card.querySelector(".certificate-all-content>.ctificte-btn--pulsss>.certificate-puls-btn>button.cert-plus");
       console.log(btn,'asdasd')
       this.classList.add("active");
+      btn.classList.add("active");
       btn.textContent =  "×";
     })
     card.addEventListener("mouseleave", function() {
       const btn = card.querySelector(".certificate-all-content>.ctificte-btn--pulsss>.certificate-puls-btn>button.cert-plus");
       this.classList.remove("active");
+      btn.classList.remove("active");
       btn.textContent = "i";
     });
   });
 });
-
+document.querySelectorAll(".cert-plus.active").addEventListener("click", function() {
+      const card = this.closest(".certificate-card");
+      card.classList.remove("active");
+      this.textContent = card.classList.contains("active") ? "×" : "i";
+});
 {% comment %} 
 // Select all elements with the class "cert-plus"
 const certPlusElements = document.querySelectorAll(".cert-plus");
