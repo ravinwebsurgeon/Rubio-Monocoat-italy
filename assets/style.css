@@ -446,8 +446,7 @@ section.icon-columns-section {
 
 .icon-heading {
     font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
-    font-style: Bold;
+    font-weight: 500;
     font-size: 20px;
     leading-trim: NONE;
     line-height: 30px;
@@ -1989,8 +1988,7 @@ a.header__icon.header__icon--account.link.focus-inset.small-hide span img {
 
 .icon-heading {
     font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
-    font-style: Bold;
+    font-weight: 500;
     font-size: 16px;
     leading-trim: NONE;
     line-height: 22px;
@@ -3128,8 +3126,7 @@ a.header__icon.header__icon--account.link.focus-inset.small-hide span img {
 
 .icon-heading {
     font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
-    font-style: Bold;
+    font-weight: 500;
     font-size: 16px;
     leading-trim: NONE;
     line-height: 22px;
