@@ -393,16 +393,16 @@ window.addEventListener("resize", addClassForMobile);
    (TOUCHSTART FIXES DOUBLE TAP BUG)
 -------------------------------------- */
 document.addEventListener("touchstart", function(e) {
-  const btn = e.target.closest(".cert-plus-mobile");
-  if (!btn) return; // Only trigger when actual button is clicked
+  if (e.target.classList.contains("cert-plus-mobile")) {
 
-  const card = btn.closest(".certificate-card");
+    const card = e.target.closest(".certificate-card");
+    card.classList.toggle("active");
 
-  card.classList.toggle("active");
-  btn.textContent = card.classList.contains("active") ? "×" : "i";
+    e.target.textContent = card.classList.contains("active") ? "×" : "i";
 
-  e.preventDefault();
-  e.stopPropagation();
+    e.preventDefault();
+    e.stopPropagation();
+  }
 }, { passive: false });
 
 
