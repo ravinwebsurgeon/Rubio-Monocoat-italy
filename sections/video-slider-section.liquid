@@ -412,21 +412,6 @@ console.log('checked',drawer)
 }); {% endcomment %}
 
 document.addEventListener("DOMContentLoaded", function () {
-function controlArrows(){
-    console.log('dwqeqwe')
-    const slides = document.querySelectorAll(".inspired-slide.swiper-slide");
-    let arrows_check = document.querySelector('.custom-prev');
-    let arrows_nxt_check = document.querySelector('.custom-next');
-
-    if (slides.length > 4) {
-    prevArrow.style.display = "block";
-    nextArrow.style.display = "block";
-    } else {
-      prevArrow.style.display = "none";
-      nextArrow.style.display = "none";
-
-    }
-  }
 
   var swiper = new Swiper(".inspired-slider", {
     slidesPerView: 4.2,
@@ -455,7 +440,21 @@ function controlArrows(){
       }
     }
   });
+function controlArrows(){
+    console.log('dwqeqwe')
+    const slides = document.querySelectorAll(".inspired-slide.swiper-slide");
+    let arrows_check = document.querySelector('.custom-prev');
+    let arrows_nxt_check = document.querySelector('.custom-next');
 
+    if (slides.length > 4) {
+    prevArrow.style.display = "block";
+    nextArrow.style.display = "block";
+    } else {
+      prevArrow.style.display = "none";
+      nextArrow.style.display = "none";
+
+    }
+  }
   // ✅ Update Product Info for center slide
   function updateProductInfo() {
     const centerSlide = document.querySelector(".inspired-slide.swiper-slide-active");
