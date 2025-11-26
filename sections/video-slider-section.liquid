@@ -29,7 +29,7 @@
         {% endif %} 
       {% endcomment %}
     <div 
-      class="swiper-slide inspired-slide"
+      class="swiper-slide__ inspired-slide"
       data-product-hanlde = {{ product_handle }}
       data-product-color = '{{ cleaned_rgb }}'
     >
@@ -441,7 +441,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ✅ Update Product Info for center slide
   function updateProductInfo() {
-    const centerSlide = document.querySelector(".inspired-slide.swiper-slide-active");
+    const centerSlide = document.querySelector(".inspired-slide.swiper-slide__-active");
     if (!centerSlide) return;
     //New code
     const handle = centerSlide.getAttribute("data-product-hanlde");
