@@ -24,7 +24,7 @@
                     width="{{ product.featured_media.width }}"
                     height="{{ product.featured_media.height }}"
                   > {% endcomment %}
-                    <img src="{{ product.featured_image | image_url: 'small' }}" alt="{{ product.media[1].alt | escape }}" loading="lazy" >
+                    <img src="{{ product.featured_image | img_url: 'small' }}" alt="{{ product.media[1].alt | escape }}" loading="lazy" >
                 </a>
             </div>
             <div class="product__title__price">
