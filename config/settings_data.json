@@ -162,6 +162,11 @@
           "execution_mode": "async",
           "additional_qs": "&"
         }
+      },
+      "53419374109736018": {
+        "type": "shopify://apps/nabu-redirect-manager/blocks/script-block/1ec76215-4f32-4e94-950a-ce6073ea1b48",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
