@@ -626,10 +626,8 @@ a.colour-button {
     justify-content: center;
     border-radius: 50px;
     font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
-    font-style: Bold;
+    font-weight: 500;
     font-size: 16px;
-    leading-trim: NONE;
     line-height: 100%;
     letter-spacing: 0;
     text-align: center;
@@ -2251,10 +2249,8 @@ body .two-column-colour-grid .colour-item .image-wrapper {
 
 a.colour-button {
         font-family: Frutiger Neue LT W1G;
-        font-weight: 700;
-        font-style: Bold;
+        font-weight: 500;
         font-size: 16px;
-        leading-trim: NONE;
         line-height: 100%;
         letter-spacing: 0;
         text-align: center;
@@ -3364,10 +3360,8 @@ img {}
 
 a.colour-button {
     font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
-    font-style: Bold;
+    font-weight: 500;
     font-size: 12px;
-    leading-trim: NONE;
     line-height: 100%;
     letter-spacing: 0;
     text-align: center;
