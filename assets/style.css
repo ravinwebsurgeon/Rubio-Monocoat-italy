@@ -1235,7 +1235,8 @@ small.copyright__content {
   font-size: 13px;
   cursor: pointer;
   padding-left: 5px;
-
+  font-family: Frutiger Neue LT W1G;
+  font-weight:500;
 }
 
 .language-selector select:focus {
