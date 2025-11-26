@@ -944,10 +944,8 @@ section.customer-reviews {
 
 .text-part p:nth-child(3) {
     font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
-    font-style: Regular;
+    font-weight: 300;
     font-size: 16px;
-    leading-trim: NONE;
     line-height: 24px;
     letter-spacing: 0;
     color: #070707;
@@ -2553,10 +2551,8 @@ h2.section-heading {
 
 .text-part p:nth-child(3) {
     font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
-    font-style: Regular;
+    font-weight: 300;
     font-size: 14px;
-    leading-trim: NONE;
     line-height: 20px;
     letter-spacing: 0;
     text-align: center;
@@ -3645,10 +3641,8 @@ h2.section-heading {
 
 .text-part p:nth-child(3) {
     font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
-    font-style: Regular;
+    font-weight: 300;
     font-size: 14px;
-    leading-trim: NONE;
     line-height: 20px;
     letter-spacing: 0;
     text-align: center;
