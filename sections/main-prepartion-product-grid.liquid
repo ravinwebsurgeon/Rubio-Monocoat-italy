@@ -6,9 +6,9 @@
 {% assign slider_images = collection.metafields.custom.surface_images.value %}
 {% assign surface_header = collection.metafields.custom.surface_header.value %}
 
-  {% comment %} {%- for product in collection.products -%}
+  {%- for product in collection.products -%}
     {% render 'quick-cart-view', product:product %}
-  {% endfor %} {% endcomment %}
+  {% endfor %}
 <div class="custom_collection_main">
 
 {% if cat_heading != blank %}
