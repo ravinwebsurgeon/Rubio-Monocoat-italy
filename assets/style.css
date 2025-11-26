@@ -346,9 +346,7 @@ section.custom-banner {
 .custom-banner-wrapper h1 {
     font-family: 'Frutiger Neue LT W1G Cn XBlack';
     font-weight: 900;
-    font-style: Bold;
     font-size: 60px;
-    leading-trim: NONE;
     line-height: 70px;
     letter-spacing: 0;
     color: #fff;
@@ -418,7 +416,7 @@ section.icon-columns-section {
     margin: 10px auto 0;
     max-width: 1114px;
     font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 16px;
     line-height: 25px;
     letter-spacing: 0;
@@ -1961,8 +1959,7 @@ a.header__icon.header__icon--account.link.focus-inset.small-hide span img {
 
 .main-subtext {
     font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
-    font-style: Regular;
+    font-weight: 500;
     font-size: 14px;
     leading-trim: NONE;
     line-height: 143%;
@@ -3102,8 +3099,7 @@ a.header__icon.header__icon--account.link.focus-inset.small-hide span img {
 
 .main-subtext {
     font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
-    font-style: Regular;
+    font-weight: 500;
     font-size: 14px;
     leading-trim: NONE;
     line-height: 143%;
