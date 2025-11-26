@@ -390,9 +390,8 @@ window.addEventListener("resize", addClassForMobile);
       card.classList.remove("active");
       this.textContent = card.classList.contains("active") ? "×" : "i"; {% endcomment %}
       const card = this.closest(".certificate-card");
-      if(card.classList.contains('active')){ card.classList.remove("active");}
-      else{card.classList.add("active");}
-      console.log('clicked on mobile',card)
+      card.classList.toggle("active");
+      console.log('clicked on mobile')
       this.textContent = card.classList.contains("active") ? "×" : "i";
     }); 
    });
