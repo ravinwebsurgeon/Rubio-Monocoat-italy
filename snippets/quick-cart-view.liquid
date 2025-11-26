@@ -37,6 +37,7 @@
             {% for option in product.options_with_values %}
               <div class="product_variant_main variant__{{ option.name }}">
                 {% assign downcase_name = option.name | downcase %}
+                 {% if downcase_name contains 'color' or downcase_name contains 'colour' %}
                   <div class="product_color_-swatchs" data-index="option{{ forloop.index }}">
                     {% for value in option.values %}
                       <label
@@ -56,6 +57,18 @@
                       </label>
                     {% endfor %}
                   </div>
+                  {% else %}
+                  <select class="option-variant-selector" name="option-variant-selector" id="ProductSelect-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
+                    {% for value in option.values %}
+                      <option 
+                        value="{{ value | escape }}"
+                        {% if option.selected_value == value %} selected="selected"{% endif %}
+                      >
+                        {{ value | escape }}
+                      </option>
+                    {% endfor %}
+                  </select>
+                {% endif %}
               </div>
             {% endfor %}
             <input type="hidden" class="variant-selector" id="variant-id" name="id" value="{{ card_product.selected_or_first_available_variant.id }}">
