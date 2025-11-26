@@ -345,74 +345,79 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     ]
   });
-
+});
   // Accordion toggle
-
-  document.querySelectorAll(".certificate-card").forEach(card => {
-    card.addEventListener("mouseenter", function() {
-      const btn = card.querySelector(".certificate-all-content>.ctificte-btn--pulsss>.certificate-puls-btn>button.cert-plus");
-      console.log(btn,'asdasd')
+document.querySelectorAll(".certificate-card").forEach(card => {
+  card.addEventListener("mouseenter", function() {
+    if (window.innerWidth > 768) {
+      const btn = card.querySelector(".cert-plus");
       this.classList.add("active");
-      btn.classList.add("active");
-      btn.textContent =  "×";
-    })
-    card.addEventListener("mouseleave", function() {
-      const btn = card.querySelector(".certificate-all-content>.ctificte-btn--pulsss>.certificate-puls-btn>button.cert-plus");
+      btn.textContent = "×";
+    }
+  });
+
+  card.addEventListener("mouseleave", function() {
+    if (window.innerWidth > 768) {
+      const btn = card.querySelector(".cert-plus");
       this.classList.remove("active");
-      btn.classList.remove("active");
       btn.textContent = "i";
-    });
+    }
   });
 });
-{% comment %} document.querySelector(".cert-plus.active").addEventListener("click", function() {
-  console.log('clicked on active')
-      const card = this.closest(".certificate-card");
-      card.classList.remove("active");
-      this.textContent = card.classList.contains("active") ? "×" : "i";
-}); {% endcomment %}
-document.addEventListener("click", function(e) {
-  if (e.target.classList.contains("cert-plus-desktop")) {
-    const card = e.target.closest(".certificate-card");
-    card.classList.remove("active");
-    e.target.textContent = "i";
-    
-  }
-});
-// Select all elements with the class "cert-plus"
+
+
+/* -------------------------------------
+   ASSIGN DESKTOP / MOBILE CLASSES
+-------------------------------------- */
 const certPlusElements = document.querySelectorAll(".cert-plus");
-// Function to add class for mobile screens
+
 function addClassForMobile() {
-  if (window.innerWidth <= 768) {
-    certPlusElements.forEach(element => {
+  certPlusElements.forEach(element => {
+    if (window.innerWidth <= 768) {
       element.classList.add("cert-plus-mobile");
       element.classList.remove("cert-plus-desktop");
-    });
-  } else {
-    certPlusElements.forEach(element => {
+    } else {
+      element.classList.add("cert-plus-desktop");
       element.classList.remove("cert-plus-mobile");
-            element.classList.add("cert-plus-desktop");
-
-    });
-  }
+    }
+  });
 }
-// Call the function initially
+
 addClassForMobile();
-// Add an event listener to handle screen resizing
 window.addEventListener("resize", addClassForMobile);
 
 
-  document.querySelectorAll(".cert-plus-mobile").forEach(btn => {
-     btn.addEventListener("click", function() {
-      {% comment %} const card = this.closest(".certificate-card");
-      card.classList.remove("active");
-      this.textContent = card.classList.contains("active") ? "×" : "i"; {% endcomment %}
-      const card = this.closest(".certificate-card");
-      card.classList.toggle("active");
-      console.log('clicked on mobile')
-      this.textContent = card.classList.contains("active") ? "×" : "i";
-    }); 
-   });
 
+/* -------------------------------------
+   MOBILE TAP HANDLER  
+   (TOUCHSTART FIXES DOUBLE TAP BUG)
+-------------------------------------- */
+document.addEventListener("touchstart", function(e) {
+  if (e.target.classList.contains("cert-plus-mobile")) {
+
+    const card = e.target.closest(".certificate-card");
+    card.classList.toggle("active");
+
+    e.target.textContent = card.classList.contains("active") ? "×" : "i";
+
+    e.preventDefault();
+    e.stopPropagation();
+  }
+}, { passive: false });
+
+
+
+/* -------------------------------------
+   DESKTOP CLICK CLOSE BUTTON
+-------------------------------------- */
+document.addEventListener("click", function(e) {
+  if (e.target.classList.contains("cert-plus-desktop")) {
+
+    const card = e.target.closest(".certificate-card");
+    card.classList.remove("active");
+    e.target.textContent = "i";
+  }
+});
 
 </script>
 
