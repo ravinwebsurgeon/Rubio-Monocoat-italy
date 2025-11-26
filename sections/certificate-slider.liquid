@@ -376,7 +376,7 @@ const certPlusElements = document.querySelectorAll(".cert-plus");
 function addClassForMobile() {
   if (window.innerWidth <= 768) {
     certPlusElements.forEach(element => {
-      element.classList.add("cert-plus-mobile"); // Replace "mobile-class" with the class you want to add
+      element.classList.add("cert-plus-mobile");
       element.classList.remove("cert-plus-desktop"); 
     });
   } else {
