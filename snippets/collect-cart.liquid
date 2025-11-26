@@ -61,6 +61,14 @@
               </div>
             {% endfor %}
             <input type="hidden" class="variant-selector" id="variant-id" name="id" value="{{ card_product.selected_or_first_available_variant.id }}">
+        </div>
+        <div class="action_btns">
+            <div class="product_actions_btns">
+              <button class="product_cart_btn {% unless first_variant.available %} disabled-btn {% endunless %}"
+                 {% unless first_variant.available %} disabled {% endunless %}
+                 data-product-handle = {{ card_product.handle }}
+                >Add Into Cart</button>
+            </div>
           </div>
     </div>
 </div>
