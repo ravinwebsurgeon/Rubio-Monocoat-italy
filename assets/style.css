@@ -637,10 +637,8 @@ a.colour-button {
 }
 .subheading {
     font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
-    font-style: Regular;
+    font-weight: 500;
     font-size: 32px;
-    leading-trim: NONE;
     line-height: 46px;
     letter-spacing: 0;
     text-align: center;
@@ -2301,10 +2299,8 @@ section.video-banner-section {
 
 .subheading {
     font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
-    font-style: Regular;
+    font-weight: 500;
     font-size: 20px;
-    leading-trim: NONE;
     letter-spacing: 0;
     line-height: 28px;
     text-align: left;
@@ -3404,10 +3400,8 @@ section.video-banner-section {
 
 .subheading {
     font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
-    font-style: Regular;
+    font-weight: 500;
     font-size: 20px;
-    leading-trim: NONE;
     letter-spacing: 0;
     line-height: 28px;
     text-align: left;
