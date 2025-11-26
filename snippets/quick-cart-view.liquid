@@ -38,7 +38,7 @@
               <div class="product_variant_main variant__{{ option.name }}">
                 {% assign downcase_name = option.name | downcase %}
                  {% if downcase_name contains 'color' or downcase_name contains 'colour' %}
-                  <div class="product_color_-swatchs" data-index="option{{ forloop.index }}">
+                  <div class="color-swatch-group product_color_swatchs" data-index="option{{ forloop.index }}">
                     {% for value in option.values %}
                       <label
                         class="color-swatch color__swatch__label"
