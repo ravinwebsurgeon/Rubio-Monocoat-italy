@@ -364,6 +364,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+{% comment %} 
 // Select all elements with the class "cert-plus"
 const certPlusElements = document.querySelectorAll(".cert-plus");
 // Function to add class for mobile screens
@@ -394,7 +395,22 @@ window.addEventListener("resize", addClassForMobile);
       console.log('clicked on mobile')
       this.textContent = card.classList.contains("active") ? "×" : "i";
     }); 
-   });
+   }); {% endcomment %}
+  document.addEventListener("click", function(e) {
+    if (e.target.classList.contains("cert-plus")) {
+
+      if (window.innerWidth <= 768) {
+        const card = e.target.closest(".certificate-card");
+        card.classList.toggle("active");
+
+        // Change button icon
+        e.target.textContent = card.classList.contains("active") ? "×" : "i";
+
+        e.stopPropagation();
+      }
+    }
+  });
+
 
 </script>
 
