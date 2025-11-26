@@ -398,14 +398,11 @@ window.addEventListener("resize", addClassForMobile);
    }); {% endcomment %}
   document.addEventListener("click", function(e) {
     if (e.target.classList.contains("cert-plus")) {
-
       if (window.innerWidth <= 768) {
         const card = e.target.closest(".certificate-card");
         card.classList.toggle("active");
-
         // Change button icon
         e.target.textContent = card.classList.contains("active") ? "×" : "i";
-
         e.stopPropagation();
       }
     }
