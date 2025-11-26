@@ -49,7 +49,7 @@
           <h3>{{ titles[i] }}</h3>
           <div class="ctificte-btn--pulsss">
             <div class="certificate-puls-btn product__page">
-              <button class="cert-plus cert-plus-desktop" type="button">i</button>
+              <button class="cert-plus" type="button">i</button>
             </div>
           </div>
         </div>
@@ -379,12 +379,10 @@ function addClassForMobile() {
   if (window.innerWidth <= 768) {
     certPlusElements.forEach(element => {
       element.classList.add("cert-plus-mobile");
-      element.classList.remove("cert-plus-desktop"); 
     });
   } else {
     certPlusElements.forEach(element => {
       element.classList.remove("cert-plus-mobile");
-      element.classList.add("cert-plus-desktop"); 
     });
   }
 }
