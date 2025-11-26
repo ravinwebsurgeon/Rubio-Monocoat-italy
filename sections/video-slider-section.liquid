@@ -412,7 +412,7 @@ console.log('checked',drawer)
 }); {% endcomment %}
 
 document.addEventListener("DOMContentLoaded", function () {
-  var swiper = new Swiper(".inspired-slider", {
+  {% comment %} var swiper = new Swiper(".inspired-slider", {
     slidesPerView: 4.2,
     centeredSlides: true,
     loop: true,
@@ -436,7 +436,7 @@ document.addEventListener("DOMContentLoaded", function () {
         updateProductInfo();
         playCenterVideo(this);
       }
-    }
+    } {% endcomment %}
   });
 
   // ✅ Update Product Info for center slide
