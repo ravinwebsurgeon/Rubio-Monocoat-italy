@@ -372,19 +372,10 @@ document.addEventListener("DOMContentLoaded", function() {
 }); {% endcomment %}
 document.addEventListener("click", function(e) {
   if (e.target.classList.contains("cert-plus")) {
-    
     const card = e.target.closest(".certificate-card");
-
-    // Toggle card active state
     card.classList.remove("active");
-
-    // Toggle button icon
     e.target.textContent = "i";
-    if (window.innerWidth <= 768) {
-      const card = e.target.closest(".certificate-card");
-      card.classList.toggle("active");
-      e.target.textContent = "i";
-    }
+    
   }
 });
 {% comment %} 
