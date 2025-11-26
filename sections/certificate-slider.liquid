@@ -347,7 +347,17 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   // Accordion toggle
-
+  document.addEventListener("click", function(e) {
+    if (e.target.classList.contains("cert-plus")) {
+      if (window.innerWidth <= 768) {
+        const card = e.target.closest(".certificate-card");
+        card.classList.toggle("active");
+        // Change button icon
+        e.target.textContent = card.classList.contains("active") ? "×" : "i";
+        e.stopPropagation();
+      }
+    }
+  });
   document.querySelectorAll(".certificate-card").forEach(card => {
     card.addEventListener("mouseenter", function() {
       const btn = card.querySelector(".certificate-all-content>.ctificte-btn--pulsss>.certificate-puls-btn>button.cert-plus");
@@ -360,7 +370,6 @@ document.addEventListener("DOMContentLoaded", function() {
       this.classList.remove("active");
       btn.textContent = "i";
     });
-
   });
 });
 
@@ -396,17 +405,7 @@ window.addEventListener("resize", addClassForMobile);
       this.textContent = card.classList.contains("active") ? "×" : "i";
     }); 
    }); {% endcomment %}
-  document.addEventListener("click", function(e) {
-    if (e.target.classList.contains("cert-plus")) {
-      if (window.innerWidth <= 768) {
-        const card = e.target.closest(".certificate-card");
-        card.classList.toggle("active");
-        // Change button icon
-        e.target.textContent = card.classList.contains("active") ? "×" : "i";
-        e.stopPropagation();
-      }
-    }
-  });
+
 
 
 </script>
