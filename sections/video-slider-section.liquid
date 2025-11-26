@@ -412,12 +412,19 @@ console.log('checked',drawer)
 }); {% endcomment %}
 
 document.addEventListener("DOMContentLoaded", function () {
+const slideCount = document.querySelectorAll(".inspired-slide").length;
 
   var swiper = new Swiper(".inspired-slider", {
     slidesPerView: 4.2,
     centeredSlides: true,
-    loop: true,
-    autoplay:true,
+    loop: slideCount > 1,
+     loopedSlides: slideCount,
+
+  // ⭐ Fix NEXT/loop when slides are 2 or 3
+  loopAdditionalSlides: slideCount <= 3 ? slideCount + 1 : 0,
+
+  autoplay: slideCount > 1 ? { delay: 3000 } : false,
+    {% comment %} autoplay:true, {% endcomment %}
     spaceBetween: 20,
     navigation: {
       nextEl: ".custom-next",
