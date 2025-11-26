@@ -601,7 +601,7 @@ document.querySelectorAll('.custom_product_cart_btn').forEach(function (button) 
             })
             .then(response => response.json())
             .then(data => {
-                console.log('Added to cart:', data);
+                console.log('Added to cart1:', data);
                 updateCartCount(1);
                 refreshCartDrawer();
             })
