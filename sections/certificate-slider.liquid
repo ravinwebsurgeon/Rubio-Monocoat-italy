@@ -353,14 +353,11 @@ document.addEventListener("DOMContentLoaded", function() {
       const btn = card.querySelector(".certificate-all-content>.ctificte-btn--pulsss>.certificate-puls-btn>button.cert-plus");
       console.log(btn,'asdasd')
       this.classList.add("active");
-      btn.classList.add("active");
       btn.textContent =  "×";
     })
     card.addEventListener("mouseleave", function() {
       const btn = card.querySelector(".certificate-all-content>.ctificte-btn--pulsss>.certificate-puls-btn>button.cert-plus");
       this.classList.remove("active");
-      btn.classList.remove("active");
-
       btn.textContent = "i";
     });
 
