@@ -180,13 +180,13 @@
                  data-product-handle = {{ card_product.handle }}
                 >Add Into Cart</button>
             </div>
-            {% comment %} <button 
+            <button 
   class="quick-add__submit add_for_cart" 
-  data-product-url="{{ card_product.url }}" 
+  data-product-hanlde="{{ card_product.url }}" 
 >
   Quick View
 
-</button> {% endcomment %}
+</button> 
           </div>
         </div>
       </div>
@@ -271,6 +271,23 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 //open custom cart 
+  document.querySelectorAll(".add_for_cart").forEach(btn => {
+      btn.addEventListener("click", async e => {
+        e.preventDefault();
+        let productHandle = btn.dataset.productHandle
+	openCustomCart(productHandle)
+        
+      });
+    }); 
+
+function openCustomCart(handle){
+let customCarts = document.querySelectorAll('.collect__cart__main')
+customCarts.forEach(function(my_cart) {
+	let my_handle = my_cart.dataset.productHandle;
+	if(my_handle == handle){my_cart.classList.add('active__Cart')}else{my_cart.classList.remove('active__Cart)}
+})
+	     
+}
   document.querySelectorAll(".product-card-wrapper").forEach(card => {
     const variantInput = card.querySelector(".variant-selector");
     const colorSwatches = card.querySelectorAll(".color-swatch-input");
