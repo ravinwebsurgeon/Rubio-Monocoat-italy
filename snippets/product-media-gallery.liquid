@@ -746,43 +746,35 @@ let foundVariant = false;
 // ✅ Handle Mobile Gallery visibility
   let firstSwiperSlide = null;
   let foundSwiperVariant = false;
- document.querySelectorAll('.mobile-gallery >.swiper-slide').forEach(slide => {
-    const datasetKeys = Object.keys(slide.dataset);
-    const img = slide.querySelector('img');
-    const src = img ? normalizeShopifySrc(img.src) : null;
-    let show = false;
+document.querySelectorAll('.swiper-slide').forEach(slide => {
+  let show = true;
+  const datasetKeys = Object.keys(slide.dataset);
+  const img = slide.querySelector('img');
+  const src = normalizeShopifySrc(img?.getAttribute('src'));
 
-    if (!firstSwiperSlide) firstSwiperSlide = slide;
-
-    // 1️⃣ Hide if same as visible main image
-    if (src && visibleMainSrcs.includes(src)) {
-      show = false;
-    } else if (datasetKeys.length === 0) {
-      // 2️⃣ No dataset → general image, show only if no variant yet
-      show = !foundSwiperVariant;
+  // 1️⃣ Hide if same as visible main image
+  if (visibleMainSrcs.includes(src)) {
+    show = false;
+  } else {
+    // 2️⃣ If no dataset attributes → always show
+    if (datasetKeys.length === 0) {
+      show = true;
     } else {
-      // 3️⃣ Check variant match
-      let isMatch = true;
+      // 3️⃣ Otherwise check variant matching
       for (const [key, val] of Object.entries(selectedOptions)) {
-        if (!val) continue;
-        if (!slide.dataset[key] || normalizeValue(slide.dataset[key]) !== normalizeValue(val)) {
-          isMatch = false;
+        if (!val) continue; // skip unselected variant
+        if (!slide.dataset[key]) continue; // skip missing data key
+
+        if (normalizeValue(slide.dataset[key]) !== normalizeValue(val)) {
+          show = false;
           break;
         }
       }
-      if (isMatch && !foundSwiperVariant) {
-        show = true;
-        foundSwiperVariant = true;
-      }
     }
-
-    slide.style.display = show ? 'block' : 'none';
-  });
-
-  // Fallback: show first slide if no variant found
-  if (!foundSwiperVariant && firstSwiperSlide) {
-    firstSwiperSlide.style.display = 'block';
   }
+
+  slide.style.display = show ? 'block' : 'none';
+});
 
 
     // ✅ Update Swiper when slides change
