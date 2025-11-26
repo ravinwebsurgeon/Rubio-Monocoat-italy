@@ -6,9 +6,9 @@
 {% assign slider_images = collection.metafields.custom.surface_images.value %}
 {% assign surface_header = collection.metafields.custom.surface_header.value %}
 
-  {% comment %} {%- for product in collection.products -%}
+  {%- for product in collection.products -%}
     {% render 'quick-cart-view', product:product %}
-  {% endfor %} {% endcomment %}
+  {% endfor %}
 <div class="custom_collection_main">
 
 {% if cat_heading != blank %}
@@ -652,7 +652,7 @@
       btn.addEventListener("click", async e => {
         e.preventDefault();
         let productHandle = btn.dataset.productHandle
-	openCustomCart(productHandle)
+	      openCustomCart(productHandle)
         
       });
     }); 
@@ -661,7 +661,7 @@ function openCustomCart(handle){
 let customCarts = document.querySelectorAll('.quick__cart__main')
 customCarts.forEach(function(my_cart) {
 	let my_handle = my_cart.dataset.productHandle;
-	if(my_handle == handle){my_cart.classList.add('active__Cart')}else{my_cart.classList.remove('active__Cart)}
+	if(my_handle == handle){my_cart.classList.add('active__Cart')}else{my_cart.classList.remove('active__Cart')}
 })
 	     
 }
