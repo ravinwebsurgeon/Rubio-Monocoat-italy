@@ -175,14 +175,14 @@
           <div class="custom_action_btns">
             <div class="product_actions_btns">
               <a href="{{ card_product.url }}"><button class="product_link_btn">More Info</button></a>
-              <button class="product_cart_btn {% unless first_variant.available %} disabled-btn {% endunless %}"
+              {% comment %} <button class="product_cart_btn {% unless first_variant.available %} disabled-btn {% endunless %}"
                  {% unless first_variant.available %} disabled {% endunless %}
                  data-product-handle = {{ card_product.handle }}
-                >Add Into Cart</button>
-            </div>
-            {% comment %} <button class="quick-add__submit add_for_cart" data-product-handle="{{ card_product.handle }}">
+                >Add Into Cart</button> {% endcomment %}
+                <button class="product_cart_btn quick-add__submit" data-product-handle="{{ card_product.handle }}">
               Quick View
-            </button> {% endcomment %}
+            </button> 
+            </div>
           </div>
         </div>
       </div>
