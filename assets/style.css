@@ -2049,10 +2049,8 @@ section.video-products-section h2 {
 }
 .collection-title {
     font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
-    font-style: Bold;
+    font-weight: 500;
     font-size: 14px;
-    leading-trim: NONE;
     line-height: 20px;
     letter-spacing: 0;
     text-align: center;
@@ -3173,10 +3171,8 @@ section.custom-collections-section .container {
 
 .collection-title {
     font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
-    font-style: Bold;
+    font-weight: 500;
     font-size: 14px;
-    leading-trim: NONE;
     line-height: 20px;
     letter-spacing: 0;
     text-align: center;
