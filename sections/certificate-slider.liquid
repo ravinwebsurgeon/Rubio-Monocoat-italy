@@ -347,13 +347,12 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   // Accordion toggle
-    document.querySelectorAll(".cert-plus.active").forEach(btn => { 
-         btn.addEventListener("click", function() {
-      const card = this.closest(".certificate-card");
-      card.classList.remove("active");
-      this.textContent = card.classList.contains("active") ? "×" : "i";
+    let btn = document.querySelectorAll(".cert-plus.active")
+    btn.addEventListener("click", function() {
+        const card = this.closest(".certificate-card");
+        card.classList.remove("active");
+        this.textContent = card.classList.contains("active") ? "×" : "i";
     }); 
-  }); 
   document.querySelectorAll(".certificate-card").forEach(card => {
     card.addEventListener("mouseenter", function() {
       const btn = card.querySelector(".certificate-all-content>.ctificte-btn--pulsss>.certificate-puls-btn>button.cert-plus");
