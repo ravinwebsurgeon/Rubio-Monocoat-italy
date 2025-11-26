@@ -658,7 +658,7 @@
     }); 
 
 function openCustomCart(handle){
-let customCarts = document.querySelectorAll('.collect__cart__main')
+let customCarts = document.querySelectorAll('.quick__cart__main')
 customCarts.forEach(function(my_cart) {
 	let my_handle = my_cart.dataset.productHandle;
 	if(my_handle == handle){my_cart.classList.add('active__Cart')}else{my_cart.classList.remove('active__Cart)}
