@@ -34,7 +34,7 @@
   <div class="certificates-carousel">
     {% for image in images %}
       {% assign i = forloop.index0 %}
-      <div class="certificate-card active">
+      <div class="certificate-card">
         <div class="certificates-img">
           {% if image %}
             <img src="{{ image | img_url: 'master' }}" alt="{{ titles[i] | escape }}">
