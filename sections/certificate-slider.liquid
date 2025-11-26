@@ -49,7 +49,7 @@
           <h3>{{ titles[i] }}</h3>
           <div class="ctificte-btn--pulsss">
             <div class="certificate-puls-btn product__page">
-              <button class="cert-plus" type="button">i</button>
+              <button class="cert-plus cert-plus-desktop" type="button">i</button>
             </div>
           </div>
         </div>
@@ -347,7 +347,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   // Accordion toggle
-    document.querySelectorAll(".cert-plus").forEach(btn => { 
+    document.querySelectorAll(".cert-plus-desktop").forEach(btn => { 
          btn.addEventListener("click", function() {
       const card = this.closest(".certificate-card");
       card.classList.remove("active");
