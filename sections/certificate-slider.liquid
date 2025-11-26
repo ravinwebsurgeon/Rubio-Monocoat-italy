@@ -376,10 +376,10 @@ document.addEventListener("click", function(e) {
     const card = e.target.closest(".certificate-card");
 
     // Toggle card active state
-    card.classList.toggle("active");
+    card.classList.remove("active");
 
     // Toggle button icon
-    e.target.textContent = card.classList.contains("active") ? "×" : "i";
+    e.target.textContent = "i";
   }
 });
 {% comment %} 
