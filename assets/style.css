@@ -59,7 +59,7 @@
 }
 
 .rebuy-cart__flyout {
-    z-index: 21474836389 !important;
+    z-index: 214748363899 !important;
 }
 .rebuy-cart__background{
     z-index: 21474836379 !important;
@@ -4738,6 +4738,9 @@ body .custom-blog-section .blogss-imggg {
     font-size: 12px;
     padding: 8px 15px;
     width: 120px;
+}
+#sticky-add-to-cart {
+  z-index: 9999999999;
 }
 .custom-sv-animate svg {
     height: auto;
