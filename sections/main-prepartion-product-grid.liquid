@@ -236,7 +236,7 @@
                     quick_add: section.settings.quick_add,
                     section_id: section.id
                   %}
-                  {% comment %} {% render 'collect-cart', product:product %}       {% endcomment %}
+                  {% render 'collect-cart', product:product %}      
                 </li>
                 {%- assign skip_card_product_styles = true -%}
               {%- endfor -%}
