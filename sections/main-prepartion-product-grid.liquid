@@ -5,8 +5,10 @@
 {% assign slider_titles = collection.metafields.custom.surface_text.value %}
 {% assign slider_images = collection.metafields.custom.surface_images.value %}
 {% assign surface_header = collection.metafields.custom.surface_header.value %}
+                  {% comment %} {% render 'collect-cart', product:product %}       {% endcomment %}
 
 <div class="custom_collection_main">
+
 {% if cat_heading != blank %}
     <div class="collection_header_main">
       <div class="page-center">
