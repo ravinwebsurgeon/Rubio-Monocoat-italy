@@ -364,7 +364,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
-document.querySelectorAll(".cert-plus.active").addEventListener("click", function() {
+document.querySelector(".cert-plus.active").addEventListener("click", function() {
   console.log('clicked on active')
       const card = this.closest(".certificate-card");
       card.classList.remove("active");
