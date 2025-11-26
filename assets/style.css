@@ -1706,12 +1706,20 @@ button.disclosure__button span,.disclosure__button{
     color: #000;
     line-height: normal;
 }
+.Sticky_price_section {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
 .sticky-price {
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 900;
     color: #183029;
     line-height: normal;
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G Cn XBlack';
+    position: relative;
+    top: 2px;
 }
 .change_variants {
     color: #000;
