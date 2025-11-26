@@ -177,7 +177,7 @@
               <a href="{{ card_product.url }}"><button class="product_link_btn">More Info</button></a>
               <button class="add_for_cart product_cart_btn {% unless first_variant.available %} disabled-btn {% endunless %}"
                  {% unless first_variant.available %} disabled {% endunless %}
-                 data-product-detail = {{ card_product | json }}
+                 data-product-handle = {{ card_product.handle }}
                 >Add Into Cart</button>
             </div>
           </div>
