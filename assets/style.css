@@ -597,9 +597,7 @@ section.custom-collections-section .container {
 .color-inner-headeing {
     font-family: Frutiger Neue LT W1G;
     font-weight: 500;
-    font-style: Medium;
     font-size: 18px;
-    leading-trim: NONE;
     line-height: 25px;
     letter-spacing: 0;
     color: #000;
@@ -2231,10 +2229,9 @@ body .two-column-colour-grid .colour-item .image-wrapper {
 
 .color-inner-headeing {
     font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
+    font-weight: 500;
     font-style: Bold;
     font-size: 14px;
-    leading-trim: NONE;
     line-height: 20px;
     letter-spacing: 0;
     margin-top: 5px;
@@ -3349,10 +3346,8 @@ img {}
 
 .color-inner-headeing {
     font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
-    font-style: Bold;
+    font-weight: 500;
     font-size: 14px;
-    leading-trim: NONE;
     line-height: 20px;
     letter-spacing: 0;
     margin-top: 5px;
