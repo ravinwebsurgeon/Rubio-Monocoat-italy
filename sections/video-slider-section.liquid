@@ -486,7 +486,13 @@ document.addEventListener("DOMContentLoaded", function () {
                       {% comment %} <a href="javascript:void(0)" class="add-to-cart-btn" data-variant-id="${variantId}">
                         <img src="{{ 'icon-cart.svg' | asset_url }}" alt="Cart Icon">
                       </a> {% endcomment %}
-                      <a href="${product.url}">i</a> 
+                      <a href="${product.url}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="#555">
+                          <circle cx="256" cy="256" r="220" stroke="#555" stroke-width="40" fill="none"/>
+                          <circle cx="256" cy="150" r="50"/>
+                          <path d="M226 220h60v180c0 20 10 30 30 30h30v40H166v-40h30c20 0 30-10 30-30V260h-30v-40z"/>
+                        </svg>
+                      </a> 
                     </div>
                   </div>
                 `;
