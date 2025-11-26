@@ -393,18 +393,23 @@ window.addEventListener("resize", addClassForMobile);
    (TOUCHSTART FIXES DOUBLE TAP BUG)
 -------------------------------------- */
 document.addEventListener("touchstart", function(e) {
-  if (e.target.classList.contains("cert-plus-mobile")) {
-
-    const card = e.target.closest(".certificate-card");
-    card.classList.toggle("active");
-
-    e.target.textContent = card.classList.contains("active") ? "×" : "i";
-
-    e.preventDefault();
-    e.stopPropagation();
+  // check if the target is the button itself
+  let btn = e.target;
+  
+  // make sure to get the button even if an inner span/svg is tapped
+  if (!btn.classList.contains("cert-plus-mobile")) {
+    btn = btn.closest(".cert-plus-mobile");
   }
-}, { passive: false });
+  
+  if (!btn) return; // click was outside the button
 
+  const card = btn.closest(".certificate-card");
+  card.classList.toggle("active");
+  btn.textContent = card.classList.contains("active") ? "×" : "i";
+
+  e.preventDefault();
+  e.stopPropagation();
+}, { passive: false });
 
 
 /* -------------------------------------
