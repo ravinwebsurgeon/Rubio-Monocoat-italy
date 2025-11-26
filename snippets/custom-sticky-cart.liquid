@@ -19,6 +19,7 @@
             {% endif %}
           {% endif %}
         </span>
+        <a href="#variant-selects-{{ section.id }}" class="change_variants"><span>Change</span></a>
 
         <span class="sticky-price" id="sticky-price">
           {{ product.selected_or_first_available_variant.price | money_with_currency }}    
@@ -37,7 +38,6 @@
         >
         <button type="submit" class="sticky-btn">Add to Cart</button>
       </form>
-      <a href="#variant-selects-{{ section.id }}" class="change_variants"><span>Change</span></a>
     </div>
   </div>
 </div>
