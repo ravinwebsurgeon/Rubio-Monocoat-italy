@@ -457,10 +457,8 @@ section.icon-columns-section {
 
 .icon-text {
     font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
-    font-style: Regular;
+    font-weight: 300;
     font-size: 16px;
-    leading-trim: NONE;
     line-height: 25px;
     letter-spacing: 0;
     text-align: center;
@@ -2008,10 +2006,8 @@ a.header__icon.header__icon--account.link.focus-inset.small-hide span img {
 
 .icon-text {
     font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
-    font-style: Regular;
+    font-weight: 300;
     font-size: 14px;
-    leading-trim: NONE;
     line-height: 20px;
     letter-spacing: 0;
     text-align: left;
@@ -3137,10 +3133,8 @@ a.header__icon.header__icon--account.link.focus-inset.small-hide span img {
 
 .icon-text {
     font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
-    font-style: Regular;
+    font-weight: 300;
     font-size: 14px;
-    leading-trim: NONE;
     line-height: 20px;
     letter-spacing: 0;
     text-align: center;
