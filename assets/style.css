@@ -403,8 +403,8 @@ section.icon-columns-section {
 
 .main-headingsds {
     margin: 0;
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
+    font-family: 'Frutiger Neue LT W1G Cn XBlack';
+    font-weight: 900;
     font-size: 40px;
     line-height: 56px;
     letter-spacing: 0;
@@ -649,8 +649,8 @@ a.colour-button {
 }
 
 .main-heading {
-  font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
+  font-family: 'Frutiger Neue LT W1G Cn XBlack';
+    font-weight: 900;
     font-size: 56px;
     letter-spacing: 0;
     text-align: center;
@@ -1933,8 +1933,8 @@ a.header__icon.header__icon--account.link.focus-inset.small-hide span img {
 }
 
 .main-headingsds {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
+    font-family: 'Frutiger Neue LT W1G Cn XBlack';
+    font-weight: 900;
     font-style: Bold;
     font-size: 24px !important;
     leading-trim: NONE;
@@ -2259,11 +2259,9 @@ a.colour-button {
 }
 
 .main-heading {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
-    font-style: Bold;
+    font-family: 'Frutiger Neue LT W1G Cn XBlack';
+    font-weight: 900;
     font-size: 30px;
-    leading-trim: NONE;
     line-height: 100%;
     letter-spacing: 0%;
 }
@@ -3370,11 +3368,9 @@ a.colour-button {
 }
 
 .main-heading {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
-    font-style: Bold;
+   font-family: 'Frutiger Neue LT W1G Cn XBlack';
+    font-weight: 900;
     font-size: 30px;
-    leading-trim: NONE;
     line-height: 100%;
     letter-spacing: 0;
     margin: 0;
@@ -3418,11 +3414,9 @@ section.video-banner-section {
 }
 
 .main-heading {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
-    font-style: Bold;
+    font-family: 'Frutiger Neue LT W1G Cn XBlack';
+    font-weight: 900;
     font-size: 30px;
-    leading-trim: NONE;
     line-height: 41px;
     letter-spacing: 0;
     text-align: left;
