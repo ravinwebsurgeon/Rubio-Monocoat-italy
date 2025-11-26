@@ -442,8 +442,9 @@ document.addEventListener("DOMContentLoaded", function () {
  function controlArrows(){
     console.log('dwqeqwe')
     const slides = document.querySelectorAll(".inspired-slide.swiper-slide");
-    let arrows_check = document.querySelector('.custom-prev');
-    let arrows_nxt_check = document.querySelector('.custom-next');
+    let prevArrow = document.querySelector('.custom-prev');
+    let nextArrow = document.querySelector('.custom-next');
+    console.log()
     if (slides.length > 4) {
       prevArrow.style.display = "block";
       nextArrow.style.display = "block";
