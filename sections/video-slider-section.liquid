@@ -435,12 +435,12 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       init: function () {
         updateProductInfo();
-        controlArrows();     
+        {% comment %} controlArrows();      {% endcomment %}
         playCenterVideo(this);
       }
     }
   });
-function controlArrows(){
+{% comment %} function controlArrows(){
     console.log('dwqeqwe')
     const slides = document.querySelectorAll(".inspired-slide.swiper-slide");
     let arrows_check = document.querySelector('.custom-prev');
@@ -454,7 +454,7 @@ function controlArrows(){
       nextArrow.style.display = "none";
 
     }
-  }
+  } {% endcomment %}
   // ✅ Update Product Info for center slide
   function updateProductInfo() {
     const centerSlide = document.querySelector(".inspired-slide.swiper-slide-active");
