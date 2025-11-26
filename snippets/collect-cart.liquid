@@ -31,8 +31,8 @@
             </div>
             <div class="product__title__price">
                 <h3 class="product__title">{{ product.title }}</h3>
-                <p>{{ product.price | money_with_currency }}</p>
-                <a href="{{ product.url }}">View Details</a>
+                <p class="product__price">{{ product.price | money_with_currency }}</p>
+                <a href="{{ product.url }}" class="product__GOTO__main">View Details</a>
             </div>
         </div>
         <div class="custom_product_variants">
