@@ -387,7 +387,7 @@
         {% assign alt_parts = entry.text[index] | split: '/' %}
         {% assign last_index = product.options.size | minus: 1 %}
 
-        <div class="main-image-item"
+        <div class="main-image-item my_image"
               {% for j in (0..last_index) %}
                 {% assign option_name = product.options[j] | downcase | strip %}
                 {% assign option_value = alt_parts[j] | strip %}
