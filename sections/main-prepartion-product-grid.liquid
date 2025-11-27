@@ -742,10 +742,8 @@ function updateCartCount() {
       const bubble = document.querySelector('.cart-count-bubble.default__count');
         if (!bubble) return;
       if (bubble) {
-        console.log(bubble,'bubble')
         let text1 = bubble.querySelector('span[aria-hidden="true"]')
         let text2  =bubble.querySelector('.visually-hidden')
-        console.log('bubblefound',text2)
         bubble.querySelector('span[aria-hidden="true"]').textContent = count;
         bubble.querySelector('.visually-hidden').textContent = `${count} item${count !== 1 ? 's' : ''}`;
       }
@@ -757,7 +755,7 @@ function updateCartCount() {
 updateCartCount();
 
 // Update every 5 minutes (300000ms)
-setInterval(updateCartCount, 300000);
+setInterval(updateCartCount, 300);
 function refreshCartDrawer() {
   const cartDrawer = document.querySelector('cart-drawer');
 
