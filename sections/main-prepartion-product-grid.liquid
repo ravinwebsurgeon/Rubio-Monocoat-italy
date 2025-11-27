@@ -838,6 +838,36 @@ function updateVariantId(cart, variants, variantIdInput) {
       let my_price = formatPrice(foundVariant.price)
       priceElement.textContent = my_price;
     }
+
+    // === IMAGE SWITCHING START ===
+  const allImages = cart.querySelectorAll(".product-image-item");
+
+  if (foundVariant) {
+    const selectedText = foundVariant.options.map(o => o.toLowerCase());
+    let matchedImage = null;
+
+    allImages.forEach(img => {
+      const altText = img.alt.toLowerCase();
+
+      // Check if ALL selected options exist in alt
+      const isMatch = selectedText.every(opt => altText.includes(opt));
+
+      if (isMatch) {
+        matchedImage = img;
+      }
+    });
+
+    // Hide all images first
+    allImages.forEach(img => img.style.display = "none");
+
+    // Show matching image or fallback
+    if (matchedImage) {
+      matchedImage.style.display = "block";
+    } else {
+      allImages[0].style.display = "block";
+    }
+  }
+  // === IMAGE SWITCHING END ===
 }
   function formatPrice(amount) {
     const currency = Shopify.currency.active;
