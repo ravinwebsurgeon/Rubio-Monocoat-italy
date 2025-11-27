@@ -333,6 +333,18 @@
     </slider-component>
   {%- endif -%}
 </media-gallery> {% endcomment %}
+
+{% comment %} {% assign product_images_meta = product.metafields.custom.extra_product_images.value %}
+
+  {% for entry in product_images_meta %}
+    <!-- Debug: Check what's in each entry -->
+    <div style="display: none;">
+      Entry: {{ entry | json }}
+      Img: {{ entry.img | json }}
+      Text: {{ entry.text | json }}
+    </div>
+  {% endfor %} {% endcomment %}
+
 <div class="custom-media-gallery">
 
   <!-- Desktop Gallery -->
