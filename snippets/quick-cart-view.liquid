@@ -7,6 +7,16 @@
                <a href="{{ product.url }}">
                     {% comment %} <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.media[1].alt | escape }}" loading="lazy" > {% endcomment %}
                     {% comment %} {% render 'product-media-gallery' ,product:product %} {% endcomment %}
+                  {% for media in product.media %}
+                      {% if media.media_type == 'image' %}
+                        <img 
+                          src="{{ media | image_url: width: 360 }}"
+                          alt="{{ media.alt | escape }}"
+                          loading="lazy"
+                          class="product-image-item"
+                        >
+                      {% endif %}
+                  {% endfor %}
                   </a>
             </div>
             <div class="product__title__price">
