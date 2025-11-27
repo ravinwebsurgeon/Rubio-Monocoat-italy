@@ -48,6 +48,8 @@
                 </button>
 
                 <div class="tech-info-answer">
+                  {% assign user_country = localization.country.iso_code | downcase %}
+
                   {% comment %} {% if t_question contains 'Download' or t_question contains 'download' %}
                       {%  if t_answer contains ',' %}
                         {% assign urls = t_answer | split: ',' %}
@@ -60,7 +62,7 @@
                    {% else %}
                     <p>{{ t_answer }}</p>
                   {% endif %} {% endcomment %}
-                  <div class="technical_content_here">
+                  <div class="technical_content_here {{ user_country }}">
                   {% if items.size > forloop.index0 %}
                     {{ items[forloop.index0].html }}
                   {% endif %}
