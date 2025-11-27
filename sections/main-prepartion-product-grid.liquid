@@ -739,7 +739,10 @@ function updateCartCount() {
     .then(cart => {
       const count = cart.item_count;
       const bubble = document.querySelector('.cart-count-bubble');
+
       console.log('checked Data')
+        if (!bubble) return;
+
       if (bubble) {
         bubble.querySelector('span[aria-hidden="true"]').textContent = count;
         bubble.querySelector('.visually-hidden').textContent = `${count} item${count !== 1 ? 's' : ''}`;
