@@ -333,7 +333,8 @@
     </slider-component>
   {%- endif -%}
 </media-gallery> {% endcomment %}
-
+{% assign entries = product.metafields.custom.extra_product_images.value %}
+  <p>Metaobject entries found: {{ entries.size }}</p>
 <div class="custom-media-gallery">
 
   <!-- Desktop Gallery -->
