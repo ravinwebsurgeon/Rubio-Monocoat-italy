@@ -685,7 +685,7 @@
             .then(response => response.json())
             .then(data => {
                 console.log('Added to cart3:', data);
-                updateCartCount(1);
+                {% comment %} updateCartCount(1); {% endcomment %}
                 refreshCartDrawer();
             })
             .catch(error => {
@@ -753,7 +753,6 @@ function updateCartCount() {
 // Initial call
 updateCartCount();
 
-// Update every 5 minutes (300000ms)
 setInterval(updateCartCount, 300);
 function refreshCartDrawer() {
   const cartDrawer = document.querySelector('cart-drawer');
