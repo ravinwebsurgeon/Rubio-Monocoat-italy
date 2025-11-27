@@ -657,15 +657,14 @@
       });
     }); 
 
-function openCustomCart(handle){
-let customCarts = document.querySelectorAll('.quick__cart__main')
-customCarts.forEach(function(my_cart) {
-	let my_handle = my_cart.dataset.productHandle;
-	if(my_handle == handle){my_cart.classList.add('active__Cart')}else{my_cart.classList.remove('active__Cart')}
-})
-	     
-}
-
+    function openCustomCart(handle){
+      let customCarts = document.querySelectorAll('.quick__cart__main')
+      customCarts.forEach(function(my_cart) {
+        let my_handle = my_cart.dataset.productHandle;
+        if(my_handle == handle){my_cart.classList.add('active__Cart')}else{my_cart.classList.remove('active__Cart')}
+      })
+          
+    }
 
     document.querySelectorAll('.ajax__cart').forEach(function (button) {
         button.addEventListener('click', function () {
