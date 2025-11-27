@@ -113,8 +113,8 @@
           <!-- Variant Section with Swatch Support -->
           <div class="custom_added_variants">
             {% assign max_to_show = 5 %}
-            {% assign total_values = option.values | size %}
             {% for option in card_product.options_with_values %}
+                {% assign total_values = option.values | size %}
               <div class="pro_variant_options variant__{{ option.name }}">
                 {% assign downcase_name = option.name | downcase %}
                 {% if downcase_name contains 'color' or downcase_name contains 'colour' %}
@@ -138,6 +138,13 @@
                       </label>
                     {% endif %}
                     {% endfor %}
+                    
+          {% if total_values > max_to_show %}
+            <button class="show-more-swatches"
+                    data-count="{{ total_values | minus: max_to_show }}">
+              +{{ total_values | minus: max_to_show }} more
+            </button>
+          {% endif %}
                   </div>
                 {% else %}
                   <select class="option-variant-selector" name="option-variant-selector" id="ProductSelect-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
@@ -152,14 +159,15 @@
                     {% endif %}
                     {% endfor %}
                   </select>
+                  {% if total_values > max_to_show %}
+                  <button class="show-more-options"
+                          data-count="{{ total_values | minus: max_to_show }}">
+                    +{{ total_values | minus: max_to_show }} more
+                  </button>
+                {% endif %}
                 {% endif %}
               </div>
             {% endfor %}
-             {% if total_values > max_to_show %}
-              <button class="show-more-swatches" data-count="{{ total_values | minus: max_to_show }}">
-                +{{ total_values | minus: max_to_show }} more
-              </button>
-            {% endif %}
             <input type="hidden" class="variant-selector" id="variant-id" name="id" value="{{ card_product.selected_or_first_available_variant.id }}">
           </div>
 
