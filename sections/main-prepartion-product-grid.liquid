@@ -652,7 +652,8 @@
       btn.addEventListener("click", async e => {
         e.preventDefault();
         let productHandle = btn.dataset.productHandle
-	      openCustomCart(productHandle)        
+	      openCustomCart(productHandle) 
+               
       });
     }); 
 
@@ -662,6 +663,11 @@
         let my_handle = my_cart.dataset.productHandle;
         if(my_handle == handle){
           my_cart.classList.add('active__Cart')
+          const response = await fetch(`/products/${handle}.js`);
+          const product = await response.json();
+          const variants = product.variants;
+          const variantIdInput = my_cart.querySelector(".variant-selector");
+          updateVariantId(my_cart, variants, variantIdInput);
           
         }
         else{
@@ -816,8 +822,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
   });
-  updateVariantId(cart, variants, variantIdInput);
-
 });
 function updateVariantId(cart, variants, variantIdInput) {
   const selectedOptions = [];
