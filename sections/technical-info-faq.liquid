@@ -48,22 +48,23 @@
                 </button>
 
                 <div class="tech-info-answer">
+                  <div class="technical_content_here">
                   {% assign user_country = localization.country.iso_code | downcase %}
                   {% if user_country == 'it' %}
                     {% assign urls = product.metafields.custom.technical_downloads_italy.value | split: ',' %}
                   {% elsif user_country == 'de' %}
                     {% assign urls = product.metafields.custom.technical_downloads_german.value | split: ',' %}
                   {% endif %}
+
                   {% if t_question contains 'Download' or t_question contains 'download' %}
                       {% for url in urls %}
                         <a href="{{ url | strip }}" class="tech-download-btn" onclick="forceDownload(event, this.href)">Download File</a>
                       {% endfor %}
-                  {% endif %}
-                  <div class="technical_content_here {{ user_country }}">
-                  {% if items.size > forloop.index0 %}
-                    {{ items[forloop.index0].html }}
-                  {% endif %}
-                   
+                  {% else %}
+                      {% if items.size > forloop.index0 %}
+                        {{ items[forloop.index0].html }}
+                      {% endif %}
+                  {% endif %}                  
                 </div>
                </div>
               </div>
