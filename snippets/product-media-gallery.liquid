@@ -808,14 +808,14 @@ let firstSwiperSlide = null;
   document.body.addEventListener('change', (e) => {
     const target = e.target;
     console.log(target,'target',variantOptions)
-    if (variantOptions.some(option => {
+    {% comment %} if (variantOptions.some(option => {
       const capitalized = option.charAt(0).toUpperCase() + option.slice(1);
       const lowercased = option.toLowerCase();
       return target.matches(`.swatch-input__input[name^="${capitalized}"]`) ||
              target.matches(`select[name="${capitalized}"]`);
-    })) {
+    })) { {% endcomment %}
       updateGallery();
-    }
+    {% comment %} } {% endcomment %}
   });
 
   // ✅ Initialize GLightbox & Swiper after DOM load
