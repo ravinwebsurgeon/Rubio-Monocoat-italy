@@ -663,11 +663,11 @@
         let my_handle = my_cart.dataset.productHandle;
         if(my_handle == handle){
           my_cart.classList.add('active__Cart')
-          const response = await fetch(`/products/${handle}.js`);
+          {% comment %} const response = await fetch(`/products/${handle}.js`);
           const product = await response.json();
           const variants = product.variants;
           const variantIdInput = my_cart.querySelector(".variant-selector");
-          {% comment %} updateVariantId(my_cart, variants, variantIdInput); {% endcomment %}
+          updateVariantId(my_cart, variants, variantIdInput); {% endcomment %}
           
         }
         else{
