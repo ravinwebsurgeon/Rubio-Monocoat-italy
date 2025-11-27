@@ -379,30 +379,30 @@
           </div>
         {% endfor %}
 
-        {% assign product_images_meta = product.metafields.namespace.extra_product_images.value %}
+            {% assign product_images_meta = product.metafields.namespace.extra_product_images.value %}
 
-{% if product_images_meta %}
-  {% for entry in product_images_meta %}
-    {% assign images = entry.img %}      
-    {% assign alt_texts = entry.text %}  
-    {% for img in images %}
-      {% assign index = forloop.index0 %}
-      {% assign alt_parts = alt_texts[index] | split: '/' %}
-      {% assign last_index = product.options.size | minus: 1 %}
+            {% if product_images_meta %}
+              {% for entry in product_images_meta %}
+                {% assign images = entry.img %}      
+                {% assign alt_texts = entry.text %}  
+                {% for img in images %}
+                  {% assign index = forloop.index0 %}
+                  {% assign alt_parts = alt_texts[index] | split: '/' %}
+                  {% assign last_index = product.options.size | minus: 1 %}
 
-      <div class="main-image-item"
-            {% for j in (0..last_index) %}
-              {% assign option_name = product.options[j] | downcase | strip %}
-              {% assign option_value = alt_parts[j] | strip %}
-              data-{{ option_name | handle }}="{{ option_value }}"
-            {% endfor %}
-            style="display: none;">
-        <img src="{{ img | img_url: '1024x1024' }}" alt="{{ alt_texts[index] | escape }}">
-      </div>
-    {% endfor %}
+                  <div class="main-image-item"
+                        {% for j in (0..last_index) %}
+                          {% assign option_name = product.options[j] | downcase | strip %}
+                          {% assign option_value = alt_parts[j] | strip %}
+                          data-{{ option_name | handle }}="{{ option_value }}"
+                        {% endfor %}
+                        style="display: none;">
+                    <img src="{{ img | img_url: '1024x1024' }}" alt="{{ alt_texts[index] | escape }}">
+                  </div>
+                {% endfor %}
 
-  {% endfor %}
-{% endif %}
+              {% endfor %}
+            {% endif %}
 
         
       </div>
