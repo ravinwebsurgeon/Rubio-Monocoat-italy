@@ -667,7 +667,7 @@ customCarts.forEach(function(my_cart) {
 }
 
 
-    {% comment %} document.querySelectorAll('.product_cart_btn').forEach(function (button) {
+    {% comment %} document.querySelectorAll('.ajax__cart').forEach(function (button) {
         button.addEventListener('click', function () {
             const productBlock = button.closest('.card__information');
             const variantSelect = productBlock.querySelector('.variant-selector');
@@ -781,7 +781,6 @@ document.addEventListener("DOMContentLoaded", function() {
     selects.forEach(select => select.addEventListener("change", updateVariantId));
   });
 });
-
 </script>
 
 <script>
