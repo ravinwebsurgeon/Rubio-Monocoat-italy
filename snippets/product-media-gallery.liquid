@@ -352,14 +352,14 @@
           {% assign volume = parts[4] | strip %} {% endcomment %}
           <div class="main-image-item"
                     {% unless media.alt == product.title %}
-           {% for i in (0..last_index) %}
-             {% assign option_name = product.options[i] | downcase | strip %}
-             {% assign option_value = alt_parts[i] | strip %}
-             data-{{ option_name | handle }}="{{ option_value }}"
-           {% endfor %}
-         {% endunless %}
+              {% for i in (0..last_index) %}
+                {% assign option_name = product.options[i] | downcase | strip %}
+                {% assign option_value = alt_parts[i] | strip %}
+                data-{{ option_name | handle }}="{{ option_value }}"
+              {% endfor %}
+              {% endunless %}
 
-{% comment %}             
+            {% comment %}             
             {% unless media.alt == product.title %} 
               data-media-alt ="{{  media.alt  }}" 
               data-color="{{ color | handle }}" 
