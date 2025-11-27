@@ -652,8 +652,7 @@
       btn.addEventListener("click", async e => {
         e.preventDefault();
         let productHandle = btn.dataset.productHandle
-	      openCustomCart(productHandle)
-        
+	      openCustomCart(productHandle)        
       });
     }); 
 
@@ -661,7 +660,16 @@
       let customCarts = document.querySelectorAll('.quick__cart__main')
       customCarts.forEach(function(my_cart) {
         let my_handle = my_cart.dataset.productHandle;
-        if(my_handle == handle){my_cart.classList.add('active__Cart')}else{my_cart.classList.remove('active__Cart')}
+        if(my_handle == handle){
+          my_cart.classList.add('active__Cart')
+          const allImages = my_cart.querySelectorAll(".product__image__item");
+
+            allImages[0].style.display = "block";
+
+        }
+        else{
+          my_cart.classList.remove('active__Cart')
+        }
       })
           
     }
@@ -846,12 +854,15 @@ function updateVariantId(cart, variants, variantIdInput) {
       }
     });
     // Hide all images
-    allImages.forEach(img => img.style.display = "none");
+    {% comment %} allImages.forEach(img => img.style.display = "none"); {% endcomment %}
     // Show matched image or fallback to first image
     if (matchedImage) {
       matchedImage.style.display = "block";
     } else if (allImages.length > 0) {
       allImages[0].style.display = "block";
+    }else{
+          matchedImage.style.display = "none";
+
     }
   } else {
     console.warn("No variant matches:", selectedOptions);
