@@ -789,9 +789,9 @@ document.addEventListener("DOMContentLoaded", function() {
     let myhandle = document.querySelector('.quick__cart__main.active__Cart')
 
     // Load all variants into JS (this is Liquid)
-	let my_response = await fetch(`/products/${myhandle}.js`);
-        const productData = await my_response.json();
-    	const variants = productData.variants;
+	  let my_response = await fetch(`/products/${myhandle}.js`);
+    const productData = await my_response.json();
+    const variants = productData.variants;
 
     function getSelectedOptions() {
       let selectedOptions = [];
