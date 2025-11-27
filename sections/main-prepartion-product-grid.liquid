@@ -662,8 +662,6 @@
         let my_handle = my_cart.dataset.productHandle;
         if(my_handle == handle){
           my_cart.classList.add('active__Cart')
-          const allImages = my_cart.querySelectorAll(".product__image__item");
-            allImages[0].style.display = "block";
         }
         else{
           my_cart.classList.remove('active__Cart')
@@ -852,15 +850,12 @@ function updateVariantId(cart, variants, variantIdInput) {
       }
     });
     // Hide all images
-    {% comment %} allImages.forEach(img => img.style.display = "none"); {% endcomment %}
+    allImages.forEach(img => img.style.display = "none");
     // Show matched image or fallback to first image
     if (matchedImage) {
       matchedImage.style.display = "block";
     } else if (allImages.length > 0) {
       allImages[0].style.display = "block";
-    }else{
-          matchedImage.style.display = "none";
-
     }
   } else {
     console.warn("No variant matches:", selectedOptions);
