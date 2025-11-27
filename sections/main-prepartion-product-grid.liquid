@@ -739,7 +739,7 @@ function updateCartCount() {
     .then(cart => {
       console.log(cart,'cartData')
       const count = cart.item_count;
-      const bubble = document.querySelector('.cart-count-bubble');
+      const bubble = document.querySelector('.cart-count-bubble.default__count');
         if (!bubble) return;
       if (bubble) {
         console.log(bubble,'bubble')
