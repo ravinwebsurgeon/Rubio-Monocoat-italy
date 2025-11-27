@@ -700,6 +700,9 @@ let foundVariant = false;
       show = true;
       foundVariant = true;
     }
+    if (!foundVariant && generalImage) {
+        generalImage.style.display = 'block';
+      }
     
     item.style.display = show ? 'block' : 'none';
   });
