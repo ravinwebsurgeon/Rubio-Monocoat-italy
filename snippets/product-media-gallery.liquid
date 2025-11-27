@@ -455,26 +455,26 @@
         {% endfor %}
 
         
-{% if product_images_meta %}
-  {% for entry in product_images_meta %}
-    {% if entry.img and entry.text %}
-      {% assign image_source = entry.img %}
-      {% assign alt_text = entry.text %}
-      {% assign alt_parts = alt_text | split: '/' %}
-      
-      <div class="thumbnail-item"
-           {% for option in product.options %}
-             {% assign option_index = forloop.index0 %}
-             {% assign option_name = option | downcase | strip %}
-             {% assign option_value = alt_parts[option_index] | default: '' | strip %}
-             data-{{ option_name | handle }}="{{ option_value }}"
-           {% endfor %}
-           style="display: none;">
-          <img src="{{ image_source | img_url: '1024x1024' }}" alt="{{ alt_text | escape }}">
-      </div>
-    {% endif %}
-  {% endfor %}
-{% endif %}
+        {% if product_images_meta %}
+          {% for entry in product_images_meta %}
+            {% if entry.img and entry.text %}
+              {% assign image_source = entry.img %}
+              {% assign alt_text = entry.text %}
+              {% assign alt_parts = alt_text | split: '/' %}
+              
+              <div class="thumbnail-item"
+                  {% for option in product.options %}
+                    {% assign option_index = forloop.index0 %}
+                    {% assign option_name = option | downcase | strip %}
+                    {% assign option_value = alt_parts[option_index] | default: '' | strip %}
+                    data-{{ option_name | handle }}="{{ option_value }}"
+                  {% endfor %}
+                  style="display: none;">
+                  <img src="{{ image_source | img_url: '1024x1024' }}" alt="{{ alt_text | escape }}">
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
 
       </div>
     </div>
@@ -517,6 +517,28 @@
           {% endif %}
         </div>
       {% endfor %}
+
+      {% if product_images_meta %}
+      {% for entry in product_images_meta %}
+        {% if entry.img and entry.text %}
+          {% assign image_source = entry.img %}
+          {% assign alt_text = entry.text %}
+          {% assign alt_parts = alt_text | split: '/' %}
+          
+          <div class="swiper-slide"
+              {% for option in product.options %}
+                {% assign option_index = forloop.index0 %}
+                {% assign option_name = option | downcase | strip %}
+                {% assign option_value = alt_parts[option_index] | default: '' | strip %}
+                data-{{ option_name | handle }}="{{ option_value }}"
+              {% endfor %}
+              style="display: none;">
+              <img src="{{ image_source | img_url: '1024x1024' }}" alt="{{ alt_text | escape }}">
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
     </div>
     <div class="swiper-pagination"></div>
   </div>
