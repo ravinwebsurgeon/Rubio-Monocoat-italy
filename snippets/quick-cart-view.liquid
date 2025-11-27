@@ -5,7 +5,7 @@
         <div class="cart__product__content">
             <div class="product__image">
                <a href="{{ product.url }}">
-                    <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.media[1].alt | escape }}" loading="lazy" >
+                    {% comment %} <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.media[1].alt | escape }}" loading="lazy" > {% endcomment %}
                     {% comment %} {% render 'product-media-gallery' ,product:product %} {% endcomment %}
                   </a>
             </div>
