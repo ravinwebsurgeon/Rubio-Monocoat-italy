@@ -763,7 +763,7 @@ function refreshCartDrawer() {
     })
     .catch((error) => { console.error('Error refreshing cart drawer:', error); });
 }
-
+{% comment %} 
 document.addEventListener("DOMContentLoaded", function() {
   const productCards = document.querySelectorAll(".card__information");
   productCards.forEach(card => {
@@ -791,7 +791,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     selects.forEach(select => select.addEventListener("change", updateVariantId));
   });
-});
+}); {% endcomment %}
 </script>
 
 <script>
