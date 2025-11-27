@@ -1,4 +1,7 @@
+  {% assign video_urls = product.metafields.custom.inspired_videos.value %}
+
 {% unless product.tags contains 'inspired_video_slider' %}
+  {% if video_urls %}
 <section class="inspired-slider-section product___page">
   <div class="container">
     {% if product.metafields.custom.inspired_heading != blank and product.metafields.custom.inspired_product_list.value %}
@@ -9,7 +12,6 @@
   <!-- Swiper Slider -->
   <div class="swiper inspired-slider" id="inspiration">
     <div class="swiper-wrapper">
-  {% assign video_urls = product.metafields.custom.inspired_videos.value %}
   {% comment %} {% assign related_products = product.metafields.custom.inspired_products.value %} {% endcomment %}
   {% assign product_links = product.metafields.custom.inspired_product_list.value %}
   
@@ -66,6 +68,7 @@
     <div id="inspired-proouter"></div>
   </div>
 </section>
+{% endif %}
 {% endunless %}
 
 
