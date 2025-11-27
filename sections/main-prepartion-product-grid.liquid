@@ -744,7 +744,7 @@ function updateCartCount() {
         if (!bubble) return;
 
       if (bubble) {
-        bubble.querySelector('span[aria-hidden="true"]').textContent = count;
+        {% comment %} bubble.querySelector('span[aria-hidden="true"]').textContent = count; {% endcomment %}
         bubble.querySelector('.visually-hidden').textContent = `${count} item${count !== 1 ? 's' : ''}`;
       }
     })
