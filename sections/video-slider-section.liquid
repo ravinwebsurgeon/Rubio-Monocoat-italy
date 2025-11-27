@@ -2,73 +2,73 @@
 
 {% unless product.tags contains 'inspired_video_slider' %}
   {% if video_urls %}
-<section class="inspired-slider-section product___page">
-  <div class="container">
-    {% if product.metafields.custom.inspired_heading != blank and product.metafields.custom.inspired_product_list.value %}
-      <h2 class="slider-heading">{{ product.metafields.custom.inspired_heading  }}</h2>
-    {% endif %}
-  </div>
+    <section class="inspired-slider-section product___page">
+      <div class="container">
+        {% if product.metafields.custom.inspired_heading != blank and product.metafields.custom.inspired_product_list.value %}
+          <h2 class="slider-heading">{{ product.metafields.custom.inspired_heading  }}</h2>
+        {% endif %}
+      </div>
 
-  <!-- Swiper Slider -->
-  <div class="swiper inspired-slider" id="inspiration">
-    <div class="swiper-wrapper">
-  {% comment %} {% assign related_products = product.metafields.custom.inspired_products.value %} {% endcomment %}
-  {% assign product_links = product.metafields.custom.inspired_product_list.value %}
-  
-  {% for prod in product_links %}
-    {% assign current_video = video_urls[forloop.index0].url %}
-    {% assign product_handle   = prod | split: 'products/' | last %}
-    {% assign product = all_products[product_handle] %}
-    {% assign inspired_product_colors = product.metafields.custom.inspired_product_colors.value %}
-    {% assign cleaned_rgb = inspired_product_colors[0] | strip | strip_newlines %}
-     {% comment %}
-        {% assign color_option = product.options_with_values | where: "name", "Color" | first %}
-        {% if color_option %}
-          {% assign first_value = color_option.values[0] %}
-          {% assign first_swatch = color_option.swatches[0] %} 
-            {% assign color = first_swatch.color.rgb %}
-            {% assign color_img =   first_swatch.image | image_url: width: 50 %}
-        {% endif %} 
-      {% endcomment %}
-    <div 
-      class="swiper-slide inspired-slide"
-      data-product-hanlde = {{ product_handle }}
-      data-product-color = '{{ cleaned_rgb }}'
-    >
-      {% if current_video != blank %}
-        <video muted playsinline preload="auto" loop>
-          <source src="{{ current_video }}" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      {% else %}
-        <img src="{{ prod.featured_image | img_url: '600x600' }}" alt="{{ prod.title }}">
+      <!-- Swiper Slider -->
+      <div class="swiper inspired-slider" id="inspiration">
+        <div class="swiper-wrapper">
+      {% comment %} {% assign related_products = product.metafields.custom.inspired_products.value %} {% endcomment %}
+      {% assign product_links = product.metafields.custom.inspired_product_list.value %}
+      
+      {% for prod in product_links %}
+        {% assign current_video = video_urls[forloop.index0].url %}
+        {% assign product_handle   = prod | split: 'products/' | last %}
+        {% assign product = all_products[product_handle] %}
+        {% assign inspired_product_colors = product.metafields.custom.inspired_product_colors.value %}
+        {% assign cleaned_rgb = inspired_product_colors[0] | strip | strip_newlines %}
+        {% comment %}
+            {% assign color_option = product.options_with_values | where: "name", "Color" | first %}
+            {% if color_option %}
+              {% assign first_value = color_option.values[0] %}
+              {% assign first_swatch = color_option.swatches[0] %} 
+                {% assign color = first_swatch.color.rgb %}
+                {% assign color_img =   first_swatch.image | image_url: width: 50 %}
+            {% endif %} 
+          {% endcomment %}
+        <div 
+          class="swiper-slide inspired-slide"
+          data-product-hanlde = {{ product_handle }}
+          data-product-color = '{{ cleaned_rgb }}'
+        >
+          {% if current_video != blank %}
+            <video muted playsinline preload="auto" loop>
+              <source src="{{ current_video }}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          {% else %}
+            <img src="{{ prod.featured_image | img_url: '600x600' }}" alt="{{ prod.title }}">
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if video_urls and video_urls.size > 0 %}
+        <!-- Navigation -->
+        <div class="swiper-button-prev custom-prev">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="24" height="24" fill="currentColor">
+            <path d="M169.4 297.4C156.9 309.9 156.9 330.2 169.4 342.7L361.4 534.7C373.9 547.2 394.2 547.2 406.7 534.7C419.2 522.2 419.2 501.9 406.7 489.4L237.3 320 406.6 150.6C419.1 138.1 419.1 117.8 406.6 105.3C394.1 92.8 373.8 92.8 361.3 105.3L169.3 297.3z"/>
+          </svg>
+        </div>
+        <div class="swiper-button-next custom-next">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="24" height="24" fill="currentColor">
+            <path d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320 233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"/>
+          </svg>
+        </div>
       {% endif %}
-    </div>
-  {% endfor %}
-</div>
+      </div>
+      
 
-{% if video_urls and video_urls.size > 0 %}
-    <!-- Navigation -->
-    <div class="swiper-button-prev custom-prev">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="24" height="24" fill="currentColor">
-        <path d="M169.4 297.4C156.9 309.9 156.9 330.2 169.4 342.7L361.4 534.7C373.9 547.2 394.2 547.2 406.7 534.7C419.2 522.2 419.2 501.9 406.7 489.4L237.3 320 406.6 150.6C419.1 138.1 419.1 117.8 406.6 105.3C394.1 92.8 373.8 92.8 361.3 105.3L169.3 297.3z"/>
-      </svg>
-    </div>
-    <div class="swiper-button-next custom-next">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="24" height="24" fill="currentColor">
-        <path d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320 233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"/>
-      </svg>
-    </div>
+      <!-- Product Info -->
+      <div class="inspired-product-info">
+        <div id="inspired-proouter"></div>
+      </div>
+    </section>
   {% endif %}
-  </div>
-  
-
-  <!-- Product Info -->
-  <div class="inspired-product-info">
-    <div id="inspired-proouter"></div>
-  </div>
-</section>
-{% endif %}
 {% endunless %}
 
 
