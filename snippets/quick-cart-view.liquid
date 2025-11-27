@@ -50,10 +50,10 @@
                       >
                         <input
                           type="radio"
-                          name="option-color-{{ forloop.parentloop.index0 }}"
+                          name="{{ option.name }}-{{ option.position }}"
                           value="{{ value | escape }}"
                           {% if option.selected_value == value %}checked{% endif %}
-                          class="color-swatch-input color__swatch__input"
+                          class="swatch-input__input color-swatch-input color__swatch__input"
                           data-value="{{ value | escape }}"
                         >
                         <span class="swatch-checkmark"></span>
@@ -76,10 +76,10 @@
                       <label class="variant-radio-label">
                         <input
                           type="radio"
-                          name="option-{{ option.name | handle }}"
+                          name="{{ option.name }}-{{ option.position }}"
                           value="{{ value | escape }}"
                           {% if option.selected_value == value %}checked{% endif %}
-                          class="variant-radio-input"
+                          class="swatch-input__input variant-radio-input"
                           data-value="{{ value | escape }}"
                         >
                         {{ value }}
