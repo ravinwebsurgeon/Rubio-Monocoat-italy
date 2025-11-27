@@ -807,7 +807,7 @@ let firstSwiperSlide = null;
   // Variant change listener
   document.body.addEventListener('change', (e) => {
     const target = e.target;
-    console.log(target,'target')
+    console.log(target,'target',variantOptions)
     if (variantOptions.some(option => {
       const capitalized = option.charAt(0).toUpperCase() + option.slice(1);
       const lowercased = option.toLowerCase();
