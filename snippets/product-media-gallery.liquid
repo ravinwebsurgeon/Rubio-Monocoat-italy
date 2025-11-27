@@ -805,21 +805,29 @@ let firstSwiperSlide = null;
   }
 
   // Variant change listener
-  document.body.addEventListener('change', (e) => {
+  {% comment %} document.body.addEventListener('change', (e) => {
     const target = e.target;
     console.log(target,'target')
     if (variantOptions.some(option => {
       const capitalized = option.charAt(0).toUpperCase() + option.slice(1);
       const lowercased = option.toLowerCase();
-      console.log(capitalized,lowercased,'asdsad')
       return target.matches(`.swatch-input__input[name^="${capitalized}"]`) ||
-      target.matches(`.swatch-input__input[name^="${lowercased}"]`)  ||
-             target.matches(`select[name="${capitalized}"]`) ||
-             target.matches(`select[name="${lowercased}"]`)
+             target.matches(`select[name="${capitalized}"]`);
     })) {
       updateGallery();
     }
-  });
+  }); {% endcomment %}
+  document.body.addEventListener('change', (e) => {
+  const target = e.target;
+  
+  if (!target.classList.contains('swatch-input__input') && target.tagName !== 'SELECT') return;
+
+  const targetName = target.name.trim().toLowerCase();
+
+  if (variantOptions.some(option => option.trim().toLowerCase() === targetName)) {
+    updateGallery();
+  }
+});
 
   // ✅ Initialize GLightbox & Swiper after DOM load
   window.activeLightbox = GLightbox({
