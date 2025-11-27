@@ -28,7 +28,7 @@
 <input
   type="{{ type | default: 'radio' }}"
   id="{{ id }}"
-  name="{{ name }}"
+  name="{{ name | capitalize  }}"
   value="{{ value }}"
   form="{{ product_form_id }}"
   class="{% if swatchIndex > 17 %} SeeMoreContent {% endif %} asd swatch-input__input{% if visually_disabled %} visually-disabled{% endif %}"
