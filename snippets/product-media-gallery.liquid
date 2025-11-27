@@ -811,6 +811,7 @@ let firstSwiperSlide = null;
     if (variantOptions.some(option => {
       const capitalized = option.charAt(0).toUpperCase() + option.slice(1);
       const lowercased = option.toLowerCase();
+      console.log(capitalized,lowercased,'asdsad')
       return target.matches(`.swatch-input__input[name^="${capitalized}"]`) ||
       target.matches(`.swatch-input__input[name^="${lowercased}"]`)  ||
              target.matches(`select[name="${capitalized}"]`) ||
