@@ -334,7 +334,7 @@
   {%- endif -%}
 </media-gallery> {% endcomment %}
 
-{% comment %} {% assign product_images_meta = product.metafields.custom.extra_product_images.value %}
+{% assign product_images_meta = product.metafields.custom.extra_product_images.value %}
 
   {% for entry in product_images_meta %}
     <!-- Debug: Check what's in each entry -->
@@ -343,7 +343,7 @@
       Img: {{ entry.img | json }}
       Text: {{ entry.text | json }}
     </div>
-  {% endfor %} {% endcomment %}
+  {% endfor %}
 
 <div class="custom-media-gallery">
 
