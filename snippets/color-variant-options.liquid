@@ -97,7 +97,7 @@
       type="radio"
       id="{{ input_id }}"
       class="swatch-input__input {% if option_disabled %}disabled{% endif %}"
-      name="{{ input_name | escape }}"
+      name="{{ input_name | capitalize  | escape }}"
       value="{{ value | escape }}"
       form="{{ product_form_id }}"
       {% if value.selected %}checked{% endif %}
