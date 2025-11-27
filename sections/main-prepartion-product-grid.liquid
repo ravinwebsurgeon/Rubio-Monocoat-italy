@@ -824,7 +824,7 @@ function updateVariantId(cart, variants, variantIdInput) {
   const foundVariant = variants.find(v => {
     return v.options.every((opt, idx) => opt === selectedOptions[idx]);
   });
-    const priceElement = cart.querySelector(".quick-cart-price");
+    const priceElement = cart.querySelector(".product__price");
 
   if (foundVariant) {
     variantIdInput.value = foundVariant.id;
