@@ -797,7 +797,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       2. GET PRODUCT HANDLE
   ---------------------------- */
   const cartMain = document.querySelector('.quick__cart__main.active__Cart');
-  const productHandle = cartMain ? cartMain.getAttribute('data-handle') : null;
+  const productHandle = cartMain ? cartMain.getAttribute('data-product-handle') : null;
 
   if (!productHandle) {
     console.error("Product handle missing");
