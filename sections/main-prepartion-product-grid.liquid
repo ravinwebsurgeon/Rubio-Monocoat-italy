@@ -788,7 +788,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   const optionRadios = document.querySelectorAll(
     '.color-swatch-input, .variant-radio-input'
   );
-  const cartMain = document.querySelector('.quick__cart__main.active__Cart');
+  const cartMain = document.querySelector('.quick__cart__main');
   const productHandle = cartMain ? cartMain.getAttribute('data-product-handle') : null;
   if (!productHandle) {
     console.error("text Product handle missing");
