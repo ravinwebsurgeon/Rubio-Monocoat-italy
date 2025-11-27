@@ -378,7 +378,7 @@
             {% endif %}
           </div>
         {% endfor %}
-
+{% comment %} 
             {% assign product_images_meta = product.metafields.namespace.extra_product_images.value %}
 
             {% if product_images_meta %}
@@ -402,9 +402,7 @@
                 {% endfor %}
 
               {% endfor %}
-            {% endif %}
-
-        
+            {% endif %}         {% endcomment %}
       </div>
     </div>
 
