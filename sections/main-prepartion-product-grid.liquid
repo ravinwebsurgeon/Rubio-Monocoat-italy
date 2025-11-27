@@ -737,6 +737,7 @@ function updateCartCount() {
   fetch('/cart.js')
     .then(response => response.json())
     .then(cart => {
+      console.log(cart,'cartData')
       const count = cart.item_count;
       const bubble = document.querySelector('.cart-count-bubble');
       console.log('checked Data')
