@@ -1,0 +1,31 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "page.cookie-policy.json",
+  "context": {
+    "market": "it"
+  },
+  "sections": {
+    "rich_text_kPd9mt": {
+      "blocks": {
+        "heading_nCaiQR": {
+          "settings": {
+            "heading": "COOKIE POLICY"
+          }
+        },
+        "text_jdmVtf": {
+          "settings": {
+            "text": "<p>This Cookie Policy (“<strong>Cookie Policy</strong>”) explains the use of cookies and similar technologies (collectively, “<strong>Cookies</strong>”) on the website, including the webshop, accessible at <a href=\"http://www.rubiomonocoat.it\"><strong>www.rubiomonocoat.it</strong></a> (“<strong>Website</strong>”).</p><h2><strong>1. Data Controller</strong></h2><p>The Website is operated by:</p><p><strong>Rubio Monocoat Italy SRL</strong><br/><br/>Registered office: Via Torino 24/8, 20063 Cernusco sul Naviglio (MI), Italy<br/><br/>VAT/Tax ID: 04742380274<br/><br/>Email: <a><strong>info@rubiomonocoat.it</strong></a></p><p>Rubio Monocoat Italy SRL is the data controller for the personal data collected through Cookies used on the Website.</p><h2><strong>2. What Are Cookies?</strong></h2><p>Cookies are small text files or pieces of information that are stored on the user’s device (computer, tablet, smartphone) when visiting our Website through their browser.<br/><br/>Similar technologies (such as pixels, tags, or scripts) may also be used alongside Cookies. These technologies typically serve similar purposes, such as:</p><p><br/><br/></p><p><br/><br/></p><p><br/><br/></p><p><br/><br/></p><p>For the purposes of this Cookie Policy, all such technologies are collectively referred to as “Cookies”.</p><h2><strong>3. Why We Use Cookies</strong></h2><p>Cookies help us to:</p><p><br/><br/></p><p><br/><br/></p><p><br/><br/></p><p><br/><br/></p><p><br/><br/></p><p>Some Cookies are <strong>strictly necessary</strong> for the Website to function, while others require the user’s <strong>consent</strong> before being placed.</p><h2><strong>4. Types of Cookies We Use</strong></h2><p>Our Website uses the following categories of Cookies:</p><h3><strong>4.1 Technical or Functional Cookies (Necessary)</strong></h3><p>These Cookies are <strong>essential</strong> for the proper functioning of the Website and to enable core features.</p><p>For example, they may:</p><p><br/><br/></p><p><br/><br/></p><p><br/><br/></p><p><br/><br/></p><p>These Cookies do <strong>not</strong> require user consent.</p><h3><strong>4.2 Analytical / Performance Cookies</strong></h3><p>Analytical Cookies are used to <strong>measure and analyze</strong> how users interact with the Website, helping us to improve its content, performance, and structure.</p><p>They help us understand:</p><p><br/><br/></p><p><br/><br/></p><p><br/><br/></p><p>Where Analytical Cookies can directly or indirectly identify the user (e.g., IP address not anonymized), the Website will request <strong>prior consent</strong> before using them.</p><h3><strong>4.3 Tracking / Profiling Cookies</strong></h3><p>These Cookies record the user’s browsing behavior on the Website (and potentially third-party sites), allowing us to create a <strong>user profile</strong>, in order to:</p><p><br/><br/></p><p><br/><br/></p><p><br/><br/></p><p>Tracking/Profiling Cookies are installed <strong>only with the user’s explicit consent</strong>.<br/><br/>If the user does not give or withdraws consent, advertisements may still appear, but they <strong>will not be personalized</strong>.</p><h3><strong>4.4 Third-Party Cookies</strong></h3><p>Some Cookies may be placed by <strong>third parties</strong>, such as analytics providers or advertising partners.<br/><br/>In such cases, the third party may process the collected data as an independent data controller.<br/><br/>Details of such processing are available in the respective third-party privacy/cookie policies.</p><h2><strong>5. Legal Basis and Consent</strong></h2><p>Where Cookies used are <strong>not strictly necessary</strong>, they are installed only after obtaining the user’s <strong>prior consent</strong> through the Website’s cookie banner or settings.</p><p>The user may at any time:</p><p><br/><br/></p><p><br/><br/></p><p>via the Cookie settings available on the Website or via their browser settings.</p><h2><strong>6. Managing and Disabling Cookies</strong></h2><p>Users can manage or delete Cookies in several ways:</p><h3><strong>6.1 Browser settings</strong></h3><p>Users may disable or delete Cookies at any time through their browser’s privacy or security settings.</p><p>Please note:</p><p><br/><br/></p><p><br/><br/></p><h3><strong>6.2 Cookie preferences on the Website</strong></h3><p>Where available, the user may also adjust Cookie settings directly on the Website (via the cookie banner or a “Cookie Settings” link) to:</p><p><br/><br/></p><p><br/><br/></p><h2><strong>7. Personal Data and Privacy Policy</strong></h2><p>Information collected through Cookies may include <strong>personal data</strong>.<br/><br/>In such cases, our <strong>Privacy Policy</strong> also applies, outlining:</p><p><br/><br/></p><p><br/><br/></p><p><br/><br/></p><p><br/><br/></p><p><br/><br/></p><p><br/><br/></p><p>The Privacy Policy is available on the Website for full details.</p><h2><strong>8. Changes to This Cookie Policy</strong></h2><p>We reserve the right to <strong>update or modify</strong> this Cookie Policy at any time, for example due to:</p><p><br/><br/></p><p><br/><br/></p><p><br/><br/></p><p><br/><br/></p><p>When changes are made, the updated version will be published on the Website with an indication of the revision date.<br/><br/>If changes are significant or require renewed consent, the user will be informed accordingly (e.g., through a banner notification).</p><h2><strong>9. Contact</strong></h2><p>For any questions regarding this Cookie Policy or the use of Cookies on our Website, users may contact us at:</p><p><a><strong>info@rubiomonocoat.it</strong></a></p>"
+          }
+        }
+      }
+    }
+  }
+}
