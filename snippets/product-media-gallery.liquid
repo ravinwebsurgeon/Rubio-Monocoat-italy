@@ -805,7 +805,7 @@ let firstSwiperSlide = null;
   }
 
   // Variant change listener
-  {% comment %} document.body.addEventListener('change', (e) => {
+  document.body.addEventListener('change', (e) => {
     const target = e.target;
     console.log(target,'target')
     if (variantOptions.some(option => {
@@ -816,18 +816,7 @@ let firstSwiperSlide = null;
     })) {
       updateGallery();
     }
-  }); {% endcomment %}
-  document.body.addEventListener('change', (e) => {
-  const target = e.target;
-  
-  if (!target.classList.contains('swatch-input__input') && target.tagName !== 'SELECT') return;
-
-  const targetName = target.name.trim().toLowerCase();
-
-  if (variantOptions.some(option => option.trim().toLowerCase() === targetName)) {
-    updateGallery();
-  }
-});
+  });
 
   // ✅ Initialize GLightbox & Swiper after DOM load
   window.activeLightbox = GLightbox({
