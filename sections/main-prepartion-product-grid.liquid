@@ -834,6 +834,7 @@ function updateVariantId(cart, variants, variantIdInput) {
   }
     // Update price dynamically
     if (priceElement) {
+      console.log('asasasdaasdaff')
       priceElement.textContent = Shopify.formatMoney(
         foundVariant.price,
         "{{ shop.money_format }}"
