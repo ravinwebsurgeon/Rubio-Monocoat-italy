@@ -807,6 +807,7 @@ let firstSwiperSlide = null;
   // Variant change listener
   document.body.addEventListener('change', (e) => {
     const target = e.target;
+    console.log(target,'target')
     if (variantOptions.some(option => {
       const capitalized = option.charAt(0).toUpperCase() + option.slice(1);
       return target.matches(`.swatch-input__input[name^="${capitalized}"]`) ||
