@@ -810,26 +810,21 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log("Cart opened → Variant script initialized");
 
     const productHandle = activeCart.getAttribute('data-product-handle');
-
     if (!productHandle) {
       console.error("Product handle missing");
       return;
     }
-
     /* Load product JSON */
     const response = await fetch(`/products/${productHandle}.js`);
     const productData = await response.json();
     const variants = productData.variants;
-
     /* All radio inputs (color + others) */
     const optionRadios = document.querySelectorAll(
       '.color-swatch-input, .variant-radio-input'
     );
-
     /* Get selected options in correct order */
     function getSelectedOptions() {
       let selected = [];
-
       const optionGroups = document.querySelectorAll('[data-index^="option"]');
       optionGroups.forEach(group => {
         const checked = group.querySelector('input[type="radio"]:checked');
@@ -838,14 +833,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
       return selected;
     }
-
     /* Find matching variant */
     function findMatchingVariant(options) {
       return variants.find(variant =>
         variant.options.every((opt, i) => opt === options[i])
       );
     }
-
     /* Update hidden variant ID */
     function updateVariantId() {
       const selected = getSelectedOptions();
@@ -856,16 +849,13 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log("Variant updated →", match.id);
       }
     }
-
     /* CLICK event for all radios */
     optionRadios.forEach(radio => {
       radio.addEventListener('click', updateVariantId);
     });
-
     /* Initial update */
     updateVariantId();
   }
-
 });
 </script>
 
