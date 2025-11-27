@@ -787,21 +787,16 @@ document.addEventListener("DOMContentLoaded", function() {
 <script>
   document.addEventListener("DOMContentLoaded", () => {
   const quickCarts = document.querySelectorAll('.quick__cart__main');
-
   quickCarts.forEach(async (cart) => {
     const productHandle = cart.getAttribute('data-product-handle');
     if (!productHandle) return;
-
     // Load product variant data
     const response = await fetch(`/products/${productHandle}.js`);
     const product = await response.json();
     const variants = product.variants;
-
     const variantIdInput = cart.querySelector(".variant-selector");
-
     // Listen for changes on *all radios* inside this cart
     const variantInputs = cart.querySelectorAll(".color-swatch-input, .variant-radio-input");
-
     variantInputs.forEach(input => {
       input.addEventListener("change", () => {
         updateVariantId(cart, variants, variantIdInput);
@@ -810,31 +805,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
   });
 });
-
-/**
- * Build selected options + find matching variant
- */
 function updateVariantId(cart, variants, variantIdInput) {
-
-  // Collect selected option values in correct order
   const selectedOptions = [];
-
-  // Each option group uses attribute: data-index="option1", option2, etc
   const optionGroups = cart.querySelectorAll("[data-index^='option']");
-
   optionGroups.forEach(group => {
     const selectedRadio = group.querySelector("input[type='radio']:checked");
     if (selectedRadio) {
       selectedOptions.push(selectedRadio.dataset.value);
     }
   });
-
-  // Find matching variant
   const foundVariant = variants.find(v => {
     return v.options.every((opt, idx) => opt === selectedOptions[idx]);
   });
-
-  // Update hidden variant field
   if (foundVariant) {
     variantIdInput.value = foundVariant.id;
     console.log("Variant matched:", foundVariant.id, foundVariant.title);
@@ -842,7 +824,6 @@ function updateVariantId(cart, variants, variantIdInput) {
     console.warn("No variant matches:", selectedOptions);
   }
 }
-
 </script>
 
 
