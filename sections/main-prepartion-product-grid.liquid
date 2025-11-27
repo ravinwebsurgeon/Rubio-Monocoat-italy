@@ -837,7 +837,7 @@ function updateVariantId(cart, variants, variantIdInput) {
 
       let isMatch = true;
       for (let i = 0; i < selectedOptions.length; i++) {
-        if (selectedOptions[i] !== altParts[i]) {
+        if (normalizeValue(selectedOptions[i]) !== normalizeValue(altParts[i])) {
           isMatch = false;
           break;
         }
@@ -877,6 +877,17 @@ function updateVariantId(cart, variants, variantIdInput) {
       currency: currency
     }).format(amount / 100);
   }
+
+  function normalizeValue(str) {
+  return str
+    ? str.toString()                   // ensure it's a string
+         .trim()                        // remove leading/trailing spaces
+         .toLowerCase()                 // lowercase
+         .replace(/\s+/g, '')           // remove all spaces
+         .replace(/\./g, '-')           // replace dots with dashes
+         .replace(/[^a-z0-9-]/g, '')   // remove anything that is not a-z, 0-9, or dash
+    : '';
+}
 </script>
 
 
