@@ -783,51 +783,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 </script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const variantSelectors = document.querySelectorAll('.option-variant-selector');
-    let myhandle = document.querySelector('.quick__cart__main.active__Cart')
-
-    // Load all variants into JS (this is Liquid)
-	  let my_response = await fetch(`/products/${myhandle}.js`);
-    const productData = await my_response.json();
-    const variants = productData.variants;
-
-    function getSelectedOptions() {
-      let selectedOptions = [];
-      variantSelectors.forEach((select) => {
-        selectedOptions.push(select.value);
-      });
-      return selectedOptions;
-    }
-
-    function findMatchingVariant(options) {
-      return variants.find((variant) => {
-        return variant.options.every((opt, index) => opt === options[index]);
-      });
-    }
-
-    function updateVariantId() {
-      const selectedOptions = getSelectedOptions();
-      const matchingVariant = findMatchingVariant(selectedOptions);
-
-      if (matchingVariant) {
-        console.log('Selected Variant ID:', matchingVariant.id);
-        document.querySelector('#custom-variant-id').value = matchingVariant.id;
-      } else {
-        console.log('No matching variant found');
-      }
-    }
-
-    // Listen for changes on all variant selectors
-    variantSelectors.forEach((select) => {
-      select.addEventListener('change', updateVariantId);
-    });
-
-    // Initial check on page load
-    updateVariantId();
-  });
-</script>
 
 
 {% schema %}
