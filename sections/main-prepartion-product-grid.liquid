@@ -838,7 +838,6 @@ function updateVariantId(cart, variants, variantIdInput) {
     return v.options.every((opt, idx) => opt === selectedOptions[idx]);
   });
     const priceElement = cart.querySelector(".product__price");
-
   if (foundVariant) {
     variantIdInput.value = foundVariant.id;
     console.log("Variant matched:", foundVariant.id, foundVariant.title);
