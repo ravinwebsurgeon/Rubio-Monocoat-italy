@@ -745,14 +745,14 @@ function updateCartCount() {
         bubble.querySelector('span[aria-hidden="true"]').textContent = count;
         bubble.querySelector('.visually-hidden').textContent = `${count} item${count !== 1 ? 's' : ''}`;
         console.log('updated')
-        if(count == 0){
+        {% comment %} if(count == 0){
           bubble.style.display = 'none';
           bubble.style.visibility = 'hidden';
         }
         else{
           bubble.style.display = 'block';
           bubble.style.visibility = 'visible';
-        }
+        } {% endcomment %}
       }
     })
     .catch(error => console.error('Error fetching cart:', error));
