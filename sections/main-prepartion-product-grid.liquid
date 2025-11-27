@@ -783,7 +783,56 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', async function () {
+  const optionRadios = document.querySelectorAll(
+    '.color-swatch-input, .variant-radio-input'
+  );
 
+  const cartMain = document.querySelector('.quick__cart__main.active__Cart');
+  const productHandle = cartMain ? cartMain.getAttribute('data-product-handle') : null;
+  if (!productHandle) {
+    console.error("Product handle missing");
+    return;
+  }
+  const response = await fetch(`/products/${productHandle}.js`);
+  const productData = await response.json();
+  const variants = productData.variants;
+
+  function getSelectedOptions() {
+    let selected = [];
+    const optionGroups = document.querySelectorAll('[data-index^="option"]');
+    optionGroups.forEach((group) => {
+      const checked = group.querySelector('input[type="radio"]:checked');
+      selected.push(checked ? checked.value : null);
+    });
+    return selected;
+  }
+
+  function findMatchingVariant(selectedOptions) {
+    return variants.find((variant) => {
+      return variant.options.every((opt, i) => opt === selectedOptions[i]);
+    });
+  }
+
+  function updateVariantId() {
+console.log('changed');
+    const selectedOptions = getSelectedOptions();
+    const match = findMatchingVariant(selectedOptions);
+
+    if (match) {
+      document.querySelector('#custom-variant-id').value = match.id;
+      console.log('Variant Selected:', match.id);
+    } else {
+      console.log("No matching variant");
+    }
+  }
+
+  optionRadios.forEach((radio) => {
+    radio.addEventListener('change', updateVariantId);
+  });
+});
+</script>
 
 {% schema %}
 {
