@@ -27,7 +27,7 @@
                     height="{{ product.featured_media.height }}"
                   > {% endcomment %}
                     {% comment %} <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.media[1].alt | escape }}" loading="lazy" > {% endcomment %}
-                    {% render 'product-media-gallery' ,product:product %}
+                    {% comment %} {% render 'product-media-gallery' ,product:product %} {% endcomment %}
                   </a>
             </div>
             <div class="product__title__price">
