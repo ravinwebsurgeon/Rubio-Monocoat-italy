@@ -810,8 +810,11 @@ let firstSwiperSlide = null;
     console.log(target,'target')
     if (variantOptions.some(option => {
       const capitalized = option.charAt(0).toUpperCase() + option.slice(1);
+      const lowercased = option.toLowerCase();
       return target.matches(`.swatch-input__input[name^="${capitalized}"]`) ||
-             target.matches(`select[name="${capitalized}"]`);
+      target.matches(`.swatch-input__input[name^="${lowercased}"]`)  ||
+             target.matches(`select[name="${capitalized}"]`); ||
+             target.matches(`select[name="${lowercased}"]`); ||
     })) {
       updateGallery();
     }
