@@ -344,6 +344,7 @@
       Text: {{ entry.text | json }}
     </div>
   {% endfor %} {% endcomment %}
+{% assign product_images_meta = product.metafields.custom.extra_product_images.value %}
 
 <div class="custom-media-gallery">
 
@@ -389,32 +390,7 @@
             {% endif %}
           </div>
         {% endfor %}
-            {% comment %} {% assign product_images_meta = product.metafields.custom.extra_product_images.value %}
 
-            {% if product_images_meta %}
-              {% for entry in product_images_meta %}
-                {% assign images = entry.img %}      
-                {% assign alt_texts = entry.text %}  
-                {% for img in images %}
-                  {% assign index = forloop.index0 %}
-                  {% assign alt_parts = alt_texts[index] | split: '/' %}
-                  {% assign last_index = product.options.size | minus: 1 %}
-
-                  <div class="main-image-item"
-                        {% for j in (0..last_index) %}
-                          {% assign option_name = product.options[j] | downcase | strip %}
-                          {% assign option_value = alt_parts[j] | strip %}
-                          data-{{ option_name | handle }}="{{ option_value }}"
-                        {% endfor %}
-                        style="display: none;">
-                    <img src="{{ img | img_url: '1024x1024' }}" alt="{{ alt_texts[index] | escape }}">
-                  </div>
-                {% endfor %}
-
-              {% endfor %}
-            {% endif %}         {% endcomment %}
-
-{% assign product_images_meta = product.metafields.custom.extra_product_images.value %}
 
 {% if product_images_meta %}
   {% for entry in product_images_meta %}
@@ -477,6 +453,29 @@
             {% endif %}
           </div>
         {% endfor %}
+
+        
+{% if product_images_meta %}
+  {% for entry in product_images_meta %}
+    {% if entry.img and entry.text %}
+      {% assign image_source = entry.img %}
+      {% assign alt_text = entry.text %}
+      {% assign alt_parts = alt_text | split: '/' %}
+      
+      <div class="thumbnail-item"
+           {% for option in product.options %}
+             {% assign option_index = forloop.index0 %}
+             {% assign option_name = option | downcase | strip %}
+             {% assign option_value = alt_parts[option_index] | default: '' | strip %}
+             data-{{ option_name | handle }}="{{ option_value }}"
+           {% endfor %}
+           style="display: none;">
+          <img src="{{ image_source | img_url: '1024x1024' }}" alt="{{ alt_text | escape }}">
+      </div>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
       </div>
     </div>
   </div>
