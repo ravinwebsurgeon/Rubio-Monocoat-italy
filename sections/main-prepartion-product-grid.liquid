@@ -840,7 +840,7 @@ function updateVariantId(cart, variants, variantIdInput) {
     }
 
     // === IMAGE SWITCHING START ===
-  const allImages = cart.querySelectorAll(".product-image-item");
+  const allImages = cart.querySelectorAll(".product__image__item");
 
   if (foundVariant) {
     const selectedText = foundVariant.options.map(o => o.toLowerCase());
