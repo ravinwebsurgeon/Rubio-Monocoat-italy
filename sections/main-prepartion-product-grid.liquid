@@ -665,6 +665,12 @@
       })
           
     }
+    document.querySelectorAll(".quick__cart__close").forEach(btn => {
+      btn.addEventListener("click", e => {
+          let cart = btn.closest(".quick__cart__main");
+          cart.classList.remove("active__Cart");
+      });
+    });
 
     document.querySelectorAll('.ajax__cart').forEach(function (button) {
         button.addEventListener('click', function () {
