@@ -159,12 +159,12 @@
                     {% endif %}
                     {% endfor %}
                   </select>
-                  {% if total_values > max_to_show %}
+                  {% comment %} {% if total_values > max_to_show %}
                   <button class="show-more-options"
                           data-count="{{ total_values | minus: max_to_show }}">
                     +{{ total_values | minus: max_to_show }} more
                   </button>
-                {% endif %}
+                {% endif %} {% endcomment %}
                 {% endif %}
               </div>
             {% endfor %}
