@@ -6,7 +6,9 @@
 {% assign slider_images = collection.metafields.custom.surface_images.value %}
 {% assign surface_header = collection.metafields.custom.surface_header.value %}
 
-
+  {%- for product in collection.products -%}
+    {% render 'quick-cart-view', product:product %}
+  {% endfor %}
 <div class="custom_collection_main">
 
 {% if cat_heading != blank %}
@@ -93,9 +95,9 @@
     }
   }
 {%- endstyle -%}
-  {%- for product in collection.products -%}
-    {% render 'quick-cart-view', product:product %}
-  {% endfor %}
+ {% comment %} {% for option in card_product.options_with_values %}
+  {% render 'quick-cart-view', product:product %}
+ {% endfor %} {% endcomment %}
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
   {%- paginate collection.products by section.settings.products_per_page -%}
     {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
