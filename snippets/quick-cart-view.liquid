@@ -11,7 +11,7 @@
                       {% if media.media_type == 'image' %}
                         <img 
                           src="{{ media | image_url: width: 360 }}"
-                          alt="{{ media.alt | escape }}"
+                          {% unless media.alt == product.title %} alt="{{ media.alt | escape }}"{% endunless %}
                           loading="lazy"
                           class="product__image__item"
                         >
