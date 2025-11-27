@@ -835,6 +835,7 @@ function updateVariantId(cart, variants, variantIdInput) {
 
     allImages.forEach(img => {
       const altText = img.alt.trim().toLowerCase();
+      console.log(altText,'altText')
 
       // Check if all selected options exist in the alt
       const isMatch = selectedOptions.every(opt => altText.includes(opt));
