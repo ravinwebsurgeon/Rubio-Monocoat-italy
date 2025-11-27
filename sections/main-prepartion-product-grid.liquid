@@ -824,12 +824,21 @@ function updateVariantId(cart, variants, variantIdInput) {
   const foundVariant = variants.find(v => {
     return v.options.every((opt, idx) => opt === selectedOptions[idx]);
   });
+    const priceElement = cart.querySelector(".quick-cart-price");
+
   if (foundVariant) {
     variantIdInput.value = foundVariant.id;
     console.log("Variant matched:", foundVariant.id, foundVariant.title);
   } else {
     console.warn("No variant matches:", selectedOptions);
   }
+    // Update price dynamically
+    if (priceElement) {
+      priceElement.textContent = Shopify.formatMoney(
+        foundVariant.price,
+        "{{ shop.money_format }}"
+      );
+    }
 }
 </script>
 
