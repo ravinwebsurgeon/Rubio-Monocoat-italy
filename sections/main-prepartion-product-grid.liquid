@@ -829,16 +829,19 @@ function updateVariantId(cart, variants, variantIdInput) {
   if (foundVariant) {
     variantIdInput.value = foundVariant.id;
     console.log("Variant matched:", foundVariant.id, foundVariant.title);
-     // --- IMAGE SWITCH ---
-    const allImages = cart.querySelectorAll(".product__image__item");
+     const allImages = cart.querySelectorAll(".product__image__item");
     let matchedImage = null;
 
     allImages.forEach(img => {
-      const altText = img.alt.trim().toLowerCase();
-      console.log(altText,'altText')
+      const altParts = img.alt.split('/').map(p => p.trim().toLowerCase());
 
-      // Check if all selected options exist in the alt
-      const isMatch = selectedOptions.every(opt => altText.includes(opt));
+      let isMatch = true;
+      for (let i = 0; i < selectedOptions.length; i++) {
+        if (selectedOptions[i] !== altParts[i]) {
+          isMatch = false;
+          break;
+        }
+      }
 
       if (isMatch) {
         matchedImage = img;
@@ -854,6 +857,8 @@ function updateVariantId(cart, variants, variantIdInput) {
     } else if (allImages.length > 0) {
       allImages[0].style.display = "block";
     }
+
+    
   } else {
     console.warn("No variant matches:", selectedOptions);
   }
