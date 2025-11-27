@@ -835,12 +835,17 @@ function updateVariantId(cart, variants, variantIdInput) {
     // Update price dynamically
     if (priceElement) {
       console.log('asasasdaasdaff')
-      priceElement.textContent = Shopify.formatMoney(
-        foundVariant.price,
-        "{{ shop.money_format }}"
-      );
+      let my_price = formatPrice(foundVariant.price)
+      priceElement.textContent = my_price;
     }
 }
+  function formatPrice(amount) {
+    const currency = Shopify.currency.active;
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: currency
+    }).format(amount / 100);
+  }
 </script>
 
 
