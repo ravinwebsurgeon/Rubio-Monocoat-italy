@@ -379,27 +379,7 @@
           </div>
         {% endfor %}
 
-        {% assign product_images_meta = product.metafields.namespace.extra_product_images.value %}
-  {% if product_images_meta %}
-    {% for entry in product_images_meta %}
-      {% for i in entry.img %}
-        {% assign index = forloop.index0 %}
-        {% assign alt_parts = entry.text[index] | split: '/' %}
-        {% assign last_index = product.options.size | minus: 1 %}
-
-        <div class="main-image-item my_image"
-              {% for j in (0..last_index) %}
-                {% assign option_name = product.options[j] | downcase | strip %}
-                {% assign option_value = alt_parts[j] | strip %}
-                data-{{ option_name | handle }}="{{ option_value }}"
-              {% endfor %}
-              style="display: none;">
-          <img src="{{ i | img_url: '1024x1024' }}" alt="{{ entry.alt_text[index] | escape }}">
-        </div>
-      {% endfor %}
-    {% endfor %}
-  {% endif %}
-
+        
       </div>
     </div>
 
