@@ -702,8 +702,8 @@ button.show-more-swatches {
         button.addEventListener('click', function () {
             const productBlock = button.closest('.quick__cart__main');
             const variantSelect = productBlock.querySelector('.variant-selector');
-            {% comment %} const qtyInput = productBlock.querySelector('.quick-cart-qty-input'); {% endcomment %}
-            {% comment %} const quantity = parseInt(qtyInput.value) || 1; {% endcomment %}
+            const qtyInput = productBlock.querySelector('.quick-cart-qty-input');
+            const quantity = parseInt(qtyInput.value) || 1;
             const variantId = variantSelect.value;
             fetch('/cart/add.js', {
                 method: 'POST',
@@ -713,7 +713,7 @@ button.show-more-swatches {
                 },
                 body: JSON.stringify({
                     id: variantId,
-                    quantity: 1
+                    quantity: quantity
                 })
             })
             .then(response => response.json())
