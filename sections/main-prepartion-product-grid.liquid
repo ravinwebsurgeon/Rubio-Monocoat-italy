@@ -695,6 +695,16 @@ button.show-more-swatches {
       btn.addEventListener("click", e => {
           let cart = btn.closest(".quick__cart__main");
           cart.classList.remove("active__Cart");
+              // RESET QTY TO 1
+        const qtyInput = cart.querySelector(".quick-cart-qty-input");
+        const minusBtn = cart.querySelector(".qty-minus");
+        const plusBtn = cart.querySelector(".qty-plus");
+
+        if (qtyInput) {
+          qtyInput.value = 1;
+          minusBtn.classList.add("disabled__btn");
+          plusBtn.classList.remove("disabled__btn");
+        }
       });
     });
 
