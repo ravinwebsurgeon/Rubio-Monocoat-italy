@@ -65,7 +65,7 @@
           </div> {% endcomment %}
 
     <ul class="child_menu_links">
-<div class="shown-link">
+<li class="shown-link">
 {% for childlink in link.links %}
   <div class="sub-main-lnk">
     <div class="both-li">
@@ -76,7 +76,7 @@
           {% assign menu_t = block.settings.sub-menu_title | handle %}
           {% if menu_t == child_handle %}
             <div class="let-im">
-              <img src="{{ block.settings.menu_image | img_url:'thumbnail' }}" alt="{{ childlink.title }}">
+              <img src="{{ block.settings.menu_image | img_url:'thumbnail' }}" alt="{{ childlink.title }}" width="" height="">
             </div>
           {% endif %}
           
@@ -99,7 +99,7 @@
               {% assign menu_t = block.settings.sub-menu_title | handle %}
               {% if menu_t == grand_handle %}
                 <div class="let-im">
-                  <img src="{{ block.settings.menu_image | img_url:'thumbnail' }}" alt="{{ grandchildlink.title }}">
+                  <img src="{{ block.settings.menu_image | img_url:'thumbnail' }}" alt="{{ grandchildlink.title }}" width="" height="">
                 </div>
                   <div class="tag-text">{{ block.settings.tag_title }}</div>
               {% endif %}
@@ -189,7 +189,7 @@
                 {% endif %}
               {% endif %}
             {% endfor %}
-</div>
+          </li>
 </ul>
 </div>
 {% unless link.title == "Products" %}
