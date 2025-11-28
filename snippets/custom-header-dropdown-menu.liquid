@@ -73,8 +73,8 @@
 
       {% for block in section.blocks %}
         {% if block.type == 'Custom_images' %}
-          {% assign menu_t = block.settings.sub-menu_title | handle %}
-          {% if menu_t == child_handle %}
+          {% if block.settings.sub-menu_item == childlink.object.id %}
+          {% comment %} {% if menu_t == child_handle %} {% endcomment %}
             <div class="let-im">
               <img src="{{ block.settings.menu_image | img_url:'thumbnail' }}" alt="{{ childlink.title }}" width="" height="">
             </div>
