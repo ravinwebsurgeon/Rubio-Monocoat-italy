@@ -52,8 +52,8 @@
               <button class="cert-plus cert-plus-desktop" type="button">
                 {% comment %} i {% endcomment %}
                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
-                  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18 fill="currentColor">i</text>
-                </svg>
+    <text x="0" y="14" font-family="Arial, sans-serif" font-size="17" fill="currentColor">i</text>
+  </svg>
               </button>
             </div>
           </div>
@@ -366,9 +366,9 @@ document.querySelectorAll(".certificate-card").forEach(card => {
       const btn = card.querySelector(".cert-plus");
       this.classList.remove("active");
       {% comment %} btn.textContent = "i"; {% endcomment %}
-       btn.innerHTML  = `   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
-                  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18 fill="currentColor">i</text>
-                </svg>`
+       btn.innerHTML  = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
+    <text x="0" y="14" font-family="Arial, sans-serif" font-size="20" fill="currentColor">i</text>
+  </svg>`
     }
   });
 });
@@ -409,9 +409,9 @@ document.addEventListener("touchstart", function(e) {
     {% comment %} e.target.textContent = card.classList.contains("active") ? "×" : "i"; {% endcomment %}
      e.target.innerHTML = card.classList.contains("active") 
   ? "×" 
-  : ` <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
-        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18 fill="currentColor">i</text>
-    </svg>`;
+  : `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
+       <text x="50%" y="75%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="currentColor">i</text>
+     </svg>`;
 
     e.preventDefault();
     e.stopPropagation();
@@ -428,10 +428,10 @@ document.addEventListener("click", function(e) {
 
     const card = e.target.closest(".certificate-card");
     card.classList.remove("active");
-    {% comment %} e.target.textContent = "i"; {% endcomment %}
+    e.target.textContent = "i";
     e.target.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
-      <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="18 fill="currentColor">i</text>
-    </svg>`
+    <text x="0" y="14" font-family="Arial, sans-serif" font-size="20" fill="currentColor">i</text>
+  </svg>`
   }
 });
 
