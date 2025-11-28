@@ -53,7 +53,7 @@
                 {% if media.media_type == 'video' %}
                     {% assign poster_image = media.preview_image | img_url: 'master' %}
 
-                  {{ media | video_tag: controls:false,mute:true,loop:false,autoplay:false,poster: poster_image, class:'custom-featured-video' }}
+                  {{ media | video_tag: controls:false,mute:true,loop:true,autoplay:true,poster: poster_image, class:'custom-featured-video' }}
                 {% elsif media.media_type == 'image' %}
                   <img src="{{ media | img_url: '150x' }}" alt="{{ product.title }}">
                 {% endif %}
