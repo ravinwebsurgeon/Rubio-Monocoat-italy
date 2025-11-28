@@ -812,7 +812,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 }); {% endcomment %}
 </script>
-
+{% comment %} 
 <script>
   //update select variant id in quick cart view
   document.addEventListener("DOMContentLoaded", () => {
@@ -906,6 +906,139 @@ function updateVariantId(cart, variants, variantIdInput) {
          .replace(/\s+/g, '')           // remove all spaces
          .replace(/\./g, '-')           // replace dots with dashes
          .replace(/[^a-z0-9-]/g, '')   // remove anything that is not a-z, 0-9, or dash
+    : '';
+}
+</script> {% endcomment %}
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const quickCarts = document.querySelectorAll('.quick__cart__main');
+
+  quickCarts.forEach(async (cart) => {
+    const productHandle = cart.getAttribute('data-product-handle');
+    if (!productHandle) return;
+
+    // Load product variant data
+    const response = await fetch(`/products/${productHandle}.js`);
+    const product = await response.json();
+    const variants = product.variants;
+
+    const variantIdInput = cart.querySelector(".variant-selector");
+
+    // Initialize option values on page load
+    initializeOptionValues(cart);
+
+    // Listen for changes on all radios inside this cart
+    const variantInputs = cart.querySelectorAll(".color-swatch-input, .variant-radio-input");
+    variantInputs.forEach(input => {
+      input.addEventListener("change", () => {
+        updateVariantId(cart, variants, variantIdInput);
+      });
+    });
+  });
+});
+
+// Function to update variant ID and related UI
+function updateVariantId(cart, variants, variantIdInput) {
+  const selectedOptions = [];
+  const optionGroups = cart.querySelectorAll("[data-index^='option']");
+
+  optionGroups.forEach(group => {
+    const selectedRadio = group.querySelector("input[type='radio']:checked");
+    const optionValueSpans = group.querySelectorAll('.option__value');
+
+    if (selectedRadio) {
+      const value = selectedRadio.dataset.value;
+
+      // Update all spans for this option group
+      optionValueSpans.forEach(span => {
+        span.textContent = value;
+      });
+
+      selectedOptions.push(value);
+    }
+  });
+
+  const foundVariant = variants.find(v => {
+    return v.options.every((opt, idx) => opt === selectedOptions[idx]);
+  });
+
+  // Update variant input
+  if (foundVariant) {
+    variantIdInput.value = foundVariant.id;
+    console.log("Variant matched:", foundVariant.id, foundVariant.title);
+
+    // Show corresponding images
+    const allImages = cart.querySelectorAll(".product__image__item");
+    let matchedImage = null;
+
+    // Hide all images first
+    allImages.forEach(img => img.style.display = "none");
+
+    allImages.forEach(img => {
+      const altParts = img.alt.split('/').map(p => p.trim().toLowerCase());
+      let isMatch = true;
+      for (let i = 0; i < selectedOptions.length; i++) {
+        if (normalizeValue(selectedOptions[i]) !== normalizeValue(altParts[i])) {
+          isMatch = false;
+          break;
+        }
+      }
+      if (isMatch) {
+        matchedImage = img;
+      }
+    });
+
+    // Show matched image or fallback
+    if (matchedImage) {
+      matchedImage.style.display = "block";
+    } else if (allImages.length > 0) {
+      allImages[0].style.display = "block";
+    }
+
+    // Update price dynamically
+    const priceElement = cart.querySelector(".product__price");
+    if (priceElement) {
+      priceElement.textContent = formatPrice(foundVariant.price);
+    }
+
+  } else {
+    console.warn("No variant matches:", selectedOptions);
+  }
+}
+
+// Initialize option values on page load
+function initializeOptionValues(cart) {
+  const optionGroups = cart.querySelectorAll("[data-index^='option']");
+  optionGroups.forEach(group => {
+    const selectedRadio = group.querySelector("input[type='radio']:checked");
+    const optionValueSpans = group.querySelectorAll('.option__value');
+    if (selectedRadio) {
+      const value = selectedRadio.dataset.value;
+      optionValueSpans.forEach(span => {
+        span.textContent = value;
+      });
+    }
+  });
+}
+
+// Format price to Shopify currency
+function formatPrice(amount) {
+  const currency = Shopify.currency.active;
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: currency
+  }).format(amount / 100);
+}
+
+// Normalize strings for comparison
+function normalizeValue(str) {
+  return str
+    ? str.toString()
+         .trim()
+         .toLowerCase()
+         .replace(/\s+/g, '')
+         .replace(/\./g, '-')
+         .replace(/[^a-z0-9-]/g, '')
     : '';
 }
 </script>
