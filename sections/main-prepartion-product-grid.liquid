@@ -702,6 +702,8 @@ button.show-more-swatches {
         button.addEventListener('click', function () {
             const productBlock = button.closest('.quick__cart__main');
             const variantSelect = productBlock.querySelector('.variant-selector');
+            {% comment %} const qtyInput = productBlock.querySelector('.quick-cart-qty-input'); {% endcomment %}
+            {% comment %} const quantity = parseInt(qtyInput.value) || 1; {% endcomment %}
             const variantId = variantSelect.value;
             fetch('/cart/add.js', {
                 method: 'POST',
