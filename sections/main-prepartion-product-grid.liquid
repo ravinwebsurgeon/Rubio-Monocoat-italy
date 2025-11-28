@@ -835,7 +835,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   });
 });
-{% comment %} function updateVariantId(cart, variants, variantIdInput) {
+function updateVariantId(cart, variants, variantIdInput) {
   const selectedOptions = [];
   const optionGroups = cart.querySelectorAll("[data-index^='option']");
 
@@ -922,83 +922,7 @@ function normalizeValue(str) {
          .replace(/\./g, '-')
          .replace(/[^a-z0-9-]/g, '')
     : '';
-} {% endcomment %}
-function updateVariantId(cart, variants, variantIdInput) {
-  const selectedOptions = [];
-  const optionGroups = cart.querySelectorAll("[data-index^='option']");
-  optionGroups.forEach(group => {
-    const selectedRadio = group.querySelector("input[type='radio']:checked");
-    if (selectedRadio) {
-      selectedOptions.push(selectedRadio.dataset.value);
-    }
-  });
-  const foundVariant = variants.find(v => {
-    return v.options.every((opt, idx) => opt === selectedOptions[idx]);
-  });
-    const priceElement = cart.querySelector(".product__price");
-    const optionValues = cart.querySelectorAll('.option__value')
-    
-    console.log(optionValues,'values')
-  if (foundVariant) {
-    variantIdInput.value = foundVariant.id;
-    console.log("Variant matched:", foundVariant.id, foundVariant.title);
-    //show images 
-    const allImages = cart.querySelectorAll(".product__image__item");
-    let matchedImage = null;
-        // Hide all images
-    allImages.forEach(img => img.style.display = "none");
-    allImages.forEach(img => {
-      const altParts = img.alt.split('/').map(p => p.trim().toLowerCase());
-      let isMatch = true;
-      for (let i = 0; i < selectedOptions.length; i++) {
-        if (normalizeValue(selectedOptions[i]) !== normalizeValue(altParts[i])) {
-          isMatch = false;
-          break;
-        }
-      }
-      if (isMatch) {
-        matchedImage = img;
-      }
-    });
-
-    // Show matched image or fallback to first image
-    if (matchedImage) {
-      matchedImage.style.display = "block";
-    } 
-    else if (allImages.length > 0) {
-      allImages[0].style.display = "block";
-    }
-  } else {
-    console.warn("No variant matches:", selectedOptions);
-  }
-    // Update price dynamically
-    if (priceElement) {
-      console.log('asasasdaasdaff')
-      let my_price = formatPrice(foundVariant.price)
-      priceElement.textContent = my_price;
-    }
-
-    
 }
-  function formatPrice(amount) {
-    const currency = Shopify.currency.active;
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: currency
-    }).format(amount / 100);
-  }
-
-  function normalizeValue(str) {
-  return str
-    ? str.toString()                   // ensure it's a string
-         .trim()                        // remove leading/trailing spaces
-         .toLowerCase()                 // lowercase
-         .replace(/\s+/g, '')           // remove all spaces
-         .replace(/\./g, '-')           // replace dots with dashes
-         .replace(/[^a-z0-9-]/g, '')   // remove anything that is not a-z, 0-9, or dash
-    : '';
-}
-
 </script>
 
 
