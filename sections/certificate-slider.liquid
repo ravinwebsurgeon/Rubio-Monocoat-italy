@@ -51,7 +51,7 @@
             <div class="certificate-puls-btn product__page">
               <button class="cert-plus cert-plus-desktop" type="button">
                 {% comment %} i {% endcomment %}
-                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 16 16">
                   <text x="50%" y="80%" text-anchor="middle" 
                     dominant-baseline="middle"  font-family="Arial, sans-serif" font-size="17" fill="currentColor">i</text>
                 </svg>
@@ -367,7 +367,7 @@ document.querySelectorAll(".certificate-card").forEach(card => {
       const btn = card.querySelector(".cert-plus");
       this.classList.remove("active");
       {% comment %} btn.textContent = "i"; {% endcomment %}
-       btn.innerHTML  = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
+       btn.innerHTML  = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 16 16">
                   <text x="50%" y="80%" text-anchor="middle" 
                     dominant-baseline="middle"  font-family="Arial, sans-serif" font-size="17" fill="currentColor">i</text>
                 </svg>`
@@ -411,7 +411,7 @@ document.addEventListener("touchstart", function(e) {
     {% comment %} e.target.textContent = card.classList.contains("active") ? "×" : "i"; {% endcomment %}
      e.target.innerHTML = card.classList.contains("active") 
   ? "×" 
-  : `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
+  : `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 16 16">
                   <text x="50%" y="80%" text-anchor="middle" 
                     dominant-baseline="middle"  font-family="Arial, sans-serif" font-size="17" fill="currentColor">i</text>
                 </svg>`;
@@ -432,7 +432,7 @@ document.addEventListener("click", function(e) {
     const card = e.target.closest(".certificate-card");
     card.classList.remove("active");
     {% comment %} e.target.textContent = "i"; {% endcomment %}
-    e.target.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
+    e.target.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 16 16">
                   <text x="50%" y="80%" text-anchor="middle" 
                     dominant-baseline="middle"  font-family="Arial, sans-serif" font-size="17" fill="currentColor">i</text>
                 </svg>`
