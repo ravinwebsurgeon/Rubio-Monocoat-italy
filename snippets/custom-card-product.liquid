@@ -111,7 +111,7 @@
             </div>
           {%- endif -%}
           <!-- Variant Section with Swatch Support -->
-          <div class="custom_added_variants">
+          {% comment %} <div class="custom_added_variants">
             {% assign max_to_show = 5 %}
             {% for option in card_product.options_with_values %}
                 {% assign total_values = option.values | size %}
@@ -162,7 +162,104 @@
               </div>
             {% endfor %}
             <input type="hidden" class="variant-selector" id="variant-id" name="id" value="{{ card_product.selected_or_first_available_variant.id }}">
-          </div>
+          </div> {% endcomment %}
+          <div class="custom_added_variants">
+  {% assign max_to_show = 5 %}
+  {% for option in card_product.options_with_values %}
+    {% assign total_values = option.values | size %}
+    <div class="pro_variant_options variant__{{ option.name }}">
+
+      {% assign downcase_name = option.name | downcase %}
+
+      {% if downcase_name contains 'color' or downcase_name contains 'colour' %}
+        <div class="color-swatch-group" data-index="option{{ forloop.index }}">
+
+          {% for value in option.values %}
+            {% if forloop.index <= max_to_show %}
+
+              {%- comment -%}
+              Build swatch background exactly like swatch.liquid
+              {%- endcomment -%}
+              {% assign swatch_value = '' %}
+              {% assign swatch_focal = '' %}
+
+              {% if value.swatch %}
+
+                {% if value.swatch.image %}
+                  {% assign img_url = value.swatch.image | image_url: width: 50 %}
+                  {% assign swatch_value = 'url(' | append: img_url | append: ')' %}
+                  {% assign swatch_focal = value.swatch.image.presentation.focal_point %}
+                
+                {% elsif value.swatch.color %}
+                  {% assign swatch_value = 'rgb(' | append: value.swatch.color.rgb | append: ')' %}
+                
+                {% endif %}
+
+              {% endif %}
+
+              {%- comment -%}
+              If no swatch exists, fallback to color name
+              {%- endcomment -%}
+              {% if swatch_value == '' %}
+                {% assign swatch_value = value | downcase %}
+              {% endif %}
+
+              <label
+                class="color-swatch"
+                title="{{ value }}"
+                style="background: {{ swatch_value }};{% if swatch_focal != '' %} background-position: {{ swatch_focal }};{% endif %}"
+              >
+                <input
+                  type="radio"
+                  name="option-color-{{ forloop.parentloop.index0 }}"
+                  value="{{ value | escape }}"
+                  {% if option.selected_value == value %}checked{% endif %}
+                  class="color-swatch-input"
+                  data-value="{{ value | escape }}"
+                >
+                <span class="swatch-checkmark"></span>
+              </label>
+
+            {% endif %}
+          {% endfor %}
+
+          {% if total_values > max_to_show %}
+            <button class="show-more-swatches"
+                    data-count="{{ total_values | minus: max_to_show }}">
+              +{{ total_values | minus: max_to_show }} more
+            </button>
+          {% endif %}
+
+        </div>
+
+      {% else %}
+
+        <select class="option-variant-selector"
+                id="ProductSelect-{{ forloop.index0 }}"
+                data-index="option{{ forloop.index }}">
+          {% for value in option.values %}
+            {% if forloop.index <= max_to_show %}
+              <option
+                value="{{ value | escape }}"
+                {% if option.selected_value == value %} selected="selected"{% endif %}
+              >
+                {{ value | escape }}
+              </option>
+            {% endif %}
+          {% endfor %}
+        </select>
+
+      {% endif %}
+    </div>
+  {% endfor %}
+
+  <input type="hidden"
+         class="variant-selector"
+         id="variant-id"
+         name="id"
+         value="{{ card_product.selected_or_first_available_variant.id }}">
+</div>
+
 
           {% assign imagesd = card_product.metafields.custom.product_iconss.value %}
           {% assign textsd = card_product.metafields.custom.product_textss.value %}
