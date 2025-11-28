@@ -889,9 +889,10 @@ function updateVariantId(cart, variants, variantIdInput) {
     // Show matched image or fallback to first image
     if (matchedImage) {
       matchedImage.style.display = "block";
-    } else if (allImages.length > 0) {
+    } 
+    {% comment %} else if (allImages.length > 0) {
       allImages[0].style.display = "block";
-    }
+    } {% endcomment %}
 
     // Update price dynamically
     if (priceElement) {
