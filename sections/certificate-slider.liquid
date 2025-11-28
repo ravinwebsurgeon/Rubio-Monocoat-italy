@@ -52,7 +52,7 @@
               <button class="cert-plus cert-plus-desktop" type="button">
                 {% comment %} i {% endcomment %}
                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
-    <text x="0" y="14" font-family="Arial, sans-serif" font-size="20" fill="currentColor">i</text>
+    <text x="0" y="14" font-family="Arial, sans-serif" font-size="17" fill="currentColor">i</text>
   </svg>
               </button>
             </div>
@@ -365,9 +365,7 @@ document.querySelectorAll(".certificate-card").forEach(card => {
     if (window.innerWidth > 768) {
       const btn = card.querySelector(".cert-plus");
       this.classList.remove("active");
-      btn.textContent = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
-    <text x="0" y="14" font-family="Arial, sans-serif" font-size="20" fill="currentColor">i</text>
-  </svg>`;
+      btn.textContent = "i";
     }
   });
 });
@@ -405,9 +403,7 @@ document.addEventListener("touchstart", function(e) {
     const card = e.target.closest(".certificate-card");
     card.classList.toggle("active");
 
-    e.target.textContent = card.classList.contains("active") ? "×" : `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
-    <text x="0" y="14" font-family="Arial, sans-serif" font-size="20" fill="currentColor">i</text>
-  </svg>`;
+    e.target.textContent = card.classList.contains("active") ? "×" : "i";
 
     e.preventDefault();
     e.stopPropagation();
@@ -424,9 +420,7 @@ document.addEventListener("click", function(e) {
 
     const card = e.target.closest(".certificate-card");
     card.classList.remove("active");
-    e.target.textContent = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
-    <text x="0" y="14" font-family="Arial, sans-serif" font-size="20" fill="currentColor">i</text>
-  </svg>`;
+    e.target.textContent = "i";
   }
 });
 
