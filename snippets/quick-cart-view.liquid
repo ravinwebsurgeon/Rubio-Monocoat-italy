@@ -59,16 +59,6 @@
                     {% endfor %}
                   </div>
                   {% else %}
-                  {% comment %} <select class="option-variant-selector" name="option-variant-selector" id="ProductSelect-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
-                    {% for value in option.values %}
-                      <option 
-                        value="{{ value | escape }}"
-                        {% if option.selected_value == value %} selected="selected"{% endif %}
-                      >
-                        {{ value | escape }}
-                      </option>
-                    {% endfor %}
-                  </select> {% endcomment %}
                   <div class="variant-radio-group" data-index="option{{ forloop.index }}">
                     {% for value in option.values %}
                       <label class="variant-radio-label">
