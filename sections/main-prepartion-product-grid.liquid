@@ -927,6 +927,59 @@ function normalizeValue(str) {
          .replace(/[^a-z0-9-]/g, '')
     : '';
 }
+
+document.querySelectorAll('.product__qty__wrapper').forEach(wrapper => {
+    const minusBtn = wrapper.querySelector('.qty-minus');
+    const plusBtn = wrapper.querySelector('.qty-plus');
+    const qtyInput = wrapper.querySelector('.quick-cart-qty-input');
+
+    const min = parseInt(qtyInput.min) || 1;
+    const max = parseInt(qtyInput.max) || 99;
+
+    function updateButtons() {
+        let value = parseInt(qtyInput.value);
+
+        // Disable minus at min
+        if (value <= min) {
+            minusBtn.classList.add("disabled");
+        } else {
+            minusBtn.classList.remove("disabled");
+        }
+
+        // Disable plus at max
+        if (value >= max) {
+            plusBtn.classList.add("disabled");
+        } else {
+            plusBtn.classList.remove("disabled");
+        }
+    }
+
+    minusBtn.addEventListener("click", () => {
+        if (!minusBtn.classList.contains("disabled")) {
+            qtyInput.value = Math.max(min, parseInt(qtyInput.value) - 1);
+            updateButtons();
+        }
+    });
+
+    plusBtn.addEventListener("click", () => {
+        if (!plusBtn.classList.contains("disabled")) {
+            qtyInput.value = Math.min(max, parseInt(qtyInput.value) + 1);
+            updateButtons();
+        }
+    });
+
+    qtyInput.addEventListener("input", () => {
+        let value = parseInt(qtyInput.value);
+
+        if (isNaN(value) || value < min) qtyInput.value = min;
+        if (value > max) qtyInput.value = max;
+
+        updateButtons();
+    });
+
+    // Initial state
+    updateButtons();
+});
 </script>
 
 
