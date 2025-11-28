@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="custom_product_variants">
-            {% for option in product.options_with_values %}
+            {% for option in product.options_with_values %} 
               <div class="product_variant_main variant__{{ option.name }}">
                 {% assign downcase_name = option.name | downcase %}
                  {% if downcase_name contains 'color' or downcase_name contains 'colour' %}
