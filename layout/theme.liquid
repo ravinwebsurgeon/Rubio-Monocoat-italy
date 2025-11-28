@@ -362,45 +362,29 @@
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const headerOffset = 80; // adjust if you have a fixed header
+  const links = document.querySelectorAll('.jump-link-item'); // select all jump links
 
-  function smoothScroll(target, duration = 800) {
-    const targetElement = document.getElementById(target);
-    if (!targetElement) return;
-
-    const targetPosition = targetElement.getBoundingClientRect().top - headerOffset;
-    const startPosition = window.pageYOffset;
-    const startTime = performance.now();
-
-    function ease(t) {
-      // easeInOutCubic
-      return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3)/2;
-    }
-
-    function animate(currentTime) {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const easeProgress = ease(progress);
-
-      window.scrollTo(0, startPosition + targetPosition * easeProgress);
-
-      if (elapsed < duration) {
-        requestAnimationFrame(animate);
-      }
-    }
-
-    requestAnimationFrame(animate);
-  }
-
-  const links = document.querySelectorAll('.jump-link-item');
   links.forEach(link => {
-    link.addEventListener("click", function(e) {
-      e.preventDefault();
-      const targetId = this.getAttribute("href").substring(1);
-      smoothScroll(targetId, 800); // 800ms duration
+    link.addEventListener("click", function(event) {
+      event.preventDefault(); // prevent default anchor jump
+
+      const targetId = this.getAttribute("href").substring(1); // remove #
+      const targetElement = document.getElementById(targetId);
+
+      if (!targetElement) return; // skip if target doesn't exist
+
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
     });
   });
 });
 </script>
+
 <script>
   window.Shopify = window.Shopify || {};
   window.Shopify.product = {{ product | json }};
