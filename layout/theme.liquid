@@ -567,21 +567,6 @@ $(document).ready(function () {
         }, 500);
     }
 }); {% endcomment %}
-$(document).off('click.customSmooth').on('click.customSmooth', 'a[href^="#"]', function (event) {
-    event.preventDefault();
-
-    let target = $($.attr(this, 'href'));
-    if (!target.length) return;
-
-    let headerHeight = $('.site-header, .header, header').outerHeight() || 0;
-
-    $('html, body').stop().animate({
-        scrollTop: target.offset().top - headerHeight
-    }, 500);
-});
-
-
-
 
 </script>
 
