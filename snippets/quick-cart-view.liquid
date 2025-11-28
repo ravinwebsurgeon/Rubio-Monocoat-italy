@@ -28,7 +28,7 @@
                 <a href="{{ product.url }}" class="product__GOTO__main">View Details</a>
             </div>
         </div>
-        <div class="custom_product_variants">
+        {% comment %} <div class="custom_product_variants">
             {% for option in product.options_with_values %} 
               <div class="product_variant_main variant__{{ option.name }}">
                 <p>
@@ -78,7 +78,98 @@
               </div>
             {% endfor %}
             <input type="hidden" class="variant-selector" id="custom-variant-id" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        </div> {% endcomment %}
+<div class="custom_product_variants">
+  {% for option in product.options_with_values %} 
+    <div class="product_variant_main variant__{{ option.name }}">
+      
+      <p>
+        <span class="option__name">{{ option.name }}:</span>
+        <span class="option__value custom__{{ option.name }}">  
+          {{ option.selected_value | default: option.values[0] }}
+        </span>
+      </p>
+
+      {% assign downcase_name = option.name | downcase %}
+
+      {% if downcase_name contains 'color' or downcase_name contains 'colour' %}
+
+        <div class="color-swatch-group product_color_swatchs" data-index="option{{ forloop.index }}">
+
+          {% for value in option.values %}
+
+            {%- comment -%}
+            Build swatch display EXACTLY like swatch.liquid
+            {%- endcomment -%}
+            {% assign swatch_value = '' %}
+            {% assign swatch_focal = '' %}
+
+            {% if value.swatch %}
+              
+              {% if value.swatch.image %}
+                {% assign img_url = value.swatch.image | image_url: width: 80 %}
+                {% assign swatch_value = 'url(' | append: img_url | append: ')' %}
+                {% assign swatch_focal = value.swatch.image.presentation.focal_point %}
+              
+              {% elsif value.swatch.color %}
+                {% assign swatch_value = 'rgb(' | append: value.swatch.color.rgb | append: ')' %}
+              
+              {% endif %}
+
+            {% endif %}
+
+            {%- comment -%}
+            Fallback to CSS color name if no swatch exists
+            {%- endcomment -%}
+            {% if swatch_value == '' %}
+              {% assign swatch_value = value | downcase %}
+            {% endif %}
+
+            <label
+              class="color-swatch color__swatch__label"
+              title="{{ value }}"
+              style="background: {{ swatch_value }};{% if swatch_focal != '' %} background-position: {{ swatch_focal }};{% endif %}"
+            >
+              <input
+                type="radio"
+                name="{{ option.name }}-{{ option.position }}"
+                value="{{ value | escape }}"
+                {% if option.selected_value == value %}checked{% endif %}
+                class="swatch-input__input color-swatch-input color__swatch__input"
+                data-value="{{ value | escape }}"
+              >
+              <span class="swatch-checkmark"></span>
+            </label>
+
+          {% endfor %}
         </div>
+
+      {% else %}
+
+        <div class="variant-radio-group" data-index="option{{ forloop.index }}">
+          {% for value in option.values %}
+            <label class="variant-radio-label">
+              <input
+                type="radio"
+                name="{{ option.name }}-{{ option.position }}"
+                value="{{ value | escape }}"
+                {% if option.selected_value == value %}checked{% endif %}
+                class="swatch-input__input variant-radio-input"
+                data-value="{{ value | escape }}"
+              >
+             <span> {{ value }} </span>
+            </label>
+          {% endfor %}
+        </div>
+
+      {% endif %}
+    </div>
+  {% endfor %}
+
+  <input type="hidden" class="variant-selector" id="custom-variant-id" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+</div>
+
+
         <div class="action_btns">
           <div class="product__qty__wrapper" style="display:none;">
             {% assign first_variant = product.selected_or_first_available_variant %}
