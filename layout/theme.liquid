@@ -371,15 +371,29 @@ document.addEventListener("DOMContentLoaded", function() {
       const targetId = this.getAttribute("href").substring(1); // remove #
       const targetElement = document.getElementById(targetId);
 
-      if (!targetElement) return; // skip if target doesn't exist
+      if (!targetElement) return;
 
+      const startPosition = window.pageYOffset;
       const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      const targetPosition = elementPosition + window.pageYOffset - headerOffset;
+      const distance = targetPosition - startPosition;
+      const duration = 3000; // scroll duration in ms (increase for slower)
+      let startTime = null;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
+      function easeInOutQuad(t) {
+        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+      }
+
+      function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+        const run = startPosition + distance * easeInOutQuad(progress);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+      }
+
+      requestAnimationFrame(animation);
     });
   });
 });
