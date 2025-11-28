@@ -48,13 +48,13 @@
           {% if product %}
             <div class="product-card">
               <div class="product-image">
-                <img src="{{ product.featured_image | img_url: '150x' }}" alt="{{ product.title }}">
-                {% comment %} {% assign media = product.featured_media %}
+                {% comment %} <img src="{{ product.featured_image | img_url: '150x' }}" alt="{{ product.title }}"> {% endcomment %}
+                {% assign media = product.featured_media %}
                 {% if media.media_type == 'video' %}
-                  {{ media | video_tag: controls: true }}
+                  {{ media | video_tag: controls: false,mute:true,loop:true,autoplay:true,width: 150, height: 150 }}
                 {% elsif media.media_type == 'image' %}
                   <img src="{{ media | img_url: '150x' }}" alt="{{ product.title }}">
-                {% endif %} {% endcomment %}
+                {% endif %}
               </div>
               <div class="product-info">
                 <div class="stars">★★★★★</div>
