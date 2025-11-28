@@ -871,9 +871,6 @@ function updateVariantId(cart, variants, variantIdInput) {
     const allImages = cart.querySelectorAll(".product__image__item");
     let matchedImage = null;
 
-    // Hide all images first
-    allImages.forEach(img => img.style.display = "none");
-
     // Find matching image based on selected options
     allImages.forEach(img => {
       const altParts = img.alt.split('/').map(p => p.trim().toLowerCase());
@@ -886,6 +883,8 @@ function updateVariantId(cart, variants, variantIdInput) {
       }
       if (isMatch) matchedImage = img;
     });
+    // Hide all images first
+    allImages.forEach(img => img.style.display = "none");
 
     // Show matched image or fallback to first image
     if (matchedImage) {
