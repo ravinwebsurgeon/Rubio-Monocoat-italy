@@ -68,17 +68,17 @@
 <div class="shown-link">
 {% for childlink in link.links %}
   <div class="sub-main-lnk">
-    <div class="both-li">
-      {% comment %} {%- assign child_handle = childlink.title | handle -%} {% endcomment %}
+    {% comment %} <div class="both-li">
+      {%- assign child_handle = childlink.title | handle -%}
 
       {% for block in section.blocks %}
         {% if block.type == 'Custom_images' %}
           {% assign menu_t = block.settings.sub-menu_title | handle %}
-          {% comment %} {% if menu_t == child_handle %} {% endcomment %}
+          {% if menu_t == child_handle %}
             <div class="let-im">
               <img src="{{ block.settings.menu_image | img_url:'thumbnail' }}" alt="{{ childlink.title }}">
             </div>
-          {% comment %} {% endif %} {% endcomment %}
+          {% endif %}
           
         {% endif %}
       {% endfor %}
@@ -87,7 +87,26 @@
         <a href="{{ childlink.url }}">{{ childlink.title }}</a>
       </li>
       
-    </div>
+    </div> {% endcomment %}
+    <div class="both-li">
+  {%- assign child_title_key = childlink.title | downcase | strip -%}
+
+  {% for block in section.blocks %}
+    {% if block.type == 'Custom_images' %}
+      {% assign menu_t = block.settings.sub-menu_title | downcase | strip %}
+      {% if menu_t == child_title_key %}
+        <div class="let-im">
+          <img src="{{ block.settings.menu_image | img_url:'thumbnail' }}" alt="{{ childlink.title }}">
+        </div>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+  <li class="main-sub-child_menu_item">
+    <a href="{{ childlink.url }}">{{ childlink.title }}</a>
+  </li>
+</div>
+
 
     {% if childlink.links %}
       {% for grandchildlink in childlink.links %}
