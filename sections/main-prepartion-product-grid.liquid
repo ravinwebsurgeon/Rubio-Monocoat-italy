@@ -838,27 +838,43 @@ document.addEventListener("DOMContentLoaded", function() {
 function updateVariantId(cart, variants, variantIdInput) {
   const selectedOptions = [];
   const optionGroups = cart.querySelectorAll("[data-index^='option']");
+
+  // Loop through each option group
   optionGroups.forEach(group => {
     const selectedRadio = group.querySelector("input[type='radio']:checked");
+    // Find the corresponding .option__value span
+    const optionValueSpan = group.closest('.product_variant_main')?.querySelector('.option__value');
+
     if (selectedRadio) {
       selectedOptions.push(selectedRadio.dataset.value);
+
+      // Update the .option__value span dynamically
+      if (optionValueSpan) {
+        optionValueSpan.textContent = selectedRadio.dataset.value;
+      }
     }
   });
+
+  // Find matching variant
   const foundVariant = variants.find(v => {
     return v.options.every((opt, idx) => opt === selectedOptions[idx]);
   });
-    const priceElement = cart.querySelector(".product__price");
-    const optionValues = cart.querySelectorAll('.option__value')
-    
-    console.log(optionValues,'values')
+
+  const priceElement = cart.querySelector(".product__price");
+
   if (foundVariant) {
+    // Update hidden variant ID input
     variantIdInput.value = foundVariant.id;
     console.log("Variant matched:", foundVariant.id, foundVariant.title);
-    //show images 
+
+    // Update product images
     const allImages = cart.querySelectorAll(".product__image__item");
     let matchedImage = null;
-        // Hide all images
+
+    // Hide all images first
     allImages.forEach(img => img.style.display = "none");
+
+    // Find matching image based on selected options
     allImages.forEach(img => {
       const altParts = img.alt.split('/').map(p => p.trim().toLowerCase());
       let isMatch = true;
@@ -868,46 +884,43 @@ function updateVariantId(cart, variants, variantIdInput) {
           break;
         }
       }
-      if (isMatch) {
-        matchedImage = img;
-      }
+      if (isMatch) matchedImage = img;
     });
 
     // Show matched image or fallback to first image
     if (matchedImage) {
       matchedImage.style.display = "block";
-    } 
-    else if (allImages.length > 0) {
+    } else if (allImages.length > 0) {
       allImages[0].style.display = "block";
     }
+
+    // Update price dynamically
+    if (priceElement) {
+      priceElement.textContent = formatPrice(foundVariant.price);
+    }
+
   } else {
     console.warn("No variant matches:", selectedOptions);
   }
-    // Update price dynamically
-    if (priceElement) {
-      console.log('asasasdaasdaff')
-      let my_price = formatPrice(foundVariant.price)
-      priceElement.textContent = my_price;
-    }
-
-    
 }
-  function formatPrice(amount) {
-    const currency = Shopify.currency.active;
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: currency
-    }).format(amount / 100);
-  }
 
-  function normalizeValue(str) {
+// Helper functions
+function formatPrice(amount) {
+  const currency = Shopify.currency.active;
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: currency
+  }).format(amount / 100);
+}
+
+function normalizeValue(str) {
   return str
-    ? str.toString()                   // ensure it's a string
-         .trim()                        // remove leading/trailing spaces
-         .toLowerCase()                 // lowercase
-         .replace(/\s+/g, '')           // remove all spaces
-         .replace(/\./g, '-')           // replace dots with dashes
-         .replace(/[^a-z0-9-]/g, '')   // remove anything that is not a-z, 0-9, or dash
+    ? str.toString()
+         .trim()
+         .toLowerCase()
+         .replace(/\s+/g, '')
+         .replace(/\./g, '-')
+         .replace(/[^a-z0-9-]/g, '')
     : '';
 }
 </script>
