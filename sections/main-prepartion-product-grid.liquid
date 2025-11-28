@@ -814,62 +814,64 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+  //update select variant id in quick cart view
+  document.addEventListener("DOMContentLoaded", () => {
   const quickCarts = document.querySelectorAll('.quick__cart__main');
-
   quickCarts.forEach(async (cart) => {
     const productHandle = cart.getAttribute('data-product-handle');
     if (!productHandle) return;
-
-    // Fetch product data from Shopify
+    // Load product variant data
     const response = await fetch(`/products/${productHandle}.js`);
     const product = await response.json();
     const variants = product.variants;
     const variantIdInput = cart.querySelector(".variant-selector");
+    // Listen for changes on *all radios* inside this cart
     const variantInputs = cart.querySelectorAll(".color-swatch-input, .variant-radio-input");
-
-    // Event listener for option changes
     variantInputs.forEach(input => {
       input.addEventListener("change", () => {
-        updateVariant(cart, variants, variantIdInput);
+        updateVariantId(cart, variants, variantIdInput);
       });
     });
 
-    // Initialize cart when page loads or cart opens
-    initializeCart(cart, variants, variantIdInput);
   });
 });
-
-// Initialize the cart: set correct variant, images, option values, price
-function initializeCart(cart, variants, variantIdInput) {
+function updateVariantId(cart, variants, variantIdInput) {
   const selectedOptions = [];
   const optionGroups = cart.querySelectorAll("[data-index^='option']");
 
+  // Loop through each option group
   optionGroups.forEach(group => {
     const selectedRadio = group.querySelector("input[type='radio']:checked");
+    // Find the corresponding .option__value span
     const optionValueSpan = group.closest('.product_variant_main')?.querySelector('.option__value');
 
     if (selectedRadio) {
       selectedOptions.push(selectedRadio.dataset.value);
-      if (optionValueSpan) optionValueSpan.textContent = selectedRadio.dataset.value;
+
+      // Update the .option__value span dynamically
+      if (optionValueSpan) {
+        optionValueSpan.textContent = selectedRadio.dataset.value;
+      }
     }
   });
 
-  const foundVariant = variants.find(v =>
-    v.options.every((opt, idx) => opt === selectedOptions[idx])
-  );
+  // Find matching variant
+  const foundVariant = variants.find(v => {
+    return v.options.every((opt, idx) => opt === selectedOptions[idx]);
+  });
 
   const priceElement = cart.querySelector(".product__price");
-  const allImages = cart.querySelectorAll(".product__image__item");
-
-  // Hide all images first
-  allImages.forEach(img => img.style.display = "none");
 
   if (foundVariant) {
+    // Update hidden variant ID input
     variantIdInput.value = foundVariant.id;
+    console.log("Variant matched:", foundVariant.id, foundVariant.title);
 
-    // Show matched image if it exists
+    // Update product images
+    const allImages = cart.querySelectorAll(".product__image__item");
     let matchedImage = null;
+
+    // Find matching image based on selected options
     allImages.forEach(img => {
       const altParts = img.alt.split('/').map(p => p.trim().toLowerCase());
       let isMatch = true;
@@ -881,22 +883,27 @@ function initializeCart(cart, variants, variantIdInput) {
       }
       if (isMatch) matchedImage = img;
     });
+    // Hide all images first
+    allImages.forEach(img => img.style.display = "none");
 
-    if (matchedImage) matchedImage.style.display = "block";
-    else if (allImages.length > 0) allImages[0].style.display = "block";
+    // Show matched image or fallback to first image
+    if (matchedImage) {
+      matchedImage.style.display = "block";
+    } else if (allImages.length > 0) {
+      allImages[0].style.display = "block";
+    }
 
-    if (priceElement) priceElement.textContent = formatPrice(foundVariant.price);
-  } else if (allImages.length > 0) {
-    allImages[0].style.display = "block"; // fallback
+    // Update price dynamically
+    if (priceElement) {
+      priceElement.textContent = formatPrice(foundVariant.price);
+    }
+
+  } else {
+    console.warn("No variant matches:", selectedOptions);
   }
 }
 
-// Update variant after user changes options
-function updateVariant(cart, variants, variantIdInput) {
-  initializeCart(cart, variants, variantIdInput);
-}
-
-// Helper: format price
+// Helper functions
 function formatPrice(amount) {
   const currency = Shopify.currency.active;
   return new Intl.NumberFormat('en-US', {
@@ -905,14 +912,17 @@ function formatPrice(amount) {
   }).format(amount / 100);
 }
 
-// Helper: normalize string for comparison
 function normalizeValue(str) {
   return str
-    ? str.toString().trim().toLowerCase().replace(/\s+/g, '').replace(/\./g, '-').replace(/[^a-z0-9-]/g, '')
+    ? str.toString()
+         .trim()
+         .toLowerCase()
+         .replace(/\s+/g, '')
+         .replace(/\./g, '-')
+         .replace(/[^a-z0-9-]/g, '')
     : '';
 }
 </script>
-
 
 
 {% schema %}
