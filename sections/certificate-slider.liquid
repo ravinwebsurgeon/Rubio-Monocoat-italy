@@ -52,7 +52,7 @@
               <button class="cert-plus cert-plus-desktop" type="button">
                 {% comment %} i {% endcomment %}
                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
-                  <text x="50%" y="50%" text-anchor="middle" 
+                  <text x="50%" y="80%" text-anchor="middle" 
                     dominant-baseline="middle"  font-family="Arial, sans-serif" font-size="17" fill="currentColor">i</text>
                 </svg>
               </button>
@@ -368,7 +368,7 @@ document.querySelectorAll(".certificate-card").forEach(card => {
       this.classList.remove("active");
       {% comment %} btn.textContent = "i"; {% endcomment %}
        btn.innerHTML  = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
-                  <text x="50%" y="50%" text-anchor="middle" 
+                  <text x="50%" y="80%" text-anchor="middle" 
                     dominant-baseline="middle"  font-family="Arial, sans-serif" font-size="17" fill="currentColor">i</text>
                 </svg>`
     }
@@ -412,7 +412,7 @@ document.addEventListener("touchstart", function(e) {
      e.target.innerHTML = card.classList.contains("active") 
   ? "×" 
   : `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
-                  <text x="50%" y="50%" text-anchor="middle" 
+                  <text x="50%" y="80%" text-anchor="middle" 
                     dominant-baseline="middle"  font-family="Arial, sans-serif" font-size="17" fill="currentColor">i</text>
                 </svg>`;
 
@@ -433,7 +433,7 @@ document.addEventListener("click", function(e) {
     card.classList.remove("active");
     {% comment %} e.target.textContent = "i"; {% endcomment %}
     e.target.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
-                  <text x="50%" y="50%" text-anchor="middle" 
+                  <text x="50%" y="80%" text-anchor="middle" 
                     dominant-baseline="middle"  font-family="Arial, sans-serif" font-size="17" fill="currentColor">i</text>
                 </svg>`
   }
