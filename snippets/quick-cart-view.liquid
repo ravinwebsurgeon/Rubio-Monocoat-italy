@@ -103,12 +103,42 @@
     height: 100vh;
     border-radius: 15px 0 0 15px;
     background: #fff;
-    padding: 20px;
+    padding: 20px 0;
     z-index: 9999;
     box-shadow: -3px 0 10px rgba(0,0,0,0.1);
     transition: right 0.4s ease;
 }
 
+.quick__cart__hed {
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 0 13px;
+}
+
+.quick__cart__hed .quick__cart__close {
+    border: none;
+    cursor: pointer;
+    color: #000;
+    padding: 0;
+    letter-spacing: 0;
+    font-size: 26px;
+    line-height: 1;
+    background-color: transparent;
+    font-weight: 300;
+}
+
+.quick__cart__hed h2 {
+    margin: 0;
+    font-weight: 500;
+    font-size: 18px;
+    color: #000000;
+    font-family: 'Frutiger Neue LT W1G';
+    width: calc(100% - 36px);
+}
 .quick__cart__main.active__Cart {
     right: 0; 
 }
