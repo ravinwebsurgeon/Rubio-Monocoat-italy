@@ -16,7 +16,7 @@
                           src="{{ media | image_url: width: 360 }}"
                           {% unless media.alt == product.title %} alt="{{ media.alt | escape }}"{% endunless %}
                           loading="lazy"
-                          class="product__image__item"
+                          class="product__image__item first__visit"
                         width="" height="">
                       {% endif %}
                   {% endfor %}
