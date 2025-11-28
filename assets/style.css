@@ -1807,7 +1807,12 @@ p.announcement-bar__message.h5 {
     align-items: center;
     min-height: 24px;
 }
-
+.templateindex .icon-columns-section .icon-column .icon-image-wrap +  div {
+    width: calc(100% - 64px);
+}
+.templateindex .icon-columns-section .icon-column .icon-text {
+    margin: 0;
+}
 span.announce-svg {
     width: 24px;
     height: 24px;
