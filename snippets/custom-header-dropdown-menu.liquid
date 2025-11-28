@@ -64,7 +64,7 @@
             {% endfor %}
           </div> {% endcomment %}
 
-{% comment %} <ul class="child_menu_links">
+<ul class="child_menu_links">
 <div class="shown-link">
 {% for childlink in link.links %}
   <div class="sub-main-lnk">
@@ -190,118 +190,7 @@
               {% endif %}
             {% endfor %}
    </div>
-</ul> {% endcomment %}
-<ul class="child_menu_links">
-
-{% for childlink in link.links %}
-  <li class="main-sub-child_menu_item-wrapper">
-
-    <div class="sub-main-lnk">
-
-      {%- assign child_handle = childlink.title | handle -%}
-
-      {% for block in section.blocks %}
-        {% if block.type == 'Custom_images' %}
-          {% assign menu_t = block.settings.sub-menu_title | handle %}
-          {% if menu_t == child_handle %}
-            <div class="let-im">
-              <img src="{{ block.settings.menu_image | img_url:'thumbnail' }}" alt="{{ childlink.title }}">
-            </div>
-          {% endif %}
-        {% endif %}
-      {% endfor %}
-
-      <a href="{{ childlink.url }}" class="main-child-link">{{ childlink.title }}</a>
-    </div>
-
-    {% if childlink.links %}
-      <ul class="grandchild_menu">
-        {% for grandchildlink in childlink.links %}
-          <li class="child_menu_item-wrapper">
-
-            <div class="both-li">
-
-              {%- assign grand_handle = grandchildlink.title | handle -%}
-
-              {% for block in section.blocks %}
-                {% if block.type == 'Custom_images' %}
-                  {% assign menu_t = block.settings.sub-menu_title | handle %}
-                  {% if menu_t == grand_handle %}
-                    <div class="let-im">
-                      <img src="{{ block.settings.menu_image | img_url:'thumbnail' }}" alt="{{ grandchildlink.title }}">
-                    </div>
-                    <div class="tag-text">{{ block.settings.tag_title }}</div>
-                  {% endif %}
-                {% endif %}
-              {% endfor %}
-
-              <a href="{{ grandchildlink.url }}" class="child_menu_item">{{ grandchildlink.title }}</a>
-
-            </div>
-
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-
-  </li>
-{% endfor %}
-
-{% for block in section.blocks %}
-  {% if block.type == 'mega_menu' %}
-    {% assign menutitle = block.settings.menu_title | handle %}
-    {% assign menulinktitle = link.title | handle %}
-    {% if menulinktitle == menutitle %}
-
-      <li class="menu_custom_block">
-
-        {% if block.settings.block_image %}
-          <div class="menu_custom_block_img">
-            <img src="{{ block.settings.block_image | img_url: '350x350' }}">
-          </div>
-
-        {% else %}
-
-          {% if block.settings.video != blank %}
-            <div class="video-chose">
-              {{ block.settings.video | video_tag: controls: false, autoplay: false, loop: false, muted: true }}
-              <button id="playButton" class="video-play-btn">PLAY</button>
-
-              <div class="video_tag__badge">{{ block.settings.video_badge }}</div>
-
-              <div class="video_text_content">
-                <h2>{{ block.settings.video_text }}</h2>
-                <p class="custom_video_subtext">{{ block.settings.video_subtext }}</p>
-
-                {% if block.settings.video_btn_link %}
-                  <a href="{{ block.settings.video_btn_link }}" class="btn__redirection">
-                    <button>{{ block.settings.video_btn }}</button>
-                  </a>
-                {% endif %}
-              </div>
-            </div>
-          {% endif %}
-        {% endif %}
-
-        {% if block.settings.block_subtext or block.settings.block_heading %}
-          <div class="menu_custom_block_content">
-            <p class="menu_custom_block_heading">{{ block.settings.block_heading }}</p>
-            <span class="menu_custom_block_subtext">{{ block.settings.block_subtext }}</span>
-          </div>
-        {% endif %}
-
-        {% if block.settings.block_link %}
-          <a href="{{ block.settings.block_link }}" class="full-block-link"></a>
-        {% endif %}
-
-      </li>
-
-    {% endif %}
-  {% endif %}
-{% endfor %}
-
 </ul>
-
 </div>
 {% unless link.title == "Products" %}
 <div class="register-menu">
