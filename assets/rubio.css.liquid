@@ -443,7 +443,8 @@ body:not(.templateindex) .shopify-section-header-sticky.scrolled-past-header.meg
 }
 
 .product-section .product-features .feature-item {
-    width: 20%;
+    min-width: 8rem;
+    max-width: 11rem;
 }
 
 .product-section .product-features .feature-item .feature-icon {
@@ -2215,10 +2216,11 @@ button.custom_product_cart_btn {
         scroll-snap-type: x mandatory;
     }
     .product-section .product-features .feature-item {
-        min-width: 100px;
-        flex: 1;
+        min-width: 6rem;
+        max-width: 9rem;
         padding-bottom: 5px;
     }
+
 .hotspot-popup-body:after {
     content: "";
     position: fixed;
@@ -2513,8 +2515,7 @@ button.custom_product_cart_btn {
         scroll-snap-type: x mandatory;
     }
     .product-section .product-features .feature-item {
-        min-width: 100px;
-        flex: 1;
+
         padding-bottom: 5px;
     }
 } 
