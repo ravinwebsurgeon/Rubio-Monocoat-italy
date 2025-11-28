@@ -130,7 +130,7 @@
         "custom_images_HHqDm6": {
           "type": "Custom_images",
           "settings": {
-            "sub-menu_title": "Application",
+            "sub-menu_title": "/application",
             "menu_image": "shopify://shop_images/icon_application.svg",
             "tag_title": ""
           }
@@ -138,7 +138,7 @@
         "custom_images_cAhKzJ": {
           "type": "Custom_images",
           "settings": {
-            "sub-menu_title": "Preparation",
+            "sub-menu_title": "preparation",
             "menu_image": "shopify://shop_images/icon_preparation.svg",
             "tag_title": ""
           }
