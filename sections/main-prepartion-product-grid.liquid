@@ -941,28 +941,28 @@ document.querySelectorAll('.product__qty__wrapper').forEach(wrapper => {
 
         // Disable minus at min
         if (value <= min) {
-            minusBtn.classList.add("disabled");
+            minusBtn.classList.add("disabled__btn");
         } else {
-            minusBtn.classList.remove("disabled");
+            minusBtn.classList.remove("disabled__btn");
         }
 
         // Disable plus at max
         if (value >= max) {
-            plusBtn.classList.add("disabled");
+            plusBtn.classList.add("disabled__btn");
         } else {
-            plusBtn.classList.remove("disabled");
+            plusBtn.classList.remove("disabled__btn");
         }
     }
 
     minusBtn.addEventListener("click", () => {
-        if (!minusBtn.classList.contains("disabled")) {
+        if (!minusBtn.classList.contains("disabled__btn")) {
             qtyInput.value = Math.max(min, parseInt(qtyInput.value) - 1);
             updateButtons();
         }
     });
 
     plusBtn.addEventListener("click", () => {
-        if (!plusBtn.classList.contains("disabled")) {
+        if (!plusBtn.classList.contains("disabled__btn")) {
             qtyInput.value = Math.min(max, parseInt(qtyInput.value) + 1);
             updateButtons();
         }
