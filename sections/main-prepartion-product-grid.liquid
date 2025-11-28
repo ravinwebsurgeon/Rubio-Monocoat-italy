@@ -673,8 +673,8 @@ button.show-more-swatches {
         let my_handle = my_cart.dataset.productHandle;
         if(my_handle == handle){
           my_cart.classList.add('active__Cart')
-          const allImages = my_cart.querySelectorAll(".product__image__item");
-          allImages[0].style.display = "block";
+          {% comment %} const allImages = my_cart.querySelectorAll(".product__image__item"); {% endcomment %}
+          {% comment %} allImages[0].style.display = "block"; {% endcomment %}
           {% comment %} const response = await fetch(`/products/${handle}.js`);
           const product = await response.json();
           const variants = product.variants;
