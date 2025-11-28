@@ -365,7 +365,9 @@ document.querySelectorAll(".certificate-card").forEach(card => {
     if (window.innerWidth > 768) {
       const btn = card.querySelector(".cert-plus");
       this.classList.remove("active");
-      btn.textContent = "i";
+      btn.textContent = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
+    <text x="0" y="14" font-family="Arial, sans-serif" font-size="20" fill="currentColor">i</text>
+  </svg>`;
     }
   });
 });
