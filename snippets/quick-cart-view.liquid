@@ -90,6 +90,19 @@
             <input type="hidden" class="variant-selector" id="custom-variant-id" name="id" value="{{ product.selected_or_first_available_variant.id }}">
         </div>
         <div class="action_btns">
+          <div class="product__qty__wrapper" style="display:none;>
+            {% assign first_variant = product.selected_or_first_available_variant %}
+            <label for="quick-cart-qty-{{ product.id }}">Quantity:</label>
+            <input
+              type="number"
+              id="quick-cart-qty-{{ product.id }}"
+              name="quantity"
+              min="1"
+              max="{{ first_variant.inventory_quantity }}"
+              value="1"
+              class="quick-cart-qty-input"
+            >
+          </div>
             <div class="product_actions_btns">
               {% assign first_variant = product.variants.first %}
               <button class="product_cart_btn ajax__cart {% unless first_variant.available %} disabled-btn {% endunless %}"
