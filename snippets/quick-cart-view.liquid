@@ -146,4 +146,39 @@
 .product__image__item{
   display:none;
 }
+.custom__cart__main .variant-radio-label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 22px 3px;
+    border: 1px solid #396948;
+    border-radius: 999px;
+    background-color: #ffffff;
+    font-family: Frutiger Neue LT W1G;
+    font-weight: 500;
+    font-size: 13px;
+    color: #183029 !important;
+    margin: 0 2px 8px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-align: center;
+}
+
+.custom__cart__main .variant-radio-label input {
+    display: none;
+}
+
+.custom__cart__main .variant-radio-label:has(input:checked) {
+    background-color: #bfcfc4;
+}
+.custom__cart__main .variant-radio-label:has(input:checked)::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: #2f5c45;
+    border-radius: 50%;
+    position: absolute;
+    right: -5px;
+    top: -5px;
+}
 </style>
