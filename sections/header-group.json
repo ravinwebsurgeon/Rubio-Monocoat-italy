@@ -138,7 +138,7 @@
         "custom_images_cAhKzJ": {
           "type": "Custom_images",
           "settings": {
-            "sub-menu_title": "preparation",
+            "sub-menu_title": "exterior-preparation",
             "menu_image": "shopify://shop_images/icon_preparation.svg",
             "tag_title": ""
           }
