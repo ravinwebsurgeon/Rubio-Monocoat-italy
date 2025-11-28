@@ -91,14 +91,15 @@
     <div class="both-li">
 
   {% for block in section.blocks %}
-    {% if block.type == 'Custom_images' %}
-      {% if block.settings.menu_link == childlink.url %}
-        <div class="let-im">
-          <img src="{{ block.settings.menu_image | img_url: 'thumbnail' }}" alt="{{ childlink.title }}">
-        </div>
-      {% endif %}
+  {% if block.type == 'Custom_images' %}
+    {% if block.settings.menu_link == childlink.url %}
+      <div class="let-im">
+        <img src="{{ block.settings.menu_image | img_url: 'thumbnail' }}" alt="{{ childlink.title }}">
+      </div>
     {% endif %}
-  {% endfor %}
+  {% endif %}
+{% endfor %}
+
 
   <li class="main-sub-child_menu_item">
     <a href="{{ childlink.url }}">{{ childlink.title }}</a>
