@@ -394,8 +394,9 @@
 
 {% if product_images_meta %}
   {% for entry in product_images_meta %}
-    {% if entry.img and entry.text %}
+    {% if entry %}
       {% assign image_source = entry.img %}
+      {% assign has_video = entry.video %}
       {% assign alt_text = entry.text %}
       {% assign alt_parts = alt_text | split: '/' %}
       
@@ -407,7 +408,19 @@
              data-{{ option_name | handle }}="{{ option_value }}"
            {% endfor %}
            style="display: none;">
-          <img src="{{ image_source | img_url: '1024x1024' }}" alt="{{ alt_text | escape }}">
+            {% if image_source %}
+              <img src="{{ image_source | img_url: '1024x1024' }}" alt="{{ alt_text | escape }}">
+            {% elsif has_video %}
+                <video 
+                class="thumbnail-media"
+                autoplay 
+                muted 
+                loop 
+                playsinline
+              >
+                <source src="{{ entry.video | file_url }}" type="video/mp4">
+              </video>
+            {% endif %}
       </div>
     {% endif %}
   {% endfor %}
@@ -533,8 +546,9 @@
 
       {% if product_images_meta %}
       {% for entry in product_images_meta %}
-        {% if entry.img and entry.text %}
+        {% if entry %}
           {% assign image_source = entry.img %}
+          {% assign has_video = entry.video %}
           {% assign alt_text = entry.text %}
           {% assign alt_parts = alt_text | split: '/' %}
           
@@ -546,7 +560,19 @@
                 data-{{ option_name | handle }}="{{ option_value }}"
               {% endfor %}
               style="display: none;">
-              <img src="{{ image_source | img_url: '1024x1024' }}" alt="{{ alt_text | escape }}">
+               {% if image_source %}
+                  <img src="{{ image_source | img_url: '1024x1024' }}" alt="{{ alt_text | escape }}">
+                {% elsif has_video %}
+                      <video 
+                      class="thumbnail-media"
+                      autoplay 
+                      muted 
+                      loop 
+                      playsinline
+                    >
+                      <source src="{{ entry.video | file_url }}" type="video/mp4">
+                    </video>
+                {% endif %}
           </div>
         {% endif %}
       {% endfor %}
