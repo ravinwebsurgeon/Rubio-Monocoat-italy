@@ -457,7 +457,7 @@
         
         {% if product_images_meta %}
           {% for entry in product_images_meta %}
-            {% if entry.text %}
+            {% if entry %}
               {% assign image_source = entry.img %}
               {% assign alt_text = entry.text %}
               {% assign has_video = entry.video %}
