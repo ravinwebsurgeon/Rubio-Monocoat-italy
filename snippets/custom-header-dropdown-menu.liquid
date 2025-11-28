@@ -69,15 +69,12 @@
 {% for childlink in link.links %}
   <div class="sub-main-lnk">
     <div class="both-li">
-      {% comment %} {%- assign child_handle = childlink.title | handle -%} {% endcomment %}
-      
-{% assign child_key = childlink.title | handle %}
+      {%- assign child_handle = childlink.title | handle -%}
+
       {% for block in section.blocks %}
         {% if block.type == 'Custom_images' %}
-          {% comment %} {% assign menu_t = block.settings.sub-menu_title | handle %} {% endcomment %}
-          {% assign block_key = block.settings.sub_menu_key | handle %}
-          {% comment %} {% if menu_t == child_handle %} {% endcomment %}
-           {% if child_key == block_key %}
+          {% assign menu_t = block.settings.sub-menu_title | handle %}
+          {% if menu_t == child_handle %}
             <div class="let-im">
               <img src="{{ block.settings.menu_image | img_url:'thumbnail' }}" alt="{{ childlink.title }}">
             </div>
