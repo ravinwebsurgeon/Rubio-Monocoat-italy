@@ -158,7 +158,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Surface",
-            "menu_key": "",
+            "menu_key": "1.2",
             "menu_image": "shopify://shop_images/audio-lines.png",
             "tag_title": ""
           }
