@@ -6,7 +6,6 @@
       {% assign all_products = collections.all.products %}
       {% assign sorted_products = all_products | sort: 'best_selling' %}
       <ul
-          id="product-grid"
           data-id="{{ section.id }}"
           class="
           grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
