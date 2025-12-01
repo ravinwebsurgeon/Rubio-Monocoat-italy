@@ -2,7 +2,7 @@
 <div class="best-sellers-section">
   <div class="page-width">
     <h2>{{ section.settings.section_heading }}</h2>
-    <div class="products-grid">
+    <div class="products__grid">
       {% assign all_products = collections.all.products %}
       {% assign sorted_products = all_products | sort: 'best_selling' %}
       <div
@@ -99,7 +99,6 @@
         </div>
       {% endfor %}
     </div>
-    
     </div>
   </div>  
 </div>
