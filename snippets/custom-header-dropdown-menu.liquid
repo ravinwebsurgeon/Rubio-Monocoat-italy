@@ -74,7 +74,7 @@
     {% assign parent_index = parent_index | plus: 1 %}
     {% assign child_key = first_child | append: "." | append: parent_index %}
 
-  <div class="sub-main-lnk">
+  <div class="sub-main-lnk {{child_key }}" >
     <div class="both-li"  data-key="{{ child_key }}">
       {%- assign child_handle = childlink.title | handle -%}
       {% comment %} {%- assign child_handle = childlink.handle   -%} {% endcomment %}
@@ -139,7 +139,7 @@
                 {% assign keys = block.settings.menu_key_1 %}
 
                 {% comment %} {% if menulinktitle == menutitle %} {% endcomment %}
-                   {% if keys == child_key %}
+                  {% if keys == child_key %}
                   <div class="menu_custom_block {{ child_key }} {{ keys }}">
                     {% if block.settings.block_image %}
                         <div class="menu_custom_block_img">
