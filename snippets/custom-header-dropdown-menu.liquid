@@ -1,6 +1,10 @@
 <nav class="custom_header__inline-menu header__inline-menu">
 <ul class="custom_list-menu">
+  {% assign parent_index = 0 %}
+
 {%- for link in section.settings.menu.links -%}
+  {% assign parent_index = parent_index | plus: 1 %}
+  {% assign child_key = parent_index | append: "" %} 
   <li class="main_menu_item">
     {%- if link.links != blank -%}
       <a href="{{- link.url -}}">{{- link.title -}} <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -75,7 +79,8 @@
       {% for block in section.blocks %}
         {% if block.type == 'Custom_images' %}
           {% assign menu_t = block.settings.sub-menu_title | handle %}
-          {% if menu_t == child_handle %}
+          {% comment %} {% if menu_t == child_handle %} {% endcomment %}
+           {% if block.settings.menu_key == child_key %}
             <div class="let-im">
               <img src="{{ block.settings.menu_image | img_url:'thumbnail' }}" alt="{{ childlink.title }}">
             </div>
