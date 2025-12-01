@@ -28,11 +28,12 @@
               </a>
               </div>
             {% endif %}
-            <div class="best_selling_product__detail">
-              <h3>{{ product.title }}</h3>
-              <p>{{ product.price | money }}</p>
-            </div>
-            <div class="best_selling__variants">
+            <div class="best_selling-boxesss">
+              <div class="best_selling_product__detail">
+                <h3>{{ product.title }}</h3>
+                <p>{{ product.price | money }}</p>
+              </div>
+              <div class="best_selling__variants">
               {% assign max_to_show = 5 %}
               {% for option in product.options_with_values %}
                 {% assign total_values = option.values | size %}
@@ -99,6 +100,7 @@
                 </div>
               {% endfor %}
             </div>
+            </div> 
         </div>
       {% endfor %}
     </div>
