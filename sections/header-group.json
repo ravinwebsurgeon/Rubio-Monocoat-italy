@@ -185,7 +185,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Maintenance",
-            "menu_key": "",
+            "menu_key": "1.1.5",
             "menu_image": "shopify://shop_images/icon_maintenance.svg",
             "tag_title": ""
           }
