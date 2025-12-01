@@ -246,8 +246,7 @@
       {% endfor %}
        {% endcomment %}
     </div> 
-
-    <div id="colour-options" class="filter-options"> 
+  <div id="colour-options" class="filter-options"> 
   {% assign unique_colours = '' %}
   {% for block in section.blocks %}
     {% assign tab_collection = block.settings.tab_collection %}
@@ -262,7 +261,6 @@
             
             <div class="color capitalized" style="background-color: {{ colour | downcase }}"></div>
             <div class="value capitalized">{{ colour }}</div>
-
           </button>
         {% endunless %}
       {% endfor %}
