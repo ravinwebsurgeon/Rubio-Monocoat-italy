@@ -552,6 +552,14 @@
         "show_on_desktop": true,
         "show_on_mobile": true
       }
+    },
+    "best_selling_products_pTtBVc": {
+      "type": "best__selling__products",
+      "name": "Best Sellers",
+      "settings": {
+        "products_limit": 8,
+        "section_heading": "Best Sellers"
+      }
     }
   },
   "order": [
@@ -564,6 +572,7 @@
     "custom_vedio_banner_fbxRjq",
     "custom_blog_section_W9ehre",
     "review_UCVi8b",
-    "icons_section_KNL9aM"
+    "icons_section_KNL9aM",
+    "best_selling_products_pTtBVc"
   ]
 }
