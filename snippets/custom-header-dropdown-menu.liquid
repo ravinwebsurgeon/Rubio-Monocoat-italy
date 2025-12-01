@@ -82,8 +82,10 @@
       {% for block in section.blocks %}
         {% if block.type == 'Custom_images' %}
           {% assign menu_t = block.settings.sub-menu_title | handle %}
-          {% comment %} {% if menu_t == child_handle %} {% endcomment %}
-           {% if block.settings.menu_key == child_key %}
+           {% assign keys = block.settings.menu_key | split: "," %}
+           {% comment %} {% if block.settings.menu_key == child_key %} {% endcomment %}
+            
+            {% if keys contains child_key %}
             <div class="let-im">
               <img src="{{ block.settings.menu_image | img_url:'thumbnail' }}" alt="{{ childlink.title }}">
             </div>
