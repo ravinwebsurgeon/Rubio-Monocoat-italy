@@ -2,8 +2,10 @@
 <div class="best-sellers-section">
   <h2>{{ section.settings.section_heading }}</h2>
   <div class="products-grid">
-    {% assign best_sellers = collections.all.products | sort_by: 'best-selling' %}
-    {% for product in best_sellers limit: section.settings.products_limit %}
+    {% comment %} {% assign best_sellers = collections.all.products | sort_by: 'best-selling' %} {% endcomment %}
+    {% assign all_products = collections.all.products %}
+{% assign sorted_products = all_products | sort: 'best_selling' %}
+    {% for product in sorted_products limit: section.settings.products_limit %}
       <div class="product-card">
         <a href="{{ product.url }}">
           {% if product.featured_image %}
