@@ -1,0 +1,44 @@
+
+
+<div class="best-sellers-section">
+  <h2>{{ section.settings.section_heading }}</h2>
+  <div class="products-grid">
+    {% assign best_sellers = collections.all.products | sort_by: 'best-selling' %}
+    {% for product in best_sellers limit: section.settings.products_limit %}
+      <div class="product-card">
+        <a href="{{ product.url }}">
+          {% if product.featured_image %}
+            {{ product.featured_image | image_url: width: 400 | image_tag }}
+          {% endif %}
+          <h3>{{ product.title }}</h3>
+          <p>{{ product.price | money }}</p>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Best Sellers Section",
+  "settings": [
+    {
+      "type": "number",
+      "id": "products_limit",
+      "label": "Number of products to show",
+      "default": 8,
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Best Sellers"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Best Sellers",
+      "category": "Products"
+    }
+  ]
+}
+{% endschema %}
