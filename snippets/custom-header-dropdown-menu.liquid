@@ -93,7 +93,7 @@
     {% if childlink.links %}
       {% for grandchildlink in childlink.links %}
         <div class="both-li">
-          {%- assign grand_handle = grandchildlink.title | handle -%}
+          {% comment %} {%- assign grand_handle = grandchildlink.title | handle -%} {% endcomment %}
           {%- assign grand_handle = grandchildlink.url -%}
 
           {% for block in section.blocks %}
