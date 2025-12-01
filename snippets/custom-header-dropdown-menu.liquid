@@ -1,10 +1,7 @@
 <nav class="custom_header__inline-menu header__inline-menu">
 <ul class="custom_list-menu">
-  {% assign parent_index = 0 %}
 
 {%- for link in section.settings.menu.links -%}
-  {% assign parent_index = parent_index | plus: 1 %}
-  {% assign child_key = parent_index | append: "" %} 
   <li class="main_menu_item">
     {%- if link.links != blank -%}
       <a href="{{- link.url -}}">{{- link.title -}} <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -70,7 +67,10 @@
 
     <ul class="child_menu_links">
 <div class="shown-link">
+{% assign parent_index = 0 %}
 {% for childlink in link.links %}
+    {% assign parent_index = parent_index | plus: 1 %}
+    {% assign child_key = parent_index | append: "" %} 
   <div class="sub-main-lnk">
     <div class="both-li">
       {%- assign child_handle = childlink.title | handle -%}
