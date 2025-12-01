@@ -212,7 +212,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Worktops",
-            "menu_key": "",
+            "menu_key": "1.2.4",
             "menu_image": "shopify://shop_images/width_1002-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
           }
