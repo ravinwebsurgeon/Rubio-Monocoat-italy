@@ -13,6 +13,7 @@
           grid--{{ section.settings.columns_desktop }}-col-desktop
           {% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %} 
           "
+          id="best__selling__products"
       >
       {% for product in sorted_products limit: section.settings.products_limit %}
         <div class="best_selling__product__card">
@@ -107,6 +108,39 @@
     .best_selling_products__home .custom_action_btns ,
     .best_selling_products__home .card__badge{display:none;} 
 </style>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+      $('.best__selling__products').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        infinite: false,
+        prevArrow: '<button class="prod-prev">Prev</button>',
+        nextArrow: '<button class="prod-next">Next</button>',
+        responsive: [
+          {
+            breakpoint: 1200,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1
+            }
+          },
+          {
+            breakpoint: 767,
+            settings: {
+              slidesToShow: 1,
+              dots: true,
+              arrows: false
+            }
+          }
+        ]
+      });
+    
+
+  });
+</script>
+
+
 {% schema %}
 {
   "name": "Best Sellers Section",
