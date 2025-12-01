@@ -170,7 +170,7 @@
         "custom_images_xj4RXz": {
           "type": "Custom_images",
           "settings": {
-            "sub-menu_title": "/collections/cleaning",
+            "sub-menu_title": "",
             "menu_image": "shopify://shop_images/icon_cleaning-maintenance.svg",
             "tag_title": ""
           }
@@ -425,7 +425,7 @@
         "custom_images_YqQTYn": {
           "type": "Custom_images",
           "settings": {
-            "sub-menu_title": "/collections/olio-per-legno",
+            "sub-menu_title": "Wood Oil",
             "menu_image": "shopify://shop_images/icon_can.svg",
             "tag_title": "Bestseller"
           }
