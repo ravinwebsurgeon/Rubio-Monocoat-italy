@@ -221,7 +221,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Stairs",
-            "menu_key": "",
+            "menu_key": "1.2.5",
             "menu_image": "shopify://shop_images/steps-bold.svg",
             "tag_title": ""
           }
