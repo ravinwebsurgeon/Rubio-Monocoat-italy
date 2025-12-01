@@ -2,6 +2,9 @@
 <div class="best-sellers-section">
   <div class="page-width">
     <h2>{{ section.settings.section_heading }}</h2>
+    {% if section.settings.btn_text  %}
+      <a href="{{ section.settings.btn_link }}"><button class="best_selling_btn">{{ section.settings.btn_text }}</button></a>
+      {%endif %}
     <div class="products__grid">
       {% assign all_products = collections.all.products %}
       {% assign sorted_products = all_products | sort: 'best_selling' %}
@@ -168,6 +171,16 @@
       "type": "text",
       "id": "section_heading",
       "label": "Section Heading",
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text",
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link",
     }
   ],
   "presets": [
