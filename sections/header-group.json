@@ -203,7 +203,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Furniture",
-            "menu_key": "",
+            "menu_key": "1.2.3",
             "menu_image": "shopify://shop_images/desk-bold.svg",
             "tag_title": ""
           }
