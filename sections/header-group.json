@@ -146,7 +146,7 @@
         "custom_images_7dUwaR": {
           "type": "Custom_images",
           "settings": {
-            "sub-menu_title": "/collections/pretrattamento",
+            "sub-menu_title": "",
             "menu_image": "shopify://shop_images/paintbrush.png",
             "tag_title": ""
           }
