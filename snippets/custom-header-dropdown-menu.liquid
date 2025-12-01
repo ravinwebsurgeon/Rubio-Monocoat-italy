@@ -72,7 +72,8 @@
 {% assign parent_index = 0 %}
 {% for childlink in link.links %}
     {% assign parent_index = parent_index | plus: 1 %}
-    {% assign child_key = parent_index | append: "." | append: first_child  %} 
+    {% assign child_key = first_child | append: "." | append: parent_index %}
+
   <div class="sub-main-lnk">
     <div class="both-li">
       {%- assign child_handle = childlink.title | handle -%}
@@ -100,7 +101,8 @@
       {% assign child_sub_index = 0 %}
       {% for grandchildlink in childlink.links %}
         {% assign child_sub_index = child_sub_index | plus: 1 %}
-        {% assign grand_key = parent_index | append: "." | append: child_sub_index %}
+        {% assign grand_key = child_key | append: "." | append: child_sub_index %}
+
         <div class="both-li">
           {%- assign grand_handle = grandchildlink.title | handle -%}
           {% comment %} {%- assign grand_handle = grandchildlink.url -%} {% endcomment %}
