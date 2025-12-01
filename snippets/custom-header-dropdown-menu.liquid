@@ -69,7 +69,8 @@
 {% for childlink in link.links %}
   <div class="sub-main-lnk">
     <div class="both-li">
-      {%- assign child_handle = childlink.title | handle -%}
+      {% comment %} {%- assign child_handle = childlink.title | handle -%} {% endcomment %}
+      {%- assign child_handle = childlink.url  -%}
 
       {% for block in section.blocks %}
         {% if block.type == 'Custom_images' %}
