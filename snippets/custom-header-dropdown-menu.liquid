@@ -106,7 +106,7 @@
           {% for block in section.blocks %}
             {% if block.type == 'Custom_images' %}
               {% assign menu_t = block.settings.sub-menu_title  %}
-              <p style="display:none" class="{{ menu_t }}" data-img = {{ block.settings.menu_image | img_url:'thumbnail' }}></p>
+              {% comment %} <p style="display:none" class="{{ menu_t }}" data-img = {{ block.settings.menu_image | img_url:'thumbnail' }}></p> {% endcomment %}
               {% comment %} {% if menu_t == grand_handle %} {% endcomment %}
                {% if block.settings.menu_key == grand_key %}
                 <div class="let-im">
