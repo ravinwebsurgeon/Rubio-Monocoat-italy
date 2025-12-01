@@ -555,6 +555,7 @@
     },
     "best_selling_products_pTtBVc": {
       "type": "best__selling__products",
+      "disabled": true,
       "name": "Best Sellers",
       "settings": {
         "products_limit": 8,
