@@ -94,7 +94,7 @@
       {% for grandchildlink in childlink.links %}
         <div class="both-li">
           {%- assign grand_handle = grandchildlink.title | handle -%}
-          {% comment %} {%- assign grand_handle = grandchildlink.handle -%} {% endcomment %}
+          {%- assign grand_handle = grandchildlink.handle -%}
 
           {% for block in section.blocks %}
             {% if block.type == 'Custom_images' %}
