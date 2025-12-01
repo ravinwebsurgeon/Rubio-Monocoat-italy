@@ -136,11 +136,11 @@
               {% if block.type == 'mega_menu' %}
                 {% assign menutitle = block.settings.menu_title | handle %}
                 {% assign menulinktitle = link.title | handle %}
-                {% assign keys = block.settings.menu_key_1 | split: "," %}
+                {% assign keys = block.settings.menu_key_1 %}
 
                 {% if menulinktitle == menutitle %}
-                   {% comment %} {% if keys contains child_key %} {% endcomment %}
-                  <div class="menu_custom_block {{ child_key }}">
+                   {% comment %} {% if keys == child_key %} {% endcomment %}
+                  <div class="menu_custom_block {{ child_key }} {{keys }}">
                     {% if block.settings.block_image %}
                         <div class="menu_custom_block_img">
                       <img
