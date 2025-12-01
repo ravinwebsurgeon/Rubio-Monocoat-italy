@@ -2,12 +2,17 @@
 <div class="best-sellers-section">
   <div class="page-width">
     <h2>{{ section.settings.section_heading }}</h2>
-    <div class="products__grid">
+    <div class="products-grid">
       {% assign all_products = collections.all.products %}
       {% assign sorted_products = all_products | sort: 'best_selling' %}
       <div
           data-id="{{ section.id }}"
-          class="best__selling__products"
+          class="
+          grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
+          grid--{{ section.settings.columns_desktop }}-col-desktop
+          {% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %} 
+          "
+          id="best__selling__products"
       >
       {% for product in sorted_products limit: section.settings.products_limit %}
         <div class="best_selling__product__card">
