@@ -75,7 +75,7 @@
     {% assign child_key = first_child | append: "." | append: parent_index %}
 
   <div class="sub-main-lnk">
-    <div class="both-li">
+    <div class="both-li"  data-key="{{ child_key }}">
       {%- assign child_handle = childlink.title | handle -%}
       {% comment %} {%- assign child_handle = childlink.handle   -%} {% endcomment %}
 
@@ -103,7 +103,7 @@
         {% assign child_sub_index = child_sub_index | plus: 1 %}
         {% assign grand_key = child_key | append: "." | append: child_sub_index %}
 
-        <div class="both-li">
+        <div class="both-li" data-key="{{ grand_key }}">
           {%- assign grand_handle = grandchildlink.title | handle -%}
           {% comment %} {%- assign grand_handle = grandchildlink.url -%} {% endcomment %}
 
