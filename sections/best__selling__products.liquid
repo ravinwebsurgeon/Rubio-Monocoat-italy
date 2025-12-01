@@ -1,10 +1,13 @@
 {% if section.settings.section_heading %}
 <div class="best-sellers-section">
   <div class="page-width">
-    <h2>{{ section.settings.section_heading }}</h2>
-    {% if section.settings.btn_text  %}
-      <a href="{{ section.settings.btn_link }}"><button class="best_selling_btn">{{ section.settings.btn_text }}</button></a>
+    <div class="best-sellers-heds">
+      <h2>{{ section.settings.section_heading }}</h2>
+      {% if section.settings.btn_text  %}
+       <a href="{{ section.settings.btn_link }}" class="best_selling_btn"> {{ section.settings.btn_text }} </a>
       {%endif %}
+    </div>
+    
     <div class="products__grid">
       {% assign all_products = collections.all.products %}
       {% assign sorted_products = all_products | sort: 'best_selling' %}
