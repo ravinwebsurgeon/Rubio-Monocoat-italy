@@ -230,7 +230,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Objects",
-            "menu_key": "",
+            "menu_key": "1.2.6",
             "menu_image": "shopify://shop_images/cube-bold.svg",
             "tag_title": ""
           }
