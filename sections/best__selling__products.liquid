@@ -5,7 +5,7 @@
     <div class="products__grid">
       {% assign all_products = collections.all.products %}
       {% assign sorted_products = all_products | sort: 'best_selling' %}
-      <div
+      <div class="best__selling__main"
           {% comment %} data-id="{{ section.id }}"
           class="
           grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
