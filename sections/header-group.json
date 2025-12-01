@@ -56,6 +56,7 @@
           "type": "mega_menu",
           "settings": {
             "menu_title": "Interior",
+            "menu_key_1": "1.1",
             "block_heading": "",
             "video": "shopify://files/videos/WEBSHOP_NAVIGATION_INTERIOR.mp4",
             "video_text": "Oil Plus 2C",
@@ -71,6 +72,7 @@
           "type": "mega_menu",
           "settings": {
             "menu_title": "Tools",
+            "menu_key_1": "",
             "block_heading": "Apply oil easier",
             "block_image": "shopify://shop_images/Rectangle_241.png",
             "video_text": "",
@@ -86,6 +88,7 @@
           "type": "mega_menu",
           "settings": {
             "menu_title": "Tools",
+            "menu_key_1": "",
             "block_heading": "Keep your wood intop condition",
             "block_image": "shopify://shop_images/DSC05232.jpg",
             "video_text": "DuroGrit",
@@ -101,6 +104,7 @@
           "type": "mega_menu",
           "settings": {
             "menu_title": "Colours & Samples",
+            "menu_key_1": "",
             "block_heading": "",
             "video": "shopify://files/videos/WEBSHOP_NAVIGATION_COLOURS.mp4",
             "video_text": "",
@@ -116,6 +120,7 @@
           "type": "mega_menu",
           "settings": {
             "menu_title": "Exterior",
+            "menu_key_1": "",
             "block_heading": "",
             "video": "shopify://files/videos/WEBSHOP_NAVIGATION_EXTERIOR.mp4",
             "video_text": "DuroGrit",
