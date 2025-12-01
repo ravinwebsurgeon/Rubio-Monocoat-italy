@@ -94,8 +94,8 @@
       {% for grandchildlink in childlink.links %}
         <div class="both-li">
           {% comment %} {%- assign grand_handle = grandchildlink.title | handle -%} {% endcomment %}
-          {% comment %} {%- assign grand_handle = grandchildlink.url -%} {% endcomment %}
-          {%- assign grand_handle = grandchildlink.handle -%}
+          {%- assign grand_handle = grandchildlink.url -%}
+          {% comment %} {%- assign grand_handle = grandchildlink.handle -%} {% endcomment %}
 
           {% for block in section.blocks %}
             {% if block.type == 'Custom_images' %}
@@ -110,7 +110,7 @@
             {% endif %}
           {% endfor %}
 
-          <li class="child_menu_item"  data-custom-menu-child-key="{{grandchildlink.handle }}">
+          <li class="child_menu_item"  data-custom-menu-child-key="{{grandchildlink.url }}">
             <a href="{{ grandchildlink.url }}">{{ grandchildlink.title }}</a>
           </li>
         </div>
