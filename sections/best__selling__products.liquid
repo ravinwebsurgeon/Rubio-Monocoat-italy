@@ -4,8 +4,17 @@
   <div class="products-grid">
     {% assign all_products = collections.all.products %}
     {% assign sorted_products = all_products | sort: 'best_selling' %}
+     <ul
+        id="product-grid"
+        data-id="{{ section.id }}"
+        class="
+        grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
+        grid--{{ section.settings.columns_desktop }}-col-desktop
+        {% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %}
+        "
+    >
     {% for product in sorted_products limit: section.settings.products_limit %}
-      <div class="product-card">
+      {% comment %} <div class="product-card">
         <a href="{{ product.url }}">
           {% if product.featured_image %}
             {{ product.featured_image | image_url: width: 400 | image_tag }}
@@ -13,8 +22,14 @@
           <h3>{{ product.title }}</h3>
           <p>{{ product.price | money }}</p>
         </a>
-      </div>
+      </div> {% endcomment %}
+       <li class="grid__item">
+            {% render 'custom-card-product',
+            card_product: product,
+            %}
+        </li>
     {% endfor %}
+    </ul>
   </div>
 </div>
 {% endif %}
