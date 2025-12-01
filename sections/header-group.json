@@ -170,7 +170,7 @@
         "custom_images_xj4RXz": {
           "type": "Custom_images",
           "settings": {
-            "sub-menu_title": "",
+            "sub-menu_title": "/collections/cleaning",
             "menu_image": "shopify://shop_images/icon_cleaning-maintenance.svg",
             "tag_title": ""
           }
