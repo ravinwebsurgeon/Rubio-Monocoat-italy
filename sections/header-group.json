@@ -463,7 +463,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Wood Oil",
-            "menu_key": "",
+            "menu_key": "1.1.3",
             "menu_image": "shopify://shop_images/icon_can.svg",
             "tag_title": "Bestseller"
           }
