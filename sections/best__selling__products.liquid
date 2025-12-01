@@ -1,3 +1,4 @@
+{% if section.settings.section_heading %}
 <div class="best-sellers-section">
   <h2>{{ section.settings.section_heading }}</h2>
   <div class="products-grid">
@@ -15,6 +16,7 @@
     {% endfor %}
   </div>
 </div>
+{% endif %}
 {% schema %}
 {
   "name": "Best Sellers Section",
@@ -29,7 +31,6 @@
       "type": "text",
       "id": "section_heading",
       "label": "Section Heading",
-      "default": "Best Sellers"
     }
   ],
   "presets": [
