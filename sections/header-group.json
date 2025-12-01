@@ -194,7 +194,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Doors",
-            "menu_key": "",
+            "menu_key": "1.2.2",
             "menu_image": "shopify://shop_images/icon_door.svg",
             "tag_title": ""
           }
