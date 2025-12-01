@@ -2,7 +2,7 @@
 <ul class="custom_list-menu">
 {% assign main_parent_index = 0 %}
 {%- for link in section.settings.menu.links -%}
-      {% assign main_parent_index = main_parent_index | plus: 1 %}
+      {% assign main_parent_index = main_parent_index | plus: 1 %} 
     {% assign first_child = main_parent_index | append: "" %} 
   <li class="main_menu_item">
     {%- if link.links != blank -%}
