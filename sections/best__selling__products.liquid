@@ -15,7 +15,7 @@
      >
     {% for product in sorted_products limit: section.settings.products_limit %}
       <div class="product-card">
-        <a href="{{ product.url }}">
+        {% comment %} <a href="{{ product.url }}"> {% endcomment %}
             {% if product.featured_image %}
             <div class="best_selling_product___media">
             {{ product.featured_image | image_url: width: 400 | image_tag }}
@@ -92,7 +92,7 @@
               </div>
             {% endfor %}
           </div>
-        </a>
+        {% comment %} </a> {% endcomment %}
       </div>
        {% comment %} <li class="grid__item">
             {% render 'custom-card-product',
