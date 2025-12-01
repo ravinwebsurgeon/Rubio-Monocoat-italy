@@ -557,7 +557,7 @@
       "type": "best__selling__products",
       "name": "Best Sellers",
       "settings": {
-        "products_limit": 4,
+        "products_limit": 3,
         "section_heading": "Bestseller",
         "btn_text": "View All",
         "btn_link": ""
