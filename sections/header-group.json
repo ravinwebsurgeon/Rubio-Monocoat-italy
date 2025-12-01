@@ -131,6 +131,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "application",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/icon_application.svg",
             "tag_title": ""
           }
@@ -139,6 +140,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "exterior-preparation",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/icon_preparation.svg",
             "tag_title": ""
           }
@@ -147,6 +149,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "pre-treatment",
+            "menu_key": "1.3",
             "menu_image": "shopify://shop_images/paintbrush.png",
             "tag_title": ""
           }
@@ -155,6 +158,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Surface",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/audio-lines.png",
             "tag_title": ""
           }
@@ -163,6 +167,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Wood Type",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/icon_woodtype.svg",
             "tag_title": ""
           }
@@ -171,6 +176,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/icon_cleaning-maintenance.svg",
             "tag_title": ""
           }
@@ -179,6 +185,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Maintenance",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/icon_maintenance.svg",
             "tag_title": ""
           }
@@ -187,6 +194,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Doors",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/icon_door.svg",
             "tag_title": ""
           }
@@ -195,6 +203,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Furniture",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/desk-bold.svg",
             "tag_title": ""
           }
@@ -203,6 +212,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Worktops",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_1002-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
           }
@@ -211,6 +221,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Stairs",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/steps-bold.svg",
             "tag_title": ""
           }
@@ -219,6 +230,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Objects",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/cube-bold.svg",
             "tag_title": ""
           }
@@ -227,6 +239,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Oak wood",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_20022-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
           }
@@ -235,6 +248,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Beech wood",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_200-ezgif.com-webp-to-png-converter_1.png",
             "tag_title": ""
           }
@@ -243,6 +257,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Ash wood",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_166-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
           }
@@ -251,6 +266,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Walnut wood",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_2008-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
           }
@@ -259,6 +275,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Larch wood",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_2001-ezgif.com-webp-to-png-converter_1.png",
             "tag_title": ""
           }
@@ -267,6 +284,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "decking",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_2009-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
           }
@@ -275,6 +293,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Sheds",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_20010-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
           }
@@ -283,6 +302,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Outdoor furniture",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_20011-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
           }
@@ -291,6 +311,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Cladding",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_20012-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
           }
@@ -299,6 +320,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Carports",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_20013-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
           }
@@ -307,6 +329,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Wooden gates",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_20014-ezgif.png",
             "tag_title": ""
           }
@@ -315,6 +338,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Teak wood",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_20015-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
           }
@@ -323,6 +347,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Douglas wood",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_20016-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
           }
@@ -331,6 +356,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Thermo Ayous",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_20017-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
           }
@@ -339,6 +365,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Bankirai",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_20018-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
           }
@@ -347,6 +374,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Pine wood",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_20019-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
           }
@@ -355,6 +383,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Interior colours",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_20026-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
           }
@@ -363,6 +392,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Exterior colours",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_20011-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
           }
@@ -371,6 +401,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Black colours",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_20020-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
           }
@@ -379,6 +410,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Dark colours",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_20021-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
           }
@@ -387,6 +419,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Natural colours",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_200-ezgif.com-webp-to-png-converter_1.png",
             "tag_title": ""
           }
@@ -395,6 +428,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Grey colours",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_20023-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
           }
@@ -403,6 +437,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "White colours",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_20024-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
           }
@@ -411,6 +446,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Bright colours",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/width_20025-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
           }
@@ -419,6 +455,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Floors",
+            "menu_key": "",
             "tag_title": ""
           }
         },
@@ -426,6 +463,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Wood Oil",
+            "menu_key": "",
             "menu_image": "shopify://shop_images/icon_can.svg",
             "tag_title": "Bestseller"
           }
