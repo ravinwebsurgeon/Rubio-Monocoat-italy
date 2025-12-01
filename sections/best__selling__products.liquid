@@ -18,7 +18,8 @@
         {% comment %} <a href="{{ product.url }}"> {% endcomment %}
             {% if product.featured_image %}
             <div class="best_selling_product___media">
-            {{ product.featured_image | image_url: width: 400 | image_tag }}
+            {% comment %} {{ product.featured_image | image_url: width: 400 | image_tag }} {% endcomment %}
+             <img src="{{ product.featured_image | img_url: 'medium' }}" />
             </div>
           {% endif %}
           <div class="best_selling_product__detail">
