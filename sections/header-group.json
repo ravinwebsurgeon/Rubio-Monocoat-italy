@@ -455,7 +455,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Floors",
-            "menu_key": "",
+            "menu_key": "1.2.1",
             "tag_title": ""
           }
         },
