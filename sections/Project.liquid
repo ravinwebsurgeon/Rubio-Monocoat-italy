@@ -1856,6 +1856,7 @@ document.addEventListener("DOMContentLoaded", function() {
       let exterior_circle_outer = document.querySelector('.circle-tabs-outer.exterior')
       const availableFilter = document.getElementById('available-filter');
       let color_filters = document.querySelectorAll('.filter-item.colours')
+      let all_headings =document.querySelectorAll('.oil-head');
 
       {% comment %} location.reload(); {% endcomment %}
 
@@ -1868,6 +1869,7 @@ document.addEventListener("DOMContentLoaded", function() {
       surface_options.forEach(t=> t.style.display = "none")
       product_item.forEach(t=>t.style.display = 'block')
       exterior_products.forEach(t=>t.style.display = 'block')
+      all_headings.forEach(t=>t.style.display = 'block')
       product_outer.style.display = 'block'
       if(exterior_circle_outer)exterior_circle_outer.style.display = 'none'
       color_filters.forEach(t=> t.classList.remove('active'));
