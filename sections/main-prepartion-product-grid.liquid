@@ -723,7 +723,7 @@ button.show-more-swatches {
             const selectedVariant = variants.find(v => v.id === variantIdInt);
             console.log(selectedVariant.inventory_quantity,'selectedVariant Data') 
             const maxStock = selectedVariant.inventory_quantity;
-              if (quantity > maxStock) {
+              if (selected_quantity > maxStock) {
                   selected_quantity = maxStock;
               }
             }
