@@ -1324,6 +1324,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let filetr__circleTabs = circleTabsInner.querySelectorAll('.circle-tab')
         filetr__circleTabs.forEach(function(my_tab) {
           let tab_text =my_tab.textContent.trim().toLowerCase();
+          console.log(tab_text , type.toLowerCase())
           if(tab_text == type.toLowerCase()){
             my_tab.classList.add('active')
           }
