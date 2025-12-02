@@ -796,20 +796,21 @@ document.addEventListener('DOMContentLoaded', function() {
   function filterProducts() {
     const selectedColour = colourFilter.value;
     const selectedProduct = productFilter.value;
+    if(products){
+      products.forEach(product => {
+        const productColours = product.dataset.colours.split(',');
+        const productProducts = product.dataset.products.split(',');
 
-    products.forEach(product => {
-      const productColours = product.dataset.colours.split(',');
-      const productProducts = product.dataset.products.split(',');
+        const colourMatch = !selectedColour || productColours.includes(selectedColour);
+        const productMatch = !selectedProduct || productProducts.includes(selectedProduct);
 
-      const colourMatch = !selectedColour || productColours.includes(selectedColour);
-      const productMatch = !selectedProduct || productProducts.includes(selectedProduct);
-
-      if (colourMatch && productMatch) {
-        product.style.display = '';
-      } else {
-        product.style.display = 'none';
-      }
-    });
+        if (colourMatch && productMatch) {
+          product.style.display = '';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
   } 
 
   colourFilter.addEventListener('change', filterProducts);
