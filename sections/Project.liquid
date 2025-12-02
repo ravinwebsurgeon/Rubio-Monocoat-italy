@@ -1389,8 +1389,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
           if (matchColor && matchTag) {
              product.style.display = 'block';
-             let parent = product.closest.('.tab-products-wrap')
-             console.log('parent',parent)
+             {% comment %} let parent = product.closest.('.tab-products-wrap') {% endcomment %}
              {% comment %} parent.querySelector('.oil-head').style.display = 'block' {% endcomment %}
           } else {
               product.style.display = 'none';
