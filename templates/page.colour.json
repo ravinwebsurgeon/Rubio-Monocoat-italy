@@ -24,6 +24,7 @@
         "video_url": "https://cdn.shopify.com/videos/c/o/v/6956ee1757f94674817c8a05dcd62987.mp4",
         "subheading": "",
         "heading": "The One that colours your world",
+        "custom_content": "",
         "button_link": "#",
         "button_label": ""
       }
@@ -130,7 +131,7 @@
             "tag_name": "tag_interior_ash",
             "exterior_tag_name": "",
             "tab_image": "shopify://shop_images/oak_furnitue.webp",
-            "tab_collection": "douglas-wood"
+            "tab_collection": "interior-colors"
           }
         },
         "tab_qqLNqL": {
