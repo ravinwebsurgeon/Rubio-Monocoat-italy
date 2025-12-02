@@ -717,11 +717,6 @@ button.show-more-swatches {
             const variantId = variantSelect.value;
            let handle = productBlock.getAttribute('data-product-handle');
             console.log(handle,'handle')
-            const response = await fetch(`/products/${handle}.js`);
-            if (!response.ok) {
-                console.error('Failed to fetch product JSON', response.status);
-                return;
-            }
             {% comment %} const response = await fetch(`/products/${handle}.js`);
             const product = await response.json();
             const variants = product.variants;
