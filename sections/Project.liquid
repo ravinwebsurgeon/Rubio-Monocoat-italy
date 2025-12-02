@@ -1312,10 +1312,11 @@ document.addEventListener("DOMContentLoaded", function() {
   });
   let collection_name =''
   let product_color='';
+  let type = '';
     if(result.name){
       collection_name = result.name.toLowerCase();
        product_color = result.color;
-      let type = result.type
+      type = result.type
     }
     
     if(collection_name){
