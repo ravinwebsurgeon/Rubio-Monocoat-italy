@@ -83,7 +83,7 @@
 
     {% if media.media_type == 'image' %}
       <img
-        src="{{ media | image_url: width: 360 }}"
+        src="{{ media | image_url: width: 200 }}"
         alt="{{ media.alt | escape }}"
         loading="lazy"
         class="product__img"
@@ -99,7 +99,7 @@
         loop
         playsinline
         preload="metadata"
-        poster="{{ media.preview_image | image_url: width: 360 }}"
+        poster="{{ media.preview_image | image_url: width: 200 }}"
       >
         <source src="{{ media | video_url }}" type="video/mp4">
       </video>
