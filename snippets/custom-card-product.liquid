@@ -92,17 +92,14 @@
       {% assign first_image_shown = true %}
 
     {% elsif media.media_type == 'video' %}
-      <video
-        class="product__video"
-        style="{% if first_image_shown == false %}display:block;{% else %}display:none;{% endif %}"
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        poster="{{ media.preview_image | image_url: width: 200 }}"
-      >
-        <source src="{{ media | video_url }}" type="video/mp4">
-      </video>
+      {{ media | video_tag: 
+          class: 'product__video',
+          controls: false,
+          autoplay: false,
+          loop: true,
+          muted: true,
+          preload: 'metadata'
+      }}
       {% assign first_image_shown = true %}
 
     {% endif %}
