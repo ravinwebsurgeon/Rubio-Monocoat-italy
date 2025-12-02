@@ -1310,9 +1310,11 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
   });
-  let collection_name = result.name.toLowerCase();
-   let product_color = result.color;
-   let type = result.type
+    if(result){
+      let collection_name = result.name.toLowerCase();
+      let product_color = result.color;
+      let type = result.type
+    }
     if(collection_name){
         let circleTabsInner =  document.querySelector('.circle-tabs-outer')
 
@@ -1333,6 +1335,7 @@ document.addEventListener("DOMContentLoaded", function() {
       circleTabsInner.classList.add(`${collection_name}`)
       circleTabsInner.style.display = 'block';
     }
+
 
     function renderTabs(collectionType) {
       const tabsContainer = document.querySelector('.circle-tabs-outer .circle-tabs');
