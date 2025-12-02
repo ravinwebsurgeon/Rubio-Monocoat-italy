@@ -1317,6 +1317,8 @@ document.addEventListener("DOMContentLoaded", function() {
        if (collection_name == "exterior") {
         const exteriorEl = document.querySelector(".exterior.exterior-main.surface-toggle");
         if (exteriorEl) {exteriorEl.classList.add("active");}
+        const surfaceOptions = document.querySelector('.surface-options')
+      	surfaceOptions.style.display = 'flex'
          renderTabs(collection_name);
       }
        if (collection_name == "interior") {
