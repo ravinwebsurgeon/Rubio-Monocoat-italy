@@ -44,7 +44,7 @@
           <div class="card__media {% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
            
               <div class="media media--transparent media--hover-effect">
-                <a href="{{ card_product.url }}">
+                {% comment %} <a href="{{ card_product.url }}">
                   <img
                     srcset="
                       {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
@@ -74,7 +74,49 @@
                       loading="lazy"
                     >
                   {% endif %}
-                </a>
+                </a> {% endcomment %}
+                <a href="{{ product.url }}" class="product-card" data-product-id="{{ product.id }}">
+
+  {% assign first_image_shown = false %}
+
+  {% for media in product.media %}
+
+    {% if media.media_type == 'image' %}
+
+      <img
+        src="{{ media | image_url: width: 360 }}"
+        alt="{{ media.alt | escape }}"
+        loading="lazy"
+        class="product__img"
+        style="{% if first_image_shown == false %}display:block;{% else %}display:none;{% endif %}"
+        width="{{ media.width }}"
+        height="{{ media.height }}"
+      >
+      {% assign first_image_shown = true %}
+
+    {% elsif media.media_type == 'video' or media.media_type == 'external_video' %}
+
+      <!-- You can use video tag or show poster only -->
+      <video
+        class="product__video"
+        style="display:none;"
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="{{ media.preview_image | image_url: width: 360 }}"
+      >
+        {% if media.media_type == "video" %}
+          <source src="{{ media | video_url }}" type="video/mp4">
+        {% elsif media.media_type == "external_video" %}
+          {{ media | external_video_url }}
+        {% endif %}
+      </video>
+
+    {% endif %}
+
+  {% endfor %}
+</a>
               </div> 
               {% if card_product.metafields.custom.badge != blank %}
               <div class="custom-product-badge product-badge">
@@ -372,7 +414,72 @@
 }
 
 </style>
+<script>
+document.querySelectorAll('.product-card').forEach(card => {
 
+  // Swatches
+  card.querySelectorAll('.color-swatch-input').forEach(input => {
+    input.addEventListener('change', () => updateCardImages(card));
+  });
+
+  // Dropdowns
+  card.querySelectorAll('.option-variant-selector').forEach(select => {
+    select.addEventListener('change', () => updateCardImages(card));
+  });
+
+});
+function normalizeValue(val) {
+  return val.trim().toLowerCase();
+}
+
+function getSelectedOptions(card) {
+  let selected = [];
+
+  // Color swatches
+  const swatches = card.querySelectorAll('.color-swatch-input:checked');
+  swatches.forEach(s => selected.push(s.dataset.value));
+
+  // Dropdown selectors
+  const selects = card.querySelectorAll('.option-variant-selector');
+  selects.forEach(sel => selected.push(sel.value));
+
+  return selected;
+}
+
+function updateCardImages(card) {
+  const allImages = card.querySelectorAll(".product__img");
+  const allVideos = card.querySelectorAll(".product__video");
+  const selectedOptions = getSelectedOptions(card);
+
+  let matchedImage = null;
+
+  allImages.forEach(img => {
+    const altParts = img.alt.split('/').map(p => normalizeValue(p));
+    let isMatch = true;
+
+    for (let i = 0; i < selectedOptions.length; i++) {
+      if (normalizeValue(selectedOptions[i]) !== altParts[i]) {
+        isMatch = false;
+        break;
+      }
+    }
+
+    if (isMatch) matchedImage = img;
+  });
+
+  // Hide all images and videos
+  allImages.forEach(img => img.style.display = "none");
+  allVideos.forEach(video => video.style.display = "none");
+
+  // Show matched image, fallback to first image
+  if (matchedImage) {
+    matchedImage.style.display = "block";
+  } else if (allImages.length > 0) {
+    allImages[0].style.display = "block";
+  }
+}
+
+</script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 //open custom cart 
