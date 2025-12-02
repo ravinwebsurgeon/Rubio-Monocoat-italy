@@ -1299,6 +1299,34 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+//onload if fiter avail in url
+	const params = new URLSearchParams(window.location.search);
+  const result = {};
+  params.forEach((value, key) => {
+    if (key.startsWith("filter.")) {
+      // Take the last part after the final dot
+      const simpleKey = key.split(".").pop();
+      result[simpleKey] = value;
+    }
+    
+  });
+  let collection_name = result.name.toLowerCase();
+   let product_color = result.color;
+   let type = result.type
+    if(collection_name){
+       if (collection_name == "exterior") {
+        const exteriorEl = document.querySelector(".exterior.exterior-main.surface-toggle");
+        if (exteriorEl) {exteriorEl.classList.add("active");}
+         renderTabs(collection_name);
+      }
+       if (collection_name == "interior") {
+         const interiorEl = document.querySelector(".Interio");
+         if (interiorEl) {interiorEl.classList.add("active");}
+         renderTabs(collection_name);
+
+       }
+    }
+
     function renderTabs(collectionType) {
       const tabsContainer = document.querySelector('.circle-tabs-outer .circle-tabs');
       const collectionData = window.collectionDataCache?.[`${collectionType}-colors`]?.metafields;
