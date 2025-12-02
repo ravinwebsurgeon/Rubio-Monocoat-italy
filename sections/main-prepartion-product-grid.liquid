@@ -715,6 +715,10 @@ button.show-more-swatches {
             const qtyInput = productBlock.querySelector('.quick-cart-qty-input');
             const quantity = parseInt(qtyInput.value) || 1;
             const variantId = variantSelect.value;
+            {% comment %} const maxStock = selectedVariant.inventory_quantity;
+            if (quantity > maxStock) {
+                desiredQty = maxStock;
+             } {% endcomment %}
             fetch('/cart/add.js', {
                 method: 'POST',
                 headers: {
