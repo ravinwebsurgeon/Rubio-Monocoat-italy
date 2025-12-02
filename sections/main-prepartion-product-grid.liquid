@@ -715,8 +715,6 @@ button.show-more-swatches {
             const qtyInput = productBlock.querySelector('.quick-cart-qty-input');
             const quantity = parseInt(qtyInput.value) || 1;
             const variantId = variantSelect.value;
-     
-           
              const productJsonEl = button.closest(".product-json");
             if (!productJsonEl) return;
             const productData = JSON.parse(productJsonEl.textContent);
