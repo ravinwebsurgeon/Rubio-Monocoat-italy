@@ -87,8 +87,6 @@
         loading="lazy"
         class="product__img"
         style="{% if first_image_shown == false %}display:block;{% else %}display:none;{% endif %}"
-        width="{{ media.width }}"
-        height="{{ media.height }}"
       >
     {% elsif media.media_type == 'video' %}
 
