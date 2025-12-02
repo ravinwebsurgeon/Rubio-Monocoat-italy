@@ -1527,6 +1527,8 @@ document.addEventListener("DOMContentLoaded", function() {
   exteriorToggle?.addEventListener("click", function(e) {
     e.stopPropagation();
       const filterBtns = document.querySelectorAll('.filter-btn');
+        const filterOptions = document.querySelectorAll('.filter-options');
+
 selectedColour = null;
     selectedProduct = null;
     selectedSort = null;
@@ -1540,7 +1542,7 @@ selectedColour = null;
     });
 
     products.forEach(p => p.style.display = '');
-    
+
     const isActive = this.classList.contains("active");
     // Close all dropdowns first
         let tabs_outer = document.querySelector('.circle-tabs-outer') 
