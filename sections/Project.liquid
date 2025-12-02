@@ -1320,6 +1320,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
     if(collection_name){
+       let circleTabsInner =  document.querySelector('.circle-tabs-outer')
        if (collection_name == "exterior") {
         const exteriorEl = document.querySelector(".exterior.exterior-main.surface-toggle");
         if (exteriorEl) {exteriorEl.classList.add("active");}
@@ -1337,7 +1338,6 @@ document.addEventListener("DOMContentLoaded", function() {
       circleTabsInner.style.display = 'block';
 
       //Now select the species
-       let circleTabsInner =  document.querySelector('.circle-tabs-outer')
         let filetr__circleTabs = circleTabsInner.querySelectorAll('.circle-tab')
         filetr__circleTabs.forEach(function(my_tab) {
           let tab_text =my_tab.textContent.trim().toLowerCase();
