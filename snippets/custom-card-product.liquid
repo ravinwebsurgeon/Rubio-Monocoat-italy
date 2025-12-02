@@ -91,7 +91,7 @@
 
       {% if media.media_type == 'image' %}
         <img
-          src="{{ media | img_url: 'master' }}"
+          src="{{ media | img_url: 'medium' }}"
           alt="{{ alt_text | escape }}"
           class="product__img"
           loading="lazy"
