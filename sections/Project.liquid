@@ -1314,11 +1314,13 @@ document.addEventListener("DOMContentLoaded", function() {
    let product_color = result.color;
    let type = result.type
     if(collection_name){
+        let circleTabsInner =  document.querySelector('.circle-tabs-outer.active-circle-outer')
+
        if (collection_name == "exterior") {
         const exteriorEl = document.querySelector(".exterior.exterior-main.surface-toggle");
         if (exteriorEl) {exteriorEl.classList.add("active");}
         const surfaceOptions = document.querySelector('.surface-options')
-      	surfaceOptions.style.display = 'flex'
+      	surfaceOptions.style.display = 'flex';
       }
        if (collection_name == "interior") {
          const interiorEl = document.querySelector(".Interio");
