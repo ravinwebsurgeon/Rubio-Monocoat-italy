@@ -884,7 +884,7 @@ function updateVariantId(cart, variants, variantIdInput) {
   if (foundVariant) {
     // Update hidden variant ID input
     variantIdInput.value = foundVariant.id;
-    console.log("Variant matched:", foundVariant.id, foundVariant);
+    console.log("Variant matched:", foundVariant.id, foundVariant.inventory_quantity);
     {% comment %} changeMaxQty(foundVariant.) {% endcomment %}
 
     // Update product images
