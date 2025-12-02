@@ -1310,11 +1310,11 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
   });
-  let collection_name = result.name;
+  let collection_name = result.name.toLowerCase();
    let product_color = result.color;
    let type = result.type
     if(collection_name){
-        let circleTabsInner =  document.querySelector('.circle-tabs-outer.active-circle-outer')
+        let circleTabsInner =  document.querySelector('.circle-tabs-outer')
 
        if (collection_name == "exterior") {
         const exteriorEl = document.querySelector(".exterior.exterior-main.surface-toggle");
@@ -1330,8 +1330,8 @@ document.addEventListener("DOMContentLoaded", function() {
       renderTabs(collection_name);
       let circleTabsSection = document.querySelector('.circle-tabs-section')
       circleTabsSection.classList.add('active')
-      {% comment %} circleTabsInner.classList.add(`${collection_name}`) {% endcomment %}
-      {% comment %} circleTabsInner.style.display = 'block'; {% endcomment %}
+      circleTabsInner.classList.add(`${collection_name}`)
+      circleTabsInner.style.display = 'block';
     }
 
     function renderTabs(collectionType) {
