@@ -1376,24 +1376,21 @@ document.addEventListener("DOMContentLoaded", function() {
           '';
       }
        all_products.forEach(function(product){
-          {% comment %} let colour = product.dataset.colours; {% endcomment %}
-          {% comment %} let tags = product.dataset.tags; {% endcomment %}
+          let colour = product.dataset.colours;
+          let productTags = product.dataset.tags;
           {% comment %} if(product_color == colour){
             product.style.display = 'block'
           }
           else{product.style.display = 'none'} {% endcomment %}
 
-        let productColor = (product.dataset.colours || '').toLowerCase();
-        let productTags = (product.dataset.tags || '').split(','); // array
 
-        let matchColor = productColor === product_color.toLowerCase();
-        let matchTag = activeTag ? productTags.includes(activeTag) : true;
+          let matchTag = activeTag ? productTags.includes(activeTag) : true;
 
-        if (matchColor && matchTag) {
-            product.style.display = 'block';
-        } else {
-            product.style.display = 'none';
-        }
+          if (matchColor && matchTag) {
+              product.style.display = 'block';
+          } else {
+              product.style.display = 'none';
+          }
 
        })
     }
