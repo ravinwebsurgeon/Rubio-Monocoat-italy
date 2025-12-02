@@ -715,11 +715,12 @@ button.show-more-swatches {
             const qtyInput = productBlock.querySelector('.quick-cart-qty-input');
             const quantity = parseInt(qtyInput.value) || 1;
             const variantId = variantSelect.value;
+            const variantIdInt = parseInt(variantSelect.value, 10)
              const productJsonEl = productBlock.querySelector(".quick-product-json");
             if (!productJsonEl) return;
             const productData = JSON.parse(productJsonEl.textContent);
             const variants = productData.variants;
-            const selectedVariant = variants.find(v => v.id === variantId);
+            const selectedVariant = variants.find(v => v.id === variantIdInt);
             console.log(selectedVariant,'selectedVariant Data') 
 
             {% comment %} const maxStock = selectedVariant.inventory_quantity;
