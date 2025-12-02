@@ -419,28 +419,21 @@
 <script>
 document.querySelectorAll('.card-wrapper').forEach(card => {
 
-  const productJsonEl = card.querySelector(".product-json");
-  if (!productJsonEl) return;
-
-  const productData = JSON.parse(productJsonEl.textContent);
-
   // Trigger update on page load
   updateCardImages(card);
-  updateCardPrice(card, getDefaultVariant(productData));
 
   // Swatches
   card.querySelectorAll('.color-swatch-input.main_card').forEach(input => {
-    input.addEventListener('change', () => handleVariantChange(card, productData));
+    input.addEventListener('change', () => updateCardImages(card));
   });
 
   // Dropdowns
   card.querySelectorAll('.option-variant-selector').forEach(select => {
-    select.addEventListener('change', () => handleVariantChange(card, productData));
+    select.addEventListener('change', () => updateCardImages(card));
   });
 
 });
 
-// ---------------- FUNCTIONS ----------------
 
 function normalizeValue(val) {
   return val.trim().toLowerCase();
@@ -457,8 +450,6 @@ function getSelectedOptions(card) {
 
   return selected;
 }
-
-// ---------------- MEDIA ----------------
 
 function updateCardImages(card) {
   const mediaBlocks = card.querySelectorAll(".product__media");
@@ -507,51 +498,7 @@ function updateCardImages(card) {
   }
 }
 
-// ---------------- PRICE ----------------
-
-function getDefaultVariant(productData) {
-  return productData.variants.find(
-    v => v.id == productData.selected_or_first_available_variant.id
-  );
-}
-
-function findVariant(productData, selectedOptions) {
-  return productData.variants.find(v => {
-    return v.options.every((opt, i) => normalizeValue(opt) === normalizeValue(selectedOptions[i]));
-  });
-}
-
-function updateCardPrice(card, variant) {
-  const priceContainer = card.querySelector(".product-card-price");
-  if (!priceContainer) return;
-
-  let html = '';
-
-  const formattedPrice = Shopify.formatMoney(variant.price);
-  html += `<span class="price price--regular">${formattedPrice}</span>`;
-
-  if (variant.compare_at_price > variant.price) {
-    const formattedCompare = Shopify.formatMoney(variant.compare_at_price);
-    html += `<span class="price price--compare">${formattedCompare}</span>`;
-  }
-
-  priceContainer.innerHTML = html;
-}
-
-// ---------------- HANDLE VARIANT CHANGE ----------------
-
-function handleVariantChange(card, productData) {
-  const selectedOptions = getSelectedOptions(card);
-  const matchedVariant = findVariant(productData, selectedOptions);
-
-  updateCardImages(card);
-
-  if (matchedVariant) {
-    updateCardPrice(card, matchedVariant);
-  }
-}
 </script>
-
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
