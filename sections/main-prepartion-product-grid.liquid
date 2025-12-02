@@ -721,7 +721,7 @@ button.show-more-swatches {
              const productData = JSON.parse(productJsonEl.textContent);
             const variants = productData.variants;
             const selectedVariant = variants.find(v => v.id === variantIdInt);
-            console.log(selectedVariant,'selectedVariant Data') 
+            console.log(selectedVariant.inventory_quantity,'selectedVariant Data') 
             }
            
 
