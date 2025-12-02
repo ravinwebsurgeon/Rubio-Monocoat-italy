@@ -1354,7 +1354,7 @@ document.addEventListener("DOMContentLoaded", function() {
       let color_options = color_main.querySelectorAll('.option-btn')
       color_options.forEach(function(option){
         let exist_color = option.getAttribute('data-value').toLowerCase();
-        if(product_color.toLowercase() == exist_color){
+        if(product_color == exist_color){
           option.classList.add('.active')
         }
       });
