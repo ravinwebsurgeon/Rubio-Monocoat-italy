@@ -1376,11 +1376,30 @@ document.addEventListener("DOMContentLoaded", function() {
 
       // For interior/exterior you may have different data attributes
       if (activeTab) {
-        activeTag =
+        {% comment %} activeTag =
           activeTab.dataset.exteriorTagName ||
           activeTab.dataset.exteriorVTagName ||
           activeTab.dataset.interiorTagName ||
-          '';
+          ''; {% endcomment %}
+            if (surface === 'vertical') {
+              activeTag =
+                  activeTab.dataset.exteriorVTagName ||
+                  activeTab.dataset.interiorTagName ||
+                  '';
+            } 
+            else if (surface === 'horizontal') {
+                activeTag =
+                    activeTab.dataset.exteriorTagName ||
+                    activeTab.dataset.interiorTagName ||
+                    '';
+            } 
+            else {
+                activeTag =
+                    activeTab.dataset.exteriorTagName ||
+                    activeTab.dataset.exteriorVTagName ||
+                    activeTab.dataset.interiorTagName ||
+                    '';
+            }
       }
        all_products.forEach(function(product){
           let productColours = product.dataset.colours;
