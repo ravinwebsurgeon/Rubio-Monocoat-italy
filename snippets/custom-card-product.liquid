@@ -409,6 +409,9 @@
 <script>
 document.querySelectorAll('.card-wrapper').forEach(card => {
 
+  // Trigger update on page load
+  updateCardImages(card);
+
   // Swatches
   card.querySelectorAll('.color-swatch-input.main_card').forEach(input => {
     input.addEventListener('change', () => updateCardImages(card));
@@ -420,6 +423,8 @@ document.querySelectorAll('.card-wrapper').forEach(card => {
   });
 
 });
+
+
 function normalizeValue(val) {
   return val.trim().toLowerCase();
 }
@@ -427,11 +432,9 @@ function normalizeValue(val) {
 function getSelectedOptions(card) {
   let selected = [];
 
-  // Color swatches
   const swatches = card.querySelectorAll('.color-swatch-input:checked');
   swatches.forEach(s => selected.push(s.dataset.value));
 
-  // Dropdown selectors
   const selects = card.querySelectorAll('.option-variant-selector');
   selects.forEach(sel => selected.push(sel.value));
 
@@ -439,15 +442,24 @@ function getSelectedOptions(card) {
 }
 
 function updateCardImages(card) {
-  console.log('check Image')
+
   const allImages = card.querySelectorAll(".product__img");
   const allVideos = card.querySelectorAll(".product__video");
   const selectedOptions = getSelectedOptions(card);
 
   let matchedImage = null;
+  let fallbackNoAlt = null;
 
+  // Check images
   allImages.forEach(img => {
-    const altParts = img.alt.split('/').map(p => normalizeValue(p));
+
+    // fallback image with NO alt
+    if (!img.alt || img.alt.trim() === "") {
+      if (!fallbackNoAlt) fallbackNoAlt = img;
+    }
+
+    // Try to match variants
+    const altParts = img.alt ? img.alt.split('/').map(p => normalizeValue(p)) : [];
     let isMatch = true;
 
     for (let i = 0; i < selectedOptions.length; i++) {
@@ -457,18 +469,39 @@ function updateCardImages(card) {
       }
     }
 
-    if (isMatch) matchedImage = img;
+    if (isMatch && img.alt.trim() !== "") {
+      matchedImage = img;
+    }
   });
 
-  // Hide all images and videos
+  // Hide all
   allImages.forEach(img => img.style.display = "none");
   allVideos.forEach(video => video.style.display = "none");
 
-  // Show matched image, fallback to first image
+  // PRIORITY:
+  // 1. matched image
+  // 2. first fallback image or video with NO ALT
+  // 3. first image
+  // 4. first video
+
   if (matchedImage) {
     matchedImage.style.display = "block";
-  } else if (allImages.length > 0) {
+    return;
+  }
+
+  if (fallbackNoAlt) {
+    fallbackNoAlt.style.display = "block";
+    return;
+  }
+
+  if (allImages.length > 0) {
     allImages[0].style.display = "block";
+    return;
+  }
+
+  if (allVideos.length > 0) {
+    allVideos[0].style.display = "block";
+    return;
   }
 }
 
