@@ -715,6 +715,13 @@ button.show-more-swatches {
             const qtyInput = productBlock.querySelector('.quick-cart-qty-input');
             const quantity = parseInt(qtyInput.value) || 1;
             const variantId = variantSelect.value;
+            let handle = productBlock.dataset['product-handle']
+            const response = await fetch(`/products/${handle}.js`);
+            const product = await response.json();
+            const variants = product.variants;
+            const selectedVariant = variants.find(v => v.id === variantId);
+            console.log(selectedVariant,'selectedVariant Data')
+
             {% comment %} const maxStock = selectedVariant.inventory_quantity;
             if (quantity > maxStock) {
                 desiredQty = maxStock;
