@@ -717,9 +717,10 @@ button.show-more-swatches {
             const variantId = variantSelect.value;
            let handle = productBlock.getAttribute('data-product-handle');
             console.log(handle,'handle')
-            {% comment %} const response = await fetch(`/products/${handle}.js`);
+            const response = await fetch(`/products/${handle}.js`);
             const product = await response.json();
-            const variants = product.variants;
+            console.log(product,'product_found')
+            {% comment %} const variants = product.variants;
             const selectedVariant = variants.find(v => v.id === variantId);
             console.log(selectedVariant,'selectedVariant Data') {% endcomment %}
 
