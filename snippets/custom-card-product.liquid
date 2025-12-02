@@ -429,7 +429,6 @@ document.querySelectorAll('.card-wrapper').forEach(card => {
   card.querySelectorAll('.color-swatch-input.main_card').forEach(input => {
     input.addEventListener('change', () => {
       updateCardImages(card)
-      updateCardPrice(card,productData)
     });
   });
 
@@ -437,7 +436,6 @@ document.querySelectorAll('.card-wrapper').forEach(card => {
   card.querySelectorAll('.option-variant-selector').forEach(select => {
     select.addEventListener('change', () => {
       updateCardImages(card)
-      updateCardPrice(card,productData)
     });
   });
 
@@ -459,11 +457,7 @@ function getSelectedOptions(card) {
 
   return selected;
 }
-function updateCardPrice(card,productData){
-  console.log('text');
 
-
-}
 function updateCardImages(card) {
 
   const mediaBlocks = card.querySelectorAll(".product__media");
@@ -541,6 +535,9 @@ document.addEventListener("DOMContentLoaded", () => {
         addToCartBtn.disabled = true;
       }
     }
+    function updateCardPrice(matchedVariant){
+    console.log(matchedVariant.price,'sadsadsada')
+    }
 
     // Handle color swatch selection
     colorSwatches.forEach(swatch => {
@@ -550,6 +547,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (matchedVariant) {
           variantInput.value = matchedVariant.id;
           handleVariantStock(matchedVariant);
+          updateCardPrice(matchedVariant);
         }
       });
     });
@@ -562,6 +560,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (matchedVariant) {
           variantInput.value = matchedVariant.id;
           handleVariantStock(matchedVariant);
+          updateCardPrice(matchedVariant);
         }
       });
     });
