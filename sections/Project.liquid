@@ -1376,7 +1376,7 @@ document.addEventListener("DOMContentLoaded", function() {
           '';
       }
        all_products.forEach(function(product){
-          let colour = product.dataset.colours;
+          let productColours = product.dataset.colours;
           let productTags = product.dataset.tags;
           {% comment %} if(product_color == colour){
             product.style.display = 'block'
@@ -1384,7 +1384,9 @@ document.addEventListener("DOMContentLoaded", function() {
           else{product.style.display = 'none'} {% endcomment %}
           let productTagsArray = productTags.split(','); 
           let matchTag = activeTag ? productTagsArray.includes(activeTag) : true;
-          let matchColor = product_color.toLowerCase() === colour;
+          let coloursArray = productColours.split(',');
+          let matchColor = coloursArray.includes(product_color.toLowerCase());
+
           if (matchColor && matchTag) {
              product.style.display = 'block';
           } else {
