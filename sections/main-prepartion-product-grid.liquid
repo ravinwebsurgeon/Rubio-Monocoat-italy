@@ -720,8 +720,8 @@ button.show-more-swatches {
              if(productJsonEl){
              const productData = JSON.parse(productJsonEl.textContent);
             const variants = productData.variants;
-            const selectedVariant = variants.find(v => v.id === variantIdInt);
-            console.log(selectedVariant,'selectedVariant Data') 
+            {% comment %} const selectedVariant = variants.find(v => v.id === variantIdInt); {% endcomment %}
+            console.log(variants,'selectedVariant Data') 
             }
            
 
