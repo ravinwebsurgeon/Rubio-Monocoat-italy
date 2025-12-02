@@ -1310,16 +1310,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
   });
+  let collection_name =''
+  let product_color='';
     if(result.name){
-      let collection_name = result.name.toLowerCase();
-      let product_color = result.color;
+      collection_name = result.name.toLowerCase();
+       product_color = result.color;
       let type = result.type
     }
-    else{
-      let collection_name =''
-      let product_color = '';
-      let type = '';
-    }
+    
     if(collection_name){
         let circleTabsInner =  document.querySelector('.circle-tabs-outer')
 
