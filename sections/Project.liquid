@@ -1354,7 +1354,7 @@ document.addEventListener("DOMContentLoaded", function() {
       let color_options = color_main.querySelectorAll('.option-btn')
       color_options.forEach(function(option){
         let exist_color = option.getAttribute('data-value').toLowerCase();
-        console.log(exist_color,'color optn')
+        console.log(exist_color,'color optn',product_color)
         {% comment %} if(product_color == exist_color){
           option.classList.add('active')
         } {% endcomment %}
