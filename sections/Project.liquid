@@ -1389,12 +1389,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
           if (matchColor && matchTag) {
              product.style.display = 'block';
-             let parent = product.closest.('.tab-products-wrap')
-             parent.querySelector('.oil-head').style.display = 'block'
+             {% comment %} let parent = product.closest.('.tab-products-wrap') {% endcomment %}
+             {% comment %} parent.querySelector('.oil-head').style.display = 'block' {% endcomment %}
           } else {
               product.style.display = 'none';
-              let parent = product.closest.('.tab-products-wrap')
-              parent.querySelector('.oil-head').style.display = 'none'
+              {% comment %} let parent = product.closest.('.tab-products-wrap') {% endcomment %}
+              {% comment %} parent.querySelector('.oil-head').style.display = 'none' {% endcomment %}
 
           }
 
