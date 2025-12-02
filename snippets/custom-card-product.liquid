@@ -416,7 +416,7 @@
 }
 
 </style>
-{% comment %} 
+
 <script>
 document.querySelectorAll('.card-wrapper').forEach(card => {
 
@@ -586,114 +586,5 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   });
-});
-</script> {% endcomment %}
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-  document.querySelectorAll(".card-wrapper, .product-card-wrapper").forEach(card => {
-    const variantInput = card.querySelector(".variant-selector");
-    const colorSwatches = card.querySelectorAll(".color-swatch-input");
-    const selects = card.querySelectorAll(".option-variant-selector");
-    const productJsonEl = card.querySelector(".product-json");
-    const addToCartBtn = card.querySelector(".product_cart_btn");
-    const mediaBlocks = card.querySelectorAll(".product__media");
-    const priceElement = card.querySelector(".price-item"); // adjust if needed
-
-    if (!productJsonEl) return;
-    const productData = JSON.parse(productJsonEl.textContent);
-
-    // 🔹 Utility Functions
-    function normalizeValue(val) {
-      return val ? val.trim().toLowerCase() : "";
-    }
-
-    function getSelectedOptions(wrapper) {
-      const options = [];
-      wrapper.querySelectorAll(".pro_variant_options").forEach(group => {
-        const colorInput = group.querySelector(".color-swatch-input:checked");
-        const selectInput = group.querySelector("select");
-        if (colorInput) options.push(colorInput.value);
-        else if (selectInput) options.push(selectInput.value);
-      });
-      return options;
-    }
-
-    function findVariant(product, selectedOptions) {
-      return product.variants.find(variant => {
-        return variant.options.every((opt, i) => normalizeValue(opt) === normalizeValue(selectedOptions[i]));
-      });
-    }
-
-    function handleVariantStock(variant) {
-      if (!variant || !addToCartBtn) return;
-      if (variant.available) {
-        addToCartBtn.classList.remove("disabled-btn");
-        addToCartBtn.disabled = false;
-      } else {
-        addToCartBtn.classList.add("disabled-btn");
-        addToCartBtn.disabled = true;
-      }
-    }
-
-    function updateCardPrice(variant) {
-      if (!variant || !priceElement) return;
-      priceElement.textContent = formatPrice(variant.price);
-    }
-
-    function formatPrice(cents) {
-      return "$" + (cents / 100).toFixed(2);
-    }
-
-    function updateCardImages() {
-      const selectedOptions = getSelectedOptions(card);
-      let matched = null;
-      let fallbackNoAlt = null;
-
-      mediaBlocks.forEach(block => {
-        const alt = block.dataset.altDetail ? block.dataset.altDetail.trim() : "";
-        const altParts = alt ? alt.split('/').map(p => normalizeValue(p)) : [];
-
-        if (!alt) fallbackNoAlt = fallbackNoAlt || block;
-
-        let isMatch = true;
-        for (let i = 0; i < selectedOptions.length; i++) {
-          if (normalizeValue(selectedOptions[i]) !== altParts[i]) {
-            isMatch = false;
-            break;
-          }
-        }
-        if (isMatch && alt) matched = block;
-      });
-
-      // Hide all media
-      mediaBlocks.forEach(block => block.style.display = "none");
-
-      if (matched) matched.style.display = "block";
-      else if (fallbackNoAlt) fallbackNoAlt.style.display = "block";
-      else if (mediaBlocks.length > 0) mediaBlocks[0].style.display = "block";
-    }
-
-    // 🔹 Main handler for variant changes
-    function handleVariantChange() {
-      const selectedOptions = getSelectedOptions(card);
-      const matchedVariant = findVariant(productData, selectedOptions);
-      if (matchedVariant) {
-        if (variantInput) variantInput.value = matchedVariant.id;
-        handleVariantStock(matchedVariant);
-        updateCardPrice(matchedVariant);
-      }
-      updateCardImages();
-    }
-
-    // 🔹 Attach events
-    colorSwatches.forEach(input => input.addEventListener("change", handleVariantChange));
-    selects.forEach(select => select.addEventListener("change", handleVariantChange));
-
-    // 🔹 Initial update on page load
-    handleVariantChange();
-
-  });
-
 });
 </script>
