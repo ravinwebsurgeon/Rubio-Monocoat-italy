@@ -75,12 +75,13 @@
                     >
                   {% endif %}
                 </a> {% endcomment %}
-                <a href="{{ card_product.url }}" class="product-card" data-product-id="{{ card_product.id }}">
+            <a href="{{ card_product.url }}" class="product-card" data-product-id="{{ card_product.id }}">
+
+  {% assign first_image_shown = false %}
 
   {% for media in card_product.media %}
 
     {% if media.media_type == 'image' %}
-
       <img
         src="{{ media | image_url: width: 360 }}"
         alt="{{ media.alt | escape }}"
@@ -88,20 +89,21 @@
         class="product__img"
         style="{% if first_image_shown == false %}display:block;{% else %}display:none;{% endif %}"
       >
-    {% elsif media.media_type == 'video' %}
+      {% assign first_image_shown = true %}
 
-      <!-- You can use video tag or show poster only -->
+    {% elsif media.media_type == 'video' %}
       <video
         class="product__video"
-        style="display:none;"
+        style="{% if first_image_shown == false %}display:block;{% else %}display:none;{% endif %}"
         muted
         loop
         playsinline
         preload="metadata"
         poster="{{ media.preview_image | image_url: width: 360 }}"
       >
-          <source src="{{ media | video_url }}" type="video/mp4">
+        <source src="{{ media | video_url }}" type="video/mp4">
       </video>
+      {% assign first_image_shown = true %}
 
     {% endif %}
 
