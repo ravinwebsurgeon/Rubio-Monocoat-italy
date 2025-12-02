@@ -549,7 +549,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const matchedVariant = findVariant(productData, selectedOptions);
         if (matchedVariant) {
           variantInput.value = matchedVariant.id;
-          console.log('here we change price')
           handleVariantStock(matchedVariant);
         }
       });
@@ -566,38 +565,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     });
-
-    // Handle Add to Cart
-    if (addToCartBtn) {
-      {% comment %} addToCartBtn.addEventListener("click", async e => {
-        e.preventDefault();
-        const variantId = variantInput.value;
-        const body = JSON.stringify({ items: [{ id: variantId, quantity: 1 }] });
-
-        {% comment %} addToCartBtn.disabled = true; {% endcomment %}
-        addToCartBtn.textContent = "Adding..."; 
-        
-          setTimeout(() => {
-            addToCartBtn.textContent = "Add Into Cart";
-          }, 1000);
-        {% comment %} handleAddToCart(variantId,btn) {% endcomment %}
-
-        {% comment %} addToCartBtn.disabled = false; {% endcomment %}
-        {% comment %} addToCartBtn.textContent = "Add Into Cart"; {% endcomment %}
-        {% comment %} const res = await fetch("/cart/add.js", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body
-        }); {% endcomment %}
- 
-
-        {% comment %} if (res.ok) {
-          document.dispatchEvent(new CustomEvent("cart:refresh"));
-        } else {
-          alert("Failed to add to cart. Please try again.");
-        } {% endcomment %}
-      }); {% endcomment %}
-    }
 
     // Utility functions
     function getSelectedOptions(wrapper) {
