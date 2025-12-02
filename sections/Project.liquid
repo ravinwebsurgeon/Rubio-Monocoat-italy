@@ -1323,8 +1323,8 @@ document.addEventListener("DOMContentLoaded", function() {
         let circleTabsInner =  document.querySelector('.circle-tabs-outer')
         let filetr__circleTabs = circleTabsInner.querySelectorAll('.circle-tab')
         filetr__circleTabs.forEach(function(my_tab) {
-          let TabText = my_tab.querySelector('.circle-tab-ing > span')
-          console.log(TabText.textContent,'tabText')
+          let TabText = my_tab.querySelector('.circle-tab-ing')
+          console.log(TabText,'tabText')
         });
        if (collection_name == "exterior") {
         const exteriorEl = document.querySelector(".exterior.exterior-main.surface-toggle");
