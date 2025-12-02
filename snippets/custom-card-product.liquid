@@ -548,7 +548,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const matchedVariant = findVariant(productData, selectedOptions);
         if (matchedVariant) {
           variantInput.value = matchedVariant.id;
-          handleVariantStock(matchedVariant);
+          {% comment %} handleVariantStock(matchedVariant); {% endcomment %}
           updateCardPrice(matchedVariant,card);
         }
       });
@@ -561,7 +561,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const matchedVariant = findVariant(productData, selectedOptions);
         if (matchedVariant) {
           variantInput.value = matchedVariant.id;
-          handleVariantStock(matchedVariant);
+          {% comment %} handleVariantStock(matchedVariant); {% endcomment %}
           updateCardPrice(matchedVariant,card);
         }
       });
