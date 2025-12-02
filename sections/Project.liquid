@@ -1365,9 +1365,10 @@ document.addEventListener("DOMContentLoaded", function() {
        //show and hide products
        let all_products = documen.querySelectorAll('.product-item')
        all_products.forEach(function(product){
-          let colours = product.dataset.colours;
+          let colour = product.dataset.colours;
           let tags = product.dataset.tags;
-          
+          if(product_color == colour){product.style.display = 'block'}else{product.style.display = 'none'}
+
        })
     }
 //end avil filter code
