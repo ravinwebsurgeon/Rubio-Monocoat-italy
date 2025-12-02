@@ -536,7 +536,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
     function updateCardPrice(matchedVariant){
-    console.log(matchedVariant.price,'sadsadsada')
+    const formattedPrice = formatPrice(matchedVariant.price)
+    console.log(formattedPrice,'sadsadsada')
+
     }
 
     // Handle color swatch selection
