@@ -1526,6 +1526,21 @@ document.addEventListener("DOMContentLoaded", function() {
   // EXTERIOR CLICK → toggle dropdown
   exteriorToggle?.addEventListener("click", function(e) {
     e.stopPropagation();
+      const filterBtns = document.querySelectorAll('.filter-btn');
+selectedColour = null;
+    selectedProduct = null;
+    selectedSort = null;
+
+    filterBtns.forEach(b => b.classList.remove('active'));
+    filterBtns[0].classList.add('active');
+
+    filterOptions.forEach(panel => {
+      panel.style.display = (panel.id === 'colour-options') ? 'flex' : 'none';
+      panel.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
+    });
+
+    products.forEach(p => p.style.display = '');
+    
     const isActive = this.classList.contains("active");
     // Close all dropdowns first
         let tabs_outer = document.querySelector('.circle-tabs-outer') 
