@@ -1321,7 +1321,11 @@ document.addEventListener("DOMContentLoaded", function() {
     
     if(collection_name){
         let circleTabsInner =  document.querySelector('.circle-tabs-outer')
-
+        let filetr__circleTabs = circleTabsInner.querySelectorAll('.circle-tab')
+        filetr__circleTabs.forEach(function(my_tab) {
+          let TabText = my_tab.querySelector('.circle-tab-ing')
+          console.log(TabText.textContent,'tabText')
+        });
        if (collection_name == "exterior") {
         const exteriorEl = document.querySelector(".exterior.exterior-main.surface-toggle");
         if (exteriorEl) {exteriorEl.classList.add("active");}
