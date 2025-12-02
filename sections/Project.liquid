@@ -1367,10 +1367,10 @@ document.addEventListener("DOMContentLoaded", function() {
        all_products.forEach(function(product){
           let colour = product.dataset.colours;
           let tags = product.dataset.tags;
-          if(product_color == colour){
+          {% comment %} if(product_color == colour){
             product.style.display = 'block'
           }
-          else{product.style.display = 'none'}
+          else{product.style.display = 'none'} {% endcomment %}
 
        })
     }
