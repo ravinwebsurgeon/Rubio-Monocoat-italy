@@ -1364,7 +1364,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
        //show and hide products
        let all_products = document.querySelectorAll('.product-item')
-       let activeTab = circleTabsInner.querySelectorAll('.circle-tab.active')
+       let activeTab = circleTabsInner.querySelector('.circle-tab.active')
       let activeTag = '';
 
       // For interior/exterior you may have different data attributes
@@ -1382,8 +1382,6 @@ document.addEventListener("DOMContentLoaded", function() {
             product.style.display = 'block'
           }
           else{product.style.display = 'none'} {% endcomment %}
-
-
           let matchTag = activeTag ? productTags.includes(activeTag) : true;
 
           if (matchColor && matchTag) {
