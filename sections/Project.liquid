@@ -1410,6 +1410,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // -------------------------------
   // EXTERIOR CLICK → toggle dropdown
   exteriorToggle?.addEventListener("click", function(e) {
+    console.log('clicked on exterior')
     e.stopPropagation();
     const isActive = this.classList.contains("active");
     // Close all dropdowns first
