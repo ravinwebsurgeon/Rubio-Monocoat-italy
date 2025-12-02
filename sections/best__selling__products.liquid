@@ -40,17 +40,19 @@
               {% assign imagesd = product.metafields.custom.product_iconss.value %}
               {% assign textsd = product.metafields.custom.product_textss.value %}
               {% if imagesd and textsd %}
-                {% for image in imagesd %}
-                  {% assign texts = textsd[forloop.index0] %}
-                  <div class="meeta-fl">
-                    {% if image %}
-                      <span class="immmg"><img src="{{ image | image_url: width: 20 }}" alt="{{ texts | escape }}"></span>
-                    {% endif %}
-                    {% if texts %}
-                      <span class="mememe">{{ texts }}</span>
-                    {% endif %}
-                  </div>
-                {% endfor %}
+                <div class="meta__detail">
+                  {% for image in imagesd %}
+                    {% assign texts = textsd[forloop.index0] %}
+                    <div class="meeta-fl">
+                      {% if image %}
+                        <span class="immmg"><img src="{{ image | image_url: width: 20 }}" alt="{{ texts | escape }}"></span>
+                      {% endif %}
+                      {% if texts %}
+                        <span class="mememe">{{ texts }}</span>
+                      {% endif %}
+                    </div>
+                  {% endfor %}
+                </div>
               {% endif %}
               <div class="best_selling__variants">
               {% assign max_to_show = 5 %}
