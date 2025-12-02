@@ -713,7 +713,7 @@ button.show-more-swatches {
             const productBlock = button.closest('.quick__cart__main');
             const variantSelect = productBlock.querySelector('.variant-selector');
             const qtyInput = productBlock.querySelector('.quick-cart-qty-input');
-            const quantity = parseInt(qtyInput.value) || 1;
+            let  selected_quantity = parseInt(qtyInput.value) || 1;
             const variantId = variantSelect.value;
             const variantIdInt = parseInt(variantSelect.value, 10)
              const productJsonEl = productBlock.querySelector(".quick-product-json");
@@ -724,7 +724,7 @@ button.show-more-swatches {
             console.log(selectedVariant.inventory_quantity,'selectedVariant Data') 
             const maxStock = selectedVariant.inventory_quantity;
               if (quantity > maxStock) {
-                  quantity = maxStock;
+                  selected_quantity = maxStock;
               }
             }
             fetch('/cart/add.js', {
@@ -735,7 +735,7 @@ button.show-more-swatches {
                 },
                 body: JSON.stringify({
                     id: variantId,
-                    quantity: quantity
+                    quantity: selected_quantity
                 })
             })
             .then(response => response.json())
