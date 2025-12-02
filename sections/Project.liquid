@@ -1320,15 +1320,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
     if(collection_name){
-        let circleTabsInner =  document.querySelector('.circle-tabs-outer')
-        let filetr__circleTabs = circleTabsInner.querySelectorAll('.circle-tab')
-        filetr__circleTabs.forEach(function(my_tab) {
-          let tab_text =my_tab.textContent.trim().toLowerCase();
-          console.log(tab_text , type.toLowerCase())
-          if(tab_text == type.toLowerCase()){
-            my_tab.classList.add('active')
-          }
-        });
        if (collection_name == "exterior") {
         const exteriorEl = document.querySelector(".exterior.exterior-main.surface-toggle");
         if (exteriorEl) {exteriorEl.classList.add("active");}
@@ -1344,6 +1335,17 @@ document.addEventListener("DOMContentLoaded", function() {
       circleTabsSection.classList.add('active')
       {% comment %} circleTabsInner.classList.add(`${collection_name}`) {% endcomment %}
       circleTabsInner.style.display = 'block';
+
+      //Now select the species
+       let circleTabsInner =  document.querySelector('.circle-tabs-outer')
+        let filetr__circleTabs = circleTabsInner.querySelectorAll('.circle-tab')
+        filetr__circleTabs.forEach(function(my_tab) {
+          let tab_text =my_tab.textContent.trim().toLowerCase();
+          console.log(tab_text , type.toLowerCase())
+          if(tab_text == type.toLowerCase()){
+            my_tab.classList.add('active')
+          }
+        });
     }
 
 
