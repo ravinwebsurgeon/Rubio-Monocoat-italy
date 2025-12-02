@@ -410,13 +410,9 @@
 document.querySelectorAll('.product-card').forEach(card => {
 
   // Swatches
-  const main_swtaches = card.querySelectorAll('.color-swatch-input.main_card')
-    // Handle color swatch selection
-    main_swtaches.forEach(swatch => {
-      swatch.addEventListener("change", () => {
-        updateCardImages(card)
-      });
-    });
+  card.querySelectorAll('.color-swatch-input. main_card').forEach(input => {
+    input.addEventListener('change', () => updateCardImages(card));
+  });
 
   // Dropdowns
   card.querySelectorAll('.option-variant-selector').forEach(select => {
