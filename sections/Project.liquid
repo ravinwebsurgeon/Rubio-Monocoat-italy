@@ -1394,7 +1394,7 @@ document.addEventListener("DOMContentLoaded", function() {
           }
        })
 
-       document.querySelectorAll('.tab-products-wrap').forEach(function(section){
+       {% comment %} document.querySelectorAll('.tab-products-wrap').forEach(function(section){
   
           const items = section.querySelectorAll('.product-item');
           const hasVisible = Array.from(items).some(item => {
@@ -1408,7 +1408,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
           // Optional: hide entire section if empty
           section.style.display = hasVisible ? 'block' : 'none';
-        });
+        }); {% endcomment %}
     }
 //end avil filter code
 
