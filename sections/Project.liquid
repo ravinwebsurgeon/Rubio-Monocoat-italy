@@ -1348,6 +1348,13 @@ document.addEventListener("DOMContentLoaded", function() {
           }
         });
       }
+      if(surface){
+        let surface_items = document.querySelectorAll('.surface-item')
+        surface_items.forEach(function(item){
+          let parent_collection = item.getAttribute('data-collection');
+          if (parent_collection.includes(surface)) {item.classList.add('active') }
+        });
+      }
 
       //select color option
       let color_main = document.getElementById('colour-options')
