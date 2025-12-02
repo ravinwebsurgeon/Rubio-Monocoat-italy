@@ -1336,7 +1336,7 @@ document.addEventListener("DOMContentLoaded", function() {
       circleTabsSection.classList.add('active')
       {% comment %} circleTabsInner.classList.add(`${collection_name}`) {% endcomment %}
       circleTabsInner.style.display = 'block';
-
+    }
       //Now select the species
       if(type){
         let filetr__circleTabs = circleTabsInner.querySelectorAll('.circle-tab')
@@ -1350,19 +1350,19 @@ document.addEventListener("DOMContentLoaded", function() {
       }
 
       //select color option
-      let color_main = document.getElementById('colour-options')
-      let color_options = color_main.querySelectorAll('.option-btn')
-      color_options.forEach(function(option){
-        let exist_color = option.getAttribute('data-value').toLowerCase();
-         if(product_color == exist_color){
-          option.classList.add('active')
-           console.log('matched',exist_color)
-        } 
-      });
-       document.querySelector('.filters-panel').classList.add('open')
-       color_main.style.display = 'flex';
-    }
-
+      if(product_color){
+        let color_main = document.getElementById('colour-options')
+        let color_options = color_main.querySelectorAll('.option-btn')
+        color_options.forEach(function(option){
+          let exist_color = option.getAttribute('data-value').toLowerCase();
+          if(product_color == exist_color){
+            option.classList.add('active')
+            console.log('matched',exist_color)
+          } 
+        });
+        document.querySelector('.filters-panel').classList.add('open')
+        color_main.style.display = 'flex';
+      }
 
     function renderTabs(collectionType) {
       const tabsContainer = document.querySelector('.circle-tabs-outer .circle-tabs');
