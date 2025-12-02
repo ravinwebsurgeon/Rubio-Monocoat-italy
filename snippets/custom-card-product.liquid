@@ -77,8 +77,6 @@
                 </a> {% endcomment %}
                 <a href="{{ product.url }}" class="product-card" data-product-id="{{ product.id }}">
 
-  {% assign first_image_shown = false %}
-
   {% for media in product.media %}
 
     {% if media.media_type == 'image' %}
@@ -92,9 +90,7 @@
         width="{{ media.width }}"
         height="{{ media.height }}"
       >
-      {% assign first_image_shown = true %}
-
-    {% elsif media.media_type == 'video' or media.media_type == 'external_video' %}
+    {% elsif media.media_type == 'video' %}
 
       <!-- You can use video tag or show poster only -->
       <video
@@ -106,11 +102,7 @@
         preload="metadata"
         poster="{{ media.preview_image | image_url: width: 360 }}"
       >
-        {% if media.media_type == "video" %}
           <source src="{{ media | video_url }}" type="video/mp4">
-        {% elsif media.media_type == "external_video" %}
-          {{ media | external_video_url }}
-        {% endif %}
       </video>
 
     {% endif %}
