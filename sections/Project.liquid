@@ -1410,7 +1410,6 @@ document.addEventListener("DOMContentLoaded", function() {
   // -------------------------------
   // EXTERIOR CLICK → toggle dropdown
   exteriorToggle?.addEventListener("click", function(e) {
-    console.log('clicked on exterior')
     e.stopPropagation();
     const isActive = this.classList.contains("active");
     // Close all dropdowns first
@@ -1418,6 +1417,8 @@ document.addEventListener("DOMContentLoaded", function() {
     tabs_outer.display='block'
     tabs_outer.classList.add('exterior') 
     tabs_outer.classList.remove('interior')
+    console.log('clicked on exterior done')
+
     document.querySelectorAll(".surface-options").forEach(opt => opt.style.display = "none");
     document.querySelectorAll(".surface-toggle").forEach(el => el.classList.remove("active"));
     document.querySelector('.exteriour_tabs_section').classList.add('active');
