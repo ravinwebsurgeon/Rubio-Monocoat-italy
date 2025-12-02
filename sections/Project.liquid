@@ -1338,6 +1338,7 @@ document.addEventListener("DOMContentLoaded", function() {
       circleTabsInner.style.display = 'block';
 
       //Now select the species
+      if(type){
         let filetr__circleTabs = circleTabsInner.querySelectorAll('.circle-tab')
         filetr__circleTabs.forEach(function(my_tab) {
           let tab_text =my_tab.textContent.trim().toLowerCase();
@@ -1346,6 +1347,17 @@ document.addEventListener("DOMContentLoaded", function() {
             my_tab.classList.add('active')
           }
         });
+      }
+
+      //select color option
+      let color_main = document.getElementById('#colour-options')
+      let color_options = color_main.querySelectorAll('.option-btn')
+      color_options.forEach(function(option){
+        let exist_color = option.textContent.trim().toLowercase();
+        if(product_color.toLowercase() == exist_color){
+          option.classList.add('.active')
+        }
+      });
     }
 
 
