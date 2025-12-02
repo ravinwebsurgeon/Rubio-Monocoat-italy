@@ -421,7 +421,11 @@ document.querySelectorAll('.card-wrapper').forEach(card => {
 
   // Trigger update on page load
   updateCardImages(card);
+const productJsonEl = card.querySelector(".product-json");
+  if (!productJsonEl) return;
 
+  const productData = JSON.parse(productJsonEl.textContent);
+  console.log('can e get ',productData)
   // Swatches
   card.querySelectorAll('.color-swatch-input.main_card').forEach(input => {
     input.addEventListener('change', () => updateCardImages(card));
