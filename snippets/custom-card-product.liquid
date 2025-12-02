@@ -416,6 +416,97 @@
 }
 
 </style>
+<script>
+document.querySelectorAll('.card-wrapper').forEach(card => {
+
+  // Trigger update on page load
+  updateCardImages(card);
+  const productJsonEl = card.querySelector(".product-json");
+  if (!productJsonEl) return;
+
+  const productData = JSON.parse(productJsonEl.textContent);
+  // Swatches
+  card.querySelectorAll('.color-swatch-input.main_card').forEach(input => {
+    input.addEventListener('change', () => {
+      updateCardImages(card)
+    });
+  });
+
+  // Dropdowns
+  card.querySelectorAll('.option-variant-selector').forEach(select => {
+    select.addEventListener('change', () => {
+      updateCardImages(card)
+    });
+  });
+
+});
+
+
+function normalizeValue(val) {
+  return val.trim().toLowerCase();
+}
+
+function getSelectedOptions(card) {
+  let selected = [];
+
+  const swatches = card.querySelectorAll('.color-swatch-input:checked');
+  swatches.forEach(s => selected.push(s.dataset.value));
+
+  const selects = card.querySelectorAll('.option-variant-selector');
+  selects.forEach(sel => selected.push(sel.value));
+
+  return selected;
+}
+
+function updateCardImages(card) {
+
+  const mediaBlocks = card.querySelectorAll(".product__media");
+  const selectedOptions = getSelectedOptions(card);
+
+  let matched = null;
+  let fallbackNoAlt = null;
+
+  mediaBlocks.forEach(block => {
+    const alt = block.dataset.altDetail ? block.dataset.altDetail.trim() : "";
+    const altParts = alt ? alt.split('/').map(p => normalizeValue(p)) : [];
+
+    // save fallback (no alt)
+    if (!alt || alt === "") {
+      if (!fallbackNoAlt) fallbackNoAlt = block;
+    }
+
+    // matching logic
+    let isMatch = true;
+    for (let i = 0; i < selectedOptions.length; i++) {
+      if (normalizeValue(selectedOptions[i]) !== altParts[i]) {
+        isMatch = false;
+        break;
+      }
+    }
+
+    if (isMatch && alt !== "") matched = block;
+  });
+
+  // Hide all
+  mediaBlocks.forEach(block => block.style.display = "none");
+
+  if (matched) {
+    matched.style.display = "block";
+    return;
+  }
+
+  if (fallbackNoAlt) {
+    fallbackNoAlt.style.display = "block";
+    return;
+  }
+
+  // default to first
+  if (mediaBlocks.length > 0) {
+    mediaBlocks[0].style.display = "block";
+  }
+}
+
+</script>
 
 
 <script>
@@ -431,71 +522,25 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!productJsonEl) return;
     const productData = JSON.parse(productJsonEl.textContent);
 
-      // 🔹 Function to handle variant stock check
-      function handleVariantStock(variant) {
-        if (!variant) return;
-        const qty = variant.inventory_quantity || 0;
-        const canContinue = variant.inventory_policy === "continue";
-        if (variant.available) {
-          addToCartBtn.classList.remove("disabled-btn");
-          addToCartBtn.disabled = false;
-        } else {
-          addToCartBtn.classList.add("disabled-btn");
-          addToCartBtn.disabled = true;
-        }
-      }
-      function updateCardPrice(matchedVariant,card){
-      const formattedPrice = formatPrice(matchedVariant.price)
-      card.querySelector('.price-item').textContent =  formattedPrice
-
-      }
-    function updateCardImages(card) {
-
-      const mediaBlocks = card.querySelectorAll(".product__media");
-      const selectedOptions = getSelectedOptions(card);
-
-      let matched = null;
-      let fallbackNoAlt = null;
-
-      mediaBlocks.forEach(block => {
-        const alt = block.dataset.altDetail ? block.dataset.altDetail.trim() : "";
-        const altParts = alt ? alt.split('/').map(p => normalizeValue(p)) : [];
-
-        // save fallback (no alt)
-        if (!alt || alt === "") {
-          if (!fallbackNoAlt) fallbackNoAlt = block;
-        }
-
-        // matching logic
-        let isMatch = true;
-        for (let i = 0; i < selectedOptions.length; i++) {
-          if (normalizeValue(selectedOptions[i]) !== altParts[i]) {
-            isMatch = false;
-            break;
-          }
-        }
-
-        if (isMatch && alt !== "") matched = block;
-      });
-
-      // Hide all
-      mediaBlocks.forEach(block => block.style.display = "none");
-
-      if (matched) {
-        matched.style.display = "block";
-        return;
-      }
-
-      if (fallbackNoAlt) {
-        fallbackNoAlt.style.display = "block";
-        return;
-      }
-
-      // default to first
-      if (mediaBlocks.length > 0) {
-        mediaBlocks[0].style.display = "block";
+  // 🔹 Function to handle variant stock check
+    function handleVariantStock(variant) {
+      if (!variant) return;
+      const qty = variant.inventory_quantity || 0;
+      const canContinue = variant.inventory_policy === "continue";
+      if (variant.available) {
+        addToCartBtn.classList.remove("disabled-btn");
+        addToCartBtn.disabled = false;
+      } else {
+        addToCartBtn.classList.add("disabled-btn");
+        addToCartBtn.disabled = true;
       }
     }
+    function updateCardPrice(matchedVariant,card){
+    const formattedPrice = formatPrice(matchedVariant.price)
+    card.querySelector('.price-item').textContent =  formattedPrice
+
+    }
+
     // Handle color swatch selection
     colorSwatches.forEach(swatch => {
       swatch.addEventListener("change", () => {
@@ -505,7 +550,6 @@ document.addEventListener("DOMContentLoaded", () => {
           variantInput.value = matchedVariant.id;
           handleVariantStock(matchedVariant);
           updateCardPrice(matchedVariant,card);
-          updateCardImages(card)
         }
       });
     });
@@ -519,7 +563,6 @@ document.addEventListener("DOMContentLoaded", () => {
           variantInput.value = matchedVariant.id;
           handleVariantStock(matchedVariant);
           updateCardPrice(matchedVariant,card);
-          updateCardImages(card)
         }
       });
     });
@@ -542,21 +585,5 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   });
-  
-function normalizeValue(val) {
-  return val.trim().toLowerCase();
-}
-
-function getSelectedOptions(card) {
-  let selected = [];
-
-  const swatches = card.querySelectorAll('.color-swatch-input:checked');
-  swatches.forEach(s => selected.push(s.dataset.value));
-
-  const selects = card.querySelectorAll('.option-variant-selector');
-  selects.forEach(sel => selected.push(sel.value));
-
-  return selected;
-}
 });
 </script>
