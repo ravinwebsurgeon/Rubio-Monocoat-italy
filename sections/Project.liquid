@@ -1323,7 +1323,10 @@ document.addEventListener("DOMContentLoaded", function() {
         let circleTabsInner =  document.querySelector('.circle-tabs-outer')
         let filetr__circleTabs = circleTabsInner.querySelectorAll('.circle-tab')
         filetr__circleTabs.forEach(function(my_tab) {
-          console.log(my_tab.textContent,'tabText')
+          let tab_text =my_tab.textContent.trim().toLowerCase();
+          if(tab_text == type.toLowerCase()){
+            my_tab.classList.add('active')
+          }
         });
        if (collection_name == "exterior") {
         const exteriorEl = document.querySelector(".exterior.exterior-main.surface-toggle");
