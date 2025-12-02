@@ -418,25 +418,33 @@
 </style>
 <script>
 document.querySelectorAll('.card-wrapper').forEach(card => {
+  const productJsonEl = card.querySelector(".product-json");
+  if (!productJsonEl) return;
 
-  // Trigger update on page load
+  const productData = JSON.parse(productJsonEl.textContent);
+
+  console.log("Initializing card:", productData.title);
+
+  // Show default media and price
   updateCardImages(card);
+  updateCardPrice(card, getDefaultVariant(productData));
 
   // Swatches
-  card.querySelectorAll('.color-swatch-input.main_card').forEach(input => {
-    input.addEventListener('change', () => updateCardImages(card));
+  card.querySelectorAll('.color-swatch-input').forEach(input => {
+    input.addEventListener('change', () => handleVariantChange(card, productData));
   });
 
   // Dropdowns
   card.querySelectorAll('.option-variant-selector').forEach(select => {
-    select.addEventListener('change', () => updateCardImages(card));
+    select.addEventListener('change', () => handleVariantChange(card, productData));
   });
 
 });
 
+// ---------------- FUNCTIONS ----------------
 
 function normalizeValue(val) {
-  return val.trim().toLowerCase();
+  return val ? val.trim().toLowerCase() : "";
 }
 
 function getSelectedOptions(card) {
@@ -448,8 +456,23 @@ function getSelectedOptions(card) {
   const selects = card.querySelectorAll('.option-variant-selector');
   selects.forEach(sel => selected.push(sel.value));
 
+  console.log("Selected options:", selected);
   return selected;
 }
+
+function getDefaultVariant(productData) {
+  return productData.variants.find(v => v.id == productData.selected_or_first_available_variant.id);
+}
+
+function findVariant(productData, selectedOptions) {
+  if (!selectedOptions.length) return getDefaultVariant(productData);
+
+  return productData.variants.find(v => {
+    return v.options.every((opt, i) => normalizeValue(opt) === normalizeValue(selectedOptions[i]));
+  });
+}
+
+// ---------------- MEDIA ----------------
 
 function updateCardImages(card) {
   const mediaBlocks = card.querySelectorAll(".product__media");
@@ -462,12 +485,10 @@ function updateCardImages(card) {
     const alt = block.dataset.altDetail ? block.dataset.altDetail.trim() : "";
     const altParts = alt ? alt.split('/').map(p => normalizeValue(p)) : [];
 
-    // save fallback (no alt)
     if (!alt || alt === "") {
       if (!fallbackNoAlt) fallbackNoAlt = block;
     }
 
-    // matching logic
     let isMatch = true;
     for (let i = 0; i < selectedOptions.length; i++) {
       if (normalizeValue(selectedOptions[i]) !== altParts[i]) {
@@ -479,26 +500,60 @@ function updateCardImages(card) {
     if (isMatch && alt !== "") matched = block;
   });
 
-  // Hide all
   mediaBlocks.forEach(block => block.style.display = "none");
 
   if (matched) {
     matched.style.display = "block";
+    console.log("Matched media shown:", matched);
     return;
   }
 
   if (fallbackNoAlt) {
     fallbackNoAlt.style.display = "block";
+    console.log("Fallback media shown (no alt):", fallbackNoAlt);
     return;
   }
 
-  // default to first
   if (mediaBlocks.length > 0) {
     mediaBlocks[0].style.display = "block";
+    console.log("Default first media shown:", mediaBlocks[0]);
   }
 }
 
+// ---------------- PRICE ----------------
+
+function updateCardPrice(card, variant) {
+  if (!variant) return;
+
+  const priceContainer = card.querySelector(".product-card-price");
+  if (!priceContainer) return;
+
+  let html = '';
+  const formattedPrice = Shopify.formatMoney(variant.price);
+  html += `<span class="price price--regular">${formattedPrice}</span>`;
+
+  if (variant.compare_at_price && variant.compare_at_price > variant.price) {
+    const formattedCompare = Shopify.formatMoney(variant.compare_at_price);
+    html += `<span class="price price--compare">${formattedCompare}</span>`;
+  }
+
+  priceContainer.innerHTML = html;
+  console.log("Price updated:", html);
+}
+
+// ---------------- HANDLE VARIANT CHANGE ----------------
+
+function handleVariantChange(card, productData) {
+  const selectedOptions = getSelectedOptions(card);
+  const matchedVariant = findVariant(productData, selectedOptions);
+
+  console.log("Matched variant:", matchedVariant);
+
+  updateCardImages(card);
+  updateCardPrice(card, matchedVariant);
+}
 </script>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
