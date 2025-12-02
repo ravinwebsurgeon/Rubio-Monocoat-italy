@@ -1355,9 +1355,10 @@ document.addEventListener("DOMContentLoaded", function() {
       color_options.forEach(function(option){
         let exist_color = option.getAttribute('data-value').toLowerCase();
         console.log(exist_color,'color optn',product_color)
-        {% comment %} if(product_color == exist_color){
-          option.classList.add('active')
-        } {% endcomment %}
+         if(product_color == exist_color){
+          {% comment %} option.classList.add('active') {% endcomment %}
+           console.log('matched',exist_color)
+        } 
       });
     }
 
