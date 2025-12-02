@@ -1364,13 +1364,36 @@ document.addEventListener("DOMContentLoaded", function() {
 
        //show and hide products
        let all_products = document.querySelectorAll('.product-item')
+       let activeTab = circleTabsInner.querySelectorAll('.circle-tab.active')
+      let activeTag = '';
+
+      // For interior/exterior you may have different data attributes
+      if (activeTab) {
+        activeTag =
+          activeTab.dataset.exteriorTagName ||
+          activeTab.dataset.exteriorVTagName ||
+          activeTab.dataset.interiorTagName ||
+          '';
+      }
        all_products.forEach(function(product){
-          let colour = product.dataset.colours;
-          let tags = product.dataset.tags;
+          {% comment %} let colour = product.dataset.colours; {% endcomment %}
+          {% comment %} let tags = product.dataset.tags; {% endcomment %}
           {% comment %} if(product_color == colour){
             product.style.display = 'block'
           }
           else{product.style.display = 'none'} {% endcomment %}
+
+        let productColor = (product.dataset.colours || '').toLowerCase();
+        let productTags = (product.dataset.tags || '').split(','); // array
+
+        let matchColor = productColor === product_color.toLowerCase();
+        let matchTag = activeTag ? productTags.includes(activeTag) : true;
+
+        if (matchColor && matchTag) {
+            product.style.display = 'block';
+        } else {
+            product.style.display = 'none';
+        }
 
        })
     }
