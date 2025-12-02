@@ -676,7 +676,7 @@ button.show-more-swatches {
           const allImages = my_cart.querySelectorAll(".product__image__item.first__visit");
           allImages[0].style.display = "block";
           allImages.forEach(img => {
-  img.classList.remove("first__visit");
+          img.classList.remove("first__visit");
 });
           {% comment %} const response = await fetch(`/products/${handle}.js`);
           const product = await response.json();
