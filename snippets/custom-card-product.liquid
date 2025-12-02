@@ -98,6 +98,7 @@
         >
 
       {% elsif media.media_type == 'video' %}
+          {% assign poster_image = media.preview_image | img_url: 'master' %}
         {{ media | video_tag: 
             class: 'product__video',
             controls: false,
@@ -106,7 +107,8 @@
             muted: true,
             playsinline: true,
             preload: 'metadata',
-             poster: media.preview_image | image_url
+             poster: poster_image
+
         }}
 
       {% endif %}
