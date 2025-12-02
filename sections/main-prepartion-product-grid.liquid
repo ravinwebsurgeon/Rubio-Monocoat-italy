@@ -885,7 +885,6 @@ function updateVariantId(cart, variants, variantIdInput) {
     // Update hidden variant ID input
     variantIdInput.value = foundVariant.id;
     console.log("Variant matched:", foundVariant.id, foundVariant);
-    {% comment %} changeMaxQty(foundVariant.) {% endcomment %}
 
     // Update product images
     const allImages = cart.querySelectorAll(".product__image__item");
