@@ -75,9 +75,9 @@
                     >
                   {% endif %}
                 </a> {% endcomment %}
-                <a href="{{ product.url }}" class="product-card" data-product-id="{{ product.id }}">
+                <a href="{{ card_product.url }}" class="product-card" data-product-id="{{ card_product.id }}">
 
-  {% for media in product.media %}
+  {% for media in card_product.media %}
 
     {% if media.media_type == 'image' %}
 
