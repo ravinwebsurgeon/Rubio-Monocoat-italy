@@ -1311,10 +1311,12 @@ document.addEventListener("DOMContentLoaded", function() {
   let collection_name =''
   let product_color='';
   let type = '';
+  let surface = ''
     if(result.name){
       collection_name = result.name.toLowerCase();
-       product_color = result.color;
+      product_color = result.color;
       type = result.type
+      if(result.surface) surface = result.surface;
     }
     
     if(collection_name){
