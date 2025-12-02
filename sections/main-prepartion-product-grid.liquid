@@ -722,13 +722,11 @@ button.show-more-swatches {
             const variants = productData.variants;
             const selectedVariant = variants.find(v => v.id === variantIdInt);
             console.log(selectedVariant.inventory_quantity,'selectedVariant Data') 
+            const maxStock = selectedVariant.inventory_quantity;
+              if (quantity > maxStock) {
+                  quantity = maxStock;
+              }
             }
-           
-
-            {% comment %} const maxStock = selectedVariant.inventory_quantity;
-            if (quantity > maxStock) {
-                desiredQty = maxStock;
-             } {% endcomment %}
             fetch('/cart/add.js', {
                 method: 'POST',
                 headers: {
