@@ -1384,7 +1384,7 @@ document.addEventListener("DOMContentLoaded", function() {
           else{product.style.display = 'none'} {% endcomment %}
           let productTagsArray = productTags.split(','); 
           let matchTag = activeTag ? productTagsArray.includes(activeTag) : true;
-
+          let matchColor = product_color.toLowerCase() === colour;
           if (matchColor && matchTag) {
              product.style.display = 'block';
           } else {
