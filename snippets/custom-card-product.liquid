@@ -419,68 +419,51 @@
 <script>
 document.querySelectorAll('.card-wrapper').forEach(card => {
 
+  // Trigger update on page load
+  updateCardImages(card);
   const productJsonEl = card.querySelector(".product-json");
   if (!productJsonEl) return;
 
   const productData = JSON.parse(productJsonEl.textContent);
-
-  // Trigger update on page load
-  updateCardImages(card);
-  updateCardPrice(card, getDefaultVariant(productData));
-
   // Swatches
   card.querySelectorAll('.color-swatch-input.main_card').forEach(input => {
     input.addEventListener('change', () => {
-      updateCardImages(card);
-      updateCardPrice(card, getMatchedVariant(card, productData));
+      updateCardImages(card)
+      updateCardPrice(card,productData)
     });
   });
 
   // Dropdowns
   card.querySelectorAll('.option-variant-selector').forEach(select => {
     select.addEventListener('change', () => {
-      updateCardImages(card);
-      updateCardPrice(card, getMatchedVariant(card, productData));
+      updateCardImages(card)
+      updateCardPrice(card,productData)
     });
   });
 
 });
 
-// ---------------- UTILITY FUNCTIONS ----------------
+
 function normalizeValue(val) {
-  return val ? val.trim().toLowerCase() : "";
+  return val.trim().toLowerCase();
 }
 
 function getSelectedOptions(card) {
   let selected = [];
 
-  // Color swatches
   const swatches = card.querySelectorAll('.color-swatch-input:checked');
   swatches.forEach(s => selected.push(s.dataset.value));
 
-  // Dropdowns
   const selects = card.querySelectorAll('.option-variant-selector');
   selects.forEach(sel => selected.push(sel.value));
 
   return selected;
 }
+function updateCardPrice(card,productData){
 
-// ---------------- VARIANT FUNCTIONS ----------------
-function getDefaultVariant(productData) {
-  return productData.variants.find(v => v.id == productData.selected_or_first_available_variant.id);
 }
-
-function getMatchedVariant(card, productData) {
-  const selectedOptions = getSelectedOptions(card);
-  if (!selectedOptions.length) return getDefaultVariant(productData);
-
-  return productData.variants.find(v => 
-    v.options.every((opt, i) => normalizeValue(opt) === normalizeValue(selectedOptions[i]))
-  ) || getDefaultVariant(productData);
-}
-
-// ---------------- MEDIA ----------------
 function updateCardImages(card) {
+
   const mediaBlocks = card.querySelectorAll(".product__media");
   const selectedOptions = getSelectedOptions(card);
 
@@ -491,12 +474,12 @@ function updateCardImages(card) {
     const alt = block.dataset.altDetail ? block.dataset.altDetail.trim() : "";
     const altParts = alt ? alt.split('/').map(p => normalizeValue(p)) : [];
 
-    // save fallback for media with no alt
+    // save fallback (no alt)
     if (!alt || alt === "") {
       if (!fallbackNoAlt) fallbackNoAlt = block;
     }
 
-    // match media to selected options
+    // matching logic
     let isMatch = true;
     for (let i = 0; i < selectedOptions.length; i++) {
       if (normalizeValue(selectedOptions[i]) !== altParts[i]) {
@@ -508,7 +491,7 @@ function updateCardImages(card) {
     if (isMatch && alt !== "") matched = block;
   });
 
-  // Hide all media first
+  // Hide all
   mediaBlocks.forEach(block => block.style.display = "none");
 
   if (matched) {
@@ -521,30 +504,12 @@ function updateCardImages(card) {
     return;
   }
 
-  // default to first media
+  // default to first
   if (mediaBlocks.length > 0) {
     mediaBlocks[0].style.display = "block";
   }
 }
 
-// ---------------- PRICE ----------------
-function updateCardPrice(card, variant) {
-  if (!variant) return;
-
-  const priceContainer = card.querySelector(".product-card-price");
-  if (!priceContainer) return;
-
-  let html = '';
-  const formattedPrice = Shopify.formatMoney(variant.price);
-  html += `<span class="price price--regular">${formattedPrice}</span>`;
-
-  if (variant.compare_at_price && variant.compare_at_price > variant.price) {
-    const formattedCompare = Shopify.formatMoney(variant.compare_at_price);
-    html += `<span class="price price--compare">${formattedCompare}</span>`;
-  }
-
-  priceContainer.innerHTML = html;
-}
 </script>
 
 
