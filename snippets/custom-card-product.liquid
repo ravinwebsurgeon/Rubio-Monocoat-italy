@@ -421,7 +421,7 @@
 document.querySelectorAll('.card-wrapper').forEach(card => {
 
   // Trigger update on page load
-  updateCardImages(card);
+  {% comment %} updateCardImages(card);
   const productJsonEl = card.querySelector(".product-json");
   if (!productJsonEl) return;
 
@@ -440,7 +440,7 @@ document.querySelectorAll('.card-wrapper').forEach(card => {
     });
   });
 
-});
+}); {% endcomment %}
 
 
 function normalizeValue(val) {
@@ -459,6 +459,40 @@ function getSelectedOptions(card) {
   return selected;
 }
 
+
+
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+//open custom cart 
+  document.querySelectorAll(".product-card-wrapper").forEach(card => {
+    const variantInput = card.querySelector(".variant-selector");
+    const colorSwatches = card.querySelectorAll(".color-swatch-input");
+    const selects = card.querySelectorAll(".option-variant-selector");
+    const productJsonEl = card.querySelector(".product-json");
+    const addToCartBtn = card.querySelector(".product_cart_btn");
+    
+    if (!productJsonEl) return;
+    const productData = JSON.parse(productJsonEl.textContent);
+
+  // 🔹 Function to handle variant stock check
+    function handleVariantStock(variant) {
+      if (!variant) return;
+      const qty = variant.inventory_quantity || 0;
+      const canContinue = variant.inventory_policy === "continue";
+      if (variant.available) {
+        addToCartBtn.classList.remove("disabled-btn");
+        addToCartBtn.disabled = false;
+      } else {
+        addToCartBtn.classList.add("disabled-btn");
+        addToCartBtn.disabled = true;
+      }
+    }
+    function updateCardPrice(matchedVariant,card){
+    const formattedPrice = formatPrice(matchedVariant.price)
+    card.querySelector('.price-item').textContent =  formattedPrice
+
+    }
 function updateCardImages(card) {
 
   const mediaBlocks = card.querySelectorAll(".product__media");
@@ -506,40 +540,6 @@ function updateCardImages(card) {
     mediaBlocks[0].style.display = "block";
   }
 }
-
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-//open custom cart 
-  document.querySelectorAll(".product-card-wrapper").forEach(card => {
-    const variantInput = card.querySelector(".variant-selector");
-    const colorSwatches = card.querySelectorAll(".color-swatch-input");
-    const selects = card.querySelectorAll(".option-variant-selector");
-    const productJsonEl = card.querySelector(".product-json");
-    const addToCartBtn = card.querySelector(".product_cart_btn");
-    
-    if (!productJsonEl) return;
-    const productData = JSON.parse(productJsonEl.textContent);
-
-  // 🔹 Function to handle variant stock check
-    function handleVariantStock(variant) {
-      if (!variant) return;
-      const qty = variant.inventory_quantity || 0;
-      const canContinue = variant.inventory_policy === "continue";
-      if (variant.available) {
-        addToCartBtn.classList.remove("disabled-btn");
-        addToCartBtn.disabled = false;
-      } else {
-        addToCartBtn.classList.add("disabled-btn");
-        addToCartBtn.disabled = true;
-      }
-    }
-    function updateCardPrice(matchedVariant,card){
-    const formattedPrice = formatPrice(matchedVariant.price)
-    card.querySelector('.price-item').textContent =  formattedPrice
-
-    }
-
     // Handle color swatch selection
     colorSwatches.forEach(swatch => {
       swatch.addEventListener("change", () => {
@@ -549,6 +549,7 @@ document.addEventListener("DOMContentLoaded", () => {
           variantInput.value = matchedVariant.id;
           handleVariantStock(matchedVariant);
           updateCardPrice(matchedVariant,card);
+          updateCardImages(card)
         }
       });
     });
@@ -562,6 +563,7 @@ document.addEventListener("DOMContentLoaded", () => {
           variantInput.value = matchedVariant.id;
           handleVariantStock(matchedVariant);
           updateCardPrice(matchedVariant,card);
+          updateCardImages(card)
         }
       });
     });
