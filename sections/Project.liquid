@@ -1430,9 +1430,11 @@ document.addEventListener("DOMContentLoaded", function() {
       });
       section.querySelector('.filter-bar').style.display = 'flex';
       let products_wrapper = document.querySelector('.collection-exterior-colors');
-      products_wrapper.querySelectorAll('.product-item').forEach(item => {
-        item.style.display = 'block';
-      });
+      if(products_wrapper){
+        products_wrapper.querySelectorAll('.product-item').forEach(item => {
+          item.style.display = 'block';
+        });
+      }
       console.log(products_wrapper,'products_wrapper')
 
 document.querySelector('.Exterior-wrap').style.display = 'block'
