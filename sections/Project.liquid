@@ -1526,12 +1526,12 @@ document.addEventListener("DOMContentLoaded", function() {
   // EXTERIOR CLICK → toggle dropdown
   exteriorToggle?.addEventListener("click", function(e) {
     e.stopPropagation();
-      const filterBtns = document.querySelectorAll('.filter-btn');
-        const filterOptions = document.querySelectorAll('.filter-options');
-          const products = document.querySelectorAll('.product-item');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const filterOptions = document.querySelectorAll('.filter-options');
+    const products = document.querySelectorAll('.product-item');
 
 
-selectedColour = null;
+    selectedColour = null;
     selectedProduct = null;
     selectedSort = null;
 
@@ -1540,10 +1540,10 @@ selectedColour = null;
 
     filterOptions.forEach(panel => {
       panel.style.display = (panel.id === 'colour-options') ? 'flex' : 'none';
-      panel.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
-    });
+        panel.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
+      });
 
-    products.forEach(p => p.style.display = '');
+      products.forEach(p => p.style.display = '');
 
     const isActive = this.classList.contains("active");
     // Close all dropdowns first
