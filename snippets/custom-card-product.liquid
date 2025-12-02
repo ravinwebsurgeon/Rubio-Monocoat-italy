@@ -75,35 +75,44 @@
                     >
                   {% endif %}
                 </a> {% endcomment %}
-            <a href="{{ card_product.url }}" class="product-card" data-product-id="{{ card_product.id }}">
+<a href="{{ card_product.url }}" class="product-card" data-product-id="{{ card_product.id }}">
 
-  {% assign first_image_shown = false %}
+  {% assign first_media_shown = false %}
 
   {% for media in card_product.media %}
 
-    {% if media.media_type == 'image' %}
-      <img
-        src="{{ media | img_url: 'master' }}"
-        alt="{{ media.alt | escape }}"
-        loading="lazy"
-        class="product__img"
-        style="{% if first_image_shown == false %}display:block;{% else %}display:none;{% endif %}"
-      >
-      {% assign first_image_shown = true %}
+    {% assign alt_text = media.alt | default: "" %}
 
-    {% elsif media.media_type == 'video' %}
-      {{ media | video_tag: 
-          class: 'product__video',
-          controls: false,
-          autoplay: false,
-          loop: true,
-          muted: true,
-          preload: 'metadata'
-      }}
-      {% assign first_image_shown = true %}
+    <div 
+      class="product__media"
+      data-alt-detail="{{ alt_text | escape }}"
+      style="{% if first_media_shown == false %}display:block{% else %}display:none{% endif %}"
+    >
 
-    {% endif %}
+      {% if media.media_type == 'image' %}
+        <img
+          src="{{ media | img_url: 'master' }}"
+          alt="{{ alt_text | escape }}"
+          class="product__img"
+          loading="lazy"
+        >
 
+      {% elsif media.media_type == 'video' %}
+        {{ media | video_tag: 
+            class: 'product__video',
+            controls: false,
+            autoplay: false,
+            loop: true,
+            muted: true,
+            playsinline: true,
+            preload: 'metadata'
+        }}
+
+      {% endif %}
+
+    </div>
+
+    {% assign first_media_shown = true %}
   {% endfor %}
 </a>
               </div> 
@@ -439,26 +448,23 @@ function getSelectedOptions(card) {
 }
 
 function updateCardImages(card) {
-
-  const allImages = card.querySelectorAll(".product__img");
-  const allVideos = card.querySelectorAll(".product__video");
+  const mediaBlocks = card.querySelectorAll(".product__media");
   const selectedOptions = getSelectedOptions(card);
 
-  let matchedImage = null;
+  let matched = null;
   let fallbackNoAlt = null;
 
-  // Check images
-  allImages.forEach(img => {
+  mediaBlocks.forEach(block => {
+    const alt = block.dataset.altDetail ? block.dataset.altDetail.trim() : "";
+    const altParts = alt ? alt.split('/').map(p => normalizeValue(p)) : [];
 
-    // fallback image with NO alt
-    if (!img.alt || img.alt.trim() === "") {
-      if (!fallbackNoAlt) fallbackNoAlt = img;
+    // save fallback (no alt)
+    if (!alt || alt === "") {
+      if (!fallbackNoAlt) fallbackNoAlt = block;
     }
 
-    // Try to match variants
-    const altParts = img.alt ? img.alt.split('/').map(p => normalizeValue(p)) : [];
+    // matching logic
     let isMatch = true;
-
     for (let i = 0; i < selectedOptions.length; i++) {
       if (normalizeValue(selectedOptions[i]) !== altParts[i]) {
         isMatch = false;
@@ -466,23 +472,14 @@ function updateCardImages(card) {
       }
     }
 
-    if (isMatch && img.alt.trim() !== "") {
-      matchedImage = img;
-    }
+    if (isMatch && alt !== "") matched = block;
   });
 
   // Hide all
-  allImages.forEach(img => img.style.display = "none");
-  allVideos.forEach(video => video.style.display = "none");
+  mediaBlocks.forEach(block => block.style.display = "none");
 
-  // PRIORITY:
-  // 1. matched image
-  // 2. first fallback image or video with NO ALT
-  // 3. first image
-  // 4. first video
-
-  if (matchedImage) {
-    matchedImage.style.display = "block";
+  if (matched) {
+    matched.style.display = "block";
     return;
   }
 
@@ -491,14 +488,9 @@ function updateCardImages(card) {
     return;
   }
 
-  if (allImages.length > 0) {
-    allImages[0].style.display = "block";
-    return;
-  }
-
-  if (allVideos.length > 0) {
-    allVideos[0].style.display = "block";
-    return;
+  // default to first
+  if (mediaBlocks.length > 0) {
+    mediaBlocks[0].style.display = "block";
   }
 }
 
