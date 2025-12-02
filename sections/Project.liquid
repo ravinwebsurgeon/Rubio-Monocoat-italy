@@ -1382,10 +1382,11 @@ document.addEventListener("DOMContentLoaded", function() {
             product.style.display = 'block'
           }
           else{product.style.display = 'none'} {% endcomment %}
-          let matchTag = activeTag ? productTags.includes(activeTag) : true;
+          let productTagsArray = productTags.split(','); 
+          let matchTag = activeTag ? productTagsArray.includes(activeTag) : true;
 
           if (matchColor && matchTag) {
-              product.style.display = 'block';
+             product.style.display = 'block';
           } else {
               product.style.display = 'none';
           }
