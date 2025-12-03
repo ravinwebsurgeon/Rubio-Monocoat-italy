@@ -1743,29 +1743,31 @@ customFiltered();
       circleTabs.forEach(t => t.classList.remove("active"));
       // Get current query string without the '?'
         const queryString = window.location.search.substring(1);
-        const pairs = queryString.length ? queryString.split('&') : [];
-        const targetParam = 'filter.c.surface';
-        let newValue = '';
+const pairs = queryString.length ? queryString.split('&') : [];
 
-        if (surface__text.includes("horizontal")) {
-            newValue = "horizontal";
-        } else if (surface__text.includes("vertical")) {
-            newValue = "vertical";
-        }
-        let paramFound = false;
-        const updatedPairs = pairs.map(pair => {
-        const [key, value] = pair.split('=');
-        if (key === targetParam) {
-            paramFound = true; // mark as found
-            return `${key}=${encodeURIComponent(newValue.toLowerCase())}`;
-        }
-          return pair;
-        });
-        if (paramFound) {
-          const newQueryString = updatedPairs.join('&');
-          const newUrl = `${window.location.pathname}?${newQueryString}`;
-          window.history.replaceState(null, '', newUrl);
-        } 
+const targetParam = 'filter.c.surface';
+let newValue = '';
+
+if (surface__text.includes("horizontal")) {
+    newValue = "horizontal";
+} else if (surface__text.includes("vertical")) {
+    newValue = "vertical";
+}
+
+const encodedValue = encodeURIComponent(newValue.toLowerCase());
+let surfaceIndex = pairs.findIndex(p => p.startsWith(targetParam + "="));
+let nameIndex = pairs.findIndex(p => p.startsWith("filter.p.c.name="));
+if (surfaceIndex !== -1) {
+    pairs[surfaceIndex] = `${targetParam}=${encodedValue}`;
+}
+else if (nameIndex !== -1) {
+    const newParam = `${targetParam}=${encodedValue}`;
+    pairs.splice(nameIndex + 1, 0, newParam);
+}
+
+const newQueryString = pairs.join('&');
+const newUrl = `${window.location.pathname}?${newQueryString}`;
+window.history.replaceState(null, '', newUrl); 
         customFiltered();
     });
   });
