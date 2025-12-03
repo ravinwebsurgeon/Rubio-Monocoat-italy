@@ -12,5 +12,16 @@
   "context": {
     "market": "it"
   },
-  "sections": {}
+  "sections": {
+    "footer": {
+      "settings": {},
+      "blocks": {
+        "text_hWeadq": {
+          "settings": {
+            "subtext": "<p><strong>Rubio Monocoat Italia srl</strong></p><p>Cernusco sul Naviglio (MI)<br/>20063 Via Torino 24/8<br/>Italia</p><p>VAT: IT0607980657</p><p>info@rubiomonocoat.it</p>"
+          }
+        }
+      }
+    }
+  }
 }
