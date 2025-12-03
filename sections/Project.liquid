@@ -1780,8 +1780,7 @@ document.addEventListener("click", function(e) {
       const newUrl = `${window.location.pathname}?${newQueryString}`;
       window.history.replaceState(null, '', newUrl);
     } 
-
-    {% comment %} customFiltered(); {% endcomment %}
+    customFiltered();
   }
 });
  
