@@ -1452,7 +1452,12 @@ document.addEventListener("DOMContentLoaded", function() {
           } else {
               product.style.display = 'none';
           }
-       })     
+       })
+       document.querySelectorAll('.tab-products-wrap').forEach(function(section) {
+          const items = section.querySelectorAll('.product-item');
+          const hasVisible = Array.from(items).some(item => item.style.display !== 'none');
+          section.style.display = hasVisible ? 'block' : 'none';
+      });     
     }
 
 //end avil filter code
