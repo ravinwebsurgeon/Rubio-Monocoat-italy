@@ -1106,7 +1106,7 @@ if (updatedPairs.length !== pairs.length) {
     const newUrl = newQueryString ? `${window.location.pathname}?${newQueryString}` : window.location.pathname;
     window.history.replaceState(null, '', newUrl);
 }
-{% comment %} customFiltered() {% endcomment %}
+customFiltered()
   });
 
   // --- Filtering ---
