@@ -1232,7 +1232,28 @@ document.addEventListener('click', (e) => {
       panel.style.display = (panel.id === 'colour-options') ? 'flex' : 'none';
       panel.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
     });
-    products.forEach(p => p.style.display = '');
+    {% comment %} products.forEach(p => p.style.display = ''); {% endcomment %}
+     const circleActive = document.querySelector('.circle-tab.active');
+
+const activeTag =
+    circleActive?.dataset.exteriorVTagName ||
+    circleActive?.dataset.exteriorTagName ||
+    circleActive?.dataset.interiorTagName ||
+    null;
+
+const productsParent = document.querySelector(
+    interior_active
+        ? '.tab-products-wrap.Interior-wrap'
+        : '.tab-products-wrap.Exterior-wrap'
+);
+
+const products = Array.from(productsParent.querySelectorAll('.product-item'))
+    .filter(item => {
+        const tags = item.dataset.tags?.split(',') || [];
+        return tags.includes(activeTag);
+    });
+
+products.forEach(p => p.style.display = '');
   });
 
   // --- Filtering ---
