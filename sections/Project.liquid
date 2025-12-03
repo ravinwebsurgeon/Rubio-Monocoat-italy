@@ -1766,7 +1766,11 @@ else if (nameIndex !== -1) {
 }
 
 const newQueryString = pairs.join('&');
-const newUrl = `${window.location.pathname}?${newQueryString}`;
+{% comment %} const newUrl = `${window.location.pathname}?${newQueryString}`; {% endcomment %}
+ const newUrl =
+    newQueryString.length > 0
+        ? `${window.location.pathname}?${newQueryString}`
+        : window.location.pathname;
 window.history.replaceState(null, '', newUrl); 
         customFiltered();
     });
