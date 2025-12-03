@@ -1612,14 +1612,16 @@ customFiltered();
     const targetParam = 'filter.p.c.name';
     const newValue = 'exterior';
     let paramFound = false;
-    const updatedPairs = pairs.map(pair => {
-    const [key, value] = pair.split('=');
-    if (key === targetParam) {
-        paramFound = true; // mark as found
-        return `${key}=${encodeURIComponent(newValue)}`;
+    if(pairs)
+      const updatedPairs = pairs.map(pair => {
+      const [key, value] = pair.split('=');
+      if (key === targetParam) {
+          paramFound = true; // mark as found
+          return `${key}=${encodeURIComponent(newValue)}`;
+      }
+        return pair;
+      });
     }
-      return pair;
-    });
     if (paramFound) {
       const newQueryString = updatedPairs.join('&');
       const newUrl = `${window.location.pathname}?${newQueryString}`;
