@@ -1220,7 +1220,7 @@ document.addEventListener('click', (e) => {
        const queryString = window.location.search.substring(1);
     const pairs = queryString.length ? queryString.split('&') : [];
     const targetParam = 'filter.v.color';
-    const newValue = circleTab.textContent.trim();
+    const newValue = value;
     let paramFound = false;
     const updatedPairs = pairs.map(pair => {
     const [key, value] = pair.split('=');
