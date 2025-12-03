@@ -1745,7 +1745,7 @@ customFiltered();
     const queryString = window.location.search.substring(1);
     const pairs = queryString.length ? queryString.split('&') : [];
     const targetParam = 'filter.c.surface';
-    const newValue = '';
+    let newValue = '';
 
     if (surface__text.includes("Horizontal")) {
         newValue = "horizontal";
