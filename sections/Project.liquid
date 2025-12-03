@@ -1856,19 +1856,6 @@ document.addEventListener("click", function(e) {
     customFiltered();
   }
 });
- 
- 
-  // -------------------------------
-  // Click outside dropdown → close exterior dropdown
-  {% comment %} 
-   comment by amanpreet for show exterior main when we choose any circle tab
-   document.addEventListener("click", function(e) {
-    
-    if (!exteriorToggle?.contains(e.target) && !surfaceOptions?.contains(e.target)) {
-      surfaceOptions?.style.setProperty("display", "none");
-      exteriorToggle?.classList.remove("active");
-    }
-  }); {% endcomment %}
 });
  /* circle tabs */
   function showproducts() {
