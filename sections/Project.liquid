@@ -1332,10 +1332,54 @@ document.addEventListener("DOMContentLoaded", function() {
 </script> {% endcomment %}
 
 <script>
+  function renderTabs(collectionType) {
+      const tabsContainer = document.querySelector('.circle-tabs-outer .circle-tabs');
+      const collectionData = window.collectionDataCache?.[`${collectionType}-colors`]?.metafields;
+      console.log('called from ',collectionType, 'section',collectionData)
+      
+      if (!collectionData || !tabsContainer) return;
 
-document.addEventListener("DOMContentLoaded", function() {
-//onload if fiter avail in url
-customFiltered();
+      tabsContainer.innerHTML = '';   
+      // Create new tabs
+      collectionData.species_titles.forEach((title, index) => {
+        const imageUrl = collectionData.species_images[index];
+        const tagName = collectionData.species_tag_name[index];
+        const verticaltagName = collectionData.species_vertical_tag_name[index];
+    
+        const tabButton = document.createElement('button');
+        tabButton.className = `circle-tab ${collectionType}-tab`;
+        tabButton.setAttribute('data-tab', `${collectionType}-tab-${index}`);
+        //tabButton.setAttribute('data-tag-name', tagName);
+        tabButton.setAttribute('data-collection-type', collectionType);
+
+        if (collectionType === 'exterior') {
+          const h_tag = collectionData.species_tag_name?.[index] || '';
+          const v_tag = collectionData.species_vertical_tag_name?.[index] || '';
+          tabButton.setAttribute('data-exterior-tag-name', h_tag);
+          tabButton.setAttribute('data-exterior-v-tag-name', v_tag);
+        } else {
+        // For interior
+          const tagName = collectionData.species_tag_name?.[index] || '';
+          tabButton.setAttribute('data-interior-tag-name', tagName);
+        }
+      
+        tabButton.innerHTML = `
+          ${imageUrl ? `
+            <span class="circle-tab-ing">
+              <img src="${imageUrl}" alt="${title}" width="200" height="200" loading="lazy">
+            </span>
+          ` : ''}
+          <span>${title}</span>
+        `;
+      
+        tabsContainer.appendChild(tabButton);
+      });
+       // Make sure the tabs container is visible
+        const circleTabsOuter = document.querySelector('.circle-tabs-outer');
+        circleTabsOuter?.classList.add('show-section');
+    }
+
+  function customFiltered(){
 
 	const params = new URLSearchParams(window.location.search);
   const result = {};
@@ -1453,56 +1497,133 @@ customFiltered();
         section.style.display = hasVisible ? 'block' : 'none';
       });     
     }
+  }
+
+document.addEventListener("DOMContentLoaded", function() {
+//onload if fiter avail in url
+customFiltered();
+{% comment %} 
+	const params = new URLSearchParams(window.location.search);
+  const result = {};
+  params.forEach((value, key) => {
+    if (key.startsWith("filter.")) {
+      // Take the last part after the final dot
+      const simpleKey = key.split(".").pop();
+      result[simpleKey] = value;
+    }
+    
+  });
+  let collection_name =''
+  let product_color='';
+  let type = '';
+  let surface = ''
+    if(result.name){
+      collection_name = result.name.toLowerCase();
+      product_color = result.color;
+      type = result.type
+      if(result.surface) surface = result.surface;
+    }
+    if(collection_name){
+      let circleTabsInner =  document.querySelector('.circle-tabs-outer')
+      if (collection_name == "exterior") {
+        circleTabsInner.classList.add('exterior')
+        const exteriorEl = document.querySelector(".exterior.exterior-main.surface-toggle");
+        if (exteriorEl) {exteriorEl.classList.add("active");}
+        const surfaceOptions = document.querySelector('.surface-options')
+      	surfaceOptions.style.display = 'flex';
+      }
+       if (collection_name == "interior") {
+        circleTabsInner.classList.add('interior')
+         const interiorEl = document.querySelector(".Interio");
+         if (interiorEl) {interiorEl.classList.add("active");}
+       }
+      renderTabs(collection_name);
+      let circleTabsSection = document.querySelector('.circle-tabs-section')
+      circleTabsSection.classList.add('active')
+      circleTabsInner.style.display = 'block';
+
+      //Now select the species
+      if(type){
+        let filetr__circleTabs = circleTabsInner.querySelectorAll('.circle-tab')
+        filetr__circleTabs.forEach(function(my_tab) {
+          let tab_text =my_tab.textContent.trim().toLowerCase();
+          console.log(tab_text , type.toLowerCase())
+          if(tab_text == type.toLowerCase()){
+            my_tab.classList.add('active')
+          }
+        });
+      }
+      if(surface && collection_name == 'exterior'){
+        let surface_items = document.querySelectorAll('.surface-item')
+        surface_items.forEach(function(item){
+          let parent_collection = item.getAttribute('data-collection');
+          if (parent_collection.includes(surface)) {item.classList.add('active') }
+        });
+      }
+
+      //select color option
+      let color_main = document.getElementById('colour-options')
+      let color_options = color_main.querySelectorAll('.option-btn')
+      color_options.forEach(function(option){
+        let exist_color = option.getAttribute('data-value').toLowerCase();
+         if(product_color == exist_color){
+          option.classList.add('active')
+           console.log('matched',exist_color)
+        } 
+      });
+       document.querySelector('.filters-panel').classList.add('open')
+       color_main.style.display = 'flex';
+
+       //show and hide products
+       let all_products = document.querySelectorAll('.product-item')
+       let activeTab = circleTabsInner.querySelector('.circle-tab.active')
+      let activeTag = '';
+
+      // For interior/exterior you may have different data attributes
+      if (activeTab) {
+            if (surface === 'vertical') {
+              activeTag =
+                  activeTab.dataset.exteriorVTagName ||
+                  activeTab.dataset.interiorTagName ||
+                  '';
+            } 
+            else if (surface === 'horizontal') {
+                activeTag =
+                    activeTab.dataset.exteriorTagName ||
+                    activeTab.dataset.interiorTagName ||
+                    '';
+            } 
+            else {
+                activeTag =
+                    activeTab.dataset.exteriorTagName ||
+                    activeTab.dataset.exteriorVTagName ||
+                    activeTab.dataset.interiorTagName ||
+                    '';
+            }
+      }
+       all_products.forEach(function(product){
+          let productColours = product.dataset.colours;
+          let productTags = product.dataset.tags;
+          
+          let productTagsArray = productTags.split(','); 
+          let matchTag = activeTag ? productTagsArray.includes(activeTag) : true;
+          let coloursArray = productColours.split(',');
+          let matchColor = coloursArray.includes(product_color.toLowerCase());
+
+          if (matchColor && matchTag) {product.style.display = 'block';}
+          else {product.style.display = 'none';}
+       })
+       document.querySelectorAll('.tab-products-wrap').forEach(function(section) {
+        const items = section.querySelectorAll('.product-item');
+        const hasVisible = Array.from(items).some(item => item.style.display !== 'none');
+        section.style.display = hasVisible ? 'block' : 'none';
+      });     
+    } {% endcomment %}
 
 //end avil filter code
 
 
-    function renderTabs(collectionType) {
-      const tabsContainer = document.querySelector('.circle-tabs-outer .circle-tabs');
-      const collectionData = window.collectionDataCache?.[`${collectionType}-colors`]?.metafields;
-      console.log('called from ',collectionType, 'section',collectionData)
-      
-      if (!collectionData || !tabsContainer) return;
-
-      tabsContainer.innerHTML = '';   
-      // Create new tabs
-      collectionData.species_titles.forEach((title, index) => {
-        const imageUrl = collectionData.species_images[index];
-        const tagName = collectionData.species_tag_name[index];
-        const verticaltagName = collectionData.species_vertical_tag_name[index];
-    
-        const tabButton = document.createElement('button');
-        tabButton.className = `circle-tab ${collectionType}-tab`;
-        tabButton.setAttribute('data-tab', `${collectionType}-tab-${index}`);
-        //tabButton.setAttribute('data-tag-name', tagName);
-        tabButton.setAttribute('data-collection-type', collectionType);
-
-        if (collectionType === 'exterior') {
-          const h_tag = collectionData.species_tag_name?.[index] || '';
-          const v_tag = collectionData.species_vertical_tag_name?.[index] || '';
-          tabButton.setAttribute('data-exterior-tag-name', h_tag);
-          tabButton.setAttribute('data-exterior-v-tag-name', v_tag);
-        } else {
-        // For interior
-          const tagName = collectionData.species_tag_name?.[index] || '';
-          tabButton.setAttribute('data-interior-tag-name', tagName);
-        }
-      
-        tabButton.innerHTML = `
-          ${imageUrl ? `
-            <span class="circle-tab-ing">
-              <img src="${imageUrl}" alt="${title}" width="200" height="200" loading="lazy">
-            </span>
-          ` : ''}
-          <span>${title}</span>
-        `;
-      
-        tabsContainer.appendChild(tabButton);
-      });
-       // Make sure the tabs container is visible
-        const circleTabsOuter = document.querySelector('.circle-tabs-outer');
-        circleTabsOuter?.classList.add('show-section');
-    }
+  
 
   // Sections
   const circleTabsOuter = document.querySelector(".circle-tabs-outer");
