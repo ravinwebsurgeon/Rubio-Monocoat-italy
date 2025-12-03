@@ -1401,8 +1401,9 @@ document.addEventListener("DOMContentLoaded", function() {
       }
       if(collection_name){
       let circleTabsInner =  document.querySelector('.circle-tabs-outer')
-      console.log('executed')
       if (collection_name == "exterior") {
+      console.log('executed exterior')
+
         circleTabsInner.classList.add('exterior')
         const exteriorEl = document.querySelector(".exterior.exterior-main.surface-toggle");
         if (exteriorEl) {exteriorEl.classList.add("active");}
