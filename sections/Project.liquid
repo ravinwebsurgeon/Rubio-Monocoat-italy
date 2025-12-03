@@ -1771,7 +1771,7 @@ document.addEventListener("click", function(e) {
     const [key, value] = pair.split('=');
     if (key === targetParam) {
         paramFound = true; // mark as found
-        return `${key}=${encodeURIComponent(newValue)}`;
+        return `${key}=${encodeURIComponent(newValue.toLowerCase())}`;
     }
       return pair;
     });
