@@ -532,20 +532,16 @@ window.collectionDataCache['interior-colors'] = {
 document.addEventListener('DOMContentLoaded', function() {
   const exteriorBtn = document.querySelector('.exterior');
   const toggleTargets = document.querySelectorAll('.filter-bar, .Exterior-wrap');
-
   if (exteriorBtn) {
     exteriorBtn.addEventListener('click', function(event) {
       event.stopPropagation(); // prevent immediate outside click trigger
       toggleTargets.forEach(el => el.classList.toggle('active'));
     });
   }
-
   // Close when clicking outside
   document.addEventListener('click', function(event) {
     const isClickInside = event.target.closest('.filter-bar, .Exterior-wrap, .exterior');
-    if (!isClickInside) {
-      toggleTargets.forEach(el => el.classList.remove('active'));
-    }
+    if (!isClickInside) {toggleTargets.forEach(el => el.classList.remove('active'));}
   });
 });
 </script>
