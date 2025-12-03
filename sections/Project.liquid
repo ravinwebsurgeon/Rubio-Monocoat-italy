@@ -1155,7 +1155,7 @@ document.addEventListener('DOMContentLoaded', function() {
           circleActive1?.dataset.exteriorTagName ||
           circleActive1?.dataset.interiorTagName ||
           null;
-  products = [...allProducts].filter(product => {
+  products = [...products].filter(product => {
     const tags = product.dataset.tags?.split(',') || [];
     return tags.includes(activeTag);
 });
