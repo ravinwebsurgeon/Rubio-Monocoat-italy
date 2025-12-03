@@ -673,7 +673,7 @@ button.show-more-swatches {
       customCarts.forEach(function(my_cart) {
         let my_handle = my_cart.dataset.productHandle;
         if(my_handle == handle){
-          const response = await fetch(`/products/${productHandle}.js`);
+          const response = await fetch(`/products/${handle}.js`);
           const product = await response.json();
           console.log(product,'sdsfsdf')
 
