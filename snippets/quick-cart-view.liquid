@@ -34,7 +34,7 @@
                           loading="lazy"
                           class="product__image__item first__visit"
                         width="" height="">
-                         {% elsif media.media_type == 'video' %}
+                         {% comment %} {% elsif media.media_type == 'video' %}
                       <video 
                         controls=false
                         autoplay=false 
@@ -45,7 +45,7 @@
                         {% if media.alt != blank %} data-alt="{{ media.alt | escape }}"{% endif %}
                       >
                         <source src="{{ media | video_url }}" type="video/mp4">
-                      </video>
+                      </video> {% endcomment %}
                       {% endif %}
                   {% endfor %}
                   </a>
