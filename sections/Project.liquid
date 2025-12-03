@@ -1334,10 +1334,11 @@ document.addEventListener("DOMContentLoaded", function() {
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 //onload if fiter avail in url
-customFiltered();
   function cutstomFiltered(){
   console.log('called on load th page')
   }
+customFiltered();
+
 	const params = new URLSearchParams(window.location.search);
   const result = {};
   params.forEach((value, key) => {
