@@ -1535,6 +1535,25 @@ document.addEventListener("DOMContentLoaded", function() {
   // -------------------------------
   // INTERIOR CLICK → show tabs + filter only
     interiorBtn?.addEventListener("click", function() {
+    const queryString = window.location.search.substring(1);
+    const pairs = queryString.length ? queryString.split('&') : [];
+    const targetParam = 'filter.p.c.name';
+    const newValue = 'interior';
+    let paramFound = false;
+    const updatedPairs = pairs.map(pair => {
+    const [key, value] = pair.split('=');
+    if (key === targetParam) {
+        paramFound = true; // mark as found
+        return `${key}=${encodeURIComponent(newValue)}`;
+    }
+      return pair;
+    });
+    if (paramFound) {
+      const newQueryString = updatedPairs.join('&');
+      const newUrl = `${window.location.pathname}?${newQueryString}`;
+      window.history.replaceState(null, '', newUrl);
+    } 
+
     const filterBtns = document.querySelectorAll('.filter-btn');
     const filterOptions = document.querySelectorAll('.filter-options');
     const products = document.querySelectorAll('.product-item');
