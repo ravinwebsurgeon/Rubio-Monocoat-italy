@@ -639,6 +639,9 @@ document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('.circle-tab.active').forEach(el => {
         el.classList.remove('active');
       });
+      /* remove active from filter section*/
+      let filter__items = document.querySelectorAll('.filter-item')
+      if(filter__items){filter__items.forEach(item => item.classList.remove('active'))}
  
       target.classList.add('active');
       document.getElementById(target.dataset.tab)?.classList.add('active');
