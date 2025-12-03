@@ -639,6 +639,7 @@ document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('.circle-tab.active').forEach(el => {
         el.classList.remove('active');
       });
+      console.log('clicked on cicle-tab')
       /* remove active from filter section*/
       let filter__items = document.querySelectorAll('.option-btn')
       if(filter__items){console.log('found it');filter__items.forEach(item => item.classList.remove('active'))}
