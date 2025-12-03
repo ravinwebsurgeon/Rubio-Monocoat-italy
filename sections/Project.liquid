@@ -1149,11 +1149,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const clearBtn = document.getElementById('clearFilters');
   const products = document.querySelectorAll('.product-item');
 
-   const circleActive = document.querySelector('.circle-tab.active');
-    const activeTag =
-          circleActive?.dataset.exteriorVTagName ||
-          circleActive?.dataset.exteriorTagName ||
-          circleActive?.dataset.interiorTagName ||
+   const circleActive1 = document.querySelector('.circle-tab.active');
+    const activeTag1 =
+          circleActive1?.dataset.exteriorVTagName ||
+          circleActive1?.dataset.exteriorTagName ||
+          circleActive1?.dataset.interiorTagName ||
           null;
   products = [...allProducts].filter(product => {
     const tags = product.dataset.tags?.split(',') || [];
