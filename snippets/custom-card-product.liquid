@@ -227,22 +227,14 @@
                         {% assign swatch_focal = '' %}
 
                         {% if value.swatch %}
-
                           {% if value.swatch.image %}
                             {% assign img_url = value.swatch.image | image_url: width: 50 %}
                             {% assign swatch_value = 'url(' | append: img_url | append: ')' %}
                             {% assign swatch_focal = value.swatch.image.presentation.focal_point %}
-                          
                           {% elsif value.swatch.color %}
                             {% assign swatch_value = 'rgb(' | append: value.swatch.color.rgb | append: ')' %}
-                          
                           {% endif %}
-
                         {% endif %}
-
-                        {%- comment -%}
-                        If no swatch exists, fallback to color name
-                        {%- endcomment -%}
                         {% if swatch_value == '' %}
                           {% assign swatch_value = value | downcase %}
                         {% endif %}
@@ -256,7 +248,7 @@
                             type="radio"
                             name="option-color-{{ forloop.parentloop.index0 }}"
                             value="{{ value | escape }}"
-                            {% if option.selected_value == value %}checked{% endif %}
+                            {% if forloop.first %}checked{% endif %}
                             class="color-swatch-input main_card"
                             data-value="{{ value | escape }}"
                           >
