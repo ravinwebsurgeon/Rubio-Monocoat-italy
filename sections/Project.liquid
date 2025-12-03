@@ -1358,12 +1358,14 @@ document.addEventListener("DOMContentLoaded", function() {
     if(collection_name){
        let circleTabsInner =  document.querySelector('.circle-tabs-outer')
        if (collection_name == "exterior") {
+        circleTabsInner.classList.add('exterior')
         const exteriorEl = document.querySelector(".exterior.exterior-main.surface-toggle");
         if (exteriorEl) {exteriorEl.classList.add("active");}
         const surfaceOptions = document.querySelector('.surface-options')
       	surfaceOptions.style.display = 'flex';
       }
        if (collection_name == "interior") {
+        circleTabsInner.classList.add('interior')
          const interiorEl = document.querySelector(".Interio");
          if (interiorEl) {interiorEl.classList.add("active");}
        }
