@@ -1332,8 +1332,8 @@ document.addEventListener("DOMContentLoaded", function() {
 </script> {% endcomment %}
 
 <script>
-  function cutstomFiltered(){
-    //onload if fiter avail in url
+document.addEventListener("DOMContentLoaded", function() {
+//onload if fiter avail in url
 	const params = new URLSearchParams(window.location.search);
   const result = {};
   params.forEach((value, key) => {
@@ -1462,12 +1462,11 @@ document.addEventListener("DOMContentLoaded", function() {
         const hasVisible = Array.from(items).some(item => item.style.display !== 'none');
         section.style.display = hasVisible ? 'block' : 'none';
     });     
-    }  
-  }
+    }
+
 //end avil filter code
 
-document.addEventListener("DOMContentLoaded", function() {
-cutstomFiltered();
+
     function renderTabs(collectionType) {
       const tabsContainer = document.querySelector('.circle-tabs-outer .circle-tabs');
       const collectionData = window.collectionDataCache?.[`${collectionType}-colors`]?.metafields;
