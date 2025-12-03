@@ -664,18 +664,19 @@ button.show-more-swatches {
         e.preventDefault();
         let productHandle = btn.dataset.productHandle
         const response = await fetch(`/products/${productHandle}.js`);
-          const product = await response.json();
-          console.log(product,'sdsfsdf')
-	      openCustomCart(productHandle) 
+        const product = await response.json();
+	      openCustomCart(productHandle,product) 
                
       });
     }); 
 
-    function openCustomCart(handle){
+    function openCustomCart(handle,product){
       let customCarts = document.querySelectorAll('.quick__cart__main')
       customCarts.forEach(function(my_cart) {
         let my_handle = my_cart.dataset.productHandle;
         if(my_handle == handle){
+          let pro_variants = product.variants;
+          console.log(pro_variants,'ddsfdsfds')
           let id = my_cart.querySelector(".variant-selector");
           my_cart.classList.add('active__Cart')
           const allImages = my_cart.querySelectorAll(".product__image__item.first__visit");
