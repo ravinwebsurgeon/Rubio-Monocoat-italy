@@ -527,6 +527,7 @@ window.collectionDataCache['interior-colors'] = {
   "presets": [{ "name": "Interior Collection", "category": "Custom" }]
 }
 {% endschema %}
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const exteriorBtn = document.querySelector('.exterior');
@@ -578,21 +579,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-
- {% comment %} document.addEventListener('DOMContentLoaded', function () {
-  const exteriorSection = document.querySelector('.circle-tabs-section.exteriour_tabs_section');
-  const interiorSection = document.querySelector('.circle-tabs-section.interior_tabs_section');
-
-  // Ensure both exist before trying to move
-  if (exteriorSection && interiorSection) {
-    // Move the exterior section ABOVE the interior section
-    interiorSection.parentNode.insertBefore(exteriorSection, interiorSection);
-    console.log('✅ Moved exterior section above interior section');
-  } else {
-    console.warn('⚠️ Could not find one or both sections');
-  }
-}); {% endcomment %}
-
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -668,46 +654,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // Run once on load
   showproducts();
 
-    {% comment %} <!-- comment by amanpreet --> {% endcomment %}
-  {% comment %} document.querySelectorAll('.circle-tab').forEach(btn => {
-    btn.addEventListener('click', function () {
-      document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove('active','asdf'));
-      document.querySelectorAll('.tab-products').forEach(c => c.classList.remove('active'));
-      this.classList.add('active');
-      document.getElementById(this.dataset.tab).classList.add('active');
-       showproducts(); 
-
-    });
-  
-  }); {% endcomment %}
-  
-
- 
-  /* video modal */
-  {% comment %} const openBtn = document.getElementById('openVideo'),
-        modal = document.getElementById('videoModal'),
-        closeBtn = document.getElementById('closeVideo'),
-        video = document.getElementById('expertVideo');
-
-  if (openBtn && modal && closeBtn && video) {
-    openBtn.addEventListener('click', () => {
-      modal.classList.add('active');
-      video.currentTime = 0;
-      video.play();
-    });
-    closeBtn.addEventListener('click', () => {
-      modal.classList.remove('active');
-      video.pause();
-    });
-    modal.addEventListener('click', e => {
-      if (e.target === modal) {
-        modal.classList.remove('active');
-        video.pause();
-      }
-    });
-  } {% endcomment %}
-
-  /* video modal */
 /* video modal */
 const openBtn = document.getElementById('openVideo'),
       modal = document.getElementById('videoModal'),
