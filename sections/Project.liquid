@@ -1332,22 +1332,22 @@ document.addEventListener("DOMContentLoaded", function() {
 </script> {% endcomment %}
 
 <script>
-    function customFiltered(){
+  function customFiltered(){
   
-	const params = new URLSearchParams(window.location.search);
-  const result = {};
-  params.forEach((value, key) => {
-    if (key.startsWith("filter.")) {
-      // Take the last part after the final dot
-      const simpleKey = key.split(".").pop();
-      result[simpleKey] = value;
-    }
-    
-  });
-  let collection_name =''
-  let product_color='';
-  let type = '';
-  let surface = ''
+    const params = new URLSearchParams(window.location.search);
+    const result = {};
+    params.forEach((value, key) => {
+      if (key.startsWith("filter.")) {
+        // Take the last part after the final dot
+        const simpleKey = key.split(".").pop();
+        result[simpleKey] = value;
+      }
+      
+    });
+    let collection_name =''
+    let product_color='';
+    let type = '';
+    let surface = ''
     if(result.name){
       collection_name = result.name.toLowerCase();
       product_color = result.color;
