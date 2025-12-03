@@ -1742,30 +1742,48 @@ customFiltered();
       // Remove active from circle tabs
       circleTabs.forEach(t => t.classList.remove("active"));
       // Get current query string without the '?'
-        const queryString = window.location.search.substring(1);
-        const pairs = queryString.length ? queryString.split('&') : [];
-        const targetParam = 'filter.c.surface';
-        let newValue = '';
+      const queryString = window.location.search.substring(1);
+const pairs = queryString.length ? queryString.split('&') : [];
 
-        if (surface__text.includes("horizontal")) {
-            newValue = "horizontal";
-        } else if (surface__text.includes("vertical")) {
-            newValue = "vertical";
+const targetParam = 'filter.c.surface';
+let newValue = '';
+
+if (surface__text.includes("horizontal")) {
+    newValue = "horizontal";
+} else if (surface__text.includes("vertical")) {
+    newValue = "vertical";
+}
+
+// Check if filter.c.surface already exists
+let surfaceExists = pairs.some(p => p.startsWith(targetParam + "="));
+
+if (!surfaceExists) {
+    // find index of "filter.p.c.name"
+    const nameIndex = pairs.findIndex(p => p.startsWith("filter.p.c.name="));
+
+    // build new param
+    const newParam = `${targetParam}=${encodeURIComponent(newValue.toLowerCase())}`;
+
+    if (nameIndex !== -1) {
+        // insert after name
+        pairs.splice(nameIndex + 1, 0, newParam);
+    } else {
+        // no name found → append at end
+        pairs.push(newParam);
+    }
+} else {
+    // update existing filter.c.surface
+    for (let i = 0; i < pairs.length; i++) {
+        if (pairs[i].startsWith(targetParam + "=")) {
+            pairs[i] = `${targetParam}=${encodeURIComponent(newValue.toLowerCase())}`;
         }
-        let paramFound = false;
-        const updatedPairs = pairs.map(pair => {
-        const [key, value] = pair.split('=');
-        if (key === targetParam) {
-            paramFound = true; // mark as found
-            return `${key}=${encodeURIComponent(newValue.toLowerCase())}`;
-        }
-          return pair;
-        });
-        if (paramFound) {
-          const newQueryString = updatedPairs.join('&');
-          const newUrl = `${window.location.pathname}?${newQueryString}`;
-          window.history.replaceState(null, '', newUrl);
-        } 
+    }
+}
+
+// Build final URL
+const newQueryString = pairs.join('&');
+const newUrl = `${window.location.pathname}?${newQueryString}`;
+window.history.replaceState(null, '', newUrl);
         customFiltered();
     });
   });
