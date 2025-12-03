@@ -1233,6 +1233,8 @@ document.addEventListener('click', (e) => {
       panel.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
     });
     {% comment %} products.forEach(p => p.style.display = ''); {% endcomment %}
+     const interior_active = document.querySelector('.Interio.active');
+    const exterior_active = document.querySelector('.exterior-main.surface-toggle.active');
      const circleActive = document.querySelector('.circle-tab.active');
 
 const activeTag =
