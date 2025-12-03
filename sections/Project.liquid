@@ -1713,6 +1713,7 @@ document.addEventListener("click", function(e) {
     
     // Determine which wrapper to show
     if (interiorBtn?.classList.contains("active")) {
+      console.log('yes interrior active')
       tabProductsInterior?.classList.add("show-section");
       tabProductsExterior?.classList.remove("show-section");
       let interiorSection = document.querySelector('.interior_tabs_section')
