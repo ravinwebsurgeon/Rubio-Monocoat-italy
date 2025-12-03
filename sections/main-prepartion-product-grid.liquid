@@ -673,8 +673,12 @@ button.show-more-swatches {
       customCarts.forEach(function(my_cart) {
         let my_handle = my_cart.dataset.productHandle;
         if(my_handle == handle){
-           let id = my_cart.querySelector(".variant-selector");
-           console.log(id,'sdsfsdf')
+          const response = await fetch(`/products/${productHandle}.js`);
+          const product = await response.json();
+          console.log(product,'sdsfsdf')
+
+          const variants = product.variants;
+          let id = my_cart.querySelector(".variant-selector");
           my_cart.classList.add('active__Cart')
           const allImages = my_cart.querySelectorAll(".product__image__item.first__visit");
           allImages[0].style.display = "block";
