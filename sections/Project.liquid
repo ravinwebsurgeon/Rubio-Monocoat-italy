@@ -1234,28 +1234,27 @@ document.addEventListener('click', (e) => {
     });
     {% comment %} products.forEach(p => p.style.display = ''); {% endcomment %}
      const interior_active = document.querySelector('.Interio.active');
-    const exterior_active = document.querySelector('.exterior-main.surface-toggle.active');
+     const exterior_active = document.querySelector('.exterior-main.surface-toggle.active');
      const circleActive = document.querySelector('.circle-tab.active');
+    const activeTag =
+          circleActive?.dataset.exteriorVTagName ||
+          circleActive?.dataset.exteriorTagName ||
+          circleActive?.dataset.interiorTagName ||
+          null;
 
-const activeTag =
-    circleActive?.dataset.exteriorVTagName ||
-    circleActive?.dataset.exteriorTagName ||
-    circleActive?.dataset.interiorTagName ||
-    null;
+    const productsParent = document.querySelector(
+          interior_active
+              ? '.tab-products-wrap.Interior-wrap'
+              : '.tab-products-wrap.Exterior-wrap'
+    );
 
-const productsParent = document.querySelector(
-    interior_active
-        ? '.tab-products-wrap.Interior-wrap'
-        : '.tab-products-wrap.Exterior-wrap'
-);
+    const products = Array.from(productsParent.querySelectorAll('.product-item'))
+          .filter(item => {
+              const tags = item.dataset.tags?.split(',') || [];
+              return tags.includes(activeTag);
+          });
 
-const products = Array.from(productsParent.querySelectorAll('.product-item'))
-    .filter(item => {
-        const tags = item.dataset.tags?.split(',') || [];
-        return tags.includes(activeTag);
-    });
-
-products.forEach(p => p.style.display = '');
+    products.forEach(p => p.style.display = '');
   });
 
   // --- Filtering ---
