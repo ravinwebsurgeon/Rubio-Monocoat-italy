@@ -1404,8 +1404,10 @@ document.addEventListener("DOMContentLoaded", function() {
       if (collection_name == "exterior") {
         circleTabsInner.classList.add('exterior')
         const exteriorEl = document.querySelector(".exterior.exterior-main.surface-toggle");
-        if (exteriorEl) {exteriorEl.classList.add("active");}
-      console.log('executed exterior', exteriorEl)
+        if (exteriorEl) {
+      console.log('executed exterior in if', exteriorEl)
+          
+          exteriorEl.classList.add("active");}
 
         const surfaceOptions = document.querySelector('.surface-options')
       	surfaceOptions.style.display = 'flex';
