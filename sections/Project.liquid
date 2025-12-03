@@ -1743,6 +1743,27 @@ document.addEventListener("click", function(e) {
     
     // Add active to clicked tab
     circleTab.classList.add("active");
+    // Get current query string without the '?'
+    const queryString = window.location.search.substring(1);
+    const pairs = queryString.length ? queryString.split('&') : [];
+    const collection_name = 'filter.p.s.name';
+    const targetParam = 'filter.p.s.type';
+    let newType = '';
+    if(collection_name == 'exterior'){ newType = 'exterior'; } if(collection_name == 'interior'){ newType = 'interior'; }
+    let paramFound = false;
+    const updatedPairs = pairs.map(pair => {
+    const [key, value] = pair.split('=');
+    if (key === targetParam) {
+        paramFound = true; // mark as found
+        return `${key}=${encodeURIComponent(newType)}`;
+    }
+      return pair;
+    });
+    if (paramFound) {
+      const newQueryString = updatedPairs.join('&');
+      const newUrl = `${window.location.pathname}?${newQueryString}`;
+      window.history.replaceState(null, '', newUrl);
+    } 
     
     // Determine which wrapper to show
     if (interiorBtn?.classList.contains("active")) {
@@ -1766,6 +1787,7 @@ document.addEventListener("click", function(e) {
     
     console.log('Circle tab clicked:', circleTab.getAttribute('data-tab'));
     showproducts();
+    customFiltered();
   }
 });
  
