@@ -1546,23 +1546,43 @@ customFiltered();
   // INTERIOR CLICK → show tabs + filter only
     interiorBtn?.addEventListener("click", function() {
     const queryString = window.location.search.substring(1);
-    const pairs = queryString.length ? queryString.split('&') : [];
-    const targetParam = 'filter.p.c.name';
-    const newValue = 'interior';
-    let paramFound = false;
-    const updatedPairs = pairs.map(pair => {
+const pairs = queryString.length ? queryString.split('&') : [];
+
+const targetParam = 'filter.p.c.name';
+const surfaceParam = 'filter.c.surface';
+const newValue = 'interior';
+
+let paramFound = false;
+
+// UPDATE filter.p.c.name
+const updatedPairs = pairs.map(pair => {
     const [key, value] = pair.split('=');
+
     if (key === targetParam) {
-        paramFound = true; // mark as found
+        paramFound = true;
         return `${key}=${encodeURIComponent(newValue)}`;
     }
-      return pair;
+
+    return pair;
+});
+
+// ONLY if name was changed → remove filter.c.surface
+let finalPairs = updatedPairs;
+if (paramFound) {
+    finalPairs = updatedPairs.filter(pair => {
+        return !pair.startsWith(surfaceParam + "=");
     });
-    if (paramFound) {
-      const newQueryString = updatedPairs.join('&');
-      const newUrl = `${window.location.pathname}?${newQueryString}`;
-      window.history.replaceState(null, '', newUrl);
-    } 
+}
+
+// BUILD QUERY
+const newQueryString = finalPairs.join('&');
+
+// ADD ? only when parameters exist
+const newUrl = newQueryString
+    ? `${window.location.pathname}?${newQueryString}`
+    : window.location.pathname;
+
+window.history.replaceState(null, '', newUrl);
 
     const filterBtns = document.querySelectorAll('.filter-btn');
     const filterOptions = document.querySelectorAll('.filter-options');
