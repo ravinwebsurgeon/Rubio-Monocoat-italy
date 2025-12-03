@@ -1380,7 +1380,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
   function customFiltered(){
-
       const params = new URLSearchParams(window.location.search);
       const result = {};
       params.forEach((value, key) => {
@@ -1390,6 +1389,7 @@ document.addEventListener("DOMContentLoaded", function() {
           result[simpleKey] = value;
         }
       });
+      console.log(result,'foundURL')
       let collection_name =''
       let product_color='';
       let type = '';
