@@ -256,7 +256,7 @@
                             type="radio"
                             name="option-color-{{ forloop.parentloop.index0 }}"
                             value="{{ value | escape }}"
-                            {% if forloop.index == 0 %}checked{% endif %}
+                            {% if forloop.index0 == 0 %}checked{% endif %}
                             class="color-swatch-input main_card"
                             data-value="{{ value | escape }}"
                           >
@@ -285,7 +285,7 @@
                       {% if forloop.index <= max_to_show %}
                         <option
                           value="{{ value | escape }}"
-                          {% if forloop.index == 0 %} selected="selected"{% endif %}
+                          {% if forloop.index0 == 0 %} selected="selected"{% endif %}
                         >
                           {{ value | escape }}
                         </option>
