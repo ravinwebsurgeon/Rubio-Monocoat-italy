@@ -1599,7 +1599,17 @@ document.addEventListener("DOMContentLoaded", function() {
     e.stopPropagation();
     const params = new URLSearchParams(window.location.search);
     const filterName = params.get('filter.p.c.name');
-    if (filterName) {params.set('filter.p.c.name', 'exterior'); }
+    if (filterName) {
+      params.set('filter.p.c.name', 'exterior'); 
+      
+  // Construct new URL with updated query string
+  const newUrl = `${window.location.pathname}?${params.toString()}`;
+
+  // Update the URL in the browser without reloading the page
+  window.history.replaceState(null, '', newUrl);
+
+  console.log('URL updated:', newUrl);
+    }
 
     const filterBtns = document.querySelectorAll('.filter-btn');
     const filterOptions = document.querySelectorAll('.filter-options');
