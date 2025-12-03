@@ -1598,7 +1598,7 @@ document.addEventListener("DOMContentLoaded", function() {
   exteriorToggle?.addEventListener("click", function(e) {
     e.stopPropagation();
     // Get current query string without the '?'
-    const queryString = window.location.search.substring(1);
+    {% comment %} const queryString = window.location.search.substring(1);
     const pairs = queryString.length ? queryString.split('&') : [];
     const targetParam = 'filter.p.c.name';
     const newValue = 'exterior';
@@ -1615,8 +1615,7 @@ document.addEventListener("DOMContentLoaded", function() {
       const newQueryString = updatedPairs.join('&');
       const newUrl = `${window.location.pathname}?${newQueryString}`;
       window.history.replaceState(null, '', newUrl);
-      console.log(`Updated URL: ${newUrl}`);
-    } 
+    }  {% endcomment %}
 
     const filterBtns = document.querySelectorAll('.filter-btn');
     const filterOptions = document.querySelectorAll('.filter-options');
