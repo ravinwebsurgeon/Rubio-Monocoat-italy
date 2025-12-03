@@ -1355,8 +1355,8 @@ document.addEventListener("DOMContentLoaded", function() {
       if(result.surface) surface = result.surface;
     }
     if(collection_name){
-       let circleTabsInner =  document.querySelector('.circle-tabs-outer')
-       if (collection_name == "exterior") {
+      let circleTabsInner =  document.querySelector('.circle-tabs-outer')
+      if (collection_name == "exterior") {
         circleTabsInner.classList.add('exterior')
         const exteriorEl = document.querySelector(".exterior.exterior-main.surface-toggle");
         if (exteriorEl) {exteriorEl.classList.add("active");}
@@ -1413,11 +1413,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
       // For interior/exterior you may have different data attributes
       if (activeTab) {
-        {% comment %} activeTag =
-          activeTab.dataset.exteriorTagName ||
-          activeTab.dataset.exteriorVTagName ||
-          activeTab.dataset.interiorTagName ||
-          ''; {% endcomment %}
             if (surface === 'vertical') {
               activeTag =
                   activeTab.dataset.exteriorVTagName ||
@@ -1441,27 +1436,20 @@ document.addEventListener("DOMContentLoaded", function() {
        all_products.forEach(function(product){
           let productColours = product.dataset.colours;
           let productTags = product.dataset.tags;
-          {% comment %} if(product_color == colour){
-            product.style.display = 'block'
-          }
-          else{product.style.display = 'none'} {% endcomment %}
+          
           let productTagsArray = productTags.split(','); 
           let matchTag = activeTag ? productTagsArray.includes(activeTag) : true;
           let coloursArray = productColours.split(',');
           let matchColor = coloursArray.includes(product_color.toLowerCase());
 
-          if (matchColor && matchTag) {
-             product.style.display = 'block';
-          }
-           else {
-              product.style.display = 'none';
-          }
+          if (matchColor && matchTag) {product.style.display = 'block';}
+          else {product.style.display = 'none';}
        })
        document.querySelectorAll('.tab-products-wrap').forEach(function(section) {
         const items = section.querySelectorAll('.product-item');
         const hasVisible = Array.from(items).some(item => item.style.display !== 'none');
         section.style.display = hasVisible ? 'block' : 'none';
-    });     
+      });     
     }
 
 //end avil filter code
