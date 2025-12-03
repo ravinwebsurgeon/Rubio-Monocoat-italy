@@ -1451,9 +1451,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
           if (matchColor && matchTag) {
              product.style.display = 'block';
-          } else {
-              product.style.display = 'none';
           }
+           {% comment %} else {
+              product.style.display = 'none';
+          } {% endcomment %}
        })
        document.querySelectorAll('.tab-products-wrap').forEach(function(section) {
         const items = section.querySelectorAll('.product-item');
