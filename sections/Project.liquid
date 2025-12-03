@@ -1718,12 +1718,8 @@ document.addEventListener("click", function(e) {
       tabProductsExterior?.classList.remove("show-section");
       let interiorSection = document.querySelector('.interior_tabs_section')
       let all__products = interiorSection.querySelectorAll('.product-item')
-      console.log('found interior section products', all__products)
-
        all__products.forEach(item => {
-        console.log('found')
-        {% comment %} item.style.display = 'block !important'; {% endcomment %}
-         item.style.setProperty('display', 'block', '!important');
+        item.style.display = 'block !important';
       });
     } else if (surfaceOptions?.querySelector(".surface-item.active")) {
       tabProductsExterior?.classList.add("show-section");
