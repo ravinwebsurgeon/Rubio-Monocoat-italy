@@ -150,7 +150,8 @@
                           type="radio"
                           name="{{ option.name }}-{{ option.position }}"
                           value="{{ value | escape }}"
-                          {% if option.selected_value == value %}checked{% endif %}
+                          {% comment %} {% if option.selected_value == value %}checked{% endif %} {% endcomment %}
+                          {% if loop.first or option.selected_value == value %}checked{% endif %}>
                           class="swatch-input__input color-swatch-input color__swatch__input"
                           data-value="{{ value | escape }}"
                         >
@@ -169,7 +170,8 @@
                           type="radio"
                           name="{{ option.name }}-{{ option.position }}"
                           value="{{ value | escape }}"
-                          {% if option.selected_value == value %}checked{% endif %}
+                          {% comment %} {% if option.selected_value == value %}checked{% endif %} {% endcomment %}
+                          {% if loop.first or option.selected_value == value %}checked{% endif %}>
                           class="swatch-input__input variant-radio-input"
                           data-value="{{ value | escape }}"
                         >
