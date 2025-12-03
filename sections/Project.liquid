@@ -1389,7 +1389,6 @@ document.addEventListener("DOMContentLoaded", function() {
           result[simpleKey] = value;
         }
       });
-      console.log(result,'foundURL')
       let collection_name =''
       let product_color='';
       let type = '';
@@ -1612,21 +1611,19 @@ customFiltered();
     const targetParam = 'filter.p.c.name';
     const newValue = 'exterior';
     let paramFound = false;
-    if(pairs)
-      const updatedPairs = pairs.map(pair => {
-      const [key, value] = pair.split('=');
-      if (key === targetParam) {
-          paramFound = true; // mark as found
-          return `${key}=${encodeURIComponent(newValue)}`;
-      }
-        return pair;
-      });
+    const updatedPairs = pairs.map(pair => {
+    const [key, value] = pair.split('=');
+    if (key === targetParam) {
+        paramFound = true; // mark as found
+        return `${key}=${encodeURIComponent(newValue)}`;
     }
+      return pair;
+    });
     if (paramFound) {
       const newQueryString = updatedPairs.join('&');
       const newUrl = `${window.location.pathname}?${newQueryString}`;
       window.history.replaceState(null, '', newUrl);
-      customFiltered();
+      {% comment %} customFiltered(); {% endcomment %}
     } 
 
     const filterBtns = document.querySelectorAll('.filter-btn');
