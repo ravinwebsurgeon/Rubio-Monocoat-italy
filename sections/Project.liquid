@@ -1149,6 +1149,17 @@ document.addEventListener('DOMContentLoaded', function() {
   const clearBtn = document.getElementById('clearFilters');
   const products = document.querySelectorAll('.product-item');
 
+   const circleActive = document.querySelector('.circle-tab.active');
+    const activeTag =
+          circleActive?.dataset.exteriorVTagName ||
+          circleActive?.dataset.exteriorTagName ||
+          circleActive?.dataset.interiorTagName ||
+          null;
+  products = [...allProducts].filter(product => {
+    const tags = product.dataset.tags?.split(',') || [];
+    return tags.includes(activeTag);
+});
+
   let selectedColour = null;
   let selectedProduct = null;
   let selectedSort = null;
