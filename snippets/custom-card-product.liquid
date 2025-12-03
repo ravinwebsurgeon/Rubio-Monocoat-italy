@@ -277,7 +277,8 @@
                       {% if forloop.index <= max_to_show %}
                         <option
                           value="{{ value | escape }}"
-                          {% if option.selected_value == value %} selected="selected"{% endif %}
+                          {% comment %} {% if option.selected_value == value %} selected="selected"{% endif %} {% endcomment %}
+                        {% if forloop.first %}selected="selected"{% endif %}
                         >
                           {{ value | escape }}
                         </option>
