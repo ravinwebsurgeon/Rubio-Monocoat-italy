@@ -903,12 +903,15 @@ function updateVariantId(cart, variants, variantIdInput) {
 
     // Update product images
     const allImages = cart.querySelectorAll(".product__image__item");
+    const allMedia = cart.querySelectorAll(".product__image__item, .product__video__item");
+
     let matchedImage = null;
 
     // Find matching image based on selected options
-    allImages.forEach(img => {
+    allMedia.forEach(img => {
+  const altText = media.alt || media.getAttribute('data-alt') || media.getAttribute('data_alt') || '';
 
-      const altParts = img.alt.split('/').map(p => p.trim().toLowerCase());
+      const altParts = altText.split('/').map(p => p.trim().toLowerCase());
       let isMatch = true;
       for (let i = 0; i < selectedOptions.length; i++) {
         if (normalizeValue(selectedOptions[i]) !== normalizeValue(altParts[i])) {
