@@ -1597,14 +1597,43 @@ document.addEventListener("DOMContentLoaded", function() {
   // EXTERIOR CLICK → toggle dropdown
   exteriorToggle?.addEventListener("click", function(e) {
     e.stopPropagation();
-    const params = new URLSearchParams(window.location.search);
-    const filterName = params.get('filter.p.c.name');
-    if (filterName) {
-      params.set('filter.p.c.name', 'exterior'); 
-      const newUrl = `${window.location.pathname}?${params.toString()}`;
-      window.history.replaceState(null, '', newUrl);
-      console.log('URL updated:', newUrl);
-    }
+
+
+    // Get current query string without the '?'
+const queryString = window.location.search.substring(1);
+
+// Split into key=value pairs
+const pairs = queryString.length ? queryString.split('&') : [];
+
+// Parameter we want to update
+const targetParam = 'filter.p.c.name';
+const newValue = 'exterior';
+
+let paramFound = false;
+
+// Map over pairs and update the one we want
+const updatedPairs = pairs.map(pair => {
+  const [key, value] = pair.split('=');
+
+  if (key === targetParam) {
+    paramFound = true; // mark as found
+    return `${key}=${encodeURIComponent(newValue)}`;
+  }
+
+  return pair; // keep other parameters unchanged
+});
+
+// Only update URL if parameter exists
+if (paramFound) {
+  const newQueryString = updatedPairs.join('&');
+  const newUrl = `${window.location.pathname}?${newQueryString}`;
+
+  window.history.replaceState(null, '', newUrl);
+
+  console.log(`Updated URL: ${newUrl}`);
+} else {
+  console.log(`${targetParam} not found in URL, skipping update`);
+}
 
     const filterBtns = document.querySelectorAll('.filter-btn');
     const filterOptions = document.querySelectorAll('.filter-options');
