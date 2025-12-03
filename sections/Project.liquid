@@ -1598,11 +1598,11 @@ document.addEventListener("DOMContentLoaded", function() {
   exteriorToggle?.addEventListener("click", function(e) {
     e.stopPropagation();
     const params = new URLSearchParams(window.location.search);
-const filterName = params.get('filter.p.c.name');
+    const filterName = params.get('filter.p.c.name');
 
-if (filterName) {
-  console.log(filterName,'yes it filtered');
-}
+    if (filterName) {
+      console.log(filterName,'yes it filtered');
+    }
     const filterBtns = document.querySelectorAll('.filter-btn');
     const filterOptions = document.querySelectorAll('.filter-options');
     const products = document.querySelectorAll('.product-item');
