@@ -641,7 +641,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       /* remove active from filter section*/
       let filter__items = document.querySelectorAll('.filter-item')
-      if(filter__items){filter__items.forEach(item => item.classList.remove('active'))}
+      if(filter__items){console.log('found it');filter__items.forEach(item => item.classList.remove('active'))}
  
       target.classList.add('active');
       document.getElementById(target.dataset.tab)?.classList.add('active');
