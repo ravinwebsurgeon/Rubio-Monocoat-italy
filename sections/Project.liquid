@@ -1624,7 +1624,7 @@ customFiltered();
       const newQueryString = updatedPairs.join('&');
       const newUrl = `${window.location.pathname}?${newQueryString}`;
       window.history.replaceState(null, '', newUrl);
-      {% comment %} customFiltered(); {% endcomment %}
+      customFiltered();
     } 
 
     const filterBtns = document.querySelectorAll('.filter-btn');
