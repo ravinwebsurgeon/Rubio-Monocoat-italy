@@ -151,7 +151,7 @@
                           name="{{ option.name }}-{{ option.position }}"
                           value="{{ value | escape }}"
                           {% comment %} {% if option.selected_value == value %}checked{% endif %} {% endcomment %}
-                          {% if loop.first or option.selected_value == value %}checked{% endif %}>
+                          {% if loop.first or option.selected_value == value %}checked{% endif %}
                           class="swatch-input__input color-swatch-input color__swatch__input"
                           data-value="{{ value | escape }}"
                         >
@@ -171,7 +171,7 @@
                           name="{{ option.name }}-{{ option.position }}"
                           value="{{ value | escape }}"
                           {% comment %} {% if option.selected_value == value %}checked{% endif %} {% endcomment %}
-                          {% if loop.first or option.selected_value == value %}checked{% endif %}>
+                          {% if loop.first or option.selected_value == value %}checked{% endif %}
                           class="swatch-input__input variant-radio-input"
                           data-value="{{ value | escape }}"
                         >
