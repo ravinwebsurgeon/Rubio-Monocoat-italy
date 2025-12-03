@@ -1030,24 +1030,39 @@ document.addEventListener('click', (e) => {
 
       filterProducts();
 
-       const queryString = window.location.search.substring(1);
-    const pairs = queryString.length ? queryString.split('&') : [];
-    const targetParam = 'filter.v.color';
-    const newValue = value;
-    let paramFound = false;
-    const updatedPairs = pairs.map(pair => {
-    const [key, value] = pair.split('=');
+     const queryString = window.location.search.substring(1);
+const pairs = queryString.length ? queryString.split('&') : [];
+
+const targetParam = 'filter.v.color';
+const newValue = value; // your color value
+let paramFound = false;
+
+// Update if exists
+const updatedPairs = pairs.map(pair => {
+    const [key] = pair.split('=');
     if (key === targetParam) {
-        paramFound = true; // mark as found
-        return `${key}=${encodeURIComponent(newValue)}`;
+        paramFound = true;
+        return `${targetParam}=${encodeURIComponent(newValue)}`;
     }
-      return pair;
-    });
-    if (paramFound) {
-      const newQueryString = updatedPairs.join('&');
-      const newUrl = `${window.location.pathname}?${newQueryString}`;
-      window.history.replaceState(null, '', newUrl);
-    } 
+    return pair;
+});
+
+// Check if we need to add it
+if (!paramFound) {
+    // Check if any "filter" detail exists
+    const hasOtherFilters = pairs.some(pair => pair.startsWith('filter.'));
+    if (hasOtherFilters) {
+        updatedPairs.push(`${targetParam}=${encodeURIComponent(newValue)}`);
+    }
+}
+
+// Update URL if changed
+if (paramFound || updatedPairs.length !== pairs.length) {
+    const newQueryString = updatedPairs.join('&');
+    const newUrl = newQueryString ? `${window.location.pathname}?${newQueryString}` : window.location.pathname;
+    window.history.replaceState(null, '', newUrl);
+}
+
       customFiltered();
     });
   });
