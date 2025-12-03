@@ -1452,25 +1452,9 @@ document.addEventListener("DOMContentLoaded", function() {
           } else {
               product.style.display = 'none';
           }
-       })
-
-       {% comment %} document.querySelectorAll('.tab-products-wrap').forEach(function(section){
-  
-          const items = section.querySelectorAll('.product-item');
-          const hasVisible = Array.from(items).some(item => {
-            return item.style.display !== 'none';
-          });
-
-          const heading = section.querySelector('.oil-head');
-          if (heading) {
-            heading.style.display = hasVisible ? 'block' : 'none';
-          }
-
-          // Optional: hide entire section if empty
-          section.style.display = hasVisible ? 'block' : 'none';
-        }); {% endcomment %}
-
+       })     
     }
+
 //end avil filter code
 
 
