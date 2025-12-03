@@ -60,6 +60,12 @@
         "shipping_info_dQ4qci": {
           "type": "shipping_info",
           "settings": {}
+        },
+        "klaviyo_reviews_average_rating_gXxyCf": {
+          "type": "shopify://apps/klaviyo-reviews/blocks/average-rating/db20e365-d984-4ac4-9655-e1588d951ca9",
+          "settings": {
+            "product": "{{product}}"
+          }
         }
       },
       "block_order": [
@@ -71,7 +77,8 @@
         "quantity_selector",
         "buy_buttons",
         "share",
-        "shipping_info_dQ4qci"
+        "shipping_info_dQ4qci",
+        "klaviyo_reviews_average_rating_gXxyCf"
       ],
       "settings": {
         "enable_sticky_info": true,
