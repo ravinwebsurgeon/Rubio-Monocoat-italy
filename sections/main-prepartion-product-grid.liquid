@@ -909,7 +909,7 @@ function updateVariantId(cart, variants, variantIdInput) {
     allImages.forEach(img => {
       const altText = media.alt || media.getAttribute('data-alt') || '';
 
-      const altParts = img.alt.split('/').map(p => p.trim().toLowerCase());
+      const altParts = altText.split('/').map(p => p.trim().toLowerCase());
       let isMatch = true;
       for (let i = 0; i < selectedOptions.length; i++) {
         if (normalizeValue(selectedOptions[i]) !== normalizeValue(altParts[i])) {
