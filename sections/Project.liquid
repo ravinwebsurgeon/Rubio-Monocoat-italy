@@ -1257,6 +1257,24 @@ document.addEventListener('click', (e) => {
 
   // --- Filtering ---
   function filterProducts() {
+    const circleActive = document.querySelector('.circle-tab.active');
+   const interior_active = document.querySelector('.Interio.active');
+     const exterior_active = document.querySelector('.exterior-main.surface-toggle.active');
+
+const activeTag =
+    circleActive?.dataset.exteriorVTagName ||
+    circleActive?.dataset.exteriorTagName ||
+    circleActive?.dataset.interiorTagName ||
+    null;
+
+const productsParent = document.querySelector(
+    interior_active
+        ? '.tab-products-wrap.Interior-wrap'
+        : '.tab-products-wrap.Exterior-wrap'
+);
+
+const products =productsParent.querySelectorAll('.product-item')
+
     products.forEach(product => {
       const productColours = (product.dataset.colours || '').split(',');
       const productProducts = (product.dataset.products || '').split(',');
