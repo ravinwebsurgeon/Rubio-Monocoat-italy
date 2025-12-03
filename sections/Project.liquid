@@ -1764,12 +1764,24 @@ document.addEventListener("click", function(e) {
     // Get current query string without the '?'
     const queryString = window.location.search.substring(1);
     const pairs = queryString.length ? queryString.split('&') : [];
-    const collection_name = 'filter.p.s.name';
     const targetParam = 'filter.p.s.type';
-    let newType = '';
-    if(collection_name == 'exterior'){ newType = 'exterior'; }
-    if(collection_name == 'interior'){ newType = 'interior'; }
-    console.log('on change species',collection_name,targetParam)
+    const newValue = circleTab.textContent.trim();
+    let paramFound = false;
+    const updatedPairs = pairs.map(pair => {
+    const [key, value] = pair.split('=');
+    if (key === targetParam) {
+        paramFound = true; // mark as found
+        return `${key}=${encodeURIComponent(newValue)}`;
+    }
+      return pair;
+    });
+    if (paramFound) {
+      const newQueryString = updatedPairs.join('&');
+      const newUrl = `${window.location.pathname}?${newQueryString}`;
+      window.history.replaceState(null, '', newUrl);
+    } 
+
+    {% comment %} customFiltered(); {% endcomment %}
   }
 });
  
