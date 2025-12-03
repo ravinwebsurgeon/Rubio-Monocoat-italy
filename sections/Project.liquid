@@ -546,30 +546,19 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-
 <script>
 //available sample script
 document.addEventListener('DOMContentLoaded', () => {
   const checkbox = document.getElementById('available-filter');
- 
   if (!checkbox) return;
- 
   checkbox.addEventListener('change', () => {
     const showOnlyAvailable = checkbox.checked;
     const products = document.querySelectorAll('.product-item');
- 
     products.forEach(product => {
       const isAvailable = product.getAttribute('data-available') === 'true';
-     
       if (showOnlyAvailable) {
-        // show only available products
-        if (isAvailable) {
-          product.style.display = '';
-        } else {
-          product.style.display = 'none';
-        }
+        if (isAvailable) {product.style.display = '';} else {product.style.display = 'none';}
       } else {
-        // show all products again
         product.style.display = '';
       }
     });
