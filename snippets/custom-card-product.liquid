@@ -267,7 +267,8 @@
                     {% endfor %}
 
                     {% if total_values > max_to_show %}
-                      <button class="show-more-swatches"
+                      <button class="product_cart_btn show-more-swatches"
+                        data-product-handle="{{ card_product.handle }}"
                               data-count="{{ total_values | minus: max_to_show }}">
                         +{{ total_values | minus: max_to_show }} more
                       </button>
