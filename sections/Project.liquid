@@ -1737,14 +1737,9 @@ document.addEventListener("click", function(e) {
 
   if (circleTab) {
     e.stopPropagation(); // Prevent closing dropdown
-
-    // Remove active from all tabs
     document.querySelectorAll('.circle-tab').forEach(t => t.classList.remove("active"));
-    
     // Add active to clicked tab
     circleTab.classList.add("active");
-    
-    // Determine which wrapper to show
     if (interiorBtn?.classList.contains("active")) {
       tabProductsInterior?.classList.add("show-section");
       tabProductsExterior?.classList.remove("show-section");
@@ -1766,6 +1761,7 @@ document.addEventListener("click", function(e) {
     
     console.log('Circle tab clicked:', circleTab.getAttribute('data-tab'));
     showproducts();
+    
   }
 });
  
