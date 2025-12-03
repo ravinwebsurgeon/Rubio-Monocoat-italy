@@ -1087,6 +1087,26 @@ document.addEventListener('click', (e) => {
               return tags.includes(activeTag);
           });
     products.forEach(p => p.style.display = '');
+    // Get current query string
+const queryString = window.location.search.substring(1);
+const pairs = queryString.length ? queryString.split('&') : [];
+
+// Target parameter to remove
+const targetParam = 'filter.p.color';
+
+// Filter out the target parameter
+const updatedPairs = pairs.filter(pair => {
+    const [key] = pair.split('=');
+    return key !== targetParam;
+});
+
+// If the parameter was present, update the URL
+if (updatedPairs.length !== pairs.length) {
+    const newQueryString = updatedPairs.join('&');
+    const newUrl = newQueryString ? `${window.location.pathname}?${newQueryString}` : window.location.pathname;
+    window.history.replaceState(null, '', newUrl);
+}
+{% comment %} customFiltered() {% endcomment %}
   });
 
   // --- Filtering ---
