@@ -663,6 +663,9 @@ button.show-more-swatches {
       btn.addEventListener("click", async e => {
         e.preventDefault();
         let productHandle = btn.dataset.productHandle
+        const response = await fetch(`/products/${productHandle}.js`);
+          const product = await response.json();
+          console.log(product,'sdsfsdf')
 	      openCustomCart(productHandle) 
                
       });
@@ -673,11 +676,6 @@ button.show-more-swatches {
       customCarts.forEach(function(my_cart) {
         let my_handle = my_cart.dataset.productHandle;
         if(my_handle == handle){
-          const response = await fetch(`/products/${handle}.js`);
-          const product = await response.json();
-          console.log(product,'sdsfsdf')
-
-          const variants = product.variants;
           let id = my_cart.querySelector(".variant-selector");
           my_cart.classList.add('active__Cart')
           const allImages = my_cart.querySelectorAll(".product__image__item.first__visit");
