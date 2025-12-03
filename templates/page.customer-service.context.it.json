@@ -12,5 +12,28 @@
   "context": {
     "market": "it"
   },
-  "sections": {}
+  "sections": {
+    "contact_options_FYkrkp": {
+      "settings": {
+        "call_text": "",
+        "call_link": ""
+      },
+      "blocks": {
+        "contact_method_JF4YCW": {
+          "settings": {
+            "subtitle": "info@rubiomonocoat.it",
+            "link": "mailto:info@rubiomonocoat.it"
+          }
+        },
+        "contact_method_mVcVkc": {
+          "disabled": true,
+          "settings": {}
+        },
+        "contact_method_TxekfM": {
+          "disabled": true,
+          "settings": {}
+        }
+      }
+    }
+  }
 }
