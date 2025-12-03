@@ -1599,10 +1599,8 @@ document.addEventListener("DOMContentLoaded", function() {
     e.stopPropagation();
     const params = new URLSearchParams(window.location.search);
     const filterName = params.get('filter.p.c.name');
+    if (filterName) {params.set('filter.p.c.name', 'exterior'); }
 
-    if (filterName) {
-      console.log(filterName,'yes it filtered');
-    }
     const filterBtns = document.querySelectorAll('.filter-btn');
     const filterOptions = document.querySelectorAll('.filter-options');
     const products = document.querySelectorAll('.product-item');
