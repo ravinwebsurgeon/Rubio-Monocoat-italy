@@ -19,12 +19,6 @@
         "call_link": ""
       },
       "blocks": {
-        "contact_method_JF4YCW": {
-          "settings": {
-            "subtitle": "info@rubiomonocoat.it",
-            "link": "mailto:info@rubiomonocoat.it"
-          }
-        },
         "contact_method_mVcVkc": {
           "disabled": true,
           "settings": {}
@@ -32,6 +26,22 @@
         "contact_method_TxekfM": {
           "disabled": true,
           "settings": {}
+        },
+        "contact_method_JF4YCW": {
+          "settings": {
+            "subtitle": "info@rubiomonocoat.it",
+            "link": "mailto:info@rubiomonocoat.it"
+          }
+        }
+      }
+    },
+    "image_block_with_button_w63mgR": {
+      "settings": {},
+      "blocks": {
+        "image_block_VK4FrP": {
+          "settings": {
+            "button_link": "shopify://pages/condizioni-generali"
+          }
         }
       }
     }
