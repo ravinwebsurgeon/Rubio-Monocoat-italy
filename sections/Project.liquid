@@ -1725,7 +1725,7 @@ customFiltered();
       // Toggle active state
       surfaceOptions.querySelectorAll(".surface-item").forEach(i => i.classList.remove("active"));
       this.classList.add("active");
-      let surface__text  = this.textContent
+      let surface__text  = this.getAttribute('data-collection')
 
       // Show tabs + filter
       circleTabsOuter?.classList.add("show-section");
@@ -1747,9 +1747,9 @@ customFiltered();
     const targetParam = 'filter.c.surface';
     let newValue = '';
 
-    if (surface__text.includes("Horizontal")) {
+    if (surface__text.includes("horizontal")) {
         newValue = "horizontal";
-    } else if (surface__text.includes("Vertical")) {
+    } else if (surface__text.includes("vertical")) {
         newValue = "vertical";
     }
     let paramFound = false;
