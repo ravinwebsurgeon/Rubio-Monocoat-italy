@@ -1601,14 +1601,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const filterName = params.get('filter.p.c.name');
     if (filterName) {
       params.set('filter.p.c.name', 'exterior'); 
-      
-  // Construct new URL with updated query string
-  const newUrl = `${window.location.pathname}?${params.toString()}`;
-
-  // Update the URL in the browser without reloading the page
-  window.history.replaceState(null, '', newUrl);
-
-  console.log('URL updated:', newUrl);
+      const newUrl = `${window.location.pathname}?${params.toString()}`;
+      window.history.replaceState(null, '', newUrl);
+      console.log('URL updated:', newUrl);
     }
 
     const filterBtns = document.querySelectorAll('.filter-btn');
