@@ -641,9 +641,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       console.log('clicked on cicle-tab')
       /* remove active from filter section*/
-      let filter__items = document.querySelectorAll('.option-btn')
-      if(filter__items){console.log('found it');filter__items.forEach(item => item.classList.remove('active'))}
- 
+     
       target.classList.add('active');
       document.getElementById(target.dataset.tab)?.classList.add('active');
  
@@ -1726,7 +1724,9 @@ document.addEventListener("click", function(e) {
       tabProductsInterior?.classList.remove("show-section");
       
     }
-
+    let filter__items = document.querySelectorAll('.option-btn')
+     if(filter__items){console.log('found it');filter__items.forEach(item => item.classList.remove('active'))}
+ 
     // Do NOT close the exterior dropdown
     // surfaceOptions.style.display = "flex"; // already open
     
