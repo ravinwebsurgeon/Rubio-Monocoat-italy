@@ -1717,6 +1717,7 @@ document.addEventListener("click", function(e) {
       tabProductsInterior?.classList.add("show-section");
       tabProductsExterior?.classList.remove("show-section");
       let interiorSection = document.querySelector('.interior_tabs_section')
+      console.log('found interior section', interiorSection)
        interiorSection.querySelectorAll('.product-item').forEach(item => {
         item.style.display = 'block !important';
       });
