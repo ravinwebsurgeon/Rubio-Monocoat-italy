@@ -9,10 +9,11 @@
     </div>
     
     <div class="products__grid">
+      {% assign collection_main = collections[section.settings.collection] %}
       {% assign all_products = collections.all.products %}
       {% assign sorted_products = all_products | sort: 'best_selling' %}
       <div class="best__selling__main" id="best__selling__products">
-      {% for product in sorted_products limit: section.settings.products_limit %}
+      {% for product in collection_main limit: section.settings.products_limit %}
         <div class="best_selling__product__card">
           {% comment %} <a href="{{ product.url }}"> {% endcomment %}
               {% if product.featured_image %}
