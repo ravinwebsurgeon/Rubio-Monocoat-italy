@@ -454,7 +454,6 @@ document.querySelectorAll('.card-wrapper').forEach(card => {
       const alt = block.dataset.altDetail ? block.dataset.altDetail.trim() : "";
       const altParts = alt ? alt.split('/').map(p => normalizeValue(p)) : [];
       // save fallback (no alt)
-    console.log(selectedOptions,'selectedOptions',altParts);
 
       if (!alt || alt === "") {
         if (!fallbackNoAlt) fallbackNoAlt = block;
@@ -462,6 +461,8 @@ document.querySelectorAll('.card-wrapper').forEach(card => {
       // matching logic
       let isMatch = true;
       for (let i = 0; i < selectedOptions.length; i++) {
+    console.log(normalizeValue(selectedOptions[i],'selectedOptions',altParts[i]);
+
         if (normalizeValue(selectedOptions[i]) !== altParts[i]) {
           isMatch = false;
           break;
