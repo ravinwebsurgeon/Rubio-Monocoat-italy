@@ -1778,6 +1778,7 @@ section.icon-columns-section.wood_colorss .container {
     background-color: transparent;
     padding: 0;
     max-width: 100% !important;
+    min-width:inherit;
 }
 .best_selling-boxesss .meta__detail {
     display: flex;
@@ -1809,6 +1810,7 @@ section.icon-columns-section.wood_colorss .container {
     width: auto;
     margin: 0 auto;
     display: block;
+    object-fit: contain;
 }
 
 
