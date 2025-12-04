@@ -7,118 +7,118 @@
        <a href="{{ section.settings.btn_link }}" class="best_selling_btn"> {{ section.settings.btn_text }} </a>
       {%endif %}
     </div>
-    
-    <div class="products__grid">
-      {% assign collection_main = collections[section.settings.collection] %}
-      {% assign all_products = collections.all.products %}
-      {% assign sorted_products = all_products | sort: 'best_selling' %}
-      <div class="best__selling__main" id="best__selling__products">
-      {% comment %} {% for product in sorted_products  limit: section.settings.products_limit %} {% endcomment %}
-      {% for product in collection_main.products  limit: section.settings.products_limit %}
-        <div class="best_selling__product__card">
-          {% comment %} <a href="{{ product.url }}"> {% endcomment %}
-              {% if product.featured_image %}
-              <div class="best_selling_product___media">
-              {% comment %} {{ product.featured_image | image_url: width: 400 | image_tag }} {% endcomment %}
-              <a href="{{ product.url }}">
-                <img src="{{ product.featured_image | img_url: 'medium' }}" />
-              </a>
-              </div>
-            {% endif %}
-            <div class="best_selling-boxesss">
-              <div class="best_selling_product__detail">
-                <h3>{{ product.title }}</h3>
-                <p>{{ product.price | money }}</p>
-              </div>
-              
-              {% assign imagesd = product.metafields.custom.product_iconss.value %}
-              {% assign textsd = product.metafields.custom.product_textss.value %}
-              {% if imagesd and textsd %}
-                <div class="meta__detail">
-                  {% for image in imagesd %}
-                    {% assign texts = textsd[forloop.index0] %}
-                    <div class="meeta-fl">
-                      {% if image %}
-                        <span class="immmg"><img src="{{ image | image_url: width: 20 }}" alt="{{ texts | escape }}"></span>
-                      {% endif %}
-                      {% if texts %}
-                        <span class="mememe">{{ texts }}</span>
-                      {% endif %}
-                    </div>
-                  {% endfor %}
-                </div>
-              {% endif %}
-              <div class="best_selling__variants">
-              {% assign max_to_show = 5 %}
-              {% for option in product.options_with_values %}
-                {% assign total_values = option.values | size %}
-                <div class="pro_variant_options variant__{{ option.name }}">
-                  {% assign downcase_name = option.name | downcase %}
-                  {% if downcase_name contains 'color' or downcase_name contains 'colour' %}
-                    <div class="color-swatch-group" data-index="option{{ forloop.index }}">
-                      {% for value in option.values %}
-                        {% if forloop.index <= max_to_show %}
-                          {% assign swatch_value = '' %}
-                          {% assign swatch_focal = '' %}
-                          {% if value.swatch %}
-                            {% if value.swatch.image %}
-                              {% assign img_url = value.swatch.image | image_url: width: 50 %}
-                              {% assign swatch_value = 'url(' | append: img_url | append: ')' %}
-                              {% assign swatch_focal = value.swatch.image.presentation.focal_point %}
-                            {% elsif value.swatch.color %}
-                              {% assign swatch_value = 'rgb(' | append: value.swatch.color.rgb | append: ')' %}
-                            {% endif %}
-                          {% endif %}                        
-                          {% if swatch_value == '' %}
-                            {% assign swatch_value = value | downcase %}
+      <div class="products__grid">
+        {% assign collection_main = collections[section.settings.collection] %}
+        {% assign all_products = collections.all.products %}
+        {% assign sorted_products = all_products | sort: 'best_selling' %}
+        <div class="best__selling__main" id="best__selling__products">
+        {% comment %} {% for product in sorted_products  limit: section.settings.products_limit %} {% endcomment %}
+        {% for product in collection_main.products  limit: section.settings.products_limit %}
+          <div class="best_selling__product__card">
+            <a href="{{ product.url }}">
+                {% if product.featured_image %}
+                  <div class="best_selling_product___media">
+                    {% comment %} {{ product.featured_image | image_url: width: 400 | image_tag }} {% endcomment %}
+                    <a href="{{ product.url }}">
+                      <img src="{{ product.featured_image | img_url: 'medium' }}" />
+                    </a>
+                  </div>
+                {% endif %}
+                <div class="best_selling-boxesss">
+                  <div class="best_selling_product__detail">
+                    <h3>{{ product.title }}</h3>
+                    <p>{{ product.price | money }}</p>
+                  </div>
+                  {% assign imagesd = product.metafields.custom.product_iconss.value %}
+                  {% assign textsd = product.metafields.custom.product_textss.value %}
+                  {% if imagesd and textsd %}
+                    <div class="meta__detail">
+                      {% for image in imagesd %}
+                        {% assign texts = textsd[forloop.index0] %}
+                        <div class="meeta-fl">
+                          {% if image %}
+                            <span class="immmg"><img src="{{ image | image_url: width: 20 }}" alt="{{ texts | escape }}"></span>
                           {% endif %}
-                          <label
-                            class="color-swatch"
-                            title="{{ value }}"
-                            style="background: {{ swatch_value }};{% if swatch_focal != '' %} background-position: {{ swatch_focal }};{% endif %}"
-                          >
-                            <input
-                              type="radio"
-                              name="option-color-{{ forloop.parentloop.index0 }}"
-                              value="{{ value | escape }}"
-                              {% if option.selected_value == value %}checked{% endif %}
-                              class="color-swatch-input"
-                              data-value="{{ value | escape }}"
-                            >
-                            <span class="swatch-checkmark"></span>
-                          </label>
-                        {% endif %}
+                          {% if texts %}
+                            <span class="mememe">{{ texts }}</span>
+                          {% endif %}
+                        </div>
                       {% endfor %}
-                      {% if total_values > max_to_show %}
-                        <button class="show-more-swatches"
-                                data-count="{{ total_values | minus: max_to_show }}">
-                          +{{ total_values | minus: max_to_show }} more
-                        </button>
-                      {% endif %}
                     </div>
-                  {% else %}
-                    <select class="option-variant-selector"
-                            id="ProductSelect-{{ forloop.index0 }}"
-                            data-index="option{{ forloop.index }}">
-                      {% for value in option.values %}
-                        {% if forloop.index <= max_to_show %}
-                          <option
-                            value="{{ value | escape }}"
-                            {% if option.selected_value == value %} selected="selected"{% endif %}
-                          >
-                            {{ value | escape }}
-                          </option>
-                        {% endif %}
-                      {% endfor %}
-                    </select>
                   {% endif %}
-                </div>
-              {% endfor %}
-            </div>
-            </div> 
-        </div>
-      {% endfor %}
-    </div>
+                  <div class="best_selling__variants">
+                    {% assign max_to_show = 5 %}
+                      {% for option in product.options_with_values %}
+                        {% assign total_values = option.values | size %}
+                        <div class="pro_variant_options variant__{{ option.name }}">
+                          {% assign downcase_name = option.name | downcase %}
+                          {% if downcase_name contains 'color' or downcase_name contains 'colour' %}
+                            <div class="color-swatch-group" data-index="option{{ forloop.index }}">
+                              {% for value in option.values %}
+                                {% if forloop.index <= max_to_show %}
+                                  {% assign swatch_value = '' %}
+                                  {% assign swatch_focal = '' %}
+                                  {% if value.swatch %}
+                                    {% if value.swatch.image %}
+                                      {% assign img_url = value.swatch.image | image_url: width: 50 %}
+                                      {% assign swatch_value = 'url(' | append: img_url | append: ')' %}
+                                      {% assign swatch_focal = value.swatch.image.presentation.focal_point %}
+                                    {% elsif value.swatch.color %}
+                                      {% assign swatch_value = 'rgb(' | append: value.swatch.color.rgb | append: ')' %}
+                                    {% endif %}
+                                  {% endif %}                        
+                                  {% if swatch_value == '' %}
+                                    {% assign swatch_value = value | downcase %}
+                                  {% endif %}
+                                  <label
+                                    class="color-swatch"
+                                    title="{{ value }}"
+                                    style="background: {{ swatch_value }};{% if swatch_focal != '' %} background-position: {{ swatch_focal }};{% endif %}"
+                                  >
+                                    <input
+                                      type="radio"
+                                      name="option-color-{{ forloop.parentloop.index0 }}"
+                                      value="{{ value | escape }}"
+                                      {% if option.selected_value == value %}checked{% endif %}
+                                      class="color-swatch-input"
+                                      data-value="{{ value | escape }}"
+                                    >
+                                    <span class="swatch-checkmark"></span>
+                                  </label>
+                                {% endif %}
+                              {% endfor %}
+                              {% if total_values > max_to_show %}
+                                <button class="show-more-swatches"
+                                        data-count="{{ total_values | minus: max_to_show }}">
+                                  +{{ total_values | minus: max_to_show }} more
+                                </button>
+                              {% endif %}
+                            </div>
+                          {% else %}
+                            <select class="option-variant-selector"
+                              id="ProductSelect-{{ forloop.index0 }}"
+                              data-index="option{{ forloop.index }}"
+                            >
+                              {% for value in option.values %}
+                                {% if forloop.index <= max_to_show %}
+                                  <option
+                                    value="{{ value | escape }}"
+                                    {% if option.selected_value == value %} selected="selected"{% endif %}
+                                  >
+                                    {{ value | escape }}
+                                  </option>
+                                {% endif %}
+                              {% endfor %}
+                            </select>
+                          {% endif %}
+                        </div>
+                      {% endfor %}
+                  </div>
+                </div> 
+              </a>
+          </div>
+        {% endfor %}
+      </div>
     </div>
   </div>  
 </div>
