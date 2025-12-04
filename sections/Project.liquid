@@ -1381,11 +1381,8 @@ customFiltered();
         : window.location.pathname;
     window.history.replaceState(null, '', newUrl); {% endcomment %}
     const targetParam = 'filter.p.c.name';
-    const value = params.get('filter.p.c.name');
-    if(value == 'exterior'){
-      const newUrl = `${window.location.pathname}`;
-      window.history.replaceState(null, '', newUrl);
-    }
+    const newUrl = `${window.location.pathname}`;
+    window.history.replaceState(null, '', newUrl);
 
 
     const filterBtns = document.querySelectorAll('.filter-btn');
