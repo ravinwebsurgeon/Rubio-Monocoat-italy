@@ -925,9 +925,9 @@ function updateVariantId(cart, variants, variantIdInput) {
     if (matchedImage) {
       matchedImage.style.display = "block";
     } 
-    {% comment %} else if (allImages.length > 0) {
+    else if (allImages.length > 0) {
       allImages[0].style.display = "block";
-    } {% endcomment %}
+    }
 
     // Update price dynamically
     if (priceElement) {
