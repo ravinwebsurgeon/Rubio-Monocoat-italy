@@ -21,6 +21,17 @@
         "button2_link": "#"
       }
     },
+    "best_selling_products_pTtBVc": {
+      "type": "best__selling__products",
+      "name": "Best Sellers",
+      "settings": {
+        "products_limit": 6,
+        "collection": "best-sellers",
+        "section_heading": "Bestseller",
+        "btn_text": "View All",
+        "btn_link": ""
+      }
+    },
     "custom_multicolumn_RBfXX8": {
       "type": "custom-multicolumn",
       "blocks": {
@@ -486,17 +497,6 @@
         "heading": "Customer Reviews"
       }
     },
-    "best_selling_products_pTtBVc": {
-      "type": "best__selling__products",
-      "name": "Best Sellers",
-      "settings": {
-        "products_limit": 6,
-        "collection": "best-sellers",
-        "section_heading": "Bestseller",
-        "btn_text": "View All",
-        "btn_link": ""
-      }
-    },
     "icons_section_KNL9aM": {
       "type": "icons-section",
       "blocks": {
@@ -567,6 +567,7 @@
   },
   "order": [
     "custom_banner_MEwF3B",
+    "best_selling_products_pTtBVc",
     "custom_multicolumn_RBfXX8",
     "custom_collection_NPiKyw",
     "video_product_zqartH",
@@ -575,7 +576,6 @@
     "custom_vedio_banner_fbxRjq",
     "custom_blog_section_W9ehre",
     "review_UCVi8b",
-    "best_selling_products_pTtBVc",
     "icons_section_KNL9aM"
   ]
 }
