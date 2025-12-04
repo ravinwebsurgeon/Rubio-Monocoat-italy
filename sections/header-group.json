@@ -26,7 +26,7 @@
           "type": "announcement",
           "disabled": true,
           "settings": {
-            "text": "Consegna gratuita da € 50",
+            "text": "Ordered before 12:00, shipped the same day",
             "link": "",
             "custom_svg": ""
           }
