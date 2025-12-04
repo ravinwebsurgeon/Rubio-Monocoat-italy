@@ -859,6 +859,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const product = await response.json();
     const variants = product.variants;
     const variantIdInput = cart.querySelector(".variant-selector");
+    updateVariantId(cart, variants, variantIdInput);
     // Listen for changes on *all radios* inside this cart
     const variantInputs = cart.querySelectorAll(".color-swatch-input, .variant-radio-input");
     variantInputs.forEach(input => {
