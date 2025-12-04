@@ -1351,44 +1351,39 @@ customFiltered();
   // -------------------------------
   // INTERIOR CLICK → show tabs + filter only
     interiorBtn?.addEventListener("click", function() {
-    const queryString = window.location.search.substring(1);
-const pairs = queryString.length ? queryString.split('&') : [];
-
-const targetParam = 'filter.p.c.name';
-const surfaceParam = 'filter.c.surface';
-const newValue = 'interior';
-
-let paramFound = false;
-
-// UPDATE filter.p.c.name
-const updatedPairs = pairs.map(pair => {
-    const [key, value] = pair.split('=');
-
-    if (key === targetParam) {
-        paramFound = true;
-        return `${key}=${encodeURIComponent(newValue)}`;
-    }
-
-    return pair;
-});
-
-// ONLY if name was changed → remove filter.c.surface
-let finalPairs = updatedPairs;
-if (paramFound) {
-    finalPairs = updatedPairs.filter(pair => {
-        return !pair.startsWith(surfaceParam + "=");
+    {% comment %} const queryString = window.location.search.substring(1);
+    const pairs = queryString.length ? queryString.split('&') : [];
+    const targetParam = 'filter.p.c.name';
+    const surfaceParam = 'filter.c.surface';
+    const newValue = 'interior';
+    let paramFound = false;
+    // UPDATE filter.p.c.name
+    const updatedPairs = pairs.map(pair => {
+        const [key, value] = pair.split('=');
+        if (key === targetParam) {
+            paramFound = true;
+            return `${key}=${encodeURIComponent(newValue)}`;
+        }
+        return pair;
     });
-}
+    // ONLY if name was changed → remove filter.c.surface
+    let finalPairs = updatedPairs;
+    if (paramFound) {
+        finalPairs = updatedPairs.filter(pair => {
+            return !pair.startsWith(surfaceParam + "=");
+        });
+    }
+    // BUILD QUERY
+    const newQueryString = finalPairs.join('&');
+    // ADD ? only when parameters exist
+    const newUrl = newQueryString
+        ? `${window.location.pathname}?${newQueryString}`
+        : window.location.pathname;
+    window.history.replaceState(null, '', newUrl); {% endcomment %}
+    const targetParam = 'filter.p.c.name';
+    const newUrl = `${window.location.pathname}`;
+    window.history.replaceState(null, '', newUrl);
 
-// BUILD QUERY
-const newQueryString = finalPairs.join('&');
-
-// ADD ? only when parameters exist
-const newUrl = newQueryString
-    ? `${window.location.pathname}?${newQueryString}`
-    : window.location.pathname;
-
-window.history.replaceState(null, '', newUrl);
 
     const filterBtns = document.querySelectorAll('.filter-btn');
     const filterOptions = document.querySelectorAll('.filter-options');
@@ -1454,7 +1449,7 @@ window.history.replaceState(null, '', newUrl);
   exteriorToggle?.addEventListener("click", function(e) {
     e.stopPropagation();
     // Get current query string without the '?'
-    {% comment %} 
+    {% comment %} //it updates url filter interior to exterior  
     //it updates url filter interior to exterior  
     const queryString = window.location.search.substring(1);
     const pairs = queryString.length ? queryString.split('&') : [];
