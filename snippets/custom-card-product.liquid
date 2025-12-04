@@ -450,6 +450,7 @@ document.querySelectorAll('.card-wrapper').forEach(card => {
     const selectedOptions = getSelectedOptions(card);
     let matched = null;
     let fallbackNoAlt = null;
+    console.log(selectedOptions,'selectedOptions');
     mediaBlocks.forEach(block => {
       const alt = block.dataset.altDetail ? block.dataset.altDetail.trim() : "";
       const altParts = alt ? alt.split('/').map(p => normalizeValue(p)) : [];
@@ -477,7 +478,8 @@ document.querySelectorAll('.card-wrapper').forEach(card => {
       fallbackNoAlt.style.display = "block";
       return;
     }
-    {% comment %} // default to first
+    {% comment %} 
+     // default to first
     if (mediaBlocks.length > 0) {
       mediaBlocks[0].style.display = "block";
     } {% endcomment %}
