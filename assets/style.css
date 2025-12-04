@@ -1804,7 +1804,11 @@ section.icon-columns-section.wood_colorss .container {
     object-fit: contain;
 }
 
-
+.preparation-collection .grid .grid__item .card .card__media .media img {
+    width: auto;
+    margin: 0 auto;
+    display: block;
+}
 
 
 
