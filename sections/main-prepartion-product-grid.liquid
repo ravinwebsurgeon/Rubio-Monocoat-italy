@@ -904,8 +904,8 @@ function updateVariantId(cart, variants, variantIdInput) {
 
     // Update product images
     const allImages = cart.querySelectorAll(".product__image__item");
-     {% comment %} const allMedia = cart.querySelectorAll(".product__image__item, .product__video__item"); {% endcomment %}
-
+     const allMedia = cart.querySelectorAll(".product__image__item, .product__video__item");
+    console.log(allMedia,'asasa')
     let matchedImage = null;
 
     // Find matching image based on selected options
