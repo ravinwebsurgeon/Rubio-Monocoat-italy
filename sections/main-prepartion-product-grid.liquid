@@ -903,13 +903,15 @@ function updateVariantId(cart, variants, variantIdInput) {
     console.log("Variant matched:", foundVariant.id, foundVariant);
 
     // Update product images
-    const allImages = cart.querySelectorAll(".product__image__item");
+    {% comment %} const allImages = cart.querySelectorAll(".product__image__item"); {% endcomment %}
+     const allMedia = cart.querySelectorAll(".product__image__item, .product__video__item");
+
     let matchedImage = null;
 
     // Find matching image based on selected options
-    allImages.forEach(img => {
-
-      const altParts = img.alt.split('/').map(p => p.trim().toLowerCase());
+    allMedia.forEach(img => {
+        const alt = img.parentElement.dataset.alt || "";
+      const altParts = alt.split('/').map(p => p.trim().toLowerCase());
       let isMatch = true;
       for (let i = 0; i < selectedOptions.length; i++) {
         if (normalizeValue(selectedOptions[i]) !== normalizeValue(altParts[i])) {
@@ -925,9 +927,9 @@ function updateVariantId(cart, variants, variantIdInput) {
     if (matchedImage) {
       matchedImage.style.display = "block";
     } 
-    else if (allImages.length > 0) {
+    {% comment %} else if (allImages.length > 0) {
       allImages[0].style.display = "block";
-    }
+    } {% endcomment %}
 
     // Update price dynamically
     if (priceElement) {
