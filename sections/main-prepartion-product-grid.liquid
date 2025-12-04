@@ -904,17 +904,14 @@ function updateVariantId(cart, variants, variantIdInput) {
 
     // Update product images
     const allImages = cart.querySelectorAll(".product__image__item");
-    const allVideos = cart.querySelectorAll(".product__video__item");
-    const allMedia = const allMedia = [...allImages, ...allMedia];
+     {% comment %} const allMedia = cart.querySelectorAll(".product__image__item, .product__video__item"); {% endcomment %}
 
-
-    console.log(allMedia,'asasa')
     let matchedImage = null;
 
     // Find matching image based on selected options
     allImages.forEach(img => {
-        const alt = img.parentElement.dataset.alt || "";
-      const altParts = alt.split('/').map(p => p.trim().toLowerCase());
+        {% comment %} const alt = img.parentElement.dataset.alt || ""; {% endcomment %}
+      const altParts = img.alt.split('/').map(p => p.trim().toLowerCase());
       let isMatch = true;
       for (let i = 0; i < selectedOptions.length; i++) {
         if (normalizeValue(selectedOptions[i]) !== normalizeValue(altParts[i])) {
