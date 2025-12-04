@@ -463,7 +463,7 @@ document.querySelectorAll('.card-wrapper').forEach(card => {
       for (let i = 0; i < selectedOptions.length; i++) {
     console.log(normalizeValue(selectedOptions[i]),'selectedOptions',altParts[i]);
 
-        if (normalizeValue(selectedOptions[i]) !== altParts[i]) {
+        if (normalizeValue(selectedOptions[i]) !== normalizeValue(altParts[i])) {
           isMatch = false;
           break;
         }
