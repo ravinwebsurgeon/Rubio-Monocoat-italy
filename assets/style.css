@@ -1777,6 +1777,7 @@ section.icon-columns-section.wood_colorss .container {
 .preparation-collection .grid .grid__item .card .card__media .product-card {
     background-color: transparent;
     padding: 0;
+    max-width: 100% !important;
 }
 .best_selling-boxesss .meta__detail {
     display: flex;
