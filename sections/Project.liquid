@@ -1472,8 +1472,12 @@ customFiltered();
 
     
     const targetParam = 'filter.p.c.name';
-    const newUrl = `${window.location.pathname}`;
-    window.history.replaceState(null, '', newUrl);
+    const value = params.get('filter.p.c.name');
+
+    if(value == 'interior'){
+      const newUrl = `${window.location.pathname}`;
+      window.history.replaceState(null, '', newUrl);
+    }
 
     const filterBtns = document.querySelectorAll('.filter-btn');
     const filterOptions = document.querySelectorAll('.filter-options');
