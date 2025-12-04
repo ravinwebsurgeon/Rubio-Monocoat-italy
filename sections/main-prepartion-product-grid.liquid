@@ -903,15 +903,15 @@ function updateVariantId(cart, variants, variantIdInput) {
     console.log("Variant matched:", foundVariant.id, foundVariant);
 
     // Update product images
-    {% comment %} const allImages = cart.querySelectorAll(".product__image__item"); {% endcomment %}
-     const allMedia = cart.querySelectorAll(".product__image__item, .product__video__item");
+    const allImages = cart.querySelectorAll(".product__image__item");
+     {% comment %} const allMedia = cart.querySelectorAll(".product__image__item, .product__video__item"); {% endcomment %}
 
     let matchedImage = null;
 
     // Find matching image based on selected options
-    allMedia.forEach(img => {
-        const alt = img.parentElement.dataset.alt || "";
-      const altParts = alt.split('/').map(p => p.trim().toLowerCase());
+    allImages.forEach(img => {
+        {% comment %} const alt = img.parentElement.dataset.alt || ""; {% endcomment %}
+      const altParts = img.alt.split('/').map(p => p.trim().toLowerCase());
       let isMatch = true;
       for (let i = 0; i < selectedOptions.length; i++) {
         if (normalizeValue(selectedOptions[i]) !== normalizeValue(altParts[i])) {
@@ -927,9 +927,9 @@ function updateVariantId(cart, variants, variantIdInput) {
     if (matchedImage) {
       matchedImage.style.display = "block";
     } 
-    {% comment %} else if (allImages.length > 0) {
+    else if (allImages.length > 0) {
       allImages[0].style.display = "block";
-    } {% endcomment %}
+    }
 
     // Update price dynamically
     if (priceElement) {
