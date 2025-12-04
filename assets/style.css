@@ -1770,7 +1770,6 @@ section.icon-columns-section.wood_colorss .container {
     height: 100%;
     width: 100%;
 }
-
 .preparation-collection .grid .grid__item .card .card__media .product__media video.product__video {
     height: 100%;
     object-fit: cover;
@@ -1785,7 +1784,6 @@ section.icon-columns-section.wood_colorss .container {
     margin: 0 0 15px;
     flex-wrap: wrap;
 }
-
 .best_selling-boxesss .meeta-fl {
     display: flex;
     align-items: center;
@@ -1800,7 +1798,6 @@ section.icon-columns-section.wood_colorss .container {
     letter-spacing: normal;
     line-height: normal;
 }
-
 .best_selling-boxesss .meeta-fl img {
     display: block;
     height: 15px;
