@@ -477,10 +477,10 @@ document.querySelectorAll('.card-wrapper').forEach(card => {
       fallbackNoAlt.style.display = "block";
       return;
     }
-    // default to first
+    {% comment %} // default to first
     if (mediaBlocks.length > 0) {
       mediaBlocks[0].style.display = "block";
-    }
+    } {% endcomment %}
   }
 </script>
 
