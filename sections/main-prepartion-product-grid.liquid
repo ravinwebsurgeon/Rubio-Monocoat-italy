@@ -912,8 +912,8 @@ function updateVariantId(cart, variants, variantIdInput) {
     let matchedImage = null;
 
     // Find matching image based on selected options
-    allImages.forEach(img => {
-        const alt = img.parentElement.dataset.alt || "";
+    allMedia.forEach(img => {
+      const alt = img.parentElement.dataset.alt || "";
       const altParts = alt.split('/').map(p => p.trim().toLowerCase());
       let isMatch = true;
       for (let i = 0; i < selectedOptions.length; i++) {
