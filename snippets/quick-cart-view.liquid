@@ -36,17 +36,6 @@
                           class="product__image__item first__visit"
                         width="" height="">
                          {% elsif media.media_type == 'video' %}
-                      {% comment %} <video 
-                        controls=false
-                        autoplay=false 
-                        muted 
-                        loop=false
-                        class="product__video__item first__visit"
-                        width="360"
-                        {% if media.alt != blank %} data-alt="{{ media.alt | escape }}"{% endif %}
-                      >
-                        <source src="{{ media | video_url }}" type="video/mp4">
-                      </video> {% endcomment %}
                       {{ media | video_tag: class: "product__video__item first__visit", data_alt: media.alt, controls: true, autoplay: true, muted: true, loop: true }}
 
                       {% endif %}
