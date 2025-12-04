@@ -27,7 +27,8 @@
                     {% comment %} <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.media[1].alt | escape }}" loading="lazy" > {% endcomment %}
                     {% comment %} {% render 'product-media-gallery' ,product:product %} {% endcomment %}
                   {% for media in product.media %}
-                      {% if media.media_type == 'image' %}
+                      <div class="" {% unless media.alt == product.title %} data-alt="{{ media.alt | escape }}"{% endunless %}>
+                    {% if media.media_type == 'image' %}
                         <img 
                           src="{{ media | image_url: width: 360 }}"
                           {% unless media.alt == product.title %} alt="{{ media.alt | escape }}"{% endunless %}
@@ -49,6 +50,7 @@
                       {{ media | video_tag: class: "product__video__item first__visit", data_alt: media.alt, controls: true, autoplay: true, muted: true, loop: true }}
 
                       {% endif %}
+                    </div>
                   {% endfor %}
                   </a>
             </div>
