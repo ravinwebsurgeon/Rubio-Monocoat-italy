@@ -246,7 +246,8 @@
                         >
                           <input
                             type="radio"
-                            name="option-color-{{ forloop.parentloop.index0 }}"
+                            {% comment %} name="option-color-{{ forloop.parentloop.index0 }}" {% endcomment %}
+                            name="option-color-{{ card_product.id }}-{{ forloop.parentloop.index0 }}"
                             value="{{ value | escape }}"
                             {% if forloop.first %}checked{% endif %}
                             class="color-swatch-input main_card"
