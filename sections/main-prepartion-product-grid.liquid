@@ -905,15 +905,15 @@ function updateVariantId(cart, variants, variantIdInput) {
     // Update product images
     const allImages = cart.querySelectorAll(".product__image__item");
     const allVideos = cart.querySelectorAll(".product__video__item");
-    const allMedia = [...allImages, ...allVideos];
+    const allMedia = const allMedia = [...allImages, ...allMedia];
 
 
     console.log(allMedia,'asasa')
     let matchedImage = null;
 
     // Find matching image based on selected options
-    allMedia.forEach(img => {
-      const alt = img.parentElement.dataset.alt || "";
+    allImages.forEach(img => {
+        const alt = img.parentElement.dataset.alt || "";
       const altParts = alt.split('/').map(p => p.trim().toLowerCase());
       let isMatch = true;
       for (let i = 0; i < selectedOptions.length; i++) {
