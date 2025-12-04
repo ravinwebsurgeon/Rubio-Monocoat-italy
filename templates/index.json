@@ -491,7 +491,7 @@
       "name": "Best Sellers",
       "settings": {
         "products_limit": 6,
-        "collection": "interior",
+        "collection": "pine-wood",
         "section_heading": "Bestseller",
         "btn_text": "View All",
         "btn_link": ""
