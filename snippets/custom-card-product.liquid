@@ -432,8 +432,16 @@ document.querySelectorAll('.card-wrapper').forEach(card => {
   });
 });
 
-  function normalizeValue(val) {
+  {% comment %} function normalizeValue(val) {
     return val.trim().toLowerCase();
+  } {% endcomment %}
+  function normalizeValue(val) {
+    return val
+      .toString()
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, "")      // remove ALL spaces
+      .replace(/[-_]/g, "");    // remove dashes/underscores
   }
 
   function getSelectedOptions(card) {
