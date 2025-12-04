@@ -681,7 +681,7 @@ button.show-more-swatches {
           my_cart.classList.add('active__Cart')
            {% comment %} updateVariantId(my_cart, pro_variants, id); {% endcomment %}
           const allImages = my_cart.querySelectorAll(".product__image__item.first__visit");
-          {% comment %} allImages[0].style.display = "block"; {% endcomment %}
+          allImages[0].style.display = "block";
           allImages.forEach(img => {
           img.classList.remove("first__visit");
 });
@@ -929,10 +929,10 @@ function updateVariantId(cart, variants, variantIdInput) {
     // Show matched image or fallback to first image
     if (matchedImage) {
       matchedImage.style.display = "block";
-    } else{matchedImage.style.display = "none";}
-    {% comment %} else if (allImages.length > 0) {
+    } 
+    else if (allImages.length > 0) {
       allImages[0].style.display = "block";
-    } {% endcomment %}
+    }
 
     // Update price dynamically
     if (priceElement) {
