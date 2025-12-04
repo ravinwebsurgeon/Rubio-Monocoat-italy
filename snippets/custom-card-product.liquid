@@ -450,11 +450,12 @@ document.querySelectorAll('.card-wrapper').forEach(card => {
     const selectedOptions = getSelectedOptions(card);
     let matched = null;
     let fallbackNoAlt = null;
-    console.log(selectedOptions,'selectedOptions');
     mediaBlocks.forEach(block => {
       const alt = block.dataset.altDetail ? block.dataset.altDetail.trim() : "";
       const altParts = alt ? alt.split('/').map(p => normalizeValue(p)) : [];
       // save fallback (no alt)
+    console.log(selectedOptions,'selectedOptions',altParts);
+
       if (!alt || alt === "") {
         if (!fallbackNoAlt) fallbackNoAlt = block;
       }
