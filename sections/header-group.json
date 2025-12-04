@@ -17,7 +17,7 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Free shipping over €50",
+            "text": "Free delivery on orders over €50",
             "link": "",
             "custom_svg": ""
           }
