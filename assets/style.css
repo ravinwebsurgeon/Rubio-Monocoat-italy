@@ -1779,6 +1779,38 @@ section.icon-columns-section.wood_colorss .container {
     background-color: transparent;
     padding: 0;
 }
+.best_selling-boxesss .meta__detail {
+    display: flex;
+    gap: 10px;
+    margin: 0 0 15px;
+    flex-wrap: wrap;
+}
+
+.best_selling-boxesss .meeta-fl {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: #fff;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    padding: 6px 10px;
+    font-size: 13px;
+    font-family: Frutiger Neue LT W1G;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: normal;
+}
+
+.best_selling-boxesss .meeta-fl img {
+    display: block;
+    height: 15px;
+    object-fit: contain;
+}
+
+
+
+
+
 /* ==========Media Css ========== */
 @media screen and (min-width: 990px) {
     
