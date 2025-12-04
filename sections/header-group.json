@@ -30,11 +30,20 @@
             "link": "",
             "custom_svg": ""
           }
+        },
+        "announcement_FVKwNP": {
+          "type": "announcement",
+          "settings": {
+            "text": "Consulenza professionale gratuita",
+            "link": "",
+            "custom_svg": ""
+          }
         }
       },
       "block_order": [
         "announcement-bar-0",
-        "announcement_6zGjFz"
+        "announcement_6zGjFz",
+        "announcement_FVKwNP"
       ],
       "settings": {
         "review_link": "#",
