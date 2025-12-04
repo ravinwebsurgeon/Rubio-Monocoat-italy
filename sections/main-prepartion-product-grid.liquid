@@ -679,7 +679,7 @@ button.show-more-swatches {
           let id = my_cart.querySelector(".variant-selector");
           
           my_cart.classList.add('active__Cart')
-           {% comment %} updateVariantId(my_cart, pro_variants, id); {% endcomment %}
+           updateVariantId(my_cart, pro_variants, id);
           const allImages = my_cart.querySelectorAll(".product__image__item.first__visit");
           allImages[0].style.display = "block";
           allImages.forEach(img => {
