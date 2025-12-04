@@ -153,7 +153,8 @@
                       >
                         <input
                           type="radio"
-                          name="{{ option.name }}-{{ option.position }}"
+                          {% comment %} name="{{ option.name }}-{{ option.position }}" {% endcomment %}
+                          name="{{ option.name }}-{{ option.position }}-{{ product.id }}-{{ forloop.parentloop.index0 }}"
                           value="{{ value | escape }}"
                           {% comment %} {% if option.selected_value == value %}checked{% endif %} {% endcomment %}
                           {% if loop.first or option.selected_value == value %}checked{% endif %}
