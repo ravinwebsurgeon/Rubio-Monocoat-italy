@@ -1775,7 +1775,10 @@ section.icon-columns-section.wood_colorss .container {
     height: 100%;
     object-fit: cover;
 }
-
+.preparation-collection .grid .grid__item .card .card__media .product-card {
+    background-color: transparent;
+    padding: 0;
+}
 /* ==========Media Css ========== */
 @media screen and (min-width: 990px) {
     
