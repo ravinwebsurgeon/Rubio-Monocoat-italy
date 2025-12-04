@@ -1766,6 +1766,15 @@ section.icon-columns-section.wood_colorss .container {
     padding-top: 30px;
     padding-bottom: 40px;
 }
+.preparation-collection .grid .grid__item .card .card__media .product__media {
+    height: 100%;
+    width: 100%;
+}
+
+.preparation-collection .grid .grid__item .card .card__media .product__media video.product__video {
+    height: 100%;
+    object-fit: cover;
+}
 
 /* ==========Media Css ========== */
 @media screen and (min-width: 990px) {
