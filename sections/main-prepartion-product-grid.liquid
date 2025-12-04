@@ -910,8 +910,8 @@ function updateVariantId(cart, variants, variantIdInput) {
 
     // Find matching image based on selected options
     allImages.forEach(img => {
-        {% comment %} const alt = img.parentElement.dataset.alt || ""; {% endcomment %}
-      const altParts = img.alt.split('/').map(p => p.trim().toLowerCase());
+        const alt = img.parentElement.dataset.alt || "";
+      const altParts = alt.split('/').map(p => p.trim().toLowerCase());
       let isMatch = true;
       for (let i = 0; i < selectedOptions.length; i++) {
         if (normalizeValue(selectedOptions[i]) !== normalizeValue(altParts[i])) {
