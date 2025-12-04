@@ -435,7 +435,7 @@ document.querySelectorAll('.card-wrapper').forEach(card => {
   {% comment %} function normalizeValue(val) {
     return val.trim().toLowerCase();
   } {% endcomment %}
-  
+
   function normalizeValue(val) {
     return val
       .toString()
@@ -470,8 +470,6 @@ document.querySelectorAll('.card-wrapper').forEach(card => {
       // matching logic
       let isMatch = true;
       for (let i = 0; i < selectedOptions.length; i++) {
-    console.log(normalizeValue(selectedOptions[i]),'selectedOptions',altParts[i]);
-
         if (normalizeValue(selectedOptions[i]) !== normalizeValue(altParts[i])) {
           isMatch = false;
           break;
