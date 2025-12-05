@@ -476,7 +476,8 @@ document.addEventListener("DOMContentLoaded", function () {
             {% comment %} console.log(product,'asdasd') {% endcomment %}
             const colorOptionIndex = product.options.findIndex(option =>
               option.name.toLowerCase() === "color" ||
-              option.name.toLowerCase() === "colore"
+              option.name.toLowerCase() === "colore" ||
+              option.name.toLowerCase() === "colour" 
             );
             if (colorOptionIndex !== -1) {
               // Find the first variant with a color value
