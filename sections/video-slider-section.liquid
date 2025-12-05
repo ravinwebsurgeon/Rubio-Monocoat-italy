@@ -435,7 +435,11 @@ document.addEventListener("DOMContentLoaded", function () {
     slidesPerView: 4.2,
     centeredSlides: true,
     loop: true,
-    autoplay:true,
+    {% comment %} autoplay:true, {% endcomment %}
+      autoplay: {
+      delay: 3000, // slower autoplay
+      disableOnInteraction: false,
+    },
     spaceBetween: 20,
     navigation: {
       nextEl: ".custom-next",
