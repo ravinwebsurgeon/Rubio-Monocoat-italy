@@ -473,6 +473,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let colorOption = null;
             let swatchValue = null;
             {% comment %} const colorOptionIndex = product.options.findIndex(option => option.name.toLowerCase() === "color"); {% endcomment %}
+            console.log(product.options,'asdasd')
             const colorOptionIndex = product.options.findIndex(option =>
               option.name.toLowerCase() === "color" ||
               option.name.toLowerCase() === "Colour"
