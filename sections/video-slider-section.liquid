@@ -473,9 +473,10 @@ document.addEventListener("DOMContentLoaded", function () {
             let colorOption = null;
             let swatchValue = null;
             {% comment %} const colorOptionIndex = product.options.findIndex(option => option.name.toLowerCase() === "color"); {% endcomment %}
-          const colorOptionIndex = product.options.findIndex(option =>
-  ["color", "colour"].includes(option.name.toLowerCase())
-);
+            const colorOptionIndex = product.options.findIndex(option =>
+              option.name.toLowerCase() === "color" ||
+              option.name.toLowerCase() === "Colour"
+            );
             if (colorOptionIndex !== -1) {
               // Find the first variant with a color value
               const firstColorVariant = product.variants.find(variant => variant.options[colorOptionIndex]);
