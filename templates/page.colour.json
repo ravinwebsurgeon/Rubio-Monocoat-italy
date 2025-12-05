@@ -107,6 +107,7 @@
         "column_KYPBwd",
         "column_AkpzPV"
       ],
+      "disabled": true,
       "name": "custom multicolumn",
       "settings": {
         "class_add": "wood_colorss",
