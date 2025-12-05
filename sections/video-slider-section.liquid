@@ -472,12 +472,12 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(product => {
             let colorOption = null;
             let swatchValue = null;
-            const colorOptionIndex = product.options.findIndex(option => option.name.toLowerCase() === "colore");
-            console.log(product,'asdasd')
-            {% comment %} const colorOptionIndex = product.options.findIndex(option =>
+            {% comment %} const colorOptionIndex = product.options.findIndex(option => option.name.toLowerCase() === "colore"); {% endcomment %}
+            {% comment %} console.log(product,'asdasd') {% endcomment %}
+            const colorOptionIndex = product.options.findIndex(option =>
               option.name.toLowerCase() === "color" ||
-              option.name.toLowerCase() === "Colore"
-            ); {% endcomment %}
+              option.name.toLowerCase() === "colore"
+            );
             if (colorOptionIndex !== -1) {
               // Find the first variant with a color value
               const firstColorVariant = product.variants.find(variant => variant.options[colorOptionIndex]);
