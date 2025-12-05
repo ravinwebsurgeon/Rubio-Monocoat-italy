@@ -418,6 +418,18 @@ console.log('checked',drawer)
 }); {% endcomment %}
 
 document.addEventListener("DOMContentLoaded", function () {
+
+   const sliderContainer = document.querySelector(".inspired-slider .swiper-wrapper");
+  const slides = document.querySelectorAll(".inspired-slide");
+
+  if (slides.length < 5) {
+    let needed = 5 - slides.length;  // minimum slides required for loop
+    for (let i = 0; i < needed; i++) {
+      let clone = slides[i % slides.length].cloneNode(true);
+      sliderContainer.appendChild(clone);
+    }
+  }
+
   var swiper = new Swiper(".inspired-slider", {
     slidesPerView: 4.2,
     centeredSlides: true,
@@ -450,7 +462,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const slides = document.querySelectorAll(".inspired-slide.swiper-slide");
     let prevArrow = document.querySelector('.custom-prev');
     let nextArrow = document.querySelector('.custom-next');
-    console.log()
     if (slides.length > 4) {
       prevArrow.style.display = "block";
       nextArrow.style.display = "block";
