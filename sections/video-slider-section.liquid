@@ -419,16 +419,6 @@ console.log('checked',drawer)
 
 document.addEventListener("DOMContentLoaded", function () {
 
-   {% comment %} const sliderContainer = document.querySelector(".inspired-slider .swiper-wrapper"); {% endcomment %}
-  {% comment %} const slides = document.querySelectorAll(".inspired-slide"); {% endcomment %}
-
-  {% comment %} if (slides.length < 5) {
-    let needed = 5 - slides.length;  // minimum slides required for loop
-    for (let i = 0; i < needed; i++) {
-      let clone = slides[i % slides.length].cloneNode(true);
-      sliderContainer.appendChild(clone);
-    }
-  } {% endcomment %}
   const wrapper = document.querySelector(".inspired-slider .swiper-wrapper");
   const slides = Array.from(document.querySelectorAll(".inspired-slide"));
   const minSlidesNeeded = 10; // Safe value for 4.5 per view + loop
@@ -436,7 +426,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (slides.length < minSlidesNeeded) {
     while (wrapper.children.length < minSlidesNeeded) {
       slides.forEach(s => {
-        wrapper.appendChild(s.cloneNode(true));
+        wrapper.appendChild(s.cloneNode(true)); 
       });
     }
   }
