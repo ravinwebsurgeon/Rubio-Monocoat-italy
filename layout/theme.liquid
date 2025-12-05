@@ -808,6 +808,25 @@ function updateCartCount() {
 updateCartCount();
 setInterval(updateCartCount, 300);
 </script>
+<script>
+  document.addEventListener("click", function (e) {
+  const btn = e.target.closest(".change_variants");
+  if (!btn) return;
 
+  e.preventDefault(); // Stop normal jump
+
+  const targetID = btn.getAttribute("href");
+  const target = document.querySelector(targetID);
+  if (!target) return;
+
+  const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+
+  window.scrollTo({
+    top: targetPosition - 200, // subtract 200px
+    behavior: "smooth"
+  });
+});
+
+</script>
   </body>
 </html>
