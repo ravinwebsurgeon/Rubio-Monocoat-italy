@@ -52,11 +52,20 @@
               <button class="cert-plus" type="button" data-product-index="{{ i }}">+</button>
             </div>
             <div class="cart_btn_main">
-              <button class="custom_product_cart_btn 
+              {% comment %} <button class="custom_product_cart_btn 
                 {% unless product.available %} disabled-btn {% endunless %}" 
                  data-variant-id="{{  product.selected_or_first_available_variant.id }}" 
                  {% unless product.available %} disabled {% endunless %}
-                >i</button>
+                >i</button> {% endcomment %}
+                <button class="custom_product_cart_btn 
+                {% unless product.available %} disabled-btn {% endunless %}" 
+                 data-variant-id="{{  product.selected_or_first_available_variant.id }}" 
+                 {% unless product.available %} disabled {% endunless %}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 16 16">
+                    <text x="50%" y="80%" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" fill="currentColor">i</text>
+                  </svg>
+                </button>
             </div>
           </div>
         </div>
