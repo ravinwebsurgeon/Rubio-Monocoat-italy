@@ -418,11 +418,11 @@ console.log('checked',drawer)
 }); {% endcomment %}
 
 document.addEventListener("DOMContentLoaded", function () {
-{% comment %} 
+
    const sliderContainer = document.querySelector(".inspired-slider .swiper-wrapper");
   const slides = document.querySelectorAll(".inspired-slide");
 
-  if (slides.length < 5) {
+  {% comment %} if (slides.length < 5) {
     let needed = 5 - slides.length;  // minimum slides required for loop
     for (let i = 0; i < needed; i++) {
       let clone = slides[i % slides.length].cloneNode(true);
