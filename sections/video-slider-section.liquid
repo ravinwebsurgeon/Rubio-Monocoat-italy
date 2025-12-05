@@ -418,7 +418,7 @@ console.log('checked',drawer)
 }); {% endcomment %}
 
 document.addEventListener("DOMContentLoaded", function () {
-
+{% comment %} 
    const sliderContainer = document.querySelector(".inspired-slider .swiper-wrapper");
   const slides = document.querySelectorAll(".inspired-slide");
 
@@ -428,7 +428,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let clone = slides[i % slides.length].cloneNode(true);
       sliderContainer.appendChild(clone);
     }
-  }
+  } {% endcomment %}
 
   var swiper = new Swiper(".inspired-slider", {
     slidesPerView: 4.2,
