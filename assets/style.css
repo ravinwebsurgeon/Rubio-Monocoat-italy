@@ -432,10 +432,10 @@ section.icon-columns-section {
 
 .icon-columns {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     margin-top: 90px;
 }
-
+.icon-columns-section.colori_legno .icon-columns{grid-template-columns: repeat(3, 1fr);}
 .icon-image-wrap img {
     display: block;
     width: 100%;
