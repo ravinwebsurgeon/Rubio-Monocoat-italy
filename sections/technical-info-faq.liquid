@@ -5,6 +5,8 @@
  {% assign tech_info_heading = product.metafields.custom.tech_info_heading.value %}
  {% assign image = product.metafields.custom.tech_info_image.value %}
  {% assign items = product.metafields.custom.technical_des_content.value | parse_json %}
+ {% assign json_urls = product.metafields.custom.technical_downloads.value | parse_json %}
+ {% assign user_country = localization.country.iso_code | downcase %}
 
 {% comment %} {% for item in items %}
   {{ item.html | raw  }}
@@ -49,7 +51,6 @@
 
                 <div class="tech-info-answer">
                   <div class="technical_content_here">
-                  {% assign user_country = localization.country.iso_code | downcase %}
                   {% if user_country == 'it' %}
                     {% assign urls = product.metafields.custom.technical_downloads_italy.value | split: ',' %}
                   {% elsif user_country == 'de' %}
