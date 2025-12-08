@@ -46,7 +46,7 @@
         "announcement_FVKwNP"
       ],
       "settings": {
-        "review_link": "#",
+        "review_link": "shopify://pages/all-reviews-page",
         "review_text": "Reviews",
         "service_link": "shopify://pages/customer-service",
         "service_text": "Customer Service",
