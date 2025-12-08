@@ -41,9 +41,7 @@
 
               {% for value in option.values %}
                 {% assign val_down = value | downcase %}
-                
-                {# ONLY match the correct variant value #}
-                {% if val_down == selected_value %}
+                                {% if val_down == selected_value %}
 
                   {% if value.swatch %}
                     {% if value.swatch.image %}
