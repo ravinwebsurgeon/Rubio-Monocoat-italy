@@ -377,7 +377,7 @@ document.addEventListener("DOMContentLoaded", function() {
       const elementPosition = targetElement.getBoundingClientRect().top;
       const targetPosition = elementPosition + window.pageYOffset - headerOffset;
       const distance = targetPosition - startPosition;
-      const duration = 3000; // scroll duration in ms (increase for slower)
+      const duration = 2000; // scroll duration in ms (increase for slower)
       let startTime = null;
 
       function easeInOutQuad(t) {
