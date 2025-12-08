@@ -7,7 +7,7 @@
  {% assign items = product.metafields.custom.technical_des_content.value | parse_json %}
  {% assign json_downloads = product.metafields.custom.technical_downloads.value | parse_json %}
  {% assign user_country_iso = localization.country.iso_code | downcase %}
- {% comment %} {% assign user_lang = localization.language.iso_code | downcase %} {% endcomment %}
+ {% assign user_lang = localization.language.iso_code | downcase %}
 
  {%  case user_country_iso %}
     {% when 'it' %}
