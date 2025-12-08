@@ -23,9 +23,7 @@
     {% endif %}
   {% endfor %}
 {% endif %} {% endcomment %}
-{% comment %} {% for item in items %}
-  {{ item.html | raw  }}
-{% endfor %}  {% endcomment %}
+
 {% if product.metafields.custom.technical_info_faq_question.value != blank %}
 <div class="tech-info-wrapper-sec">
   <div class="tech-info-wrapper page-width" id="technical-info">
