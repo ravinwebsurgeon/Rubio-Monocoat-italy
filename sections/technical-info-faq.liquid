@@ -7,9 +7,14 @@
  {% assign items = product.metafields.custom.technical_des_content.value | parse_json %}
  {% assign json_urls = product.metafields.custom.technical_downloads.value | parse_json %}
  {% assign user_country_iso = localization.country.iso_code | downcase %}
- {% comment %} {%  case user_country_iso %}
-
- {% endcasse %} {% endcomment %}
+ {%  case user_country_iso %}
+    {% when 'it' %}
+      {% assign country_key = 'italy' %}
+    {% when 'de' %}
+      {% assign country_key = 'german' %}
+    {% else %}
+      {% assign country_key = '' %}
+ {% endcase %}
 {% comment %} {% for item in items %}
   {{ item.html | raw  }}
 {% endfor %}  {% endcomment %}
