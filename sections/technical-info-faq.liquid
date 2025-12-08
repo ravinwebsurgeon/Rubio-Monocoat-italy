@@ -16,13 +16,13 @@
       {% assign country_key = '' %}
  {% endcase %}
 
-{% if country_key != '' %}
+{% comment %} {% if country_key != '' %}
   {% for item in json_downloads %}
     {% if item[country_key] %}
       {{ item[country_key] }}
     {% endif %}
   {% endfor %}
-{% endif %}
+{% endif %} {% endcomment %}
 {% comment %} {% for item in items %}
   {{ item.html | raw  }}
 {% endfor %}  {% endcomment %}
