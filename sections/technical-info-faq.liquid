@@ -6,8 +6,10 @@
  {% assign image = product.metafields.custom.tech_info_image.value %}
  {% assign items = product.metafields.custom.technical_des_content.value | parse_json %}
  {% assign json_urls = product.metafields.custom.technical_downloads.value | parse_json %}
- {% assign user_country = localization.country.iso_code | downcase %}
+ {% assign user_country_iso = localization.country.iso_code | downcase %}
+ {% comment %} {%  case user_country_iso %}
 
+ {% endcasse %} {% endcomment %}
 {% comment %} {% for item in items %}
   {{ item.html | raw  }}
 {% endfor %}  {% endcomment %}
@@ -51,9 +53,9 @@
 
                 <div class="tech-info-answer">
                   <div class="technical_content_here">
-                  {% if user_country == 'it' %}
+                  {% if user_country_iso == 'it' %}
                     {% assign urls = product.metafields.custom.technical_downloads_italy.value | split: ',' %}
-                  {% elsif user_country == 'de' %}
+                  {% elsif user_country_iso == 'de' %}
                     {% assign urls = product.metafields.custom.technical_downloads_german.value | split: ',' %}
                   {% endif %}
 
