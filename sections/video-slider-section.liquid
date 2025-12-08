@@ -30,10 +30,43 @@
                 {% assign color_img =   first_swatch.image | image_url: width: 50 %}
             {% endif %} 
           {% endcomment %}
+
+          {% assign selected_value = product.selected_or_first_available_variant.option1 | downcase %}
+          {% assign swatch_value = '' %}
+          {% assign swatch_focal = '' %}
+
+          {% for option in product.options_with_values %}
+            {% assign opt_name = option.name | downcase %}
+            {% if opt_name == 'color' or opt_name == 'colour' or opt_name == 'colore' %}
+
+              {% for value in option.values %}
+                {% assign val_down = value | downcase %}
+                
+                {# ONLY match the correct variant value #}
+                {% if val_down == selected_value %}
+
+                  {% if value.swatch %}
+                    {% if value.swatch.image %}
+                      {% assign img_url = value.swatch.image | image_url: width: 50 %}
+                      {% assign swatch_value = 'url(' | append: img_url | append: ')' %}
+                      {% assign swatch_focal = value.swatch.image.presentation.focal_point %}
+                    {% elsif value.swatch.color %}
+                      {% assign swatch_value = 'rgb(' | append: value.swatch.color.rgb | append: ')' %}
+                    {% endif %}
+                  {% endif %}
+
+                  {% if swatch_value == '' %}
+                    {% assign swatch_value = val_down %}
+                  {% endif %}
+
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
         <div 
           class="swiper-slide inspired-slide"
           data-product-hanlde = {{ product_handle }}
-          data-product-color = '{{ cleaned_rgb }}'
+          data-product-color = '{{ swatch_value }}'
         >
           {% if current_video != blank %}
             <video muted playsinline preload="auto" loop>
