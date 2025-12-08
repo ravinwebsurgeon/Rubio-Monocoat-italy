@@ -64,16 +64,24 @@
 
                 <div class="tech-info-answer">
                   <div class="technical_content_here">
-                  {% if user_country_iso == 'it' %}
+                  {% comment %} {% if user_country_iso == 'it' %}
                     {% assign urls = product.metafields.custom.technical_downloads_italy.value | split: ',' %}
                   {% elsif user_country_iso == 'de' %}
                     {% assign urls = product.metafields.custom.technical_downloads_german.value | split: ',' %}
-                  {% endif %}
+                  {% endif %} {% endcomment %}
 
                   {% if t_question contains 'Download' or t_question contains 'download' %}
-                      {% for url in urls %}
+                      {% comment %} {% for url in urls %}
                         <a href="{{ url | strip }}" class="tech-download-btn" onclick="forceDownload(event, this.href)">Download File</a>
-                      {% endfor %}
+                      {% endfor %} {% endcomment %}
+                       {% if country_key != '' %}
+                        {% for item in json_downloads %}
+                          {% if item[country_key] %}
+                            {{ item[country_key] }}
+                          {% endif %}
+                        {% endfor %}
+                      {% endif %}
+
                   {% else %}
                       {% if items.size > forloop.index0 %}
                         {{ items[forloop.index0].html }}
