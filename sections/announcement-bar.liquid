@@ -183,9 +183,9 @@
               {% form 'localization' %}
                   <select name="locale_code" onchange="this.form.submit()">
                     {% for locale in shop.enabled_locales %}
-                      <option class="{{   localization.language.iso_code }}"
+                      <option
                         value="{{ locale.iso_code }}"
-                        {% if localization.locale.iso_code == locale.iso_code %}selected{% endif %}
+                        {% if localization.language.iso_code == locale.iso_code %}selected{% endif %}
                       >
                         {{ locale.endonym_name }}
                       </option>
