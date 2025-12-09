@@ -65,9 +65,10 @@
         {% assign qs_parts = query_string | split: 'variant=' %}
         {% assign variant_id_from_url = qs_parts[1] | split: '&' | first %}
     {% endif %}
-{% assign variant_id_from_url = variant_id_from_url | plus: 0 %}
 
     {% if variant_id_from_url != '' %}
+    {% assign variant_id_from_url = variant_id_from_url | plus: 0 %}
+
         {% assign selected_variant = product.variants | where: 'id', variant_id_from_url | first %}
     {% else %}
         {% assign selected_variant = product.selected_or_first_available_variant %}
