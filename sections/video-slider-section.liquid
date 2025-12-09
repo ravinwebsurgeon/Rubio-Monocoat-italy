@@ -17,11 +17,8 @@
       
       {% for prod in product_links %}
         {% assign current_video = video_urls[forloop.index0].url %}
-        {% assign product_handle   = prod | split: 'products/' | last %}
+        {% comment %} {% assign product_handle   = prod | split: 'products/' | last %}
         {% assign product = all_products[product_handle] %}
-        {% assign inspired_product_colors = product.metafields.custom.inspired_product_colors.value %}
-        {% assign cleaned_rgb = inspired_product_colors[0] | strip | strip_newlines %}
-
           {% assign selected_value = product.selected_or_first_available_variant.option1 | downcase %}
           {% assign swatch_value = '' %}
           {% assign swatch_focal = '' %}
@@ -50,7 +47,63 @@
                 {% endif %}
               {% endfor %}
             {% endif %}
-          {% endfor %}
+          {% endfor %} {% endcomment %}
+           {% assign product_handle   = prod | split: 'products/' | last %}
+      {% assign link_parts = prod | split: '?' %}
+        {% assign handle_part = link_parts[0] | split: 'products/' | last %}
+        {% assign query_string = link_parts[1] %}
+
+    {% assign product = all_products[handle_part] %}
+
+    {%- comment -%}
+    Identify variant from the URL
+    {%- endcomment -%}
+
+    {% assign variant_id_from_url = '' %}
+
+    {% if query_string contains 'variant=' %}
+        {% assign qs_parts = query_string | split: 'variant=' %}
+        {% assign variant_id_from_url = qs_parts[1] | split: '&' | first %}
+    {% endif %}
+
+    {% if variant_id_from_url != '' %}
+        {% assign selected_variant = product.variants | where: 'id', variant_id_from_url | first %}
+    {% else %}
+        {% assign selected_variant = product.selected_or_first_available_variant %}
+    {% endif %}
+
+    {% assign selected_value = selected_variant.option1 | downcase %}
+    {% assign swatch_value = '' %}
+    {% assign swatch_focal = '' %}
+
+    {% for option in product.options_with_values %}
+        {% assign opt_name = option.name | downcase %}
+        {% if opt_name == 'color' or opt_name == 'colour' or opt_name == 'colore' %}
+
+            {% for value in option.values %}
+                {% assign val_down = value | downcase %}
+
+                {% if val_down == selected_value %}
+                    {% if value.swatch %}
+                        {% if value.swatch.image %}
+                            {% assign img_url = value.swatch.image | image_url: width: 50 %}
+                            {% assign swatch_value = 'url(' | append: img_url | append: ')' %}
+                            {% assign swatch_focal = value.swatch.image.presentation.focal_point %}
+                        {% elsif value.swatch.color %}
+                            {% assign swatch_value = 'rgb(' | append: value.swatch.color.rgb | append: ')' %}
+                        {% endif %}
+                    {% endif %}
+
+                    {% if swatch_value == '' %}
+                        {% assign swatch_value = val_down %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+
+        {% endif %}
+    {% endfor %}
+
+
         <div 
           class="swiper-slide inspired-slide"
           data-product-hanlde = {{ product_handle }}
