@@ -65,7 +65,9 @@
 
               {% assign selected_variant = product.variants | where: 'id', variant_id_from_url | first %}
           {% else %}
-              {% assign selected_variant = product.selected_or_first_available_variant %}
+              {% comment %} {% assign selected_variant = product.selected_or_first_available_variant %} {% endcomment %}
+              {% assign selected_variant = product.variants[0] %}
+
           {% endif %}
 
           {% assign selected_value = selected_variant.option1 | downcase %}
