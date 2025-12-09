@@ -496,7 +496,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nextArrow.style.display = "none";
     }
   } 
-  // ✅ Update Product Info for center slide
+  {% comment %} // ✅ Update Product Info for center slide
   function updateProductInfo() {
     const centerSlide = document.querySelector(".inspired-slide.swiper-slide-active");
     if (!centerSlide) return;
@@ -566,7 +566,104 @@ document.addEventListener("DOMContentLoaded", function () {
                   </div>
                 `;
         });
-  }
+  } {% endcomment %}
+
+  // ✅ Update Product Info for center slide
+function updateProductInfo() {
+  const centerSlide = document.querySelector(".inspired-slide.swiper-slide-active");
+  if (!centerSlide) return;
+
+  const rawHandle = centerSlide.getAttribute("data-product-hanlde") || "";
+  const swatch_color = centerSlide.getAttribute("data-product-color") || "";
+
+  // Split handle & query
+  const [cleanHandle, queryString] = rawHandle.split("?");
+
+  // Fetch product
+  fetch(`/products/${cleanHandle}.js`)
+    .then(res => res.json())
+    .then(product => {
+
+      // ----------------------------------------------------
+      // ⭐ 1. SELECT VARIANT
+      // ----------------------------------------------------
+      let selectedVariant = null;
+
+      // If ?variant=xxxx exists, try to use that variant
+      if (queryString) {
+        const params = new URLSearchParams(queryString);
+        const variantId = params.get("variant");
+
+        if (variantId) {
+          selectedVariant = product.variants.find(v => v.id == variantId);
+        }
+      }
+
+      // ❗ Fallback: if no selected variant or invalid ID → use first variant
+      if (!selectedVariant) {
+        selectedVariant = product.variants[0];
+      }
+
+      // ----------------------------------------------------
+      // ⭐ 2. GET COLOR OPTION (FROM SELECTED VARIANT)
+      // ----------------------------------------------------
+      let colorOption = null;
+
+      const colorOptionIndex = product.options.findIndex(option =>
+        option.name.toLowerCase() === "color" ||
+        option.name.toLowerCase() === "colore" ||
+        option.name.toLowerCase() === "colour"
+      );
+
+      if (colorOptionIndex !== -1) {
+        colorOption = selectedVariant.options[colorOptionIndex] || null;
+      }
+
+      // ----------------------------------------------------
+      // ⭐ 3. PRICE (USE SELECTED VARIANT PRICE)
+      // ----------------------------------------------------
+      const formattedPrice = (selectedVariant.price / 100).toLocaleString(undefined, {
+        style: "currency",
+        currency: "{{ shop.currency }}",
+      });
+
+      // ----------------------------------------------------
+      // ⭐ 4. BUILD HTML
+      // ----------------------------------------------------
+      document.getElementById("inspired-proouter").innerHTML = `
+        <div class="product-image-wrap">
+            <img id="product-img"
+                 src="${selectedVariant.featured_image || product.images[0]}"
+                 alt="${product.title}">
+
+            <div class="product-info-wrap">
+                <p id="product-vendor" class="vendor">${product.vendor}</p>
+                <p id="product-title" class="title">${product.title}</p>
+
+                ${colorOption ? `
+                  <p id="product_color" class="color-option">
+                    <span class="product_swatch" style="background:${swatch_color}"></span>
+                    <span>${colorOption}</span>
+                  </p>
+                ` : ''}
+
+                <p id="product-price" class="price">${formattedPrice}</p>
+            </div>
+
+            <div class="atc-btn-wrap">
+              <a href="${product.url}?variant=${selectedVariant.id}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 512 512" fill="#000">
+                  <circle cx="256" cy="256" r="220" stroke="#000" stroke-width="28" fill="none"/>
+                  <circle cx="256" cy="155" r="30" />
+                  <path d="M232 238h48v102c0 12 8 20 20 20h20v28H192v-28h20c12 0 20-8 20-20V278h-20v-40z"/>
+                </svg>
+              </a>
+            </div>
+        </div>
+      `;
+    })
+    .catch(err => console.error("Product fetch error:", err));
+}
 
   // ✅ Delegate Add to Cart click for all slider buttons
   document.body.addEventListener("click", function(e) {
