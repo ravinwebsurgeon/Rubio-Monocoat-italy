@@ -170,7 +170,7 @@
               </svg>
               <form action="/locale" method="post" class="locale-form">
                 <input type="hidden" name="locale_code" id="locale-code">
-                <input type="hidden" name="return_to" id="locale-code">
+                <input type="hidden" name="return_to" value="{{ request.path }}">
                 <select onchange="this.form.submit()">
                   {% for locale in shop.enabled_locales %}
                     <option value="{{ locale.iso_code }}" {% if locale.iso_code == localization.locale.iso_code %}selected{% endif %}>
