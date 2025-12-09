@@ -379,14 +379,17 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 <script>
-  document.getElementById('locale-select').addEventListener('change', function() {
-    // Update the hidden input that Shopify expects
-    document.getElementById('locale-code').value = this.value;
-
-    // Submit the form
-    this.closest('form').submit();
+  document.addEventListener('DOMContentLoaded', function() {
+    var select = document.getElementById('locale-select');
+    if (select) {
+      select.addEventListener('change', function() {
+        document.getElementById('locale-code').value = this.value;
+        this.closest('form').submit();
+      });
+    }
   });
 </script>
+
 <script>
   window.Shopify = window.Shopify || {};
   window.Shopify.product = {{ product | json }};
