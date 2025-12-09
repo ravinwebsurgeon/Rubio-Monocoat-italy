@@ -503,6 +503,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //New code
     const handle = centerSlide.getAttribute("data-product-hanlde");
     const swatch_color = centerSlide.getAttribute("data-product-color");
+    console.log('updateProductInfo executes')
       // Fetch product data
       fetch(`/products/${handle}.js`)
         .then(res => res.json())
