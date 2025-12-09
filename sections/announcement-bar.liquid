@@ -179,11 +179,11 @@
                 </select> {% endcomment %}
                 <select onchange="this.form.submit()">
                 {% for locale in shop.enabled_locales %}
-                  {% comment %} {% if locale.iso_code == 'en' %} {% endcomment %}
+                  {% if locale.iso_code == 'en' %}
                     <option value="{{ locale.iso_code }}" selected>
                       ENG
                     </option>
-                  {% comment %} {% endif %} {% endcomment %}
+                  {% endif %}
                 {% endfor %}
               </select>
               </form>
