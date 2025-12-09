@@ -8,9 +8,7 @@
  {% assign json_downloads = product.metafields.custom.technical_downloads.value | parse_json %}
  {% comment %} {% assign user_country_iso = localization.country.iso_code | downcase %} {% endcomment %}
  {% assign user_lang = localization.language.iso_code | downcase %}
-{% for item in json_downloads %}
- <p class="ceheck_downloads"> {{ item.italy  }}</p>
-{% endfor %}
+
  {%  case user_lang %}
     {% when 'it' %}
       {% assign country_key = 'italy' %}
