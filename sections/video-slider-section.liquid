@@ -517,6 +517,9 @@ document.addEventListener("DOMContentLoaded", function () {
              const defaultVariantId = params.get("variant");
             defaultVariant = product.variants.find(v => v.id == defaultVariantId);
           }
+           if (!defaultVariant) {
+            defaultVariant = product.variants[0];
+            }
             let colorOption = null;
             let swatchValue = null;
             const colorOptionIndex = product.options.findIndex(option =>
@@ -526,16 +529,14 @@ document.addEventListener("DOMContentLoaded", function () {
             );
             if (colorOptionIndex !== -1) {
               // Find the first variant with a color value
-              const firstColorVariant = product.variants.find(variant => variant.options[colorOptionIndex]);
-              if (firstColorVariant) {
-                colorOption = firstColorVariant.options[colorOptionIndex];
-                 console.log(firstColorVariant,'asda')
-              }
-            }
+              {% comment %} const firstColorVariant = product.variants.find(variant => variant.options[colorOptionIndex]);
+              if (firstColorVariant) {colorOption = firstColorVariant.options[colorOptionIndex];}
+            } {% endcomment %}
+             if (colorOptionIndex !== -1) {colorOption = selectedVariant.options[colorOptionIndex] || null;}
             const lowestPriceVariant = product.variants.reduce((lowest, current) => {
               return current.price < lowest.price ? current : lowest;
             });
-            const formattedPrice = (lowestPriceVariant.price / 100).toLocaleString(undefined, {
+            const formattedPrice = (selectedVariant.price / 100).toLocaleString(undefined, {
                 style: "currency",
                 currency: "{{ shop.currency }}",
               });
