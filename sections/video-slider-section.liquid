@@ -633,7 +633,7 @@ function updateProductInfo() {
       document.getElementById("inspired-proouter").innerHTML = `
         <div class="product-image-wrap">
             <img id="product-img"
-                 src="${selectedVariant.featured_image || product.images[0]}"
+                 src="${product.featured_image }"
                  alt="${product.title}">
 
             <div class="product-info-wrap">
