@@ -511,6 +511,11 @@ document.addEventListener("DOMContentLoaded", function () {
       fetch(`/products/${cleanHandle}.js`)
         .then(res => res.json())
         .then(product => {
+          let defaultVariant = null;
+          if (queryString) {
+            console.log('queryString',queryString)
+            {% comment %} defaultVariant = product.variants.find(v => v.id == variantId); {% endcomment %}
+          }
             let colorOption = null;
             let swatchValue = null;
             const colorOptionIndex = product.options.findIndex(option =>
