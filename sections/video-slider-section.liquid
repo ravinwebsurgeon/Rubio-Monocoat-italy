@@ -630,6 +630,13 @@ function updateProductInfo() {
       // ----------------------------------------------------
       // ⭐ 4. BUILD HTML
       // ----------------------------------------------------
+      let productLinkUrl;
+      if (queryString && selectedVariant) {
+        productLinkUrl = `${product.url}?variant=${selectedVariant.id}`;
+      } else {
+        // No variant in handle → use simple product URL
+        productLinkUrl = product.url;
+      }
       document.getElementById("inspired-proouter").innerHTML = `
         <div class="product-image-wrap">
             <img id="product-img"
@@ -651,7 +658,7 @@ function updateProductInfo() {
             </div>
 
             <div class="atc-btn-wrap">
-              <a href="${product.url}?variant=${selectedVariant.id}">
+              <a href="${productLinkUrl}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 512 512" fill="#000">
                   <circle cx="256" cy="256" r="220" stroke="#000" stroke-width="28" fill="none"/>
                   <circle cx="256" cy="155" r="30" />
