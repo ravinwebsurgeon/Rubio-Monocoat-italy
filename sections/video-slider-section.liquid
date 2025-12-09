@@ -513,8 +513,9 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(product => {
           let defaultVariant = null;
           if (queryString) {
-            console.log('queryString',queryString)
-            {% comment %} defaultVariant = product.variants.find(v => v.id == variantId); {% endcomment %}
+              const params = new URLSearchParams(queryString);
+             const defaultVariantId = params.get("variant");
+            defaultVariant = product.variants.find(v => v.id == defaultVariantId);
           }
             let colorOption = null;
             let swatchValue = null;
