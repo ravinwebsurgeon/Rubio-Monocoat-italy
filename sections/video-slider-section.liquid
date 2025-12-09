@@ -503,14 +503,15 @@ document.addEventListener("DOMContentLoaded", function () {
     //New code
     const handle = centerSlide.getAttribute("data-product-hanlde");
     const swatch_color = centerSlide.getAttribute("data-product-color");
+    let rawHandle = centerSlide.getAttribute("data-product-hanlde");
+    let [cleanHandle, queryString] = rawHandle.split("?");
+
       // Fetch product data
-      fetch(`/products/${handle}.js`)
+      fetch(`/products/${cleanHandle}.js`)
         .then(res => res.json())
         .then(product => {
             let colorOption = null;
             let swatchValue = null;
-            {% comment %} const colorOptionIndex = product.options.findIndex(option => option.name.toLowerCase() === "colore"); {% endcomment %}
-            {% comment %} console.log(product,'asdasd') {% endcomment %}
             const colorOptionIndex = product.options.findIndex(option =>
               option.name.toLowerCase() === "color" ||
               option.name.toLowerCase() === "colore" ||
