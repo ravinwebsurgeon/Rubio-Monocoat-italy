@@ -81,7 +81,7 @@
         {% if opt_name == 'color' or opt_name == 'colour' or opt_name == 'colore' %}
             {% for value in option.values %}
                 {% assign val_down = value | downcase %}
-                {% if value == selected_variant.option1 %}
+                {% if val_down == selected_variant.option1 %}
                     {% if value.swatch %}
                         {% if value.swatch.image %}
                             {% assign img_url = value.swatch.image | image_url: width: 50 %}
