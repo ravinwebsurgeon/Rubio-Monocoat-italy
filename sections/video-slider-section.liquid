@@ -573,14 +573,9 @@ document.addEventListener("DOMContentLoaded", function () {
 function updateProductInfo() {
   const centerSlide = document.querySelector(".inspired-slide.swiper-slide-active");
   if (!centerSlide) return;
-
   const rawHandle = centerSlide.getAttribute("data-product-hanlde") || "";
   const swatch_color = centerSlide.getAttribute("data-product-color") || "";
-
-  // Split handle & query
   const [cleanHandle, queryString] = rawHandle.split("?");
-
-  // Fetch product
   fetch(`/products/${cleanHandle}.js`)
     .then(res => res.json())
     .then(product => {
@@ -589,8 +584,6 @@ function updateProductInfo() {
       // ⭐ 1. SELECT VARIANT
       // ----------------------------------------------------
       let selectedVariant = null;
-
-      // If ?variant=xxxx exists, try to use that variant
       if (queryString) {
         const params = new URLSearchParams(queryString);
         const variantId = params.get("variant");
@@ -599,17 +592,10 @@ function updateProductInfo() {
           selectedVariant = product.variants.find(v => v.id == variantId);
         }
       }
-
-      // ❗ Fallback: if no selected variant or invalid ID → use first variant
       if (!selectedVariant) {
         selectedVariant = product.variants[0];
       }
-
-      // ----------------------------------------------------
-      // ⭐ 2. GET COLOR OPTION (FROM SELECTED VARIANT)
-      // ----------------------------------------------------
       let colorOption = null;
-
       const colorOptionIndex = product.options.findIndex(option =>
         option.name.toLowerCase() === "color" ||
         option.name.toLowerCase() === "colore" ||
@@ -619,23 +605,14 @@ function updateProductInfo() {
       if (colorOptionIndex !== -1) {
         colorOption = selectedVariant.options[colorOptionIndex] || null;
       }
-
-      // ----------------------------------------------------
-      // ⭐ 3. PRICE (USE SELECTED VARIANT PRICE)
-      // ----------------------------------------------------
       const formattedPrice = (selectedVariant.price / 100).toLocaleString(undefined, {
         style: "currency",
         currency: "{{ shop.currency }}",
       });
-
-      // ----------------------------------------------------
-      // ⭐ 4. BUILD HTML
-      // ----------------------------------------------------
       let productLinkUrl;
       if (queryString && selectedVariant) {
         productLinkUrl = `${product.url}?variant=${selectedVariant.id}`;
       } else {
-        // No variant in handle → use simple product URL
         productLinkUrl = product.url;
       }
       document.getElementById("inspired-proouter").innerHTML = `
