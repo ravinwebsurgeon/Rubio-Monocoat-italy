@@ -378,17 +378,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 </script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var select = document.getElementById('locale-select');
-    if (select) {
-      select.addEventListener('change', function() {
-        document.getElementById('locale-code').value = this.value;
-        this.closest('form').submit();
-      });
-    }
-  });
-</script>
 
 <script>
   window.Shopify = window.Shopify || {};
