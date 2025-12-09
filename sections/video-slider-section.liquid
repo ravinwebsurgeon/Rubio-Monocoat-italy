@@ -76,7 +76,7 @@
     {% assign swatch_value = '' %}
     {% assign swatch_focal = '' %}
 
-    {% for option in product.options_with_values %}
+    {% for option in selected_variant.options_with_values %}
         {% assign opt_name = option.name | downcase %}
         {% if opt_name == 'color' or opt_name == 'colour' or opt_name == 'colore' %}
 
