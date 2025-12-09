@@ -507,7 +507,6 @@ document.addEventListener("DOMContentLoaded", function () {
       fetch(`/products/${handle}.js`)
         .then(res => res.json())
         .then(product => {
-          console.log('product found', product)
             let colorOption = null;
             let swatchValue = null;
             {% comment %} const colorOptionIndex = product.options.findIndex(option => option.name.toLowerCase() === "colore"); {% endcomment %}
