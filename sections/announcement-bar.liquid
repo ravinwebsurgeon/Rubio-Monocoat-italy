@@ -180,14 +180,14 @@
                 {% endfor %}
               </select>
               </form> {% endcomment %}
-              {% form 'localization' %}
-  <select name="locale_code" onchange="this.form.submit()">
+{% form 'localization' %}
+  <select name="locale_code" id="LocaleSwitcher">
     {% for locale in shop.enabled_locales %}
-      <option
+      <option 
         value="{{ locale.iso_code }}"
-        {% if localization.locale.iso_code == locale.iso_code %}selected{% endif %}
+        {% if request.locale.iso_code == locale.iso_code %}selected{% endif %}
       >
-        {{ locale.endonym_name }}
+        {{ locale.endonym_name | default: locale.name }}
       </option>
     {% endfor %}
   </select>
