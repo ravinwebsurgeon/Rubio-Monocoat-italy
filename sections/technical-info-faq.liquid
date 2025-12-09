@@ -72,10 +72,11 @@
                     {% assign urls = product.metafields.custom.technical_downloads_german.value | split: ',' %}
                   {% endif %} {% endcomment %}
 
-                  {% if t_question contains 'Download' or t_question contains 'download' or  t_question contains 'Downloads' or  t_question contains 'downloads' or t_question contains 'Scarica' %}
+                  {% comment %} {% if t_question contains 'Download' or t_question contains 'download' or  t_question contains 'Downloads' or  t_question contains 'downloads' or t_question contains 'Scarica' %} {% endcomment %}
                       {% comment %} {% for url in urls %}
                         <a href="{{ url | strip }}" class="tech-download-btn" onclick="forceDownload(event, this.href)">Download File</a>
                       {% endfor %} {% endcomment %}
+                       {% if forloop.index == 4 %}
                        {% if country_key != '' %}
                         {% for item in json_downloads %}
                           {% if item[country_key] %}
