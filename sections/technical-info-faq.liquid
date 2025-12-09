@@ -78,6 +78,7 @@
                       {% endfor %} {% endcomment %}
                        {% if country_key != '' %}
                         {% for item in json_downloads %}
+                          <p class="found json url"></p>
                           {% if item[country_key] %}
                             {{ item[country_key] }}
                           {% endif %}
