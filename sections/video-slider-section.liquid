@@ -73,6 +73,13 @@
     {% endif %}
 
     {% assign selected_value = selected_variant.option1 | downcase %}
+    <pre>
+    product.handle: {{ product.handle }}
+    query_string: {{ query_string }}
+    variant_id_from_url: {{ variant_id_from_url }}
+    selected_variant: {{ selected_variant | json }}
+    selected_value: {{ selected_value }}
+    </pre>
     {% assign swatch_value = '' %}
     {% assign swatch_focal = '' %}
 
