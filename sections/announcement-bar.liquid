@@ -169,7 +169,7 @@
               </defs>
               </svg>
               <form action="{{ localization.form_action }}" method="post" class="locale-form">
-                <input type="hidden" name="locale_code" id="locale-code">
+                <input type="hidden" name="locale_code" id="locale-code" value="{{ localization.locale.iso_code }}">
                 <select onchange="this.form.submit()">
                 {% for locale in shop.enabled_locales %}
                   {% if locale.iso_code == 'en' %}
