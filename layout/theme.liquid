@@ -379,10 +379,9 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 <script>
-  document.getElementById('locale-select').addEventListener('change', function () {
-      document.getElementById('locale-code').value = this.value;
-      this.form.submit();
-  });
+document.getElementById('LocaleSwitcher').addEventListener('change', function () {
+  this.form.submit();
+});
 </script>
 
 <script>
