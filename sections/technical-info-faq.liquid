@@ -9,7 +9,7 @@
  {% assign user_country_iso = localization.country.iso_code | downcase %}
  {% assign user_lang = localization.language.iso_code | downcase %}
 
- {%  case user_country_iso %}
+ {%  case user_lang %}
     {% when 'it' %}
       {% assign country_key = 'italy' %}
     {% when 'de' %}
