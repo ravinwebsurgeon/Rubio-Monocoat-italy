@@ -106,8 +106,8 @@
         {{ label_unavailable }}
       </div>
 
-      {% if option.name == 'Size' and current_variant %}
-       {% comment %} {% if forloop.parentloop.index == 2 %} {% endcomment %}
+      {% comment %} {% if option.name == 'Size' and current_variant %} {% endcomment %}
+       {% if forloop.parentloop.index == 1 %}
       <div class="custom_price_value" style="display:flex;">
           {% if current_variant.metafields.custom.cost_m2_list != blank %}
           <div class="variant-custom-cost__m2">
