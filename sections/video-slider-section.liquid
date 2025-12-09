@@ -567,49 +567,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 `;
         });
   } {% endcomment %}
-// GET SWATCH VALUE FROM SELECTED VARIANT
-function getVariantSwatch(selectedVariant, product) {
-  let swatch = null;
 
-  const colorOptionIndex = product.options.findIndex(o =>
-    ["color", "colour", "colore"].includes(o.name.toLowerCase())
-  );
-
-  if (colorOptionIndex === -1) return null;
-
-  const colorValue = selectedVariant.options[colorOptionIndex].toLowerCase();
-
-  // Search Liquid swatch metafields inside JS
-  const colorOption = product.options_with_values?.find(o =>
-    ["color", "colour", "colore"].includes(o.name.toLowerCase())
-  );
-
-  if (!colorOption) return null;
-
-  const valueObj = colorOption.values.find(v =>
-    v.value.toLowerCase() === colorValue
-  );
-
-  if (!valueObj || !valueObj.swatch) return colorValue;
-
-  if (valueObj.swatch.image) {
-    return `url(${valueObj.swatch.image})`;
-  }
-
-  if (valueObj.swatch.color) {
-    return `rgb(${valueObj.swatch.color.rgb})`;
-  }
-
-  return colorValue;
-}
-
+  
   // ✅ Update Product Info for center slide
 function updateProductInfo() {
   const centerSlide = document.querySelector(".inspired-slide.swiper-slide-active");
   if (!centerSlide) return;
 
   const rawHandle = centerSlide.getAttribute("data-product-hanlde") || "";
-  {% comment %} const swatch_color = centerSlide.getAttribute("data-product-color") || ""; {% endcomment %}
+  const swatch_color = centerSlide.getAttribute("data-product-color") || "";
 
   // Split handle & query
   const [cleanHandle, queryString] = rawHandle.split("?");
