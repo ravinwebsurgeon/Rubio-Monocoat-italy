@@ -618,31 +618,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
   } {% endcomment %}
 
-  function getVariantSwatch(variant, product) {
-      const colorIndex = product.options.findIndex(o =>
-        ["color","colour","colore"].includes(o.name.toLowerCase())
-      );
-
-      if (colorIndex === -1) return null;
-
-      const colorValue = variant.options[colorIndex].toLowerCase();
-
-      const colorOption = product.options_with_values?.find(o =>
-        ["color","colour","colore"].includes(o.name.toLowerCase())
-      );
-
-      if (!colorOption) return colorValue;
-
-      const matched = colorOption.values.find(v => v.value.toLowerCase() === colorValue);
-
-      if (!matched) return colorValue;
-
-      if (matched.swatch?.image) return `url(${matched.swatch.image})`;
-      if (matched.swatch?.color) return `rgb(${matched.swatch.color.rgb})`;
-
-      return colorValue;
-    }
-
       // ✅ Update Product Info for center slide
     function updateProductInfo() {
       const centerSlide = document.querySelector(".inspired-slide.swiper-slide-active");
@@ -689,8 +664,7 @@ document.addEventListener("DOMContentLoaded", function () {
           } else {
             productLinkUrl = product.url;
           }
-          let swatchValue = getVariantSwatch(selectedVariant, product);
-          console.log(swatchValue,'swatchValue')
+          console.log(swatch_color,'swatchValue')
           document.getElementById("inspired-proouter").innerHTML = `
             <div class="product-image-wrap">
                 <img id="product-img"
