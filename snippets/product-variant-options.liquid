@@ -107,27 +107,17 @@
       </div>
 
       {% if option.name == 'Size' and current_variant %}
-  {% comment %} <div class="variant-price">
-    {{ current_variant.price | money }}
-  </div> {% endcomment %}
-  
-  <div class="custom_price_value" style="display:flex;">
-       {% if current_variant.metafields.custom.cost_m2_list != blank %}
-      <div class="variant-custom-cost__m2">
-          {% assign values_list = current_variant.metafields.custom.cost_m2_list.value %}
-          {% for val in values_list %}
-            <div>{{ val }}</div>
-          {% endfor %}
+      <div class="custom_price_value" style="display:flex;">
+          {% if current_variant.metafields.custom.cost_m2_list != blank %}
+          <div class="variant-custom-cost__m2">
+              {% assign values_list = current_variant.metafields.custom.cost_m2_list.value %}
+              {% for val in values_list %}
+                <div>{{ val }}</div>
+              {% endfor %}
+          </div>
+        {% endif %}
       </div>
     {% endif %}
-  </div>
-
-  {% comment %} {% if current_variant.metafields.custom.custom_size_note != blank %}
-    <div class="variant-note">
-      {{ current_variant.metafields.custom.custom_size_note | metafield_tag }}
-    </div>
-  {% endif %} {% endcomment %}
-{% endif %}
 
     </label>
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
