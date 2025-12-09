@@ -569,29 +569,29 @@ document.addEventListener("DOMContentLoaded", function () {
   } {% endcomment %}
 
   function getVariantSwatch(variant, product) {
-  const colorIndex = product.options.findIndex(o =>
-    ["color","colour","colore"].includes(o.name.toLowerCase())
-  );
+      const colorIndex = product.options.findIndex(o =>
+        ["color","colour","colore"].includes(o.name.toLowerCase())
+      );
 
-  if (colorIndex === -1) return null;
+      if (colorIndex === -1) return null;
 
-  const colorValue = variant.options[colorIndex].toLowerCase();
+      const colorValue = variant.options[colorIndex].toLowerCase();
 
-  const colorOption = product.options_with_values?.find(o =>
-    ["color","colour","colore"].includes(o.name.toLowerCase())
-  );
+      const colorOption = product.options_with_values?.find(o =>
+        ["color","colour","colore"].includes(o.name.toLowerCase())
+      );
 
-  if (!colorOption) return colorValue;
+      if (!colorOption) return colorValue;
 
-  const matched = colorOption.values.find(v => v.value.toLowerCase() === colorValue);
+      const matched = colorOption.values.find(v => v.value.toLowerCase() === colorValue);
 
-  if (!matched) return colorValue;
+      if (!matched) return colorValue;
 
-  if (matched.swatch?.image) return `url(${matched.swatch.image})`;
-  if (matched.swatch?.color) return `rgb(${matched.swatch.color.rgb})`;
+      if (matched.swatch?.image) return `url(${matched.swatch.image})`;
+      if (matched.swatch?.color) return `rgb(${matched.swatch.color.rgb})`;
 
-  return colorValue;
-}
+      return colorValue;
+    }
 
       // ✅ Update Product Info for center slide
     function updateProductInfo() {
@@ -653,7 +653,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     ${colorOption ? `
                       <p id="product_color" class="color-option">
-                        <span class="product_swatch" style="background:${swatch_color}"></span>
+                        <span class="product_swatch" style="background:${swatchValue}"></span>
                         <span>${colorOption}</span>
                       </p>
                     ` : ''}
