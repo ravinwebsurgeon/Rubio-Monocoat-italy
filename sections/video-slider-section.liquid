@@ -503,6 +503,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //New code
     const handle = centerSlide.getAttribute("data-product-hanlde");
     const swatch_color = centerSlide.getAttribute("data-product-color");
+
     let rawHandle = centerSlide.getAttribute("data-product-hanlde");
     let [cleanHandle, queryString] = rawHandle.split("?");
 
@@ -532,6 +533,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 style: "currency",
                 currency: "{{ shop.currency }}",
               });
+          console.log(product.variants,'asda')
+
               console.log(`<span class="product_swatch" style="background:${swatch_color}">${colorOption}</span>`,'swatch')
             document.getElementById("inspired-proouter").innerHTML = `
                   <div class="product-image-wrap">
