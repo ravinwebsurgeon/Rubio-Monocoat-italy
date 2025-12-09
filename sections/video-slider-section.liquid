@@ -50,55 +50,60 @@
           {% endfor %} {% endcomment %}
            {% assign product_handle   = prod | split: 'products/' | last %}
       {% assign link_parts = prod | split: '?' %}
-        {% assign handle_part = link_parts[0] | split: 'products/' | last %}
-        {% assign query_string = link_parts[1] %}
+{% assign handle_part = link_parts[0] | split: 'products/' | last %}
+{% assign query_string = link_parts[1] %}
 
-    {% assign product = all_products[handle_part] %}
+{% assign product = all_products[handle_part] %}
 
-    {%- comment -%}
-    Identify variant from the URL
-    {%- endcomment -%}
+{% assign variant_id = '' %}
+{% if query_string contains 'variant=' %}
+    {% assign variant_id = query_string | split: 'variant=' | last | split: '&' | first %}
+{% endif %}
 
-    {% assign variant_id_from_url = '' %}
+{% if variant_id != '' %}
+    {% assign selected_variant = product.variants | where: 'id', variant_id | first %}
+{% else %}
+    {% assign selected_variant = product.selected_or_first_available_variant %}
+{% endif %}
 
-    {% if query_string contains 'variant=' %}
-        {% assign qs_parts = query_string | split: 'variant=' %}
-        {% assign variant_id_from_url = qs_parts[1] | split: '&' | first %}
+{%- comment -%}
+AUTO-DETECT COLOR OPTION
+{%- endcomment -%}
+{% assign expected_color = '' %}
+{% for option in product.options %}
+    {% assign name_down = option | downcase %}
+    {% if name_down contains 'color' or name_down contains 'colour' %}
+        {% assign index = forloop.index0 %}
+        {% assign expected_color = selected_variant.options[index] %}
     {% endif %}
+{% endfor %}
 
-    {% if variant_id_from_url != '' %}
-        {% assign selected_variant = product.variants | where: 'id', variant_id_from_url | first %}
-    {% else %}
-        {% assign selected_variant = product.selected_or_first_available_variant %}
-    {% endif %}
+{% assign swatch_value = '' %}
+{% assign swatch_focal = '' %}
 
-    {% assign selected_value = selected_variant.option1 | downcase %}
-    {% assign swatch_value = '' %}
-    {% assign swatch_focal = '' %}
+{% for option in product.options_with_values %}
+    {% assign opt_name = option.name | downcase %}
+    {% if opt_name contains 'color' or opt_name contains 'colour' %}
+        {% for value in option.values %}
+            {% if value == expected_color %}
 
-    {% for option in product.options_with_values %}
-        {% assign opt_name = option.name | downcase %}
-        {% if opt_name == 'color' or opt_name == 'colour' or opt_name == 'colore' %}
-            {% for value in option.values %}
-                {% assign val_down = value | downcase %}
-                {% if value == selected_variant.option1 %}
-                    {% if value.swatch %}
-                        {% if value.swatch.image %}
-                            {% assign img_url = value.swatch.image | image_url: width: 50 %}
-                            {% assign swatch_value = 'url(' | append: img_url | append: ')' %}
-                            {% assign swatch_focal = value.swatch.image.presentation.focal_point %}
-                        {% elsif value.swatch.color %}
-                            {% assign swatch_value = 'rgb(' | append: value.swatch.color.rgb | append: ')' %}
-                        {% endif %}
-                    {% endif %}
-                    {% if swatch_value == '' %}
-                        {% assign swatch_value = val_down %}
+                {% if value.swatch %}
+                    {% if value.swatch.image %}
+                        {% assign img_url = value.swatch.image | image_url: width: 50 %}
+                        {% assign swatch_value = 'url(' | append: img_url | append: ')' %}
+                        {% assign swatch_focal = value.swatch.image.presentation.focal_point %}
+                    {% elsif value.swatch.color %}
+                        {% assign swatch_value = 'rgb(' | append: value.swatch.color.rgb | append: ')' %}
                     {% endif %}
                 {% endif %}
-            {% endfor %}
 
-        {% endif %}
-    {% endfor %}
+                {% if swatch_value == '' %}
+                    {% assign swatch_value = value %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}
 
 
         <div 
