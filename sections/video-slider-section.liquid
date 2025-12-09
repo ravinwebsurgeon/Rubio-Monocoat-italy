@@ -21,15 +21,6 @@
         {% assign product = all_products[product_handle] %}
         {% assign inspired_product_colors = product.metafields.custom.inspired_product_colors.value %}
         {% assign cleaned_rgb = inspired_product_colors[0] | strip | strip_newlines %}
-        {% comment %}
-            {% assign color_option = product.options_with_values | where: "name", "Color" | first %}
-            {% if color_option %}
-              {% assign first_value = color_option.values[0] %}
-              {% assign first_swatch = color_option.swatches[0] %} 
-                {% assign color = first_swatch.color.rgb %}
-                {% assign color_img =   first_swatch.image | image_url: width: 50 %}
-            {% endif %} 
-          {% endcomment %}
 
           {% assign selected_value = product.selected_or_first_available_variant.option1 | downcase %}
           {% assign swatch_value = '' %}
