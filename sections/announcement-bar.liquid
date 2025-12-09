@@ -180,18 +180,18 @@
                 {% endfor %}
               </select>
               </form> {% endcomment %}
-              {% form 'localization' %}
-                  <select name="locale_code" onchange="this.form.submit()">
-                    {% for locale in shop.enabled_locales %}
-                      <option class="{{  localization.locale.iso_code  }}"
-                        value="{{ locale.iso_code }}"
-                        {% if localization.locale.iso_code == locale.iso_code %}selected{% endif %}
-                      >
-                        {{ locale.endonym_name }}
-                      </option>
-                    {% endfor %}
-                  </select>
-              {% endform %}
+      {% form 'localization' %}
+  <select name="language_code" id="LanguageSwitcher">
+    {% for lang in localization.languages %}
+      <option 
+        value="{{ lang.iso_code }}"
+        {% if localization.language.iso_code == lang.iso_code %}selected{% endif %}
+      >
+        {{ lang.endonym_name }}
+      </option>
+    {% endfor %}
+  </select>
+{% endform %}
 
             </div>
         </div>
