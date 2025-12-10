@@ -303,6 +303,9 @@
           {% if imagesd and textsd %}
             {% for image in imagesd %}
               {% assign texts = textsd[forloop.index0] %}
+              <div>
+                dsdsd
+              </div>
               <div class="meeta-fl">
                 {% if image %}
                   <span class="immmg"><img src="{{ image | image_url: width: 600 }}" alt="{{ texts | escape }}"></span>
