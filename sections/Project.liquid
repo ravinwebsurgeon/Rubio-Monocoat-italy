@@ -1161,7 +1161,7 @@ document.addEventListener('click', (e) => {
 
       const colourMatch = !selectedColour || productColours.includes(selectedColour);
       const productMatch = !selectedProduct || productProducts.includes(selectedProduct);
-    console.log(selectedColour,'selectedColour',productColours)
+    console.log(selectedColour,'selectedColour',productColours,colourMatch)
 
       product.style.display = (colourMatch && productMatch) ? '' : 'none';
     });
