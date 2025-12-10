@@ -300,9 +300,10 @@
 
           {% assign imagesd = card_product.metafields.custom.product_iconss.value %}
           {% assign textsd = card_product.metafields.custom.product_textss.value %}
+          <div>
           {% if imagesd and textsd %}
             {% for image in imagesd %}
-              <div>
+              
               {% assign texts = textsd[forloop.index0] %}
               
                 
@@ -314,12 +315,12 @@
                   <span class="mememe">{{ texts }}</span>
                 {% endif %}
               </div>
-              dsdsd
-              </div>
+              
             {% endfor %}
             
           {% endif %}
-
+dsdsd
+              </div>
           <!-- Embed product JSON -->
           <script type="application/json" class="product-json">{{ card_product | json }}</script>
         {% assign first_variant = card_product.variants.first %}
