@@ -1,3 +1,4 @@
+{% assign user_lang = localization.language.iso_code | downcase %}
 <product-info
   id="MainProduct-{{ section.id }}"
   class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
@@ -596,7 +597,8 @@
                   product: product, 
                   block: block, 
                   product_form_id: product_form_id,
-                  oil_calculator:oil_calculator
+                  oil_calculator:oil_calculator,
+                  user_lang:user_lang
                 %}
               {%- when 'buy_buttons' -%}
 
