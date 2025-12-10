@@ -117,7 +117,7 @@
               {% for val in values_list %}
                 <div>{{ val }}</div>
               {% endfor %}  {% endcomment %}
-               {% assign json_values_list = current_variant.metafields.custom.cost_volume_json | parse__json %}
+              {% assign json_values_list = current_variant.metafields.custom.cost_volume_json | parse_json %}
               {% for val in json_values_list %}
                   {{ val[user_lang] }} 
               {% endfor %} 
