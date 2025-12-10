@@ -92,7 +92,7 @@
       {% if media.media_type == 'image' %}
         <img
           src="{{ media | img_url: 'master' }}"
-          alt="{{ alt_text | escape }}"
+          alt="{% if alt_text and alt_text != card_product.title %}{{ alt_text | escape }}{%endif %}"
           class="product__img"
           loading="lazy"
         >
