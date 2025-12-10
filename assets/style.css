@@ -1793,8 +1793,8 @@ section.icon-columns-section.wood_colorss .container {
     border: 1px solid #ddd;
     padding: 6px 10px;
     font-size: 13px;
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight:300;
     letter-spacing: normal;
     line-height: normal;
 }
