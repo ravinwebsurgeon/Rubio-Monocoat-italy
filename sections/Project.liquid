@@ -1325,7 +1325,7 @@ document.addEventListener('click', (e) => {
           let matchTag = activeTag ? productTagsArray.includes(activeTag) : true;
           let coloursArray = productColours.split(',');
           {% comment %} let matchColor = coloursArray.includes(product_color.toLowerCase()); {% endcomment %}
-          let matchColor = coloursArray.some(colour => colour.trim().toLowerCase() === product_color.toLowerCase());
+          let matchColor = coloursArray.some(colour => colour.trim().toLowerCase() == product_color.toLowerCase());
 
 
           if (matchColor && matchTag) {product.style.display = 'block';}
