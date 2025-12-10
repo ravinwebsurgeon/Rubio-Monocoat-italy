@@ -791,7 +791,6 @@ function refreshCartDrawer() {
         image: "{{ product.featured_image | img_url: 'master' }}",
         title: "{{ product.title | escape }}",
         subtitle: "{{ product.metafields.custom.collectionproduct_subtitle.value | escape }}",
-        description: "{{ product.description }}",
         variantId: "{{ product.variants.first.id }}",
         inventory_quantity: {{ product.variants.first.inventory_quantity | default: 0 }},
         url: "{{ product.url }}"
