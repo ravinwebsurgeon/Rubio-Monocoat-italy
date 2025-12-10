@@ -458,7 +458,7 @@ document.querySelectorAll('.card-wrapper').forEach(card => {
     return selected;
   }
 
-  {% comment %} function updateCardImages(card) {
+  function updateCardImages(card) {
     const mediaBlocks = card.querySelectorAll(".product__media");
     const selectedOptions = getSelectedOptions(card);
     let matched = null;
@@ -491,62 +491,7 @@ document.querySelectorAll('.card-wrapper').forEach(card => {
       fallbackNoAlt.style.display = "block";
       return;
     }
-  } {% endcomment %}
-  function updateCardImages(card) {
-  const mediaBlocks = card.querySelectorAll(".product__media");
-  const selectedOptions = getSelectedOptions(card); // Ensure this returns a valid array of selected options
-  let matched = null;
-  let fallbackNoAlt = null;
-
-  // Check if selectedOptions is valid
-  if (!selectedOptions || selectedOptions.length === 0) {
-    console.warn('No selected options found. Ensure the correct options are being passed.');
-    return;
   }
-
-  mediaBlocks.forEach(block => {
-    const alt = block.dataset.altDetail ? block.dataset.altDetail.trim() : "";
-    const altParts = alt ? alt.split('/').map(p => normalizeValue(p)) : [];
-
-    // Save fallback (no alt)
-    if (!alt || alt === "") {
-      if (!fallbackNoAlt) fallbackNoAlt = block;
-    }
-
-    // Matching logic
-    let isMatch = true;
-    for (let i = 0; i < selectedOptions.length; i++) {
-      if (normalizeValue(selectedOptions[i]) !== normalizeValue(altParts[i])) {
-        isMatch = false;
-        break;
-      }
-    }
-
-    // If match found, save matched block
-    if (isMatch && alt !== "") matched = block;
-  });
-
-  // Hide all media blocks first
-  mediaBlocks.forEach(block => block.style.display = "none");
-
-  // Show the matched block if it exists
-  if (matched) {
-    matched.style.display = "block";
-    return;
-  }
-
-  // Show the first block with no alt if no match
-  if (fallbackNoAlt) {
-    fallbackNoAlt.style.display = "block";
-    return;
-  }
-
-  // Default to the first media block if no match or fallback
-  if (mediaBlocks.length > 0) {
-    mediaBlocks[0].style.display = "block";
-  }
-}
-
 </script>
 
 
