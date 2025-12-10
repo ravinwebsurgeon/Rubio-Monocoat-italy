@@ -491,6 +491,9 @@ document.querySelectorAll('.card-wrapper').forEach(card => {
       fallbackNoAlt.style.display = "block";
       return;
     }
+    if (mediaBlocks.length > 0) {
+    mediaBlocks[0].style.display = "block";
+   }
   }
 </script>
 
