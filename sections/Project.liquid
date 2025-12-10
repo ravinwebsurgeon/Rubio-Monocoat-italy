@@ -247,10 +247,7 @@
        {% endcomment %}
     </div> 
   <div id="colour-options" class="filter-options"> 
-    <pre>
-  Language: {{ shop.locale }}<br>
-  Metafield Value (colour_filter2): {{ product.metafields.custom.colour_filter2.value }}
-</pre>
+    
   {% assign unique_colours = '' %}
   {% for block in section.blocks %}
     {% assign tab_collection = block.settings.tab_collection %}
