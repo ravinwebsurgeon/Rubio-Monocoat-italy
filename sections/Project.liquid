@@ -252,14 +252,15 @@
     {% assign tab_collection = block.settings.tab_collection %}
     {% for product in tab_collection.products %}
       {% for colour in product.metafields.custom.colour_filter2.value %}
-        {% unless unique_colours contains colour %}
-          {% assign unique_colours = unique_colours | append: colour | append: ',' %}
-
-  
+          {% assign colour_parts = colour | split: ',' %}
+          {% assign colour_name = colour_parts[0] %}
+          {% assign hex_code = colour_parts[1] %}
+        {% unless unique_colours contains colour_name %}
+          {% assign unique_colours = unique_colours | append: colour_name | append: ',' %}  
           <button 
             class="filter-item colours base-button size-medium theme-primary option-btn" 
             data-value="{{ colour | escape }}">
-            <div class="color capitalized" style="background-color: {{ colour | downcase }}"></div>
+            <div class="color capitalized" style="background-color: {{ hex_code | downcase }}"></div>
             <div class="value capitalized">{{ colour }}</div>
           </button>
         {% endunless %}
