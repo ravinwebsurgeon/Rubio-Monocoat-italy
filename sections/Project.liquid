@@ -253,7 +253,7 @@
     {% for product in tab_collection.products %}
       {% for colour in product.metafields.custom.colour_filter2.value %}
         {% assign colour_parts = colour | split: '/' %}
-        {% assign colour_name = colour_parts[0] %}
+        {% assign colour_name = colour_parts[0] | strip %}
         {% assign hex_code = colour_parts[1] %}
         {% unless unique_colours contains colour_name %}
           {% assign unique_colours = unique_colours | append: colour_name | append: ',' %}  
