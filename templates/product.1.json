@@ -81,6 +81,15 @@
         "shipping_info_dQ4qci": {
           "type": "shipping_info",
           "settings": {}
+        },
+        "rebuy_personalization_engine_rebuy_widget_8Mn33g": {
+          "type": "shopify://apps/rebuy-personalization-engine/blocks/rebuy-widget/a26ae9b9-933b-40bf-bbc6-bf1220bbc4dc",
+          "settings": {
+            "enabled": true,
+            "id": "254332",
+            "product_id_enabled": true,
+            "collection_id_enabled": false
+          }
         }
       },
       "block_order": [
@@ -93,7 +102,8 @@
         "quantity_selector",
         "icon_with_text_hk7wi6",
         "buy_buttons",
-        "shipping_info_dQ4qci"
+        "shipping_info_dQ4qci",
+        "rebuy_personalization_engine_rebuy_widget_8Mn33g"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -234,12 +244,23 @@
     "1765182473cf90a320": {
       "type": "apps",
       "blocks": {
+        "rebuy_personalization_engine_rebuy_widget_UVnVnG": {
+          "type": "shopify://apps/rebuy-personalization-engine/blocks/rebuy-widget/a26ae9b9-933b-40bf-bbc6-bf1220bbc4dc",
+          "disabled": true,
+          "settings": {
+            "enabled": true,
+            "id": "254332",
+            "product_id_enabled": true,
+            "collection_id_enabled": false
+          }
+        },
         "klaviyo_reviews_product_reviews_7i7DJY": {
           "type": "shopify://apps/klaviyo-reviews/blocks/product-reviews/db20e365-d984-4ac4-9655-e1588d951ca9",
           "settings": {}
         }
       },
       "block_order": [
+        "rebuy_personalization_engine_rebuy_widget_UVnVnG",
         "klaviyo_reviews_product_reviews_7i7DJY"
       ],
       "settings": {
