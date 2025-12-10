@@ -111,15 +111,15 @@
       <div class="custom_price_value" style="display:flex;">
           {% if current_variant.metafields.custom.cost_m2_list != blank %}
           <div class="variant-custom-cost__m2">
-              {% comment %} {% assign values_list = current_variant.metafields.custom.cost_m2_list.value %}
+              {% assign values_list = current_variant.metafields.custom.cost_m2_list.value %}
               {% for val in values_list %}
                 <div>{{ val }}</div>
-              {% endfor %} {% endcomment %}
-                {% assign user_lang = localization.language.iso_code | downcase %}
+              {% endfor %} 
+                {% comment %} {% assign user_lang = localization.language.iso_code | downcase %}
                {% assign json_values_list = current_variant.metafields.custom.cost_volume_json | parse__json %}
               {% for val in json_values_list %}
                   {{ val[user_lang] }}
-              {% endfor %}
+              {% endfor %} {% endcomment %}
 
           </div>
         {% endif %}
