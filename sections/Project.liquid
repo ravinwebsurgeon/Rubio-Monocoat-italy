@@ -256,7 +256,6 @@
         {% assign colour_name = colour_parts[0] %}
         {% assign hex_code = colour_parts[1] %}
         {% unless unique_colours contains colour_name %}
-          <p class="check__color {{colour }}"></p>
           {% assign unique_colours = unique_colours | append: colour_name | append: ',' %}  
           <button 
             class="filter-item colours base-button size-medium theme-primary option-btn" 
