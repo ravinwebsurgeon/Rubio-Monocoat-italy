@@ -48,14 +48,14 @@
       </a>
     {% endif %}
 
-    {% if review_section != blank %} 
-      <a href="#reviews" class="jump-link-item">
+    {% comment %} {% if review_section != blank %}  {% endcomment %}
+      <a href="#fulfilled-reviews-all" class="jump-link-item">
         <div class="jump-to-icon">
         <img src="{{ 'icon-reviews.svg' | asset_url }}" alt="Reviews" class="jump-link-icon">
         </div>
         <span class="jump-link-text">Reviews</span>
       </a>
-    {% endif %}
+    {% comment %} {% endif %} {% endcomment %}
   </div>
 </div>
 {% endif %}
