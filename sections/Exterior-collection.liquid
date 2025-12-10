@@ -181,8 +181,19 @@
           {% assign teak_image = product.metafields.custom.exterior_teak_image.value %}
           {% assign thermowood_image  = product.metafields.custom.exterior_thermowood_image.value %}
 
+            {% assign color_list = product.metafields.custom.colour_filter2.value %}
+                {% assign first_parts = '' %}
+                {% for color in color_list %}
+                  {% assign parts = color | split: '/' %}
+                  {% if first_parts == '' %}
+                    {% assign first_parts = parts[0] %}
+                  {% else %}
+                    {% assign first_parts = first_parts | append: ',' | append: parts[0] %}
+                  {% endif %}
+                {% endfor %}
+
           <li class="product-item"
-              data-colours="{{ product.metafields.custom.colour_filter2.value | join: ',' }}"
+              data-colours="{{ first_parts }}"
               data-products="{{ product.metafields.custom.product_filter.value | join: ',' }}"
               data-available="{{ product.available }}"
               data-product-id="{{ product.variants.first.id }}"
