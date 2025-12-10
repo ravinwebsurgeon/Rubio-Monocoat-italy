@@ -937,7 +937,8 @@ function updateVariantId(cart, variants, variantIdInput) {
 
     let matchedImage = null;
     let firstEmptyAltImage = null;
-
+    // Hide all images first
+    allImages.forEach(img => img.style.display = "none");
     // Find matching image based on selected options
     allImages.forEach(img => {
         {% comment %} const alt = img.parentElement.dataset.alt || ""; {% endcomment %}
@@ -950,19 +951,16 @@ function updateVariantId(cart, variants, variantIdInput) {
         }
       }
       if (isMatch) matchedImage = img;
-       else if (!img.alt && !firstEmptyAltImage) {
-    firstEmptyAltImage = img;
-  }
+      else if (!img.alt && !firstEmptyAltImage) {firstEmptyAltImage = img;}
     });
-    // Hide all images first
-    allImages.forEach(img => img.style.display = "none");
+
     // Show matched image or fallback to first image
     if (matchedImage) {
       matchedImage.style.display = "block";
     } 
     else if (firstEmptyAltImage) {
-  firstEmptyAltImage.style.display = "block";
-}
+    firstEmptyAltImage.style.display = "block";
+    }
     else if (allImages.length > 0) {
       allImages[0].style.display = "block";
     }
