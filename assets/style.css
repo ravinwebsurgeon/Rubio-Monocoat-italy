@@ -1773,7 +1773,7 @@ section.icon-columns-section.wood_colorss .container {
     object-fit: cover;
 }
 .preparation-collection .grid .grid__item .card .card__media .product-card {
-    background-color: #f5f5f5;
+    background-color: transparent;
     padding: 0;
     max-width: 100% !important;
     min-width:inherit;
