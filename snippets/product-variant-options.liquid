@@ -105,10 +105,11 @@
         {{ value }}
         {{ label_unavailable }}
       </div>
+{% assign country_name = localization.country.name %}
 
       {% comment %} {% if option.name == 'Size' and current_variant %} {% endcomment %}
       {% if parent_loop_index  == 2  and current_variant %}
-      <div class="custom_price_value {{ parent_loop_index }}" style="display:flex;">
+      <div class="custom_price_value {{ country_name }}" style="display:flex;">
           {% if current_variant.metafields.custom.cost_m2_list != blank %}
           <div class="variant-custom-cost__m2">
               {% assign values_list = current_variant.metafields.custom.cost_m2_list.value %}
