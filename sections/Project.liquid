@@ -1324,9 +1324,8 @@ document.addEventListener('click', (e) => {
           let productTagsArray = productTags.split(','); 
           let matchTag = activeTag ? productTagsArray.includes(activeTag) : true;
           let coloursArray = productColours.split(',');
-          let matchColor = coloursArray.includes(product_color.toLowerCase());
-          {% comment %} let matchColor = coloursArray.some(colour => colour.trim().toLowerCase() == product_color.toLowerCase()); {% endcomment %}
-
+          {% comment %} let matchColor = coloursArray.includes(product_color.toLowerCase()); {% endcomment %}
+          let matchColor = coloursArray.some(colour => colour.trim().toLowerCase() == product_color.toLowerCase());
 
           if (matchColor && matchTag) {product.style.display = 'block';}
           else {product.style.display = 'none';}
