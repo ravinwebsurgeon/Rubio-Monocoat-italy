@@ -1155,6 +1155,7 @@ document.addEventListener('click', (e) => {
     );
 
     const products =productsParent.querySelectorAll('.product-item')
+    console.log(selectedColour,'selectedColour')
     products.forEach(product => {
       const productColours = (product.dataset.colours || '').split(',');
       const productProducts = (product.dataset.products || '').split(',');
