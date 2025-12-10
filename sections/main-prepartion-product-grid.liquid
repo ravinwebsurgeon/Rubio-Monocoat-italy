@@ -936,6 +936,7 @@ function updateVariantId(cart, variants, variantIdInput) {
      {% comment %} const allMedia = cart.querySelectorAll(".product__image__item, .product__video__item"); {% endcomment %}
 
     let matchedImage = null;
+    let firstEmptyAltImage = null;
 
     // Find matching image based on selected options
     allImages.forEach(img => {
@@ -949,6 +950,9 @@ function updateVariantId(cart, variants, variantIdInput) {
         }
       }
       if (isMatch) matchedImage = img;
+       else if (!img.alt && !firstEmptyAltImage) {
+    firstEmptyAltImage = img;
+  }
     });
     // Hide all images first
     allImages.forEach(img => img.style.display = "none");
@@ -956,6 +960,9 @@ function updateVariantId(cart, variants, variantIdInput) {
     if (matchedImage) {
       matchedImage.style.display = "block";
     } 
+    else if (firstEmptyAltImage) {
+  firstEmptyAltImage.style.display = "block";
+}
     else if (allImages.length > 0) {
       allImages[0].style.display = "block";
     }
