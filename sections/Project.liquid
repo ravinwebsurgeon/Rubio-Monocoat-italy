@@ -246,7 +246,7 @@
       {% endfor %}
        {% endcomment %}
     </div> 
-  {% comment %} <div id="colour-options" class="filter-options"> 
+  <div id="colour-options" class="filter-options"> 
   {% assign unique_colours = '' %}
   {% for block in section.blocks %}
     {% assign tab_collection = block.settings.tab_collection %}
@@ -265,32 +265,6 @@
           </button>
         {% endunless %}
       {% endfor %}
-    {% endfor %}
-  {% endfor %}
-</div> {% endcomment %}
-<div id="colour-options" class="filter-options"> 
-  {% assign unique_colours = '' %}
-  {% for block in section.blocks %}
-    {% assign tab_collection = block.settings.tab_collection %}
-    {% for product in tab_collection.products %}
-      {% assign colour_list = product.metafields.custom.colour_filter2.value %}
-      {% if colour_list %}
-        {% assign colour_values = colour_list | split: ',' %}
-        {% for colour in colour_values %}
-          {% assign colour_parts = colour | split: '/' %}
-          {% assign colour_name = colour_parts[0] | strip %}
-          {% assign hex_code = colour_parts[1] %}
-          {% unless unique_colours contains colour_name %}
-            {% assign unique_colours = unique_colours | append: colour_name | append: ',' %}  
-            <button 
-              class="filter-item colours base-button size-medium theme-primary option-btn" 
-              data-value="{{ colour_name | escape }}">
-              <div class="color capitalized" style="background-color: {% if hex_code %}{{ hex_code }} {% endif %}"></div>
-              <div class="value capitalized">{{ colour_name }}</div>
-            </button>
-          {% endunless %}
-        {% endfor %}
-      {% endif %}
     {% endfor %}
   {% endfor %}
 </div>
