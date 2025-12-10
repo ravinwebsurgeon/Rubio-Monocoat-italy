@@ -77,13 +77,11 @@
                         <a href="{{ url | strip }}" class="tech-download-btn" onclick="forceDownload(event, this.href)">Download File</a>
                       {% endfor %} {% endcomment %}
                        {% if forloop.index == 4 %}
-                       {% if country_key != '' %}
                         {% for item in json_downloads %}
                           {% if item[user_lang] %}
                             {{ item[user_lang] }}
                           {% endif %}
                         {% endfor %}
-                      {% endif %}
 
                   {% else %}
                       {% if items.size > forloop.index0 %}
