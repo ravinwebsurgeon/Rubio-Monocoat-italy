@@ -980,6 +980,7 @@ function formatPrice(amount) {
 }
 
 function normalizeValue(str) {
+  if (!str) return "";
   return str
     ? str.toString()
          .trim()
