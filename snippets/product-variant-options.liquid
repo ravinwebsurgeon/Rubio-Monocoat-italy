@@ -109,7 +109,6 @@
       {% comment %} {% if option.name == 'Size' and current_variant %} {% endcomment %}
       {% if parent_loop_index  == 2  and current_variant %}
       <div class="custom_price_value" style="display:flex;">
-          {% comment %} {% assign user_lang = localization.language.iso_code | downcase %} {% endcomment %}
           <div class="variant-custom-cost__m2 {{ user_lang }}">
               {% comment %} {% assign values_list = current_variant.metafields.custom.cost_m2_list.value %}
               {% for val in values_list %}
