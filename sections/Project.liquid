@@ -252,9 +252,6 @@
     {% assign tab_collection = block.settings.tab_collection %}
     {% for product in tab_collection.products %}
       {% for colour in product.metafields.custom.colour_filter2.value %}
-        
-  <p>{{ colour }}</p> <!-- Debugging the color values -->
-
         {% assign colour_parts = colour | split: ',' %}
         {% assign colour_name = colour_parts[0] %}
         {% assign hex_code = colour_parts[1] %}
