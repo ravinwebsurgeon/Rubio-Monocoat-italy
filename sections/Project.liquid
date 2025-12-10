@@ -323,9 +323,21 @@
                       {% assign pine_image = product.metafields.custom.interior_pine_image.value %}
                       {% assign oak_image = product.metafields.custom.interior_oak_image.value %}
                       {% assign maple_image = product.metafields.custom.interior_maple_image.value %}                    
-                      
+               
+                  {% assign color_list = product.metafields.custom.colour_filter2.value | split: ',' %}
+                {% assign first_parts = '' %}
+                {% for color in color_list %}
+                  {% assign parts = color | split: '/' %}
+                  {% if first_parts == '' %}
+                    {% assign first_parts = parts[0] %}
+                  {% else %}
+                    {% assign first_parts = first_parts | append: ',' | append: parts[0] %}
+                  {% endif %}
+                {% endfor %}
+
+
                     <li class="product-item" data-quantity ="{{  product.selected_or_first_available_variant.inventory_quantity }}" data-tags="{{product.tags | join:','}}"
-                      data-colours="{{ product.metafields.custom.colour_filter2.value | join: ',' }}"
+                      data-colours="{{first_parts}}"
                       data-products="{{ product.metafields.custom.product_filter.value | join: ',' }}"
                       data-available="{{ product.available }}"
                       data-product-id="{{ product.variants.first.id }}">                        
