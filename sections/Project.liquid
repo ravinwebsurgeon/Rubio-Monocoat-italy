@@ -255,19 +255,12 @@
         {% unless unique_colours contains colour %}
           {% assign unique_colours = unique_colours | append: colour | append: ',' %}
 
-              {% assign matching_variant = nil %}
-          {% for variant in product.variants %}
-            {% if variant.option1  == 'color' or opt_name == 'colour' or opt_name == 'colore' %}
-              {% assign matching_variant = variant %} 
-              {% break %}
-            {% endif %}
-          {% endfor %}
-
+  
           <button 
             class="filter-item colours base-button size-medium theme-primary option-btn" 
             data-value="{{ colour | escape }}">
             
-            <div class="color capitalized {{ matching_variant.image.src }}" style="background-color: {{ colour | downcase }}"></div>
+            <div class="color capitalized" style="background-color: {{ colour | downcase }}"></div>
             <div class="value capitalized">{{ colour }}</div>
           </button>
         {% endunless %}
