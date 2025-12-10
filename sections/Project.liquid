@@ -1318,8 +1318,8 @@ document.addEventListener('click', (e) => {
             }
       }
        all_products.forEach(function(product){
-          let productColours = product.dataset.colours;
-          let productTags = product.dataset.tags;
+          let productColours = product.dataset.colours || '';
+          let productTags = product.dataset.tags || '';
           
           let productTagsArray = productTags.split(','); 
           let matchTag = activeTag ? productTagsArray.includes(activeTag) : true;
