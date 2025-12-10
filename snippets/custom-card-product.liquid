@@ -85,7 +85,7 @@
 
     <div 
       class="product__media"
-      data-alt-detail="{{ alt_text | escape }}"
+      {% if alt_text and alt_text != card_product.title %} data-alt-detail="{{ alt_text | escape }}" {% endif %}
       style="{% if first_media_shown == false %}display:block{% else %}display:none{% endif %}"
     >
 
