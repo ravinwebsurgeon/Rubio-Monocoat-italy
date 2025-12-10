@@ -1901,14 +1901,14 @@ document.addEventListener("DOMContentLoaded", function() {
       color_filters.forEach(t=> t.classList.remove('active'));
       if (availableFilter && availableFilter.checked) {availableFilter.checked = false;}
 
-     const params = new URLSearchParams(window.location.search);
-    params.forEach((value, key) => {
-      if (key.startsWith('filter.')) {
-        params.delete(key);  // Remove the filter parameter
-      }
-    });
-    const newUrl = `${window.location.pathname}?${params.toString()}`;
-    window.history.replaceState(null, '', newUrl);
+      const params = new URLSearchParams(window.location.search);
+      params.forEach((value, key) => {
+        if (key.startsWith('filter.')) {
+          params.delete(key);  // Remove the filter parameter
+        }
+      });
+      const newUrl = window.location.pathname + (params.toString() ? `?${params.toString()}` : '');
+      window.history.replaceState(null, '', newUrl);
     
     });
   }
