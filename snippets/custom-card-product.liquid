@@ -468,7 +468,7 @@ document.querySelectorAll('.card-wrapper').forEach(card => {
       const altParts = alt ? alt.split('/').map(p => normalizeValue(p)) : [];
       // save fallback (no alt)
 
-      if (!alt || alt === "") {
+      if (!alt || alt == "") {
         if (!fallbackNoAlt) fallbackNoAlt = block;
       }
       // matching logic
