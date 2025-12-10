@@ -601,7 +601,7 @@
                   user_lang:user_lang
                 %}
               {%- when 'buy_buttons' -%}
-
+{%if product.metafields.custom.product_addon.value  %}
 <div class="product-addons-wrapper">
   <!-- Accordion Header -->
   <div class="addons-header">
@@ -651,7 +651,7 @@
     {% endif %}
   </div>
 </div>
-
+{% endif %}
 
 
 <script>
