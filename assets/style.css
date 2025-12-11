@@ -5165,6 +5165,8 @@ body .custom-info-text {
     width: 100%;
     max-width: 100%;
     border-radius: 12px;
+    height: 100%;
+    object-fit: cover;
 }
 
 .application__details .application_content.full-width-item {
