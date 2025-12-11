@@ -1294,10 +1294,8 @@ footer .footer-block__details-content>li {
  
 footer h2.footer-block__heading.inline-richtext {
     font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
-    font-style: Bold;
+    font-weight: 900;
     font-size: 22px;
-    leading-trim: NONE;
     line-height: 31px;
     letter-spacing: 0;
     margin-bottom: 20px !important;
