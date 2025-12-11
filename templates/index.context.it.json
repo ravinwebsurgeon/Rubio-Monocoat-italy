@@ -16,14 +16,14 @@
     "icons_section_KNL9aM": {
       "settings": {},
       "blocks": {
+        "container_hRecTF": {
+          "disabled": true,
+          "settings": {}
+        },
         "container_dpr4DD": {
           "settings": {
             "subtext": "info@rubiomonocoat.it"
           }
-        },
-        "container_hRecTF": {
-          "disabled": true,
-          "settings": {}
         },
         "container_rBbnjT": {
           "disabled": false,
@@ -36,6 +36,12 @@
           "settings": {}
         }
       }
+    },
+    "custom_banner_MEwF3B": {
+      "settings": {
+        "banner_image": "shopify://shop_images/Banner_Application_V05_1.png"
+      },
+      "blocks": {}
     }
   }
 }
