@@ -10,8 +10,11 @@
 {
   "sections": {
     "main": {
-      "type": "all-application-surfaces-page",
-      "settings": {}
+      "type": "all-interior-application-page", 
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
     }
   },
   "order": [
