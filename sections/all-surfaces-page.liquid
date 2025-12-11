@@ -33,7 +33,9 @@
                 <div class="surface_content">
                     <img src="{{ img |img_url:'master' }}" />
                     <div class="surface-button-main">
-                        <a href="{{ images_btn_links[index] }}"><button>{{ images_btn_text[index] }}</button></a>
+                        <a href="{{ images_btn_links[index] }}"> 
+                          {{ images_btn_text[index] }}
+                        </a>
                     </div>
                 </div>
             {% endfor %}
