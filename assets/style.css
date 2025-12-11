@@ -5299,7 +5299,7 @@ body .custom-info-text {
     .application__details {
         gap: 20px;
     }
-    .application-button-main {
+    .application-button-main,.surfaces__details .surface-button-main {
         padding: 30px 12px;
     }
     
@@ -5313,7 +5313,7 @@ body .custom-info-text {
     height: auto;
     padding: 60px 0;
   }
-  .application-button-main a {
+  .application-button-main a,.surfaces__details .surface-button-main a {
     font-size: 14px;
   }
   .application__details img {
