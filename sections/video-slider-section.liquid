@@ -113,19 +113,6 @@
         {% endfor %}
       ]
     '
-    data-variants='
-      [
-        {% for v in inspired_product.variants %}
-          {
-            "id": {{ v.id }},
-            "options": {{ v.options | json }},
-            "featured_image": "{{ v.featured_image | img_url: 'master' }}"
-          }
-          {% unless forloop.last %},{% endunless %}
-        {% endfor %}
-      ]
-    '
-
         >
           {% if current_video != blank %}
             <video muted playsinline preload="auto" loop>
@@ -687,7 +674,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
           console.log(swatch_color,'swatchValue',product)
           
-          const images = JSON.parse(centerSlide.getAttribute("data-images") || "[]");
+          {% comment %} const images = JSON.parse(centerSlide.getAttribute("data-images") || "[]");
           // Find image that matches variant options
           let matchedImage = images.find(img => {
             // match if alt contains all variant options, e.g. "Red / XL"
@@ -699,7 +686,7 @@ document.addEventListener("DOMContentLoaded", function () {
           if (!matchedImage) {
             matchedImage = images[0]; // fallback
           }
-console.log(matchedImage,'matchedImage')
+console.log(matchedImage,'matchedImage') {% endcomment %}
           document.getElementById("inspired-proouter").innerHTML = `
             <div class="product-image-wrap">
                 <img id="product-img"
