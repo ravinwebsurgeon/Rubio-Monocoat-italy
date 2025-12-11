@@ -674,8 +674,15 @@ document.addEventListener("DOMContentLoaded", function () {
           }
           console.log(swatch_color,'swatchValue',product)
           
-          const images = JSON.parse(centerSlide.getAttribute("data-images") || "[]");
-          // Find image that matches variant options
+          const dataImagesStr = centerSlide.getAttribute("data-images");
+            console.log("Raw data-images:", dataImagesStr);
+
+            try {
+              const images = JSON.parse(dataImagesStr);
+              console.log("Parsed images:", images);
+            } catch(e) {
+              console.error("Failed to parse JSON:", e);
+            }
           let matchedImage = images.find(img => {
             // match if alt contains all variant options, e.g. "Red / XL"
             return selectedVariant.options.every(opt =>
