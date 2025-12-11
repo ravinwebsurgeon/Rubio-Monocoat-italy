@@ -181,7 +181,7 @@
           {% assign teak_image = product.metafields.custom.exterior_teak_image.value %}
           {% assign thermowood_image  = product.metafields.custom.exterior_thermowood_image.value %}
 
-            {% assign color_list = product.metafields.custom.custom_color_filter.value %}
+            {% assign color_list = product.metafields.custom.colour_filter2.value %}
                 {% assign first_parts = '' %}
                 {% for color in color_list %}
                   {% assign parts = color | split: '/' %}
