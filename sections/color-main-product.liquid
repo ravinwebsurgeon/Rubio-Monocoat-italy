@@ -218,6 +218,7 @@
                   {%- endif -%}
                 </p>
               {%- when 'custom_icons' -%}
+                <pre>{{product.metafields.custom.colour_filter2.value }}</pre>
       {% for colour in product.metafields.custom.colour_filter2.value %}
           <button style="display:none"
             class="filter-item colours base-button size-medium theme-primary option-btn" 
