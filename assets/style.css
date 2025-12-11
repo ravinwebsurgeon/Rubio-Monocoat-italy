@@ -5296,7 +5296,7 @@ body .custom-info-text {
     .application_content.full-width-item img,.application__details img {
         height: 360px;
     }
-    .application__details {
+    .application__details,.surfaces__details {
         gap: 20px;
     }
     .application-button-main,.surfaces__details .surface-button-main {
@@ -5325,7 +5325,7 @@ body .custom-info-text {
     body .custom-info-container {
         padding: 0 20px;
     }
-    .application__details {
+    .application__details,.surfaces__details {
         padding: 30px 20px;
         grid-template-columns: 1fr;
     }
