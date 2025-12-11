@@ -218,7 +218,7 @@
                   {%- endif -%}
                 </p>
               {%- when 'custom_icons' -%}
-{% for item in product.metafields.custom.colour_filter2.value %}
+{% for item in product.metafields.custom.custom_color_filter.value %}
   <p>{{ item  }}</p>
 {% endfor %}
                 {% for colour in product.metafields.custom.colour_filter2.value %}
