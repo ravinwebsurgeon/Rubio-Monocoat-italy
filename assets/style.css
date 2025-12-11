@@ -5219,6 +5219,7 @@ body .custom-info-text {
     cursor: pointer;
     padding: 12px 36px 8px;
     text-decoration:none;
+    letter-spacing:normal;
 }
 
 @media (max-width: 991px) {
