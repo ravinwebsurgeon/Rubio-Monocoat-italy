@@ -256,7 +256,7 @@
         {% assign colour_parts = colour | split: '/' %}
         {% assign colour_name = colour_parts[0] | strip %}
         {% assign hex_code = colour_parts[1] %}
-        {% unless unique_colours contains colour_name %}
+        {% comment %} {% unless unique_colours contains colour_name %} {% endcomment %}
           {% assign unique_colours = unique_colours | append: colour_name | append: ',' %}  
           <button 
             class="filter-item colours base-button size-medium theme-primary option-btn" 
@@ -264,7 +264,7 @@
             <div class="color capitalized" style="background-color: {%if hex_code %}{{ hex_code  }} {% endif %}"></div>
             <div class="value capitalized">{{ colour_name }}</div>
           </button>
-        {% endunless %}
+        {% comment %} {% endunless %} {% endcomment %}
       {% endfor %}
     {% endfor %}
   {% endfor %}
