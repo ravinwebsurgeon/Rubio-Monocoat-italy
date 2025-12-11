@@ -1,15 +1,17 @@
 {% assign main_heading = page.metafields.custom.top_main_heading.value %}
 {% assign main_subheading = page.metafields.custom.top_main_subheading %}
-<section class="custom-info-section global-banners-intro">
-  <div class="custom-info-container page-width">
+
+<div class="custom-info-section page-heading-intro">
+  <div class="custom-info page-width">
     {% if main_heading %}
-      <h2 class="custom-info-heading">{{ main_heading }}</h2>
+      <h2 class="custom-heading">{{ main_heading }}</h2>
     {% endif %}
     {% if main_subheading %}
-      <p class="custom-info-text">{{ main_subheading}}</p>
+      <p class="custom-subheading">{{ main_subheading}}</p>
     {% endif %}
   </div>
-</section>
+</div>
+
 
 
 {% schema %}
