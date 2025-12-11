@@ -5229,6 +5229,11 @@ body .custom-info-text {
         height: 420px;
     }
 }
+@media (max-width:1199px) {
+    .application_content.full-width-item img {
+        height: 360px;
+    }
+}
 
 @media (max-width: 991px) {
   body .custom-info-heading {
