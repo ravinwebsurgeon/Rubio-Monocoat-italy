@@ -1,15 +1,16 @@
 {% assign main_heading = page.metafields.custom.top_main_heading.value %}
 {% assign main_subheading = page.metafields.custom.top_main_subheading %}
-<div class="custom_collection_main">
-{% if main_heading != blank %}
-    <div class="collection_header_main">
-      <div class="page-center">
-        <div class="header_main_heading"><h2>{{ main_heading }}</h2></div>
-        <div class="header_main_subheading">{{ main_subheading }}</div>
-      </div>        
-    </div>
-  {% endif %}
-</div>
+
+<section class="custom-info-section global-banners-intro">
+  <div class="custom-info-container page-width">
+    {% if main_heading %}
+      <h2 class="custom-info-heading">{{ main_heading }}</h2>
+    {% endif %}
+    {% if main_subheading %}
+      <p class="custom-info-text">{{ main_subheading}}</p>
+    {% endif %}
+  </div>
+</section>
 
 
 {% schema %}
