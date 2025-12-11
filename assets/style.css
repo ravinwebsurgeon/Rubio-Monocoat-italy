@@ -5118,4 +5118,52 @@ font-weight: bold;
     right: 0;
     width: 134px;
 }
+
+
+.custom-info-section {
+  background: #b9cbc5;
+  padding: 50px 0;
+}
+
+.custom-info-container {
+  margin: 0 auto;
+  max-width: 1760px;
+  padding: 0 30px;
+}
+
+.custom-info-heading {
+  color: #183029;
+  font-family: 'Frutiger Neue LT W1G Cn XBlack';
+  font-weight: 900;
+  font-size: 32px;
+  line-height: normal;
+  letter-spacing: normal;
+  margin: 0 0 15px;
+}
+
+.custom-info-text {
+  color: #183029;
+  font-size: 16px;
+  margin:0;
+  line-height: normal;
+  font-family: 'Frutiger Neue LT W1G';
+  font-weight:300;
+  letter-spacing: normal;
+}
+
+@media (max-width: 991px) {
+  .custom-info-heading {
+    font-size: 24px;
+  }
+  .custom-info-section {
+    height: auto;
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .custom-info-container {
+    padding: 0 20px;
+  }
+}
  
