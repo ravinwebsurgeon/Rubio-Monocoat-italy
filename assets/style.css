@@ -5224,6 +5224,11 @@ body .custom-info-text {
 .application_content.full-width-item img {
     height: 500px;
 }
+@media (max-width:1439px) {
+    .application_content.full-width-item img {
+        height: 420px;
+    }
+}
 
 @media (max-width: 991px) {
   body .custom-info-heading {
