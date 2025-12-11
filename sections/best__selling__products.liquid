@@ -39,13 +39,12 @@
                         {% endif %}
                       </p>
                   </div>
-                   {%- if  product.metafields.custom.short_description.value-%}
+                   {% comment %} {%- if  product.metafields.custom.short_description.value-%}
                     <div class="product__description rte quick-add-hidden">
                       <p>{{ product.metafields.custom.short_description.value }}</p>
                     </div>
-                  {%- endif -%}
+                  {%- endif -%} {% endcomment %}
           <div class="klaviyo-star-rating-widget" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}"></div> 
- {% comment %} <p>{{ product.price | money }}</p> {% endcomment %}
 
                   {% assign imagesd = product.metafields.custom.product_iconss.value %}
                   {% assign textsd = product.metafields.custom.product_textss.value %}
