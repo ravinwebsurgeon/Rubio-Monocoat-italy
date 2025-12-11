@@ -5224,6 +5224,64 @@ body .custom-info-text {
 .application_content.full-width-item img {
     height: 500px;
 }
+.surfaces__details {
+    max-width: 1760px;
+    padding: 50px 30px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.surfaces__details .surface_content {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.surfaces__details .surface_content img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.surfaces__details .surface-button-main {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    padding: 50px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.surfaces__details .surface-button-main a {
+    color: #000;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    font-family: Frutiger Neue LT W1G;
+    border-radius: 50px;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 12px 36px 8px;
+    text-decoration: none;
+    letter-spacing: normal;
+}
+
+
+
+
 @media (max-width:1600px) {
 .application__details img {
     height: 460px;
