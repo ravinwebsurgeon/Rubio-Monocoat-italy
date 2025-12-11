@@ -673,7 +673,7 @@ document.addEventListener("DOMContentLoaded", function () {
             productLinkUrl = product.url;
           }
           console.log(swatch_color,'swatchValue',product)
-          
+{% comment %}           
           const dataImagesStr = centerSlide.getAttribute("data-images");
             console.log("Raw data-images:", dataImagesStr);
           let images=''
@@ -686,18 +686,16 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log(selectedVariant.options,'selectedVariant.options')
           let matchedImage = images.find(img => {
             // match if alt contains all variant options, e.g. "Red / XL"
-            {% comment %} return selectedVariant.options.every(opt =>
+            return selectedVariant.options.every(opt =>
               img.alt.toLowerCase().includes(opt.toLowerCase())
-            ); {% endcomment %}
-            const matchedImage = productImages.find(img => {
-  return isMatchingVariantImage(selectedVariant.options, img.alt);
-});
+            );
           });
 
           if (!matchedImage) {
             matchedImage = images[0]; // fallback
           }
-console.log(matchedImage,'matchedImage')
+          console.log(matchedImage,'matchedImage') 
+{% endcomment %}
           document.getElementById("inspired-proouter").innerHTML = `
             <div class="product-image-wrap">
                 <img id="product-img"
@@ -732,19 +730,6 @@ console.log(matchedImage,'matchedImage')
         })
         .catch(err => console.error("Product fetch error:", err));
     }
-function isMatchingVariantImage(selectedVariantOptions, imgAlt) {
-  // Normalize image alt by splitting on "/" and trimming parts
-  const altParts = imgAlt
-    .toLowerCase()
-    .split('/')
-    .map(part => part.trim());
-
-  // Normalize options similarly
-  const normalizedOptions = selectedVariantOptions.map(opt => opt.toLowerCase().trim());
-
-  // Check every option exists exactly in alt parts
-  return normalizedOptions.every(opt => altParts.includes(opt));
-}
 
   // ✅ Delegate Add to Cart click for all slider buttons
   document.body.addEventListener("click", function(e) {
