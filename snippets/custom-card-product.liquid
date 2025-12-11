@@ -146,7 +146,6 @@
         <div class="card__information">
           <div class="custom_card_detail"> 
             <h3 class="card__heading h5">{{ card_product.title | escape }}</h3>
-            {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
           </div>
           {%- if  card_product.metafields.custom.short_description.value-%}
             <div class="product__description rte quick-add-hidden">
@@ -154,6 +153,7 @@
             </div>
           {%- endif -%}
           <div class="klaviyo-star-rating-widget" data-id="{{card_product.id}}" data-product-title="{{card_product.title}}" data-product-type="{{card_product.type}}"></div> 
+            {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
           
           <!-- Variant Section with Swatch Support -->
           {% comment %} <div class="custom_added_variants">
