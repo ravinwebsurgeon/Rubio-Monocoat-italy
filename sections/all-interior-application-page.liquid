@@ -19,7 +19,7 @@
     {% if images and images_btn_text and images_btn_links %}
         <div class="application__details">
             {% for img in images %}
-                {%assign index = forloop.index0 %}
+                {% assign index = forloop.index0 %}
                 <div class="application_content {% if forloop.first %}full-width-item{% endif %}">
                     <img src="{{ img |img_url:'master' }}" width=400 />
                     <a href="{{ images_btn_links[index] }}" class="application-button-main">
@@ -30,7 +30,26 @@
         </div>
     {% endif %}
 </div>
+<style>
+    
+/* BUTTON ON IMAGE */
+.application-button-main {
+  position: absolute;
+  bottom: 20px;         /* distance from bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
 
+
+</style>
 {% schema %}
 {
   "name": "t:sections.main-page.name",
