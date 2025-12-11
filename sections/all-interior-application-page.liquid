@@ -19,7 +19,7 @@
     {% if images and images_btn_text and images_btn_links %}
         <div class="application__details">
             {% for img in images %}
-                {% assign index = forloop.index0 %}
+                {% assign index = forloop.index0 %} 
                 <div class="application_content {% if forloop.first %}full-width-item{% endif %}">
                     <img src="{{ img |img_url:'master' }}" width=400 />
                     <div class="application-button-main">
