@@ -668,11 +668,12 @@ document.addEventListener("DOMContentLoaded", function () {
           let matchedImage = null;
           if (product.images && Array.isArray(product.images)) {
             matchedImage = product.images.find(img => {
+              console.log(img,'normalizedAlt')
+
               if (!img.alt) return false;
 
               // Normalize image alt the same way
               let normalizedAlt = img.alt.replace(/\s+/g, "").toLowerCase();
-              console.log(normalizedAlt,'normalizedAlt')
               return normalizedAlt === variantAltText;
             });
           }
