@@ -664,9 +664,7 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log(swatch_color,'swatchValue',product)
 
   let variantAltText = selectedVariant.options.join("/");
-
-// Normalize: remove extra spaces → "Red/XL"
-{% comment %} variantAltText = variantAltText.replace(/\s+/g, "").toLowerCase(); {% endcomment %}
+variantAltText = variantAltText.replace(/\s+/g, "").toLowerCase();
 {% comment %} 
 // ------------------------------------------------------
 // 2. Find product image whose alt matches variant options
