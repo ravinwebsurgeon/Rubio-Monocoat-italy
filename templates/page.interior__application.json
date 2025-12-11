@@ -10,7 +10,7 @@
 {
   "sections": {
     "main": {
-      "type": "all-interior-application-page",
+      "type": "all-application-surfaces-page",
       "settings": {}
     }
   },
