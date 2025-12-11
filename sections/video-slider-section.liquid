@@ -676,14 +676,9 @@ if (product.images && Array.isArray(product.images)) {
     return normalizedAlt === variantAltText;
   });
 }
-{% comment %} 
-
-// ------------------------------------------------------
-// 3. Use matched image OR fallback
-// ------------------------------------------------------
 let finalImg = matchedImage ? matchedImage.src : product.featured_image;
-let finalAlt = matchedImage ? matchedImage.alt : product.title; {% endcomment %}
-console.log(variantAltText,'variantAltText',matchedImage)
+let finalAlt = matchedImage ? matchedImage.alt : product.title; 
+console.log(variantAltText,'variantAltText',finalImg)
 
           document.getElementById("inspired-proouter").innerHTML = `
             <div class="product-image-wrap">
