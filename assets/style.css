@@ -5120,7 +5120,7 @@ font-weight: bold;
 }
 
 
-.custom-info-section {
+body .custom-info-section {
   background: #b9cbc5;
   padding: 50px 0;
 }
@@ -5131,7 +5131,7 @@ body .custom-info-container {
   padding: 0 30px;
 }
 
-.custom-info-heading {
+body .custom-info-heading {
   color: #183029;
   font-family: 'Frutiger Neue LT W1G Cn XBlack';
   font-weight: 900;
@@ -5141,7 +5141,7 @@ body .custom-info-container {
   margin: 0 0 15px;
 }
 
-.custom-info-text {
+body .custom-info-text {
   color: #183029;
   font-size: 16px;
   margin:0;
@@ -5152,17 +5152,17 @@ body .custom-info-container {
 }
 
 @media (max-width: 991px) {
-  .custom-info-heading {
+  body .custom-info-heading {
     font-size: 24px;
   }
-  .custom-info-section {
+  body .custom-info-section {
     height: auto;
     padding: 60px 0;
   }
 }
 
 @media (max-width: 767px) {
-  .custom-info-container {
+  body .custom-info-container {
     padding: 0 20px;
   }
 }
