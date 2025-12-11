@@ -5221,6 +5221,9 @@ body .custom-info-text {
     text-decoration:none;
     letter-spacing:normal;
 }
+.application_content.full-width-item img {
+    height: 500px;
+}
 
 @media (max-width: 991px) {
   body .custom-info-heading {
