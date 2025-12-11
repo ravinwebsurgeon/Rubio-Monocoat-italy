@@ -30,7 +30,15 @@
                   <div class="best_selling_product__detail">
                     <h3>{{ product.title }}</h3>
                     {% comment %} <p>{{ product.price | money }}</p> {% endcomment %}
-                    {% assign prices = product.variants | map: "price" | sort %}
+                    
+                  </div>
+                   {% comment %} {%- if  product.metafields.custom.short_description.value-%}
+                    <div class="product__description rte quick-add-hidden">
+                      <p>{{ product.metafields.custom.short_description.value }}</p>
+                    </div>
+                  {%- endif -%} {% endcomment %}
+                <div class="klaviyo-star-rating-widget" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}"></div> 
+                  {% assign prices = product.variants | map: "price" | sort %}
                       <p>
                         {% if prices.first != prices.last %}
                           From {{ prices.first | money }}
@@ -38,14 +46,6 @@
                           {{ prices.first | money }}
                         {% endif %}
                       </p>
-                  </div>
-                   {% comment %} {%- if  product.metafields.custom.short_description.value-%}
-                    <div class="product__description rte quick-add-hidden">
-                      <p>{{ product.metafields.custom.short_description.value }}</p>
-                    </div>
-                  {%- endif -%} {% endcomment %}
-          <div class="klaviyo-star-rating-widget" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}"></div> 
-
                   {% assign imagesd = product.metafields.custom.product_iconss.value %}
                   {% assign textsd = product.metafields.custom.product_textss.value %}
                   {% if imagesd and textsd %}
