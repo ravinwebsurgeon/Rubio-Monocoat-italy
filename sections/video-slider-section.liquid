@@ -626,7 +626,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const centerSlide = document.querySelector(".inspired-slide.swiper-slide-active");
       if (!centerSlide) return;
       const proouter = document.getElementById("inspired-proouter");
-      proouter.innerHTML = `<p class="loading_state">Loading product...</p>`;
+      proouter.innerHTML = ` <div class="product-image-wrap"><p class="loading_state">Loading product...</p></div>`;
 
       const rawHandle = centerSlide.getAttribute("data-product-hanlde") || "";
       const swatch_color = centerSlide.getAttribute("data-product-color") || "";
