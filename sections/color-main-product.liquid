@@ -218,17 +218,6 @@
                   {%- endif -%}
                 </p>
               {%- when 'custom_icons' -%}
-{% for item in product.metafields.custom.custom_color_filter.value %}
-  <p>{{ item  }}</p>
-{% endfor %}
-                {% for colour in product.metafields.custom.colour_filter2.value %}
-          <button style="display:none"
-            class="filter-item colours base-button size-medium theme-primary option-btn" 
-            data-value="{{ colour }}">
-            <div class="color capitalized" style="background-color: {%if colour %}{{ colour  }} {% endif %}"></div>
-            <div class="value capitalized">{{ colour }}</div>
-          </button>
-      {% endfor %}
                 <div class="custom-icon_added">
                   <div class="icons_content">
                     <div class="interior_icon_content">
