@@ -5236,6 +5236,9 @@ body .custom-info-text {
     .application__details {
         gap: 20px;
     }
+    .application-button-main {
+        padding: 30px 12px;
+    }
 }
 
 @media (max-width: 991px) {
