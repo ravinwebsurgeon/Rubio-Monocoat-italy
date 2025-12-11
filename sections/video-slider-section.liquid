@@ -676,9 +676,9 @@ document.addEventListener("DOMContentLoaded", function () {
           
           const dataImagesStr = centerSlide.getAttribute("data-images");
             console.log("Raw data-images:", dataImagesStr);
-
+          let images=''
             try {
-              const images = JSON.parse(dataImagesStr);
+              images = JSON.parse(dataImagesStr);
               console.log("Parsed images:", images);
             } catch(e) {
               console.error("Failed to parse JSON:", e);
