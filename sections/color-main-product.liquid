@@ -222,15 +222,15 @@
         {% assign colour_parts = colour | split: '/' %}
         {% assign colour_name = colour_parts[0] | strip %}
         {% assign hex_code = colour_parts[1] %}
-        {% unless unique_colours contains colour_name %}
-          {% assign unique_colours = unique_colours | append: colour_name | append: ',' %}  
+        {% comment %} {% unless unique_colours contains colour_name %} {% endcomment %}
+          {% comment %} {% assign unique_colours = unique_colours | append: colour_name | append: ',' %}   {% endcomment %}
           <button  style="display:none;"
             class="filter-item colours base-button size-medium theme-primary option-btn" 
             data-value="{{ colour_name | escape }}">
             <div class="color capitalized" style="background-color: {%if hex_code %}{{ hex_code  }} {% endif %}"></div>
             <div class="value capitalized">{{ colour_name }}</div>
           </button>
-        {% endunless %}
+        {% comment %} {% endunless %} {% endcomment %}
       {% endfor %}
                 <div class="custom-icon_added">
                   <div class="icons_content">
