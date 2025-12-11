@@ -503,11 +503,11 @@ document.addEventListener("DOMContentLoaded", function () {
     slidesPerView: 4.2,
     centeredSlides: true,
     loop: true,
-    autoplay:false,
-      {% comment %} autoplay: {
+    {% comment %} autoplay:true, {% endcomment %}
+      autoplay: {
       delay: 3000,
       disableOnInteraction: false,
-    }, {% endcomment %}
+    },
     spaceBetween: 20,
     navigation: {
       nextEl: ".custom-next",
