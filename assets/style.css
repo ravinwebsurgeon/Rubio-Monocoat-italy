@@ -5233,6 +5233,9 @@ body .custom-info-text {
     .application_content.full-width-item img {
         height: 360px;
     }
+    .application__details {
+        gap: 20px;
+    }
 }
 
 @media (max-width: 991px) {
