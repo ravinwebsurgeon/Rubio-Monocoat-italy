@@ -1017,11 +1017,9 @@ video.video-bg {
 }
 
 .newsletter__wrapper .inline-richtext {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700 !important;
-    font-style: Bold !important;
+    font-family: 'Frutiger Neue LT W1G Cn XBlack';
+    font-weight: 900 !important;
     font-size: 40px !important;
-    leading-trim: NONE;
     line-height: 56px !important;
     letter-spacing: 0 !important;
     text-align: center !important;
