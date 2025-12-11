@@ -1,0 +1,47 @@
+{% assign main_heading = page.metafields.custom.top_main_heading.value %}
+{% assign main_subheading = page.metafields.custom.top_main_subheading %}
+<div class="custom_collection_main">
+{% if main_heading != blank %}
+    <div class="collection_header_main">
+      <div class="page-center">
+        <div class="header_main_heading"><h2>{{ main_heading }}</h2></div>
+        <div class="header_main_subheading">{{ main_subheading }}</div>
+      </div>        
+    </div>
+  {% endif %}
+</div>
+
+
+{% schema %}
+{
+  "name": "t:sections.main-page.name",
+  "tag": "section",
+  "class": "all-interior-applications-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}
