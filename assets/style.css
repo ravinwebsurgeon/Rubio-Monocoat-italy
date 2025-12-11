@@ -5235,7 +5235,7 @@ body .custom-info-text {
     }
 }
 @media (max-width:1199px) {
-    .application_content.full-width-item img{
+    .application_content.full-width-item img,.application__details img {
         height: 360px;
     }
     .application__details {
@@ -5244,9 +5244,7 @@ body .custom-info-text {
     .application-button-main {
         padding: 30px 12px;
     }
-    .application__details img {
-        height: 100%;
-    }
+    
 }
 
 @media (max-width: 991px) {
@@ -5259,6 +5257,9 @@ body .custom-info-text {
   }
   .application-button-main a {
     font-size: 14px;
+  }
+  .application__details img {
+    height: 300px;
   }
 }
 
