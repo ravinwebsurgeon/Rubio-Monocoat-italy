@@ -1262,13 +1262,13 @@ footer .footer-block.grid__item:nth-of-type(5) {
  
 footer .footer-block__brand-info .rte p {
     max-width: 390px;
-  font-family: Frutiger Neue LT W1G;
-font-weight: 350;
-font-style: Book;
-font-size: 16px;
-leading-trim: NONE;
-line-height: 24px;
-letter-spacing: 0;
+    font-family: Frutiger Neue LT W1G;
+    font-weight: 350;
+    font-style: Book;
+    font-size: 16px;
+    leading-trim: NONE;
+    line-height: 24px;
+    letter-spacing: 0;
 }
 ul.footer-block__details-content li a {
     font-family: Frutiger Neue LT W1G;

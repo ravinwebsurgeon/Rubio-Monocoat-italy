@@ -663,22 +663,22 @@ document.addEventListener("DOMContentLoaded", function () {
           }
           console.log(swatch_color,'swatchValue',product)
 
-  let variantAltText = selectedVariant.options.join("/");
-variantAltText = variantAltText.replace(/\s+/g, "").toLowerCase();
-let matchedImage = null;
-if (product.images && Array.isArray(product.images)) {
-  matchedImage = product.images.find(img => {
-    if (!img.alt) return false;
+          let variantAltText = selectedVariant.options.join("/");
+          variantAltText = variantAltText.replace(/\s+/g, "").toLowerCase();
+          let matchedImage = null;
+          if (product.images && Array.isArray(product.images)) {
+            matchedImage = product.images.find(img => {
+              if (!img.alt) return false;
 
-    // Normalize image alt the same way
-    let normalizedAlt = img.alt.replace(/\s+/g, "").toLowerCase();
+              // Normalize image alt the same way
+              let normalizedAlt = img.alt.replace(/\s+/g, "").toLowerCase();
 
-    return normalizedAlt === variantAltText;
-  });
-}
-let finalImg = matchedImage ? matchedImage.src : product.featured_image;
-let finalAlt = matchedImage ? matchedImage.alt : product.title; 
-console.log(variantAltText,'variantAltText',finalImg)
+              return normalizedAlt === variantAltText;
+            });
+          }
+          let finalImg = matchedImage ? matchedImage.src : product.featured_image;
+          let finalAlt = matchedImage ? matchedImage.alt : product.title; 
+          console.log(variantAltText,'variantAltText',finalImg)
 
           document.getElementById("inspired-proouter").innerHTML = `
             <div class="product-image-wrap">
