@@ -3,7 +3,7 @@
 {% assign images = page.metafields.custom.application_image_list.value %}
 {% assign images_btn_text = page.metafields.custom.apllication_images_btn_text.value %}
 {% assign images_btn_links = page.metafields.custom.application_images_btn_links.value %}
-<div class="application-surafce-main">
+<div class="all-surafce-main">
     {% if main_heading and main_subheading %}
         <div class="custom-info-section page-heading-intro">
             <div class="custom-info page-width">
@@ -20,7 +20,7 @@
         <div class="surfaces__details">
             {% for img in images %}
                 {% assign index = forloop.index0 %} 
-                <div class="surface_content {% if forloop.first %}full-width-item{% endif %}">
+                <div class="surface_content">
                     <img src="{{ img |img_url:'master' }}" width=400 />
                     <div class="surface-button-main">
                         <a href="{{ images_btn_links[index] }}"><button>{{ images_btn_text[index] }}</button></a>
