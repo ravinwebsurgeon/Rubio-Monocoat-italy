@@ -102,6 +102,28 @@
           class="swiper-slide inspired-slide"
           data-product-hanlde = {{ product_handle }}
           data-product-color = '{{ swatch_value }}'
+
+             data-images='
+      [
+        {% for img in inspired_product.images %}
+          {"src":"{{ img | img_url: 'master' }}","alt":{{ img.alt | json }} }
+          {% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    '
+    data-variants='
+      [
+        {% for v in inspired_product.variants %}
+          {
+            "id": {{ v.id }},
+            "options": {{ v.options | json }},
+            "featured_image": "{{ v.featured_image | img_url: 'master' }}"
+          }
+          {% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    '
+
         >
           {% if current_video != blank %}
             <video muted playsinline preload="auto" loop>
@@ -662,29 +684,24 @@ document.addEventListener("DOMContentLoaded", function () {
             productLinkUrl = product.url;
           }
           console.log(swatch_color,'swatchValue',product)
+            const images = JSON.parse(centerSlide.getAttribute("data-images") || "[]");
+  const variants = JSON.parse(centerSlide.getAttribute("data-variants") || "[]");
+  // Find image that matches variant options
+  let matchedImage = images.find(img => {
+    // match if alt contains all variant options, e.g. "Red / XL"
+    return selectedVariant.options.every(opt =>
+      img.alt.toLowerCase().includes(opt.toLowerCase())
+    );
+  });
 
-          let variantAltText = selectedVariant.options.join("/");
-          variantAltText = variantAltText.replace(/\s+/g, "").toLowerCase();
-          let matchedImage = null;
-          if (product.images && Array.isArray(product.images)) {
-            matchedImage = product.images.find(img => {
-              console.log(img.alt,'normalizedAlt')
-
-              if (!img.alt) return false;
-
-              // Normalize image alt the same way
-              let normalizedAlt = img.alt.replace(/\s+/g, "").toLowerCase();
-              return normalizedAlt === variantAltText;
-            });
-          }
-          let finalImg = matchedImage ? matchedImage.src : product.featured_image;
-          let finalAlt = matchedImage ? matchedImage.alt : product.title; 
-          console.log(variantAltText,'variantAltText',finalImg)
+  if (!matchedImage) {
+    matchedImage = images[0]; // fallback
+  }
 
           document.getElementById("inspired-proouter").innerHTML = `
             <div class="product-image-wrap">
                 <img id="product-img"
-                    src="${product.featured_image }"
+                    src="${matchedImage.src }"
                     alt="${product.title}">
 
                 <div class="product-info-wrap">
