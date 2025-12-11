@@ -5255,5 +5255,8 @@ body .custom-info-text {
   body .custom-info-container {
     padding: 0 20px;
   }
+  .application__details {
+    padding: 30px 20px;
+ }
 }
  
