@@ -683,6 +683,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } catch(e) {
               console.error("Failed to parse JSON:", e);
             }
+            console.log(selectedVariant.options,'selectedVariant.options')
           let matchedImage = images.find(img => {
             // match if alt contains all variant options, e.g. "Red / XL"
             return selectedVariant.options.every(opt =>
