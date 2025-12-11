@@ -5151,6 +5151,73 @@ body .custom-info-text {
   letter-spacing: normal;
 }
 
+.application__details {
+    max-width: 1760px;
+    padding: 50px 30px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.application__details img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 12px;
+}
+
+.application__details .application_content.full-width-item {
+    grid-column: 1 / -1;
+}
+
+.application__details .application_content {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.application-button-main {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    padding: 50px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.application__details .application_content:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 12px;
+    background-color: rgba(0,0,0,0.15);
+}
+
+.application-button-main a {
+    color: #0f2d1c;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    font-family: Frutiger Neue LT W1G;
+    border-radius: 50px;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 12px 36px;
+}
+
 @media (max-width: 991px) {
   body .custom-info-heading {
     font-size: 24px;
