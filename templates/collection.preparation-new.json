@@ -22,7 +22,7 @@
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "none",
-        "enable_filtering": true,
+        "enable_filtering": false,
         "filter_type": "drawer",
         "enable_sorting": true,
         "padding_top": 36,
@@ -36,32 +36,28 @@
           "type": "faq_item",
           "settings": {
             "question": "STEP 1: Fill holes",
-            "answer": "Clean the deck with plain water, using a garden hose and the aid of a scrubbing brush. Wash off any accumulated dirt.",
-            "image": "shopify://shop_images/Untitled_design_73.png"
+            "answer": "Clean the deck with plain water, using a garden hose and the aid of a scrubbing brush. Wash off any accumulated dirt."
           }
         },
         "faq_item_yifee9": {
           "type": "faq_item",
           "settings": {
             "question": "STEP 2: Sand",
-            "answer": "Shake the bottle of Exterior Soap to obtain a\nhomogeneous mixture. Pour 1 litre of xterior Soap into a bucket. Add 3 litres of clear water.",
-            "image": "shopify://shop_images/Untitled_design_72.png"
+            "answer": "Shake the bottle of Exterior Soap to obtain a\nhomogeneous mixture. Pour 1 litre of xterior Soap into a bucket. Add 3 litres of clear water."
           }
         },
         "faq_item_PHKyzj": {
           "type": "faq_item",
           "settings": {
             "question": "STEP 3: Clean",
-            "answer": "Damp mop this solution evenly on the cleaned surface.",
-            "image": "shopify://shop_images/Untitled_410_x_400_px_1.png"
+            "answer": "Damp mop this solution evenly on the cleaned surface."
           }
         },
         "faq_item_xPnVeM": {
           "type": "faq_item",
           "settings": {
             "question": "STEP 4: Dry",
-            "answer": "Allow to dry for approximately 30 minutes.",
-            "image": "shopify://shop_images/Untitled_410_x_400_px_1.png"
+            "answer": "Allow to dry for approximately 30 minutes."
           }
         }
       },
@@ -107,8 +103,7 @@
         "product_block_XWCJaT": {
           "type": "product_block",
           "settings": {
-            "product": "durogrit-1",
-            "background_image": "shopify://shop_images/Untitled_410_x_400_px_1.png"
+            "product": "durogrit-1"
           }
         },
         "product_block_Ukfr49": {
@@ -121,8 +116,7 @@
         "product_block_XbhYA9": {
           "type": "product_block",
           "settings": {
-            "product": "floor-care-bundle",
-            "background_image": "shopify://shop_images/Untitled_design_72.png"
+            "product": "floor-care-bundle"
           }
         },
         "product_block_QipbKy": {
@@ -146,8 +140,7 @@
         "subheading": "",
         "product_List": [
           "cleaner"
-        ],
-        "images": "shopify://shop_images/Untitled_410_x_400_px_1.png"
+        ]
       }
     },
     "custom_vissits_nomal_ctG9Gz": {
@@ -165,7 +158,6 @@
         "slide_P3kjee": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Untitled_410_x_400_px_1.png",
             "title": "Furniture",
             "link": ""
           }
@@ -181,7 +173,6 @@
         "slide_cfrddQ": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Untitled_design_72.png",
             "title": "Stairs",
             "link": ""
           }
@@ -197,7 +188,6 @@
         "slide_rkiUkM": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Untitled_410_x_400_px_1.png",
             "title": "Furniture",
             "link": ""
           }
