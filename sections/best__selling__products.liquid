@@ -39,7 +39,7 @@
                   {%- endif -%} {% endcomment %}
                 <div class="klaviyo-star-rating-widget" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}"></div> 
                   {% assign prices = product.variants | map: "price" | sort %}
-                     <div>
+                     <div class="best_selling_product__detail">
                       <p>
                         {% if prices.first != prices.last %}
                           From {{ prices.first | money }}
