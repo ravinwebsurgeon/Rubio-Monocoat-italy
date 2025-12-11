@@ -30,6 +30,14 @@
                   <div class="best_selling_product__detail">
                     <h3>{{ product.title }}</h3>
                     <p>{{ product.price | money }}</p>
+                    {% assign prices = product.variants | map: "price" | sort %}
+<p>
+  {% if prices.first != prices.last %}
+    From {{ prices.first | money }}
+  {% else %}
+    {{ prices.first | money }}
+  {% endif %}
+</p>
                   </div>
                    {%- if  product.metafields.custom.short_description.value-%}
                     <div class="product__description rte quick-add-hidden">
