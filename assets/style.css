@@ -5249,6 +5249,9 @@ body .custom-info-text {
     height: auto;
     padding: 60px 0;
   }
+  .application-button-main a {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 767px) {
