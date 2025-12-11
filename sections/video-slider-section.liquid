@@ -98,6 +98,8 @@
 
               {% endif %}
           {% endfor %}
+            {% assign inspired_product = all_products[product_handle] %}
+
         <div 
           class="swiper-slide inspired-slide"
           data-product-hanlde = {{ product_handle }}
