@@ -1283,7 +1283,10 @@ footer ul.footer-block__details-content li a {
     line-height: 25px;
     color: #fff !important;
 }
- 
+ .footer-block__details-content{
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 300;
+ }
 footer .footer-block__details-content>li {
     margin: 0 !important;
 }
