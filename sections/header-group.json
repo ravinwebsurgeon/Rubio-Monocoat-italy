@@ -280,16 +280,16 @@
         "custom_images_4Npnpa": {
           "type": "Custom_images",
           "settings": {
-            "sub-menu_title": "Larch wood",
+            "sub-menu_title": "Larch Wood",
             "menu_key": "1.3.5",
-            "menu_image": "shopify://shop_images/width_2001-ezgif.com-webp-to-png-converter_1.png",
+            "menu_image": "shopify://shop_images/interior_larch_no_colour.png",
             "tag_title": ""
           }
         },
         "custom_images_MzyewX": {
           "type": "Custom_images",
           "settings": {
-            "sub-menu_title": "Oak wood",
+            "sub-menu_title": "Oak Wood",
             "menu_key": "1.3.1",
             "menu_image": "shopify://shop_images/interior_oak_no_colour.png",
             "tag_title": ""
