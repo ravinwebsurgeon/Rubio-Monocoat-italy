@@ -1287,7 +1287,10 @@ footer ul.footer-block__details-content li a {
 footer .footer-block__details-content>li {
     margin: 0 !important;
 }
- 
+ footer .footer-block__details-content li{
+   font-family: 'Frutiger Neue LT W1G';
+    font-weight: 300;
+ }
 footer h2.footer-block__heading.inline-richtext {
     font-family: 'Frutiger Neue LT W1G Cn XBlack';
     font-weight: 900;

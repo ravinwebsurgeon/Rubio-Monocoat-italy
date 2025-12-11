@@ -625,6 +625,8 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateProductInfo() {
       const centerSlide = document.querySelector(".inspired-slide.swiper-slide-active");
       if (!centerSlide) return;
+       const proouter = document.getElementById("inspired-proouter");
+      proouter.innerHTML = `<p>Loading product...</p>`; // placeholder
       const rawHandle = centerSlide.getAttribute("data-product-hanlde") || "";
       const swatch_color = centerSlide.getAttribute("data-product-color") || "";
       const [cleanHandle, queryString] = rawHandle.split("?");
