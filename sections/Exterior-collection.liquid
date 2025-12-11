@@ -184,7 +184,7 @@
             {% assign color_list = product.metafields.custom.colour_filter2.value %}
                 {% assign first_parts = '' %}
                 {% for color in color_list %}
-                  {% assign parts = color | split: '/' %}
+                  {% assign parts = color | split: '-' %}
                   {% if first_parts == '' %}
                     {% assign first_parts = parts[0] | strip %}
                   {% else %}

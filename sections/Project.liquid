@@ -253,7 +253,7 @@
     {% assign tab_collection = block.settings.tab_collection %}
     {% for product in tab_collection.products %}
       {% for colour in product.metafields.custom.colour_filter2.value %}
-        {% assign colour_parts = colour | split: '/' %}
+        {% assign colour_parts = colour | split: '-' %}
         {% assign colour_name = colour_parts[0] | strip %}
         {% assign hex_code = colour_parts[1] %}
         {% unless unique_colours contains colour_name %}
@@ -327,7 +327,7 @@
                       {% assign color_list = product.metafields.custom.colour_filter2.value %}
                     {% assign first_parts = '' %}
                     {% for color in color_list %}
-                      {% assign parts = color | split: '/' %}
+                      {% assign parts = color | split: '-' %}
                       {% if first_parts == '' %}
                         {% assign first_parts = parts[0] | strip  %}
                       {% else %}
