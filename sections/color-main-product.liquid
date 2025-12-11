@@ -218,9 +218,9 @@
                   {%- endif -%}
                 </p>
               {%- when 'custom_icons' -%}
-{% assign raw = product.metafields.custom.colour_filter2.value | json %}
-{% assign cleaned = raw | replace: '"', '' | replace: '[', '' | replace: ']', '' %}
-<pre>{{ cleaned }}</pre>
+{% for item in product.metafields.custom.colour_filter2 %}
+  <pre>{{ item | json | replace: '"', '' }}</pre>
+{% endfor %}
                 {% for colour in product.metafields.custom.colour_filter2.value %}
           <button style="display:none"
             class="filter-item colours base-button size-medium theme-primary option-btn" 
