@@ -5206,8 +5206,8 @@ body .custom-info-text {
     text-align: center;
     font-size: 14px;
     font-style: normal;
-    font-weight: 600;
-    font-family: Frutiger Neue LT W1G;
+    font-weight: 500;
+    font-family: 'Frutiger Neue LT W1G';
     border-radius: 50px;
     background-color: #fff;
     overflow: hidden;
@@ -5216,6 +5216,7 @@ body .custom-info-text {
     justify-content: center;
     cursor: pointer;
     padding: 12px 36px;
+    text-decoration:none;
 }
 
 @media (max-width: 991px) {
