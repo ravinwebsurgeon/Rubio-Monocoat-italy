@@ -5237,6 +5237,7 @@ body .custom-info-text {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
+    aspect-ratio: 1.2;
 }
 
 .surfaces__details .surface_content img {
