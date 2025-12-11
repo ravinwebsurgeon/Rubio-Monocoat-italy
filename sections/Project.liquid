@@ -324,7 +324,7 @@
                       {% assign oak_image = product.metafields.custom.interior_oak_image.value %}
                       {% assign maple_image = product.metafields.custom.interior_maple_image.value %}                    
                
-                      {% assign color_list = product.metafields.custom.colour_filter2.value %}
+                      {% assign color_list = product.metafields.custom.custom_color_filter.value %}
                     {% assign first_parts = '' %}
                     {% for color in color_list %}
                       {% assign parts = color | split: '/' %}
