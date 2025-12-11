@@ -662,6 +662,35 @@ document.addEventListener("DOMContentLoaded", function () {
             productLinkUrl = product.url;
           }
           console.log(swatch_color,'swatchValue',product)
+
+  let variantAltText = selectedVariant.options.join("/");
+
+// Normalize: remove extra spaces → "Red/XL"
+{% comment %} variantAltText = variantAltText.replace(/\s+/g, "").toLowerCase(); {% endcomment %}
+{% comment %} 
+// ------------------------------------------------------
+// 2. Find product image whose alt matches variant options
+// ------------------------------------------------------
+let matchedImage = null;
+
+if (product.images && Array.isArray(product.images)) {
+  matchedImage = product.images.find(img => {
+    if (!img.alt) return false;
+
+    // Normalize image alt the same way
+    let normalizedAlt = img.alt.replace(/\s+/g, "").toLowerCase();
+
+    return normalizedAlt === variantAltText;
+  });
+}
+
+// ------------------------------------------------------
+// 3. Use matched image OR fallback
+// ------------------------------------------------------
+let finalImg = matchedImage ? matchedImage.src : product.featured_image;
+let finalAlt = matchedImage ? matchedImage.alt : product.title; {% endcomment %}
+console.log(variantAltText,'variantAltText')
+
           document.getElementById("inspired-proouter").innerHTML = `
             <div class="product-image-wrap">
                 <img id="product-img"
