@@ -1231,8 +1231,8 @@ footer .footer__blocks-wrapper.grid {
     display: flex;
     flex-wrap: nowrap;
     gap: 70px;
-    border-bottom: 1px solid #fff;
-    border-top: 1px solid #fff;
+    border-bottom: 1px solid #f2f2f2;
+    border-top: 1px solid #f2f2f2;
     padding: 63px 0 60px;
 }
  
