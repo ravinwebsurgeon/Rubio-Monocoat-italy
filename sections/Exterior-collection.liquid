@@ -188,7 +188,7 @@
                   {% if first_parts == '' %}
                     {% assign first_parts = parts[0] | strip %}
                   {% else %}
-                    {% assign first_parts = first_parts | append: ',' | append: parts[0] %}
+                    {% assign first_parts = first_parts | append: ',' | append: parts[0] | strip  %}
                   {% endif %}
                 {% endfor %}
 
