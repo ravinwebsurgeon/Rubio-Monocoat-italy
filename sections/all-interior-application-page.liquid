@@ -3,19 +3,35 @@
 {% assign images = page.metafields.custom.application_image_list.value %}
 {% assign images_btn_text = page.metafields.custom.apllication_images_btn_text.value %}
 {% assign images_btn_links = page.metafields.custom.application_images_btn_links.value %}
-
-<div class="custom-info-section page-heading-intro">
-  <div class="custom-info page-width">
-    {% if main_heading %}
-      <h2 class="custom-heading">{{ main_heading }}</h2>
+<div class="application-interior-main">
+    {% if main_heading and main_subheading %}
+        <div class="custom-info-section page-heading-intro">
+            <div class="custom-info page-width">
+                {% if main_heading %}
+                <h2 class="custom-heading">{{ main_heading }}</h2>
+                {% endif %}
+                {% if main_subheading %}
+                <p class="custom-subheading">{{ main_subheading}}</p>
+                {% endif %}
+            </div>
+        </div>
     {% endif %}
-    {% if main_subheading %}
-      <p class="custom-subheading">{{ main_subheading}}</p>
-    {% endif %}
-  </div>
+    {% comment %} {% if images and images_btn_text and images_btn_links %} {% endcomment %}
+        <div class="application__details">
+            {% for img in images %}
+                {%assign index = forloop.index0 %}
+                <div class="application_content">
+                    <img src="{{ img |img_url:'master' }}" />
+                    <div class="text_content">
+                       <a href="{{ images_btn_links[index] }}">
+                            <button class="">{{ images_btn_text[index] }}</button>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% comment %} {% endif %} {% endcomment %}
 </div>
-
-
 
 {% schema %}
 {
