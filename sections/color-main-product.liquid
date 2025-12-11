@@ -219,9 +219,9 @@
                 </p>
               {%- when 'custom_icons' -%}
       {% for colour in product.metafields.custom.colour_filter2.value %}
-          <button
+          <button style="display:none"
             class="filter-item colours base-button size-medium theme-primary option-btn" 
-            data-value="{{ colour | escape }}">
+            data-value="{{ colour }}">
             <div class="color capitalized" style="background-color: {%if colour %}{{ colour  }} {% endif %}"></div>
             <div class="value capitalized">{{ colour }}</div>
           </button>
