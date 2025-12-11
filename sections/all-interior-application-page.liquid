@@ -20,7 +20,7 @@
         <div class="application__details">
             {% for img in images %}
                 {%assign index = forloop.index0 %}
-                <div class="application_content">
+                <div class="application_content {% if forloop.first %}full-width-item{% endif %}">
                     <img src="{{ img |img_url:'master' }}" width=400 />
                     <div class="text_content">
                        <a href="{{ images_btn_links[index] }}">
