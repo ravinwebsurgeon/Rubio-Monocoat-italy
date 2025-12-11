@@ -1293,12 +1293,16 @@ footer .footer-block__details-content>li {
 }
  
 footer h2.footer-block__heading.inline-richtext {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G Cn XBlack';
     font-weight: 900;
     font-size: 22px;
     line-height: 31px;
     letter-spacing: 0;
     margin-bottom: 20px !important;
+}
+.footer-block__details-content p strong {
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
 }
  .footer-block__image-wrapper {
     height: 77px;

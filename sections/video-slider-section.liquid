@@ -104,15 +104,10 @@
           class="swiper-slide inspired-slide"
           data-product-hanlde = {{ product_handle }}
           data-product-color = '{{ swatch_value }}'
-
-             data-images='
-      [
-        {% for img in inspired_product.images %}
-          {"src":"{{ img | img_url: 'master' }}","alt":{{ img.alt | json }} }
-          {% unless forloop.last %},{% endunless %}
-        {% endfor %}
-      ]
-    '
+            data-images='[{% for img in inspired_product.images %}
+                {"src":"{{ img | img_url: 'master' }}","alt":{{ img.alt | json }} }
+                {% unless forloop.last %},{% endunless %}
+              {% endfor %}]'
         >
           {% if current_video != blank %}
             <video muted playsinline preload="auto" loop>
