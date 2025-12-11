@@ -29,8 +29,16 @@
                 <div class="best_selling-boxesss">
                   <div class="best_selling_product__detail">
                     <h3>{{ product.title }}</h3>
-                    <p>{{ product.price | money }}</p>
+                    {% comment %} <p>{{ product.price | money }}</p> {% endcomment %}
                   </div>
+                   {%- if  product.metafields.custom.short_description.value-%}
+                    <div class="product__description rte quick-add-hidden">
+                      {{ product.metafields.custom.short_description.value }}
+                    </div>
+                  {%- endif -%}
+          <div class="klaviyo-star-rating-widget" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}"></div> 
+ <p>{{ product.price | money }}</p>
+
                   {% assign imagesd = product.metafields.custom.product_iconss.value %}
                   {% assign textsd = product.metafields.custom.product_textss.value %}
                   {% if imagesd and textsd %}
