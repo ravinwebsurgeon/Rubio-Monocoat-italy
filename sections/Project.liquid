@@ -334,8 +334,6 @@
                         {% assign first_parts = first_parts | append: ',' | append: parts[0] %}
                       {% endif %}
                     {% endfor %}
-
-
                     <li class="product-item" data-quantity ="{{  product.selected_or_first_available_variant.inventory_quantity }}" data-tags="{{product.tags | join:','}}"
                       data-colours="{{first_parts}}"
                       data-products="{{ product.metafields.custom.product_filter.value | join: ',' }}"
