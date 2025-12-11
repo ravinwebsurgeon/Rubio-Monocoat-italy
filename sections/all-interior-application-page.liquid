@@ -15,6 +15,16 @@
                 {% endif %}
             </div>
         </div>
+        <section class="custom-info-section global-banners-intro">
+          <div class="custom-info-container page-width">
+            {% if main_heading %}
+              <h2 class="custom-info-heading">{{ main_heading }}</h2>
+              {% endif %}
+              {% if main_subheading %}
+              <p class="custom-info-text">{{ main_subheading}}</p>
+            {% endif %}    
+          </div>
+        </section>
     {% endif %}
     {% if images and images_btn_text and images_btn_links %}
         <div class="application__details">
