@@ -1087,6 +1087,7 @@ video.video-bg {
     padding: 17px 0 16px 34px !important;
     width: calc(100% - 200px);
     color:#fff;
+
 }
 .article-card-wrapper.card-wrapper.underline-links-hover a {
     text-decoration: none;
@@ -1101,8 +1102,8 @@ video.video-bg {
 
 .newsletter-form__field-wrapper .field__input::placeholder {
     opacity: 1;
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
     font-style: Regular;
     font-size: 18px;
     leading-trim: NONE;
