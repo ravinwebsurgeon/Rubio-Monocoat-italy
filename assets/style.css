@@ -5217,7 +5217,7 @@ body .custom-info-text {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    padding: 12px 36px;
+    padding: 12px 36px 8px;
     text-decoration:none;
 }
 
