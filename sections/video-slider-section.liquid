@@ -665,12 +665,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let variantAltText = selectedVariant.options.join("/");
 variantAltText = variantAltText.replace(/\s+/g, "").toLowerCase();
-{% comment %} 
-// ------------------------------------------------------
-// 2. Find product image whose alt matches variant options
-// ------------------------------------------------------
 let matchedImage = null;
-
 if (product.images && Array.isArray(product.images)) {
   matchedImage = product.images.find(img => {
     if (!img.alt) return false;
@@ -681,13 +676,14 @@ if (product.images && Array.isArray(product.images)) {
     return normalizedAlt === variantAltText;
   });
 }
+{% comment %} 
 
 // ------------------------------------------------------
 // 3. Use matched image OR fallback
 // ------------------------------------------------------
 let finalImg = matchedImage ? matchedImage.src : product.featured_image;
 let finalAlt = matchedImage ? matchedImage.alt : product.title; {% endcomment %}
-console.log(variantAltText,'variantAltText')
+console.log(variantAltText,'variantAltText',matchedImage)
 
           document.getElementById("inspired-proouter").innerHTML = `
             <div class="product-image-wrap">
