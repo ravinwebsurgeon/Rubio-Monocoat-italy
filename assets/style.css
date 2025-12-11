@@ -5258,5 +5258,8 @@ body .custom-info-text {
   .application__details {
     padding: 30px 20px;
  }
+ .application_content.full-width-item img {
+        height: auto;
+    }
 }
  
