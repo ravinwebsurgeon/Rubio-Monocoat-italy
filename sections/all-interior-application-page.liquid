@@ -16,7 +16,7 @@
             </div>
         </div>
     {% endif %}
-    {% comment %} {% if images and images_btn_text and images_btn_links %} {% endcomment %}
+    {% if images and images_btn_text and images_btn_links %}
         <div class="application__details">
             {% for img in images %}
                 {%assign index = forloop.index0 %}
@@ -30,7 +30,7 @@
                 </div>
             {% endfor %}
         </div>
-    {% comment %} {% endif %} {% endcomment %}
+    {% endif %}
 </div>
 
 {% schema %}
