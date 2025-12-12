@@ -5361,7 +5361,9 @@ body .rebuy-widget.widget-type-product-addon .rebuy-addon__item-product-title {
     -webkit-line-clamp: 2;
     overflow: hidden;
 }
-
+.rebuy-widget.widget-type-product-addon .rebuy-addon__item+.rebuy-addon__item {
+    margin-top: 8px !important;
+}
 
 
 /* ==================  */
