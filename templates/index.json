@@ -507,8 +507,8 @@
             "icon": "shopify://shop_images/Telephone.png",
             "heading": "Telephone advice",
             "subhead": "",
-            "subtext": "Available on +32 (0) 51 30 80 54",
-            "extra_text": "On weekdays 08:30 - 17:00"
+            "subtext": "",
+            "extra_text": "Answer the questions"
           }
         },
         "container_xdCdQj": {
@@ -518,8 +518,8 @@
             "icon": "shopify://shop_images/Email_2.png",
             "heading": "Send us an email",
             "subhead": "",
-            "subtext": "Send us a rubio@monocoatusa.com",
-            "extra_text": "Response within 2 working days"
+            "subtext": "",
+            "extra_text": "rubio@monocoatusa.com"
           }
         },
         "container_V8N7jt": {
