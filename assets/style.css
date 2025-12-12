@@ -5333,6 +5333,12 @@ body .custom-info-text {
     letter-spacing: normal;
     font-weight: 500;
 }
+.rebuy-money, .rebuy-widget .rebuy-money{
+    font-family: 'Frutiger Neue LT W1G';
+    letter-spacing: normal;
+    font-weight: 300;
+    margin:0 0 5px;
+}
 
 
 
