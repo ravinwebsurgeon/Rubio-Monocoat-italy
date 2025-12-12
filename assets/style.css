@@ -4085,21 +4085,21 @@ header.header {
     margin-bottom: 27px;
 }
 
-.custom-banner__buttons a {
-    font-size: 14px;
-    height: 44px;
-    max-width: 160px;
-}
+    .custom-banner__buttons a {
+        font-size: 14px;
+        height: 44px;
+        max-width: 160px;
+    }
 
-.custom-banner__content {
-    bottom: 80px;
-}
+    .custom-banner__content {
+        bottom: 80px;
+    }
 
-.container h2 {
-    font-size: 28px;
-    line-height: 28px;
-    margin-bottom: 30px;
-}
+    .container h2 {
+        font-size: 28px;
+        line-height: 28px;
+        margin-bottom: 30px;
+    }
 
     .main-subtext {
         max-width: 700px;
