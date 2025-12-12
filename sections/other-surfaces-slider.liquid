@@ -1,4 +1,8 @@
 {% assign heading = collection.metafields.custom.surface_slider_main_heading.value %}
+    {% assign links = collection.metafields.custom.faq_lnk.value %}
+    {% assign images = collection.metafields.custom.faq_immag.value %}
+    {% assign texts = collection.metafields.custom.faq_textss.value %}
+    
 <section class="surface-slider">
   <div class="surface-slider-container">
     <div class="slider-header">
@@ -6,9 +10,7 @@
       <div class="custom-arrows"></div>
     </div>
 
-    {% assign links = collection.metafields.custom.faq_lnk.value %}
-    {% assign images = collection.metafields.custom.faq_immag.value %}
-    {% assign texts = collection.metafields.custom.faq_textss.value %}
+
 
     <div class="surface-slider-inner">
       {% if links and images and texts %}
