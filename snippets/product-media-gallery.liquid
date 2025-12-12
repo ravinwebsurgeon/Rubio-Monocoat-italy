@@ -863,29 +863,66 @@ let foundVariant = false;
 
   item.style.display = show ? 'block' : 'none';
 });
-
 // ✅ Handle Mobile Gallery visibility
 let firstSwiperSlide = null;
-  let foundSwiperVariant = false;
-// ✅ Handle Mobile Gallery visibility
-document.querySelectorAll('.mobile-gallery .swiper .swiper-wrapper .swiper-slide').forEach(slide => {
+let foundSwiperVariant = false;
+
+const slides = document.querySelectorAll(
+  '.mobile-gallery .swiper .swiper-wrapper .swiper-slide'
+);
+
+let matchedSlides = []; // ⭐ Will collect variant-matching slides
+
+// 🔁 First pass: determine which slides match variants
+slides.forEach(slide => {
   const datasetKeys = Object.keys(slide.dataset);
   const img = slide.querySelector('img');
   const src = img ? normalizeShopifySrc(img.src) : null;
 
-  let show = true; // default
+  let isMatch = true;
+
+  // If slide has dataset → check variant match
+  if (datasetKeys.length > 0) {
+    for (const [key, val] of Object.entries(selectedOptions)) {
+      if (!val) continue;
+
+      if (!slide.dataset[key] ||
+          normalizeValue(slide.dataset[key]) !== normalizeValue(val)) {
+        isMatch = false;
+        break;
+      }
+    }
+  } else {
+    isMatch = false; // dataset-less slides are NOT variant matches
+  }
+
+  if (isMatch) {
+    matchedSlides.push(slide);
+  }
+});
+
+// ⭐ NEW RULE: If more than one match → hide all matching slides
+const blockAllMatches = matchedSlides.length > 1;
+
+// 🔁 Second pass: apply final show/hide logic
+slides.forEach(slide => {
+  const datasetKeys = Object.keys(slide.dataset);
+  const img = slide.querySelector('img');
+  const src = img ? normalizeShopifySrc(img.src) : null;
+
+  let show = true;
 
   // 1️⃣ Hide if same as visible main image
   if (src && visibleMainSrcs.includes(src)) {
     show = false;
   }
 
-  // 2️⃣ If slide has dataset → check variant match
+  // 2️⃣ Variant slides
   else if (datasetKeys.length > 0) {
     let matches = true;
 
     for (const [key, val] of Object.entries(selectedOptions)) {
-      if (!val) continue; // skip unselected options
+      if (!val) continue;
 
       if (!slide.dataset[key] ||
           normalizeValue(slide.dataset[key]) !== normalizeValue(val)) {
@@ -894,8 +931,11 @@ document.querySelectorAll('.mobile-gallery .swiper .swiper-wrapper .swiper-slide
       }
     }
 
-    if (!matches) {
+    // If this slide matches AND rule is triggered → hide all of them
+    if (matches && blockAllMatches) {
       show = false;
+    } else {
+      show = matches;
     }
   }
 
@@ -906,6 +946,7 @@ document.querySelectorAll('.mobile-gallery .swiper .swiper-wrapper .swiper-slide
 
   slide.style.display = show ? 'block' : 'none';
 });
+
   // Fallback: show first slide if no variant found
   if (!foundSwiperVariant && firstSwiperSlide) {
     firstSwiperSlide.style.display = 'block';
