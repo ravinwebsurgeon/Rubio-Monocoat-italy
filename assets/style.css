@@ -5299,7 +5299,7 @@ body .custom-info-text {
     font-weight: 300;
 }
 .rich-text__wrapper .rich-text__text h2,.rich-text__wrapper .rich-text__text h2 strong,.cc-compliance button,.pd-cp-ui-content .pd-cp-ui-title-container,body .pd-cp-btn,body .pd-cp-bold-messaging,body .pd-cp-ui-footer .pd-cp-ui-save,body .pd-cp-ui-footer .pd-cp-ui-close,body .pd-cp-ui-alwaysAllowed{
-    font-family: 'Frutiger Neue LT W1G';
+    font-family: 'Frutiger Neue LT W1G' !important;
     letter-spacing: normal;
     font-weight: 500;
 }
