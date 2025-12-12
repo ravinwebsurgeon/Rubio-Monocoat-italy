@@ -5340,7 +5340,11 @@ body .custom-info-text {
     font-weight: 300;
 }
 
-
+.search-modal__content {
+    padding: 0 6rem;
+    font-weight: 300;
+    font-family: 'Frutiger Neue LT W1G';
+}
 
 /* ==================  */
 
