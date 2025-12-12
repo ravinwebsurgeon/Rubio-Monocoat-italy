@@ -2623,7 +2623,6 @@ h2.section-heading {
 .newsletter__subheading p {
     font-family: 'Frutiger Neue LT W1G';
     font-weight: 300;
-    font-style: Regular;
     font-size: 14px;
     leading-trim: NONE;
     line-height: 20px;
@@ -2638,9 +2637,8 @@ h2.section-heading {
 }
 
 .newsletter-form__button {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
-    font-style: Bold;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
     font-size: 14px;
     leading-trim: NONE;
     line-height: 100%;
