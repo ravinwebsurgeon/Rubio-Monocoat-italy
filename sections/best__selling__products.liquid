@@ -65,8 +65,7 @@
                       {% endfor %}
                     </div>
                   {% endif %}
-                            {% unless product.variants.size == 1 and product.variants.first.title == "Default Title" %}
-
+                {% unless product.variants.size == 1 and product.variants.first.title == "Default Title" %}
                   <div class="best_selling__variants">
                     {% assign max_to_show = 5 %}
                       {% for option in product.options_with_values %}
