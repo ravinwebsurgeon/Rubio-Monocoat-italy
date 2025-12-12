@@ -2920,10 +2920,10 @@ section.icon-columns-section.wood_colorss .container {
     .page-width.utility-bar__grid.utility-bar__grid--3-col {
         grid-template-columns: 1fr;
     }
-        .blog__post.article {
-            margin: 0 8px !important;
-        }
-        section.two-column-colour-grid .colour-grid {
+    .blog__post.article {
+        margin: 0 8px !important;
+    }
+    section.two-column-colour-grid .colour-grid {
         max-width: 100%;
     }
     .two-column-colour-grid .right-column img {
@@ -2934,7 +2934,7 @@ section.icon-columns-section.wood_colorss .container {
         margin-left:auto;
         margin-right:auto;
     }
-        .two-column-colour-grid .left-column {
+    .two-column-colour-grid .left-column {
         margin-right: 0 !important;
     }
 }
