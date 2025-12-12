@@ -5350,7 +5350,7 @@ body .custom-info-text {
     justify-content: space-between;
     width: 100%;
 }
-.rebuy-addon__item-product-options.rebuy-product-options {
+.rebuy-addon__item-product-options.rebuy-product-options,.rebuy-widget.widget-type-product-addon .rebuy-addon__item-product-description,.rebuy-widget.widget-type-product-addon .rebuy-addon__item-learn-more {
     width: 100%;
 }
 
