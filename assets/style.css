@@ -2734,11 +2734,9 @@ footer .footer-block.grid__item:nth-of-type(2) {
 }
 
 footer h2.footer-block__heading.inline-richtext {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
-    font-style: Bold;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
     font-size: 20px;
-    leading-trim: NONE;
     line-height: 28px;
     letter-spacing: 0;
     margin-bottom: 0 !important;
@@ -2776,7 +2774,6 @@ footer .footer__blocks-wrapper.grid {
 small.copyright__content {
    font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
-    font-style: Medium;
     font-size: 14px;
     leading-trim: NONE;
     line-height: 25px;
