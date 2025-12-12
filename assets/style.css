@@ -739,8 +739,8 @@ a.colour-button {
 }
 
 .blog .article-card__excerpt.rte-width {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 350;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 300;
     font-style: Book;
     font-size: 16px;
     leading-trim: NONE;
