@@ -2380,11 +2380,10 @@ a.read-more-btn {
 }
 
 .blog .blog__title {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
+   font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
     font-style: Bold;
     font-size: 24px;
-    leading-trim: NONE;
     line-height: 33px;
     letter-spacing: 0;
 }
@@ -2415,7 +2414,7 @@ a.read-more-btn {
 
 .blog .card__heading a {
     margin-top: 0;
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     font-style: Medium;
     font-size: 20px;
@@ -2429,8 +2428,8 @@ a.read-more-btn {
 }
 
 .blog .article-card__excerpt.rte-width {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
+   font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
     font-style: Regular;
     font-size: 12px;
     leading-trim: NONE;
