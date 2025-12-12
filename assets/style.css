@@ -252,10 +252,9 @@ svg.icon.icon-caret path {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
     font-size: 16px;
-    leading-trim: NONE;
     line-height: 100%;
     letter-spacing: 0;
     text-align: center;
