@@ -1247,127 +1247,8 @@ document.addEventListener('click', (e) => {
         const circleTabsOuter = document.querySelector('.circle-tabs-outer');
         circleTabsOuter?.classList.add('show-section');
     }
-function customFiltered() {
-  const params = new URLSearchParams(window.location.search);
-  const result = {};
-  params.forEach((value, key) => {
-    if (key.startsWith("filter.")) {
-      const simpleKey = key.split(".").pop();
-      result[simpleKey] = value;
-    }
-  });
 
-  let collection_name = result.name ? result.name.toLowerCase() : "";
-  let product_color   = result.color ? result.color.toLowerCase() : "";
-  let type            = result.type || "";
-  let surface         = result.surface || "";
-
-  /* -----------------------------
-        1️⃣ COLLECTION UI LOGIC  
-     Runs ONLY if we have a collection 
-  ----------------------------- */
-  if (collection_name) {
-    let circleTabsInner = document.querySelector('.circle-tabs-outer');
-    let circleTabsSection = document.querySelector('.circle-tabs-section');
-
-    if (collection_name === "exterior") {
-      circleTabsInner.classList.add('exterior');
-      const el = document.querySelector(".exterior.exterior-main.surface-toggle");
-      if (el) el.classList.add("active");
-      document.querySelector('.surface-options').style.display = 'flex';
-    }
-
-    if (collection_name === "interior") {
-      circleTabsInner.classList.add('interior');
-      const el = document.querySelector(".Interio");
-      if (el) el.classList.add("active");
-    }
-
-    renderTabs(collection_name);
-    circleTabsSection.classList.add('active');
-    circleTabsInner.style.display = 'block';
-
-    // species selection
-    if (type) {
-      circleTabsInner.querySelectorAll('.circle-tab').forEach(tab => {
-        if (tab.textContent.trim().toLowerCase() === type.toLowerCase()) {
-          tab.classList.add('active');
-        }
-      });
-    }
-
-    // interior/exterior → surface
-    if (surface && collection_name === 'exterior') {
-      document.querySelectorAll('.surface-item').forEach(item => {
-        if (item.dataset.collection.includes(surface)) {
-          item.classList.add('active');
-        }
-      });
-    }
-  }
-
-  /* -----------------------------
-        2️⃣ COLOR FILTER ALWAYS RUNS  
-     Even without collection filter  
-  ----------------------------- */
-
-  if (product_color) {
-    let color_main = document.getElementById('colour-options');
-    let color_options = color_main.querySelectorAll('.option-btn');
-
-    color_options.forEach(option => {
-      if (option.dataset.value.toLowerCase() === product_color) {
-        option.classList.add('active');
-      }
-    });
-
-    document.querySelector('.filters-panel').classList.add('open');
-    color_main.style.display = 'flex';
-  }
-
-  /* -----------------------------
-        3️⃣ SHOW / HIDE PRODUCTS  
-     Works even if *only color* exists
-  ----------------------------- */
-
-  let activeTag = "";
-
-  if (collection_name) {
-    const activeTab = document.querySelector('.circle-tabs-outer .circle-tab.active');
-    if (activeTab) {
-      if (surface === "vertical") {
-        activeTag = activeTab.dataset.exteriorVTagName || activeTab.dataset.interiorTagName || "";
-      } else if (surface === "horizontal") {
-        activeTag = activeTab.dataset.exteriorTagName || activeTab.dataset.interiorTagName || "";
-      } else {
-        activeTag = activeTab.dataset.exteriorTagName || activeTab.dataset.exteriorVTagName || activeTab.dataset.interiorTagName || "";
-      }
-    }
-  }
-
-  document.querySelectorAll('.product-item').forEach(product => {
-    let productColours = product.dataset.colours || "";
-    let productTags = product.dataset.tags || "";
-
-    let colorsOk = product_color
-      ? productColours.split(',').some(col => col.trim().toLowerCase() === product_color)
-      : true;
-
-    let tagOk = activeTag
-      ? productTags.split(',').includes(activeTag)
-      : true;
-
-    product.style.display = (colorsOk && tagOk) ? 'block' : 'none';
-  });
-
-  document.querySelectorAll('.tab-products-wrap').forEach(section => {
-    const items = section.querySelectorAll('.product-item');
-    const hasVisible = [...items].some(i => i.style.display !== 'none');
-    section.style.display = hasVisible ? 'block' : 'none';
-  });
-}
-
-  {% comment %} function customFiltered(){
+  function customFiltered(){
       const params = new URLSearchParams(window.location.search);
       const result = {};
       params.forEach((value, key) => {
@@ -1485,7 +1366,7 @@ function customFiltered() {
           section.style.display = hasVisible ? 'block' : 'none';
         });     
       }
-  } {% endcomment %}
+  }
 
 document.addEventListener("DOMContentLoaded", function() {
 //onload if fiter avail in url
