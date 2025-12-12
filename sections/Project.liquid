@@ -1253,7 +1253,6 @@ document.addEventListener('click', (e) => {
       const result = {};
       params.forEach((value, key) => {
         if (key.startsWith("filter.")) {
-          // Take the last part after the final dot
           const simpleKey = key.split(".").pop();
           result[simpleKey] = value;
         }
