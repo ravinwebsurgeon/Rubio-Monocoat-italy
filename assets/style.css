@@ -3558,8 +3558,8 @@ h2.section-heading {
 }
 
 .review-hhheadiing h2 {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
     font-style: Bold;
     font-size: 24px;
     leading-trim: NONE;
@@ -3581,8 +3581,8 @@ h2.section-heading {
 }
 
 .name {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
     font-style: Bold;
     font-size: 24px;
     leading-trim: NONE;
@@ -3592,8 +3592,8 @@ h2.section-heading {
 }
 
 .designation {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
+   font-family: 'Frutiger Neue LT W1G';
+    font-weight: 300;
     font-style: Regular;
     font-size: 18px;
     leading-trim: NONE;
