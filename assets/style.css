@@ -5306,7 +5306,9 @@ body .custom-info-text {
 .rebuy-addon input[type=checkbox] {
     width: 18px;
 }
-
+.rebuy-widget-container {
+    padding: 25px 15px;
+}
 
 
 /* ==================  */
