@@ -5303,7 +5303,9 @@ body .custom-info-text {
     letter-spacing: normal;
     font-weight: 500;
 }
-
+.rebuy-addon input[type=checkbox] {
+    width: 18px;
+}
 
 
 
