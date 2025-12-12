@@ -865,47 +865,106 @@ let foundVariant = false;
 });
 
 // ✅ Handle Mobile Gallery visibility
-let firstSwiperSlide = null;
-  let foundSwiperVariant = false;
 // ✅ Handle Mobile Gallery visibility
-document.querySelectorAll('.mobile-gallery .swiper .swiper-wrapper .swiper-slide').forEach(slide => {
+let firstSwiperSlide = null;
+let foundSwiperVariant = false;
+
+const slides = document.querySelectorAll(
+  '.mobile-gallery .swiper .swiper-wrapper .swiper-slide'
+);
+
+let matchedSlides = []; // ⭐ Collect slides that match selected variant
+
+// 🔁 FIRST PASS — Determine True Variant Matches
+slides.forEach(slide => {
   const datasetKeys = Object.keys(slide.dataset);
   const img = slide.querySelector('img');
   const src = img ? normalizeShopifySrc(img.src) : null;
 
-  let show = true; // default
+  let isMatch = true;
+
+  // Only treat slides with NON-EMPTY dataset values as variant-dependent
+  const hasRealVariantData = datasetKeys.some(
+    key => slide.dataset[key] && slide.dataset[key].trim() !== ""
+  );
+
+  if (hasRealVariantData) {
+    // Check variant matching
+    for (const [key, val] of Object.entries(selectedOptions)) {
+      if (!val) continue; // skip unselected dropdowns
+
+      // Skip empty dataset values (important for video slides)
+      if (!slide.dataset[key] || slide.dataset[key].trim() === "") {
+        continue;
+      }
+
+      if (normalizeValue(slide.dataset[key]) !== normalizeValue(val)) {
+        isMatch = false;
+        break;
+      }
+    }
+  } else {
+    isMatch = false; // no real variant data → not a variant match
+  }
+
+  if (isMatch) {
+    matchedSlides.push(slide);
+  }
+});
+
+// ⭐ RULE: If more than one matching variant slide → BLOCK ALL
+const blockAllMatches = matchedSlides.length > 1;
+
+
+// 🔁 SECOND PASS — Apply Final Visibility Rules
+slides.forEach(slide => {
+  const datasetKeys = Object.keys(slide.dataset);
+  const img = slide.querySelector('img');
+  const src = img ? normalizeShopifySrc(img.src) : null;
+
+  let show = true;
 
   // 1️⃣ Hide if same as visible main image
   if (src && visibleMainSrcs.includes(src)) {
     show = false;
   }
 
-  // 2️⃣ If slide has dataset → check variant match
+  // 2️⃣ Slides with variant data
   else if (datasetKeys.length > 0) {
+
     let matches = true;
 
     for (const [key, val] of Object.entries(selectedOptions)) {
-      if (!val) continue; // skip unselected options
+      if (!val) continue;
 
-      if (!slide.dataset[key] ||
-          normalizeValue(slide.dataset[key]) !== normalizeValue(val)) {
+      // Skip empty dataset values (fixes video issue)
+      if (!slide.dataset[key] || slide.dataset[key].trim() === "") {
+        continue;
+      }
+
+      if (normalizeValue(slide.dataset[key]) !== normalizeValue(val)) {
         matches = false;
         break;
       }
     }
 
-    if (!matches) {
+    // Apply "hide all" rule
+    if (matches && blockAllMatches) {
       show = false;
+    } else {
+      show = matches;
     }
   }
 
-  // 3️⃣ General slides (no dataset) ALWAYS SHOW
+  // 3️⃣ General slides with no meaningful dataset values → ALWAYS SHOW
   else {
     show = true;
   }
 
   slide.style.display = show ? 'block' : 'none';
 });
+
+
   // Fallback: show first slide if no variant found
   if (!foundSwiperVariant && firstSwiperSlide) {
     firstSwiperSlide.style.display = 'block';
