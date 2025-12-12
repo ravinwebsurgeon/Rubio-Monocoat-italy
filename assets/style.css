@@ -5293,7 +5293,7 @@ body .custom-info-text {
 .rich-text__wrapper .rich-text__text strong{
     font-weight: 300;
 }
-.rich-text__wrapper .rich-text__text,.rich-text__wrapper .rich-text__text a strong,.templatepage-accessibility,.templatepage-accessibility h2, .templatepage-accessibility strong,.pd-cookie-banner-window,.pd-cp-ui-content,.shopify-policy__body h2,.shopify-policy__body h3{
+.rich-text__wrapper .rich-text__text,.rich-text__wrapper .rich-text__text a strong,.templatepage-accessibility,.templatepage-accessibility h2, .templatepage-accessibility strong,.pd-cookie-banner-window,.pd-cp-ui-content,.shopify-policy__body h2,.shopify-policy__body h3,.shopify-policy__body{
     font-family: 'Frutiger Neue LT W1G';
     letter-spacing: normal;
     font-weight: 300;
