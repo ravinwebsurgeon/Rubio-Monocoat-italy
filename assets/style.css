@@ -5350,6 +5350,12 @@ body .custom-info-text {
     justify-content: space-between;
     width: 100%;
 }
+.rebuy-addon__item-product-options.rebuy-product-options {
+    width: 100%;
+}
+
+
+
 /* ==================  */
 
 
