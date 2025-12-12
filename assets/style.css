@@ -4519,8 +4519,7 @@ header.header {
     }
 }
 
-body.templateproduct-1 .Advise_\&_Test:hover,
-body.templateproduct-2 .Advise_\&_Test:hover {
+body.templateproduct-1 .Advise_\&_Test:hover, body.templateproduct-2 .Advise_\&_Test:hover {
     background-color: #9d9d9d !important;
     transition: all ease 1s;
 }
