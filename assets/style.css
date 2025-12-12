@@ -5309,6 +5309,10 @@ body .custom-info-text {
 .rebuy-widget-container {
     padding: 25px 15px;
 }
+.rebuy-widget.widget-type-product-addon .rebuy-addon__item-info {
+    text-align: left;
+    width: 100%;
+}
 
 
 /* ==================  */
