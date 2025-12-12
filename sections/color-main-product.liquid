@@ -218,7 +218,7 @@
                   {%- endif -%}
                 </p>
               {%- when 'custom_icons' -%}
-                <div class="custom-icon_added">
+                {% comment %} <div class="custom-icon_added">
                   <div class="icons_content">
                     <div class="interior_icon_content">
                       <svg 
@@ -231,15 +231,42 @@
                       stroke-linejoin="round"
                       width="24" 
                       height="24"
-                    >
-                      <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5z"/>
-                    </svg>
-                    <p>
-                      {{ product.metafields.custom.customproducttypetag.value }}
-                    </p>
+                      >
+                        <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5z"/>
+                      </svg>
+                      <p>
+                        {{ product.metafields.custom.customproducttypetag.value }}
+                      </p>
+                    </div>
+                    <div class="custom_toxin_icon">
+                      <img src="{{ product.metafields.custom.icontoxin.value | img_url: 'small'}}"><p>Toxin Free</p>
+                    </div>
                   </div>
-                  <div class="custom_toxin_icon">
-                    <img src="{{ product.metafields.custom.icontoxin.value | img_url: 'small'}}"><p>Toxin Free</p>
+                </div> {% endcomment %}
+                {% assign icons = product.metafields.custom.color_top_icons %}
+                {% assign texts = product.metafields.custom.color_top_text %}
+
+                <div class="custom-icon_added">
+                  <div class="icons_content">
+
+                    {% if icons and texts %}
+                      {% for icon in icons %}
+                        {% assign index = forloop.index0 %}
+                        {% assign text_item = texts[index] %}
+
+                        <div class="icon_text_item">
+                          {% if icon %}
+                            <img src="{{ icon | image_url: width: 40 }}" alt="icon">
+                          {% endif %}
+
+                          {% if text_item %}
+                            <p>{{ text_item }}</p>
+                          {% endif %}
+                        </div>
+
+                      {% endfor %}
+                    {% endif %}
+
                   </div>
                 </div>
               {%- when 'description' -%}
