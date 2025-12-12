@@ -5328,6 +5328,11 @@ body .custom-info-text {
     line-height: 1;
     font-size: 12px;
 }
+.rebuy-widget.widget-type-product-addon .rebuy-addon__item-product-title{
+    font-family: 'Frutiger Neue LT W1G';
+    letter-spacing: normal;
+    font-weight: 500;
+}
 
 
 
