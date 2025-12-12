@@ -3887,8 +3887,8 @@ h2.footer-block__heading.inline-richtext {
 
 h2.footer-block__heading.inline-richtext.active::after {
     content: '-';
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 350;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 300;
     font-style: Book;
     font-size: 20px;
     leading-trim: NONE;
