@@ -108,7 +108,7 @@
 
       {% comment %} {% if option.name == 'Size' and current_variant %} {% endcomment %}
       {% comment %} {% if parent_loop_index  == 2  and current_variant %} {% endcomment %}
-      {% comment %} {% if current_variant %} {% endcomment %}
+      {% if current_variant %}
       {% if option.name == 'Size' or option.name == 'Formato' %}
         <div class="custom_price_value" style="display:flex;">
             <div class="variant-custom-cost__m2 {{ user_lang }}">
@@ -122,6 +122,7 @@
                 {% endfor %} 
             </div>
         </div>
+      {% endif %}
       {% endif %}
 
     </label>
