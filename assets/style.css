@@ -5316,6 +5316,9 @@ body .custom-info-text {
 .rebuy-widget.widget-type-product-addon .rebuy-addon__item-learn-more-link{
     color:#183029;
 }
+.rebuy-widget.rebuy-widget, .rebuy-widget .checkout-promotion-wrapper, .rebuy-widget.rebuy-cart-subscription {
+    border-radius: 10px;
+}
 
 
 /* ==================  */
