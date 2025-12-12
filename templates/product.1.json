@@ -321,6 +321,7 @@
         "container_awtDwV",
         "container_J79rr3"
       ],
+      "disabled": true,
       "name": "icons section",
       "settings": {
         "custom_class": "pdp-icons-sec",
