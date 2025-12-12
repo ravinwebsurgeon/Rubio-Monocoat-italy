@@ -415,7 +415,7 @@ section.icon-columns-section {
 .main-subtext {
     margin: 10px auto 0;
     max-width: 1114px;
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     font-size: 16px;
     line-height: 25px;
@@ -443,10 +443,9 @@ section.icon-columns-section {
 }
 
 .icon-heading {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     font-size: 20px;
-    leading-trim: NONE;
     line-height: 30px;
     letter-spacing: 0;
     text-align: center;
@@ -454,7 +453,7 @@ section.icon-columns-section {
 }
 
 .icon-text {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 300;
     font-size: 16px;
     line-height: 25px;
