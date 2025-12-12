@@ -5309,10 +5309,7 @@ body .custom-info-text {
 .rebuy-widget-container {
     padding: 25px 15px;
 }
-.rebuy-widget.widget-type-product-addon .rebuy-addon__item-info {
-    text-align: left;
-    width: 100%;
-}
+
 .rebuy-widget.widget-type-product-addon .rebuy-addon__item-learn-more-link{
     color:#183029;
 }
@@ -5344,7 +5341,15 @@ body .custom-info-text {
     font-weight: 300;
     font-family: 'Frutiger Neue LT W1G';
 }
-
+.rebuy-widget.widget-type-product-addon .rebuy-addon__item-info {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2px 5px;
+    justify-content: space-between;
+    width: 100%;
+}
 /* ==================  */
 
 
