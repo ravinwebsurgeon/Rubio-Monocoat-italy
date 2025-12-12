@@ -707,7 +707,7 @@ a.colour-button {
 }
 
 .blog .article-card__info.caption-with-letter-spacing time {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     font-size: 18px;
     line-height: 25px;
@@ -724,7 +724,7 @@ a.colour-button {
 }
 
 .blog .card__heading a {
-    font-family: Frutiger Neue LT W1G;
+   font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     font-style: Medium;
     font-size: 24px;
