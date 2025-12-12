@@ -2388,515 +2388,515 @@ section.icon-columns-section.wood_colorss .container {
         height: 45px;
     }
 
-.blog-readmore {
-    padding: 5px 12px !important;
-}
+    .blog-readmore {
+        padding: 5px 12px !important;
+    }
 
-.blog .page-width-desktop {
-    padding: 30px 25px;
-}
+    .blog .page-width-desktop {
+        padding: 30px 25px;
+    }
 
-.blog .blog__title {
-   font-family: 'Frutiger Neue LT W1G Cn XBlack';
-    font-weight: 900;
-    font-style: Bold;
-    font-size: 24px;
-    line-height: 33px;
-    letter-spacing: 0;
-}
+    .blog .blog__title {
+        font-family: 'Frutiger Neue LT W1G Cn XBlack';
+        font-weight: 900;
+        font-style: Bold;
+        font-size: 24px;
+        line-height: 33px;
+        letter-spacing: 0;
+    }
 
-.title-wrapper-with-link {
-    margin-bottom: 15px;
-    padding: 0 !important;
-}
+    .title-wrapper-with-link {
+        margin-bottom: 15px;
+        padding: 0 !important;
+    }
 
-.blog .blog__post {
-    width: 100% !important;
-    margin-left: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-}
+    .blog .blog__post {
+        width: 100% !important;
+        margin-left: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
 
-.blog .article-card__image-wrapper.card__media {
-    --ratio-percent: 100% !important;!i;!;
-}
+    .blog .article-card__image-wrapper.card__media {
+        --ratio-percent: 100% !important;!i;!;
+    }
 
-.blog .blog__posts .ratio:before {
-    --ratio-percent: 79%;
-}
+    .blog .blog__posts .ratio:before {
+        --ratio-percent: 79%;
+    }
 
-.article-card__info.caption-with-letter-spacing {
-    display: none;
-}
+    .article-card__info.caption-with-letter-spacing {
+        display: none;
+    }
 
-.blog .card__heading a {
-    margin-top: 0;
+    .blog .card__heading a {
+        margin-top: 0;
+        font-family: 'Frutiger Neue LT W1G';
+        font-weight: 500;
+        font-style: Medium;
+        font-size: 20px;
+        leading-trim: NONE;
+        line-height: 28px;
+        letter-spacing: 0;
+    }
+
+    .blog .card__information {
+        padding-top: 10px !important;
+    }
+
+    .blog .article-card__excerpt.rte-width {
+        font-family: 'Frutiger Neue LT W1G';
+        font-weight: 300;
+        font-style: Regular;
+        font-size: 12px;
+        leading-trim: NONE;
+        line-height: 143%;
+        letter-spacing: 0;
+    }
+
+    .blog__post .read-more-btn {
+        font-family: 'Frutiger Neue LT W1G';
+        font-weight: 500;
+        font-style: Bold;
+        font-size: 12px;
+        leading-trim: NONE;
+        line-height: 100%;
+        letter-spacing: 0;
+        text-align: center;
+        max-width: 100px;
+    }
+
+    .slider-buttons {
+        display: none !important;
+    }
+
+    .customer-reviews .container {
+        padding: 31px 25px;
+    }
+
+    .review-hhheadiing {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .review-hediing-right img {
+        display: block;
+    }
+
+    .review-hediing-right {
+        display: flex;
+        gap: 5px;
+    }
+
+    h2.section-heading {
+        margin-bottom: 0;
+    }
+
+    .review-hhheadiing {
+        margin-bottom: 15px;
+    }
+
+    .review-hhheadiing h2 {
+        font-family: 'Frutiger Neue LT W1G Cn XBlack';
+        font-weight: 900;
+        font-style: Bold;
+        font-size: 24px;
+        leading-trim: NONE;
+        line-height: 33px;
+        letter-spacing: 0;
+    }
+
+    .review-card {
+        padding: 32px 30px 32px 25px;
+    }
+
+    .profile-info img {
+        width: 69px;
+        height: 69px;
+    }
+
+    .profile-info {
+        gap: 15px;
+    }
+
+    .name {
+        font-family: 'Frutiger Neue LT W1G';
+        font-weight: 500;
+        font-size: 24px;
+        leading-trim: NONE;
+        line-height: 33px;
+        letter-spacing: 0;
+        color: #183029;
+    }
+
+    .designation {
+        font-family: 'Frutiger Neue LT W1G';
+        font-weight: 300;
+        font-style: Regular;
+        font-size: 18px;
+        leading-trim: NONE;
+        line-height: 25px;
+        letter-spacing: 0;
+    }
+
+    .review-header {
+        padding-bottom: 20px;
+    }
+
+    .review-text {
+        padding-right: 28px;
+        font-family: 'Frutiger Neue LT W1G';
+        font-weight: 300;
+        font-style: Regular;
+        font-size: 14px;
+        leading-trim: NONE;
+        line-height: 22px;
+        letter-spacing: 0;
+    }
+
+    .four-containers_outer {
+        margin-top: 30px;
+    }
+
+    .four-containers {
+        padding: 30px 24px;
+        display: flex !important;
+        gap: 50px;
+        flex-wrap: wrap;
+    }
+
+    .container-item {
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .container-item {
+        flex-direction: column;
+    }
+
+    .container-item {
+        padding: 0;
+    }
+
+    .container-item {
+        width: calc(50% - 10px);
+        gap: 10px;
+    }
+
+    .icon-part img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .text-part h3 {
+        font-family: 'Frutiger Neue LT W1G';
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 25px;
+        letter-spacing: 0;
+        text-align: center;
+    }
+
+    .text-part p:nth-child(2) {
+        font-family: 'Frutiger Neue LT W1G';
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0;
+        text-align: center;
+        margin: 10px 0;
+        margin: 0 auto;
+    }
+
+    .text-part p:nth-child(3) {
+        font-family: 'Frutiger Neue LT W1G';
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0;
+        text-align: center;
+        max-width: 120px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .four-containers .container-item:nth-child(3) .text-part p:nth-child(3),.four-containers .container-item:last-child .text-part p:nth-child(3) {
+        max-width: 200px;
+    }
+    .newsletter__wrapper {
+        padding: 36px 0 30px !important;
+    }
+
+    .newsletter__wrapper .inline-richtext {
+        font-family: 'Frutiger Neue LT W1G';
+        font-weight: 500;
+        font-size: 20px !important;
+        leading-trim: NONE;
+        line-height: 28px !important;
+        letter-spacing: 0;
+        text-align: center;
+    }
+
+    .newsletter__subheading p {
+        font-family: 'Frutiger Neue LT W1G';
+        font-weight: 300;
+        font-size: 14px;
+        leading-trim: NONE;
+        line-height: 20px;
+        letter-spacing: 0;
+        text-align: center;
+    }
+
+    .newsletter__subheading {
+        margin: 5px 0 20px !important;
+        max-width: 317px !important;
+        margin: 5px auto 20px !important;
+    }
+
+    .newsletter-form__button {
+        font-family: 'Frutiger Neue LT W1G';
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 100%;
+        letter-spacing: 0;
+        text-align: center;
+        height: 36px;
+        width: 116px !important;
+    }
+
+    .newsletter-form .field {
+        gap: 10px !important;
+    }
+
+    .newsletter-form__field-wrapper .field__input {
+        height: 36px;
+        padding: 9px 13px !important;
+        font-family: 'Frutiger Neue LT W1G';
+        font-weight: 300;
+        font-style: Regular;
+        font-size: 12px !important;
+        leading-trim: NONE;
+        line-height: 150%;
+        letter-spacing: 0;
+    }
+
+    .newsletter-form__field-wrapper .field__input::placeholder {
+        font-family: 'Frutiger Neue LT W1G';
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 150%;
+        letter-spacing: 0;
+    }
+
+    .newsletter-form .field {
+        height: 36px;
+    }
+
+    .newsletter__wrapper .newsletter-form__field-wrapper {
+        max-width: 310px !important;
+    }
+
+    .footer {
+        padding-top: 0 !important;
+    }
+
+    .footer__content-top.page-width {
+        padding: 0 25px !important;
+    }
+
+    footer .footer-block.grid__item:nth-of-type(1) {
+        width: 100%;
+    }
+
+    .footer-block__image-wrapper {
+        width: 104px;
+        height: 65px;
+        margin-bottom: 15px;
+    }
+
+    footer .footer-block__brand-info .rte p {
+        font-family: 'Frutiger Neue LT W1G';
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0;
+    }
+
+    footer li.list-social__item {
+        width: 30px;
+        height: 30px;
+    }
+
+    footer .footer-block__brand-info .footer__list-social.list-social {
+        margin-top: 20px;
+        gap: 10px;
+    }
+
+    footer .footer-block.grid__item {
+        margin-bottom: 0;
+    }
+
+    footer .footer-block.grid__item {
+        margin: 0 !important;
+    }
+    footer .footer-block.grid__item {
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+
+    footer .footer-block.grid__item:nth-of-type(2) {
+        margin-top: 30px !important;
+        border-top: 0 !important;
+        padding-top: 0;
+    }
+
+    footer h2.footer-block__heading.inline-richtext {
+        font-family: 'Frutiger Neue LT W1G';
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: 0;
+        margin-bottom: 0 !important;
+    }
+
+    footer .footer-block.grid__item {
+        border-bottom: 1px solid #fff;
+        padding: 20px  0;
+    }
+
+    .footer-block__details-content {
+        margin-bottom: 0 !important;
+        margin-top: 12px;
+    }
+
+    footer ul.footer-block__details-content li a {
+        padding: 2px 0 2px !important;
+        font-size: 14px !important;
+    }
+
+    footer .footer__blocks-wrapper.grid {
+        border-bottom: 0;
+        padding: 30px 0 0;
+        margin: 0;
+    }
+
+    .footer-block--newsletter.scroll-trigger.animate--slide-in {
+        display: none;
+    }
+
+    .footer__content-bottom.scroll-trigger.animate--slide-in {
+        padding: 20px 0 34.92px!important;
+    }
+
+    small.copyright__content {
     font-family: 'Frutiger Neue LT W1G';
-    font-weight: 500;
-    font-style: Medium;
-    font-size: 20px;
-    leading-trim: NONE;
-    line-height: 28px;
-    letter-spacing: 0;
-}
-
-.blog .card__information {
-    padding-top: 10px !important;
-}
-
-.blog .article-card__excerpt.rte-width {
-   font-family: 'Frutiger Neue LT W1G';
-    font-weight: 300;
-    font-style: Regular;
-    font-size: 12px;
-    leading-trim: NONE;
-    line-height: 143%;
-    letter-spacing: 0;
-}
-
-.blog__post .read-more-btn {
-    font-family: 'Frutiger Neue LT W1G';
-    font-weight: 500;
-    font-style: Bold;
-    font-size: 12px;
-    leading-trim: NONE;
-    line-height: 100%;
-    letter-spacing: 0;
-    text-align: center;
-    max-width: 100px;
-}
-
-.slider-buttons {
-    display: none !important;
-}
-
-.customer-reviews .container {
-    padding: 31px 25px;
-}
-
-.review-hhheadiing {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.review-hediing-right img {
-    display: block;
-}
-
-.review-hediing-right {
-    display: flex;
-    gap: 5px;
-}
-
-h2.section-heading {
-    margin-bottom: 0;
-}
-
-.review-hhheadiing {
-    margin-bottom: 15px;
-}
-
-.review-hhheadiing h2 {
-    font-family: 'Frutiger Neue LT W1G Cn XBlack';
-    font-weight: 900;
-    font-style: Bold;
-    font-size: 24px;
-    leading-trim: NONE;
-    line-height: 33px;
-    letter-spacing: 0;
-}
-
-.review-card {
-    padding: 32px 30px 32px 25px;
-}
-
-.profile-info img {
-    width: 69px;
-    height: 69px;
-}
-
-.profile-info {
-    gap: 15px;
-}
-
-.name {
-    font-family: 'Frutiger Neue LT W1G';
-    font-weight: 500;
-    font-size: 24px;
-    leading-trim: NONE;
-    line-height: 33px;
-    letter-spacing: 0;
-    color: #183029;
-}
-
-.designation {
-   font-family: 'Frutiger Neue LT W1G';
-    font-weight: 300;
-    font-style: Regular;
-    font-size: 18px;
-    leading-trim: NONE;
-    line-height: 25px;
-    letter-spacing: 0;
-}
-
-.review-header {
-    padding-bottom: 20px;
-}
-
-.review-text {
-    padding-right: 28px;
-    font-family: 'Frutiger Neue LT W1G';
-    font-weight: 300;
-    font-style: Regular;
-    font-size: 14px;
-    leading-trim: NONE;
-    line-height: 22px;
-    letter-spacing: 0;
-}
-
-.four-containers_outer {
-    margin-top: 30px;
-}
-
-.four-containers {
-    padding: 30px 24px;
-    display: flex !important;
-    gap: 50px;
-    flex-wrap: wrap;
-}
-
-.container-item {
-    background-color: transparent;
-    box-shadow: none;
-}
-
-.container-item {
-    flex-direction: column;
-}
-
-.container-item {
-    padding: 0;
-}
-
-.container-item {
-    width: calc(50% - 10px);
-    gap: 10px;
-}
-
-.icon-part img {
-    width: 40px;
-    height: 40px;
-}
-
-.text-part h3 {
-    font-family: 'Frutiger Neue LT W1G';
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 25px;
-    letter-spacing: 0;
-    text-align: center;
-}
-
-.text-part p:nth-child(2) {
-    font-family: 'Frutiger Neue LT W1G';
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0;
-    text-align: center;
-    margin: 10px 0;
-    margin: 0 auto;
-}
-
-.text-part p:nth-child(3) {
-    font-family: 'Frutiger Neue LT W1G';
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0;
-    text-align: center;
-    max-width: 120px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.four-containers .container-item:nth-child(3) .text-part p:nth-child(3),.four-containers .container-item:last-child .text-part p:nth-child(3) {
-    max-width: 200px;
-}
-.newsletter__wrapper {
-    padding: 36px 0 30px !important;
-}
-
-.newsletter__wrapper .inline-richtext {
-    font-family: 'Frutiger Neue LT W1G';
-    font-weight: 500;
-    font-size: 20px !important;
-    leading-trim: NONE;
-    line-height: 28px !important;
-    letter-spacing: 0;
-    text-align: center;
-}
-
-.newsletter__subheading p {
-    font-family: 'Frutiger Neue LT W1G';
-    font-weight: 300;
-    font-size: 14px;
-    leading-trim: NONE;
-    line-height: 20px;
-    letter-spacing: 0;
-    text-align: center;
-}
-
-.newsletter__subheading {
-    margin: 5px 0 20px !important;
-    max-width: 317px !important;
-    margin: 5px auto 20px !important;
-}
-
-.newsletter-form__button {
-    font-family: 'Frutiger Neue LT W1G';
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 100%;
-    letter-spacing: 0;
-    text-align: center;
-    height: 36px;
-    width: 116px !important;
-}
-
-.newsletter-form .field {
-    gap: 10px !important;
-}
-
-.newsletter-form__field-wrapper .field__input {
-    height: 36px;
-    padding: 9px 13px !important;
-    font-family: 'Frutiger Neue LT W1G';
-    font-weight: 300;
-    font-style: Regular;
-    font-size: 12px !important;
-    leading-trim: NONE;
-    line-height: 150%;
-    letter-spacing: 0;
-}
-
-.newsletter-form__field-wrapper .field__input::placeholder {
-    font-family: 'Frutiger Neue LT W1G';
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 150%;
-    letter-spacing: 0;
-}
-
-.newsletter-form .field {
-    height: 36px;
-}
-
-.newsletter__wrapper .newsletter-form__field-wrapper {
-    max-width: 310px !important;
-}
-
-.footer {
-    padding-top: 0 !important;
-}
-
-.footer__content-top.page-width {
-    padding: 0 25px !important;
-}
-
-footer .footer-block.grid__item:nth-of-type(1) {
-    width: 100%;
-}
-
-.footer-block__image-wrapper {
-    width: 104px;
-    height: 65px;
-    margin-bottom: 15px;
-}
-
-footer .footer-block__brand-info .rte p {
-    font-family: 'Frutiger Neue LT W1G';
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 22px;
-    letter-spacing: 0;
-}
-
-footer li.list-social__item {
-    width: 30px;
-    height: 30px;
-}
-
-footer .footer-block__brand-info .footer__list-social.list-social {
-    margin-top: 20px;
-    gap: 10px;
-}
-
-footer .footer-block.grid__item {
-    margin-bottom: 0;
-}
-
-footer .footer-block.grid__item {
-    margin: 0 !important;
-}
-footer .footer-block.grid__item {
-    width: 100% !important;
-    min-width: 100% !important;
-}
-
-footer .footer-block.grid__item:nth-of-type(2) {
-    margin-top: 30px !important;
-    border-top: 0 !important;
-    padding-top: 0;
-}
-
-footer h2.footer-block__heading.inline-richtext {
-    font-family: 'Frutiger Neue LT W1G';
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 28px;
-    letter-spacing: 0;
-    margin-bottom: 0 !important;
-}
-
-footer .footer-block.grid__item {
-    border-bottom: 1px solid #fff;
-    padding: 20px  0;
-}
-
-.footer-block__details-content {
-    margin-bottom: 0 !important;
-    margin-top: 12px;
-}
-
-footer ul.footer-block__details-content li a {
-    padding: 2px 0 2px !important;
-    font-size: 14px !important;
-}
-
-footer .footer__blocks-wrapper.grid {
-    border-bottom: 0;
-    padding: 30px 0 0;
-    margin: 0;
-}
-
-.footer-block--newsletter.scroll-trigger.animate--slide-in {
-    display: none;
-}
-
-.footer__content-bottom.scroll-trigger.animate--slide-in {
-    padding: 20px 0 34.92px!important;
-}
-
-small.copyright__content {
-   font-family: 'Frutiger Neue LT W1G';
-    font-weight: 500;
-    font-size: 14px;
-    leading-trim: NONE;
-    line-height: 25px;
-    letter-spacing: 0;
-    display: block;
-}
-
-.footer {
-    padding-bottom: 0 !important;
-}
-
-.footer-block__heading.inline-richtext::after {
-    content: '+';
-    font-family: 'Frutiger Neue LT W1G';
-    font-weight: 300;
-    font-style: Book;
-    font-size: 20px;
-    leading-trim: NONE;
-    line-height: 100%;
-    letter-spacing: 0;
-}
-
-h2.footer-block__heading.inline-richtext {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-h2.footer-block__heading.inline-richtext.active::after {
-    content: '-';
-    font-family: 'Frutiger Neue LT W1G';
-    font-weight: 300;
-    font-style: Book;
-    font-size: 20px;
-    leading-trim: NONE;
-    line-height: 100%;
-    letter-spacing: 0%;
-}
-.footer-block.grid__item:first-child {
-    padding: 0;
-}
-
-footer .footer-block.grid__item:nth-of-type(1) {
-    border: 0;
-}
-ul.footer-block__details-content.list-unstyled {
-    margin-top: 15px;
-}
-.blog .blog__post {
-    width: 380px !important;
-    min-width: 100px !important;
-    padding: 0 15px 0 0;
-}
-
-.blog__posts.articles-wrapper .slick-track {
-    gap: 20px;
-}
-
-.blog-hediidsng-right img {
-    display: block;
-}
-
-.blog-hediidsng-right {
-    display: flex;
-    gap: 5px;
-}
-
-.blog .title-wrapper-with-link.title-wrapper--self-padded-tablet-down {
-    margin-bottom: 15px;
-}
-.header__icon--menu .icon.icon-close {
-    top: 15px;
-    z-index: 099;
-    right: 27px;
-}
-.menu-drawer__navigation-container {
-    padding: 20px 0 0 0;
-}
-.header__icon--menu .icon.icon-close path {
-    fill: #000000;
-}
-.menu-drawer__account img {
-    filter: brightness(0.1);
-}
-.left-column {
-    width: 100%;
-}
-.footer__content-bottom {
-    border: 0 !important;
-    padding: 20px 0 34.92px !important;
-}
-footer .footer__content-bottom-wrapper.page-width {
-    justify-content: center !important;
-}
+        font-weight: 500;
+        font-size: 14px;
+        leading-trim: NONE;
+        line-height: 25px;
+        letter-spacing: 0;
+        display: block;
+    }
+
+    .footer {
+        padding-bottom: 0 !important;
+    }
+
+    .footer-block__heading.inline-richtext::after {
+        content: '+';
+        font-family: 'Frutiger Neue LT W1G';
+        font-weight: 300;
+        font-style: Book;
+        font-size: 20px;
+        leading-trim: NONE;
+        line-height: 100%;
+        letter-spacing: 0;
+    }
+
+    h2.footer-block__heading.inline-richtext {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    h2.footer-block__heading.inline-richtext.active::after {
+        content: '-';
+        font-family: 'Frutiger Neue LT W1G';
+        font-weight: 300;
+        font-style: Book;
+        font-size: 20px;
+        leading-trim: NONE;
+        line-height: 100%;
+        letter-spacing: 0%;
+    }
+    .footer-block.grid__item:first-child {
+        padding: 0;
+    }
+
+    footer .footer-block.grid__item:nth-of-type(1) {
+        border: 0;
+    }
+    ul.footer-block__details-content.list-unstyled {
+        margin-top: 15px;
+    }
+    .blog .blog__post {
+        width: 380px !important;
+        min-width: 100px !important;
+        padding: 0 15px 0 0;
+    }
+
+    .blog__posts.articles-wrapper .slick-track {
+        gap: 20px;
+    }
+
+    .blog-hediidsng-right img {
+        display: block;
+    }
+
+    .blog-hediidsng-right {
+        display: flex;
+        gap: 5px;
+    }
+
+    .blog .title-wrapper-with-link.title-wrapper--self-padded-tablet-down {
+        margin-bottom: 15px;
+    }
+    .header__icon--menu .icon.icon-close {
+        top: 15px;
+        z-index: 099;
+        right: 27px;
+    }
+    .menu-drawer__navigation-container {
+        padding: 20px 0 0 0;
+    }
+    .header__icon--menu .icon.icon-close path {
+        fill: #000000;
+    }
+    .menu-drawer__account img {
+        filter: brightness(0.1);
+    }
+    .left-column {
+        width: 100%;
+    }
+    .footer__content-bottom {
+        border: 0 !important;
+        padding: 20px 0 34.92px !important;
+    }
+    footer .footer__content-bottom-wrapper.page-width {
+        justify-content: center !important;
+    }
 }
 @media screen and (min-width: 435px) and (max-width: 749px) {
-        .blog__post.article {
-    margin: 0 8px !important;
-}
-.blog .page-width-desktop {
-    padding-right: 0;
-}
+    .blog__post.article {
+        margin: 0 8px !important;
+    }
+    .blog .page-width-desktop {
+        padding-right: 0;
+    }
 
-.blog .title-wrapper-with-link {
-    padding-right: 25px !important;
-}
+    .blog .title-wrapper-with-link {
+        padding-right: 25px !important;
+    }
 }
 
 @media screen and (max-width: 429px){
@@ -2906,15 +2906,15 @@ footer .footer__content-bottom-wrapper.page-width {
         padding: 0 15px 0 0;
     }
     .blog__post.article {
-    margin: 0 8px !important;
-}
-.blog .page-width-desktop {
-    padding-right: 0;
-}
+        margin: 0 8px !important;
+    }
+    .blog .page-width-desktop {
+        padding-right: 0;
+    }
 
-.blog .title-wrapper-with-link {
-    padding-right: 25px !important;
-}
+    .blog .title-wrapper-with-link {
+        padding-right: 25px !important;
+    }
 }
 @media screen and (max-width: 989px) {
     .page-width.utility-bar__grid.utility-bar__grid--3-col {
