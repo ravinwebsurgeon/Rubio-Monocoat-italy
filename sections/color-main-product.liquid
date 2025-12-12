@@ -243,7 +243,7 @@
                     </div>
                   </div>
                 </div>
-                {% comment %} {% assign icons = product.metafields.custom.color_top_icons.value %}
+                {% assign icons = product.metafields.custom.color_top_icons.value %}
                 {% assign texts = product.metafields.custom.color_top_text.value %}
 
                 <div class="custom-icon_added">
@@ -254,7 +254,7 @@
                         {% assign index = forloop.index0 %}
                         {% assign text_item = texts[index] %}
 
-                        <div class="icon_text_item">
+                        <div class="icon_text_item custom_toxin_icon">
                           {% if icon %}
                             <img src="{{ icon | image_url: width: 40 }}" alt="icon">
                           {% endif %}
@@ -268,7 +268,7 @@
                     {% endif %}
 
                   </div>
-                </div> {% endcomment %}
+                </div>
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
