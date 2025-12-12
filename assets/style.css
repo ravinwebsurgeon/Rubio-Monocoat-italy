@@ -5327,6 +5327,7 @@ body .custom-info-text {
 .rebuy-select, .rebuy-widget .rebuy-select, select.rebuy-select, .rebuy-widget select.rebuy-select {
     line-height: 1;
     font-size: 12px;
+    margin-top:5px;
 }
 .rebuy-widget.widget-type-product-addon .rebuy-addon__item-product-title,.rebuy-widget.widget-type-product-addon .primary-title{
     font-family: 'Frutiger Neue LT W1G';
@@ -5337,7 +5338,6 @@ body .custom-info-text {
     font-family: 'Frutiger Neue LT W1G';
     letter-spacing: normal;
     font-weight: 300;
-    margin:0 0 5px;
 }
 
 
