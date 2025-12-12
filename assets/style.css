@@ -5319,7 +5319,7 @@ body .custom-info-text {
 .rebuy-widget.widget-type-product-addon .rebuy-addon__item {
     background-color: #fff;
     border-radius: 10px;
-    padding:5px 10px 8px;
+    padding:10px;
 }
 .rebuy-select, .rebuy-widget .rebuy-select, select.rebuy-select, .rebuy-widget select.rebuy-select {
     line-height: 1;
