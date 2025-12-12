@@ -5288,10 +5288,11 @@ body .custom-info-text {
     letter-spacing: normal;
     font-weight: 900;
 }
-.rich-text__wrapper .rich-text__text strong{
-    font-weight: 300;
+.rich-text__wrapper .rich-text__text strong,.rich-text__wrapper .rich-text__text a strong,.templatepage-accessibility strong{
+    font-weight: 500;
+    font-family: 'Frutiger Neue LT W1G';
 }
-.rich-text__wrapper .rich-text__text,.rich-text__wrapper .rich-text__text a strong,.templatepage-accessibility,.templatepage-accessibility h2, .templatepage-accessibility strong,.pd-cookie-banner-window,.pd-cp-ui-content,.shopify-policy__body h2,.shopify-policy__body h3,.shopify-policy__body{
+.rich-text__wrapper .rich-text__text,.templatepage-accessibility,.templatepage-accessibility h2, .pd-cookie-banner-window,.pd-cp-ui-content,.shopify-policy__body h2,.shopify-policy__body h3,.shopify-policy__body{
     font-family: 'Frutiger Neue LT W1G';
     letter-spacing: normal;
     font-weight: 300;
