@@ -218,7 +218,7 @@
                   {%- endif -%}
                 </p>
               {%- when 'custom_icons' -%}
-                {% comment %} <div class="custom-icon_added">
+                <div class="custom-icon_added">
                   <div class="icons_content">
                     <div class="interior_icon_content">
                       <svg 
@@ -242,8 +242,8 @@
                       <img src="{{ product.metafields.custom.icontoxin.value | img_url: 'small'}}"><p>Toxin Free</p>
                     </div>
                   </div>
-                </div> {% endcomment %}
-                {% assign icons = product.metafields.custom.color_top_icons.value %}
+                </div>
+                {% comment %} {% assign icons = product.metafields.custom.color_top_icons.value %}
                 {% assign texts = product.metafields.custom.color_top_text.value %}
 
                 <div class="custom-icon_added">
@@ -268,7 +268,7 @@
                     {% endif %}
 
                   </div>
-                </div>
+                </div> {% endcomment %}
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
