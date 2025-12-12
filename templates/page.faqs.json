@@ -130,9 +130,77 @@
         "container_6P7jA9",
         "container_rp4x3E"
       ],
+      "disabled": true,
       "name": "icons section",
       "settings": {
         "custom_class": "",
+        "show_on_desktop": true,
+        "show_on_mobile": true
+      }
+    },
+    "icons_section_Q84VnV": {
+      "type": "icons-section",
+      "blocks": {
+        "container_K8pcTz": {
+          "type": "container",
+          "settings": {
+            "class": "first-container-sec",
+            "icon": "shopify://shop_images/phone_1.png",
+            "heading": "Telephone advice",
+            "subhead": "",
+            "subtext": "",
+            "extra_text": "Answer the questions"
+          }
+        },
+        "container_aYeRcN": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/envelope.png",
+            "heading": "Send us an email",
+            "subhead": "",
+            "subtext": "rubio@monocoatusa.com",
+            "extra_text": ""
+          }
+        },
+        "container_8dN9R3": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/headset.png",
+            "heading": "Customized advice",
+            "subhead": "",
+            "subtext": "Answer the questions",
+            "extra_text": ""
+          }
+        },
+        "container_8J6tUi": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/chat.png",
+            "heading": "Ask via chat",
+            "subhead": "",
+            "subtext": "Answer the questions",
+            "extra_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "container_K8pcTz",
+        "container_aYeRcN",
+        "container_8dN9R3",
+        "container_8J6tUi"
+      ],
+      "custom_css": [
+        ".four-containers_outer {background-color: #396948 !important;}",
+        ".four-containers .container-item {background-color: #457253; border-radius: 10px; box-shadow: 0 0px 0px rgba(255, 255, 255, 0.3); padding: 17px;}",
+        ".four-containers .container-item:hover {background-color: #457253;}",
+        ".container-item,.container-item h2,.container-item h3,.container-item p,.container-item a,.container-item span {color: #ffff;}"
+      ],
+      "name": "icons section",
+      "settings": {
+        "custom_class": "pdp-icons-sec",
         "show_on_desktop": true,
         "show_on_mobile": true
       }
@@ -142,6 +210,7 @@
     "main",
     "custom_faq_banner_KWPV7V",
     "faqs_gnazct",
-    "icons_section_ry8Hx7"
+    "icons_section_ry8Hx7",
+    "icons_section_Q84VnV"
   ]
 }
