@@ -2,7 +2,8 @@
     {% assign links = collection.metafields.custom.faq_lnk.value %}
     {% assign images = collection.metafields.custom.faq_immag.value %}
     {% assign texts = collection.metafields.custom.faq_textss.value %}
-    
+          {% if links and images and texts %}
+
 <section class="surface-slider">
   <div class="surface-slider-container">
     <div class="slider-header">
@@ -33,7 +34,7 @@
     </div>
   </div>
 </section>
-
+{% endif %}
 <style>
 a.slide-card {
     text-decoration: none;
