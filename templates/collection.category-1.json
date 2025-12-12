@@ -194,85 +194,10 @@
     },
     "top_picks_col_efrz3X": {
       "type": "top-picks-col",
-      "blocks": {
-        "certificate_nDcHck": {
-          "type": "certificate",
-          "settings": {
-            "certificate_image": "shopify://shop_images/fd836807055dec44dd59dfaf5eaccf48758cf35c.png",
-            "certificate_title": "Cotton White",
-            "certificate_subtitle": "Soft, warm white"
-          }
-        },
-        "certificate_H8gHyp": {
-          "type": "certificate",
-          "settings": {
-            "certificate_image": "shopify://shop_images/dc0c2839921f5d6e61fa84b0afbb4212d773e7a6.png",
-            "certificate_title": "Dunes",
-            "certificate_subtitle": "Soft, warm white"
-          }
-        },
-        "certificate_wcQEAD": {
-          "type": "certificate",
-          "settings": {
-            "certificate_image": "shopify://shop_images/18f1ee7a05a6773840ee463d841a02df8026d400.png",
-            "certificate_title": "Cotton White",
-            "certificate_subtitle": "Soft, warm white"
-          }
-        },
-        "certificate_VyDUJQ": {
-          "type": "certificate",
-          "settings": {
-            "certificate_image": "shopify://shop_images/fd836807055dec44dd59dfaf5eaccf48758cf35c.png",
-            "certificate_title": "Cotton White",
-            "certificate_subtitle": "Soft, warm white"
-          }
-        },
-        "certificate_ipmqdY": {
-          "type": "certificate",
-          "settings": {
-            "certificate_image": "shopify://shop_images/dc0c2839921f5d6e61fa84b0afbb4212d773e7a6.png",
-            "certificate_title": "Dunes",
-            "certificate_subtitle": "Soft, warm white"
-          }
-        },
-        "certificate_mVperN": {
-          "type": "certificate",
-          "settings": {
-            "certificate_image": "shopify://shop_images/fd836807055dec44dd59dfaf5eaccf48758cf35c.png",
-            "certificate_title": "Cotton White",
-            "certificate_subtitle": "Soft, warm white"
-          }
-        },
-        "certificate_wFFwFf": {
-          "type": "certificate",
-          "settings": {
-            "certificate_image": "shopify://shop_images/dc0c2839921f5d6e61fa84b0afbb4212d773e7a6.png",
-            "certificate_title": "Dunes",
-            "certificate_subtitle": "Soft, warm white"
-          }
-        },
-        "certificate_8Cg4PE": {
-          "type": "certificate",
-          "settings": {
-            "certificate_image": "shopify://shop_images/fd836807055dec44dd59dfaf5eaccf48758cf35c.png",
-            "certificate_title": "Cotton White",
-            "certificate_subtitle": "Soft, warm white"
-          }
-        }
-      },
-      "block_order": [
-        "certificate_nDcHck",
-        "certificate_H8gHyp",
-        "certificate_wcQEAD",
-        "certificate_VyDUJQ",
-        "certificate_ipmqdY",
-        "certificate_mVperN",
-        "certificate_wFFwFf",
-        "certificate_8Cg4PE"
-      ],
       "name": "Top Picks Slider col",
       "settings": {
-        "section_heading": "Our top picks for a natural looking floor"
+        "section_heading": "Our top picks for a natural looking floor",
+        "product_list": []
       }
     },
     "inspired_wooden_floor_LmDtKW": {
@@ -324,7 +249,8 @@
       "name": "Inspired Wooden Floors",
       "settings": {
         "heading": "Get inspired by wooden floors",
-        "subheading": "Create a bedroom worth staying awake for with these inspiring ideas."
+        "subheading": "Create a bedroom worth staying awake for with these inspiring ideas.",
+        "product_List": []
       }
     },
     "blog_sectio_coll_page_DEqbMg": {
@@ -455,8 +381,77 @@
         "container_tejXeP",
         "container_qmrjc4"
       ],
+      "disabled": true,
       "name": "icons section",
       "settings": {
+        "custom_class": "",
+        "show_on_desktop": true,
+        "show_on_mobile": true
+      }
+    },
+    "icons_section_AXnhhE": {
+      "type": "icons-section",
+      "blocks": {
+        "container_4darVj": {
+          "type": "container",
+          "settings": {
+            "class": "first-container-sec",
+            "icon": "shopify://shop_images/phone_1.png",
+            "heading": "Telephone advice",
+            "subhead": "",
+            "subtext": "",
+            "extra_text": "Answer the questions"
+          }
+        },
+        "container_pH4fJB": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/envelope.png",
+            "heading": "Send us an email",
+            "subhead": "",
+            "subtext": "rubio@monocoatusa.com",
+            "extra_text": ""
+          }
+        },
+        "container_ryifdx": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/headset.png",
+            "heading": "Customized advice",
+            "subhead": "",
+            "subtext": "Answer the questions",
+            "extra_text": ""
+          }
+        },
+        "container_HqXbTd": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/chat.png",
+            "heading": "Ask via chat",
+            "subhead": "",
+            "subtext": "Answer the questions",
+            "extra_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "container_4darVj",
+        "container_pH4fJB",
+        "container_ryifdx",
+        "container_HqXbTd"
+      ],
+      "custom_css": [
+        ".four-containers_outer {background-color: #396948 !important;}",
+        ".four-containers .container-item {background-color: #457253; border-radius: 10px; box-shadow: 0 0px 0px rgba(255, 255, 255, 0.3); padding: 17px;}",
+        ".four-containers .container-item:hover {background-color: #457253;}",
+        ".container-item,.container-item h2,.container-item h3,.container-item p,.container-item a,.container-item span {color: #ffff;}"
+      ],
+      "name": "icons section",
+      "settings": {
+        "custom_class": "pdp-icons-sec",
         "show_on_desktop": true,
         "show_on_mobile": true
       }
@@ -474,6 +469,7 @@
     "inspired_wooden_floor_LmDtKW",
     "blog_sectio_coll_page_DEqbMg",
     "other_surfaces_slider_qy7XcP",
-    "icons_section_Xkpj3L"
+    "icons_section_Xkpj3L",
+    "icons_section_AXnhhE"
   ]
 }

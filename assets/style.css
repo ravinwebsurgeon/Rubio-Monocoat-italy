@@ -628,7 +628,7 @@ a.colour-button {
     align-items: center;
     justify-content: center;
     border-radius: 50px;
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     font-size: 16px;
     line-height: 100%;
@@ -639,7 +639,7 @@ a.colour-button {
     text-decoration: none;
 }
 .subheading {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     font-size: 32px;
     line-height: 46px;
@@ -672,9 +672,8 @@ a.colour-button {
     border-radius: 50px;
     color: #183029;
     text-decoration: none;
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
-    font-style: Bold;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
     font-size: 17px;
     leading-trim: NONE;
     line-height: 100%;
