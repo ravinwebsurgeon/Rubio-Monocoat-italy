@@ -2309,7 +2309,7 @@ h2.main-heading {
 }
 
 p.video_overlay_content {
-    font-family: Frutiger Neue Medium;
+    font-family: 'Frutiger Neue LT W1G';
 }
 
 
@@ -2338,7 +2338,7 @@ section.video-banner-section {
 }
 
 .subheading {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     font-size: 20px;
     letter-spacing: 0;
@@ -2360,9 +2360,8 @@ section.video-banner-section {
 }
 
 a.read-more-btn {
-        font-family: Frutiger Neue LT W1G;
-        font-weight: 700;
-        font-style: Bold;
+        font-family: 'Frutiger Neue LT W1G';
+        font-weight: 500;
         font-size: 15px;
         leading-trim: NONE;
         line-height: 100%;
