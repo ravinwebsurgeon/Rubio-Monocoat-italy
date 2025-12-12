@@ -4779,21 +4779,21 @@ body .custom-blog-section .blogss-imggg {
 }
 
 @media (max-width: 767px) {
-.sticky-btn {
-    font-size: 12px;
-    padding: 8px 15px;
-    width: 120px;
-}
-#sticky-add-to-cart {
-  z-index: 9999999999;
-}
-.rebuy-cart-visible #sticky-add-to-cart {
-  z-index: 99999;
-}
-.custom-sv-animate svg {
-    height: auto;
+    .sticky-btn {
+        font-size: 12px;
+        padding: 8px 15px;
+        width: 120px;
+    }
+    #sticky-add-to-cart {
+        z-index: 9999999999;
+    }
+    .rebuy-cart-visible #sticky-add-to-cart {
+        z-index: 99999;
+    }
+    .custom-sv-animate svg {
+        height: auto;
         max-width: 420px;
-}
+    }
     .four-containers_outer {
         margin-top: 30px;
     }
