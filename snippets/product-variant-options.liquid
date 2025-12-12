@@ -111,14 +111,13 @@
        {% assign size_names = "Size,Formato" | split: "," %}
        {% assign is_size_option = false %}
         {% for name in size_names %}
-    {% if option.name == name %}
-      {% assign is_size_option = true %}
-      {% break %} 
-    {% endif %}
-  {% endfor %}
+          {% if option.name == name %}
+            {% assign is_size_option = true %}
+            {% break %} 
+          {% endif %}
+        {% endfor %}
 
-      {% if current_variant %}
-      {% if is_size_option  %}
+      {% if is_size_option and current_variant %}
         <div class="custom_price_value" style="display:flex;">
             <div class="variant-custom-cost__m2 {{ user_lang }}">
                 {% comment %} {% assign values_list = current_variant.metafields.custom.cost_m2_list.value %}
@@ -131,7 +130,6 @@
                 {% endfor %} 
             </div>
         </div>
-      {% endif %}
       {% endif %}
 
     </label>
