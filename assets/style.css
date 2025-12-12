@@ -5341,7 +5341,6 @@ body .custom-info-text {
 }
 
 .search-modal__content,.search-modal__form,.search__input.field__input,.search-modal__content .field__label,.predictive-search__item--term,.predictive-search__heading,.predictive-search__item,.predictive-search__item-heading {
-    padding: 0 6rem;
     font-weight: 300;
     font-family: 'Frutiger Neue LT W1G';
 }
