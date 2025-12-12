@@ -500,26 +500,26 @@
     "icons_section_qxzcqt": {
       "type": "icons-section",
       "blocks": {
-        "container_kza8Jc": {
+        "container_xNmGKf": {
           "type": "container",
           "settings": {
             "class": "first-container-sec",
-            "icon": "shopify://shop_images/Telephone.png",
+            "icon": "shopify://shop_images/phone_1.png",
             "heading": "Telephone advice",
             "subhead": "",
             "subtext": "",
             "extra_text": "Answer the questions"
           }
         },
-        "container_xdCdQj": {
+        "container_EGhzFM": {
           "type": "container",
           "settings": {
             "class": "",
-            "icon": "shopify://shop_images/Email_2.png",
+            "icon": "shopify://shop_images/envelope.png",
             "heading": "Send us an email",
             "subhead": "",
-            "subtext": "",
-            "extra_text": "rubio@monocoatusa.com"
+            "subtext": "rubio@monocoatusa.com",
+            "extra_text": ""
           }
         },
         "container_V8N7jt": {
@@ -546,8 +546,8 @@
         }
       },
       "block_order": [
-        "container_kza8Jc",
-        "container_xdCdQj",
+        "container_xNmGKf",
+        "container_EGhzFM",
         "container_V8N7jt",
         "container_TXNtnP"
       ],
