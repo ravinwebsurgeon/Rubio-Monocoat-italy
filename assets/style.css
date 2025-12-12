@@ -1611,11 +1611,11 @@ section.product-features-section .section-heading {
 }
 
 .scrolled-past-header .header__icon--menu .icon path{
-   filter: none;
+    filter: none;
 }
 .templateindex .header__icon--menu .icon path {
     filter: none;
-     fill: #fff;
+    fill: #fff;
 }
 .available-and-text a {
     color: #000000b2 ;
