@@ -1661,7 +1661,7 @@ button.disclosure__button span,.disclosure__button{
     letter-spacing:normal;
 }
 .header-localization .disclosure .localization-form__select:hover{
-  text-decoration:none !important;
+    text-decoration:none !important;
 }
 .shopify-section-header-sticky.scrolled-past-header button.disclosure__button.localization-form__select {
     color: #fff;
@@ -1670,28 +1670,28 @@ button.disclosure__button span,.disclosure__button{
     color: #000;
 }
 #sticky-add-to-cart {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #fff;
-  border-top: 1px solid #eee;
-  box-shadow: 0 -2px 6px #0000001a;
-  z-index: 9999;
-  display: none;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.1rem 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid #eee;
+    box-shadow: 0 -2px 6px #0000001a;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 1rem;
 }
 
 #sticky-add-to-cart .sticky-inner {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  align-items: center;
-  max-width: 50rem;
-  margin: 0 auto;
-  gap: 1rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    max-width: 50rem;
+    margin: 0 auto;
+    gap: 1rem;
 }
 
 /* .sticky-product-info {
