@@ -5353,6 +5353,12 @@ body .custom-info-text {
 .rebuy-addon__item-product-options.rebuy-product-options,.rebuy-widget.widget-type-product-addon .rebuy-addon__item-product-description,.rebuy-widget.widget-type-product-addon .rebuy-addon__item-learn-more {
     width: 100%;
 }
+.rebuy-widget.widget-type-product-addon .rebuy-addon__item-product-description {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
 
 
 
