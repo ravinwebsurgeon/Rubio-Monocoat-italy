@@ -2886,6 +2886,11 @@ section.icon-columns-section.wood_colorss .container {
         justify-content: center !important;
     }
 }
+@media (max-width: 749px) {
+    .container h2{
+      font-size: 28px;
+    }
+}
 @media screen and (min-width: 435px) and (max-width: 749px) {
     .blog__post.article {
         margin: 0 8px !important;
