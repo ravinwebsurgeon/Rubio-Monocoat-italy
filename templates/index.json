@@ -497,6 +497,67 @@
         "heading": "Customer Reviews"
       }
     },
+    "icons_section_qxzcqt": {
+      "type": "icons-section",
+      "blocks": {
+        "container_kza8Jc": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/Telephone.png",
+            "heading": "Telephone advice",
+            "subhead": "",
+            "subtext": "Available on +32 (0) 51 30 80 54",
+            "extra_text": "On weekdays 08:30 - 17:00"
+          }
+        },
+        "container_xdCdQj": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/Email_2.png",
+            "heading": "Send us an email",
+            "subhead": "",
+            "subtext": "Send us a rubio@monocoatusa.com",
+            "extra_text": "Response within 2 working days"
+          }
+        },
+        "container_V8N7jt": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/Headphones.png",
+            "heading": "Customized advice",
+            "subhead": "",
+            "subtext": "Fill out the form",
+            "extra_text": "Advice within 2 days"
+          }
+        },
+        "container_TXNtnP": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/Clipboard_with_check_marks.png",
+            "heading": "Take the Test",
+            "subhead": "",
+            "subtext": "Answer the questions",
+            "extra_text": "Direct Personal advice"
+          }
+        }
+      },
+      "block_order": [
+        "container_kza8Jc",
+        "container_xdCdQj",
+        "container_V8N7jt",
+        "container_TXNtnP"
+      ],
+      "name": "icons section",
+      "settings": {
+        "custom_class": "pdp-icons-sec",
+        "show_on_desktop": true,
+        "show_on_mobile": true
+      }
+    },
     "icons_section_KNL9aM": {
       "type": "icons-section",
       "blocks": {
@@ -563,67 +624,6 @@
         "show_on_desktop": true,
         "show_on_mobile": true
       }
-    },
-    "icons_section_qxzcqt": {
-      "type": "icons-section",
-      "blocks": {
-        "container_kza8Jc": {
-          "type": "container",
-          "settings": {
-            "class": "",
-            "icon": "shopify://shop_images/Telephone.png",
-            "heading": "Telephone advice",
-            "subhead": "",
-            "subtext": "Available on +32 (0) 51 30 80 54",
-            "extra_text": "On weekdays 08:30 - 17:00"
-          }
-        },
-        "container_xdCdQj": {
-          "type": "container",
-          "settings": {
-            "class": "",
-            "icon": "shopify://shop_images/Email_2.png",
-            "heading": "Send us an email",
-            "subhead": "",
-            "subtext": "Send us a rubio@monocoatusa.com",
-            "extra_text": "Response within 2 working days"
-          }
-        },
-        "container_V8N7jt": {
-          "type": "container",
-          "settings": {
-            "class": "",
-            "icon": "shopify://shop_images/Headphones.png",
-            "heading": "Customized advice",
-            "subhead": "",
-            "subtext": "Fill out the form",
-            "extra_text": "Advice within 2 days"
-          }
-        },
-        "container_TXNtnP": {
-          "type": "container",
-          "settings": {
-            "class": "",
-            "icon": "shopify://shop_images/Clipboard_with_check_marks.png",
-            "heading": "Take the Test",
-            "subhead": "",
-            "subtext": "Answer the questions",
-            "extra_text": "Direct Personal advice"
-          }
-        }
-      },
-      "block_order": [
-        "container_kza8Jc",
-        "container_xdCdQj",
-        "container_V8N7jt",
-        "container_TXNtnP"
-      ],
-      "name": "icons section",
-      "settings": {
-        "custom_class": "pdp-icons-sec",
-        "show_on_desktop": true,
-        "show_on_mobile": true
-      }
     }
   },
   "order": [
@@ -637,7 +637,7 @@
     "custom_vedio_banner_fbxRjq",
     "custom_blog_section_W9ehre",
     "review_UCVi8b",
-    "icons_section_KNL9aM",
-    "icons_section_qxzcqt"
+    "icons_section_qxzcqt",
+    "icons_section_KNL9aM"
   ]
 }
