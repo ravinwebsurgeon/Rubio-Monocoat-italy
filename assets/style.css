@@ -5281,7 +5281,13 @@ body .custom-info-text {
     letter-spacing: normal;
 }
 
-
+ /* ================== */
+h2.rich-text__heading {
+    font-family: 'Frutiger Neue LT W1G Cn XBlack';
+    letter-spacing: normal;
+    font-weight: 900;
+}
+/* ==================  */
 
 
 @media (max-width:1600px) {
