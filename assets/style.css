@@ -2380,7 +2380,7 @@ a.read-more-btn {
 }
 
 .blog .blog__title {
-   font-family: 'Frutiger Neue LT W1G';
+   font-family: 'Frutiger Neue LT W1G Cn XBlack';
     font-weight: 500;
     font-style: Bold;
     font-size: 24px;
@@ -2438,8 +2438,8 @@ a.read-more-btn {
 }
 
 .blog__post .read-more-btn {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
     font-style: Bold;
     font-size: 12px;
     leading-trim: NONE;
