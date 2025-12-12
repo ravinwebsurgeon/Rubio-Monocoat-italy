@@ -564,7 +564,7 @@
         "container_hRecTF": {
           "type": "container",
           "settings": {
-            "class": "first-container-sec",
+            "class": "",
             "icon": "shopify://shop_images/phone_1.png",
             "heading": "Telephone advice",
             "subhead": "",
