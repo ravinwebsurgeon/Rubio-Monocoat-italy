@@ -5319,6 +5319,11 @@ body .custom-info-text {
 .rebuy-widget.rebuy-widget, .rebuy-widget .checkout-promotion-wrapper, .rebuy-widget.rebuy-cart-subscription {
     border-radius: 10px;
 }
+.rebuy-widget.widget-type-product-addon .rebuy-addon__item {
+    background-color: #fff;
+    border-radius: 10px;
+    padding:5px 10px 8px;
+}
 
 
 /* ==================  */
