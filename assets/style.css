@@ -5172,13 +5172,11 @@ body .custom-info-text {
 .application__details .application_content.full-width-item {
     grid-column: 1 / -1;
 }
-
 .application__details .application_content {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
 }
-
 .application-button-main {
     position: absolute;
     display: flex;
@@ -5191,7 +5189,6 @@ body .custom-info-text {
     right: 0;
     z-index: 1;
 }
-
 .application__details .application_content:after {
     content: "";
     position: absolute;
@@ -5202,7 +5199,6 @@ body .custom-info-text {
     border-radius: 12px;
     background-color: rgba(0,0,0,0.15);
 }
-
 .application-button-main a {
     color: #000;
     text-align: center;
