@@ -297,9 +297,8 @@ ul.list-menu.list-menu--inline {
     top: 3.5px;
 }
 .header__submenu .header__menu-item {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
-    font-style: Bold;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 300;
     font-size: 18px;
     line-height: 100%;
     letter-spacing: 0;
