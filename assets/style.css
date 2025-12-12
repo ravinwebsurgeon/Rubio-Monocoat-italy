@@ -5285,7 +5285,7 @@ body .custom-info-text {
  .templatepage-accessibility .main-page-title{
     display:none;
  }
-.rich-text__wrapper .rich-text__heading,.templatepage-accessibility h1 {
+.rich-text__wrapper .rich-text__heading,.templatepage-accessibility h1,.shopify-policy__title {
     font-family: 'Frutiger Neue LT W1G Cn XBlack';
     letter-spacing: normal;
     font-weight: 900;
