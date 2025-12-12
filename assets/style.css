@@ -4797,107 +4797,107 @@ body .custom-blog-section .blogss-imggg {
     .four-containers_outer {
         margin-top: 30px;
     }
-body .custom-blog-section .blog-posts-grid {
-    display: block;
-    margin-top: 15px;
-            position: relative;
+    body .custom-blog-section .blog-posts-grid {
+        display: block;
+        margin-top: 15px;
+        position: relative;
         margin-left: -5px;
-}
+    }
 
-body .custom-blog-section {
-    padding: 50px 0;
-}
+    body .custom-blog-section {
+        padding: 50px 0;
+    }
 
-body .custom-blog-section .blog-hediing-right .slick-arrow {
-    border: 1px solid #00000033;
-    background-color: #fff;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    body .custom-blog-section .blog-hediing-right .slick-arrow {
+        border: 1px solid #00000033;
+        background-color: #fff;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-body .custom-blog-section .blog-hhheadiing {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-}
+    body .custom-blog-section .blog-hhheadiing {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
 
-body .custom-blog-section .blog-hediing-right {
-    display: flex;
-    gap: 5px;
-    align-items: center;
-}
+    body .custom-blog-section .blog-hediing-right {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+    }
 
-body section.custom-blog-section .page-width {
-    padding: 0 0;
-}
+    body section.custom-blog-section .page-width {
+        padding: 0 0;
+    }
 
-body .custom-blog-section p.blog-description {
-    font-size: 14px;
-    line-height: 21px;
-    
-}
+    body .custom-blog-section p.blog-description {
+        font-size: 14px;
+        line-height: 21px;
+        
+    }
 
-body .custom-blog-section p.blog-date {
-    display: none;
-}
+    body .custom-blog-section p.blog-date {
+        display: none;
+    }
 
-body .custom-blog-section h3.blog-title a {
-    font-size: 20px;
-    line-height: 26px;
-}
+    body .custom-blog-section h3.blog-title a {
+        font-size: 20px;
+        line-height: 26px;
+    }
 
-body .custom-blog-section .blogss-imggg {
-    padding-bottom: 300px;
-}
+    body .custom-blog-section .blogss-imggg {
+        padding-bottom: 300px;
+    }
 
-.custom-blog-section h2.blog-section-heading {
-    font-size: 24px;
-    line-height: 30px;
-}
+    .custom-blog-section h2.blog-section-heading {
+        font-size: 24px;
+        line-height: 30px;
+    }
 
-.custom-blog-section .blog-post {
-    margin-left: 20px;
-}
+    .custom-blog-section .blog-post {
+        margin-left: 20px;
+    }
 
-.custom-blog-section h3.blog-title {
-    min-height: 50px;
-}
+    .custom-blog-section h3.blog-title {
+        min-height: 50px;
+    }
 
    body .two-column-colour-grid .right-column img {
-    object-fit: cover;
-    height: 400px;
-}
+        object-fit: cover;
+        height: 400px;
+    }
 
-body .two-column-colour-grid .colour-grid {
-    grid-template-columns: repeat(2,1fr);
-    justify-content: center;
-    gap: 30px;
-}
+    body .two-column-colour-grid .colour-grid {
+        grid-template-columns: repeat(2,1fr);
+        justify-content: center;
+        gap: 30px;
+    }
 
-body .two-column-colour-grid .colour-item .image-wrapper {
-    width: 110px;
-    max-width: 110px;
-}
+    body .two-column-colour-grid .colour-item .image-wrapper {
+        width: 110px;
+        max-width: 110px;
+    }
 
-body .two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
-    top: -5px;
-    right: -4px;
-}
+    body .two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
+        top: -5px;
+        right: -4px;
+    }
 
     .four-containers_outer .first-container-sec .available-and-text {
-    flex-direction: column;
-    gap: 5px;
-    margin: 7px 0 0 !important;
-}
+        flex-direction: column;
+        gap: 5px;
+        margin: 7px 0 0 !important;
+    }
 
-.four-containers_outer .container-item .text-part h3 {
-    font-size: 17px;
-}
+    .four-containers_outer .container-item .text-part h3 {
+        font-size: 17px;
+    }
     section.product-features-section .section-heading {
         font-size: 24px;
     }
@@ -4948,17 +4948,17 @@ body .two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
         left: 0;
     } */
      .product-features-section .product-features .mobile-only-icon {
-          height: 20px;
+        height: 20px;
         width: 20px;
         display: inline-flex;
         position: absolute;
         left: 0;
         margin: 4px 0 0 0;
-}
+    }
 
-.product-features-section .product-features .mobile-only-icon svg {
-    display: block;
-}
+    .product-features-section .product-features .mobile-only-icon svg {
+        display: block;
+    }
     .product-features-section .feature-image img {
         height:360px;
     }
@@ -4988,39 +4988,39 @@ body .two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
 @media only screen and (max-width: 1100px) and (min-width: 767px) {
 
     .custom-banner__content {
-    bottom: 50px;
-}
+        bottom: 50px;
+    }
 
 }
 
 @media only screen and (max-width: 1100px) and (min-width: 992px) {
 
-        body .four-containers_outer .first-container-sec .available-and-text {
-    flex-direction: column;
-    gap: 6px;
-}
+    body .four-containers_outer .first-container-sec .available-and-text {
+        flex-direction: column;
+        gap: 6px;
+    }
 
-body .four-containers_outer .first-container-sec .available-and-text span {
-    font-size: 12px;
-}
+    body .four-containers_outer .first-container-sec .available-and-text span {
+        font-size: 12px;
+    }
 
 }
 
 /* 10/9/25 */
 .product-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: #0f2d1c; 
-  color: #fff;
-  padding: 4px 10px;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #0f2d1c; 
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
 }
 .product-tag svg {
-  width: 16px;
-  height: 16px;
+    width: 16px;
+    height: 16px;
 }
 
 button.addons-toggle {
@@ -5049,25 +5049,25 @@ button.addons-toggle {
     margin-bottom: 10px;
 }
 .addon-item input[type="checkbox"] {
-margin-right: 10px;
+    margin-right: 10px;
 }
 .addon-label {
-display: flex;
-align-items: center;
-width: 100%;
-gap: 10px;
-cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    cursor: pointer;
 }
 .addon-label img {
-width: 40px;
-height: 40px;
-object-fit: contain;
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
 }
 .addon-title {
-flex-grow: 1; 
+    flex-grow: 1; 
 }
 .addon-price {
-font-weight: bold;
+    font-weight: bold;
 }
                   
  .oil-calculator-box {
@@ -5105,7 +5105,7 @@ font-weight: bold;
   }
   .oil-calculator-text span {
     display: block;
-        font-size: 14px;
+    font-size: 14px;
 }
 
 .oil-calculator-text a:after {
@@ -5121,34 +5121,34 @@ font-weight: bold;
 
 
 body .custom-info-section {
-  background: #b9cbc5;
-  padding: 50px 0;
+    background: #b9cbc5;
+    padding: 50px 0;
 }
 
 body .custom-info-container {
-  margin: 0 auto;
-  max-width: 1760px;
-  padding: 0 30px;
+    margin: 0 auto;
+    max-width: 1760px;
+    padding: 0 30px;
 }
 
 body .custom-info-heading {
-  color: #183029;
-  font-family: 'Frutiger Neue LT W1G Cn XBlack';
-  font-weight: 900;
-  font-size: 32px;
-  line-height: normal;
-  letter-spacing: normal;
-  margin: 0 0 15px;
+    color: #183029;
+    font-family: 'Frutiger Neue LT W1G Cn XBlack';
+    font-weight: 900;
+    font-size: 32px;
+    line-height: normal;
+    letter-spacing: normal;
+    margin: 0 0 15px;
 }
 
 body .custom-info-text {
-  color: #183029;
-  font-size: 16px;
-  margin:0;
-  line-height: normal;
-  font-family: 'Frutiger Neue LT W1G';
-  font-weight:300;
-  letter-spacing: normal;
+    color: #183029;
+    font-size: 16px;
+    margin:0;
+    line-height: normal;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight:300;
+    letter-spacing: normal;
 }
 
 .application__details {
