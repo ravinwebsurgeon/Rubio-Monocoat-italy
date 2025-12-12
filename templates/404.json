@@ -12,9 +12,77 @@
     "main": {
       "type": "main-404",
       "settings": {}
+    },
+    "icons_section_jipyQX": {
+      "type": "icons-section",
+      "blocks": {
+        "container_dFqDif": {
+          "type": "container",
+          "settings": {
+            "class": "first-container-sec",
+            "icon": "shopify://shop_images/phone_1.png",
+            "heading": "Telephone advice",
+            "subhead": "",
+            "subtext": "",
+            "extra_text": "Answer the questions"
+          }
+        },
+        "container_9NRGxp": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/envelope.png",
+            "heading": "Send us an email",
+            "subhead": "",
+            "subtext": "rubio@monocoatusa.com",
+            "extra_text": ""
+          }
+        },
+        "container_3Ax9dN": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/headset.png",
+            "heading": "Customized advice",
+            "subhead": "",
+            "subtext": "Answer the questions",
+            "extra_text": ""
+          }
+        },
+        "container_nYBfwa": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/chat.png",
+            "heading": "Ask via chat",
+            "subhead": "",
+            "subtext": "Answer the questions",
+            "extra_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "container_dFqDif",
+        "container_9NRGxp",
+        "container_3Ax9dN",
+        "container_nYBfwa"
+      ],
+      "custom_css": [
+        ".four-containers_outer {background-color: #396948 !important;}",
+        ".four-containers .container-item {background-color: #457253; border-radius: 10px; box-shadow: 0 0px 0px rgba(255, 255, 255, 0.3); padding: 17px;}",
+        ".four-containers .container-item:hover {background-color: #457253;}",
+        ".container-item,.container-item h2,.container-item h3,.container-item p,.container-item a,.container-item span {color: #ffff;}"
+      ],
+      "name": "icons section",
+      "settings": {
+        "custom_class": "pdp-icons-sec",
+        "show_on_desktop": true,
+        "show_on_mobile": true
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "icons_section_jipyQX"
   ]
 }
