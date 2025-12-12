@@ -3418,7 +3418,7 @@ section.video-banner-section {
 }
 
 .subheading {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     font-size: 20px;
     letter-spacing: 0;
@@ -3438,8 +3438,8 @@ section.video-banner-section {
 }
 
 a.read-more-btn {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
     font-style: Bold;
     font-size: 12px;
     leading-trim: NONE;
