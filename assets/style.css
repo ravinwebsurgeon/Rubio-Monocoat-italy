@@ -5370,7 +5370,9 @@ body .menu-drawer__account {
     color: #000;
     opacity: 1;
 }
-
+.header-localization .disclosure .localization-form__select {
+    color: #000;
+}
 
 /* ==================  */
 
