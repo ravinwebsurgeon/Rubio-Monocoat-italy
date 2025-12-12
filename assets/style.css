@@ -2640,7 +2640,6 @@ h2.section-heading {
     font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     font-size: 14px;
-    leading-trim: NONE;
     line-height: 100%;
     letter-spacing: 0;
     text-align: center;
@@ -2655,8 +2654,8 @@ h2.section-heading {
 .newsletter-form__field-wrapper .field__input {
     height: 36px;
     padding: 9px 13px !important;
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 300;
     font-style: Regular;
     font-size: 12px !important;
     leading-trim: NONE;
@@ -2665,8 +2664,8 @@ h2.section-heading {
 }
 
 .newsletter-form__field-wrapper .field__input::placeholder {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 300;
     font-style: Regular;
     font-size: 12px;
     leading-trim: NONE;
