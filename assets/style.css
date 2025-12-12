@@ -2182,7 +2182,6 @@ margin-top: 20px;
         height: 49px;
         font-family: 'Frutiger Neue LT W1G';
         font-weight: 500;
-        font-style: Bold;
         font-size: 15px;
         leading-trim: NONE;
         line-height: 100%;
@@ -2238,7 +2237,7 @@ img {}
 }
 
 .mobile-vhhg .color_text {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     font-size: 14px;
     line-height: 100%;
