@@ -553,7 +553,7 @@
       ],
       "name": "icons section",
       "settings": {
-        "custom_class": "pdp-icons-sec",
+        "custom_class": "",
         "show_on_desktop": true,
         "show_on_mobile": true
       }
