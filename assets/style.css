@@ -5324,6 +5324,11 @@ body .custom-info-text {
     border-radius: 10px;
     padding:5px 10px 8px;
 }
+.rebuy-select, .rebuy-widget .rebuy-select, select.rebuy-select, .rebuy-widget select.rebuy-select {
+    line-height: 1;
+    font-size: 12px;
+}
+
 
 
 /* ==================  */
