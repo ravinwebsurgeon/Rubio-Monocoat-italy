@@ -24,7 +24,7 @@
         "quick_add": "none",
         "enable_filtering": false,
         "filter_type": "drawer",
-        "enable_sorting": true,
+        "enable_sorting": false,
         "padding_top": 36,
         "padding_bottom": 52
       }
