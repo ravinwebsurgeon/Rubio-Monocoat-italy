@@ -1718,14 +1718,14 @@ button.disclosure__button span,.disclosure__button{
 .sticky-btn {
     background: #FEC110;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 500;
     color: #0f2d1c;
     border-radius: 50px;
     font-size: 14px;
     padding: 9px 10px 6px;
     border: 1px solid #FEC110;
     transition: all ease 0.3s;
-    font-family: Frutiger Neue LT W1G;
+   font-family: 'Frutiger Neue LT W1G';
     /* text-transform: uppercase; */
     width:140px;
 }
@@ -1866,8 +1866,8 @@ span.announce-svg svg {
 }
 
 .announcement-bar__message.h5 span {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 300;
     font-size: 14px;
     line-height: 100%;
     letter-spacing: 0;
