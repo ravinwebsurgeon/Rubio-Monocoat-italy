@@ -228,6 +228,8 @@
               
             {% endif %}
           </div>
+          {% unless card_product.variants.size == 1 and card_product.variants.first.title == "Default Title" %}
+
           <div class="custom_added_variants">
             {% assign max_to_show = 5 %}
             {% for option in card_product.options_with_values %}
@@ -318,7 +320,7 @@
                   name="id"
                   value="{{ card_product.selected_or_first_available_variant.id }}">
           </div>
-
+        {% endunless %}
 
           <!-- Embed product JSON -->
           <script type="application/json" class="product-json">{{ card_product | json }}</script>
