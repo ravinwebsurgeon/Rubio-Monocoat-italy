@@ -2611,9 +2611,8 @@ h2.section-heading {
 }
 
 .newsletter__wrapper .inline-richtext {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
-    font-style: Bold;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
     font-size: 20px !important;
     leading-trim: NONE;
     line-height: 28px !important;
@@ -2622,8 +2621,8 @@ h2.section-heading {
 }
 
 .newsletter__subheading p {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 300;
     font-style: Regular;
     font-size: 14px;
     leading-trim: NONE;
