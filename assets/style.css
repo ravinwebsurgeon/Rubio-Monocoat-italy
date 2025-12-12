@@ -797,9 +797,8 @@ section.customer-reviews {
 }
 
 .section-heading {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
-    font-style: Bold;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
     font-size: 40px;
     line-height: 56px;
     letter-spacing: 0;
