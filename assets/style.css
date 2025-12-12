@@ -1452,7 +1452,18 @@ footer .footer-block__brand-info .footer__list-social.list-social li:nth-of-type
     border-radius: 50px;
     padding: 10px;
 }
+.product-icons a svg {
+    display: block;
+    height: 16px;
+    width: 16px;
+}
 
+.product-icons a svg text {
+    line-height: 0.5;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
+    font-size: 24px;
+}
 .product-icons a img {
     display: block;
 }
