@@ -1447,10 +1447,10 @@ footer .footer-block__brand-info .footer__list-social.list-social li:nth-of-type
 }
 
 .product-icons a {
-    border: 1px solid #0000004D;
+    border: 1px solid #2f4f2f;
     border-radius: 100%;
     padding: 0;
-    background-color: #000;
+    background-color: #2f4f2f;
     color: #fff;
     display: flex;
     width: 32px;
