@@ -5388,24 +5388,23 @@ body .rebuy-widget.widget-type-product-addon .rebuy-addon__item-product-title {
     }
     .application-button-main,.surfaces__details .surface-button-main {
         padding: 30px 12px;
-    }
-    
+    }    
 }
 
 @media (max-width: 991px) {
-  body .custom-info-heading {
-    font-size: 24px;
-  }
-  body .custom-info-section {
-    height: auto;
-    padding: 60px 0;
-  }
-  .application-button-main a,.surfaces__details .surface-button-main a {
-    font-size: 14px;
-  }
-  .application__details img {
-    height: 300px;
-  }
+    body .custom-info-heading {
+        font-size: 24px;
+    }
+    body .custom-info-section {
+        height: auto;
+        padding: 60px 0;
+    }
+    .application-button-main a,.surfaces__details .surface-button-main a {
+        font-size: 14px;
+    }
+    .application__details img {
+        height: 300px;
+    }
 }
 
 @media (max-width: 767px) {
