@@ -5340,7 +5340,7 @@ body .custom-info-text {
     font-weight: 300;
 }
 
-.search-modal__content,.search-modal__form,.search__input.field__input,.search-modal__content .field__label,.predictive-search__item--term,.predictive-search__heading,.predictive-search__item,.predictive-search__item-heading,.predictive-search__result-group h2,.predictive-search__item-content{
+.search-modal__content,.search-modal__form,.search__input.field__input,.search-modal__content .field__label,.predictive-search__item--term,.predictive-search__heading,.predictive-search__item,.predictive-search__item-heading,.predictive-search__result-group h2,.predictive-search__item-content,.predictive-search__item--term{
     font-weight: 300;
     font-family: 'Frutiger Neue LT W1G';
 }
