@@ -40,17 +40,16 @@
                         </p>
                       </div>
                       <div class="product-icons">
-                        {% comment %} {% if block.settings.icon_1 %} {% endcomment %}
-                          {% comment %} <a href="{{ block.settings.icon_1_link }}" class="add-to-cart-btn" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+                        {% comment %} {% if block.settings.icon_1 %}
+                          <a href="{{ block.settings.icon_1_link }}" class="add-to-cart-btn" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
                             <img src="{{ block.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
-                          </a> {% endcomment %}
-                            <a href="{{product.url}}">
+                          </a>
+                        {% endif %} {% endcomment %}
+                        <a href="{{product.url}}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 16 16">
                                 <text x="50%" y="80%" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" fill="currentColor">i</text>
                             </svg>
                           </a>
-                        {% comment %} {% endif %} {% endcomment %}
-
                         {% comment %} {% if block.settings.icon_2 %}
                           <a href="javascript:void(0);" class="slide-next-btn gg-{{ forloop.index }}">
                             <img src="{{ block.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
