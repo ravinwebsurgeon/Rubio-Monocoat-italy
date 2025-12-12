@@ -865,10 +865,8 @@ let foundVariant = false;
 });
 
 // ✅ Handle Mobile Gallery visibility
-// ✅ Handle Mobile Gallery visibility
 let firstSwiperSlide = null;
-let foundSwiperVariant = false;
-
+  let foundSwiperVariant = false;
 // ✅ Handle Mobile Gallery visibility
 document.querySelectorAll('.mobile-gallery .swiper .swiper-wrapper .swiper-slide').forEach(slide => {
   const datasetKeys = Object.keys(slide.dataset);
@@ -884,22 +882,21 @@ document.querySelectorAll('.mobile-gallery .swiper .swiper-wrapper .swiper-slide
 
   // 2️⃣ If slide has dataset → check variant match
   else if (datasetKeys.length > 0) {
-    let matches = 0; // Track how many dataset keys match
+    let matches = true;
 
-    // Iterate over selected options and check dataset values
     for (const [key, val] of Object.entries(selectedOptions)) {
       if (!val) continue; // skip unselected options
 
-      const slideData = slide.dataset[key];
-      if (slideData && normalizeValue(slideData) === normalizeValue(val)) {
-        matches++; // Increment matches for this dataset key
+      if (!slide.dataset[key] ||
+          normalizeValue(slide.dataset[key]) !== normalizeValue(val)) {
+        matches = false;
+        break;
       }
     }
 
-    // If more than one key matches, hide the slide
-    if (matches > 1) {
+    if (!matches) {
       show = false;
-    }
+    } 
   }
 
   // 3️⃣ General slides (no dataset) ALWAYS SHOW
@@ -909,7 +906,6 @@ document.querySelectorAll('.mobile-gallery .swiper .swiper-wrapper .swiper-slide
 
   slide.style.display = show ? 'block' : 'none';
 });
-
   // Fallback: show first slide if no variant found
   if (!foundSwiperVariant && firstSwiperSlide) {
     firstSwiperSlide.style.display = 'block';
