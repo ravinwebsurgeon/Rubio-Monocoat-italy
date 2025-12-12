@@ -1553,10 +1553,10 @@ section.product-features-section .section-heading {
 }
 
 .product-features-section .product-features li {
-  text-align: center;
-  max-width: 356px;
-  margin: 0 auto;
-  padding: 2rem 0;
+    text-align: center;
+    max-width: 356px;
+    margin: 0 auto;
+    padding: 2rem 0;
 }
 
 .product-features-section .product-features strong {
