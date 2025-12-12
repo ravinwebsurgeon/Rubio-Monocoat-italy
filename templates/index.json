@@ -522,74 +522,7 @@
             "extra_text": ""
           }
         },
-        "container_V8N7jt": {
-          "type": "container",
-          "settings": {
-            "class": "",
-            "icon": "shopify://shop_images/Headphones.png",
-            "heading": "Customized advice",
-            "subhead": "",
-            "subtext": "Fill out the form",
-            "extra_text": "Advice within 2 days"
-          }
-        },
-        "container_TXNtnP": {
-          "type": "container",
-          "settings": {
-            "class": "",
-            "icon": "shopify://shop_images/Clipboard_with_check_marks.png",
-            "heading": "Take the Test",
-            "subhead": "",
-            "subtext": "Answer the questions",
-            "extra_text": "Direct Personal advice"
-          }
-        }
-      },
-      "block_order": [
-        "container_xNmGKf",
-        "container_EGhzFM",
-        "container_V8N7jt",
-        "container_TXNtnP"
-      ],
-      "custom_css": [
-        ".four-containers_outer {background-color: #396948 !important;}",
-        ".four-containers .container-item {background-color: #457253; border-radius: 10px; box-shadow: 0 0px 0px rgba(255, 255, 255, 0.3); padding: 17px;}",
-        ".four-containers .container-item:hover {background-color: #457253;}",
-        ".container-item,.container-item h2,.container-item h3,.container-item p,.container-item a,.container-item span {color: #ffff;}"
-      ],
-      "name": "icons section",
-      "settings": {
-        "custom_class": "pdp-icons-sec",
-        "show_on_desktop": true,
-        "show_on_mobile": true
-      }
-    },
-    "icons_section_KNL9aM": {
-      "type": "icons-section",
-      "blocks": {
-        "container_hRecTF": {
-          "type": "container",
-          "settings": {
-            "class": "first-container-sec",
-            "icon": "shopify://shop_images/phone_1.png",
-            "heading": "Telephone advice",
-            "subhead": "",
-            "subtext": "",
-            "extra_text": "Answer the questions"
-          }
-        },
-        "container_dpr4DD": {
-          "type": "container",
-          "settings": {
-            "class": "",
-            "icon": "shopify://shop_images/envelope.png",
-            "heading": "Send us an email",
-            "subhead": "",
-            "subtext": "rubio@monocoatusa.com",
-            "extra_text": ""
-          }
-        },
-        "container_rBbnjT": {
+        "container_PEaFYM": {
           "type": "container",
           "settings": {
             "class": "",
@@ -600,7 +533,7 @@
             "extra_text": ""
           }
         },
-        "container_f8nFpf": {
+        "container_6KNzLW": {
           "type": "container",
           "settings": {
             "class": "",
@@ -613,10 +546,10 @@
         }
       },
       "block_order": [
-        "container_hRecTF",
-        "container_dpr4DD",
-        "container_rBbnjT",
-        "container_f8nFpf"
+        "container_xNmGKf",
+        "container_EGhzFM",
+        "container_PEaFYM",
+        "container_6KNzLW"
       ],
       "custom_css": [
         ".four-containers_outer {background-color: #396948 !important;}",
@@ -626,7 +559,7 @@
       ],
       "name": "icons section",
       "settings": {
-        "custom_class": "",
+        "custom_class": "pdp-icons-sec",
         "show_on_desktop": true,
         "show_on_mobile": true
       }
@@ -643,7 +576,6 @@
     "custom_vedio_banner_fbxRjq",
     "custom_blog_section_W9ehre",
     "review_UCVi8b",
-    "icons_section_qxzcqt",
-    "icons_section_KNL9aM"
+    "icons_section_qxzcqt"
   ]
 }
