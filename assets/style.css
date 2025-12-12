@@ -3651,7 +3651,7 @@ h2.section-heading {
 }
 
 .text-part h3 {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     font-size: 18px;
     line-height: 25px;
@@ -3660,7 +3660,7 @@ h2.section-heading {
 }
 
 .text-part p:nth-child(2) {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 300;
     font-size: 14px;
     line-height: 20px;
@@ -3671,7 +3671,7 @@ h2.section-heading {
 }
 
 .text-part p:nth-child(3) {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 300;
     font-size: 14px;
     line-height: 20px;
@@ -3684,8 +3684,8 @@ h2.section-heading {
 }
 
 .newsletter__wrapper .inline-richtext {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
     font-style: Bold;
     font-size: 20px !important;
     leading-trim: NONE;
@@ -3695,8 +3695,8 @@ h2.section-heading {
 }
 
 .newsletter__subheading p {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 300;
     font-style: Regular;
     font-size: 14px;
     leading-trim: NONE;
@@ -3712,8 +3712,8 @@ h2.section-heading {
 }
 
 .newsletter-form__button {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
     font-style: Bold;
     font-size: 14px;
     leading-trim: NONE;
@@ -3731,8 +3731,8 @@ h2.section-heading {
 .newsletter-form__field-wrapper .field__input {
     height: 36px;
     padding: 9px 13px;
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
+   font-family: 'Frutiger Neue LT W1G';
+    font-weight: 300;
     font-style: Regular;
     font-size: 12px !important;
     leading-trim: NONE;
@@ -3741,8 +3741,8 @@ h2.section-heading {
 }
 
 .newsletter-form__field-wrapper .field__input::placeholder {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 300;
     font-style: Regular;
     font-size: 12px;
     leading-trim: NONE;
