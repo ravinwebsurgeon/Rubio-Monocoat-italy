@@ -5334,7 +5334,7 @@ body .custom-info-text {
     letter-spacing: normal;
     font-weight: 500;
 }
-.rebuy-money, .rebuy-widget .rebuy-money{
+.rebuy-money, .rebuy-widget .rebuy-money,.rebuy-widget.widget-type-product-addon .rebuy-addon__item-product-description{
     font-family: 'Frutiger Neue LT W1G';
     letter-spacing: normal;
     font-weight: 300;
