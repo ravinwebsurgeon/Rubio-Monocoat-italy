@@ -500,15 +500,15 @@
     "icons_section_KNL9aM": {
       "type": "icons-section",
       "blocks": {
-        "container_hRecTF": {
+        "container_f8nFpf": {
           "type": "container",
           "settings": {
-            "class": "first-container-sec",
-            "icon": "shopify://shop_images/phone_1.png",
-            "heading": "Telephone advice",
+            "class": "",
+            "icon": "shopify://shop_images/chat.png",
+            "heading": "Ask via chat",
             "subhead": "",
-            "subtext": "",
-            "extra_text": "Answer the questions"
+            "subtext": "Answer the questions",
+            "extra_text": ""
           }
         },
         "container_dpr4DD": {
@@ -522,22 +522,22 @@
             "extra_text": ""
           }
         },
-        "container_f8nFpf": {
+        "container_hRecTF": {
           "type": "container",
           "settings": {
-            "class": "",
-            "icon": "shopify://shop_images/chat.png",
-            "heading": "Ask via chat",
+            "class": "first-container-sec",
+            "icon": "shopify://shop_images/phone_1.png",
+            "heading": "Telephone advice",
             "subhead": "",
-            "subtext": "Answer the questions",
-            "extra_text": ""
+            "subtext": "",
+            "extra_text": "Answer the questions"
           }
         }
       },
       "block_order": [
-        "container_hRecTF",
+        "container_f8nFpf",
         "container_dpr4DD",
-        "container_f8nFpf"
+        "container_hRecTF"
       ],
       "custom_css": [],
       "name": "icons section",
