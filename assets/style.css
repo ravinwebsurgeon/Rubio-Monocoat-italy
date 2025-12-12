@@ -3952,20 +3952,20 @@ ul.footer-block__details-content.list-unstyled {
 }
 @media screen and (min-width: 990px) and (max-width: 1480px) {
 
-    body .two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
+body .two-column-colour-grid .colour-item .image-wrapper.active .check-icon {
     top: -6px;
     right: -3px;
 }
 
-    body .two-column-colour-grid .colour-item .image-wrapper {
+body .two-column-colour-grid .colour-item .image-wrapper {
     width: 110px;
     max-width: 110px;
 }
-    .four-containers_outer .first-container-sec .available-and-text {
+.four-containers_outer .first-container-sec .available-and-text {
     margin: 10px 0 !important;
 }
 
-    .annouce-wrapper a {
+.annouce-wrapper a {
     font-size: 14px;
 }
 .scrolled-past-header header.header {
