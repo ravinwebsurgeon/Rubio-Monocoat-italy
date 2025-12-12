@@ -864,6 +864,48 @@ let foundVariant = false;
   item.style.display = show ? 'block' : 'none';
 });
 
+// ✅ Handle Mobile Gallery visibility
+let firstSwiperSlide = null;
+  let foundSwiperVariant = false;
+// ✅ Handle Mobile Gallery visibility
+document.querySelectorAll('.mobile-gallery .swiper .swiper-wrapper .swiper-slide').forEach(slide => {
+  const datasetKeys = Object.keys(slide.dataset);
+  const img = slide.querySelector('img');
+  const src = img ? normalizeShopifySrc(img.src) : null;
+
+  let show = true; // default
+
+  // 1️⃣ Hide if same as visible main image
+  if (src && visibleMainSrcs.includes(src)) {
+    show = false;
+  }
+
+  // 2️⃣ If slide has dataset → check variant match
+  else if (datasetKeys.length > 0) {
+    let matches = true;
+
+    for (const [key, val] of Object.entries(selectedOptions)) {
+      if (!val) continue; // skip unselected options
+
+      if (!slide.dataset[key] ||
+          normalizeValue(slide.dataset[key]) !== normalizeValue(val)) {
+        matches = false;
+        break;
+      }
+    }
+
+    if (!matches) {
+      show = false;
+    }
+  }
+
+  // 3️⃣ General slides (no dataset) ALWAYS SHOW
+  else {
+    show = true;
+  }
+
+  slide.style.display = show ? 'block' : 'none';
+});
   // Fallback: show first slide if no variant found
   if (!foundSwiperVariant && firstSwiperSlide) {
     firstSwiperSlide.style.display = 'block';
