@@ -3084,7 +3084,7 @@ a.header__icon.header__icon--account.link.focus-inset.small-hide span img {
 }
 
 .main-subtext {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     font-size: 14px;
     leading-trim: NONE;
@@ -3113,7 +3113,7 @@ a.header__icon.header__icon--account.link.focus-inset.small-hide span img {
 }
 
 .icon-heading {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     font-size: 16px;
     leading-trim: NONE;
@@ -3124,7 +3124,7 @@ a.header__icon.header__icon--account.link.focus-inset.small-hide span img {
 }
 
 .icon-text {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 300;
     font-size: 14px;
     line-height: 20px;
@@ -3142,8 +3142,8 @@ section.custom-collections-section .container {
 }
 
 .section-title {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
+    font-family: 'Frutiger Neue LT W1G Cn XBlack';
+    font-weight: 900;
     font-style: Bold;
     font-size: 24px !important;
     leading-trim: NONE;
