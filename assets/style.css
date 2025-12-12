@@ -5293,7 +5293,7 @@ body .custom-info-text {
 .rich-text__wrapper .rich-text__text strong{
     font-weight: 500;
 }
-.rich-text__wrapper .rich-text__text,.rich-text__wrapper .rich-text__text a strong {
+.rich-text__wrapper .rich-text__text,.rich-text__wrapper .rich-text__text a strong,.templatepage-accessibility {
     font-family: 'Frutiger Neue LT W1G';
     letter-spacing: normal;
     font-weight: 300;
