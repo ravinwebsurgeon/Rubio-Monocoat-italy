@@ -1580,17 +1580,17 @@ section.product-features-section .section-heading {
     opacity: 0.5;
 }
 .product-features-section .feature-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
 }
 
 .product-features-section .feature-image img {
-  /* max-width: 320px; */
-  height: 674px;
-  object-fit: contain;
-   position:relative;
+    /* max-width: 320px; */
+    height: 674px;
+    object-fit: contain;
+    position:relative;
     z-index:1;
 }
 
