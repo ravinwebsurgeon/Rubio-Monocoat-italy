@@ -5341,6 +5341,9 @@ body .custom-info-text {
     font-weight: 300;
     font-family: 'Frutiger Neue LT W1G';
 }
+.rebuy-widget.widget-type-product-addon .rebuy-addon__item-product-title {
+    font-size: 12px;
+}
 .rebuy-widget.widget-type-product-addon .rebuy-addon__item-info {
     text-align: left;
     display: flex;
