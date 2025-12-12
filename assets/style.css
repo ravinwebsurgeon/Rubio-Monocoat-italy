@@ -5282,7 +5282,7 @@ body .custom-info-text {
 }
 
  /* ================== */
-.rich-text__wrapper .rich-text__heading {
+.rich-text__wrapper .rich-text__heading,.templatepage-accessibility h1 {
     font-family: 'Frutiger Neue LT W1G Cn XBlack';
     letter-spacing: normal;
     font-weight: 900;
