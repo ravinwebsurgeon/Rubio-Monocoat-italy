@@ -757,11 +757,9 @@ a.colour-button {
     background: #183029;
     color: #fff;
     max-width: 150px;
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
-    font-style: Bold;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
     font-size: 16px;
-    leading-trim: NONE;
     line-height: 100%;
     letter-spacing: 0;
     text-align: center;
