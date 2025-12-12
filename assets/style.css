@@ -841,8 +841,8 @@ section.customer-reviews {
 }
 
 .name {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
     font-size: 22px;
     line-height: 31px;
     letter-spacing: 0;
@@ -850,8 +850,8 @@ section.customer-reviews {
 }
 
 .designation {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 300;
     font-size: 18px;
     line-height: 25px;
     letter-spacing: 0;
@@ -865,8 +865,8 @@ section.customer-reviews {
 }
 
 .review-text {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 350;
+   font-family: 'Frutiger Neue LT W1G';
+    font-weight: 300;
     font-style: Book;
     font-size: 16px;
     leading-trim: NONE;
