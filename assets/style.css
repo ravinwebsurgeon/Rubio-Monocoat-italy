@@ -3814,8 +3814,8 @@ footer .footer-block.grid__item:nth-of-type(2) {
 }
 
 footer h2.footer-block__heading.inline-richtext {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
     font-style: Bold;
     font-size: 20px;
     leading-trim: NONE;
@@ -3854,7 +3854,7 @@ footer .footer__blocks-wrapper.grid {
 }
 
 small.copyright__content {
-    font-family: Frutiger Neue LT W1G;
+   font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     font-style: Medium;
     font-size: 14px;
@@ -3870,8 +3870,8 @@ small.copyright__content {
 
 .footer-block__heading.inline-richtext::after {
     content: '+';
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 350;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 300;
     font-style: Book;
     font-size: 20px;
     leading-trim: NONE;
