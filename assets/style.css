@@ -1989,10 +1989,9 @@ a.header__icon.header__icon--account.link.focus-inset.small-hide span img {
 }
 
 .main-subtext {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     font-size: 14px;
-    leading-trim: NONE;
     line-height: 143%;
     letter-spacing: 0;
     text-align: center;
