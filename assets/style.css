@@ -5287,6 +5287,11 @@ body .custom-info-text {
     letter-spacing: normal;
     font-weight: 900;
 }
+.rich-text__wrapper .rich-text__text {
+    font-family: 'Frutiger Neue LT W1G';
+    letter-spacing: normal;
+    font-weight: 300;
+}
 /* ==================  */
 
 
