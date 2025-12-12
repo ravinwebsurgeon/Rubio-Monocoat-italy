@@ -500,15 +500,15 @@
     "icons_section_KNL9aM": {
       "type": "icons-section",
       "blocks": {
-        "container_f8nFpf": {
+        "container_hRecTF": {
           "type": "container",
           "settings": {
-            "class": "",
-            "icon": "shopify://shop_images/chat.png",
-            "heading": "Ask via chat",
+            "class": "first-container-sec",
+            "icon": "shopify://shop_images/phone_1.png",
+            "heading": "Telephone advice",
             "subhead": "",
-            "subtext": "Answer the questions",
-            "extra_text": ""
+            "subtext": "",
+            "extra_text": "Answer the questions"
           }
         },
         "container_dpr4DD": {
@@ -522,22 +522,34 @@
             "extra_text": ""
           }
         },
-        "container_hRecTF": {
+        "container_rBbnjT": {
           "type": "container",
           "settings": {
-            "class": "first-container-sec",
-            "icon": "shopify://shop_images/phone_1.png",
-            "heading": "Telephone advice",
+            "class": "",
+            "icon": "shopify://shop_images/headset.png",
+            "heading": "Customized advice",
             "subhead": "",
-            "subtext": "",
-            "extra_text": "Answer the questions"
+            "subtext": "Answer the questions",
+            "extra_text": ""
+          }
+        },
+        "container_f8nFpf": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/chat.png",
+            "heading": "Ask via chat",
+            "subhead": "",
+            "subtext": "Answer the questions",
+            "extra_text": ""
           }
         }
       },
       "block_order": [
-        "container_f8nFpf",
+        "container_hRecTF",
         "container_dpr4DD",
-        "container_hRecTF"
+        "container_rBbnjT",
+        "container_f8nFpf"
       ],
       "custom_css": [
         ".four-containers_outer {background-color: #396948 !important;}",
