@@ -577,7 +577,7 @@ section.custom-collections-section .container {
     letter-spacing: 0;
     color: #000000B2;
     margin: 0 0 40px 0;
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     font-size: 22px;
     line-height: 30px;
@@ -592,7 +592,7 @@ section.custom-collections-section .container {
 }
 
 .color-inner-headeing {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     font-size: 18px;
     line-height: 25px;
@@ -602,7 +602,7 @@ section.custom-collections-section .container {
 }
 
 .color-inner-text {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 300;
     font-size: 13px;
     line-height: 20px;
@@ -914,7 +914,7 @@ section.customer-reviews {
 }
 
 .text-part h3 {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     font-size: 20px;
     line-height: 26px;
@@ -923,7 +923,7 @@ section.customer-reviews {
 }
 
 .text-part p:nth-child(2) {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 300;
     font-size: 15px;
     line-height: 20px;
@@ -933,7 +933,7 @@ section.customer-reviews {
 }
 
 .text-part p:nth-child(3) {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 300;
     font-size: 16px;
     line-height: 24px;
@@ -1126,14 +1126,14 @@ footer.footer.color-scheme-3.gradient.section-sections--19350337421544__footer-p
 }
 .footer p .footer a.link.link--text.list-menu__item.list-menu__item--link {
     color: #fff;
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 350;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 300;
     font-size: 18px;
     line-height: 25px;
     text-decoration: none;
 }
 small.copyright__content {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     font-size: 18px;
     line-height: 25px;
@@ -1195,7 +1195,7 @@ small.copyright__content {
   font-size: 13px;
   cursor: pointer;
   padding-left: 5px;
-  font-family: Frutiger Neue LT W1G;
+  font-family: 'Frutiger Neue LT W1G';
   font-weight:500;
 }
 
