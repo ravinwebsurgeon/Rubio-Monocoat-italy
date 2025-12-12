@@ -2381,7 +2381,7 @@ a.read-more-btn {
 
 .blog .blog__title {
    font-family: 'Frutiger Neue LT W1G Cn XBlack';
-    font-weight: 500;
+    font-weight: 900;
     font-style: Bold;
     font-size: 24px;
     line-height: 33px;
@@ -2481,8 +2481,8 @@ h2.section-heading {
 }
 
 .review-hhheadiing h2 {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
+    font-family: 'Frutiger Neue LT W1G Cn XBlack';
+    font-weight: 900;
     font-style: Bold;
     font-size: 24px;
     leading-trim: NONE;
