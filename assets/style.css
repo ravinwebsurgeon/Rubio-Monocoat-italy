@@ -175,7 +175,7 @@ span.announce-svg {
 
 .annouce-wrapper a {
     display: block;
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     font-style: Medium;
     font-size: 14px;
@@ -196,10 +196,9 @@ span.announce-svg {
     transition: 0.3s ease;
 }
 p.announcement-bar__message.h5 {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     font-size: 15px;
-    leading-trim: NONE;
     line-height: 100%;
     letter-spacing: 0;
     color: #fff;
