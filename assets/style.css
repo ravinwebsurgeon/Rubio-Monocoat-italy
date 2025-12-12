@@ -5366,6 +5366,11 @@ body .rebuy-widget.widget-type-product-addon .rebuy-addon__item-product-title {
     margin-top: 8px !important;
 }
 
+body .menu-drawer__account {
+    color: #000;
+    opacity: 1;
+}
+
 
 /* ==================  */
 
