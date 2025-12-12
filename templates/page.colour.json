@@ -374,9 +374,77 @@
         "container_piA8hi",
         "container_VUVw74"
       ],
+      "disabled": true,
       "name": "icons section",
       "settings": {
         "custom_class": "",
+        "show_on_desktop": true,
+        "show_on_mobile": true
+      }
+    },
+    "icons_section_PB6Qty": {
+      "type": "icons-section",
+      "blocks": {
+        "container_jtjmCk": {
+          "type": "container",
+          "settings": {
+            "class": "first-container-sec",
+            "icon": "shopify://shop_images/phone_1.png",
+            "heading": "Telephone advice",
+            "subhead": "",
+            "subtext": "",
+            "extra_text": "Answer the questions"
+          }
+        },
+        "container_GBVHCN": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/envelope.png",
+            "heading": "Send us an email",
+            "subhead": "",
+            "subtext": "rubio@monocoatusa.com",
+            "extra_text": ""
+          }
+        },
+        "container_jjhi47": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/headset.png",
+            "heading": "Customized advice",
+            "subhead": "",
+            "subtext": "Answer the questions",
+            "extra_text": ""
+          }
+        },
+        "container_nKHdQz": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/chat.png",
+            "heading": "Ask via chat",
+            "subhead": "",
+            "subtext": "Answer the questions",
+            "extra_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "container_jtjmCk",
+        "container_GBVHCN",
+        "container_jjhi47",
+        "container_nKHdQz"
+      ],
+      "custom_css": [
+        ".four-containers_outer {background-color: #396948 !important;}",
+        ".four-containers .container-item {background-color: #457253; border-radius: 10px; box-shadow: 0 0px 0px rgba(255, 255, 255, 0.3); padding: 17px;}",
+        ".four-containers .container-item:hover {background-color: #457253;}",
+        ".container-item,.container-item h2,.container-item h3,.container-item p,.container-item a,.container-item span {color: #ffff;}"
+      ],
+      "name": "icons section",
+      "settings": {
+        "custom_class": "pdp-icons-sec",
         "show_on_desktop": true,
         "show_on_mobile": true
       }
@@ -389,6 +457,7 @@
     "project_n8LMJf",
     "featured_collection_QYGftz",
     "exterior_collection_8e6Tp4",
-    "icons_section_cF3FEP"
+    "icons_section_cF3FEP",
+    "icons_section_PB6Qty"
   ]
 }
