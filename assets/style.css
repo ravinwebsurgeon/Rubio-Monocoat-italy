@@ -1421,8 +1421,8 @@ footer .footer-block__brand-info .footer__list-social.list-social li:nth-of-type
 }
 
 .product-info h4 {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 400;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
     font-size: 20px;
     line-height: 28px;
     letter-spacing: 0;
@@ -1431,8 +1431,8 @@ footer .footer-block__brand-info .footer__list-social.list-social li:nth-of-type
 }
 
 .product-info p {
-    font-family: Frutiger Neue LT W1G;
-    font-weight: 700;
+    font-family: 'Frutiger Neue LT W1G';
+    font-weight: 500;
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0;
@@ -1639,7 +1639,7 @@ section.product-features-section .section-heading {
     color: #fff;
 }
 button.disclosure__button span,.disclosure__button{
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
     letter-spacing:normal;
 }
