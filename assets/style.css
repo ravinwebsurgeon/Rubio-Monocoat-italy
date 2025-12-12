@@ -2263,9 +2263,8 @@ body .two-column-colour-grid .colour-item .image-wrapper {
 }
 
 .color-inner-headeing {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
-    font-style: Bold;
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0;
@@ -2273,7 +2272,7 @@ body .two-column-colour-grid .colour-item .image-wrapper {
 }
 
 .color-inner-text {
-    font-family: Frutiger Neue LT W1G;
+    font-family: 'Frutiger Neue LT W1G';
     font-weight: 300;
     font-size: 8px;
     line-height: 11px;
@@ -2287,7 +2286,7 @@ body .two-column-colour-grid .colour-item .image-wrapper {
 }
 
 a.colour-button {
-        font-family: Frutiger Neue LT W1G;
+        font-family: 'Frutiger Neue LT W1G';
         font-weight: 500;
         font-size: 16px;
         line-height: 100%;
