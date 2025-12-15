@@ -763,7 +763,7 @@ function insertButtonIfNeeded() {
 }
 
 //update cart bubble
-function updateCartCount() {
+function updateCartCountMain() {
   fetch('/cart.js')
     .then(response => response.json())
     .then(cart => {
@@ -791,8 +791,8 @@ function updateCartCount() {
 }
 
 // Initial call
-updateCartCount();
-setInterval(updateCartCount, 300);
+updateCartCountMain();
+setInterval(updateCartCountMain, 300);
 
 function refreshCartDrawer() {
   const cartDrawer = document.querySelector('cart-drawer');
