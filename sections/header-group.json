@@ -471,6 +471,7 @@
           "settings": {
             "sub-menu_title": "Floors",
             "menu_key": "1.2.1",
+            "menu_image": "shopify://shop_images/checkerboard-bold.svg",
             "tag_title": ""
           }
         },
