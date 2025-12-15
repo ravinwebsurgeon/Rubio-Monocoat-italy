@@ -709,7 +709,7 @@ document.querySelectorAll('.custom_plus_product_cart_btn').forEach(function (but
                 {% comment %} button.querySelector('.plus___icon').textContent = '✔'; {% endcomment %}
               
                 updateSampleButtons()
-                updateCartCount1(1);
+                updateCartCount(1);
                 {% comment %} refreshCartDrawer(); {% endcomment %}
             })
             .catch(error => {
@@ -718,9 +718,8 @@ document.querySelectorAll('.custom_plus_product_cart_btn').forEach(function (but
             });
         });
     });
-
+{% comment %} 
 function updateCartCount1(totalQuantityAdded) { 
-  console.log('vhvk bubble functon')
     const cartCounts = document.querySelectorAll('.cart-count-bubble > span');
     const customCount = document.querySelector('.custom-cart-count-bubble > span');
 
@@ -755,7 +754,7 @@ function updateCartCount1(totalQuantityAdded) {
             newCount.style.visibility = "visible";
         }
     }
-}
+} {% endcomment %}
 
 function refreshCartDrawer() {
   const cartDrawer = document.querySelector('cart-drawer');
