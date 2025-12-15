@@ -1047,7 +1047,6 @@ document.addEventListener('click', (e) => {
           const newUrl = newQueryString ? `${window.location.pathname}?${newQueryString}` : window.location.pathname;
           window.history.replaceState(null, '', newUrl);
       }
-
       customFiltered();
     });
   });
@@ -1111,13 +1110,13 @@ document.addEventListener('click', (e) => {
       }
       customFiltered()
         if ((interior_active || exterior_active) && !circleActive) {
-              const productsParent = document.querySelector(
-          interior_active
-              ? '.tab-products-wrap.Interior-wrap'
-              : '.tab-products-wrap.Exterior-wrap'
-    );
+          const productsParent = document.querySelector(
+              interior_active
+                  ? '.tab-products-wrap.Interior-wrap'
+                  : '.tab-products-wrap.Exterior-wrap'
+            );
           let allProducts = productsParent.querySelectorAll('.product-item')
-    allProducts.forEach(p => p.style.display = 'block');
+          allProducts.forEach(p => p.style.display = 'block');
   }
 
     }
