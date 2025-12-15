@@ -1323,9 +1323,9 @@ document.addEventListener('click', (e) => {
             };
             const translated = translationMap[product_color.toLowerCase()]?.[currentLang];
               const buttons = document.querySelectorAll('#colour-options .option-btn');
-
+            let matched = '';
             if (translated) {
-             let matched = Array.from(buttons).find(btn => btn.dataset.value.toLowerCase() === translated.toLowerCase());
+              matched = Array.from(buttons).find(btn => btn.dataset.value.toLowerCase() === translated.toLowerCase());
             }
             if (matched) option.classList.add('active')
 
