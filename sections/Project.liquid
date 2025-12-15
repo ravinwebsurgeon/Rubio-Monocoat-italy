@@ -1277,13 +1277,12 @@ document.addEventListener('click', (e) => {
           reverseTranslationMap[translationMap[key][lang].toLowerCase()] = key;
         }
       }
-
       if(result.color)   {
        product_color = result.color.toLowerCase();
-       let product_color_key = reverseTranslationMap[product_color.toLowerCase()] || product_color.toLowerCase();
-       let translatedColor = translationMap[product_color_key]?.[currentLang] || product_color_key;
       }
-      console.log(translatedColor,'sadadsasd')
+      let product_color_key = reverseTranslationMap[product_color.toLowerCase()] || product_color.toLowerCase();
+      let translatedColor = translationMap[product_color_key]?.[currentLang] || product_color_key;
+      
       if(collection_name || product_color){
         let circleTabsInner =  document.querySelector('.circle-tabs-outer')
         if (collection_name == "exterior") {
