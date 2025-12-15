@@ -833,7 +833,8 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log("Added to cart:", data);
 
           // ✅ Update cart bubble count
-          updateCartBubble();
+          {% comment %} updateCartBubble(); {% endcomment %}
+           updateCartCount()
 
           // ✅ Open and refresh the cart drawer
           openCartDrawer();
