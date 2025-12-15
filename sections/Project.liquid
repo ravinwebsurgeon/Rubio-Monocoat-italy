@@ -1240,14 +1240,13 @@ document.addEventListener('click', (e) => {
 
   function customFiltered(){
       // Detect current language
-        let currentLang = 'en';
-        const pathParts = window.location.pathname.split('/');
-        if (['en','it','fr','de'].includes(pathParts[1])) {
-          currentLang = pathParts[1];
-        } else if (document.documentElement.lang) {
-          currentLang = document.documentElement.lang;
-        }
-        console.log(currentLang,'currentLang')
+      let currentLang = 'en';
+      const pathParts = window.location.pathname.split('/');
+      if (['en','it','fr','de'].includes(pathParts[1])) {
+        currentLang = pathParts[1];
+      } else if (document.documentElement.lang) {
+        currentLang = document.documentElement.lang;
+      }
       const params = new URLSearchParams(window.location.search);
       const result = {};
       params.forEach((value, key) => {
