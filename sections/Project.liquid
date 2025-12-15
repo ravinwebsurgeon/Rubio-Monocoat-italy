@@ -272,7 +272,7 @@
 
 
     <!-- Product Options -->
-    <div id="product-options" class="filter-options" style="display: none;">
+    {% comment %} <div id="product-options" class="filter-options" style="display: none;">
       {% for block in section.blocks %}
         {% assign tab_collection = block.settings.tab_collection %}
         {% for product in tab_collection.products %}
@@ -281,7 +281,25 @@
           {% endfor %}
         {% endfor %}
       {% endfor %}
-    </div>
+    </div> {% endcomment %}
+
+    <div id="product-options" class="filter-options" style="display: none;">
+  {% assign unique_filters = '' %}
+  {% for block in section.blocks %}
+    {% assign tab_collection = block.settings.tab_collection %}
+    {% for product in tab_collection.products %}
+      {% for pro in product.metafields.custom.product_filter.value %}
+        {% assign pro_value = pro | strip %}
+        {% unless unique_filters contains pro_value %}
+          {% assign unique_filters = unique_filters | append: pro_value | append: ',' %}
+          <button class="option-btn" data-value="{{ pro_value }}">
+            {{ pro_value }}
+          </button>
+        {% endunless %}
+      {% endfor %}
+    {% endfor %}
+  {% endfor %}
+</div>
 
     {% comment %} <!-- Sort By Options -->
     <div id="sort-options" class="filter-options" style="display: none;">
