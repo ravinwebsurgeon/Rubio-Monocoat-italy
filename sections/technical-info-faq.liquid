@@ -77,9 +77,9 @@
                         <a href="{{ url | strip }}" class="tech-download-btn" onclick="forceDownload(event, this.href)">Download File</a>
                       {% endfor %} {% endcomment %}
                        {% comment %} {% if forloop.index == 4 %} {% endcomment %}
-                        {% assign translated_question = t_question | downcase %}
+                        {% comment %} {% assign translated_question = t_question | downcase %} {% endcomment %}
                       {% comment %} {% if translated_question contains 'download' or translated_question contains 'downloads' or t_question contains 'scarica' %} {% endcomment %}
-                      {% if t_question contains 'Download' or t_question contains 'download' or  t_question contains 'Downloads' or  t_question contains 'downloads' or t_question contains 'Scarica' %}
+                      {% if t_question contains 'Download' or t_question contains 'download' or  t_question contains 'Downloads' or  t_question contains 'downloads' or t_question contains 'Scarica'  or t_question contains 'scarica' %}
                       {% for item in json_downloads %}
                           {% if item[user_lang] %}
                             {{ item[user_lang] }}
