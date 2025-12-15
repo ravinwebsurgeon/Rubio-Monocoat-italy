@@ -942,6 +942,7 @@ function updateCartBubble(totalQuantityAdded) {
 }
 });
 </script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const filterByBtn = document.getElementById('filterByBtn');
@@ -960,7 +961,6 @@ document.addEventListener('DOMContentLoaded', function() {
   products.forEach(product => {
     product.style.display = '';
   });
-
   // --- Show/Hide Filters Panel ---
 filterByBtn.addEventListener('click', (e) => {
   e.stopPropagation(); // prevent closing immediately
@@ -1014,11 +1014,9 @@ document.addEventListener('click', (e) => {
 
       parentPanel.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
       option.classList.add('active');
-
       filterProducts();
-
      const queryString = window.location.search.substring(1);
-      const pairs = queryString.length ? queryString.split('&') : [];
+     const pairs = queryString.length ? queryString.split('&') : [];
 
       const targetParam = 'filter.v.color';
       const newValue = value; // your color value
