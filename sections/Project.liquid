@@ -1238,7 +1238,7 @@ document.addEventListener('click', (e) => {
         circleTabsOuter?.classList.add('show-section');
     }
 
-  {% comment %} function customFiltered(){
+  function customFiltered(){
       // Detect current language
       let currentLang = 'en';
       const pathParts = window.location.pathname.split('/');
@@ -1385,149 +1385,8 @@ document.addEventListener('click', (e) => {
           section.style.display = hasVisible ? 'block' : 'none';
         });     
       }
-  } {% endcomment %}
+  }
 
-  function customFiltered() {
-    // 1️⃣ Detect current language
-    let currentLang = 'en';
-    const pathParts = window.location.pathname.split('/');
-    if (['en', 'it', 'fr', 'de'].includes(pathParts[1])) {
-        currentLang = pathParts[1];
-    } else if (document.documentElement.lang) {
-        currentLang = document.documentElement.lang;
-    }
-
-    // 2️⃣ Translation map
-    const translationMap = {
-        black: { en: 'Black', it: 'Nero', fr: 'Noir' },
-        white: { en: 'White', it: 'Bianco', fr: 'Blanc' },
-        red:   { en: 'Red', it: 'Rosso', fr: 'Rouge' }
-        // Add new colors here as needed
-    };
-
-    // 3️⃣ Reverse map: language value → English key
-    const reverseTranslationMap = {};
-    for (let key in translationMap) {
-        for (let lang in translationMap[key]) {
-            reverseTranslationMap[translationMap[key][lang].toLowerCase()] = key;
-        }
-    }
-
-    // 4️⃣ Read URL filters
-    const params = new URLSearchParams(window.location.search);
-    const result = {};
-    params.forEach((value, key) => {
-        if (key.startsWith("filter.")) {
-            const simpleKey = key.split(".").pop();
-            result[simpleKey] = value;
-        }
-    });
-
-    // 5️⃣ Initialize variables
-    let collection_name = result.name ? result.name.toLowerCase() : '';
-    let product_color = result.color ? result.color.toLowerCase() : '';
-    let type = result.type || '';
-    let surface = result.surface || '';
-
-    // 6️⃣ Normalize URL color to English key
-    let product_color_key = reverseTranslationMap[product_color] || product_color;
-
-    // 7️⃣ Translate to current language
-    let translatedColor = translationMap[product_color_key]?.[currentLang] || product_color_key;
-
-    // 8️⃣ Update URL to reflect translated color
-    if (product_color_key) {
-        params.set('filter.color', translatedColor.toLowerCase());
-        const newUrl = `${window.location.pathname}?${params.toString()}`;
-        window.history.replaceState({}, '', newUrl);
-    }
-
-    // 9️⃣ Begin filtering
-    if (collection_name || product_color_key) {
-        const circleTabsInner = document.querySelector('.circle-tabs-outer');
-
-        // Collection tabs
-        if (collection_name === "exterior") {
-            circleTabsInner.classList.add('exterior');
-            const exteriorEl = document.querySelector(".exterior.exterior-main.surface-toggle");
-            if (exteriorEl) exteriorEl.classList.add("active");
-            const surfaceOptions = document.querySelector('.surface-options');
-            surfaceOptions.style.display = 'flex';
-        }
-
-        if (collection_name === "interior") {
-            circleTabsInner.classList.add('interior');
-            const interiorEl = document.querySelector(".Interio");
-            if (interiorEl) interiorEl.classList.add("active");
-        }
-
-        renderTabs(collection_name);
-
-        const circleTabsSection = document.querySelector('.circle-tabs-section');
-        circleTabsSection.classList.add('active');
-        circleTabsInner.style.display = 'block';
-
-        // Type tabs
-        if (type) {
-            const filterTabs = circleTabsInner.querySelectorAll('.circle-tab');
-            filterTabs.forEach(tab => {
-                if (tab.textContent.trim().toLowerCase() === type.toLowerCase()) {
-                    tab.classList.add('active');
-                }
-            });
-        }
-
-        // Surface selection
-        if (surface && collection_name === 'exterior') {
-            const surface_items = document.querySelectorAll('.surface-item');
-            surface_items.forEach(item => {
-                if (item.getAttribute('data-collection').includes(surface)) {
-                    item.classList.add('active');
-                }
-            });
-        }
-
-        // Color selection
-        const color_main = document.getElementById('colour-options');
-        const color_options = color_main.querySelectorAll('.option-btn');
-        color_options.forEach(option => {
-            const exist_color = option.getAttribute('data-value').toLowerCase();
-            if (exist_color === product_color_key.toLowerCase()) option.classList.add('active');
-            else option.classList.remove('active');
-        });
-
-        document.querySelector('.filters-panel').classList.add('open');
-        color_main.style.display = 'flex';
-
-        // Show/hide products based on normalized English key
-        const all_products = document.querySelectorAll('.product-item');
-        const activeTab = circleTabsInner.querySelector('.circle-tab.active');
-        let activeTag = '';
-
-        if (activeTab) {
-            if (surface === 'vertical') activeTag = activeTab.dataset.exteriorVTagName || activeTab.dataset.interiorTagName || '';
-            else if (surface === 'horizontal') activeTag = activeTab.dataset.exteriorTagName || activeTab.dataset.interiorTagName || '';
-            else activeTag = activeTab.dataset.exteriorTagName || activeTab.dataset.exteriorVTagName || activeTab.dataset.interiorTagName || '';
-        }
-
-        all_products.forEach(product => {
-            const productColours = product.dataset.colours || '';
-            const productTags = product.dataset.tags || '';
-            const productTagsArray = productTags.split(',');
-            const matchTag = activeTag ? productTagsArray.includes(activeTag) : true;
-            const coloursArray = productColours.split(',');
-            const matchColor = coloursArray.some(c => c.trim().toLowerCase() === product_color_key.toLowerCase());
-
-            product.style.display = (matchColor && matchTag) ? 'block' : 'none';
-        });
-
-        // Hide empty sections
-        document.querySelectorAll('.tab-products-wrap').forEach(section => {
-            const items = section.querySelectorAll('.product-item');
-            section.style.display = Array.from(items).some(item => item.style.display !== 'none') ? 'block' : 'none';
-        });
-    }
-}
 document.addEventListener("DOMContentLoaded", function() {
   //onload if fiter avail in url
   customFiltered();
