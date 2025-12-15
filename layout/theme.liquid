@@ -772,6 +772,7 @@ function updateCartCountMain() {
         console.log('count',count)
 
       const bubble = document.querySelector('.cart-count-bubble.default__count');
+      const bubble_sec = document.querySelector('.cart-count-bubble.default__sec');
       let customBubble = document.querySelector('.custom-cart-count-bubble.cart-count-bubble')
       if (bubble) {
         bubble.querySelector('span[aria-hidden="true"]').textContent = count;
@@ -784,6 +785,10 @@ function updateCartCountMain() {
           bubble.style.display = 'block';
           bubble.style.visibility = 'visible';
         } {% endcomment %}
+      }
+      if(bubble_sec){
+          bubble_sec.querySelector('span[aria-hidden="true"]').textContent = count;
+        bubble_sec.querySelector('.visually-hidden').textContent = `${count} item${count !== 1 ? 's' : ''}`;
       }
       if(customBubble){
           customBubble.querySelector('span').textContent = count;
