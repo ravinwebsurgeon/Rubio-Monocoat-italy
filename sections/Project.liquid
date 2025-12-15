@@ -1272,6 +1272,8 @@ document.addEventListener('click', (e) => {
         if(result.surface) surface = result.surface;
       }
       if(result.color)   {product_color = result.color.toLowerCase();}
+       let translated = translationMap[product_color.toLowerCase()]?.[currentLang]; 
+
       if(collection_name || product_color){
         let circleTabsInner =  document.querySelector('.circle-tabs-outer')
         if (collection_name == "exterior") {
@@ -1316,7 +1318,6 @@ document.addEventListener('click', (e) => {
         let color_options = color_main.querySelectorAll('.option-btn')
         color_options.forEach(function(option){
           let exist_color = option.getAttribute('data-value').toLowerCase();
-          console.log(translated,'check')
           if(product_color == exist_color){
             option.classList.add('active')
           }
