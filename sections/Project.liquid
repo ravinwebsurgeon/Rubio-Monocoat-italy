@@ -1337,7 +1337,13 @@ document.addEventListener('click', (e) => {
           } {% endcomment %}
            if(translatedColor.toLowerCase() == exist_color){
             option.classList.add('active')
-            option.click()
+            {% comment %} option.click() {% endcomment %}
+            const event = new MouseEvent('click', {
+                bubbles: true,
+                cancelable: true,
+                view: window
+            });
+            option.dispatchEvent(event);
           }
         });
         document.querySelector('.filters-panel').classList.add('open')
