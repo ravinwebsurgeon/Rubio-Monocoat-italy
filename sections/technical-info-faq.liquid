@@ -80,8 +80,6 @@
                         {% assign translated_question = t_question | downcase %}
 
                       {% if translated_question contains 'download' or translated_question contains 'downloads' or t_question contains 'scarica' %}
-                      {% comment %} {% if translated_question == 'download' or translated_question == 'downloads' or t_question == 'scarica' %} {% endcomment %}
-
                         {% for item in json_downloads %}
                           {% if item[user_lang] %}
                             {{ item[user_lang] }}
