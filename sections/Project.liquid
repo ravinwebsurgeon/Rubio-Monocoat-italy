@@ -1286,6 +1286,7 @@ document.addEventListener('click', (e) => {
         params.set('filter.v.color', translatedColor.toLowerCase());
         const newUrl = `${window.location.pathname}?${params.toString()}`;
         window.history.replaceState({}, '', newUrl);
+         customFiltered();
     }
 
       if(collection_name || product_color){
