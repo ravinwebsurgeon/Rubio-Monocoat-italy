@@ -426,7 +426,7 @@ function updateCartCount(totalQuantityAdded) {
         }
     }
 }
-
+{% comment %} 
 
 function refreshCartDrawer() {
   const cartDrawer = document.querySelector('cart-drawer');
@@ -446,7 +446,7 @@ function refreshCartDrawer() {
       }
     })
     .catch((error) => { console.error('Error refreshing cart drawer:', error); });
-}
+} {% endcomment %}
 </script>
 
 {% schema %}
