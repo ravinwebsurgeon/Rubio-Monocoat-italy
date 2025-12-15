@@ -1316,8 +1316,9 @@ document.addEventListener('click', (e) => {
         let color_options = color_main.querySelectorAll('.option-btn')
         color_options.forEach(function(option){
           let exist_color = option.getAttribute('data-value').toLowerCase();
+          let translated = ''
           if(product_color){
-            let translated = translationMap[product_color.toLowerCase()]?.[currentLang]; 
+             translated = translationMap[product_color.toLowerCase()]?.[currentLang]; 
           }
           console.log(translated,'check')
           if(product_color == exist_color){
