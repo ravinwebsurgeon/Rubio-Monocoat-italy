@@ -905,7 +905,7 @@ function updateCartCount(totalQuantityAdded) {
 }
 
 
-function refreshCartDrawer() {
+{% comment %} function refreshCartDrawer() {
   const cartDrawer = document.querySelector('cart-drawer');
  
   fetch(`${routes.cart_url}?sections=cart-drawer`)
@@ -922,7 +922,7 @@ function refreshCartDrawer() {
       }
     })
     .catch((error) => { console.error('Error refreshing cart drawer:', error); });
-}
+} {% endcomment %}
 {% comment %} 
 document.addEventListener("DOMContentLoaded", function() {
   const productCards = document.querySelectorAll(".card__information");
