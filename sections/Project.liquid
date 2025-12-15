@@ -1272,8 +1272,6 @@ document.addEventListener('click', (e) => {
         if(result.surface) surface = result.surface;
       }
       if(result.color)   {product_color = result.color.toLowerCase();}
-      const translated = translationMap[product_color.toLowerCase()]?.[currentLang];
-     console.log(translated,'assad')
       if(collection_name || product_color){
         let circleTabsInner =  document.querySelector('.circle-tabs-outer')
         if (collection_name == "exterior") {
@@ -1320,7 +1318,6 @@ document.addEventListener('click', (e) => {
           let exist_color = option.getAttribute('data-value').toLowerCase();
           if(product_color == exist_color){
             option.classList.add('active')
-            console.log('matched',exist_color)
           }
         });
         document.querySelector('.filters-panel').classList.add('open')
