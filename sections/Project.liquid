@@ -831,12 +831,8 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((res) => res.json())
         .then((data) => {
           console.log("Added to cart:", data);
-
-          // ✅ Update cart bubble count
           updateCartBubble(1);
-
-          // ✅ Open and refresh the cart drawer
-          openCartDrawer();
+          {% comment %} openCartDrawer(); {% endcomment %}
         })
         .catch((err) => console.error("Error adding to cart:", err));
     });
