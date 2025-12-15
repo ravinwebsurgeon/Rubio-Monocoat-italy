@@ -390,7 +390,7 @@ function handleAddToCart(variantId,button) {
     button.disabled = false; }
   });
 }
-function updateCartCount(totalQuantityAdded) {
+{% comment %} function updateCartCount(totalQuantityAdded) {
     const cartCounts = document.querySelectorAll('.cart-count-bubble > span');
     const customCount = document.querySelector('.custom-cart-count-bubble > span');
 
@@ -425,7 +425,7 @@ function updateCartCount(totalQuantityAdded) {
             newCount.style.visibility = "visible";
         }
     }
-}
+} {% endcomment %}
 {% comment %} 
 
 function refreshCartDrawer() {
