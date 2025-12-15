@@ -764,13 +764,10 @@ function insertButtonIfNeeded() {
 
 //update cart bubble
 function updateCartCountMain() {
-  console.log('update cart bubble custom')
   fetch('/cart.js')
     .then(response => response.json())
     .then(cart => {
       const count = cart.item_count;
-        console.log('count',count)
-
       const bubble = document.querySelector('.cart-count-bubble.default__count');
       const bubble_sec = document.querySelector('.cart-count-bubble.default__sec');
       let customBubble = document.querySelector('.custom-cart-count-bubble.cart-count-bubble')
