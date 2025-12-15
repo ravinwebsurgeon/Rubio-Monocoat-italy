@@ -1137,6 +1137,11 @@ document.addEventListener('click', (e) => {
           window.history.replaceState(null, '', newUrl);
       }
       customFiltered()
+        if ((interior_active || exterior_active) && !circleActive) {
+          let allProducts = document.querySelectorAll('.product-item')
+    allProducts.forEach(p => p.style.display = 'block');
+  }
+
     }
     else{
         console.log('sadsadas')
