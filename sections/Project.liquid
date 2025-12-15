@@ -1322,7 +1322,7 @@ document.addEventListener('click', (e) => {
               red:   { en: 'Red', it: 'Rosso', fr: 'Rouge' }
             };
             const translated = translationMap[product_color.toLowerCase()]?.[currentLang];
-              const buttons = document.querySelectorAll('#colour-options .option-btn');
+            const buttons = document.querySelectorAll('#colour-options .option-btn');
             let matched = '';
             if (translated) {
               matched = Array.from(buttons).find(btn => btn.dataset.value.toLowerCase() === translated.toLowerCase());
