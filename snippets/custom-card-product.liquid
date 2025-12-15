@@ -177,7 +177,7 @@
 
           <div class="custom_added_variants">
             {% assign max_to_show = 5 %}
-            {% for option in card_product.options_with_values %}
+            {% comment %} {% for option in card_product.options_with_values %}
               {% assign total_values = option.values | size %}
               <div class="pro_variant_options variant__{{ option.name }}">
 
@@ -238,7 +238,7 @@
 
                   </div>
 
-                {% comment %} {% else %}
+                {% else %}
 
                   <select class="option-variant-selector"
                           id="ProductSelect-{{ forloop.index0 }}"
@@ -254,10 +254,10 @@
                         </option>
                       {% endif %}
                     {% endfor %}
-                  </select> {% endcomment %}
+                  </select>
                 {% endif %}
               </div>
-            {% endfor %}
+            {% endfor %} {% endcomment %}
 
             <input type="hidden"
                   class="variant-selector"
