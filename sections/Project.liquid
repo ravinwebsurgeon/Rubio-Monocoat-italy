@@ -737,7 +737,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const addToCartBtn = document.getElementById('quickViewAddToCart');
 
   let currentProductId = null;
-
+{% comment %}  dec-15
   document.querySelectorAll('.plus-show').forEach(button => {
     button.addEventListener('click', function() {
       const product = button.closest('.product-item');
@@ -797,7 +797,7 @@ document.addEventListener('DOMContentLoaded', function() {
       console.error(error);
     });
   });
-});
+}); {% endcomment %}
 
 
 
