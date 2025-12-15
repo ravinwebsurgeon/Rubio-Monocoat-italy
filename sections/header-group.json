@@ -173,7 +173,7 @@
           "type": "Custom_images",
           "settings": {
             "sub-menu_title": "Surface",
-            "menu_key": "1.2",
+            "menu_key": "1.2,2.2",
             "menu_image": "shopify://shop_images/square-bold.svg",
             "tag_title": ""
           }
