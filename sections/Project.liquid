@@ -1109,7 +1109,7 @@ document.addEventListener('click', (e) => {
           window.history.replaceState(null, '', newUrl);
       }
       customFiltered()
-        if ((interior_active || exterior_active) && !circleActive) {
+      if ((interior_active || exterior_active) && !circleActive) {
           const productsParent = document.querySelector(
               interior_active
                   ? '.tab-products-wrap.Interior-wrap'
@@ -1117,7 +1117,7 @@ document.addEventListener('click', (e) => {
             );
           let allProducts = productsParent.querySelectorAll('.product-item')
           allProducts.forEach(p => p.style.display = 'block');
-  }
+      }
 
     }
     else{
