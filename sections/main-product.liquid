@@ -1175,6 +1175,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const receivedData = getCookie("myvariant");
   if(receivedData) selectVariant(receivedData)
+
+  //select bigger volumne from variants on load page
+ function getVolumeValue(value) {
+    const match = value.match(/(\d+(?:\.\d+)?)\s*(ml|l)/i);
+    if (!match) return 0;
+
+    let volume = parseFloat(match[1]);
+    if (match[2].toLowerCase() === 'l') volume *= 1000;
+    return volume;
+  }
+   function selectBiggestVolumeVariant() {
+    const allOptions = document.querySelectorAll('.swatch-input__input');
+    if (!allOptions.length) return;
+
+    let biggestOption = null;
+    let biggestVolume = 0;
+
+    allOptions.forEach(option => {
+      if (option.disabled) return;
+
+      const volume = getVolumeValue(option.value);
+      if (volume > biggestVolume) {
+        biggestVolume = volume;
+        biggestOption = option;
+      }
+    });
+
+    if (biggestOption) {
+      biggestOption.checked = true;
+      biggestOption.dispatchEvent(new Event('change', { bubbles: true }));
+      console.log('Auto-selected biggest volume:', biggestOption.value);
+    }
+  }
+
+  selectBiggestVolumeVariant();
+
 });
 
 </script>
