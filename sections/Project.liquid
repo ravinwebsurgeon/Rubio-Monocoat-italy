@@ -1337,13 +1337,7 @@ document.addEventListener('click', (e) => {
           } {% endcomment %}
            if(translatedColor.toLowerCase() == exist_color){
             option.classList.add('active')
-            {% comment %} option.click() {% endcomment %}
-              const event = new MouseEvent('click', {
-            bubbles: true,   // important for delegated events
-            cancelable: true,
-            view: window
-        });
-        option.dispatchEvent(event);
+            option.click()
           }
         });
         document.querySelector('.filters-panel').classList.add('open')
