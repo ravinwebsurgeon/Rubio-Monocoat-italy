@@ -393,11 +393,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
   <body class="template{{ template | handle }} gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
 
-<div id="page-loader">
+{% comment %} <div id="page-loader">
   <div class="loader-logo">
     <img src="https://cdn.shopify.com/s/files/1/0680/7647/0314/files/c9c497e60074546a8f0f6d2160b8e855556ae226.png?v=1757665103" alt="Site Logo">
   </div>
-</div>
+</div> {% endcomment %}
 
 <style>
 #page-loader {
@@ -432,7 +432,7 @@ html {
 }
 </style>
 
-<script>
+{% comment %} <script>
   window.addEventListener('load', function() {
     const loader = document.getElementById('page-loader');
     if (loader) {
@@ -443,7 +443,7 @@ html {
       }, 5000);
     }
   });
-</script>
+</script> {% endcomment %}
 
 
 
