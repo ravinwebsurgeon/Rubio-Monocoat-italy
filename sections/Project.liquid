@@ -1679,7 +1679,6 @@ document.addEventListener("click", function(e) {
 });
  /* circle tabs */
   function showproducts() {
-  console.log('called???')
   const checkbox = document.getElementById('available-filter');
 
     const products = document.querySelectorAll('.product-item');
@@ -1725,10 +1724,7 @@ document.addEventListener("click", function(e) {
         selectedTags = [interiorTag];
       }
     }
-  console.log('Active Tab:', activeTab?.dataset);
-console.log('Parent:', parent);
-console.log('Selected Tags:', selectedTags);
-console.log('Surface:', surface);
+
     products.forEach(product => {
       const productParent = product.closest('.Exterior-wrap, .Interior-wrap');
       const productParentClass = productParent?.classList.contains('Exterior-wrap')
