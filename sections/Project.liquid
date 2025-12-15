@@ -894,7 +894,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((res) => res.json())
       .then((cart) => {
         if (cartBubble) {
-          console.log('found Bubble')
+          console.log('found Bubble',cartBubble)
           cartBubble.textContent = cart.item_count;
           if (cart.item_count > 0) {
             cartBubble.classList.remove("hidden");
