@@ -159,101 +159,83 @@
               <span class="tips-link-txt tips-link-mobs"> Check out our expert tips! </span>
             </button>
           </div>
-          
- <!-- Filters Panel (hidden by default) -->
-<div id="filtersPanel" class="filters-panel">
-  <div class="fil-color-outers">
-  <!-- Buttons -->
-  <div class="filter-buttons">
-    <button class="filter-btn active" data-target="colour-options">Colour</button>
-    <button class="filter-btn" data-target="product-options">Product</button>
-    {% comment %} <button class="filter-btn" data-target="sort-options">Sort By</button> {% endcomment %}
-  </div>
 
-  <!-- Options Panels -->
-  <div class="filter-options-container" style="margin-top: 0;">
-    <!-- Colour Options -->
-    {% comment %} <div id="colour-options" class="filter-options">
-      {% for block in section.blocks %}
-        {% assign tab_collection = block.settings.tab_collection %}
-        {% for product in tab_collection.products %}
-          {% for colour in product.metafields.custom.colour_filter2.value %}
-            <button class="option-btn" data-value="{{ colour }}">{{ colour }}</button>
-          {% endfor %}
-        {% endfor %}
-      {% endfor %}
-       {% endcomment %}
-    </div> 
-  <div id="colour-options" class="filter-options"> 
-    
-  {% assign unique_colours = '' %}
-  {% for block in section.blocks %}
-    {% assign tab_collection = block.settings.tab_collection %}
-    {% for product in tab_collection.products %}
-      {% for colour in product.metafields.custom.colour_filter2.value %}
-        {% assign colour_parts = colour | split: '-' %}
-        {% assign colour_name = colour_parts[0] | strip %}
-        {% assign hex_code = colour_parts[1] %}
-        {% unless unique_colours contains colour_name %}
-          {% assign unique_colours = unique_colours | append: colour_name | append: ',' %}  
-          <button 
-            class="filter-item colours base-button size-medium theme-primary option-btn" 
-            data-value="{{ colour_name | escape }}">
-            <div class="color capitalized" style="background-color: {%if hex_code %}{{ hex_code  }} {% endif %}"></div>
-            <div class="value capitalized">{{ colour_name }}</div>
-          </button>
-        {% endunless %}
-      {% endfor %}
-    {% endfor %}
-  {% endfor %}
-</div>
-
-
-    <!-- Product Options -->
-    {% comment %} <div id="product-options" class="filter-options" style="display: none;">
-      {% for block in section.blocks %}
-        {% assign tab_collection = block.settings.tab_collection %}
-        {% for product in tab_collection.products %}
-          {% for pro in product.metafields.custom.product_filter.value %}
-            <button class="option-btn" data-value="{{ pro }}">{{ pro }}</button>
-          {% endfor %}
-        {% endfor %}
-      {% endfor %}
-    </div> {% endcomment %}
-
-    <div id="product-options" class="filter-options" style="display: none;">
-  {% assign unique_filters = '' %}
-  {% for block in section.blocks %}
-    {% assign tab_collection = block.settings.tab_collection %}
-    {% for product in tab_collection.products %}
-      {% for pro in product.metafields.custom.product_filter.value %}
-        {% assign pro_value = pro | strip %}
-        {% unless unique_filters contains pro_value %}
-          {% assign unique_filters = unique_filters | append: pro_value | append: ',' %}
-          <button class="option-btn" data-value="{{ pro_value }}">
-            {{ pro_value }}
-          </button>
-        {% endunless %}
-      {% endfor %}
-    {% endfor %}
-  {% endfor %}
-</div>
-
-    {% comment %} <!-- Sort By Options -->
-    <div id="sort-options" class="filter-options" style="display: none;">
-      <button class="option-btn" data-value="price-asc">Price: Low to High</button>
-      <button class="option-btn" data-value="price-desc">Price: High to Low</button>
-      <button class="option-btn" data-value="title-asc">Title: A to Z</button>
-      <button class="option-btn" data-value="title-desc">Title: Z to A</button>
-    </div>
-  </div> {% endcomment %}
-
-  <!-- Clear All Button -->
-  <button id="clearFilters" class="button clear-all" style="margin-top: 10px;">Clear All</button>
-  </div>
-</div> 
-
-
+          <!-- Filters Panel (hidden by default) -->
+          <div id="filtersPanel" class="filters-panel">
+            <div class="fil-color-outers">
+              <!-- Buttons -->
+              <div class="filter-buttons">
+                <button class="filter-btn active" data-target="colour-options">Colour</button>
+                <button class="filter-btn" data-target="product-options">Product</button>
+                {% comment %} <button class="filter-btn" data-target="sort-options">Sort By</button> {% endcomment %}
+              </div>
+              <!-- Options Panels -->
+              <div class="filter-options-container" style="margin-top: 0;">
+                  <!-- Colour Options -->
+                  {% comment %} <div id="colour-options" class="filter-options">
+                  {% for block in section.blocks %}
+                    {% assign tab_collection = block.settings.tab_collection %}
+                    {% for product in tab_collection.products %}
+                      {% for colour in product.metafields.custom.colour_filter2.value %}
+                        <button class="option-btn" data-value="{{ colour }}">{{ colour }}</button>
+                      {% endfor %}
+                    {% endfor %}
+                  {% endfor %}
+                  {% endcomment %}
+              </div> 
+              <div id="colour-options" class="filter-options"> 
+                {% assign unique_colours = '' %}
+                {% for block in section.blocks %}
+                  {% assign tab_collection = block.settings.tab_collection %}
+                  {% for product in tab_collection.products %}
+                    {% for colour in product.metafields.custom.colour_filter2.value %}
+                      {% assign colour_parts = colour | split: '-' %}
+                      {% assign colour_name = colour_parts[0] | strip %}
+                      {% assign hex_code = colour_parts[1] %}
+                      {% unless unique_colours contains colour_name %}
+                        {% assign unique_colours = unique_colours | append: colour_name | append: ',' %}  
+                        <button 
+                          class="filter-item colours base-button size-medium theme-primary option-btn" 
+                          data-value="{{ colour_name | escape }}">
+                          <div class="color capitalized" style="background-color: {%if hex_code %}{{ hex_code  }} {% endif %}"></div>
+                          <div class="value capitalized">{{ colour_name }}</div>
+                        </button>
+                      {% endunless %}
+                    {% endfor %}
+                  {% endfor %}
+                {% endfor %}
+              </div>
+              <div id="product-options" class="filter-options" style="display: none;">
+                {% assign unique_filters = '' %}
+                {% for block in section.blocks %}
+                  {% assign tab_collection = block.settings.tab_collection %}
+                  {% for product in tab_collection.products %}
+                    {% for pro in product.metafields.custom.product_filter.value %}
+                      {% assign pro_value = pro | strip %}
+                      {% unless unique_filters contains pro_value %}
+                        {% assign unique_filters = unique_filters | append: pro_value | append: ',' %}
+                        <button class="option-btn" data-value="{{ pro_value }}">
+                          {{ pro_value }}
+                        </button>
+                      {% endunless %}
+                    {% endfor %}
+                  {% endfor %}
+                {% endfor %}
+              </div>
+              {% comment %}
+              <!-- Sort By Options -->
+                <div id="sort-options" class="filter-options" style="display: none;">
+                  <button class="option-btn" data-value="price-asc">Price: Low to High</button>
+                  <button class="option-btn" data-value="price-desc">Price: High to Low</button>
+                  <button class="option-btn" data-value="title-asc">Title: A to Z</button>
+                  <button class="option-btn" data-value="title-desc">Title: Z to A</button>
+                </div>
+              </div> 
+              {% endcomment %}
+              <!-- Clear All Button -->
+              <button id="clearFilters" class="button clear-all" style="margin-top: 10px;">Clear All</button>
+            </div>
+          </div> 
           <!-- Video modal -->
           <div class="video-modal" id="videoModal">
             <div class="modal-content">
