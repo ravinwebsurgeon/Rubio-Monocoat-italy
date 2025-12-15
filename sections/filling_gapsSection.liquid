@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-function updateCartCount(totalQuantityAdded) {
+{% comment %} function updateCartCount(totalQuantityAdded) {
   const cartCounts = document.querySelectorAll('.cart-count-bubble > span');
   if (cartCounts.length > 0) {
     cartCounts.forEach(count => {
@@ -180,7 +180,7 @@ function updateCartCount(totalQuantityAdded) {
       customCount.parentNode.style.display = 'block';
     }
   }
-}
+} {% endcomment %}
 
 {% comment %} function refreshCartDrawer() {
   const cartDrawer = document.querySelector('cart-drawer');
