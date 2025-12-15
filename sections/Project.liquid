@@ -860,7 +860,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // --- FUNCTIONS ---
+  {% comment %}  dec-15
+   // --- FUNCTIONS ---
   function openCartDrawer() {
     fetch("/?sections=cart-drawer")
       .then((response) => response.json())
@@ -883,7 +884,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       })
       .catch((error) => console.error("Drawer update failed:", error));
-  }
+  } {% endcomment %}
 {% comment %} 
   function updateCartBubble() {
     fetch("/cart.js")
