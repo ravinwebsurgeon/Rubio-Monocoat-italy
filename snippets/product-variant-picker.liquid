@@ -351,7 +351,7 @@ if (actionBtn && suitedSection) {
 .see-more-btn.active .arrow-icon {
   transform: rotate(180deg);
 }
-#customSeeMoreBtn:before {
+{% comment %} #customSeeMoreBtn:before {
     content: "";
     position: absolute;
     left: 0;
@@ -360,7 +360,7 @@ if (actionBtn && suitedSection) {
     background-color: rgba(255,255,255,0.7);
     width: 100%;
     height: 60px;
-}
+} {% endcomment %}
 #customSeeMoreBtn.active:before {
     display:none;
 }
