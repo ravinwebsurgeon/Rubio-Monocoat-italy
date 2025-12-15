@@ -1314,6 +1314,19 @@ document.addEventListener('click', (e) => {
           if(product_color == exist_color){
             option.classList.add('active')
             console.log('matched',exist_color)
+          }
+          else{
+          const translationMap = {
+              black: { en: 'Black', it: 'Nero', fr: 'Noir' },
+              white: { en: 'White', it: 'Bianco', fr: 'Blanc' },
+              red:   { en: 'Red', it: 'Rosso', fr: 'Rouge' }
+            };
+            const translated = translationMap[urlColor.toLowerCase()]?.[currentLang];
+            if (translated) {
+              matched = Array.from(buttons).find(btn => btn.dataset.value.toLowerCase() === translated.toLowerCase());
+            }
+            if (matched) option.classList.add('active')
+
           } 
         });
         document.querySelector('.filters-panel').classList.add('open')
