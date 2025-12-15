@@ -1326,14 +1326,9 @@ document.addEventListener('click', (e) => {
         let color_options = color_main.querySelectorAll('.option-btn')
         color_options.forEach(function(option){
           let exist_color = option.getAttribute('data-value').toLowerCase();
-          {% comment %} if(product_color == exist_color){
+          if(product_color == exist_color){
             option.classList.add('active')
-          } {% endcomment %}
-            if (exist_color === translatedColor.toLowerCase()) {
-                option.classList.add('active');
-            } else {
-                option.classList.remove('active');
-            }
+          }
         });
         document.querySelector('.filters-panel').classList.add('open')
         color_main.style.display = 'flex';
