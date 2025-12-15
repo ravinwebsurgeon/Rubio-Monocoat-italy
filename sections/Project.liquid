@@ -901,7 +901,7 @@ document.addEventListener("DOMContentLoaded", function () {
             cartBubble.classList.add("hidden");
           }
         }
-          if (!bubble && cart.item_count > 0) {console.log('need to update custom')}
+          if (!cartBubble && cart.item_count > 0) {console.log('need to update custom')}
       })
       .catch((error) => console.error("Cart bubble update failed:", error));
   }
