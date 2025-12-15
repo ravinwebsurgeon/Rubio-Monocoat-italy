@@ -197,8 +197,7 @@
                         <button 
                           class="filter-item colours base-button size-medium theme-primary option-btn" 
                           data-value="{{ colour_name | escape }}"
-                          data-handle="{{ colour_name | handleize }}"
-                          data-label="{{ colour_name }}"
+                          data-handle="{{ colour_parts[0] | handleize }}"
                         >
                           <div class="color capitalized" style="background-color: {%if hex_code %}{{ hex_code  }} {% endif %}"></div>
                           <div class="value capitalized">{{ colour_name }}</div>
