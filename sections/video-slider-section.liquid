@@ -729,7 +729,8 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(err => console.error("Product fetch error:", err));
     }
 
-  {% comment %} // ✅ Delegate Add to Cart click for all slider buttons
+  {% comment %} dec-15
+   // ✅ Delegate Add to Cart click for all slider buttons
   document.body.addEventListener("click", function(e) {
     const btn = e.target.closest(".add-to-cart-btn");
     if (!btn) return;
