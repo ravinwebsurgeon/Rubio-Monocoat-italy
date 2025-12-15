@@ -492,6 +492,15 @@
             "menu_image": "shopify://shop_images/palette-bold.svg",
             "tag_title": "Bestseller"
           }
+        },
+        "custom_images_XqWWjr": {
+          "type": "Custom_images",
+          "settings": {
+            "sub-menu_title": "Type",
+            "menu_key": "4.2",
+            "menu_image": "shopify://shop_images/house-bold.svg",
+            "tag_title": "Bestseller"
+          }
         }
       },
       "block_order": [
@@ -538,7 +547,8 @@
         "custom_images_Fd79Vg",
         "custom_images_g3JF7t",
         "custom_images_YqQTYn",
-        "custom_images_TmFCbD"
+        "custom_images_TmFCbD",
+        "custom_images_XqWWjr"
       ],
       "settings": {
         "btn_link": "",
