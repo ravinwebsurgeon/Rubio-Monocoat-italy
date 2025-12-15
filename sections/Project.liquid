@@ -1321,9 +1321,11 @@ document.addEventListener('click', (e) => {
               white: { en: 'White', it: 'Bianco', fr: 'Blanc' },
               red:   { en: 'Red', it: 'Rosso', fr: 'Rouge' }
             };
-            const translated = translationMap[urlColor.toLowerCase()]?.[currentLang];
+            const translated = translationMap[product_color.toLowerCase()]?.[currentLang];
+              const buttons = document.querySelectorAll('#colour-options .option-btn');
+
             if (translated) {
-              matched = Array.from(buttons).find(btn => btn.dataset.value.toLowerCase() === translated.toLowerCase());
+             let matched = Array.from(buttons).find(btn => btn.dataset.value.toLowerCase() === translated.toLowerCase());
             }
             if (matched) option.classList.add('active')
 
