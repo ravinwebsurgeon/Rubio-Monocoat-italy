@@ -1282,6 +1282,12 @@ document.addEventListener('click', (e) => {
       let product_color_key = reverseTranslationMap[product_color.toLowerCase()] || product_color.toLowerCase();
       let translatedColor = translationMap[product_color_key]?.[currentLang] || product_color_key;
 
+   if (product_color_key) {
+        params.set('filter.v.color', translatedColor.toLowerCase());
+        const newUrl = `${window.location.pathname}?${params.toString()}`;
+        window.history.replaceState({}, '', newUrl);
+    }
+
       if(collection_name || product_color){
         let circleTabsInner =  document.querySelector('.circle-tabs-outer')
         if (collection_name == "exterior") {
