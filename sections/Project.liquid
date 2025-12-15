@@ -1309,22 +1309,12 @@ document.addEventListener('click', (e) => {
         //select color option
         let color_main = document.getElementById('colour-options')
         let color_options = color_main.querySelectorAll('.option-btn')
-        let matchedButton = null;
         color_options.forEach(function(option){
           let exist_color = option.getAttribute('data-value').toLowerCase();
-          const normalizedLabel = exist_color.toLowerCase().replace(/\s+/g, '-');
-          {% comment %} if(product_color == exist_color){
+          if(product_color == exist_color){
             option.classList.add('active')
             console.log('matched',exist_color)
-          } {% endcomment %}
-          if (product_color === exist_color.toLowerCase() || product_color === normalizedLabel) {
-            matchedButton = option;
           }
-            if (matchedButton) {
-    color_options.forEach(btn => btn.classList.remove('active'));
-    matchedButton.classList.add('active');
-    // optionally, trigger your filterProducts/customFiltered logic if needed
-  }
         });
         document.querySelector('.filters-panel').classList.add('open')
         color_main.style.display = 'flex';
