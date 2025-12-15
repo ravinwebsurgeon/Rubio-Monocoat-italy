@@ -710,7 +710,7 @@ document.querySelectorAll('.custom_plus_product_cart_btn').forEach(function (but
               
                 updateSampleButtons()
                 updateCartCount1(1);
-                refreshCartDrawer();
+                {% comment %} refreshCartDrawer(); {% endcomment %}
             })
             .catch(error => {
                 console.error('Error adding to cart:', error);
