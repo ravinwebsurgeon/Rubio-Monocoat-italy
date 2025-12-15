@@ -885,7 +885,8 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .catch((error) => console.error("Drawer update failed:", error));
   } {% endcomment %}
-{% comment %} 
+
+{% comment %} dec-15
   function updateCartBubble() {
     fetch("/cart.js")
       .then((res) => res.json())
