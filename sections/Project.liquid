@@ -1142,43 +1142,36 @@ document.addEventListener('click', (e) => {
         circleActive?.dataset.exteriorTagName ||
         circleActive?.dataset.interiorTagName ||
         null;
-    {% comment %} const productsParent = document.querySelector(
+
+      // Count how many of the three elements are active
+    const activeCount = [
+      circleActive,
+      interior_active,
+      exterior_active
+    ].filter(active => active).length;
+
+    // `nothingActive` means none are active
+    const nothingActive = activeCount === 0;
+
+    // `atLeastTwoActive` means two or more are active
+    const atLeastTwoActive = activeCount >= 2;
+
+    let productsParent;
+
+    // ✅ Mode 1 — No tab active → get ALL products on the page
+    if (nothingActive) {
+      productsParent = document; // search whole DOM
+    }
+    // ✅ Mode 2 — Normal behaviour
+    else {
+      productsParent = document.querySelector(
         interior_active
-            ? '.tab-products-wrap.Interior-wrap'
-            : '.tab-products-wrap.Exterior-wrap'
-    );
+          ? '.tab-products-wrap.Interior-wrap'
+          : '.tab-products-wrap.Exterior-wrap'
+      );
+    }
 
-    const products =productsParent.querySelectorAll('.product-item') {% endcomment %}
-
-     // Count how many of the three elements are active
-  const activeCount = [
-    circleActive,
-    interior_active,
-    exterior_active
-  ].filter(active => active).length;
-
-  // `nothingActive` means none are active
-  const nothingActive = activeCount === 0;
-
-  // `atLeastTwoActive` means two or more are active
-  const atLeastTwoActive = activeCount >= 2;
-
-  let productsParent;
-
-  // ✅ Mode 1 — No tab active → get ALL products on the page
-  if (nothingActive) {
-    productsParent = document; // search whole DOM
-  }
-  // ✅ Mode 2 — Normal behaviour
-  else {
-    productsParent = document.querySelector(
-      interior_active
-        ? '.tab-products-wrap.Interior-wrap'
-        : '.tab-products-wrap.Exterior-wrap'
-    );
-  }
-
-  const products = productsParent.querySelectorAll('.product-item');
+    const products = productsParent.querySelectorAll('.product-item');
 
     products.forEach(product => {
       const productColours = (product.dataset.colours || '').split(',');
