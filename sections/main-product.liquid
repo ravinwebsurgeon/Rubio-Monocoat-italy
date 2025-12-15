@@ -1124,7 +1124,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
       // Get all the content divs
       const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
-
       if (!window.seeMoreExpanded) {
         // Only hide content if user never clicked "See More"
         moreContentDivs.forEach(div => {
@@ -1132,7 +1131,6 @@ document.addEventListener('DOMContentLoaded', () => {
           div.style.visibility = 'hidden';
           div.style.overflow = 'hidden';
         });
-
         // Only insert button if content is hidden
         insertButtonIfNeeded(); 
       }
