@@ -623,7 +623,7 @@ document.querySelectorAll('.custom_product_cart_btn').forEach(function (button) 
             });
         });
     });
-
+{% comment %} 
 function updateCartCount(totalQuantityAdded) {
     const cartCounts = document.querySelectorAll('.cart-count-bubble > span');
     const customCount = document.querySelector('.custom-cart-count-bubble > span');
@@ -659,7 +659,7 @@ function updateCartCount(totalQuantityAdded) {
             newCount.style.visibility = "visible";
         }
     }
-}
+} {% endcomment %}
 
 {% comment %} function refreshCartDrawer() {
   const cartDrawer = document.querySelector('cart-drawer'); 
