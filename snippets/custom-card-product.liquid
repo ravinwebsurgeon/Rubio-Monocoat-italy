@@ -44,7 +44,7 @@
           <div class="card__media {% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
            
               <div class="media media--transparent media--hover-effect">
-                {% comment %} <a href="{{ card_product.url }}">
+                <a href="{{ card_product.url }}">
                   <img
                     srcset="
                       {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
@@ -74,50 +74,50 @@
                       loading="lazy"
                     >
                   {% endif %}
+                </a>
+                {% comment %} <a href="{{ card_product.url }}" class="product-card" data-product-id="{{ card_product.id }}">
+
+                  {% assign first_media_shown = false %}
+
+                  {% for media in card_product.media %}
+
+                    {% assign alt_text = media.alt | default: "" %}
+
+                    <div 
+                      class="product__media"
+                      data-alt-detail="{{ alt_text | escape }}"
+                      style="{% if first_media_shown == false %}display:block{% else %}display:none{% endif %}"
+                    >
+
+                      {% if media.media_type == 'image' %}
+                        <img
+                          src="{{ media | img_url: 'master' }}"
+                          alt="{% if alt_text and alt_text != card_product.title %}{{ alt_text | escape }}{%endif %}"
+                          class="product__img"
+                          loading="lazy"
+                        >
+
+                      {% elsif media.media_type == 'video' %}
+                          {% assign poster_image = media.preview_image | img_url: 'master' %}
+                        {{ media | video_tag: 
+                            class: 'product__video',
+                            controls: false,
+                            autoplay: false,
+                            loop: true,
+                            muted: true,
+                            playsinline: true,
+                            preload: 'metadata',
+                            poster: poster_image
+
+                        }}
+
+                      {% endif %}
+
+                    </div>
+
+                    {% assign first_media_shown = true %}
+                  {% endfor %}
                 </a> {% endcomment %}
-<a href="{{ card_product.url }}" class="product-card" data-product-id="{{ card_product.id }}">
-
-  {% assign first_media_shown = false %}
-
-  {% for media in card_product.media %}
-
-    {% assign alt_text = media.alt | default: "" %}
-
-    <div 
-      class="product__media"
-      data-alt-detail="{{ alt_text | escape }}"
-      style="{% if first_media_shown == false %}display:block{% else %}display:none{% endif %}"
-    >
-
-      {% if media.media_type == 'image' %}
-        <img
-          src="{{ media | img_url: 'master' }}"
-          alt="{% if alt_text and alt_text != card_product.title %}{{ alt_text | escape }}{%endif %}"
-          class="product__img"
-          loading="lazy"
-        >
-
-      {% elsif media.media_type == 'video' %}
-          {% assign poster_image = media.preview_image | img_url: 'master' %}
-        {{ media | video_tag: 
-            class: 'product__video',
-            controls: false,
-            autoplay: false,
-            loop: true,
-            muted: true,
-            playsinline: true,
-            preload: 'metadata',
-             poster: poster_image
-
-        }}
-
-      {% endif %}
-
-    </div>
-
-    {% assign first_media_shown = true %}
-  {% endfor %}
-</a>
               </div> 
               {% if card_product.metafields.custom.badge != blank %}
               <div class="custom-product-badge product-badge">
