@@ -1095,24 +1095,17 @@ document.addEventListener('DOMContentLoaded', function () {
 {% render 'calc-drawer' %}
 {% render 'custom-sticky-cart', product:product %}
 <script>
-
-
 document.addEventListener('DOMContentLoaded', () => {
-  
-   const productForm = document.querySelector('form[action="/cart/add"]');
+  const productForm = document.querySelector('form[action="/cart/add"]');
   if (!productForm) return;
-
   const variantIdInput = productForm.querySelector('input[name="id"]');
-
   // Global flag to track expanded state (i.e., if user clicked "See More")
   if (typeof window.seeMoreExpanded === 'undefined') window.seeMoreExpanded = false;
-
   // Watch for variant changes
   let lastVariant = variantIdInput.value;
   const observer = new MutationObserver(() => {
     if (variantIdInput.value !== lastVariant) {
       lastVariant = variantIdInput.value;
-
     if (window.Shopify && window.Shopify.product && window.Shopify.product.variants) {
       // Find the selected variant by ID
       const detailedVariant = window.Shopify.product.variants.find(variant => variant.id == variantIdInput.value);
@@ -1129,8 +1122,6 @@ document.addEventListener('DOMContentLoaded', () => {
         oldPrice.textContent = `${currencyFormattedNumber}`;
        }
     }
-
-
       // Get all the content divs
       const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
 
