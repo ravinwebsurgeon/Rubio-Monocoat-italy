@@ -1332,16 +1332,16 @@ document.addEventListener('click', (e) => {
         let color_options = color_main.querySelectorAll('.option-btn')
         color_options.forEach(function(option){
           let exist_color = option.getAttribute('data-value').toLowerCase();
-          {% comment %} if(product_color == exist_color){
+          if(product_color == exist_color){
             option.classList.add('active')
-          } {% endcomment %}
-           if(translatedColor.toLowerCase() == exist_color){
+          }
+           {% comment %} if(translatedColor.toLowerCase() == exist_color){
             option.classList.add('active')
             {% comment %} option.click() {% endcomment %}
                setTimeout(() => {
             option.click();
-        }, 3000);
-          }
+             }, 3000);
+          } {% endcomment %}
         });
         document.querySelector('.filters-panel').classList.add('open')
         color_main.style.display = 'flex';
