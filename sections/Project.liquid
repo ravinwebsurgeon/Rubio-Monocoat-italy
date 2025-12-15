@@ -1247,6 +1247,12 @@ document.addEventListener('click', (e) => {
       } else if (document.documentElement.lang) {
         currentLang = document.documentElement.lang;
       }
+      const translationMap = {
+        black: { en: 'Black', it: 'Nero', fr: 'Noir' },
+        white: { en: 'White', it: 'Bianco', fr: 'Blanc' },
+        red:   { en: 'Red', it: 'Rosso', fr: 'Rouge' }
+     };
+
       const params = new URLSearchParams(window.location.search);
       const result = {};
       params.forEach((value, key) => {
@@ -1265,8 +1271,9 @@ document.addEventListener('click', (e) => {
         type = result.type
         if(result.surface) surface = result.surface;
       }
-           if(result.color)   {product_color = result.color.toLowerCase();}
-
+      if(result.color)   {product_color = result.color.toLowerCase();}
+      const translated = translationMap[product_color.toLowerCase()]?.[currentLang];
+     console.log(translated,'assad')
       if(collection_name || product_color){
         let circleTabsInner =  document.querySelector('.circle-tabs-outer')
         if (collection_name == "exterior") {
