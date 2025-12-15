@@ -1271,10 +1271,19 @@ document.addEventListener('click', (e) => {
         type = result.type
         if(result.surface) surface = result.surface;
       }
-      let translatedColor = '';
+      const reverseTranslationMap = {};
+      for (let key in translationMap) {
+        for (let lang in translationMap[key]) {
+          reverseTranslationMap[translationMap[key][lang].toLowerCase()] = key;
+        }
+      }
+
       if(result.color)   {
         product_color = result.color.toLowerCase();
-        translatedColor = translationMap[product_color.toLowerCase()]?.[currentLang] || product_color;
+       let product_color_key = reverseTranslationMap[product_color.toLowerCase()] || product_color.toLowerCase();
+      // Translate to current language
+      let translatedColor = translationMap[product_color_key]?.[currentLang] || product_color_key;
+      console.log(translatedColor,'sdsd'); 
       }
       console.log(translatedColor,'sadadsasd')
       if(collection_name || product_color){
