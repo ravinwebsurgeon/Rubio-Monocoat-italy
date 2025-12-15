@@ -709,7 +709,7 @@ document.querySelectorAll('.custom_plus_product_cart_btn').forEach(function (but
                 {% comment %} button.querySelector('.plus___icon').textContent = '✔'; {% endcomment %}
               
                 updateSampleButtons()
-                updateCartCount(1);
+                updateCartCount1(1);
                 refreshCartDrawer();
             })
             .catch(error => {
@@ -719,7 +719,7 @@ document.querySelectorAll('.custom_plus_product_cart_btn').forEach(function (but
         });
     });
 
-function updateCartCount(totalQuantityAdded) { 
+function updateCartCount1(totalQuantityAdded) { 
     const cartCounts = document.querySelectorAll('.cart-count-bubble > span');
     const customCount = document.querySelector('.custom-cart-count-bubble > span');
 
