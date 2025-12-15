@@ -46,12 +46,7 @@
               <div class="media media--transparent media--hover-effect">
                 <a href="{{ card_product.url }}">
                   {% if card_product.metafields.custom.custom_card_image.value  %}
-                     <img
-                          src="{{ card_product.metafields.custom.custom_card_image.value  | img_url: 'master' }}"
-                          class="product__img"
-                          loading="lazy"
-                        >
-
+                     <img src="{{ card_product.metafields.custom.custom_card_image.value  | img_url: 'master' }}" class="product__img" loading="lazy" >
                   {% else  %}
                   <img
                     srcset="
@@ -296,7 +291,7 @@
 
                   </div>
 
-                {% else %}
+                {% comment %} {% else %}
 
                   <select class="option-variant-selector"
                           id="ProductSelect-{{ forloop.index0 }}"
@@ -312,7 +307,7 @@
                         </option>
                       {% endif %}
                     {% endfor %}
-                  </select>
+                  </select> {% endcomment %}
                 {% endif %}
               </div>
             {% endfor %}
