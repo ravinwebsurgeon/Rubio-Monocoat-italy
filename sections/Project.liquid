@@ -724,7 +724,7 @@ document.querySelector('.img-ic').addEventListener('click', function() {
 document.querySelectorAll('.product-image-wrapper').forEach(function(wrapper) {
   wrapper.dataset.defaultView = 'cover';
 });
-
+{% comment %} dec-15
 document.addEventListener('DOMContentLoaded', function() {
   const modal = document.getElementById('quickViewModal');
   const modalImage = document.getElementById('quickViewImage');
@@ -797,7 +797,7 @@ document.addEventListener('DOMContentLoaded', function() {
       console.error(error);
     });
   });
-});
+}); {% endcomment %}
 
 
 
