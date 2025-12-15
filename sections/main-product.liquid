@@ -1176,42 +1176,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const receivedData = getCookie("myvariant");
   if(receivedData) selectVariant(receivedData)
 
+
+
   //select bigger volumne from variants on load page
-  
   if (!window.Shopify || !window.Shopify.product) return;
-
   const product = window.Shopify.product;
-
-
   const PRODUCT_OPTION_MAP = {
     'oil-plus-2c': '1.3 L',
     'product-handle-2': '1L',
     'product-handle-3': 'Large'
   };
-
    const optionValueToSelect = PRODUCT_OPTION_MAP[product.handle];
   if (!optionValueToSelect) return;
-
   const optionInputs = document.querySelectorAll('.swatch-input__input');
   if (!optionInputs.length) return;
   optionInputs.forEach(input => {
     if (input.disabled) return;
-
     if (
       input.value.trim().toLowerCase() ===
       optionValueToSelect.trim().toLowerCase()
     ) {
       input.checked = true;
-
       // Trigger Shopify variant change
       input.dispatchEvent(new Event('change', { bubbles: true }));
-
-      console.log(
-        'Auto-selected option:',
-        optionValueToSelect,
-        'for product:',
-        product.handle
-      );
     }
   });
 
