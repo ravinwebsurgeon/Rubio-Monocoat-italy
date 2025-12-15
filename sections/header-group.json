@@ -183,7 +183,7 @@
           "settings": {
             "sub-menu_title": "Wood Type",
             "menu_key": "1.3,2.3",
-            "menu_image": "shopify://shop_images/icon_woodtype.svg",
+            "menu_image": "shopify://shop_images/log-bold.svg",
             "tag_title": ""
           }
         },
@@ -336,7 +336,7 @@
           "settings": {
             "sub-menu_title": "Carports",
             "menu_key": "2.2.5",
-            "menu_image": "shopify://shop_images/width_20013-ezgif.com-webp-to-png-converter.png",
+            "menu_image": "shopify://shop_images/car-simple-bold.svg",
             "tag_title": ""
           }
         },
