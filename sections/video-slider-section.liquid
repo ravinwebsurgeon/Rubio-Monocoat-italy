@@ -729,7 +729,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(err => console.error("Product fetch error:", err));
     }
 
-  // ✅ Delegate Add to Cart click for all slider buttons
+  {% comment %} // ✅ Delegate Add to Cart click for all slider buttons
   document.body.addEventListener("click", function(e) {
     const btn = e.target.closest(".add-to-cart-btn");
     if (!btn) return;
@@ -749,7 +749,7 @@ document.addEventListener("DOMContentLoaded", function () {
       updateCartDrawer();
     })
     .catch(err => console.error("Add to cart failed:", err));
-  });
+  }); {% endcomment %}
 
   // ✅ Pause all non-center videos, play only center one
   function playCenterVideo(swiper) {
@@ -771,7 +771,7 @@ document.addEventListener("DOMContentLoaded", function () {
     playCenterVideo(swiper);
   });
 
-  // ✅ Your existing updateCartDrawer function
+  {% comment %} // ✅ Your existing updateCartDrawer function
   function updateCartDrawer() {
     fetch('/?sections=cart-drawer,cart-icon-bubble')
       .then(res => res.json())
@@ -814,7 +814,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       })
       .catch(err => console.error('Cart drawer update failed:', err));
-  }
+  } {% endcomment %}
 
 });
 </script>
