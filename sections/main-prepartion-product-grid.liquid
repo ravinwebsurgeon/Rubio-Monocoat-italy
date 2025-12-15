@@ -836,15 +836,7 @@ button.show-more-swatches {
             const variants = productData.variants;
             const selectedVariant = variants.find(v => v.id === variantIdInt);
             console.log(selectedVariant.inventory_quantity,'selectedVariant Data') 
-                 if (selectedVariant.inventory_quantity <= 0) {
-                    button.disabled = true;                  // disable the button
-                    button.classList.add('disabled-btn');    // add a class for styling
-                    button.textContent = 'Out of stock';    // optional: change button text
-                } else {
-                    button.disabled = false;
-                    button.classList.remove('disabled-btn');
-                    button.textContent = 'Add to Cart';     // optional: reset button text
-                }
+            
             const maxStock = selectedVariant.inventory_quantity;
               if (selected_quantity > maxStock) {
                   selected_quantity = maxStock;
