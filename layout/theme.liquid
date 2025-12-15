@@ -764,6 +764,7 @@ function insertButtonIfNeeded() {
 
 //update cart bubble
 function updateCartCountMain() {
+  consolelog('update cart bubblr custom')
   fetch('/cart.js')
     .then(response => response.json())
     .then(cart => {
