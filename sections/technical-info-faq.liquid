@@ -79,7 +79,8 @@
                        {% comment %} {% if forloop.index == 4 %} {% endcomment %}
                         {% assign translated_question = t_question | downcase %}
 
-                      {% if translated_question contains 'download' or translated_question contains 'downloads' or t_question contains 'scarica' %}
+                      {% comment %} {% if translated_question contains 'download' or translated_question contains 'downloads' or t_question contains 'scarica' %} {% endcomment %}
+                      {% if translated_question == 'download' or translated_question == 'downloads' or t_question == 'scarica' %}
 
                         {% for item in json_downloads %}
                           {% if item[user_lang] %}
