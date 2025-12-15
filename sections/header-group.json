@@ -408,7 +408,7 @@
           "settings": {
             "sub-menu_title": "Exterior colours",
             "menu_key": "4.2.2",
-            "menu_image": "shopify://shop_images/width_20011-ezgif.com-webp-to-png-converter.png",
+            "menu_image": "shopify://shop_images/park-bold.svg",
             "tag_title": ""
           }
         },
@@ -498,7 +498,7 @@
           "settings": {
             "sub-menu_title": "Type",
             "menu_key": "4.2",
-            "menu_image": "shopify://shop_images/house-bold.svg",
+            "menu_image": "shopify://shop_images/house-simple-bold_1.svg",
             "tag_title": "Bestseller"
           }
         }
