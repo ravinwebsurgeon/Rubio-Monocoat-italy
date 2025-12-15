@@ -1285,7 +1285,8 @@ document.addEventListener('click', (e) => {
       if (product_color_key) {
             params.set('filter.v.color', translatedColor.toLowerCase());
             const newUrl = `${window.location.pathname}?${params.toString()}`;
-            window.history.replaceState({}, '', newUrl);
+            {% comment %} window.history.replaceState({}, '', newUrl); {% endcomment %}
+             window.location.href = newUrl;
         }
 
       if(collection_name || product_color){
