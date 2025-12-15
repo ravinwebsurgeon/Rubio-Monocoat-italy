@@ -1138,7 +1138,12 @@ document.addEventListener('click', (e) => {
       }
       customFiltered()
         if ((interior_active || exterior_active) && !circleActive) {
-          let allProducts = document.querySelectorAll('.product-item')
+              const productsParent = document.querySelector(
+          interior_active
+              ? '.tab-products-wrap.Interior-wrap'
+              : '.tab-products-wrap.Exterior-wrap'
+    );
+          let allProducts = productsParent.querySelectorAll('.product-item')
     allProducts.forEach(p => p.style.display = 'block');
   }
 
