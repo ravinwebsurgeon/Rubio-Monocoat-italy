@@ -1361,35 +1361,7 @@ customFiltered();
   // -------------------------------
   // INTERIOR CLICK → show tabs + filter only
     interiorBtn?.addEventListener("click", function() {
-    {% comment %} const queryString = window.location.search.substring(1);
-    const pairs = queryString.length ? queryString.split('&') : [];
-    const targetParam = 'filter.p.c.name';
-    const surfaceParam = 'filter.c.surface';
-    const newValue = 'interior';
-    let paramFound = false;
-    // UPDATE filter.p.c.name
-    const updatedPairs = pairs.map(pair => {
-        const [key, value] = pair.split('=');
-        if (key === targetParam) {
-            paramFound = true;
-            return `${key}=${encodeURIComponent(newValue)}`;
-        }
-        return pair;
-    });
-    // ONLY if name was changed → remove filter.c.surface
-    let finalPairs = updatedPairs;
-    if (paramFound) {
-        finalPairs = updatedPairs.filter(pair => {
-            return !pair.startsWith(surfaceParam + "=");
-        });
-    }
-    // BUILD QUERY
-    const newQueryString = finalPairs.join('&');
-    // ADD ? only when parameters exist
-    const newUrl = newQueryString
-        ? `${window.location.pathname}?${newQueryString}`
-        : window.location.pathname;
-    window.history.replaceState(null, '', newUrl); {% endcomment %}
+  
   const params = new URLSearchParams(window.location.search);
     const targetParam = 'filter.p.c.name';
     const value = params.get('filter.p.c.name');
@@ -1464,27 +1436,6 @@ customFiltered();
   exteriorToggle?.addEventListener("click", function(e) {
     e.stopPropagation();
     // Get current query string without the '?'
-    {% comment %} //it updates url filter interior to exterior  
-    //it updates url filter interior to exterior  
-    const queryString = window.location.search.substring(1);
-    const pairs = queryString.length ? queryString.split('&') : [];
-    const targetParam = 'filter.p.c.name';
-    const newValue = 'exterior';
-    let paramFound = false;
-    const updatedPairs = pairs.map(pair => {
-    const [key, value] = pair.split('=');
-    if (key === targetParam) {
-        paramFound = true; // mark as found
-        return `${key}=${encodeURIComponent(newValue)}`;
-    }
-      return pair;
-    });
-    if (paramFound) {
-      const newQueryString = updatedPairs.join('&');
-      const newUrl = `${window.location.pathname}?${newQueryString}`;
-      window.history.replaceState(null, '', newUrl);
-    }  {% endcomment %}
-
     const params = new URLSearchParams(window.location.search);
     const targetParam = 'filter.p.c.name';
     const value = params.get('filter.p.c.name');
@@ -1809,25 +1760,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </script> 
 
 <script>
-{% comment %} document.addEventListener('DOMContentLoaded', function() {
-  const interioBtn = document.querySelector('.Interio');
-  const exteriorBtn = document.querySelector('.exterior');
-  const exteriorWrap = document.querySelector('.Exterior-wrap');
-
-  if (interioBtn && exteriorBtn && exteriorWrap) {
-
-    // Hide when clicking Interio
-    interioBtn.addEventListener('click', function() {
-      exteriorWrap.style.display = 'none';
-    });
-
-    // Show when clicking Exterior
-    exteriorBtn.addEventListener('click', function() {
-      exteriorWrap.style.display = 'block';
-    });
-  }
-}); {% endcomment %}
-
 
 {% comment %} clear all button hide and page load functionality {% endcomment %}
 document.addEventListener("DOMContentLoaded", function() {
@@ -1906,128 +1838,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 </script>
-
-{% comment %} <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const circleTabsSection = document.querySelector('.circle-tabs-section');
-  const exteriorWrap = document.querySelector('.Exterior-wrap');
-  const interioBtn = document.querySelector('.Interio');
-  const exteriorBtn = document.querySelector('.exterior-main');
-
-  // Hide by default
-  [circleTabsSection, exteriorWrap].forEach(el => {
-    if (el) el.style.display = 'none';
-  });
-
-  // When click on Interior
-  if (interioBtn) {
-    interioBtn.addEventListener('click', function() {
-      if (circleTabsSection) circleTabsSection.style.display = 'block';
-      if (exteriorWrap) exteriorWrap.style.display = 'none';
-    });
-  }
-
-  // When click on Exterior
-  if (exteriorBtn) {
-    exteriorBtn.addEventListener('click', function() {
-      if (circleTabsSection) circleTabsSection.style.display = 'block';
-      if (exteriorWrap) exteriorWrap.style.display = 'block';
-    });
-  }
-});
-
-</script> {% endcomment %}
-
-{% comment %} smooth show and hide <style>
-  .toggle-section {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    pointer-events: none;
-    height: 0;
-    overflow: hidden;
-    transition:
-      opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-      transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-      height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .toggle-section.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    pointer-events: auto;
-    height: auto; /* this will get handled dynamically in JS */
-  }
-  .modal-open .circle-tabs-section.interior_tabs_section.toggle-section.active {
-        transform: inherit;
-    }
-
-    body.modal-open {
-        overflow: hidden;
-    }
-</style> {% endcomment %}
-
-{% comment %} Smoth show hide<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const circleTabsSection = document.querySelector(".circle-tabs-section");
-  const exteriorWrap = document.querySelector(".Exterior-wrap");
-  const interioBtn = document.querySelector(".Interio");
-  const exteriorBtn = document.querySelector(".exterior-main");
-
-  const allEls = [circleTabsSection, exteriorWrap];
-  allEls.forEach(el => {
-    if (el) el.classList.add("toggle-section");
-    if (el) el.classList.remove("active");
-  });
-
-  // 👇 Height + fade-slide animation controller
-  function showSmooth(el) {
-    if (!el) return;
-    const sectionHeight = el.scrollHeight + "px";
-
-    el.classList.remove("active");
-    el.style.transition = "none";
-    el.style.height = "1px";
-    el.offsetHeight; // force reflow
-    el.style.transition = "";
-    el.style.height = sectionHeight;
-
-    requestAnimationFrame(() => {
-      el.classList.add("active");
-      el.style.height = sectionHeight;
-      // reset to auto after animation ends
-      setTimeout(() => {
-        el.style.height = "auto";
-      }, 600);
-    });
-  }
-
-  function hideSmooth(el) {
-    if (!el) return;
-    const sectionHeight = el.scrollHeight + "px";
-    el.style.height = sectionHeight;
-    el.offsetHeight;
-    el.style.height = "1px";
-    el.classList.remove("active");
-  }
-
-  if (interioBtn) {
-    interioBtn.addEventListener("click", () => {
-      showSmooth(circleTabsSection);
-      hideSmooth(exteriorWrap);
-    });
-  }
-
-  if (exteriorBtn) {
-    exteriorBtn.addEventListener("click", () => {
-      showSmooth(circleTabsSection);
-      showSmooth(exteriorWrap);
-    });
-  }
-});
-</script> {% endcomment %}
-
 
 
 <style>
