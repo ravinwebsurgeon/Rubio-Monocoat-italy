@@ -1209,59 +1209,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     selectBiggestVolumeVariant(); {% endcomment %}
 
-  /* ===============================
-     SAFETY CHECKS
-  =============================== */
-  if (!window.Shopify || !window.Shopify.product) return;
-
-  const product = window.Shopify.product;
-
-  /* ===============================
-     CONFIGURATION
-     Product handle → option value
-  =============================== */
-  const PRODUCT_OPTION_MAP = {
-    'oil-plus-2c': '1.3 L',
-    'product-handle-2': '1L',
-    'product-handle-3': 'Large'
-  };
-
-  /* ===============================
-     CHECK IF PRODUCT IS TARGETED
-  =============================== */
-  const optionValueToSelect = PRODUCT_OPTION_MAP[product.handle];
-  if (!optionValueToSelect) return;
-
-  /* ===============================
-     FIND VARIANT OPTIONS
-  =============================== */
-  const optionInputs = document.querySelectorAll('.swatch-input__input');
-  if (!optionInputs.length) return;
-
-  /* ===============================
-     SELECT MATCHING OPTION
-  =============================== */
-  optionInputs.forEach(input => {
-    if (input.disabled) return;
-
-    if (
-      input.value.trim().toLowerCase() ===
-      optionValueToSelect.trim().toLowerCase()
-    ) {
-      input.checked = true;
-
-      // Trigger Shopify variant change
-      input.dispatchEvent(new Event('change', { bubbles: true }));
-
-      console.log(
-        'Auto-selected option:',
-        optionValueToSelect,
-        'for product:',
-        product.handle
-      );
-    }
-  });
-
 });
 
 </script>
