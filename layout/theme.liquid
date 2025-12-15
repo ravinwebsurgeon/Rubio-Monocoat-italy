@@ -783,10 +783,13 @@ function updateCartCountMain() {
           bubble.style.visibility = 'visible';
         } {% endcomment %}
       }
-      if(customBubble)
-        {
+      if(customBubble){
           customBubble.querySelector('span').textContent = count;
-        }
+      }
+      if(!bubble && !customBubble){
+        let checkAny = document.querySelector('.cart-count-bubble')
+        checkAny.textContent = count;
+      }
     })
     .catch(error => console.error('Error fetching cart:', error));
 }
