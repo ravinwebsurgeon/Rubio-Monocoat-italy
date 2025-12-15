@@ -1279,11 +1279,9 @@ document.addEventListener('click', (e) => {
       }
 
       if(result.color)   {
-        product_color = result.color.toLowerCase();
+       product_color = result.color.toLowerCase();
        let product_color_key = reverseTranslationMap[product_color.toLowerCase()] || product_color.toLowerCase();
-      // Translate to current language
-      let translatedColor = translationMap[product_color_key]?.[currentLang] || product_color_key;
-      console.log(translatedColor,'sdsd'); 
+       let translatedColor = translationMap[product_color_key]?.[currentLang] || product_color_key;
       }
       console.log(translatedColor,'sadadsasd')
       if(collection_name || product_color){
