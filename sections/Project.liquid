@@ -1335,14 +1335,16 @@ document.addEventListener('click', (e) => {
           let exist_color = option.getAttribute('data-value').toLowerCase();
           if(product_color == exist_color){
             option.classList.add('active')
-          }
-           {% comment %} if(translatedColor.toLowerCase() == exist_color){
+          }else{
+           if(translatedColor.toLowerCase() == exist_color){
             option.classList.add('active')
             {% comment %} option.click() {% endcomment %}
                setTimeout(() => {
             option.click();
              }, 3000);
-          } {% endcomment %}
+          }
+        }
+          
         });
         document.querySelector('.filters-panel').classList.add('open')
         color_main.style.display = 'flex';
