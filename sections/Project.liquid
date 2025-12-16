@@ -1162,7 +1162,6 @@ document.addEventListener('click', (e) => {
     }
     // ✅ Mode 2 — Normal behaviour
     else {
-      console.log('check it')
       productsParent = document.querySelector(
         interior_active
           ? '.tab-products-wrap.Interior-wrap'
@@ -1391,7 +1390,6 @@ document.addEventListener('click', (e) => {
         })
       }
         document.querySelectorAll('.tab-products-wrap').forEach(function(section) {
-          console.log('is executed!!')
           const items = section.querySelectorAll('.product-item');
           const hasVisible = Array.from(items).some(item => item.style.display !== 'none');
           section.style.display = hasVisible ? 'block' : 'none';
