@@ -1016,6 +1016,7 @@ document.addEventListener('click', (e) => {
       }
       parentPanel.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
       option.classList.add('active');
+      console.log('rech here')
       filterProducts();
       if (parentPanel.id === 'colour-options') {
         const queryString = window.location.search.substring(1);
