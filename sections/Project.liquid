@@ -1237,6 +1237,7 @@ document.addEventListener('click', (e) => {
 
   function customFiltered(){
       // Detect current language
+      let isUserInteracting = true;
       let currentLang = 'en';
       const pathParts = window.location.pathname.split('/');
       if (['en','it','fr','de'].includes(pathParts[1])) {
