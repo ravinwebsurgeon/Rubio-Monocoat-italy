@@ -1338,9 +1338,6 @@ document.addEventListener('click', (e) => {
           let exist_color = option.getAttribute('data-value').toLowerCase();
           if(product_color == exist_color){
             option.classList.add('active')
-               setTimeout(() => {
-            option.click();
-             }, 3000);
           }else{
            if(translatedColor.toLowerCase() == exist_color){
             option.classList.add('active')
