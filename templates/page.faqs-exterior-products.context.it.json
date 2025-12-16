@@ -23,7 +23,14 @@
       "settings": {
         "heading": ""
       },
-      "blocks": {}
+      "blocks": {
+        "faq_item_bJ33cX": {
+          "settings": {
+            "question": "Can WoodCream only be used on vertical wood surfaces?",
+            "answer": "Yes, we recommend using WoodCream only on vertical surfaces. On horizontal surfaces, it may cause streaks and the product can rub off. For this reason, WoodCream is also not suitable for outdoor furniture."
+          }
+        }
+      }
     }
   }
 }
