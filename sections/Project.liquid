@@ -1161,16 +1161,13 @@ document.addEventListener('click', (e) => {
     const atLeastTwoActive = activeCount >= 2;
 
     let productsParent;
-        console.log('now parent check')
 
     // ✅ Mode 1 — No tab active → get ALL products on the page
     if (nothingActive) {
       productsParent = document; // search whole DOM
-      console.log('now parent Dom')
     }
     // ✅ Mode 2 — Normal behaviour
     else {
-        console.log('now parent active')
       productsParent = document.querySelector(
         interior_active
           ? '.tab-products-wrap.Interior-wrap'
