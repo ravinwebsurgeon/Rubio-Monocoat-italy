@@ -5092,9 +5092,9 @@ button.addons-toggle {
     position:relative;
   }
   .oil-calculator-text span {
-    display: block;
-    font-size: 14px;
-}
+        display: block;
+        font-size: 14px;
+    }
 
 .oil-calculator-text a:after {
     content: "";
