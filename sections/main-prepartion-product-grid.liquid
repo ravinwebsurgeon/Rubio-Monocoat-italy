@@ -995,13 +995,7 @@ function updateVariantId(cart, variants, variantIdInput) {
     //Update Cart button Availablity
      {% comment %} const maxStock = selectedVariant.inventory_quantity; {% endcomment %}
     {% comment %} if(maxStock == 0){ button.classList.add('disabled-btn') }else{button.classList.remove('disabled-btn')} {% endcomment %}
-     if (foundVariant.available) {
-        add_button.classList.remove("disabled-btn");
-        add_button.disabled = false;
-      } else {
-        add_button.classList.add("disabled-btn");
-        add_button.disabled = true;
-      }
+    handleStockInventory(cart)
 
   } else {
     console.warn("No variant matches:", selectedOptions);
