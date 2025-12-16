@@ -1290,11 +1290,10 @@ document.addEventListener('click', (e) => {
         let product__main = document.getElementById('product-options')
         let product_options = product__main.querySelectorAll('.option-btn');
           product_options.forEach(function(option){
-          let exist_color = option.getAttribute('data-value').toLowerCase();
-          if(product_option == exist_color){
+          let exist_option = option.getAttribute('data-value').toLowerCase();
+          if(product_option == exist_option){
             option.classList.add('active')
           } 
-          
         });
       }
 
