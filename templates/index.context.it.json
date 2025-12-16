@@ -24,7 +24,8 @@
     "custom_multicolumn_RBfXX8": {
       "settings": {
         "main_heading": "One Coat. Endless Results.",
-        "main_text": "Our products make it easy to protect and enhance your wood. Fast, natural, and in just one layer."
+        "main_text": "Our products make it easy to protect and enhance your wood. Fast, natural, and in just one layer.",
+        "text_color": "#333333"
       },
       "blocks": {
         "column_zE9DFU": {
