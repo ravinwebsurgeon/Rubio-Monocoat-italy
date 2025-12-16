@@ -20,6 +20,16 @@
           "settings": {
             "button_link": "shopify://pages/condizioni-generali"
           }
+        },
+        "image_block_fcQDc7": {
+          "settings": {
+            "block_image": "shopify://shop_images/Untitled_design_98.png"
+          }
+        },
+        "image_block_rFNrHV": {
+          "settings": {
+            "block_image": "shopify://shop_images/cladding_categories_2.png"
+          }
         }
       }
     },
@@ -52,14 +62,14 @@
           "disabled": true,
           "settings": {}
         },
-        "container_LzapcD": {
-          "disabled": true,
-          "settings": {}
-        },
         "container_bxqMjj": {
           "settings": {
             "subtext": "info@rubiomonocoat.it"
           }
+        },
+        "container_LzapcD": {
+          "disabled": true,
+          "settings": {}
         }
       }
     }
