@@ -30,6 +30,14 @@
             "answer": "Signs of wear include visible walking zones, increased stain sensitivity or a surface that stays wet longer after cleaning. When this happens, the protective layer needs to be refreshed or restored."
           }
         },
+        "faq_item_AGHkYq": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "How do I restore wear or colour changes over time?",
+            "answer": "If the surface looks dry or rough but the colour is still good, you can refresh it with Universal Maintenance Oil or Refresh Eco (for furniture and worktops). If the colour has faded or the walking zone is clearly visible, reapply Oil Plus 2C in the original colour. Both types of restoration can be done without sanding."
+          }
+        },
         "faq_item_ebK3zW": {
           "type": "faq_item",
           "disabled": false,
@@ -47,6 +55,7 @@
       },
       "block_order": [
         "faq_item_bJ33cX",
+        "faq_item_AGHkYq",
         "faq_item_ebK3zW",
         "faq_item_iL8tcD"
       ]
