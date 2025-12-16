@@ -1014,6 +1014,7 @@ document.addEventListener('click', (e) => {
       } else if (parentPanel.id === 'sort-options') {
         selectedSort = value;
       }
+      console.log(selectedColour,'selectedColour',selectedProduct,'selectedProduct')
       parentPanel.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
       option.classList.add('active');
       filterProducts();
