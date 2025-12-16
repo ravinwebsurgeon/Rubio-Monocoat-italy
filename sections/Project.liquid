@@ -1287,6 +1287,8 @@ document.addEventListener('click', (e) => {
       if(result.color)   {product_color = result.color.toLowerCase();}
       if(result.product){ product_option = result.product.toLowerCase(); }
       if(product_option){
+        let filtersPanel = document.querySelector('.filters-panel')
+        filtersPanel.classList.add('open')
         let product__main = document.getElementById('product-options')
         let product_options = product__main.querySelectorAll('.option-btn');
           product_options.forEach(function(option){
