@@ -63,7 +63,8 @@
     "contact_options_FYkrkp": {
       "settings": {
         "call_text": "",
-        "call_link": ""
+        "call_link": "",
+        "email_link": "mailto:info@rubiomonocoat.it"
       },
       "blocks": {
         "contact_method_mVcVkc": {
