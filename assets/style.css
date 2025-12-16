@@ -5313,9 +5313,9 @@ body .custom-info-text {
     margin-top:5px;
 }
 .rebuy-widget.widget-type-product-addon .rebuy-addon__item-product-title,.rebuy-widget.widget-type-product-addon .primary-title{
-    font-family: 'Frutiger Neue LT W1G';
+    font-family: 'Frutiger Neue LT W1G Cn XBlack';
     letter-spacing: normal;
-    font-weight: 500;
+    font-weight: 900;
 }
 .rebuy-money, .rebuy-widget .rebuy-money,.rebuy-widget.widget-type-product-addon .rebuy-addon__item-product-description{
     font-family: 'Frutiger Neue LT W1G';
