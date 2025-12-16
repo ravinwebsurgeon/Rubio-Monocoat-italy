@@ -1,0 +1,35 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "search.json",
+  "context": {
+    "market": "it"
+  },
+  "sections": {
+    "icons_section_gEUfza": {
+      "settings": {},
+      "blocks": {
+        "container_rPP9Gd": {
+          "disabled": true,
+          "settings": {}
+        },
+        "container_hqcmCd": {
+          "disabled": true,
+          "settings": {}
+        },
+        "container_rKFNYD": {
+          "settings": {
+            "subtext": "info@rubiomonocoat.it"
+          }
+        }
+      }
+    }
+  }
+}
