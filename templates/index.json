@@ -107,8 +107,8 @@
         "column_yeAnfG": {
           "type": "column",
           "settings": {
-            "icon": "shopify://shop_images/Tree_of_life_1.png",
-            "icon_bg_color": "#183029",
+            "icon": "shopify://shop_images/icon-all-types_1_1.svg",
+            "icon_bg_color": "#ffffff",
             "icon_wrap_width": "90px",
             "icon_wrap_height": "90px",
             "icon_wrap_width_mobile": "64px",
@@ -121,7 +121,7 @@
             "heading_color": "#000000",
             "heading_font_size": "20px",
             "heading_font_size_mobile": "16px",
-            "text": "Apply our wood oil to almost all wood types, furniture & floors",
+            "text": "Works on furniture, floors, walls & more",
             "text_color": "#333333",
             "text_font_size": "16px",
             "text_font_size_mobile": "14px"
