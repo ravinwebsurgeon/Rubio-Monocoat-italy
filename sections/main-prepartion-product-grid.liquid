@@ -841,7 +841,6 @@ button.show-more-swatches {
               if (selected_quantity > maxStock) {
                   selected_quantity = maxStock;
               }
-              if(maxStock == 0){ button.classList.add('disabled-btn') }else{button.classList.remove('disabled-btn')}
             }
             fetch('/cart/add.js', {
                 method: 'POST',
