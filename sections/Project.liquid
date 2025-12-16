@@ -1291,9 +1291,11 @@ document.addEventListener('click', (e) => {
         let product_options = product__main.querySelectorAll('.option-btn');
           product_options.forEach(function(option){
           let exist_option = option.getAttribute('data-value').toLowerCase();
+          const value = exist_option.toLowerCase().replace(/ /g, '-');
+
         console.log(product_option,exist_option)
 
-          if(product_option == exist_option){
+          if(product_option == value){
             option.classList.add('active')
           } 
         });
