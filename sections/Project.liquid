@@ -1048,6 +1048,15 @@ document.addEventListener('click', (e) => {
             window.history.replaceState(null, '', newUrl);
         }
       }
+      if(parentPanel.id === 'product-options')
+      {
+        const params = new URLSearchParams(window.location.search);
+        const hasFilters = Array.from(params.keys()).some(key => key.startsWith('filter.'));
+        if(hasFilters){
+          const newUrl = `${window.location.pathname}`;
+          window.history.replaceState(null, '', newUrl);
+        }
+      }
       customFiltered();
     });
   });
