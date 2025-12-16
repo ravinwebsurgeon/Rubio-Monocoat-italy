@@ -26,7 +26,7 @@
       "blocks": {
         "faq_item_bJ33cX": {
           "settings": {
-            "question": "How do I know when my oiled surface needs maintenance?",
+            "question": "How do I know when my interior oiled surface needs maintenance?",
             "answer": "Signs of wear include visible walking zones, increased stain sensitivity or a surface that stays wet longer after cleaning. When this happens, the protective layer needs to be refreshed or restored."
           }
         },
@@ -67,6 +67,14 @@
             "question": "How do I clean my outdoor wood if I see dirt or green deposits?",
             "answer": "Clean the surface gently using low-pressure water and a soft brush. For more effective cleaning, you can use Exterior Soap, which is specifically designed for maintaining Rubio Monocoat-treated outdoor wood."
           }
+        },
+        "faq_item_WLqkYE": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "When should I reapply my Rubio Monocoat exterior finish?",
+            "answer": "If the colour appears faded or the protective performance has diminished, the surface should be refreshed. After cleaning, you can reapply the RubioMonocoat exterior product originally used to restore both appearance and protection."
+          }
         }
       },
       "block_order": [
@@ -75,7 +83,8 @@
         "faq_item_Dn7cze",
         "faq_item_ebK3zW",
         "faq_item_iL8tcD",
-        "faq_item_cbKqDG"
+        "faq_item_cbKqDG",
+        "faq_item_WLqkYE"
       ]
     }
   }
