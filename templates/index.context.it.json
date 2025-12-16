@@ -72,7 +72,13 @@
         "view_button_bg_color": "#2f4f2f",
         "view_button_text_color": "#ffffff"
       },
-      "blocks": {}
+      "blocks": {
+        "product_block_YBnHge": {
+          "settings": {
+            "price_color": "#000000"
+          }
+        }
+      }
     },
     "two_color_grid_ifntXn": {
       "settings": {
