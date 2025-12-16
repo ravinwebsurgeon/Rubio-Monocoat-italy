@@ -856,7 +856,7 @@ button.show-more-swatches {
             .then(response => response.json())
             .then(data => {
                 console.log('Added to cart3:', data);
-                updateCartCount(1);
+                updateCartCount(selected_quantity);
                 refreshCartDrawer();
             })
             .catch(error => {
