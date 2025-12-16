@@ -8,7 +8,7 @@
  * ------------------------------------------------------------
  */
 {
-  "parent": "page.faqs-delivery.json",
+  "parent": "page.faqs-order.json",
   "context": {
     "market": "it"
   },
