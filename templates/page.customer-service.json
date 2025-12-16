@@ -73,7 +73,7 @@
           "settings": {
             "block_image": "shopify://shop_images/t_4.jpg",
             "button_text": "Exterior Products",
-            "button_link": ""
+            "button_link": "shopify://collections/exterior-application"
           }
         },
         "image_block_eWaRwC": {
