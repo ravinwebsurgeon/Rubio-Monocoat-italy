@@ -1335,7 +1335,7 @@ document.addEventListener('click', (e) => {
 
         color_options.forEach(function(option){
           let exist_color = option.getAttribute('data-value').toLowerCase();
-          if(product_color == exist_color){
+          if(product_color == exist_color && isUserInteracting){ 
             option.classList.add('active')
              {% comment %} option.dispatchEvent(new Event('change', { bubbles: true })); {% endcomment %}
           } else{
@@ -1401,6 +1401,8 @@ document.addEventListener('click', (e) => {
           section.style.display = hasVisible ? 'block' : 'none';
         });
       }
+      isUserInteracting = false;
+
   }
 
 document.addEventListener("DOMContentLoaded", function() {
