@@ -1447,10 +1447,10 @@ footer .footer-block__brand-info .footer__list-social.list-social li:nth-of-type
 }
 
 .product-icons a {
-    border: 1px solid #2f4f2f;
+    border: 1px solid #fff;
     border-radius: 100%;
     padding: 0;
-    background-color: #2f4f2f;
+    background-color: #fff;
     color: #fff;
     display: flex;
     width: 32px;
@@ -1460,8 +1460,8 @@ footer .footer-block__brand-info .footer__list-social.list-social li:nth-of-type
 }
 .product-icons a svg {
     display: block;
-    height: 16px;
-    width: 16px;
+    height: 34px;
+    width: 34px;
 }
 
 .product-icons a svg text {
