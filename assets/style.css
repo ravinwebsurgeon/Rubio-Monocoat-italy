@@ -5347,6 +5347,10 @@ body .rebuy-widget.widget-type-product-addon .rebuy-addon__item-product-title {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
+    order:3;
+}
+.rebuy-addon__item-product-options.rebuy-product-options {
+    order: 4;
 }
 .rebuy-widget.widget-type-product-addon .rebuy-addon__item+.rebuy-addon__item {
     margin-top: 8px !important;
