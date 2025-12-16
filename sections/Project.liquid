@@ -1348,9 +1348,55 @@ document.addEventListener('click', (e) => {
           }
         }
         product_options.forEach(function(option){
-         setTimeout(() => {
-            option.click();
-             }, 3000);
+             option.addEventListener('click', () => {
+      isUserInteracting = true;
+
+      const parentPanel = option.closest('.filter-options');
+      const value = option.dataset.value;
+
+      if (parentPanel.id === 'colour-options') {
+        selectedColour = value;
+      } else if (parentPanel.id === 'product-options') {
+        selectedProduct = value;
+      } else if (parentPanel.id === 'sort-options') {
+        selectedSort = value;
+      }
+      parentPanel.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
+      option.classList.add('active');
+      filterProducts();
+      if (parentPanel.id === 'colour-options') {
+        const queryString = window.location.search.substring(1);
+        const pairs = queryString.length ? queryString.split('&') : [];
+        const targetParam = 'filter.v.color';
+        const newValue = value; // your color value
+        let paramFound = false;
+        // Update if exists
+        const updatedPairs = pairs.map(pair => {
+            const [key] = pair.split('=');
+            if (key === targetParam) {
+                paramFound = true;
+                return `${targetParam}=${encodeURIComponent(newValue)}`;
+            }
+            return pair;
+        });
+        // Check if we need to add it
+        if (!paramFound) {
+            // Check if any "filter" detail exists
+            const hasOtherFilters = pairs.some(pair => pair.startsWith('filter.'));
+            if (hasOtherFilters) {
+                updatedPairs.push(`${targetParam}=${encodeURIComponent(newValue)}`);
+            }
+        }
+        // Update URL if changed
+        if (paramFound || updatedPairs.length !== pairs.length) {
+            const newQueryString = updatedPairs.join('&');
+            const newUrl = newQueryString ? `${window.location.pathname}?${newQueryString}` : window.location.pathname;
+            window.history.replaceState(null, '', newUrl);
+        }
+      }
+      customFiltered();
+    });
+
         });
           
         });
