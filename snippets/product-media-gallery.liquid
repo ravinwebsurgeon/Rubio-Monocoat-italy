@@ -914,7 +914,7 @@ document.querySelectorAll('.mobile-gallery .swiper .swiper-wrapper .swiper-slide
       mobileSwiper.update();
     }
 
-    {% comment %} // ✅ Reinit GLightbox for visible images only
+    // ✅ Reinit GLightbox for visible images only
     const visibleLinks = Array.from(document.querySelectorAll('.glightbox[data-type="image"]'))
       .filter(link => link.closest('.main-image-item, .thumbnail-item, .swiper-slide')?.style.display === 'block');
     if (window.activeLightbox) window.activeLightbox.destroy();
@@ -924,28 +924,8 @@ document.querySelectorAll('.mobile-gallery .swiper .swiper-wrapper .swiper-slide
       loop: true,
       zoomable: true,
       autoplayVideos: true,
-    }); {% endcomment %}
-
-
-      // Find all visible links
-  const visibleLinks = document.querySelectorAll('.glightbox[data-type="image"]');
-  visibleLinks.forEach(link => {
-    const parent = link.closest('.main-image-item, .thumbnail-item, .swiper-slide');
-    if (parent && parent.style.display === 'block') {
-      link.classList.add('glightbox-visible'); // mark as visible
-    } else {
-      link.classList.remove('glightbox-visible'); // remove mark if hidden
-    }
-  });
-
-  // Initialize GLightbox only on visible elements
-  window.activeLightbox = GLightbox({
-    selector: '.glightbox-visible', // string selector, works now
-    touchNavigation: true,
-    loop: true,
-    zoomable: true,
-    autoplayVideos: true,
-  });
+    });
+    
   }
 
   // Variant change listener
