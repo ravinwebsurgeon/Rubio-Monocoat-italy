@@ -41,6 +41,12 @@
             "question": "What is the minimum and maximum application temperature for DuroGrit?",
             "answer": "DuroGrit should be applied at temperatures between 10 °C and 30 °C. Do not apply the product below 10 °C or above 30 °C."
           }
+        },
+        "faq_item_FLVU8c": {
+          "settings": {
+            "question": "Is it really necessary to let new wood weather for 4–6 weeks before applying DuroGrit?",
+            "answer": "This is a recommendation rather than a strict requirement and mainly depends on the wood species. Some woods, such as fresh Cumaru, benefit from a few weeks of weathering to allow natural extractives to wash out, as these can weaken the coating. Other species, like pine or ipé, are usually less sensitive. We recommend testing your local wood species or sending samples to our laboratory to determine whether weathering is needed in your specific case."
+          }
         }
       }
     }
