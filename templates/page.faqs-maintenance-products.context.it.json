@@ -26,6 +26,14 @@
       "blocks": {
         "faq_item_bJ33cX": {
           "settings": {
+            "question": "How do I know when my oiled surface needs maintenance?",
+            "answer": "Signs of wear include visible walking zones, increased stain sensitivity or a surface that stays wet longer after cleaning. When this happens, the protective layer needs to be refreshed or restored."
+          }
+        },
+        "faq_item_ebK3zW": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
             "question": "How do I remove stains from wood?",
             "answer": "Many stains can be removed using Universal Soap, Surface Care, All Natural Wood Cleaner or All Natural Wood Cleaner Spray. For more stubborn stains, we offer specific solutions: Limespot Remover for limescale, Grease Remover for grease stains and Tannin Remover for black or tannin marks. If a stain has penetrated deeply into the wood, lightly sand the affected area and reapply oil locally."
           }
@@ -39,6 +47,7 @@
       },
       "block_order": [
         "faq_item_bJ33cX",
+        "faq_item_ebK3zW",
         "faq_item_iL8tcD"
       ]
     }
