@@ -12,5 +12,12 @@
   "context": {
     "market": "it"
   },
-  "sections": {}
+  "sections": {
+    "video_product_FcVMD6": {
+      "settings": {
+        "cart_icon": "shopify://shop_images/shopping-cart-light.svg"
+      },
+      "blocks": {}
+    }
+  }
 }
