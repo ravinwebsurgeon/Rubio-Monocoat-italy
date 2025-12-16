@@ -36,23 +36,23 @@
         },
         "column_nrCWd7": {
           "settings": {
-            "text": "Safe for you & your environment",
-            "icon_bg_color": "#ffffff",
-            "icon": "shopify://shop_images/icon-all-types.svg"
+            "icon": "shopify://shop_images/icon-all-types.svg",
+            "icon_bg_color": "#2f4f2f",
+            "text": "Safe for you & your environment"
           }
         },
         "column_UdPKcz": {
           "settings": {
-            "text": "Deep tones, natural look",
-            "icon_bg_color": "#ffffff",
-            "icon": "shopify://shop_images/icon-one-single-layer.svg"
+            "icon": "shopify://shop_images/icon-one-single-layer.svg",
+            "icon_bg_color": "#2f4f2f",
+            "text": "Deep tones, natural look"
           }
         },
         "column_yeAnfG": {
           "settings": {
             "icon": "shopify://shop_images/icon-all-types.svg",
-            "text": "Works on furniture, floors, walls & more",
-            "icon_bg_color": "#ffffff"
+            "icon_bg_color": "#ffffff",
+            "text": "Works on furniture, floors, walls & more"
           }
         }
       }
