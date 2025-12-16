@@ -1004,6 +1004,7 @@ document.addEventListener('click', (e) => {
   // --- Click on Filter Option ---
   document.querySelectorAll('.filter-options .option-btn').forEach(option => {
     option.addEventListener('click', () => {
+      console.log('debug start')
       const parentPanel = option.closest('.filter-options');
       const value = option.dataset.value;
 
