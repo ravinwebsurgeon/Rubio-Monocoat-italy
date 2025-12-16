@@ -1327,7 +1327,10 @@ document.addEventListener('click', (e) => {
 
         //select color option
         let color_main = document.getElementById('colour-options')
+        let product__main = document.getElementById('product-options')
         let color_options = color_main.querySelectorAll('.option-btn')
+        let product_options = product__main.querySelectorAll('.option-btn');
+
         color_options.forEach(function(option){
           let exist_color = option.getAttribute('data-value').toLowerCase();
           if(product_color == exist_color){
