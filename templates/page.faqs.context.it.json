@@ -20,16 +20,75 @@
           "disabled": true,
           "settings": {}
         },
-        "container_8J6tUi": {
-          "disabled": true,
-          "settings": {}
-        },
         "container_aYeRcN": {
           "settings": {
             "subtext": "info@rubiomonocoat.it"
           }
+        },
+        "container_8J6tUi": {
+          "disabled": true,
+          "settings": {}
         }
       }
+    },
+    "faqs_gnazct": {
+      "settings": {},
+      "blocks": {
+        "faq_item_YJHem": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "Example question here",
+            "answer": "Example answer text goes here. You can explain your FAQ answer here."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_bJ33cX",
+        "faq_item_iL8tcD",
+        "faq_item_nbkb4a",
+        "faq_item_YJHem",
+        "faq_item_FLVU8c",
+        "faq_item_ygJDgi"
+      ]
+    },
+    "faqs_mykm7": {
+      "type": "faqs",
+      "disabled": false,
+      "settings": {
+        "heading": "Frequently Asked Questions"
+      },
+      "blocks": {
+        "faq_item_TFcWe": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "Example question here",
+            "answer": "Example answer text goes here. You can explain your FAQ answer here."
+          }
+        },
+        "faq_item_jPUQX": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "Example question here",
+            "answer": "Example answer text goes here. You can explain your FAQ answer here."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_TFcWe",
+        "faq_item_jPUQX"
+      ],
+      "name": "FAQs section"
     }
-  }
+  },
+  "order": [
+    "main",
+    "custom_faq_banner_KWPV7V",
+    "faqs_gnazct",
+    "faqs_mykm7",
+    "icons_section_ry8Hx7",
+    "icons_section_Q84VnV"
+  ]
 }
