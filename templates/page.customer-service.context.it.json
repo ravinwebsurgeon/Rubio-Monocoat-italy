@@ -13,6 +13,16 @@
     "market": "it"
   },
   "sections": {
+    "image_block_with_button_w63mgR": {
+      "settings": {},
+      "blocks": {
+        "image_block_VK4FrP": {
+          "settings": {
+            "button_link": "shopify://pages/condizioni-generali"
+          }
+        }
+      }
+    },
     "contact_options_FYkrkp": {
       "settings": {
         "call_text": "",
@@ -35,12 +45,20 @@
         }
       }
     },
-    "image_block_with_button_w63mgR": {
+    "icons_section_rzewec": {
       "settings": {},
       "blocks": {
-        "image_block_VK4FrP": {
+        "container_wfiezd": {
+          "disabled": true,
+          "settings": {}
+        },
+        "container_LzapcD": {
+          "disabled": true,
+          "settings": {}
+        },
+        "container_bxqMjj": {
           "settings": {
-            "button_link": "shopify://pages/condizioni-generali"
+            "subtext": "info@rubiomonocoat.it"
           }
         }
       }
