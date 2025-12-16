@@ -1124,7 +1124,7 @@ document.addEventListener('click', (e) => {
         let products = document.querySelectorAll('.product-item')
         let productParents = document.querySelectorAll('.tab-products-wrap')
         products.forEach(p => p.style.display = '');
-        productParents.forEach(m => m.style.display = '';)
+        productParents.forEach(m => m.style.display = '');
          const params = new URLSearchParams(window.location.search);
        const hasFilters = Array.from(params.keys()).some(key => key.startsWith('filter.'));
         if(hasFilters){
