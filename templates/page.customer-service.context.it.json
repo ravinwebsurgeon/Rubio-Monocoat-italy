@@ -24,7 +24,8 @@
         },
         "image_block_6x34jJ": {
           "settings": {
-            "block_image": "shopify://shop_images/Untitled_design.svg"
+            "block_image": "shopify://shop_images/Untitled_design.svg",
+            "button_link": "shopify://pages/faqs-delivery"
           }
         },
         "image_block_VK4FrP": {
