@@ -1096,7 +1096,7 @@ document.addEventListener('DOMContentLoaded', function () {
 {% render 'custom-sticky-cart', product:product %}
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const productForm = document.querySelector('form[action="/cart/add"]');
+  {% comment %} const productForm = document.querySelector('form[action="/cart/add"]');
   if (!productForm) return;
   const variantIdInput = productForm.querySelector('input[name="id"]');
   // Global flag to track expanded state (i.e., if user clicked "See More")
@@ -1145,7 +1145,7 @@ document.addEventListener('DOMContentLoaded', () => {
     div.style.overflow = 'hidden';
   });
   // Insert button on page load if needed
-  insertButtonIfNeeded();
+  insertButtonIfNeeded(); {% endcomment %}
 
 
   //select variant if redirection from colour page
