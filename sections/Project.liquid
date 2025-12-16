@@ -1341,7 +1341,7 @@ document.addEventListener('click', (e) => {
           let exist_product = option.getAttribute('data-value').toLowerCase();
           color_main.style.display = 'none';
           console.log('clicked on');
-          const products = productsParent.querySelectorAll('.product-item');
+          const products = document.querySelectorAll('.product-item');
           products.forEach(product => {
             const productProducts = (product.dataset.products || '').split(',');
             const productMatch = !exist_product || productProducts.includes(exist_product);
