@@ -41,6 +41,12 @@
             "question": "How long do I have to return my products?",
             "answer": "After informing us of your withdrawal, you have up to 14 days to return the products. Please make sure the items are sent back without unnecessary delay."
           }
+        },
+        "faq_item_FLVU8c": {
+          "settings": {
+            "question": "Do I have to pay for return shipping?",
+            "answer": "No, return shipping costs are covered by us, so you can send your return back without additional shipping charges."
+          }
         }
       },
       "block_order": [
