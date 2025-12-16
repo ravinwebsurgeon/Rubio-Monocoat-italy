@@ -991,8 +991,6 @@ function updateVariantId(cart, variants, variantIdInput) {
       priceElement.textContent = formatPrice(foundVariant.price);
     }
     //Update Cart button Availablity
-     {% comment %} const maxStock = selectedVariant.inventory_quantity; {% endcomment %}
-    {% comment %} if(maxStock == 0){ button.classList.add('disabled-btn') }else{button.classList.remove('disabled-btn')} {% endcomment %}
     handleStockInventory(cart,foundVariant.id)
 
   } else {
