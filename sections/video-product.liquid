@@ -74,7 +74,7 @@
                     <img src="{{ block.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
                   </a>
                 {% endif %} {% endcomment %}
-                <a href="#" class="add-to-cart-btn {{ product.selected_or_first_available_variant.inventory_quantity }} {% if product.inventory_quantity == 0 %}disabled-btn {% endif %}" 
+                <a href="#" class="add-to-cart-btn {% if product.selected_or_first_available_variant.inventory_quantity  == 0 %}disabled-btn {% endif %}" 
                   data-variant-id="{{ product.selected_or_first_available_variant.id }}" 
                   {% if product.selected_or_first_available_variant.inventory_quantity == 0 %}disabled{% endif %}
                 >
