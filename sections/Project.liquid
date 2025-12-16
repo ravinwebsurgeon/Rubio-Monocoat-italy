@@ -1393,13 +1393,13 @@ document.addEventListener('click', (e) => {
             if (matchColor && matchTag) {product.style.display = 'block';}
             else {product.style.display = 'none';}
         })
+      }
         document.querySelectorAll('.tab-products-wrap').forEach(function(section) {
           console.log('is executed!!')
           const items = section.querySelectorAll('.product-item');
           const hasVisible = Array.from(items).some(item => item.style.display !== 'none');
           section.style.display = hasVisible ? 'block' : 'none';
-        });     
-      }
+        });
   }
 
 document.addEventListener("DOMContentLoaded", function() {
