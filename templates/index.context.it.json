@@ -29,7 +29,7 @@
       "blocks": {
         "column_zE9DFU": {
           "settings": {
-            "icon": "shopify://shop_images/icon-durable-protection_3.svg",
+            "icon": "shopify://shop_images/icon-one-single-layer.svg",
             "icon_bg_color": "#ffffff",
             "text": "Strong protection in just one coat"
           }
@@ -46,7 +46,8 @@
         },
         "column_yeAnfG": {
           "settings": {
-            "text": "Works on furniture, floors, walls & more"
+            "text": "Works on furniture, floors, walls & more",
+            "icon": "shopify://shop_images/icon-all-types.svg"
           }
         }
       }
