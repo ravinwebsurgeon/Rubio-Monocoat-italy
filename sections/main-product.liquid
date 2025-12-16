@@ -1096,15 +1096,6 @@ document.addEventListener('DOMContentLoaded', function () {
 {% render 'custom-sticky-cart', product:product %}
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  
-  // Initial render: hide content
-  const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
-  moreContentDivs.forEach(div => {
-    div.style.setProperty('display', 'none', 'important');
-    div.style.visibility = 'hidden';
-    div.style.overflow = 'hidden';
-  });
-  
   const productForm = document.querySelector('form[action="/cart/add"]');
   if (!productForm) return;
   const variantIdInput = productForm.querySelector('input[name="id"]');
@@ -1147,6 +1138,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   observer.observe(variantIdInput, { attributes: true, attributeFilter: ['value'] });
+
+  // Initial render: hide content
+  const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
+  moreContentDivs.forEach(div => {
+    div.style.setProperty('display', 'none', 'important');
+    div.style.visibility = 'hidden';
+    div.style.overflow = 'hidden';
+  });
 
   // Insert button on page load if needed
   insertButtonIfNeeded();
