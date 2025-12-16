@@ -59,6 +59,14 @@
             "question": "How do I remove pet urine stains from wood?",
             "answer": "If your wood has been treated with Oil Plus 2C, pet urine stains can be easily removed using the Tannin Remover."
           }
+        },
+        "faq_item_cbKqDG": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "How do I clean my outdoor wood if I see dirt or green deposits?",
+            "answer": "Clean the surface gently using low-pressure water and a soft brush. For more effective cleaning, you can use Exterior Soap, which is specifically designed for maintaining Rubio Monocoat-treated outdoor wood."
+          }
         }
       },
       "block_order": [
@@ -66,7 +74,8 @@
         "faq_item_AGHkYq",
         "faq_item_Dn7cze",
         "faq_item_ebK3zW",
-        "faq_item_iL8tcD"
+        "faq_item_iL8tcD",
+        "faq_item_cbKqDG"
       ]
     }
   }
