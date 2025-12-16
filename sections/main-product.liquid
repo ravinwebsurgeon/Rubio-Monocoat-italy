@@ -1096,7 +1096,7 @@ document.addEventListener('DOMContentLoaded', function () {
 {% render 'custom-sticky-cart', product:product %}
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const productForm = document.querySelector('form[action="/cart/add"]');
+  {% comment %} const productForm = document.querySelector('form[action="/cart/add"]');
   if (!productForm) return;
   const variantIdInput = productForm.querySelector('input[name="id"]');
   // Global flag to track expanded state (i.e., if user clicked "See More")
@@ -1148,7 +1148,93 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Insert button on page load if needed
-  insertButtonIfNeeded();
+  insertButtonIfNeeded(); {% endcomment %}
+
+  const productForm = document.querySelector('form[action="/cart/add"]');
+  if (!productForm) return;
+
+  const variantIdInput = productForm.querySelector('input[name="id"]');
+  if (!variantIdInput) return;
+
+  // Track expanded state
+  window.seeMoreExpanded = false;
+  let lastVariantId = variantIdInput.value;
+
+  /* =========================================
+     HELPERS
+  ========================================= */
+  function hideSeeMoreContent() {
+    document.querySelectorAll('.SeeMoreContent').forEach(function (div) {
+      div.style.setProperty('display', 'none', 'important');
+      div.style.visibility = 'hidden';
+      div.style.overflow = 'hidden';
+    });
+  }
+
+  function showSeeMoreContent() {
+    document.querySelectorAll('.SeeMoreContent').forEach(function (div) {
+      div.style.display = '';
+      div.style.visibility = 'visible';
+      div.style.overflow = 'visible';
+    });
+  }
+
+  function resetSeeMore() {
+    window.seeMoreExpanded = false;
+    hideSeeMoreContent();
+    insertButtonIfNeeded();
+  }
+
+  /* =========================================
+     VARIANT CHANGE OBSERVER
+  ========================================= */
+  const observer = new MutationObserver(function () {
+
+    if (variantIdInput.value === lastVariantId) return;
+
+    lastVariantId = variantIdInput.value;
+
+    /* ---- Update price (your existing logic) ---- */
+    if (window.Shopify && Shopify.product && Shopify.product.variants) {
+      const variant = Shopify.product.variants.find(v => v.id == lastVariantId);
+      if (variant) {
+        const currency = Shopify.currency.active || 'USD';
+        const formattedPrice = new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: currency
+        }).format(variant.price / 100);
+
+        const priceWrapper = document.querySelector('.custom_added_price');
+        const oldPrice = priceWrapper?.querySelector('.price-item--regular');
+        if (oldPrice) oldPrice.textContent = formattedPrice;
+      }
+    }
+
+    /* ---- IMPORTANT FIX ---- */
+    resetSeeMore(); // 🔥 Always collapse on variant change
+
+  });
+
+  observer.observe(variantIdInput, {
+    attributes: true,
+    attributeFilter: ['value']
+  });
+
+  /* =========================================
+     INITIAL STATE
+  ========================================= */
+  resetSeeMore();
+
+  /* =========================================
+     SEE MORE BUTTON CLICK
+  ========================================= */
+  document.addEventListener('click', function (e) {
+    if (!e.target.classList.contains('see-more-btn')) return;
+
+    window.seeMoreExpanded = true;
+    showSeeMoreContent();
+    e.target.remove(); // optional: remove button
+  });
 
   //select variant if redirection from colour page
 
