@@ -28,7 +28,8 @@
         },
         "image_block_VK4FrP": {
           "settings": {
-            "button_link": "shopify://pages/condizioni-generali"
+            "button_link": "shopify://pages/condizioni-generali",
+            "block_image": "shopify://shop_images/Untitled_design_-_2025-12-16T142011.967.png"
           }
         },
         "image_block_gK6EXi": {
@@ -44,6 +45,11 @@
         "image_block_eWaRwC": {
           "settings": {
             "block_image": "shopify://shop_images/Cleaning_maintenance.png"
+          }
+        },
+        "image_block_RfDBJw": {
+          "settings": {
+            "block_image": "shopify://shop_images/ecycle.png"
           }
         }
       }

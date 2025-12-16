@@ -1336,7 +1336,7 @@ document.addEventListener('click', (e) => {
         let color_options = color_main.querySelectorAll('.option-btn')
         let product_options = product__main.querySelectorAll('.option-btn');
         let productFilter = false;
-        product_options.forEach(function(option){
+        {% comment %} product_options.forEach(function(option){
          option.addEventListener("click", function() {
           let exist_product = option.getAttribute('data-value').toLowerCase();
           color_main.style.display = 'none';
@@ -1349,7 +1349,7 @@ document.addEventListener('click', (e) => {
             else{product.style.display ='none'}
          })
         })
-        })
+        }) {% endcomment %}
 
         color_options.forEach(function(option){
           let exist_color = option.getAttribute('data-value').toLowerCase();
