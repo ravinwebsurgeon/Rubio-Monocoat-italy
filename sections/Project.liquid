@@ -1277,6 +1277,7 @@ document.addEventListener('click', (e) => {
       let product_color='';
       let type = '';
       let surface = ''
+      let product_option = ''
       if(result.name){
         collection_name = result.name.toLowerCase();
         product_color = result.color.toLowerCase();
@@ -1284,6 +1285,8 @@ document.addEventListener('click', (e) => {
         if(result.surface) surface = result.surface;
       }
       if(result.color)   {product_color = result.color.toLowerCase();}
+      if(result.product){ product_option = result.product.toLowerCase(); }
+      if(product_option){console.log('found');}
 
       const reverseTranslationMap = {};
       for (let key in translationMap) {
