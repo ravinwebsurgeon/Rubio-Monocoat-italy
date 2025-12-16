@@ -1291,7 +1291,7 @@ document.addEventListener('click', (e) => {
         filtersPanel.classList.add('open')
         let product__main = document.getElementById('product-options')
         product__main.classList.add('active')
-        product__main.classList.style.display = 'flex'
+        product__main.style.display = 'flex'
         let product_options = product__main.querySelectorAll('.option-btn');
           product_options.forEach(function(option){
           let exist_option = option.getAttribute('data-value').toLowerCase();
