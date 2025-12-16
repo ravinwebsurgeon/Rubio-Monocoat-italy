@@ -1180,7 +1180,9 @@ document.addEventListener('click', (e) => {
       const colourMatch = !selectedColour || productColours.includes(selectedColour);
       const productMatch = !selectedProduct || productProducts.includes(selectedProduct);
       console.log(colourMatch,'colourMatch',productMatch,'productMatch')
-      product.style.display = (colourMatch && productMatch) ? '' : 'none';
+      if(colourMatch && productMatch){product.style.display  = ''}
+      else{product.style.display ='none'}
+      {% comment %} product.style.display = (colourMatch && productMatch) ? '' : 'none'; {% endcomment %}
     });
   }
  
