@@ -5352,15 +5352,21 @@ body .rebuy-widget.widget-type-product-addon .rebuy-addon__item-product-title {
 }
 .rebuy-addon__item-product-options.rebuy-product-options {
     order: 4;
+    font-weight: 300 !important;
+    font-family: 'Frutiger Neue LT W1G' !important;
 }
 .rebuy-widget.widget-type-product-addon .rebuy-addon__item+.rebuy-addon__item {
     margin-top: 8px !important;
 }
 .rebuy-widget.widget-type-product-addon .rebuy-addon__item-product-price {
     order: 2;
+    font-weight: 300 !important;
+    font-family: 'Frutiger Neue LT W1G' !important;
 }
 .rebuy-widget.widget-type-product-addon .rebuy-addon__item-learn-more {
     order: 5;
+    font-weight: 300 !important;
+    font-family: 'Frutiger Neue LT W1G' !important;
 }
 
 /* ==================  */
