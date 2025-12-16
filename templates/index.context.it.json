@@ -29,21 +29,21 @@
       "blocks": {
         "column_zE9DFU": {
           "settings": {
-            "icon": "shopify://shop_images/icon-one-single-layer.svg",
+            "icon": "shopify://shop_images/log-bold.svg",
             "icon_bg_color": "#ffffff",
             "text": "Strong protection in just one coat"
           }
         },
         "column_nrCWd7": {
           "settings": {
-            "icon": "shopify://shop_images/icon-all-types.svg",
+            "icon": "shopify://shop_images/park-bold.svg",
             "icon_bg_color": "#ffffff",
             "text": "Safe for you & your environment"
           }
         },
         "column_UdPKcz": {
           "settings": {
-            "icon": "shopify://shop_images/icon-one-single-layer.svg",
+            "icon": "shopify://shop_images/palette-bold.svg",
             "icon_bg_color": "#ffffff",
             "text": "Deep tones, natural look"
           }
