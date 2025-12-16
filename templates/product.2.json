@@ -341,6 +341,7 @@
       "blocks": {
         "container_NmmzwE": {
           "type": "container",
+          "disabled": true,
           "settings": {
             "class": "first-container-sec",
             "icon": "shopify://shop_images/phone_1.png",
@@ -357,7 +358,7 @@
             "icon": "shopify://shop_images/envelope.png",
             "heading": "Send us an email",
             "subhead": "",
-            "subtext": "rubio@monocoatusa.com",
+            "subtext": "info@rubiomonocoat.it",
             "extra_text": ""
           }
         },
@@ -374,6 +375,7 @@
         },
         "container_P7V4Ea": {
           "type": "container",
+          "disabled": true,
           "settings": {
             "class": "",
             "icon": "shopify://shop_images/chat.png",
