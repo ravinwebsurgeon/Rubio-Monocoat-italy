@@ -12,5 +12,24 @@
   "context": {
     "market": "it"
   },
-  "sections": {}
+  "sections": {
+    "icons_section_VtLtmN": {
+      "settings": {},
+      "blocks": {
+        "container_Ck6tyW": {
+          "disabled": true,
+          "settings": {}
+        },
+        "container_6a4eMq": {
+          "disabled": true,
+          "settings": {}
+        },
+        "container_Pcfrjg": {
+          "settings": {
+            "subtext": "info@rubiomonocoat.it"
+          }
+        }
+      }
+    }
+  }
 }

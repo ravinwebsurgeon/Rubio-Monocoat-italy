@@ -1172,7 +1172,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const receivedData = getCookie("myvariant");
   if(receivedData) selectVariant(receivedData)
 
-  {% comment %} //select bigger volume from variants on load page
+  //select bigger volume from variants on load page
  if (!window.Shopify || !window.Shopify.product) return;
   const product = window.Shopify.product;
   const PRODUCT_OPTION_MAP = {
@@ -1204,54 +1204,8 @@ document.addEventListener('DOMContentLoaded', () => {
       option.dispatchEvent(new Event('change', { bubbles: true }));
       console.log('Matched volume:', normalizedTarget[0]);
     }
-  }); {% endcomment %}
-
-});
-window.addEventListener('load', function() {
-  // Make sure Shopify product object exists
-  if (!window.Shopify || !window.Shopify.product) return;
-
-  const product = window.Shopify.product;
-
-  // Map of product handles to target volumes
-  const PRODUCT_OPTION_MAP = {
-    'oil-plus-2c': '1.3 L',
-    'durogrit-1': '1 L'
-  };
-
-  const targetOption = PRODUCT_OPTION_MAP[product.handle];
-  if (!targetOption) return;
-
-  // Normalize volume strings like "1,3 L" or "500 ml" -> "1.3l", "500ml"
-  const normalizeVolume = (value) => {
-    if (!value) return null;
-    const match = value
-      .toString()
-      .toLowerCase()
-      .replace(',', '.')
-      .replace(/\s+/g, '')     // remove spaces
-      .match(/[\d.]+(ml|l)/);  // extract "1.3l" or "500ml"
-    return match;
-  };
-
-  const normalizedTarget = normalizeVolume(targetOption);
-  if (!normalizedTarget) return;
-
-  // Select all variant inputs (assuming swatch-input__input class)
-  const options = document.querySelectorAll('.swatch-input__input');
-
-  options.forEach(option => {
-    if (option.disabled) return;
-    const normalizedOption = normalizeVolume(option.value);
-    if (!normalizedOption) return;
-
-    // Match the target volume and select it
-    if (normalizedOption[0] === normalizedTarget[0]) {
-      option.checked = true;
-      option.dispatchEvent(new Event('change', { bubbles: true }));
-      console.log('Matched volume:', normalizedTarget[0]);
-    }
   });
+  
 });
 
 </script>
