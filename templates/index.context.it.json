@@ -29,7 +29,9 @@
       "blocks": {
         "column_zE9DFU": {
           "settings": {
-            "text": "Strong protection in just one coat"
+            "text": "Strong protection in just one coat",
+            "icon_bg_color": "#ffffff",
+            "icon": "shopify://shop_images/paint-brush-broad-duotone.svg"
           }
         },
         "column_nrCWd7": {
