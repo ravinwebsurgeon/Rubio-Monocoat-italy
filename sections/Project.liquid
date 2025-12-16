@@ -1020,7 +1020,7 @@ document.addEventListener('click', (e) => {
       filterProducts();
      const queryString = window.location.search.substring(1);
      const pairs = queryString.length ? queryString.split('&') : [];
-
+      console.log('check querystring')
       const targetParam = 'filter.v.color';
       const newValue = value; // your color value
       let paramFound = false;
