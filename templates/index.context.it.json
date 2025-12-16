@@ -30,14 +30,14 @@
         "column_zE9DFU": {
           "settings": {
             "icon": "shopify://shop_images/icon-one-single-layer.svg",
-            "icon_bg_color": "#ffffff",
+            "icon_bg_color": "#2f4f2f",
             "text": "Strong protection in just one coat"
           }
         },
         "column_nrCWd7": {
           "settings": {
             "icon": "shopify://shop_images/icon-all-types.svg",
-            "icon_bg_color": "#183029",
+            "icon_bg_color": "#2f4f2f",
             "text": "Safe for you & your environment"
           }
         },
