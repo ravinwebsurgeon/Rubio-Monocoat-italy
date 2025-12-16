@@ -18,12 +18,22 @@
       "blocks": {
         "image_block_fcQDc7": {
           "settings": {
-            "block_image": "shopify://shop_images/Untitled_design_98.png"
+            "block_image": "shopify://shop_images/Untitled_design_98.webp"
+          }
+        },
+        "image_block_6x34jJ": {
+          "settings": {
+            "block_image": "shopify://shop_images/Untitled_design.svg"
           }
         },
         "image_block_VK4FrP": {
           "settings": {
             "button_link": "shopify://pages/condizioni-generali"
+          }
+        },
+        "image_block_gK6EXi": {
+          "settings": {
+            "block_image": "shopify://shop_images/Oil_Plus_2C_-_project_4.png"
           }
         },
         "image_block_rFNrHV": {
@@ -34,16 +44,6 @@
         "image_block_eWaRwC": {
           "settings": {
             "block_image": "shopify://shop_images/Cleaning_maintenance.png"
-          }
-        },
-        "image_block_gK6EXi": {
-          "settings": {
-            "block_image": "shopify://shop_images/Oil_Plus_2C_-_project_4.png"
-          }
-        },
-        "image_block_6x34jJ": {
-          "settings": {
-            "block_image": "shopify://shop_images/Untitled_design_99.png"
           }
         }
       }
