@@ -81,7 +81,7 @@
           "settings": {
             "block_image": "shopify://shop_images/width_200.jpg",
             "button_text": "Maintenance products",
-            "button_link": ""
+            "button_link": "shopify://collections/maintenance"
           }
         }
       },
