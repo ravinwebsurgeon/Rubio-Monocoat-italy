@@ -1014,7 +1014,6 @@ document.addEventListener('click', (e) => {
       } else if (parentPanel.id === 'sort-options') {
         selectedSort = value;
       }
-      console.log('clicked on product option ')
       parentPanel.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
       option.classList.add('active');
       filterProducts();
@@ -1136,6 +1135,7 @@ document.addEventListener('click', (e) => {
 
   // --- Filtering ---
   function filterProducts() {
+        console.log('filterProduts Start??')  
     const circleActive = document.querySelector('.circle-tab.active');
     const interior_active = document.querySelector('.Interio.active');
     const exterior_active = document.querySelector('.exterior-main.surface-toggle.active');
