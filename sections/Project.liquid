@@ -1179,7 +1179,7 @@ document.addEventListener('click', (e) => {
 
       const colourMatch = !selectedColour || productColours.includes(selectedColour);
       const productMatch = !selectedProduct || productProducts.includes(selectedProduct);
-
+      console.log(colourMatch,'colourMatch',productMatch,'productMatch')
       product.style.display = (colourMatch && productMatch) ? '' : 'none';
     });
   }
