@@ -366,7 +366,7 @@
 </style>
 
 <script>
-document.querySelectorAll('.card-wrapper').forEach(card => {
+{% comment %} document.querySelectorAll('.card-wrapper').forEach(card => {
   // Trigger update on page load
   updateCardImages(card);
   const productJsonEl = card.querySelector(".product-json");
@@ -384,11 +384,8 @@ document.querySelectorAll('.card-wrapper').forEach(card => {
       updateCardImages(card)
     });
   });
-});
+}); {% endcomment %}
 
-  {% comment %} function normalizeValue(val) {
-    return val.trim().toLowerCase();
-  } {% endcomment %}
 
   function normalizeValue(val) {
     return val
@@ -408,7 +405,7 @@ document.querySelectorAll('.card-wrapper').forEach(card => {
     return selected;
   }
 
-  function updateCardImages(card) {
+  {% comment %} function updateCardImages(card) {
     const mediaBlocks = card.querySelectorAll(".product__media");
     const selectedOptions = getSelectedOptions(card);
     let matched = null;
@@ -444,7 +441,7 @@ document.querySelectorAll('.card-wrapper').forEach(card => {
     if (mediaBlocks.length > 0) {
     mediaBlocks[0].style.display = "block";
    }
-  }
+  } {% endcomment %}
 </script>
 
 
@@ -462,7 +459,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const productData = JSON.parse(productJsonEl.textContent);
 
   // 🔹 Function to handle variant stock check
-    function handleVariantStock(variant) {
+    {% comment %} function handleVariantStock(variant) {
       if (!variant) return;
       const qty = variant.inventory_quantity || 0;
       const canContinue = variant.inventory_policy === "continue";
@@ -473,15 +470,16 @@ document.addEventListener("DOMContentLoaded", () => {
         addToCartBtn.classList.add("disabled-btn");
         addToCartBtn.disabled = true;
       }
-    }
-    function updateCardPrice(matchedVariant,card){
+    } {% endcomment %}
+
+    {% comment %} function updateCardPrice(matchedVariant,card){
     const formattedPrice = formatPrice(matchedVariant.price)
     card.querySelector('.price-item').textContent =  formattedPrice
 
-    }
+    } {% endcomment %}
 
     // Handle color swatch selection
-    colorSwatches.forEach(swatch => {
+    {% comment %} colorSwatches.forEach(swatch => {
       swatch.addEventListener("change", () => {
         const selectedOptions = getSelectedOptions(card);
         const matchedVariant = findVariant(productData, selectedOptions);
@@ -491,10 +489,10 @@ document.addEventListener("DOMContentLoaded", () => {
           updateCardPrice(matchedVariant,card);
         }
       });
-    });
+    }); {% endcomment %}
 
     // Handle dropdown variant change
-    selects.forEach(select => {
+    {% comment %} selects.forEach(select => {
       select.addEventListener("change", () => {
         const selectedOptions = getSelectedOptions(card);
         const matchedVariant = findVariant(productData, selectedOptions);
@@ -504,7 +502,7 @@ document.addEventListener("DOMContentLoaded", () => {
           updateCardPrice(matchedVariant,card);
         }
       });
-    });
+    }); {% endcomment %}
 
     // Utility functions
     function getSelectedOptions(wrapper) {
