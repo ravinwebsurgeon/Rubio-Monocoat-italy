@@ -1180,7 +1180,7 @@ document.addEventListener('click', (e) => {
       const colourMatch = !selectedColour || productColours.includes(selectedColour);
       const productMatch = !selectedProduct || productProducts.includes(selectedProduct);
       console.log(colourMatch,'colourMatch',productMatch,'productMatch')
-      if(colourMatch && productMatch){product.style.display  = '';}
+      if(colourMatch && productMatch){product.style.display  = ''; }
       else{product.style.display ='none'}
       {% comment %} product.style.display = (colourMatch && productMatch) ? '' : 'none'; {% endcomment %}
     });
@@ -1338,10 +1338,17 @@ document.addEventListener('click', (e) => {
         let productFilter = false;
         product_options.forEach(function(option){
          option.addEventListener("click", function() {
+          let exist_product = option.getAttribute('data-value').toLowerCase();
           color_main.style.display = 'none';
           console.log('clicked on');
-          productFilter = true
+          const products = productsParent.querySelectorAll('.product-item');
+          products.forEach(product => {
+            const productProducts = (product.dataset.products || '').split(',');
+            const productMatch = !exist_product || productProducts.includes(exist_product);
+            if(productMatch){product.style.display  = ''; }
+            else{product.style.display ='none'}
          })
+        })
         })
 
         color_options.forEach(function(option){
