@@ -1049,7 +1049,7 @@ document.addEventListener('click', (e) => {
             window.history.replaceState(null, '', newUrl);
         }
       }
-      customFiltered();
+      customFiltered(true);
     });
   });
 
@@ -1109,7 +1109,7 @@ document.addEventListener('click', (e) => {
           const newUrl = newQueryString ? `${window.location.pathname}?${newQueryString}` : window.location.pathname;
           window.history.replaceState(null, '', newUrl);
       }
-      customFiltered()
+      customFiltered(true)
       if ((interior_active || exterior_active) && !circleActive) {
           const productsParent = document.querySelector(
               interior_active
@@ -1235,7 +1235,7 @@ document.addEventListener('click', (e) => {
         circleTabsOuter?.classList.add('show-section');
     }
 
-  function customFiltered(){
+  function customFiltered(true){
       // Detect current language
       let currentLang = 'en';
       const pathParts = window.location.pathname.split('/');
@@ -1407,7 +1407,7 @@ document.addEventListener('click', (e) => {
 
 document.addEventListener("DOMContentLoaded", function() {
   //onload if fiter avail in url
-  customFiltered();
+  customFiltered(true);
   //end avil filter code  
 
   // Sections
@@ -1498,7 +1498,7 @@ document.addEventListener("DOMContentLoaded", function() {
         interiorBtn.classList.add("active");
         tabs_outer.classList.add('interior')
         tabs_outer.classList.remove('exterior') 
-        customFiltered();   
+        customFiltered(true);   
     });
 
   // -------------------------------
@@ -1581,7 +1581,7 @@ document.addEventListener("DOMContentLoaded", function() {
     circleTabs.forEach(t => t.classList.remove("active"));
      const collectionHandle = "exterior"; // or dynamically set handle
       renderTabs(collectionHandle)
-      customFiltered();
+      customFiltered(true);
   });
 
   // -------------------------------
@@ -1640,7 +1640,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 ? `${window.location.pathname}?${newQueryString}`
                 : window.location.pathname;
         window.history.replaceState(null, '', newUrl); 
-                customFiltered();
+                customFiltered(true);
     });
   });
    
@@ -1701,7 +1701,7 @@ document.addEventListener("click", function(e) {
       const newUrl = `${window.location.pathname}?${newQueryString}`;
       window.history.replaceState(null, '', newUrl);
     } 
-    customFiltered();
+    customFiltered(true);
   }
 });
 });
