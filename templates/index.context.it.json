@@ -41,8 +41,27 @@
           "settings": {
             "text": "Deep tones, natural look"
           }
+        },
+        "column_yeAnfG": {
+          "settings": {
+            "text": "Works on furniture, floors, walls & more"
+          }
         }
       }
+    },
+    "custom_collection_NPiKyw": {
+      "custom_css": [
+        ".custom-collections-section {background-color: #f0f4f2;}",
+        ".custom-collections-section img {border-radius: 10px;}"
+      ],
+      "settings": {},
+      "blocks": {}
+    },
+    "video_products_home_8dwaBA": {
+      "settings": {
+        "section_background_color": "#ffffff"
+      },
+      "blocks": {}
     }
   }
 }
