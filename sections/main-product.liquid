@@ -1138,7 +1138,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   observer.observe(variantIdInput, { attributes: true, attributeFilter: ['value'] });
-
   // Initial render: hide content
   const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
   moreContentDivs.forEach(div => {
@@ -1146,12 +1145,11 @@ document.addEventListener('DOMContentLoaded', () => {
     div.style.visibility = 'hidden';
     div.style.overflow = 'hidden';
   });
-
   // Insert button on page load if needed
   insertButtonIfNeeded();
 
-  //select variant if redirection from colour page
 
+  //select variant if redirection from colour page
   function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
@@ -1175,7 +1173,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const receivedData = getCookie("myvariant");
   if(receivedData) selectVariant(receivedData)
 
-  //select bigger volumne from variants on load page
+  {% comment %} //select bigger volumne from variants on load page
  if (!window.Shopify || !window.Shopify.product) return;
   const product = window.Shopify.product;
   const PRODUCT_OPTION_MAP = {
@@ -1207,7 +1205,7 @@ document.addEventListener('DOMContentLoaded', () => {
       option.dispatchEvent(new Event('change', { bubbles: true }));
       console.log('Matched volume:', normalizedTarget[0]);
     }
-  });
+  }); {% endcomment %}
 
 
     {% comment %} function getVolumeValue(value) {
