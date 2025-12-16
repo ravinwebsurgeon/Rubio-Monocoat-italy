@@ -1389,11 +1389,14 @@ document.addEventListener('click', (e) => {
             else {product.style.display = 'none';}
         })
       }
+      let checkActive = document.querySelector('.Interio');
+      if (checkActive && !checkActive.classList.contains('active')){
         document.querySelectorAll('.tab-products-wrap').forEach(function(section) {
           const items = section.querySelectorAll('.product-item');
           const hasVisible = Array.from(items).some(item => item.style.display !== 'none');
           section.style.display = hasVisible ? 'block' : 'none';
         });
+      }
   }
 
 document.addEventListener("DOMContentLoaded", function() {
