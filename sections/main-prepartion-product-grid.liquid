@@ -925,7 +925,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function updateVariantId(cart, variants, variantIdInput) {
   const selectedOptions = [];
   const optionGroups = cart.querySelectorAll("[data-index^='option']");
-  const add_button = cart.quesySelector('.product_cart_btn.ajax__cart ')
+  const add_button = cart.querySelector('.product_cart_btn.ajax__cart')
 
   // Loop through each option group
   optionGroups.forEach(group => {
