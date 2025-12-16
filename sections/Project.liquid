@@ -1014,11 +1014,10 @@ document.addEventListener('click', (e) => {
       } else if (parentPanel.id === 'sort-options') {
         selectedSort = value;
       }
-
+      console.log('clicked on product option ')
       parentPanel.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
       option.classList.add('active');
       filterProducts();
-      customFiltered();
      const queryString = window.location.search.substring(1);
      const pairs = queryString.length ? queryString.split('&') : [];
 
