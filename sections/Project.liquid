@@ -1287,7 +1287,6 @@ document.addEventListener('click', (e) => {
       if(result.color)   {product_color = result.color.toLowerCase();}
       if(result.product){ product_option = result.product.toLowerCase(); }
       if(product_option){
-        console.log(product_option,'product_option')
         let product__main = document.getElementById('product-options')
         let product_options = product__main.querySelectorAll('.option-btn');
           product_options.forEach(function(option){
@@ -1300,7 +1299,6 @@ document.addEventListener('click', (e) => {
              all_products.forEach(function(product){
             let productdata = product.dataset.products || '';
             const value = productdata.toLowerCase().replace(/ /g, '-');
-            console.log(value,'value')
             if (value == product_option) {product.style.display = 'block';}
             else {product.style.display = 'none';}
         })
