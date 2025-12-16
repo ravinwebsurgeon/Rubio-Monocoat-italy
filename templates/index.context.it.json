@@ -62,6 +62,12 @@
         "section_background_color": "#ffffff"
       },
       "blocks": {}
+    },
+    "two_color_grid_ifntXn": {
+      "settings": {
+        "heading": "Popular Interior Colours"
+      },
+      "blocks": {}
     }
   }
 }
