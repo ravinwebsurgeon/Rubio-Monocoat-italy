@@ -24,6 +24,14 @@
         "heading": ""
       },
       "blocks": {
+        "faq_item_JmwFm": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "Can DuroGrit colours be mixed?",
+            "answer": "In theory, DuroGrit colours can be mixed. However, these custom mixes may not offer the same level of long-lasting protection as our standard colours and may fade more quickly. As these combinations have not been tested in our laboratory, we cannot guarantee their durability."
+          }
+        },
         "faq_item_bJ33cX": {
           "settings": {
             "question": "Does applying a second coat of DuroGrit provide better protection or a deeper colour?",
@@ -87,7 +95,8 @@
         "faq_item_ygJDgi",
         "faq_item_f6GXB",
         "faq_item_Y7XMH",
-        "faq_item_6ejn7"
+        "faq_item_6ejn7",
+        "faq_item_JmwFm"
       ]
     }
   }
