@@ -1460,8 +1460,8 @@ footer .footer-block__brand-info .footer__list-social.list-social li:nth-of-type
 }
 .product-icons a svg {
     display: block;
-    height: 34px;
-    width: 34px;
+    height: 36px;
+    width: 36px;
 }
 
 .product-icons a svg text {
