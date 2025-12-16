@@ -23,7 +23,14 @@
       "settings": {
         "heading": ""
       },
-      "blocks": {}
+      "blocks": {
+        "faq_item_bJ33cX": {
+          "settings": {
+            "question": "How do I remove stains from wood?",
+            "answer": "Many stains can be removed using Universal Soap, Surface Care, All Natural Wood Cleaner or All Natural Wood Cleaner Spray. For more stubborn stains, we offer specific solutions: Limespot Remover for limescale, Grease Remover for grease stains and Tannin Remover for black or tannin marks. If a stain has penetrated deeply into the wood, lightly sand the affected area and reapply oil locally."
+          }
+        }
+      }
     }
   }
 }
