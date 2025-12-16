@@ -35,6 +35,12 @@
             "question": "How can I remove overlap marks when applying DuroGrit?",
             "answer": "Small imperfections can be corrected within about 15 minutes of application, depending on the weather. While the surface is still wet, apply a small amount of DuroGrit with a brush and use light pressure to blend it into the existing layer, then smooth it out evenly. If the surface has already dried, lightly sand the overlap by hand in the direction of the wood grain and apply a small amount of fresh product. This is best done before the product has fully cured, rather than several days later."
           }
+        },
+        "faq_item_nbkb4a": {
+          "settings": {
+            "question": "What is the minimum and maximum application temperature for DuroGrit?",
+            "answer": "DuroGrit should be applied at temperatures between 10 °C and 30 °C. Do not apply the product below 10 °C or above 30 °C."
+          }
         }
       }
     }
