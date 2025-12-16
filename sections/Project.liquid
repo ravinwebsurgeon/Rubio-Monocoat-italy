@@ -1295,6 +1295,13 @@ document.addEventListener('click', (e) => {
             option.classList.add('active')
           } 
         });
+        let all_products = document.querySelectorAll('.product-item')
+             all_products.forEach(function(product){
+            let productdata = product.dataset.products || '';
+            const value = productdata.toLowerCase().replace(/ /g, '-');
+            if (value == product_option) {product.style.display = 'block';}
+            else {product.style.display = 'none';}
+        })
       }
 
       const reverseTranslationMap = {};
