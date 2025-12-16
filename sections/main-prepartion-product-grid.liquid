@@ -949,11 +949,8 @@ function updateVariantId(cart, variants, variantIdInput) {
   const priceElement = cart.querySelector(".product__price");
 
   if (foundVariant) {
-    // Update hidden variant ID input
     variantIdInput.value = foundVariant.id;
     console.log("Variant matched:", foundVariant.id, foundVariant);
-
-    // Update product images
     const allImages = cart.querySelectorAll(".product__image__item");
      {% comment %} const allMedia = cart.querySelectorAll(".product__image__item, .product__video__item"); {% endcomment %}
 
