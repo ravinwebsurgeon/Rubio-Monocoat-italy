@@ -1049,7 +1049,7 @@ document.addEventListener('click', (e) => {
             window.history.replaceState(null, '', newUrl);
         }
       }
-      customFiltered(true);
+      customFiltered();
     });
   });
 
@@ -1109,7 +1109,7 @@ document.addEventListener('click', (e) => {
           const newUrl = newQueryString ? `${window.location.pathname}?${newQueryString}` : window.location.pathname;
           window.history.replaceState(null, '', newUrl);
       }
-      customFiltered(true)
+      customFiltered()
       if ((interior_active || exterior_active) && !circleActive) {
           const productsParent = document.querySelector(
               interior_active
@@ -1235,7 +1235,7 @@ document.addEventListener('click', (e) => {
         circleTabsOuter?.classList.add('show-section');
     }
 
-  function customFiltered(true){
+  function customFiltered(){
       // Detect current language
       let currentLang = 'en';
       const pathParts = window.location.pathname.split('/');
@@ -1335,7 +1335,7 @@ document.addEventListener('click', (e) => {
 
         color_options.forEach(function(option){
           let exist_color = option.getAttribute('data-value').toLowerCase();
-          if(product_color == exist_color && isUserInteracting){ 
+          if(product_color == exist_color && isUserInteracting){
             option.classList.add('active')
              {% comment %} option.dispatchEvent(new Event('change', { bubbles: true })); {% endcomment %}
           } else{
@@ -1407,7 +1407,7 @@ document.addEventListener('click', (e) => {
 
 document.addEventListener("DOMContentLoaded", function() {
   //onload if fiter avail in url
-  customFiltered(true);
+  customFiltered();
   //end avil filter code  
 
   // Sections
@@ -1498,7 +1498,7 @@ document.addEventListener("DOMContentLoaded", function() {
         interiorBtn.classList.add("active");
         tabs_outer.classList.add('interior')
         tabs_outer.classList.remove('exterior') 
-        customFiltered(true);   
+        customFiltered();   
     });
 
   // -------------------------------
@@ -1581,7 +1581,7 @@ document.addEventListener("DOMContentLoaded", function() {
     circleTabs.forEach(t => t.classList.remove("active"));
      const collectionHandle = "exterior"; // or dynamically set handle
       renderTabs(collectionHandle)
-      customFiltered(true);
+      customFiltered();
   });
 
   // -------------------------------
@@ -1640,7 +1640,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 ? `${window.location.pathname}?${newQueryString}`
                 : window.location.pathname;
         window.history.replaceState(null, '', newUrl); 
-                customFiltered(true);
+                customFiltered();
     });
   });
    
@@ -1701,7 +1701,7 @@ document.addEventListener("click", function(e) {
       const newUrl = `${window.location.pathname}?${newQueryString}`;
       window.history.replaceState(null, '', newUrl);
     } 
-    customFiltered(true);
+    customFiltered();
   }
 });
 });
