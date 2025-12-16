@@ -1332,10 +1332,18 @@ document.addEventListener('click', (e) => {
         let product__main = document.getElementById('product-options')
         let color_options = color_main.querySelectorAll('.option-btn')
         let product_options = product__main.querySelectorAll('.option-btn');
+        let productFilter = false;
+        product_options.forEach(function(option){
+         option.addEventListener("click", function() {
+          color_main.style.display = 'none';
+          console.log('clicked on');
+          productFilter = true
+         })
+        })
 
         color_options.forEach(function(option){
           let exist_color = option.getAttribute('data-value').toLowerCase();
-          if(product_color == exist_color){
+          if(product_color == exist_color && !productFilter){
             option.classList.add('active')
              {% comment %} option.dispatchEvent(new Event('change', { bubbles: true })); {% endcomment %}
           } else{
@@ -1349,12 +1357,7 @@ document.addEventListener('click', (e) => {
         }
           
         });
-        product_options.forEach(function(option){
-         option.addEventListener("click", function() {
-          color_main.style.display = 'none';
-          console.log('clicked on')
-         })
-        })
+   
         document.querySelector('.filters-panel').classList.add('open')
         color_main.style.display = 'flex';
 
