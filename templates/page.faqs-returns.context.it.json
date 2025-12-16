@@ -47,6 +47,12 @@
             "question": "Do I have to pay for return shipping?",
             "answer": "No, return shipping costs are covered by us, so you can send your return back without additional shipping charges."
           }
+        },
+        "faq_item_ygJDgi": {
+          "settings": {
+            "question": "When and how will I receive my refund?",
+            "answer": "Once we receive your return, we will process your refund within 14 days. In some cases, we may wait until the products have arrived or until you provide proof of shipment. Refunds are always made using the same payment method you used for your original purchase."
+          }
         }
       },
       "block_order": [
