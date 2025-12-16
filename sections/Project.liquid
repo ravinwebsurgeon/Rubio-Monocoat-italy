@@ -1347,6 +1347,11 @@ document.addEventListener('click', (e) => {
              }, 3000);
           }
         }
+        product_options.forEach(function(option){
+         setTimeout(() => {
+            option.click();
+             }, 3000);
+        });
           
         });
         document.querySelector('.filters-panel').classList.add('open')
