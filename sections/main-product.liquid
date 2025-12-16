@@ -1175,7 +1175,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const receivedData = getCookie("myvariant");
   if(receivedData) selectVariant(receivedData)
-
+{% comment %} 
   //select bigger volumne from variants on load page
  if (!window.Shopify || !window.Shopify.product) return;
   const product = window.Shopify.product;
@@ -1208,7 +1208,7 @@ document.addEventListener('DOMContentLoaded', () => {
       option.dispatchEvent(new Event('change', { bubbles: true }));
       console.log('Matched volume:', normalizedTarget[0]);
     }
-  });
+  }); {% endcomment %}
 
 
     {% comment %} function getVolumeValue(value) {
