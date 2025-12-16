@@ -43,14 +43,14 @@
         },
         "column_UdPKcz": {
           "settings": {
-            "icon": "shopify://shop_images/palette-bold.svg",
+            "icon": "shopify://shop_images/icon-colours-look-feel-black_1.svg",
             "icon_bg_color": "#ffffff",
             "text": "Deep tones, natural look"
           }
         },
         "column_yeAnfG": {
           "settings": {
-            "icon": "shopify://shop_images/icon-colours-look-feel-black_1.svg",
+            "icon": "shopify://shop_images/icon-all-types_1_1.svg",
             "icon_bg_color": "#ffffff",
             "text": "Works on furniture, floors, walls & more"
           }
