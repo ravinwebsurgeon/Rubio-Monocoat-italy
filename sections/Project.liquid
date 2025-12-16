@@ -1290,6 +1290,8 @@ document.addEventListener('click', (e) => {
         let filtersPanel = document.querySelector('.filters-panel')
         filtersPanel.classList.add('open')
         let product__main = document.getElementById('product-options')
+        let colrs_main = document.getElementById('colour-options')
+        colrs_main.style.display = 'none'
         product__main.classList.add('active')
         product__main.style.display = 'flex'
         let product_options = product__main.querySelectorAll('.option-btn');
