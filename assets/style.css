@@ -5329,6 +5329,7 @@ body .custom-info-text {
 }
 body .rebuy-widget.widget-type-product-addon .rebuy-addon__item-product-title {
     font-size: 14px;
+    order: 1;
 }
 .rebuy-widget.widget-type-product-addon .rebuy-addon__item-info {
     text-align: left;
@@ -5354,6 +5355,9 @@ body .rebuy-widget.widget-type-product-addon .rebuy-addon__item-product-title {
 }
 .rebuy-widget.widget-type-product-addon .rebuy-addon__item+.rebuy-addon__item {
     margin-top: 8px !important;
+}
+.rebuy-widget.widget-type-product-addon .rebuy-addon__item-product-price {
+    order: 2;
 }
 
 
