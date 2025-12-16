@@ -1155,11 +1155,12 @@ document.addEventListener('click', (e) => {
     // `nothingActive` means none are active
     const nothingActive = activeCount === 0;
     let productsParent;
-    console.log('parent check')
 
     // ✅ Mode 1 — No tab active → get ALL products on the page
     if (nothingActive) {
       productsParent = document; // search whole DOM
+    console.log('parent check DOM')
+
     }
     // ✅ Mode 2 — Normal behaviour
     else {
@@ -1168,6 +1169,8 @@ document.addEventListener('click', (e) => {
           ? '.tab-products-wrap.Interior-wrap'
           : '.tab-products-wrap.Exterior-wrap'
       );
+    console.log('parent check ACTIVE')
+      
     }
 
     const products = productsParent.querySelectorAll('.product-item');
