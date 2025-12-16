@@ -38,8 +38,8 @@
         "column_zE9DFU": {
           "type": "column",
           "settings": {
-            "icon": "shopify://shop_images/Layers.png",
-            "icon_bg_color": "#183029",
+            "icon": "shopify://shop_images/icon-one-single-layer_1_1.svg",
+            "icon_bg_color": "#ffffff",
             "icon_wrap_width": "90px",
             "icon_wrap_height": "90px",
             "icon_wrap_width_mobile": "64px",
@@ -52,7 +52,7 @@
             "heading_color": "#000000",
             "heading_font_size": "20px",
             "heading_font_size_mobile": "16px",
-            "text": "Thanks to our molecular bonding technology",
+            "text": "Strong protection in just one coat",
             "text_color": "#333333",
             "text_font_size": "16px",
             "text_font_size_mobile": "14px"
@@ -61,8 +61,8 @@
         "column_nrCWd7": {
           "type": "column",
           "settings": {
-            "icon": "shopify://shop_images/Mortar_1.png",
-            "icon_bg_color": "#183029",
+            "icon": "shopify://shop_images/icon-no-VOCs_1.svg",
+            "icon_bg_color": "#ffffff",
             "icon_wrap_width": "90px",
             "icon_wrap_height": "90px",
             "icon_wrap_width_mobile": "64px",
@@ -75,7 +75,7 @@
             "heading_color": "#000000",
             "heading_font_size": "20px",
             "heading_font_size_mobile": "16px",
-            "text": "Safe for you & yourenvironment",
+            "text": "Safe for you & your evironment",
             "text_color": "#333333",
             "text_font_size": "16px",
             "text_font_size_mobile": "14px"
@@ -84,8 +84,8 @@
         "column_UdPKcz": {
           "type": "column",
           "settings": {
-            "icon": "shopify://shop_images/Pantone_1.png",
-            "icon_bg_color": "#183029",
+            "icon": "shopify://shop_images/icon-colours-look-feel-black_1.svg",
+            "icon_bg_color": "#ffffff",
             "icon_wrap_width": "90px",
             "icon_wrap_height": "90px",
             "icon_wrap_width_mobile": "64px",
@@ -98,7 +98,7 @@
             "heading_color": "#000000",
             "heading_font_size": "20px",
             "heading_font_size_mobile": "16px",
-            "text": "Intense colouring without loosing the natural look & feel of wood",
+            "text": "Deep tones, natural look",
             "text_color": "#333333",
             "text_font_size": "16px",
             "text_font_size_mobile": "14px"
