@@ -38,6 +38,14 @@
             "answer": "If the surface looks dry or rough but the colour is still good, you can refresh it with Universal Maintenance Oil or Refresh Eco (for furniture and worktops). If the colour has faded or the walking zone is clearly visible, reapply Oil Plus 2C in the original colour. Both types of restoration can be done without sanding."
           }
         },
+        "faq_item_Dn7cze": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "How can I refresh a surface that looks dry but not damaged?",
+            "answer": "If the colour is still good and the surface only feels dry or slightly rough, you can use a maintenance product such as Universal Maintenance Oil or Refresh Eco (for furniture and worktops). These can be applied without sanding."
+          }
+        },
         "faq_item_ebK3zW": {
           "type": "faq_item",
           "disabled": false,
@@ -56,6 +64,7 @@
       "block_order": [
         "faq_item_bJ33cX",
         "faq_item_AGHkYq",
+        "faq_item_Dn7cze",
         "faq_item_ebK3zW",
         "faq_item_iL8tcD"
       ]
