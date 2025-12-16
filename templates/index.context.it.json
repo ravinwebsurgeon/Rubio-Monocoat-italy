@@ -36,12 +36,16 @@
         },
         "column_nrCWd7": {
           "settings": {
-            "text": "Safe for you & your environment"
+            "text": "Safe for you & your environment",
+            "icon_bg_color": "#ffffff",
+            "icon": "shopify://shop_images/icon-all-types.svg"
           }
         },
         "column_UdPKcz": {
           "settings": {
-            "text": "Deep tones, natural look"
+            "text": "Deep tones, natural look",
+            "icon_bg_color": "#ffffff",
+            "icon": "shopify://shop_images/icon-one-single-layer.svg"
           }
         },
         "column_yeAnfG": {
