@@ -994,14 +994,19 @@ function updateVariantId(cart, variants, variantIdInput) {
     //Update Cart button Availablity
      {% comment %} const maxStock = selectedVariant.inventory_quantity; {% endcomment %}
     {% comment %} if(maxStock == 0){ button.classList.add('disabled-btn') }else{button.classList.remove('disabled-btn')} {% endcomment %}
-    handleStockInventory(cart)
+    handleStockInventory(cart,foundVariant.id)
 
   } else {
     console.warn("No variant matches:", selectedOptions);
   }
 }
-function handleStockInventory(cart){
-  console.log(cart,'cart')
+function handleStockInventory(cart,id){
+    const productJsonData = cart.querySelector(".quick-product-json");
+    if(productJsonData){
+        const productDatamain = JSON.parse(productJsonData.textContent);
+        const productVariants = productDatamain.variants;
+        const selectedVariantMain = productVariants.find(v => v.id === id);
+        console.log(selectedVariantMain,'selectedVariantMain')
 }
 
 // Helper functions
