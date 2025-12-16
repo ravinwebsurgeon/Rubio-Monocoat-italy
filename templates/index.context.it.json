@@ -68,7 +68,9 @@
     },
     "video_products_home_8dwaBA": {
       "settings": {
-        "section_background_color": "#ffffff"
+        "section_background_color": "#ffffff",
+        "view_button_bg_color": "#2f4f2f",
+        "view_button_text_color": "#ffffff"
       },
       "blocks": {}
     },
