@@ -29,9 +29,9 @@
       "blocks": {
         "column_zE9DFU": {
           "settings": {
-            "text": "Strong protection in just one coat",
+            "icon": "shopify://shop_images/icon-durable-protection_3.svg",
             "icon_bg_color": "#ffffff",
-            "icon": "shopify://shop_images/paint-brush-broad-duotone.svg"
+            "text": "Strong protection in just one coat"
           }
         },
         "column_nrCWd7": {
