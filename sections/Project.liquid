@@ -1338,7 +1338,7 @@ document.addEventListener('click', (e) => {
           let exist_color = option.getAttribute('data-value').toLowerCase();
           if(product_color == exist_color){
             option.classList.add('active')
-             option.dispatchEvent(new Event('change', { bubbles: true }));
+             {% comment %} option.dispatchEvent(new Event('change', { bubbles: true })); {% endcomment %}
           } else{
            if(translatedColor.toLowerCase() == exist_color){
             option.classList.add('active')
