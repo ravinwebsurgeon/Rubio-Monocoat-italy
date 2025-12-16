@@ -711,7 +711,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-  <script>
+<script>
 function insertButtonIfNeeded() {
   const vs = document.querySelector('variant-selects');
   if (!vs) return;
