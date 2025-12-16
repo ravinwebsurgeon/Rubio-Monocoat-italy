@@ -909,7 +909,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const response = await fetch(`/products/${productHandle}.js`);
     const product = await response.json();
     const variants = product.variants;
-    console.log('product',product)
     const variantIdInput = cart.querySelector(".variant-selector");
     updateVariantId(cart, variants, variantIdInput);
     // Listen for changes on *all radios* inside this cart
@@ -952,7 +951,7 @@ function updateVariantId(cart, variants, variantIdInput) {
 
   if (foundVariant) {
     variantIdInput.value = foundVariant.id;
-    console.log("Variant matched:", foundVariant.id, foundVariant.inventory_policy,foundVariant);
+    console.log("Variant matched:", foundVariant.id,foundVariant);
     const allImages = cart.querySelectorAll(".product__image__item");
      {% comment %} const allMedia = cart.querySelectorAll(".product__image__item, .product__video__item"); {% endcomment %}
 
@@ -1000,6 +999,9 @@ function updateVariantId(cart, variants, variantIdInput) {
   } else {
     console.warn("No variant matches:", selectedOptions);
   }
+}
+function handleStockInventory(cart){
+  console.log(cart,'cart')
 }
 
 // Helper functions
