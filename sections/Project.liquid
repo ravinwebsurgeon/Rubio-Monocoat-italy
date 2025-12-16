@@ -1016,7 +1016,6 @@ document.addEventListener('click', (e) => {
       }
       parentPanel.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
       option.classList.add('active');
-      console.log('reached herer')
       filterProducts();
      const queryString = window.location.search.substring(1);
      const pairs = queryString.length ? queryString.split('&') : [];
@@ -1135,7 +1134,6 @@ document.addEventListener('click', (e) => {
 
   // --- Filtering ---
   function filterProducts() {
-    console.log('check next')
     const circleActive = document.querySelector('.circle-tab.active');
     const interior_active = document.querySelector('.Interio.active');
     const exterior_active = document.querySelector('.exterior-main.surface-toggle.active');
