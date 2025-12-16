@@ -37,7 +37,7 @@
         "column_nrCWd7": {
           "settings": {
             "icon": "shopify://shop_images/icon-all-types.svg",
-            "icon_bg_color": "#2f4f2f",
+            "icon_bg_color": "#183029",
             "text": "Safe for you & your environment"
           }
         },
@@ -51,7 +51,7 @@
         "column_yeAnfG": {
           "settings": {
             "icon": "shopify://shop_images/icon-all-types.svg",
-            "icon_bg_color": "#ffffff",
+            "icon_bg_color": "#2f4f2f",
             "text": "Works on furniture, floors, walls & more"
           }
         }
