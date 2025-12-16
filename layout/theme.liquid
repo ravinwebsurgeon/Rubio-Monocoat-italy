@@ -711,8 +711,97 @@ document.addEventListener('DOMContentLoaded', function () {
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Global flag to track if "See More" has been clicked
+  if (typeof window.seeMoreExpanded === 'undefined') window.seeMoreExpanded = false;
+
+  // Function to hide all SeeMore content
+  function hideSeeMoreContent() {
+    const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
+    moreContentDivs.forEach(div => {
+      if (!window.seeMoreExpanded) {
+        div.style.setProperty('display', 'none', 'important');
+        div.style.visibility = 'hidden';
+        div.style.overflow = 'hidden';
+      }
+    });
+  }
+
+  // Function to insert "See More" button if needed
+  function insertButtonIfNeeded() {
+    const vs = document.querySelector('variant-selects');
+    if (!vs) return;
+
+    // Look for fieldsets containing color/color-related options (language independent)
+    const sizeFieldset = Array.from(vs.querySelectorAll('fieldset')).find(fs =>
+      fs.querySelector('legend')?.textContent.trim().toLowerCase().includes('color') ||
+      fs.querySelector('legend')?.textContent.trim().toLowerCase().includes('colour') ||
+      fs.querySelector('legend')?.textContent.trim().toLowerCase().includes('colore')
+    );
+    if (!sizeFieldset) return;
+
+    const swatchInputs = sizeFieldset.querySelectorAll('.swatch-input__input');
+    const buttonExists = document.getElementById('customSeeMoreBtn');
+
+    // Hide content first
+    hideSeeMoreContent();
+
+    // Insert button only if there are enough options, button doesn't exist, and content not expanded
+    if (swatchInputs.length > 17 && !buttonExists && !window.seeMoreExpanded) {
+      sizeFieldset.insertAdjacentHTML('afterend', `
+        <button id="customSeeMoreBtn">
+          See More
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      `);
+
+      const newButton = document.getElementById('customSeeMoreBtn');
+      newButton.addEventListener('click', () => {
+        const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
+        moreContentDivs.forEach(div => {
+          div.style.setProperty('display', 'inline-block', 'important');
+          div.style.visibility = 'visible';
+          div.style.overflow = 'visible';
+        });
+        window.seeMoreExpanded = true;
+        newButton.style.display = 'none';
+      });
+    }
+
+    // If already expanded, make sure newly added content stays visible
+    if (window.seeMoreExpanded) {
+      const moreContentDivs = document.querySelectorAll('.SeeMoreContent');
+      moreContentDivs.forEach(div => {
+        div.style.setProperty('display', 'inline-block', 'important');
+        div.style.visibility = 'visible';
+        div.style.overflow = 'visible';
+      });
+    }
+  }
+
+  // MutationObserver to watch for Shopify variant section re-render
+  const container = document.querySelector('#ProductSection') || document.body;
+  const observer = new MutationObserver(() => {
+    insertButtonIfNeeded();
+  });
+
+  observer.observe(container, { childList: true, subtree: true });
+
+  // Initial render
+  insertButtonIfNeeded();
+
+  // Optional: if your theme fires variant:change events
+  document.addEventListener('variant:change', () => {
+    insertButtonIfNeeded();
+  });
+});
+</script>  
   <script>
-function insertButtonIfNeeded() {
+{% comment %} function insertButtonIfNeeded() {
   const vs = document.querySelector('variant-selects');
   if (!vs) return;
   {% comment %} const sizeFieldset = Array.from(vs.querySelectorAll('fieldset')).find(fs =>
@@ -761,7 +850,7 @@ function insertButtonIfNeeded() {
       });
     }
   }
-}
+} {% endcomment %}
 
 //update cart bubble
 function updateCartCountMain() {
