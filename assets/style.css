@@ -5096,16 +5096,16 @@ button.addons-toggle {
         font-size: 14px;
     }
 
-.oil-calculator-text a:after {
-    content: "";
-    height: 1px;
-    background-color: #000;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 134px;
-}
+    .oil-calculator-text a:after {
+        content: "";
+        height: 1px;
+        background-color: #000;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 134px;
+    }
 
 
 body .custom-info-section {
