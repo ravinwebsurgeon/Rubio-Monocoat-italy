@@ -12,5 +12,18 @@
   "context": {
     "market": "it"
   },
-  "sections": {}
+  "sections": {
+    "custom_faq_banner_KWPV7V": {
+      "settings": {
+        "heading": "Maintenance Products"
+      },
+      "blocks": {}
+    },
+    "faqs_gnazct": {
+      "settings": {
+        "heading": ""
+      },
+      "blocks": {}
+    }
+  }
 }
