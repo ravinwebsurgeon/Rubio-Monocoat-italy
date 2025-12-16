@@ -24,6 +24,30 @@
         "heading": ""
       },
       "blocks": {
+        "faq_item_6ejn7": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "Example question here",
+            "answer": "Example answer text goes here. You can explain your FAQ answer here."
+          }
+        },
+        "faq_item_Y7XMH": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "Example question here",
+            "answer": "Example answer text goes here. You can explain your FAQ answer here."
+          }
+        },
+        "faq_item_f6GXB": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "How do I renovate a surface with DuroGrit?",
+            "answer": "Start by cleaning the surface with Exterior Wood Cleaner. Then reapply DuroGrit in the original colour, diluting it with up to 20% water depending on how much the colour has faded. This helps avoid applying too much product and keeps the colour from becoming too opaque."
+          }
+        },
         "faq_item_bJ33cX": {
           "settings": {
             "question": "Does applying a second coat of DuroGrit provide better protection or a deeper colour?",
@@ -54,7 +78,17 @@
             "answer": "DuroGrit usually dries within 1 to 3 hours, depending on temperature and humidity. In many cases, you can carefully walk on the surface with socks after 1 to 2 hours. However, the product is not fully cured at this stage. On cloudy days, it may take up to 24 hours before the surface is hard enough to walk on comfortably, while sunny conditions can shorten this time."
           }
         }
-      }
+      },
+      "block_order": [
+        "faq_item_bJ33cX",
+        "faq_item_iL8tcD",
+        "faq_item_nbkb4a",
+        "faq_item_FLVU8c",
+        "faq_item_ygJDgi",
+        "faq_item_f6GXB",
+        "faq_item_Y7XMH",
+        "faq_item_6ejn7"
+      ]
     }
   }
 }
