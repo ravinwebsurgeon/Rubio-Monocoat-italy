@@ -701,8 +701,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   } 
 
-  colourFilter.addEventListener('change', filterProducts);
-  productFilter.addEventListener('change', filterProducts);
+  if(colourFilter){colourFilter.addEventListener('change', filterProducts);}
+  if(productFilter){productFilter.addEventListener('change', filterProducts);}
 }); 
 
 
