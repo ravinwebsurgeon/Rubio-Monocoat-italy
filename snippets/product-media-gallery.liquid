@@ -930,7 +930,7 @@ document.querySelectorAll('.mobile-gallery .swiper .swiper-wrapper .swiper-slide
   // Variant change listener
   document.body.addEventListener('change', (e) => {
     const target = e.target;
-    console.log(target,'target',variantOptions)
+    {% comment %} console.log(target,'target',variantOptions) {% endcomment %}
     if (variantOptions.some(option => {
       const capitalized = option.charAt(0).toUpperCase() + option.slice(1);
       const lowercased = option.toLowerCase();
