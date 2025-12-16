@@ -46,8 +46,9 @@
         },
         "column_yeAnfG": {
           "settings": {
+            "icon": "shopify://shop_images/icon-all-types.svg",
             "text": "Works on furniture, floors, walls & more",
-            "icon": "shopify://shop_images/icon-all-types.svg"
+            "icon_bg_color": "#ffffff"
           }
         }
       }
