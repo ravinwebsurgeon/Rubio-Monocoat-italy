@@ -1008,9 +1008,10 @@ function handleStockInventory(cart,id){
         console.log(selectedVariantMain,'selectedVariantMain')
         if(selectedVariantMain.inventory_quantity == 0){ 
           cart.querySelector('.product_cart_btn.ajax__cart').classList.add('disabled-btn')
-
+          cart.querySelector('.product_cart_btn.ajax__cart').disabled = true;
         } else{
-                  cart.querySelector('.product_cart_btn.ajax__cart').classList.remove('disabled-btn')
+            cart.querySelector('.product_cart_btn.ajax__cart').classList.remove('disabled-btn')
+            cart.querySelector('.product_cart_btn.ajax__cart').disabled = false;
 
         }
     }
