@@ -1049,11 +1049,6 @@ document.addEventListener('click', (e) => {
           window.history.replaceState(null, '', newUrl);
       }
       customFiltered();
-       document.querySelectorAll('.tab-products-wrap').forEach(function(section) {
-          const items = section.querySelectorAll('.product-item');
-          const hasVisible = Array.from(items).some(item => item.style.display !== 'none');
-          section.style.display = hasVisible ? 'block' : 'none';
-        });
     });
   });
 
@@ -1394,11 +1389,11 @@ document.addEventListener('click', (e) => {
             else {product.style.display = 'none';}
         })
       }
-        {% comment %} document.querySelectorAll('.tab-products-wrap').forEach(function(section) {
+        document.querySelectorAll('.tab-products-wrap').forEach(function(section) {
           const items = section.querySelectorAll('.product-item');
           const hasVisible = Array.from(items).some(item => item.style.display !== 'none');
           section.style.display = hasVisible ? 'block' : 'none';
-        }); {% endcomment %}
+        });
   }
 
 document.addEventListener("DOMContentLoaded", function() {
