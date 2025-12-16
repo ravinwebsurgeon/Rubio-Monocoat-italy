@@ -909,6 +909,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const response = await fetch(`/products/${productHandle}.js`);
     const product = await response.json();
     const variants = product.variants;
+    console.log('product',product)
     const variantIdInput = cart.querySelector(".variant-selector");
     updateVariantId(cart, variants, variantIdInput);
     // Listen for changes on *all radios* inside this cart
