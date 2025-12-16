@@ -387,14 +387,14 @@
 }); {% endcomment %}
 
 
-  function normalizeValue(val) {
+  {% comment %} function normalizeValue(val) {
     return val
       .toString()
       .trim()
       .toLowerCase()
       .replace(/\s+/g, "")      // remove ALL spaces
       .replace(/[-_]/g, "");    // remove dashes/underscores
-  }
+  } {% endcomment %}
 
   {% comment %} function getSelectedOptions(card) {
     let selected = [];
