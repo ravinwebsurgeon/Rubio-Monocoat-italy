@@ -12,5 +12,25 @@
   "context": {
     "market": "it"
   },
-  "sections": {}
+  "sections": {
+    "custom_faq_banner_KWPV7V": {
+      "settings": {
+        "heading": "Delivery"
+      },
+      "blocks": {}
+    },
+    "faqs_gnazct": {
+      "settings": {
+        "heading": ""
+      },
+      "blocks": {
+        "faq_item_bJ33cX": {
+          "settings": {
+            "question": "If I order today, when will I receive my order?",
+            "answer": "Orders placed before 12:00 PM are prepared the same afternoon and shipped on the same business day. Orders placed after 12:00 PM are usually shipped on the next business day."
+          }
+        }
+      }
+    }
+  }
 }
