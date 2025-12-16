@@ -42,12 +42,14 @@
         },
         "image_block_gK6EXi": {
           "settings": {
-            "block_image": "shopify://shop_images/Oil_Plus_2C_-_project_4.png"
+            "block_image": "shopify://shop_images/Oil_Plus_2C_-_project_4.png",
+            "button_link": "shopify://pages/faqs-interior-products"
           }
         },
         "image_block_rFNrHV": {
           "settings": {
-            "block_image": "shopify://shop_images/cladding_categories_2.png"
+            "block_image": "shopify://shop_images/cladding_categories_2.png",
+            "button_link": "shopify://pages/faqs-exterior-products"
           }
         },
         "image_block_eWaRwC": {
