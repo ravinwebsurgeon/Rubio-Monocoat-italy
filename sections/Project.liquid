@@ -1286,7 +1286,17 @@ document.addEventListener('click', (e) => {
       }
       if(result.color)   {product_color = result.color.toLowerCase();}
       if(result.product){ product_option = result.product.toLowerCase(); }
-      if(product_option){console.log('found');}
+      if(product_option){
+        let product__main = document.getElementById('product-options')
+        let product_options = product__main.querySelectorAll('.option-btn');
+          product_options.forEach(function(option){
+          let exist_color = option.getAttribute('data-value').toLowerCase();
+          if(product_option == exist_color){
+            option.classList.add('active')
+          } 
+          
+        });
+      }
 
       const reverseTranslationMap = {};
       for (let key in translationMap) {
@@ -1365,7 +1375,7 @@ document.addEventListener('click', (e) => {
 
         color_options.forEach(function(option){
           let exist_color = option.getAttribute('data-value').toLowerCase();
-          if(product_color == exist_color && !productFilter){
+          if(product_color == exist_color){
             option.classList.add('active')
              {% comment %} option.dispatchEvent(new Event('change', { bubbles: true })); {% endcomment %}
           } else{
