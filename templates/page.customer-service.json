@@ -65,7 +65,7 @@
           "settings": {
             "block_image": "shopify://shop_images/t_3.jpg",
             "button_text": "Interior products",
-            "button_link": ""
+            "button_link": "shopify://collections/application"
           }
         },
         "image_block_rFNrHV": {
