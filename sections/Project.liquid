@@ -1194,7 +1194,7 @@ document.addEventListener('click', (e) => {
   function renderTabs(collectionType) {
       const tabsContainer = document.querySelector('.circle-tabs-outer .circle-tabs');
       const collectionData = window.collectionDataCache?.[`${collectionType}-colors`]?.metafields;
-      console.log('called from ',collectionType, 'section',collectionData)
+      {% comment %} console.log('called from ',collectionType, 'section',collectionData) {% endcomment %}
       
       if (!collectionData || !tabsContainer) return;
 
