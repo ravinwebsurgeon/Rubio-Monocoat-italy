@@ -75,8 +75,13 @@
       "blocks": {
         "product_block_YBnHge": {
           "settings": {
-            "price_color": "#000000",
-            "icon_1": "shopify://shop_images/info-light.svg"
+            "icon_1": "shopify://shop_images/info-light.svg",
+            "price_color": "#000000"
+          }
+        },
+        "product_block_xDy89z": {
+          "settings": {
+            "price_color": "#000000"
           }
         }
       }
