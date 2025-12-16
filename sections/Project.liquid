@@ -1237,7 +1237,6 @@ document.addEventListener('click', (e) => {
 
   function customFiltered(){
       // Detect current language
-      let isUserInteracting = true;
       let currentLang = 'en';
       const pathParts = window.location.pathname.split('/');
       if (['en','it','fr','de'].includes(pathParts[1])) {
@@ -1336,7 +1335,7 @@ document.addEventListener('click', (e) => {
 
         color_options.forEach(function(option){
           let exist_color = option.getAttribute('data-value').toLowerCase();
-          if(product_color == exist_color && !isUserInteracting){
+          if(product_color == exist_color){
             option.classList.add('active')
              {% comment %} option.dispatchEvent(new Event('change', { bubbles: true })); {% endcomment %}
           } else{
@@ -1402,8 +1401,6 @@ document.addEventListener('click', (e) => {
           section.style.display = hasVisible ? 'block' : 'none';
         });
       }
-      isUserInteracting = false;
-
   }
 
 document.addEventListener("DOMContentLoaded", function() {
