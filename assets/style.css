@@ -5359,7 +5359,9 @@ body .rebuy-widget.widget-type-product-addon .rebuy-addon__item-product-title {
 .rebuy-widget.widget-type-product-addon .rebuy-addon__item-product-price {
     order: 2;
 }
-
+.rebuy-widget.widget-type-product-addon .rebuy-addon__item-learn-more {
+    order: 5;
+}
 
 /* ==================  */
 
