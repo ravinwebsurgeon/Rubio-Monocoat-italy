@@ -925,6 +925,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function updateVariantId(cart, variants, variantIdInput) {
   const selectedOptions = [];
   const optionGroups = cart.querySelectorAll("[data-index^='option']");
+  const add_button = cart.quesySelector('.product_cart_btn.ajax__cart ')
 
   // Loop through each option group
   optionGroups.forEach(group => {
@@ -995,11 +996,11 @@ function updateVariantId(cart, variants, variantIdInput) {
      {% comment %} const maxStock = selectedVariant.inventory_quantity; {% endcomment %}
     {% comment %} if(maxStock == 0){ button.classList.add('disabled-btn') }else{button.classList.remove('disabled-btn')} {% endcomment %}
      if (foundVariant.available) {
-        button.classList.remove("disabled-btn");
-        button.disabled = false;
+        add_button.classList.remove("disabled-btn");
+        add_button.disabled = false;
       } else {
-        button.classList.add("disabled-btn");
-        button.disabled = true;
+        add_button.classList.add("disabled-btn");
+        add_button.disabled = true;
       }
 
   } else {
