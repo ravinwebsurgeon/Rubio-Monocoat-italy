@@ -45,6 +45,24 @@
         "faq_item_nGx6U",
         "faq_item_h3zh8"
       ]
+    },
+    "icons_section_Q84VnV": {
+      "settings": {},
+      "blocks": {
+        "container_K8pcTz": {
+          "disabled": true,
+          "settings": {}
+        },
+        "container_8J6tUi": {
+          "disabled": true,
+          "settings": {}
+        },
+        "container_aYeRcN": {
+          "settings": {
+            "subtext": "info@rubiomonocoat.it"
+          }
+        }
+      }
     }
   }
 }
