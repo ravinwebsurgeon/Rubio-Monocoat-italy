@@ -31,12 +31,13 @@
         "image_block_VK4FrP": {
           "settings": {
             "block_image": "shopify://shop_images/Untitled_design_-_2025-12-16T142011.967.png",
-            "button_link": "shopify://pages/condizioni-generali"
+            "button_link": "shopify://pages/faqs-recycle-1"
           }
         },
         "image_block_RfDBJw": {
           "settings": {
-            "block_image": "shopify://shop_images/ecycle.png"
+            "block_image": "shopify://shop_images/ecycle.png",
+            "button_link": "shopify://pages/faqs-recycle"
           }
         },
         "image_block_gK6EXi": {
