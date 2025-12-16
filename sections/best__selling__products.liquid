@@ -17,7 +17,7 @@
           <div class="best_selling__product__card">
             {% comment %} <a href="{{ product.url }}"> {% endcomment %}
               {% if product.metafields.custom.custom_card_image.value  %}
-                <div class="best_selling_product___media">
+                <div class="best_selling_product___media meta">
                   <a href="{{ product.url }}">  
                     <img src="{{ product.metafields.custom.custom_card_image.value  | img_url: 'master' }}" class="product__img" loading="lazy" >
                   </a>
