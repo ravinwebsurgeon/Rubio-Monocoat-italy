@@ -396,14 +396,14 @@
       .replace(/[-_]/g, "");    // remove dashes/underscores
   }
 
-  function getSelectedOptions(card) {
+  {% comment %} function getSelectedOptions(card) {
     let selected = [];
     const swatches = card.querySelectorAll('.color-swatch-input:checked');
     swatches.forEach(s => selected.push(s.dataset.value));
     const selects = card.querySelectorAll('.option-variant-selector');
     selects.forEach(sel => selected.push(sel.value));
     return selected;
-  }
+  } {% endcomment %}
 
   {% comment %} function updateCardImages(card) {
     const mediaBlocks = card.querySelectorAll(".product__media");
@@ -505,7 +505,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }); {% endcomment %}
 
     // Utility functions
-    function getSelectedOptions(wrapper) {
+    {% comment %} function getSelectedOptions(wrapper) {
       const options = [];
       wrapper.querySelectorAll(".pro_variant_options").forEach(group => {
         const colorInput = group.querySelector(".color-swatch-input:checked");
@@ -514,13 +514,13 @@ document.addEventListener("DOMContentLoaded", () => {
         else if (selectInput) options.push(selectInput.value);
       });
       return options;
-    }
+    } {% endcomment %}
 
-    function findVariant(product, selectedOptions) {
+    {% comment %} function findVariant(product, selectedOptions) {
       return product.variants.find(variant => {
         return JSON.stringify(variant.options) === JSON.stringify(selectedOptions);
       });
-    }
+    } {% endcomment %}
   });
 });
 </script>
