@@ -950,7 +950,7 @@ function updateVariantId(cart, variants, variantIdInput) {
 
   if (foundVariant) {
     variantIdInput.value = foundVariant.id;
-    console.log("Variant matched:", foundVariant.id, foundVariant);
+    console.log("Variant matched:", foundVariant.id, foundVariant, foundVariant.inventory_quantity);
     const allImages = cart.querySelectorAll(".product__image__item");
      {% comment %} const allMedia = cart.querySelectorAll(".product__image__item, .product__video__item"); {% endcomment %}
 
@@ -990,6 +990,10 @@ function updateVariantId(cart, variants, variantIdInput) {
     if (priceElement) {
       priceElement.textContent = formatPrice(foundVariant.price);
     }
+    //Update Cart button Availablity
+     {% comment %} const maxStock = selectedVariant.inventory_quantity; {% endcomment %}
+    {% comment %} if(maxStock == 0){ button.classList.add('disabled-btn') }else{button.classList.remove('disabled-btn')} {% endcomment %}
+
 
   } else {
     console.warn("No variant matches:", selectedOptions);
