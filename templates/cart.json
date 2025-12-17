@@ -67,7 +67,6 @@
         },
         "container_4TFVAH": {
           "type": "container",
-          "disabled": true,
           "settings": {
             "class": "",
             "icon": "shopify://shop_images/headset.png",
@@ -79,6 +78,7 @@
         },
         "container_9awJKq": {
           "type": "container",
+          "disabled": true,
           "settings": {
             "class": "",
             "icon": "shopify://shop_images/chat.png",
