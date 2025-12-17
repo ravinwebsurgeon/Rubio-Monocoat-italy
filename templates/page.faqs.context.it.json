@@ -285,6 +285,22 @@
             "question": "How do I clean a surface treated with DuroGrit?",
             "answer": "Only use Exterior Soap (Ecospray) or All Natural Wood Cleaner (Spray) to clean surfaces treated with DuroGrit. Do not use any other cleaning products."
           }
+        },
+        "faq_item_rATf9": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "How do I clean brushes and tools used to apply DuroGrit?",
+            "answer": "Clean brushes and tools immediately after use with water. If the bristles feel stiff or greasy after repeated use, you can also wash them with warm (not hot) water and a mild soap or washing-up liquid. Alternatively, you can use a small amount of Exterior Wood Cleaner mixed with water, as this helps the product loosen more easily. Rinse thoroughly with clean water until the water runs clear."
+          }
+        },
+        "faq_item_GnRzX": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "Can DuroGrit colours be mixed?",
+            "answer": "In theory, DuroGrit colours can be mixed. However, these custom mixes may not offer the same level of long-lasting protection as our standard colours and may fade more quickly. As these combinations have not been tested in our laboratory, we cannot guarantee their durability."
+          }
         }
       },
       "block_order": [
@@ -294,7 +310,9 @@
         "faq_item_DXKgT",
         "faq_item_EyRqj",
         "faq_item_qqPwm",
-        "faq_item_bfUTr"
+        "faq_item_bfUTr",
+        "faq_item_rATf9",
+        "faq_item_GnRzX"
       ],
       "name": "FAQs section"
     },
