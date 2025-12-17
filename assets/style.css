@@ -1046,8 +1046,8 @@ video.video-bg {
     line-height: 100%;
     letter-spacing: 0;
     text-align: center;
-    color: #183029 !important;
-    background-color: #fff !important;
+    color: #fff !important;
+    background-color: #183029 !important;
     border-radius: 50px;
 }
 
