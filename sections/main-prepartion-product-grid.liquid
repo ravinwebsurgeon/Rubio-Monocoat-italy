@@ -973,7 +973,7 @@ function updateVariantId(cart, variants, variantIdInput) {
       if (isMatch) matchedImage = img;
       else if (!alt && !firstEmptyAltImage) {firstEmptyAltImage = img;}
     });
-
+console.log(firstEmptyAltImage,'firstEmptyAltImage')
     // Show matched image or fallback to first image
     if (matchedImage) {
       matchedImage.style.display = "block";
