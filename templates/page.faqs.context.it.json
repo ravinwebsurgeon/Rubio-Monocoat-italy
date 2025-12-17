@@ -87,7 +87,7 @@
           "type": "faq_item",
           "disabled": false,
           "settings": {
-            "question": "Example question here",
+            "question": "Do I have to pay for return shipping?",
             "answer": "Example answer text goes here. You can explain your FAQ answer here."
           }
         },
@@ -95,8 +95,8 @@
           "type": "faq_item",
           "disabled": false,
           "settings": {
-            "question": "Example question here",
-            "answer": "Example answer text goes here. You can explain your FAQ answer here."
+            "question": "When and how will I receive my refund?",
+            "answer": "Once we receive your return, we will process your refund within 14 days. In some cases, we may wait until the products have arrived or until you provide proof of shipment. Refunds are always made using the same payment method you used for your original purchase."
           }
         },
         "faq_item_yfAtB": {
