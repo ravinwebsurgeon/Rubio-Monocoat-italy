@@ -95,7 +95,7 @@
       "custom_css": [
         ".footer {background-color: #f2f2f2 !important;}",
         ".footer,.footer p,.footer h2,.footer h3,.footer h4,.footer a,.footer label,.footer span {color: #606060 !important;}",
-        ".footer .footer__copyright,.footer .copyright__content,.footer .copyright__content a,.footer small {color: #183029 !important;}"
+        ".footer .footer__copyright,.footer .copyright__content,.footer .copyright__content a,.footer small {color: #606060 !important;}"
       ],
       "settings": {
         "color_scheme": "scheme-c387eb6a-33c1-4d1e-b96c-717189f1303c",
