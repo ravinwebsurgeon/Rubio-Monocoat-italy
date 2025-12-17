@@ -1100,7 +1100,7 @@ video.video-bg {
     leading-trim: NONE;
     line-height: 150%;
     letter-spacing: 0;
-    color: #FFFFFF80;
+    color: #000;
 }
 
 .newsletter__wrapper>*+* {
