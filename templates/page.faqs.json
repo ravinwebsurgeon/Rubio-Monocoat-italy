@@ -189,6 +189,49 @@
         "heading": "Recycle"
       }
     },
+    "faqs_UJELHJ": {
+      "type": "faqs",
+      "blocks": {
+        "faq_item_Gaydkb": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Oil Plus 2C safe for contact with food?",
+            "answer": "Yes, Oil Plus 2C is safe for food contact. It has been tested by the independent testing institute Eurofins in accordance with the European Framework Regulation 1935/2004 for materials intended to come into contact with food. The test results confirm that Oil Plus 2C complies with European food safety standards. This makes it perfectly suitable for countertops, cutting boards, tabletops, and other surfaces that come into contact with food. Oil Plus 2C has also been certified in combination with Universal Maintenance Oil and SheenPlus, further confirming its compliance with food safety requirements."
+          }
+        },
+        "faq_item_Yw6Uaa": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I use Oil Plus 2C on previously treated wood?",
+            "answer": "For best results, Oil Plus 2C needs to come into direct contact with the raw wood fibers. If the wood has already been treated, the existing finish will need to be sanded off first before applying the product."
+          }
+        },
+        "faq_item_erYgiR": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How can I increase the sheen on wood treated with Oil Plus 2C?",
+            "answer": "If you’d like more sheen, you can apply SheenPlus on top of Oil Plus 2C after a minimum of 24 hours. Please note that SheenPlus can only be applied over a treated surface and is not suitable for use on untreated wood."
+          }
+        },
+        "faq_item_EKA6xj": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which Oil Plus 2C colour gives the most natural look on wood?",
+            "answer": "Choosing the right colour can be tricky, as the final result depends on the wood type. Popular choices for a natural look are Pure, White 5%, and Natural, but they don’t all behave the same on every wood. We always recommend testing your chosen colour on a sample first to see the true result. Pure contains no added pigments, but it is not fully transparent. Because it is made from linseed oil, it naturally enriches and slightly darkens the wood. This effect is often appreciated, but if you want to keep the wood as close as possible to its original colour, a pigmented option may be better. Natural contains a creamy white/yellowish pigment that helps counteract the natural darkening of light woods such as white oak. White 5% also offers a lighter, more natural appearance and is often used to minimize colour change. Keep in mind that results vary by wood species. For example, Walnut is naturally dark, so Pure usually gives a beautiful, subtle enhancement that is often exactly what’s desired."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_Gaydkb",
+        "faq_item_Yw6Uaa",
+        "faq_item_erYgiR",
+        "faq_item_EKA6xj"
+      ],
+      "name": "FAQs section",
+      "settings": {
+        "heading": "Interior Products"
+      }
+    },
     "icons_section_ry8Hx7": {
       "type": "icons-section",
       "blocks": {
@@ -329,6 +372,7 @@
     "faqs_ppyHAH",
     "faqs_8jPU7r",
     "faqs_CWkLXj",
+    "faqs_UJELHJ",
     "icons_section_ry8Hx7",
     "icons_section_Q84VnV"
   ]
