@@ -378,6 +378,81 @@
           "settings": {}
         }
       }
+    },
+    "faqs_7yHNt": {
+      "type": "faqs",
+      "disabled": false,
+      "settings": {
+        "heading": "Maintenance Products"
+      },
+      "blocks": {
+        "faq_item_y7xTg": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "How do I know when my interior oiled surface needs maintenance?",
+            "answer": "Signs of wear include visible walking zones, increased stain sensitivity or a surface that stays wet longer after cleaning. When this happens, the protective layer needs to be refreshed or restored."
+          }
+        },
+        "faq_item_Fp3GF": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "How do I restore wear or colour changes of interior wood over time?",
+            "answer": "If the surface looks dry or rough but the colour is still good, you can refresh it with Universal Maintenance Oil or Refresh Eco (for furniture and worktops). If the colour has faded or the walking zone is clearly visible, reapply Oil Plus 2C in the original colour. Both types of restoration can be done without sanding."
+          }
+        },
+        "faq_item_ktzFz": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "How can I refresh an interior surface that looks dry but not damaged?",
+            "answer": "If the colour is still good and the surface only feels dry or slightly rough, you can use a maintenance product such as Universal Maintenance Oil or Refresh Eco (for furniture and worktops). These can be applied without sanding."
+          }
+        },
+        "faq_item_fXhbU": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "How do I remove stains from interior wood?",
+            "answer": "Many stains can be removed using Universal Soap, Surface Care, All Natural Wood Cleaner or All Natural Wood Cleaner Spray. For more stubborn stains, we offer specific solutions: Limespot Remover for limescale, Grease Remover for grease stains and Tannin Remover for black or tannin marks. If a stain has penetrated deeply into the wood, lightly sand the affected area and reapply oil locally."
+          }
+        },
+        "faq_item_AACiU": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "How do I remove pet urine stains from wood?",
+            "answer": "If your wood has been treated with Oil Plus 2C, pet urine stains can be easily removed using the Tannin Remover."
+          }
+        },
+        "faq_item_kh4hR": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "How do I clean my outdoor wood if I see dirt or green deposits?",
+            "answer": "Clean the surface gently using low-pressure water and a soft brush. For more effective cleaning, you can use Exterior Soap, which is specifically designed for maintaining Rubio Monocoat-treated outdoor wood."
+          }
+        },
+        "faq_item_Ww786": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "When should I reapply my Rubio Monocoat exterior finish?",
+            "answer": "If the colour appears faded or the protective performance has diminished, the surface should be refreshed. After cleaning, you can reapply the RubioMonocoat exterior product originally used to restore both appearance and protection."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_y7xTg",
+        "faq_item_Fp3GF",
+        "faq_item_ktzFz",
+        "faq_item_fXhbU",
+        "faq_item_AACiU",
+        "faq_item_kh4hR",
+        "faq_item_Ww786"
+      ],
+      "name": "FAQs section"
     }
   },
   "order": [
@@ -389,6 +464,7 @@
     "faqs_eLyck",
     "faqs_EQWnD",
     "faqs_QfXBd",
+    "faqs_7yHNt",
     "icons_section_ry8Hx7",
     "icons_section_Q84VnV"
   ]
