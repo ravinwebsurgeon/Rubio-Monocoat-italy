@@ -68,6 +68,41 @@
         "heading": "Order"
       }
     },
+    "faqs_ppyHAH": {
+      "type": "faqs",
+      "blocks": {
+        "faq_item_bdXqaH": {
+          "type": "faq_item",
+          "settings": {
+            "question": "If I order today, when will I receive my order?",
+            "answer": "Orders placed before 12:00 PM are prepared the same afternoon and shipped on the same business day. Orders placed after 12:00 PM are usually shipped on the next business day."
+          }
+        },
+        "faq_item_cenpwh": {
+          "type": "faq_item",
+          "settings": {
+            "question": "My shipment has been delayed, what happens now?",
+            "answer": "We work with FedEx for deliveries within Europe. Unfortunately, we don’t have direct control over the shipping process once your order has been handed over to the carrier. In case of a delay, we recommend contacting your local FedEx office for the most up-to-date information about your shipment."
+          }
+        },
+        "faq_item_RD3fyb": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where can I find my Track & Trace information?",
+            "answer": "You will automatically receive a Track & Trace code by email as soon as your order has been shipped. You can also follow your order through your account on our online store, where the Track & Trace information will be available as long as the order was placed using your personal account and not as a guest."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_bdXqaH",
+        "faq_item_cenpwh",
+        "faq_item_RD3fyb"
+      ],
+      "name": "FAQs section",
+      "settings": {
+        "heading": "Delivery"
+      }
+    },
     "icons_section_ry8Hx7": {
       "type": "icons-section",
       "blocks": {
@@ -205,6 +240,7 @@
     "main",
     "custom_faq_banner_KWPV7V",
     "faqs_gnazct",
+    "faqs_ppyHAH",
     "icons_section_ry8Hx7",
     "icons_section_Q84VnV"
   ]
