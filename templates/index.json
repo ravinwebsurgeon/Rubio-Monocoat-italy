@@ -446,6 +446,7 @@
     },
     "custom_blog_section_W9ehre": {
       "type": "custom-blog-section",
+      "disabled": true,
       "name": "Csutom Blog Section",
       "settings": {
         "heading": "Our Blogs",
