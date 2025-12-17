@@ -11,6 +11,9 @@
   "markets": {
     "it": {
       "parent": "@default"
+    },
+    "united-kingdom": {
+      "parent": "@default"
     }
   }
 }
