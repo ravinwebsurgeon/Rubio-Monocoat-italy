@@ -13,7 +13,7 @@
       "type": "custom-banner",
       "name": "Custom Banner",
       "settings": {
-        "banner_image": "shopify://shop_images/banner-homepagina.png",
+        "banner_image": "shopify://shop_images/banner-homepagina_1.png",
         "banner_heading": "Beautiful Wood Starts With the Right Oil",
         "button1_text": "Shop Now",
         "button1_link": "shopify://products/oil-plus-2c",
