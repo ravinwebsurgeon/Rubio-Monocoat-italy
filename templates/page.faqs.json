@@ -339,6 +339,73 @@
         "heading": "Exterior Products"
       }
     },
+    "faqs_YkjTMD": {
+      "type": "faqs",
+      "blocks": {
+        "faq_item_fJ3KqL": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I know when my interior oiled surface needs maintenance?",
+            "answer": "Signs of wear include visible walking zones, increased stain sensitivity or a surface that stays wet longer after cleaning. When this happens, the protective layer needs to be refreshed or restored."
+          }
+        },
+        "faq_item_xEAwme": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I restore wear or colour changes of interior wood over time?",
+            "answer": "If the surface looks dry or rough but the colour is still good, you can refresh it with Universal Maintenance Oil or Refresh Eco (for furniture and worktops). If the colour has faded or the walking zone is clearly visible, reapply Oil Plus 2C in the original colour. Both types of restoration can be done without sanding."
+          }
+        },
+        "faq_item_Y6AHwc": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How can I refresh an interior surface that looks dry but not damaged?",
+            "answer": "If the colour is still good and the surface only feels dry or slightly rough, you can use a maintenance product such as Universal Maintenance Oil or Refresh Eco (for furniture and worktops). These can be applied without sanding."
+          }
+        },
+        "faq_item_rGRpDT": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I remove stains from interior wood?",
+            "answer": "Many stains can be removed using Universal Soap, Surface Care, All Natural Wood Cleaner or All Natural Wood Cleaner Spray. For more stubborn stains, we offer specific solutions: Limespot Remover for limescale, Grease Remover for grease stains and Tannin Remover for black or tannin marks. If a stain has penetrated deeply into the wood, lightly sand the affected area and reapply oil locally."
+          }
+        },
+        "faq_item_8d6QEW": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I remove pet urine stains from wood?",
+            "answer": "If your wood has been treated with Oil Plus 2C, pet urine stains can be easily removed using the Tannin Remover."
+          }
+        },
+        "faq_item_NGnxYk": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I clean my outdoor wood if I see dirt or green deposits?",
+            "answer": "Clean the surface gently using low-pressure water and a soft brush. For more effective cleaning, you can use Exterior Soap, which is specifically designed for maintaining Rubio Monocoat-treated outdoor wood."
+          }
+        },
+        "faq_item_QKcr67": {
+          "type": "faq_item",
+          "settings": {
+            "question": "When should I reapply my Rubio Monocoat exterior finish?",
+            "answer": "If the colour appears faded or the protective performance has diminished, the surface should be refreshed. After cleaning, you can reapply the RubioMonocoat exterior product originally used to restore both appearance and protection."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_fJ3KqL",
+        "faq_item_xEAwme",
+        "faq_item_Y6AHwc",
+        "faq_item_rGRpDT",
+        "faq_item_8d6QEW",
+        "faq_item_NGnxYk",
+        "faq_item_QKcr67"
+      ],
+      "name": "FAQs section",
+      "settings": {
+        "heading": "Maintenance Products"
+      }
+    },
     "icons_section_ry8Hx7": {
       "type": "icons-section",
       "blocks": {
@@ -481,6 +548,7 @@
     "faqs_CWkLXj",
     "faqs_UJELHJ",
     "faqs_QRRJEJ",
+    "faqs_YkjTMD",
     "icons_section_ry8Hx7",
     "icons_section_Q84VnV"
   ]
