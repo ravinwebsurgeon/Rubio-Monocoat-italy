@@ -1,0 +1,555 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "custom_faq_banner_KWPV7V": {
+      "type": "custom-faq-banner",
+      "name": "faq banner",
+      "settings": {
+        "heading": "FAQ’s",
+        "text": "Discover the answer to our frequently asked questions."
+      }
+    },
+    "faqs_gnazct": {
+      "type": "faqs",
+      "blocks": {
+        "faq_item_bJ33cX": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What are the shipping costs?",
+            "answer": "For orders below €50.00 (VAT included), shipping costs are charged to the customer. If the delivery address is in Italy, the shipping fee is €6.00. For orders of €50.00 or more (VAT included), shipping is free."
+          }
+        },
+        "faq_item_iL8tcD": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I cancel my order?",
+            "answer": "Yes, you can cancel your order before it has been shipped, without needing to provide a reason. Once the cancellation is processed, you will receive a confirmation email and a full refund of any amount paid. After the shipping confirmation has been sent, cancellation is no longer possible. However, you can still return the products after delivery by following our return procedure, as outlined in our cancellation policy."
+          }
+        },
+        "faq_item_nbkb4a": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your warranty policy?",
+            "answer": "We offer a 2-year legal warranty on all our products, starting from the delivery date. If something isn’t right, simply contact us as soon as you notice the issue and keep your proof of purchase handy. We’ll do our best to repair or replace the product, and if that’s not possible, we’ll refund you. Please note that the warranty doesn’t cover damage caused by misuse or not following the care instructions."
+          }
+        },
+        "faq_item_FLVU8c": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What payment methods do you accept?How can I track my order?",
+            "answer": "To make your shopping experience easy and secure, we offer several payment options. You can choose to pay with PayPal, credit cards, Shop & Google Pay. Simply select your preferred payment method at checkout and complete your order with confidence."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_bJ33cX",
+        "faq_item_iL8tcD",
+        "faq_item_nbkb4a",
+        "faq_item_FLVU8c"
+      ],
+      "name": "FAQs section",
+      "settings": {
+        "heading": "Order"
+      }
+    },
+    "faqs_ppyHAH": {
+      "type": "faqs",
+      "blocks": {
+        "faq_item_bdXqaH": {
+          "type": "faq_item",
+          "settings": {
+            "question": "If I order today, when will I receive my order?",
+            "answer": "Orders placed before 12:00 PM are prepared the same afternoon and shipped on the same business day. Orders placed after 12:00 PM are usually shipped on the next business day."
+          }
+        },
+        "faq_item_cenpwh": {
+          "type": "faq_item",
+          "settings": {
+            "question": "My shipment has been delayed, what happens now?",
+            "answer": "We work with FedEx for deliveries within Europe. Unfortunately, we don’t have direct control over the shipping process once your order has been handed over to the carrier. In case of a delay, we recommend contacting your local FedEx office for the most up-to-date information about your shipment."
+          }
+        },
+        "faq_item_RD3fyb": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where can I find my Track & Trace information?",
+            "answer": "You will automatically receive a Track & Trace code by email as soon as your order has been shipped. You can also follow your order through your account on our online store, where the Track & Trace information will be available as long as the order was placed using your personal account and not as a guest."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_bdXqaH",
+        "faq_item_cenpwh",
+        "faq_item_RD3fyb"
+      ],
+      "name": "FAQs section",
+      "settings": {
+        "heading": "Delivery"
+      }
+    },
+    "faqs_8jPU7r": {
+      "type": "faqs",
+      "blocks": {
+        "faq_item_hRVpJb": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the withdrawal period?",
+            "answer": "You have the right to withdraw from your purchase within 14 days of receiving your order, without giving any reason. If your order contains multiple products delivered on different days, the withdrawal period starts once the last item has been delivered."
+          }
+        },
+        "faq_item_f4NCJY": {
+          "type": "faq_item",
+          "settings": {
+            "question": "My shipment has been delayed, what happens now?",
+            "answer": "We work with FedEx for deliveries within Europe. Unfortunately, we don’t have direct control over the shipping process once your order has been handed over to the carrier. In case of a delay, we recommend contacting your local FedEx office for the most up-to-date information about your shipment."
+          }
+        },
+        "faq_item_MfGaFp": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where can I find my Track & Trace information?",
+            "answer": "You will automatically receive a Track & Trace code by email as soon as your order has been shipped. You can also follow your order through your account on our online store, where the Track & Trace information will be available as long as the order was placed using your personal account and not as a guest."
+          }
+        },
+        "faq_item_zdjEmA": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I have to pay for return shipping?",
+            "answer": "No, return shipping costs are covered by us, so you can send your return back without additional shipping charges."
+          }
+        },
+        "faq_item_8RFaF6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "When and how will I receive my refund?",
+            "answer": "Once we receive your return, we will process your refund within 14 days. In some cases, we may wait until the products have arrived or until you provide proof of shipment. Refunds are always made using the same payment method you used for your original purchase."
+          }
+        },
+        "faq_item_XhXMQk": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What will be refunded?",
+            "answer": "We refund the price paid for the returned products and the standard shipping costs. Additional delivery charges, such as express shipping, are not refunded. If you return only part of your order, only the returned items will be refunded and shipping costs will not be included."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_hRVpJb",
+        "faq_item_f4NCJY",
+        "faq_item_MfGaFp",
+        "faq_item_zdjEmA",
+        "faq_item_8RFaF6",
+        "faq_item_XhXMQk"
+      ],
+      "name": "FAQs section",
+      "settings": {
+        "heading": "Returns"
+      }
+    },
+    "faqs_CWkLXj": {
+      "type": "faqs",
+      "blocks": {
+        "faq_item_xyrV8b": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What should I do with leftover oil?",
+            "answer": "We strongly recommend taking any leftover oil to a recycling center, just as you would with paint or varnish residues. This ensures proper disposal and helps protect the environment. Please do not throw used cloths or accessories in the regular trash, as oil-soaked materials can become flammable. To prevent this, always soak them in water before disposal."
+          }
+        },
+        "faq_item_w6fagV": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What should I do with used cloths or accessories?",
+            "answer": "After use, all accessories such as cloths, disposable gloves, scrubbing pads, removal cloths, mouse pads, and similar items should be soaked in water. Make sure they are completely saturated. Once soaked, you can wring them out and safely dispose of them in the regular trash."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_xyrV8b",
+        "faq_item_w6fagV"
+      ],
+      "name": "FAQs section",
+      "settings": {
+        "heading": "Recycle"
+      }
+    },
+    "faqs_UJELHJ": {
+      "type": "faqs",
+      "blocks": {
+        "faq_item_Gaydkb": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Oil Plus 2C safe for contact with food?",
+            "answer": "Yes, Oil Plus 2C is safe for food contact. It has been tested by the independent testing institute Eurofins in accordance with the European Framework Regulation 1935/2004 for materials intended to come into contact with food. The test results confirm that Oil Plus 2C complies with European food safety standards. This makes it perfectly suitable for countertops, cutting boards, tabletops, and other surfaces that come into contact with food. Oil Plus 2C has also been certified in combination with Universal Maintenance Oil and SheenPlus, further confirming its compliance with food safety requirements."
+          }
+        },
+        "faq_item_Yw6Uaa": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I use Oil Plus 2C on previously treated wood?",
+            "answer": "For best results, Oil Plus 2C needs to come into direct contact with the raw wood fibers. If the wood has already been treated, the existing finish will need to be sanded off first before applying the product."
+          }
+        },
+        "faq_item_erYgiR": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How can I increase the sheen on wood treated with Oil Plus 2C?",
+            "answer": "If you’d like more sheen, you can apply SheenPlus on top of Oil Plus 2C after a minimum of 24 hours. Please note that SheenPlus can only be applied over a treated surface and is not suitable for use on untreated wood."
+          }
+        },
+        "faq_item_EKA6xj": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which Oil Plus 2C colour gives the most natural look on wood?",
+            "answer": "Choosing the right colour can be tricky, as the final result depends on the wood type. Popular choices for a natural look are Pure, White 5%, and Natural, but they don’t all behave the same on every wood. We always recommend testing your chosen colour on a sample first to see the true result. Pure contains no added pigments, but it is not fully transparent. Because it is made from linseed oil, it naturally enriches and slightly darkens the wood. This effect is often appreciated, but if you want to keep the wood as close as possible to its original colour, a pigmented option may be better. Natural contains a creamy white/yellowish pigment that helps counteract the natural darkening of light woods such as white oak. White 5% also offers a lighter, more natural appearance and is often used to minimize colour change. Keep in mind that results vary by wood species. For example, Walnut is naturally dark, so Pure usually gives a beautiful, subtle enhancement that is often exactly what’s desired."
+          }
+        },
+        "faq_item_8QLtBE": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How can I achieve a deeper colour with Oil Plus 2C?",
+            "answer": "For a more intense colour, sand the wood with a lower grit so it absorbs more pigment. Using WoodPrep or an optional pre-treatment such as PreColour or Pre-Aging can also enhance the colour. Applying multiple coats of Oil Plus 2C will not increase colour intensity, as the wood only absorbs one layer."
+          }
+        },
+        "faq_item_aPq6Xp": {
+          "type": "faq_item",
+          "settings": {
+            "question": "I used too much Pre-Aging and the colour looks uneven. What should I do?",
+            "answer": "When using Pre-Aging, it’s important to spread the product evenly and avoid puddles. If the colour looks uneven, you can still correct it by gently evening it out with a cloth and a small amount of acetone. Once the colour is balanced, you can finish the wood with Oil Plus 2C."
+          }
+        },
+        "faq_item_GJtaLy": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I dilute Pre-Aging with water to achieve a lighter colour?",
+            "answer": "No, we do not recommend diluting Pre-Aging with water."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_Gaydkb",
+        "faq_item_Yw6Uaa",
+        "faq_item_erYgiR",
+        "faq_item_EKA6xj",
+        "faq_item_8QLtBE",
+        "faq_item_aPq6Xp",
+        "faq_item_GJtaLy"
+      ],
+      "name": "FAQs section",
+      "settings": {
+        "heading": "Interior Products"
+      }
+    },
+    "faqs_QRRJEJ": {
+      "type": "faqs",
+      "blocks": {
+        "faq_item_mT8YJH": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does applying a second coat of DuroGrit provide better protection or a deeper colour?",
+            "answer": "DuroGrit is designed as a one-coat product. Applying additional coats can improve UV protection, but it also makes the system more film-forming, which may lead to issues such as peeling and longer curing times. In some cases, a second coat may be needed for aesthetic reasons, for example on heavily weathered or greyed wood. In this situation, the first coat acts as a primer and a second coat helps create a more even colour. If a second coat is applied, we recommend diluting DuroGrit with 20% water to minimise the risk of film formation."
+          }
+        },
+        "faq_item_XEk8xG": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How can I remove overlap marks when applying DuroGrit?",
+            "answer": "Small imperfections can be corrected within about 15 minutes of application, depending on the weather. While the surface is still wet, apply a small amount of DuroGrit with a brush and use light pressure to blend it into the existing layer, then smooth it out evenly. If the surface has already dried, lightly sand the overlap by hand in the direction of the wood grain and apply a small amount of fresh product. This is best done before the product has fully cured, rather than several days later."
+          }
+        },
+        "faq_item_eaTzUQ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the minimum and maximum application temperature for DuroGrit?",
+            "answer": "DuroGrit should be applied at temperatures between 10 °C and 30 °C. Do not apply the product below 10 °C or above 30 °C."
+          }
+        },
+        "faq_item_eHH6iG": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is it really necessary to let new wood weather for 4–6 weeks before applying DuroGrit?",
+            "answer": "This is a recommendation rather than a strict requirement and mainly depends on the wood species. Some woods, such as fresh Cumaru, benefit from a few weeks of weathering to allow natural extractives to wash out, as these can weaken the coating. Other species, like pine or ipé, are usually less sensitive. We recommend testing your local wood species or sending samples to our laboratory to determine whether weathering is needed in your specific case."
+          }
+        },
+        "faq_item_XwEAic": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the total drying time for DuroGrit?",
+            "answer": "DuroGrit usually dries within 1 to 3 hours, depending on temperature and humidity. In many cases, you can carefully walk on the surface with socks after 1 to 2 hours. However, the product is not fully cured at this stage. On cloudy days, it may take up to 24 hours before the surface is hard enough to walk on comfortably, while sunny conditions can shorten this time."
+          }
+        },
+        "faq_item_zcRj44": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I renovate a surface with DuroGrit?",
+            "answer": "Start by cleaning the surface with Exterior Wood Cleaner. Then reapply DuroGrit in the original colour, diluting it with up to 20% water depending on how much the colour has faded. This helps avoid applying too much product and keeps the colour from becoming too opaque."
+          }
+        },
+        "faq_item_r6LPnf": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I clean a surface treated with DuroGrit?",
+            "answer": "Only use Exterior Soap (Ecospray) or All Natural Wood Cleaner (Spray) to clean surfaces treated with DuroGrit. Do not use any other cleaning products."
+          }
+        },
+        "faq_item_HGDAhW": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I clean brushes and tools used to apply DuroGrit?",
+            "answer": "Clean brushes and tools immediately after use with water. If the bristles feel stiff or greasy after repeated use, you can also wash them with warm (not hot) water and a mild soap or washing-up liquid. Alternatively, you can use a small amount of Exterior Wood Cleaner mixed with water, as this helps the product loosen more easily. Rinse thoroughly with clean water until the water runs clear."
+          }
+        },
+        "faq_item_6MAhUf": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can DuroGrit colours be mixed?",
+            "answer": "In theory, DuroGrit colours can be mixed. However, these custom mixes may not offer the same level of long-lasting protection as our standard colours and may fade more quickly. As these combinations have not been tested in our laboratory, we cannot guarantee their durability."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_mT8YJH",
+        "faq_item_XEk8xG",
+        "faq_item_eaTzUQ",
+        "faq_item_eHH6iG",
+        "faq_item_XwEAic",
+        "faq_item_zcRj44",
+        "faq_item_r6LPnf",
+        "faq_item_HGDAhW",
+        "faq_item_6MAhUf"
+      ],
+      "name": "FAQs section",
+      "settings": {
+        "heading": "Exterior Products"
+      }
+    },
+    "faqs_YkjTMD": {
+      "type": "faqs",
+      "blocks": {
+        "faq_item_fJ3KqL": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I know when my interior oiled surface needs maintenance?",
+            "answer": "Signs of wear include visible walking zones, increased stain sensitivity or a surface that stays wet longer after cleaning. When this happens, the protective layer needs to be refreshed or restored."
+          }
+        },
+        "faq_item_xEAwme": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I restore wear or colour changes of interior wood over time?",
+            "answer": "If the surface looks dry or rough but the colour is still good, you can refresh it with Universal Maintenance Oil or Refresh Eco (for furniture and worktops). If the colour has faded or the walking zone is clearly visible, reapply Oil Plus 2C in the original colour. Both types of restoration can be done without sanding."
+          }
+        },
+        "faq_item_Y6AHwc": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How can I refresh an interior surface that looks dry but not damaged?",
+            "answer": "If the colour is still good and the surface only feels dry or slightly rough, you can use a maintenance product such as Universal Maintenance Oil or Refresh Eco (for furniture and worktops). These can be applied without sanding."
+          }
+        },
+        "faq_item_rGRpDT": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I remove stains from interior wood?",
+            "answer": "Many stains can be removed using Universal Soap, Surface Care, All Natural Wood Cleaner or All Natural Wood Cleaner Spray. For more stubborn stains, we offer specific solutions: Limespot Remover for limescale, Grease Remover for grease stains and Tannin Remover for black or tannin marks. If a stain has penetrated deeply into the wood, lightly sand the affected area and reapply oil locally."
+          }
+        },
+        "faq_item_8d6QEW": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I remove pet urine stains from wood?",
+            "answer": "If your wood has been treated with Oil Plus 2C, pet urine stains can be easily removed using the Tannin Remover."
+          }
+        },
+        "faq_item_NGnxYk": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I clean my outdoor wood if I see dirt or green deposits?",
+            "answer": "Clean the surface gently using low-pressure water and a soft brush. For more effective cleaning, you can use Exterior Soap, which is specifically designed for maintaining Rubio Monocoat-treated outdoor wood."
+          }
+        },
+        "faq_item_QKcr67": {
+          "type": "faq_item",
+          "settings": {
+            "question": "When should I reapply my Rubio Monocoat exterior finish?",
+            "answer": "If the colour appears faded or the protective performance has diminished, the surface should be refreshed. After cleaning, you can reapply the RubioMonocoat exterior product originally used to restore both appearance and protection."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_fJ3KqL",
+        "faq_item_xEAwme",
+        "faq_item_Y6AHwc",
+        "faq_item_rGRpDT",
+        "faq_item_8d6QEW",
+        "faq_item_NGnxYk",
+        "faq_item_QKcr67"
+      ],
+      "name": "FAQs section",
+      "settings": {
+        "heading": "Maintenance Products"
+      }
+    },
+    "icons_section_ry8Hx7": {
+      "type": "icons-section",
+      "blocks": {
+        "container_77qgNk": {
+          "type": "container",
+          "settings": {
+            "class": "first-container-sec",
+            "icon": "shopify://shop_images/phone_1.png",
+            "heading": "Telephone advice",
+            "subhead": "",
+            "subtext": "",
+            "extra_text": "Answer the questions"
+          }
+        },
+        "container_tgYiQy": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/envelope.png",
+            "heading": "Send us an email",
+            "subhead": "",
+            "subtext": "rubio@monocoatusa.com",
+            "extra_text": ""
+          }
+        },
+        "container_6P7jA9": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/headset.png",
+            "heading": "Customized advice",
+            "subhead": "",
+            "subtext": "Answer the questions",
+            "extra_text": ""
+          }
+        },
+        "container_rp4x3E": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/chat.png",
+            "heading": "Ask via chat",
+            "subhead": "",
+            "subtext": "Answer the questions",
+            "extra_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "container_77qgNk",
+        "container_tgYiQy",
+        "container_6P7jA9",
+        "container_rp4x3E"
+      ],
+      "disabled": true,
+      "name": "icons section",
+      "settings": {
+        "custom_class": "",
+        "show_on_desktop": true,
+        "show_on_mobile": true
+      }
+    },
+    "icons_section_Q84VnV": {
+      "type": "icons-section",
+      "blocks": {
+        "container_K8pcTz": {
+          "type": "container",
+          "disabled": true,
+          "settings": {
+            "class": "first-container-sec",
+            "icon": "shopify://shop_images/phone_1.png",
+            "heading": "Telephone advice",
+            "subhead": "",
+            "subtext": "",
+            "extra_text": "Answer the questions"
+          }
+        },
+        "container_aYeRcN": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/envelope.png",
+            "heading": "Send Us an Email",
+            "subhead": "",
+            "subtext": "info@rubiomonocoat.it",
+            "extra_text": ""
+          }
+        },
+        "container_8dN9R3": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/headset.png",
+            "heading": "Ask Our Experts",
+            "subhead": "",
+            "subtext": "Get personalized help based on your project",
+            "extra_text": ""
+          }
+        },
+        "container_8J6tUi": {
+          "type": "container",
+          "disabled": true,
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/chat.png",
+            "heading": "Ask via chat",
+            "subhead": "",
+            "subtext": "Answer the questions",
+            "extra_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "container_K8pcTz",
+        "container_aYeRcN",
+        "container_8dN9R3",
+        "container_8J6tUi"
+      ],
+      "custom_css": [
+        ".four-containers_outer {background: #396948 !important;}",
+        ".four-containers {display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;}",
+        ".four-containers .container-item {background: #457253; border-radius: 10px; padding: 17px; flex: 0 0 320px; min-height: 140px; text-align: center;}",
+        ".container-item,.container-item * {color: #fff;}",
+        ".container-item.is-hidden {display: none;}"
+      ],
+      "name": "icons section",
+      "settings": {
+        "custom_class": "pdp-icons-sec",
+        "show_on_desktop": true,
+        "show_on_mobile": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_faq_banner_KWPV7V",
+    "faqs_gnazct",
+    "faqs_ppyHAH",
+    "faqs_8jPU7r",
+    "faqs_CWkLXj",
+    "faqs_UJELHJ",
+    "faqs_QRRJEJ",
+    "faqs_YkjTMD",
+    "icons_section_ry8Hx7",
+    "icons_section_Q84VnV"
+  ]
+}
