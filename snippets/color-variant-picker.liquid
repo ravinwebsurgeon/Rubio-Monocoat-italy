@@ -49,7 +49,7 @@
           <circle cx="50" cy="50" r="45" stroke="black" stroke-width="5" fill="transparent" />
           <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-size="70" font-family="Arial">?</text>
         </svg>
-        <p> Does this colour work on my woodtype?</p>
+        <p> {{ block.settings.woodtype }}</p>
       </div>
       <div class="suited_action_sign"><p class="suited_shown">+</p> </div>
     </div>
@@ -66,7 +66,7 @@
                     stroke-linecap="round" 
                     stroke-linejoin="round" />
         </svg>
-        <p><span>Suited for: </span>{{ suited}}</p>
+        <p><span>{{ block.settings.Suited }} </span>{{ suited}}</p>
       </div>
     {% endif %}
 
@@ -76,7 +76,7 @@
           <circle cx="50" cy="50" r="50" fill="#fec110" /> <!-- Orange/yellow warning color -->
           <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-size="70" font-family="Arial" fill="black">!</text>
         </svg>
-        <p><span>Less suited for: </span>{{ less_suited }}</p>
+        <p><span>{{ block.settings.Lesssuited }}  </span>{{ less_suited }}</p>
       </div>
     {% endif %}
 
