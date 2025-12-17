@@ -103,8 +103,8 @@
           "type": "faq_item",
           "disabled": false,
           "settings": {
-            "question": "Example question here",
-            "answer": "Example answer text goes here. You can explain your FAQ answer here."
+            "question": "What will be refunded?",
+            "answer": "We refund the price paid for the returned products and the standard shipping costs. Additional delivery charges, such as express shipping, are not refunded. If you return only part of your order, only the returned items will be refunded and shipping costs will not be included."
           }
         }
       },
