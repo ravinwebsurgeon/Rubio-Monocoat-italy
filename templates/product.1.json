@@ -48,6 +48,10 @@
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
+            "woodtype": "Does this colour work on my woodtype?",
+            "Suited": "Suited for:",
+            "Notsuited": "Not suited for:",
+            "Lesssuited": "Less suited for:",
             "picker_type": "button",
             "swatch_shape": "circle"
           }
@@ -355,7 +359,7 @@
           "settings": {
             "class": "",
             "icon": "shopify://shop_images/envelope.png",
-            "heading": "Send us an email",
+            "heading": "Send Us an Email",
             "subhead": "",
             "subtext": "info@rubiomonocoat.it",
             "extra_text": ""
@@ -366,9 +370,9 @@
           "settings": {
             "class": "",
             "icon": "shopify://shop_images/headset.png",
-            "heading": "Customized advice",
+            "heading": "Ask Our Experts",
             "subhead": "",
-            "subtext": "Answer the questions",
+            "subtext": "Get personalized help based on your project",
             "extra_text": ""
           }
         },
@@ -392,10 +396,11 @@
         "container_ewAVmF"
       ],
       "custom_css": [
-        ".four-containers_outer {background-color: #396948 !important;}",
-        ".four-containers .container-item {background-color: #457253; border-radius: 10px; box-shadow: 0 0px 0px rgba(255, 255, 255, 0.3); padding: 17px;}",
-        ".four-containers .container-item:hover {background-color: #457253;}",
-        ".container-item,.container-item h2,.container-item h3,.container-item p,.container-item a,.container-item span {color: #ffff;}"
+        ".four-containers_outer {background: #396948 !important;}",
+        ".four-containers {display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;}",
+        ".four-containers .container-item {background: #457253; border-radius: 10px; padding: 17px; flex: 0 0 320px; min-height: 140px; text-align: center;}",
+        ".container-item,.container-item * {color: #fff;}",
+        ".container-item.is-hidden {display: none;}"
       ],
       "name": "icons section",
       "settings": {
