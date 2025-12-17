@@ -13,7 +13,19 @@
     "market": "it"
   },
   "sections": {
+    "newsletter_ziterB": {
+      "disabled": false,
+      "settings": {
+        "color_scheme": "scheme-2"
+      },
+      "blocks": {}
+    },
     "footer": {
+      "custom_css": [
+        ".footer {background-color: #f2f2f2 !important;}",
+        ".footer,.footer p,.footer h2,.footer h3,.footer h4,.footer a,.footer label,.footer span {color: #606060 !important;}",
+        ".footer .footer__copyright,.footer .copyright__content,.footer .copyright__content a,.footer small {color: #606060 !important;}"
+      ],
       "settings": {},
       "blocks": {
         "text_hWeadq": {
@@ -22,13 +34,6 @@
           }
         }
       }
-    },
-    "newsletter_ziterB": {
-      "disabled": false,
-      "settings": {
-        "color_scheme": "scheme-2"
-      },
-      "blocks": {}
     }
   }
 }
