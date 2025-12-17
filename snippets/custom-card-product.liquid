@@ -129,7 +129,7 @@
               <a href="{{ card_product.url }}" class="full-unstyled-link">{{ card_product.title | escape }}</a>
             </h3>
           </div>
-          <div class="card__badge {{ settings.badge_position }}">
+          <div class="asd card__badge {{ settings.badge_position }}">
             {% if card_product.available == false %}
               <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">{{ 'products.product.sold_out' | t }}</span>
             {% elsif card_product.compare_at_price > card_product.price and card_product.available %}
@@ -287,7 +287,7 @@
         </div>
       </div>
 
-      <div class="card__badge {{ settings.badge_position }}">
+      <div class="ret card__badge {{ settings.badge_position }}">
         {% if card_product.available == false %}
           <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">{{ 'products.product.sold_out' | t }}</span>
         {% elsif card_product.compare_at_price > card_product.price and card_product.available %}
