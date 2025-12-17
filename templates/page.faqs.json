@@ -162,6 +162,33 @@
         "heading": "Returns"
       }
     },
+    "faqs_CWkLXj": {
+      "type": "faqs",
+      "blocks": {
+        "faq_item_xyrV8b": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What should I do with leftover oil?",
+            "answer": "We strongly recommend taking any leftover oil to a recycling center, just as you would with paint or varnish residues. This ensures proper disposal and helps protect the environment. Please do not throw used cloths or accessories in the regular trash, as oil-soaked materials can become flammable. To prevent this, always soak them in water before disposal."
+          }
+        },
+        "faq_item_w6fagV": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What should I do with used cloths or accessories?",
+            "answer": "After use, all accessories such as cloths, disposable gloves, scrubbing pads, removal cloths, mouse pads, and similar items should be soaked in water. Make sure they are completely saturated. Once soaked, you can wring them out and safely dispose of them in the regular trash."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_xyrV8b",
+        "faq_item_w6fagV"
+      ],
+      "name": "FAQs section",
+      "settings": {
+        "heading": "Recycle"
+      }
+    },
     "icons_section_ry8Hx7": {
       "type": "icons-section",
       "blocks": {
@@ -301,6 +328,7 @@
     "faqs_gnazct",
     "faqs_ppyHAH",
     "faqs_8jPU7r",
+    "faqs_CWkLXj",
     "icons_section_ry8Hx7",
     "icons_section_Q84VnV"
   ]
