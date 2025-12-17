@@ -285,6 +285,81 @@
           "settings": {}
         }
       }
+    },
+    "faqs_QfXBd": {
+      "type": "faqs",
+      "disabled": false,
+      "settings": {
+        "heading": "Exterior Products"
+      },
+      "blocks": {
+        "faq_item_X9z6f": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "Does applying a second coat of DuroGrit provide better protection or a deeper colour?",
+            "answer": "DuroGrit is designed as a one-coat product. Applying additional coats can improve UV protection, but it also makes the system more film-forming, which may lead to issues such as peeling and longer curing times. In some cases, a second coat may be needed for aesthetic reasons, for example on heavily weathered or greyed wood. In this situation, the first coat acts as a primer and a second coat helps create a more even colour. If a second coat is applied, we recommend diluting DuroGrit with 20% water to minimise the risk of film formation."
+          }
+        },
+        "faq_item_Q8pCH": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "How can I remove overlap marks when applying DuroGrit?",
+            "answer": "Small imperfections can be corrected within about 15 minutes of application, depending on the weather. While the surface is still wet, apply a small amount of DuroGrit with a brush and use light pressure to blend it into the existing layer, then smooth it out evenly. If the surface has already dried, lightly sand the overlap by hand in the direction of the wood grain and apply a small amount of fresh product. This is best done before the product has fully cured, rather than several days later."
+          }
+        },
+        "faq_item_Exehz": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "How can I increase the sheen on wood treated with Oil Plus 2C?",
+            "answer": "If you’d like more sheen, you can apply SheenPlus on top of Oil Plus 2C after a minimum of 24 hours. Please note that SheenPlus can only be applied over a treated surface and is not suitable for use on untreated wood."
+          }
+        },
+        "faq_item_DXKgT": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "Which Oil Plus 2C colour gives the most natural look on wood?",
+            "answer": "Choosing the right colour can be tricky, as the final result depends on the wood type. Popular choices for a natural look are Pure, White 5%, and Natural, but they don’t all behave the same on every wood. We always recommend testing your chosen colour on a sample first to see the true result. Pure contains no added pigments, but it is not fully transparent. Because it is made from linseed oil, it naturally enriches and slightly darkens the wood. This effect is often appreciated, but if you want to keep the wood as close as possible to its original colour, a pigmented option may be better. Natural contains a creamy white/yellowish pigment that helps counteract the natural darkening of light woods such as white oak. White 5% also offers a lighter, more natural appearance and is often used to minimize colour change. Keep in mind that results vary by wood species. For example, Walnut is naturally dark, so Pure usually gives a beautiful, subtle enhancement that is often exactly what’s desired."
+          }
+        },
+        "faq_item_EyRqj": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "How can I achieve a deeper colour with Oil Plus 2C?",
+            "answer": "For a more intense colour, sand the wood with a lower grit so it absorbs more pigment. Using WoodPrep or an optional pre-treatment such as PreColour or Pre-Aging can also enhance the colour. Applying multiple coats of Oil Plus 2C will not increase colour intensity, as the wood only absorbs one layer."
+          }
+        },
+        "faq_item_qqPwm": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "I used too much Pre-Aging and the colour looks uneven. What should I do?",
+            "answer": "When using Pre-Aging, it’s important to spread the product evenly and avoid puddles. If the colour looks uneven, you can still correct it by gently evening it out with a cloth and a small amount of acetone. Once the colour is balanced, you can finish the wood with Oil Plus 2C."
+          }
+        },
+        "faq_item_bfUTr": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "Can I dilute Pre-Aging with water to achieve a lighter colour?",
+            "answer": "No, we do not recommend diluting Pre-Aging with water."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_X9z6f",
+        "faq_item_Q8pCH",
+        "faq_item_Exehz",
+        "faq_item_DXKgT",
+        "faq_item_EyRqj",
+        "faq_item_qqPwm",
+        "faq_item_bfUTr"
+      ],
+      "name": "FAQs section"
     }
   },
   "order": [
@@ -295,6 +370,7 @@
     "faqs_Xqd3L",
     "faqs_eLyck",
     "faqs_EQWnD",
+    "faqs_QfXBd",
     "icons_section_ry8Hx7",
     "icons_section_Q84VnV"
   ]
