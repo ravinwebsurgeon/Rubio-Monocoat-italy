@@ -20,14 +20,6 @@
         "heading": "Delivery"
       },
       "blocks": {
-        "faq_item_KAUFN": {
-          "type": "faq_item",
-          "disabled": false,
-          "settings": {
-            "question": "Where can I find my Track & Trace information?",
-            "answer": "You will automatically receive a Track & Trace code by email as soon as your order has been shipped. You can also follow your order through your account on our online store, where the Track & Trace information will be available as long as the order was placed using your personal account and not as a guest."
-          }
-        },
         "faq_item_TFcWe": {
           "type": "faq_item",
           "disabled": false,
@@ -43,12 +35,20 @@
             "question": "My shipment has been delayed, what happens now?",
             "answer": "We work with FedEx for deliveries within Europe. Unfortunately, we don’t have direct control over the shipping process once your order has been handed over to the carrier. In case of a delay, we recommend contacting your local FedEx office for the most up-to-date information about your shipment."
           }
+        },
+        "faq_item_KAUFN": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "Where can I find my Track & Trace information?",
+            "answer": "You will automatically receive a Track & Trace code by email as soon as your order has been shipped. You can also follow your order through your account on our online store, where the Track & Trace information will be available as long as the order was placed using your personal account and not as a guest."
+          }
         }
       },
       "block_order": [
-        "faq_item_KAUFN",
         "faq_item_TFcWe",
-        "faq_item_jPUQX"
+        "faq_item_jPUQX",
+        "faq_item_KAUFN"
       ],
       "name": "FAQs section"
     },
