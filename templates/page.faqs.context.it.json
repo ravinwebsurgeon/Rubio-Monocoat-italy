@@ -48,14 +48,6 @@
         "heading": "Order"
       },
       "blocks": {
-        "faq_item_YJHem": {
-          "type": "faq_item",
-          "disabled": false,
-          "settings": {
-            "question": "Example question here",
-            "answer": "Example answer text goes here. You can explain your FAQ answer here."
-          }
-        },
         "faq_item_bJ33cX": {
           "settings": {
             "question": "What are the shipping costs?",
@@ -66,6 +58,20 @@
           "settings": {
             "question": "Can I cancel my order?",
             "answer": "Yes, you can cancel your order before it has been shipped, without needing to provide a reason. Once the cancellation is processed, you will receive a confirmation email and a full refund of any amount paid. After the shipping confirmation has been sent, cancellation is no longer possible. However, you can still return the products after delivery by following our return procedure, as outlined in our cancellation policy."
+          }
+        },
+        "faq_item_YJHem": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "Example question here",
+            "answer": "Example answer text goes here. You can explain your FAQ answer here."
+          }
+        },
+        "faq_item_nbkb4a": {
+          "settings": {
+            "question": "What is your warranty policy?",
+            "answer": "We offer a 2-year legal warranty on all our products, starting from the delivery date. If something isn’t right, simply contact us as soon as you notice the issue and keep your proof of purchase handy. We’ll do our best to repair or replace the product, and if that’s not possible, we’ll refund you. Please note that the warranty doesn’t cover damage caused by misuse or not following the care instructions."
           }
         }
       },
