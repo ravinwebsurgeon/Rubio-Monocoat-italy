@@ -106,6 +106,12 @@
         "rebuy_personalization_engine_rebuy_widget_be8qdM"
       ],
       "settings": {
+        "Product-info": "Product information",
+        "How-to-apply": "How to apply",
+        "Technical-info": "Technical info",
+        "Inspiration": "Inspiration",
+        "FAQ": "FAQ",
+        "Reviews": "FAQ",
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
         "media_size": "medium",
