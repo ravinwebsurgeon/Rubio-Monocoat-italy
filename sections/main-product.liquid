@@ -1173,7 +1173,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if(receivedData) selectVariant(receivedData)
 
   //select bigger volume from variants on load page
- {% comment %} if (!window.Shopify || !window.Shopify.product) return;
+ if (!window.Shopify || !window.Shopify.product) return;
   const product = window.Shopify.product;
   const PRODUCT_OPTION_MAP = {
     'oil-plus-2c': '1.3 L',
@@ -1204,7 +1204,7 @@ document.addEventListener('DOMContentLoaded', () => {
       option.dispatchEvent(new Event('change', { bubbles: true }));
       console.log('Matched volume:', normalizedTarget[0]);
     }
-  }); {% endcomment %}
+  });
   
 });
 
