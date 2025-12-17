@@ -1078,7 +1078,7 @@ video.video-bg {
     border-radius: 50px !important;
     padding: 17px 0 16px 34px !important;
     width: calc(100% - 200px);
-    color:#000;
+    color:#183029;
     font-family: 'Frutiger Neue LT W1G' !important;
     font-weight: 500 !important;
 }
@@ -1101,7 +1101,7 @@ video.video-bg {
     font-size: 16px;
     line-height: 150%;
     letter-spacing: 0;
-    color: #000;
+    color: #183029;
 }
 
 .newsletter__wrapper>*+* {
