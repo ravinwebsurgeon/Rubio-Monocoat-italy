@@ -15,11 +15,8 @@
   "sections": {
     "custom_banner_MEwF3B": {
       "settings": {
-        "banner_image": "shopify://shop_images/banner-homepagina_1.png",
-        "banner_heading": "Un bel legno inizia con l’olio giusto",
-        "button1_text": "Acquista ora"
-      },
-      "blocks": {}
+        "banner_image": "shopify://shop_images/banner-homepagina_1.png"
+      }
     },
     "custom_multicolumn_RBfXX8": {
       "settings": {
@@ -62,9 +59,7 @@
       "custom_css": [
         ".custom-collections-section {background-color: #ffff;}",
         ".custom-collections-section img {border-radius: 10px;}"
-      ],
-      "settings": {},
-      "blocks": {}
+      ]
     },
     "video_products_home_8dwaBA": {
       "settings": {
@@ -104,8 +99,7 @@
     "two_color_grid_ifntXn": {
       "settings": {
         "heading": "Popular Interior Colours"
-      },
-      "blocks": {}
+      }
     }
   }
 }
