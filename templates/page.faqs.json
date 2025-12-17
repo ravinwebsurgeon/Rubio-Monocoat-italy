@@ -233,6 +233,13 @@
             "question": "I used too much Pre-Aging and the colour looks uneven. What should I do?",
             "answer": "When using Pre-Aging, it’s important to spread the product evenly and avoid puddles. If the colour looks uneven, you can still correct it by gently evening it out with a cloth and a small amount of acetone. Once the colour is balanced, you can finish the wood with Oil Plus 2C."
           }
+        },
+        "faq_item_GJtaLy": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I dilute Pre-Aging with water to achieve a lighter colour?",
+            "answer": "No, we do not recommend diluting Pre-Aging with water."
+          }
         }
       },
       "block_order": [
@@ -241,7 +248,8 @@
         "faq_item_erYgiR",
         "faq_item_EKA6xj",
         "faq_item_8QLtBE",
-        "faq_item_aPq6Xp"
+        "faq_item_aPq6Xp",
+        "faq_item_GJtaLy"
       ],
       "name": "FAQs section",
       "settings": {
