@@ -101,7 +101,7 @@
             <input type="hidden" class="variant-selector" id="custom-variant-id" name="id" value="{{ product.selected_or_first_available_variant.id }}">
         </div> {% endcomment %}
           <div class="custom_product_variants">
-            {% if product.options_with_values.size > 1 or product.options_with_values.size == 1 %}
+           {% unless product.variants.size == 1 and product.variants.first.title == "Default Title" %}
             {% for option in product.options_with_values %} 
               <div class="product_variant_main variant__{{ option.name }}">
                 
@@ -191,7 +191,7 @@
                 {% endif %}
               </div>
             {% endfor %}
-            {% endif %}
+            {% endunless %}
 
             <input type="hidden" class="variant-selector" id="custom-variant-id" name="id" value="{{ product.selected_or_first_available_variant.id }}">
           </div>

@@ -1096,10 +1096,9 @@ video.video-bg {
 .newsletter-form__field-wrapper .field__input::placeholder {
     opacity: 1;
     font-family: 'Frutiger Neue LT W1G' !important;
-    font-weight: 500 !important;
+    font-weight: 300 !important;
     font-style: Regular;
-    font-size: 18px;
-    leading-trim: NONE;
+    font-size: 16px;
     line-height: 150%;
     letter-spacing: 0;
     color: #000;
@@ -3767,7 +3766,6 @@ section.icon-columns-section.wood_colorss .container {
     .newsletter-form__field-wrapper .field__input::placeholder {
         font-family: 'Frutiger Neue LT W1G';
         font-weight: 300;
-        font-style: Regular;
         font-size: 12px;
         leading-trim: NONE;
         line-height: 150%;
