@@ -155,7 +155,7 @@
         "heading": "Interior Products"
       },
       "blocks": {
-        "faq_item_9GATj": {
+        "faq_item_tak3W": {
           "type": "faq_item",
           "disabled": false,
           "settings": {
@@ -163,7 +163,15 @@
             "answer": "Example answer text goes here. You can explain your FAQ answer here."
           }
         },
-        "faq_item_4d3WT": {
+        "faq_item_YEbtz": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "Example question here",
+            "answer": "Example answer text goes here. You can explain your FAQ answer here."
+          }
+        },
+        "faq_item_xNNQW": {
           "type": "faq_item",
           "disabled": false,
           "settings": {
@@ -186,13 +194,32 @@
             "question": "Can I use Oil Plus 2C on previously treated wood?",
             "answer": "For best results, Oil Plus 2C needs to come into direct contact with the raw wood fibers. If the wood has already been treated, the existing finish will need to be sanded off first before applying the product."
           }
+        },
+        "faq_item_9GATj": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "Example question here",
+            "answer": "Example answer text goes here. You can explain your FAQ answer here."
+          }
+        },
+        "faq_item_4d3WT": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "Example question here",
+            "answer": "Example answer text goes here. You can explain your FAQ answer here."
+          }
         }
       },
       "block_order": [
-        "faq_item_9GATj",
-        "faq_item_4d3WT",
+        "faq_item_tak3W",
+        "faq_item_YEbtz",
+        "faq_item_xNNQW",
         "faq_item_pc6XY",
-        "faq_item_yMXrr"
+        "faq_item_yMXrr",
+        "faq_item_9GATj",
+        "faq_item_4d3WT"
       ],
       "name": "FAQs section"
     },
