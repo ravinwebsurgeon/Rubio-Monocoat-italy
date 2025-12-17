@@ -155,30 +155,6 @@
         "heading": "Interior Products"
       },
       "blocks": {
-        "faq_item_tak3W": {
-          "type": "faq_item",
-          "disabled": false,
-          "settings": {
-            "question": "Example question here",
-            "answer": "Example answer text goes here. You can explain your FAQ answer here."
-          }
-        },
-        "faq_item_YEbtz": {
-          "type": "faq_item",
-          "disabled": false,
-          "settings": {
-            "question": "Example question here",
-            "answer": "Example answer text goes here. You can explain your FAQ answer here."
-          }
-        },
-        "faq_item_xNNQW": {
-          "type": "faq_item",
-          "disabled": false,
-          "settings": {
-            "question": "Example question here",
-            "answer": "Example answer text goes here. You can explain your FAQ answer here."
-          }
-        },
         "faq_item_pc6XY": {
           "type": "faq_item",
           "disabled": false,
@@ -199,26 +175,50 @@
           "type": "faq_item",
           "disabled": false,
           "settings": {
-            "question": "Example question here",
-            "answer": "Example answer text goes here. You can explain your FAQ answer here."
+            "question": "How can I increase the sheen on wood treated with Oil Plus 2C?",
+            "answer": "If you’d like more sheen, you can apply SheenPlus on top of Oil Plus 2C after a minimum of 24 hours. Please note that SheenPlus can only be applied over a treated surface and is not suitable for use on untreated wood."
+          }
+        },
+        "faq_item_tak3W": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "Which Oil Plus 2C colour gives the most natural look on wood?",
+            "answer": "Choosing the right colour can be tricky, as the final result depends on the wood type. Popular choices for a natural look are Pure, White 5%, and Natural, but they don’t all behave the same on every wood. We always recommend testing your chosen colour on a sample first to see the true result. Pure contains no added pigments, but it is not fully transparent. Because it is made from linseed oil, it naturally enriches and slightly darkens the wood. This effect is often appreciated, but if you want to keep the wood as close as possible to its original colour, a pigmented option may be better. Natural contains a creamy white/yellowish pigment that helps counteract the natural darkening of light woods such as white oak. White 5% also offers a lighter, more natural appearance and is often used to minimize colour change. Keep in mind that results vary by wood species. For example, Walnut is naturally dark, so Pure usually gives a beautiful, subtle enhancement that is often exactly what’s desired."
+          }
+        },
+        "faq_item_YEbtz": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "How can I achieve a deeper colour with Oil Plus 2C?",
+            "answer": "For a more intense colour, sand the wood with a lower grit so it absorbs more pigment. Using WoodPrep or an optional pre-treatment such as PreColour or Pre-Aging can also enhance the colour. Applying multiple coats of Oil Plus 2C will not increase colour intensity, as the wood only absorbs one layer."
+          }
+        },
+        "faq_item_xNNQW": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "I used too much Pre-Aging and the colour looks uneven. What should I do?",
+            "answer": "When using Pre-Aging, it’s important to spread the product evenly and avoid puddles. If the colour looks uneven, you can still correct it by gently evening it out with a cloth and a small amount of acetone. Once the colour is balanced, you can finish the wood with Oil Plus 2C."
           }
         },
         "faq_item_4d3WT": {
           "type": "faq_item",
           "disabled": false,
           "settings": {
-            "question": "Example question here",
-            "answer": "Example answer text goes here. You can explain your FAQ answer here."
+            "question": "Can I dilute Pre-Aging with water to achieve a lighter colour?",
+            "answer": "No, we do not recommend diluting Pre-Aging with water."
           }
         }
       },
       "block_order": [
-        "faq_item_tak3W",
-        "faq_item_YEbtz",
-        "faq_item_xNNQW",
         "faq_item_pc6XY",
         "faq_item_yMXrr",
         "faq_item_9GATj",
+        "faq_item_tak3W",
+        "faq_item_YEbtz",
+        "faq_item_xNNQW",
         "faq_item_4d3WT"
       ],
       "name": "FAQs section"
