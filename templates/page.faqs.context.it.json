@@ -129,16 +129,16 @@
           "type": "faq_item",
           "disabled": false,
           "settings": {
-            "question": "Example question here",
-            "answer": "Example answer text goes here. You can explain your FAQ answer here."
+            "question": "Is Oil Plus 2C safe for contact with food?",
+            "answer": "Yes, Oil Plus 2C is safe for food contact. It has been tested by the independent testing institute Eurofins in accordance with the European Framework Regulation 1935/2004 for materials intended to come into contact with food. The test results confirm that Oil Plus 2C complies with European food safety standards. This makes it perfectly suitable for countertops, cutting boards, tabletops, and other surfaces that come into contact with food. Oil Plus 2C has also been certified in combination with Universal Maintenance Oil and SheenPlus, further confirming its compliance with food safety requirements."
           }
         },
         "faq_item_yMXrr": {
           "type": "faq_item",
           "disabled": false,
           "settings": {
-            "question": "Example question here",
-            "answer": "Example answer text goes here. You can explain your FAQ answer here."
+            "question": "Can I use Oil Plus 2C on previously treated wood?",
+            "answer": "For best results, Oil Plus 2C needs to come into direct contact with the raw wood fibers. If the wood has already been treated, the existing finish will need to be sanded off first before applying the product."
           }
         }
       },
