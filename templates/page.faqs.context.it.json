@@ -122,7 +122,7 @@
       "type": "faqs",
       "disabled": false,
       "settings": {
-        "heading": "Frequently Asked Questions"
+        "heading": "Interior Products"
       },
       "blocks": {
         "faq_item_pc6XY": {
@@ -170,11 +170,20 @@
             "question": "What should I do with used cloths or accessories?",
             "answer": "After use, all accessories such as cloths, disposable gloves, scrubbing pads, removal cloths, mouse pads, and similar items should be soaked in water. Make sure they are completely saturated. Once soaked, you can wring them out and safely dispose of them in the regular trash."
           }
+        },
+        "faq_item_K3QpU": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "Example question here",
+            "answer": "Example answer text goes here. You can explain your FAQ answer here."
+          }
         }
       },
       "block_order": [
         "faq_item_E44ML",
-        "faq_item_egLQb"
+        "faq_item_egLQb",
+        "faq_item_K3QpU"
       ],
       "name": "FAQs section"
     },
