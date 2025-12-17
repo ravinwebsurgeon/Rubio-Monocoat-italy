@@ -14,19 +14,33 @@
   },
   "sections": {
     "icons_section_jipyQX": {
+      "custom_css": [
+        ".four-containers_outer {background: #396948 !important;}",
+        ".four-containers {display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;}",
+        ".four-containers .container-item {background: #457253; border-radius: 10px; padding: 17px; flex: 0 0 320px; min-height: 140px; text-align: center;}",
+        ".container-item,.container-item * {color: #fff;}",
+        ".container-item.is-hidden {display: none;}"
+      ],
       "settings": {},
       "blocks": {
         "container_dFqDif": {
           "disabled": true,
           "settings": {}
         },
+        "container_9NRGxp": {
+          "settings": {
+            "subtext": "info@rubiomonocoat.it",
+            "heading": "Send Us an Email"
+          }
+        },
         "container_nYBfwa": {
           "disabled": true,
           "settings": {}
         },
-        "container_9NRGxp": {
+        "container_3Ax9dN": {
           "settings": {
-            "subtext": "info@rubiomonocoat.it"
+            "heading": "Ask Our Experts",
+            "subtext": "Get personalized help based on your project"
           }
         }
       }
