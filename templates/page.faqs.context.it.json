@@ -44,7 +44,9 @@
       "name": "FAQs section"
     },
     "faqs_gnazct": {
-      "settings": {},
+      "settings": {
+        "heading": "Order"
+      },
       "blocks": {
         "faq_item_YJHem": {
           "type": "faq_item",
@@ -52,6 +54,18 @@
           "settings": {
             "question": "Example question here",
             "answer": "Example answer text goes here. You can explain your FAQ answer here."
+          }
+        },
+        "faq_item_bJ33cX": {
+          "settings": {
+            "question": "What are the shipping costs?",
+            "answer": "For orders below €50.00 (VAT included), shipping costs are charged to the customer. If the delivery address is in Italy, the shipping fee is €6.00. For orders of €50.00 or more (VAT included), shipping is free."
+          }
+        },
+        "faq_item_iL8tcD": {
+          "settings": {
+            "question": "Can I cancel my order?",
+            "answer": "Yes, you can cancel your order before it has been shipped, without needing to provide a reason. Once the cancellation is processed, you will receive a confirmation email and a full refund of any amount paid. After the shipping confirmation has been sent, cancellation is no longer possible. However, you can still return the products after delivery by following our return procedure, as outlined in our cancellation policy."
           }
         }
       },
