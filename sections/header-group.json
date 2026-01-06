@@ -38,21 +38,12 @@
             "link": "",
             "custom_svg": ""
           }
-        },
-        "announcement_XkDzJC": {
-          "type": "announcement",
-          "settings": {
-            "text": "No delivery on 24, 25, 31 december and 1 January due to Holidays",
-            "link": "",
-            "custom_svg": ""
-          }
         }
       },
       "block_order": [
         "announcement-bar-0",
         "announcement_6zGjFz",
-        "announcement_FVKwNP",
-        "announcement_XkDzJC"
+        "announcement_FVKwNP"
       ],
       "settings": {
         "review_link": "shopify://pages/all-reviews-page",
