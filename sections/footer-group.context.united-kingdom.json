@@ -1,0 +1,27 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "footer": {
+      "settings": {},
+      "blocks": {
+        "text_hWeadq": {
+          "settings": {
+            "subtext": "<p><strong>Rubio Monocoat HQ</strong></p><p>UNIT 1, Purley Chase Industrial Estate, Pipers Ln, Ansley Common</p><p>CV10 0RG Nuneaton</p><p>VAT: BE 0452.510.661</p><p>hello@rubiomonocoat.co.uk</p><p>0800 688 9661</p>"
+          }
+        }
+      }
+    }
+  },
+  "context": {
+    "market": "united-kingdom"
+  },
+  "parent": "footer-group.json"
+}
