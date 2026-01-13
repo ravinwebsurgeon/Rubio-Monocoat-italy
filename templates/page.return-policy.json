@@ -1,0 +1,127 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_kPd9mt": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_nCaiQR": {
+          "type": "heading",
+          "settings": {
+            "heading": "Cookie Policy",
+            "heading_size": "h1"
+          }
+        },
+        "text_jdmVtf": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This Cookie Policy (“Cookie Policy”) explains the use of cookies and similar technologies (collectively, “Cookies”) on the website, including the webshop, accessible at <a href=\"http://www.rubiomonocoat.it/\">www.rubiomonocoat.it</a> (“Website”).</p><h2><strong>1. Data Controller</strong></h2><p>The Website is operated by:</p><p><strong>Rubio Monocoat Italy SRL</strong><br/>Registered office: Via Torino 24/8, 20063 Cernusco sul Naviglio (MI), Italy<br/>VAT/Tax ID: 04742380274<br/>Email: <a>info@rubiomonocoat.it</a></p><p>Rubio Monocoat Italy SRL is the data controller for the personal data collected through Cookies used on the Website.<br/></p><h2><strong>2. What Are Cookies?</strong></h2><p>Cookies are small text files or pieces of information that are stored on the user’s device (computer, tablet, smartphone) when visiting our Website through their browser.<br/>Similar technologies (such as pixels, tags, or scripts) may also be used and are collectively referred to as “Cookies”.<br/></p><h2><strong>3. Why We Use Cookies</strong></h2><p>Cookies help us to:</p><ul><li>ensure the proper functioning of the Website;</li><li>improve performance and security;</li><li>analyze Website usage;</li><li>personalize content and advertising, subject to user consent.<br/></li></ul><p>Some Cookies are <strong>strictly necessary</strong> for the Website to function, while others require the user’s <strong>consent</strong> before being placed.</p><h2><strong>4. Types of Cookies We Use</strong></h2><p>Our Website uses the following categories of Cookies:</p><h3><strong>4.1 Technical or Functional Cookies (Necessary)</strong></h3><p>These Cookies are <strong>essential </strong>for the Website to function and enable core features such as login, payments, language preferences, and shopping cart functionality.<br/>They <strong>do not </strong>require user consent.<br/></p><h3><strong>4.2 Analytical / Performance Cookies</strong></h3><p>Analytical Cookies are used to <strong>measure and analyze</strong> how users interact with the Website, helping us to improve its content, performance, and structure.</p><p>Where Analytical Cookies can directly or indirectly identify the user (e.g., IP address not anonymized), the Website will request <strong>prior consent</strong> before using them.</p><h3><strong>4.3 Tracking / Profiling Cookies</strong></h3><p>These Cookies record the user’s browsing behavior on the Website (and potentially third-party sites), allowing us to create a <strong>user profile</strong>, in order to:</p><ul><li>deliver personalized advertising;</li><li>offer a customized webshop experience.<br/></li></ul><p>Tracking/Profiling Cookies are installed <strong>only with the user’s explicit consent</strong>.<br/>If the user does not give or withdraws consent, advertisements may still appear, but they <strong>will not be personalized</strong>.</p><h3><strong>4.4 Third-Party Cookies</strong></h3><p>Some Cookies may be placed by <strong>third parties</strong>, such as analytics providers or advertising partners. In such cases, the third party may process the collected data as an independent data controller.<br/>Details of such processing are available in the respective third-party privacy/cookie policies.</p><h2><strong>5. Legal Basis and Consent</strong></h2><p>Where Cookies used are <strong>not strictly necessary</strong>, they are installed only after obtaining the user’s <strong>prior consent</strong> through the Website’s cookie banner or settings.</p><p>The user may modify or withdraw consent at any time.<br/></p><h2><strong>6. Managing and Disabling Cookies</strong></h2><p>Users can manage or delete Cookies in several ways:</p><h3><strong>6.1 Browser Settings</strong></h3><p>Users may disable or delete Cookies at any time through their browser’s privacy or security settings.<br/></p><h3><strong>6.2 Cookie Preferences on the Website</strong></h3><p>Where available, the user may also adjust Cookie settings directly on the Website (via the cookie banner or a “Cookie Settings” link).</p><h2><strong>7. Personal Data and Privacy Policy</strong></h2><p>Information collected through Cookies may include <strong>personal data</strong>.<br/>The Privacy Policy is available on the Website for full details.</p><h2><strong>8. Changes to This Cookie Policy</strong></h2><p>We reserve the right to <strong>update or modify</strong> this Cookie Policy at any time. When changes are made, the updated version will be published on the Website with an indication of the revision date. If changes are significant or require renewed consent, the user will be informed accordingly.</p><h2><strong>9. Contact</strong></h2><p>For any questions regarding this Cookie Policy or the use of Cookies on our Website, users may contact us at: <a><strong>info@rubiomonocoat.it</strong></a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_nCaiQR",
+        "text_jdmVtf"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "icons_section_CaqHz7": {
+      "type": "icons-section",
+      "blocks": {
+        "container_PaMNwN": {
+          "type": "container",
+          "disabled": true,
+          "settings": {
+            "class": "first-container-sec",
+            "icon": "shopify://shop_images/phone_1.png",
+            "heading": "Telephone advice",
+            "subhead": "",
+            "subtext": "",
+            "extra_text": "Answer the questions"
+          }
+        },
+        "container_jt44Hk": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/envelope.png",
+            "heading": "Send Us an Email",
+            "subhead": "",
+            "subtext": "info@rubiomonocoat.it",
+            "extra_text": ""
+          }
+        },
+        "container_4WzBpJ": {
+          "type": "container",
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/headset.png",
+            "heading": "Ask Our Experts",
+            "subhead": "",
+            "subtext": "Get personalized help based on your project",
+            "extra_text": ""
+          }
+        },
+        "container_VL7XEr": {
+          "type": "container",
+          "disabled": true,
+          "settings": {
+            "class": "",
+            "icon": "shopify://shop_images/chat.png",
+            "heading": "Ask via chat",
+            "subhead": "",
+            "subtext": "Answer the questions",
+            "extra_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "container_PaMNwN",
+        "container_jt44Hk",
+        "container_4WzBpJ",
+        "container_VL7XEr"
+      ],
+      "custom_css": [
+        ".four-containers_outer {background: #396948 !important;}",
+        ".four-containers {display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;}",
+        ".four-containers .container-item {background: #457253; border-radius: 10px; padding: 17px; flex: 0 0 320px; min-height: 140px; text-align: center;}",
+        ".container-item,.container-item * {color: #fff;}",
+        ".container-item.is-hidden {display: none;}"
+      ],
+      "name": "icons section",
+      "settings": {
+        "custom_class": "pdp-icons-sec",
+        "show_on_desktop": true,
+        "show_on_mobile": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_kPd9mt",
+    "icons_section_CaqHz7"
+  ]
+}
