@@ -51,7 +51,8 @@
                      <div class="best_selling_product__detail">
                       <p>
                         {% if prices.first != prices.last %}
-                          From {{ prices.first | money }}
+                          {% comment %} From {{ prices.first | money }} {% endcomment %}
+                            {{'products.product.price.from_price_html' |  t: price: price_money }}
                         {% else %}
                           {{ prices.first | money }}
                         {% endif %}
