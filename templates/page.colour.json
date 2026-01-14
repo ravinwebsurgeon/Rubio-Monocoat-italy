@@ -323,7 +323,9 @@
         "heading": "asasa",
         "heading2": "Choose your species:",
         "source_collection": "exterior-colors",
-        "exterior_collection": "exterior-colors"
+        "exterior_collection": "exterior-colors",
+        "order_sample_btn_text": "Order Sample",
+        "learn_more_btn_text": "Learn More"
       }
     },
     "icons_section_cF3FEP": {
