@@ -116,6 +116,7 @@
   },
   "products": {
     "product": {
+      "view_option_on": "Pogledaj {{ option }} na",
       "add_to_cart": "Dodaj u košaricu",
       "description": "Opis",
       "on_sale": "Rasprodaja",
