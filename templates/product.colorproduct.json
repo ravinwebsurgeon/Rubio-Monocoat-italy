@@ -121,7 +121,10 @@
     "discover_similar_color_BmQUge": {
       "type": "discover_similar_color",
       "name": "Discover Similar Section",
-      "settings": {}
+      "settings": {
+        "add_sample": "Add Sample",
+        "after_sample_added": "Sample Added"
+      }
     },
     "color_right_section_MnBFdt": {
       "type": "color-right-section",
