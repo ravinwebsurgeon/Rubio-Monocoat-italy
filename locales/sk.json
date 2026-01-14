@@ -117,6 +117,7 @@
   },
   "products": {
     "product": {
+      "view_option_on": "Pozrieť {{ option }} na",
       "add_to_cart": "Pridať do košíka",
       "description": "Popis",
       "on_sale": "Zľava",
