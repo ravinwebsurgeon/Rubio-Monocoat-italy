@@ -107,7 +107,7 @@
             "video_btn": "Shop Now",
             "video_btn_link": "shopify://collections/tools-for-cleaning",
             "block_subtext": "Shop Now",
-            "block_link": "#"
+            "block_link": "shopify://collections/tools-for-cleaning"
           }
         },
         "mega_menu_tFTCKH": {
