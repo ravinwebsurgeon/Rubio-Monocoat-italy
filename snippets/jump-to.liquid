@@ -1,7 +1,10 @@
 {% if product_info_sec !=blank or how_to_apply_section != blank or technical_info_section != blank or inspiration_section != blank  or faq_section != blank  %}
 <div class="jump-links-section">
   <div class="jump-links-grid">
-    <h3 class="jump-links-heading">Jump to...</h3>
+    {% comment %} <h3 class="jump-links-heading">Jump to...</h3> {% endcomment %}
+    {% if section.settings.jump_to_text != blank %}
+      <h3 class="jump-links-heading">{{section.settings.jump_to_text }}...</h3>
+    {% endif %}
     
     {% if product_info_sec != blank %}
       <a href="#product-info" class="jump-link-item">
