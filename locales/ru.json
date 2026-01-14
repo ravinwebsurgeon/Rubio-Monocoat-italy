@@ -117,6 +117,7 @@
   },
   "products": {
     "product": {
+      "view_option_on": "Посмотреть {{ option }} на",
       "add_to_cart": "Добавить в корзину",
       "description": "Описание",
       "on_sale": "Распродажа",
