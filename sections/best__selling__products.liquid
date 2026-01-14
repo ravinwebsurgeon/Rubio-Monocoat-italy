@@ -52,6 +52,7 @@
                       <p>
                         {% if prices.first != prices.last %}
                           {% comment %} From {{ prices.first | money }} {% endcomment %}
+                           {%  assign price_money = prices.first | money  %}
                             {{'products.product.price.from_price_html' |  t: price: price_money }}
                         {% else %}
                           {{ prices.first | money }}
