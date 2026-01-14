@@ -35,6 +35,10 @@
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
+            "woodtype": "Does this colour work on my woodtype?",
+            "Suited": "Suited for:",
+            "Notsuited": "Not suited for:",
+            "Lesssuited": "Less suited for:",
             "picker_type": "button",
             "swatch_shape": "circle"
           }
@@ -88,6 +92,15 @@
         "klaviyo_reviews_average_rating_GxUH7B"
       ],
       "settings": {
+        "stock_message": "",
+        "jump_to_text": "",
+        "sticky_change_btn": "Change",
+        "Product-info": "Informazioni sul prodotto",
+        "How-to-apply": "Come candidarsi",
+        "Technical-info": "Informazioni tecniche",
+        "Inspiration": "Ispirazione",
+        "FAQ": "Domande frequenti",
+        "Reviews": "Recensioni",
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
         "media_size": "medium",
