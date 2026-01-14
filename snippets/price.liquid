@@ -41,6 +41,9 @@
 -%}
 
 {%- unless target == null and placeholder == null -%}
+    {% if product.selected_or_first_available_variant.available and show_stock %}
+      <p class="stock-status in-stock">{{stock_message}}</p>
+  {% endif %}
   <div
     class="
       price

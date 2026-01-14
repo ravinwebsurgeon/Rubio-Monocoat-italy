@@ -317,16 +317,15 @@
                   Show “In stock – Ready to be shipped” if the current product/variant is available
                 {% endcomment %}
 
-                {% if product.available %}
-                  <p class="stock-status in-stock">In stock – Ready to be shipped</p>
-                {% endif %}
+               
                   {% comment %} <p class="stock-status out-of-stock">Out of stock</p>  {% endcomment %}
                    <div class="custom_added_price"> <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                     {%- render 'price',
                       product: product,
                       use_variant: true,
                       show_badges: true,
-                      price_class: 'price--large'
+                      price_class: 'price--large',
+                      stock_message:{{section.settings.stock_message}},
                     -%}
                   </div> 
                 </div>
@@ -2669,6 +2668,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ],
   "settings": [
+     {
+      "type":"text",
+      "id":"stock_message",
+      "label":"Stock Messgae"
+    },
+     {
+      "type":"text",
+      "id":"jump_to_text",
+      "label":"Jump To Heading"
+    },
      {
       "type": "text",
       "id": "Product-info",
