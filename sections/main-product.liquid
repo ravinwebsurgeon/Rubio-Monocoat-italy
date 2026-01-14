@@ -1093,7 +1093,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </product-info>
 
 {% comment %} {% render 'calc-drawer' %} {% endcomment %}
-{% render 'custom-sticky-cart', product:product, change_btn:{{section.settings.sticky_chnage_btn}} %}
+{% render 'custom-sticky-cart', product:product, change_btn:{{section.settings.sticky_change_btn}} %}
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   {% comment %} const productForm = document.querySelector('form[action="/cart/add"]');
@@ -2682,7 +2682,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       "type":"text",
       "id":"sticky_change_btn",
-      "label":"sticky_chnage_btn"
+      "label":"sticky Change Button"
     },
      {
       "type": "text",
