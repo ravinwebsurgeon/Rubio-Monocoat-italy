@@ -1298,7 +1298,7 @@ document.addEventListener('click', (e) => {
       console.log(result,'get Result')
       if(result.name){ 
         collection_name = result.name.toLowerCase();
-        product_color = result.color.toLowerCase();
+        {% comment %} product_color = result.color.toLowerCase(); {% endcomment %}
         type = result.type
         if(result.surface) surface = result.surface;
       }
