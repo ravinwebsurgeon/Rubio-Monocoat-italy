@@ -116,6 +116,7 @@
   },
   "products": {
     "product": {
+      "view_option_on": "Vezi {{ option }} pe",
       "add_to_cart": "Adăugați în coș",
       "description": "Descriere",
       "on_sale": "Vânzare",
