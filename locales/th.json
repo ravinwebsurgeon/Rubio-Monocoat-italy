@@ -115,6 +115,7 @@
   },
   "products": {
     "product": {
+      "view_option_on": "ดู {{ option }} บน",
       "add_to_cart": "เพิ่มลงในตะกร้าสินค้า",
       "description": "คำอธิบาย",
       "on_sale": "ลดราคา",
