@@ -115,6 +115,7 @@
   },
   "products": {
     "product": {
+      "view_option_on": "Tekintse meg a(z) {{ option }}",
       "add_to_cart": "Hozzáadás a kosárhoz",
       "description": "Leírás",
       "on_sale": "Akciós",
