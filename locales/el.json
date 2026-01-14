@@ -115,6 +115,7 @@
   },
   "products": {
     "product": {
+      "view_option_on": "Δες αυτό το {{ option }} στο",
       "add_to_cart": "Προσθήκη στο καλάθι",
       "description": "Περιγραφή",
       "on_sale": "Έκπτωση",
