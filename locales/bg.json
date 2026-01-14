@@ -115,6 +115,7 @@
   },
   "products": {
     "product": {
+      "view_option_on": "Виж този {{ option }} на",
       "add_to_cart": "Добавяне към количката",
       "description": "Описание",
       "on_sale": "Разпродажба",
