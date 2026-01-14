@@ -85,7 +85,7 @@
       ],
       "settings": {
         "order_btn": "Order Sample",
-        "differnt_volumn_btn": "",
+        "differnt_volumn_btn": "Order different volumes",
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
         "media_size": "medium",
