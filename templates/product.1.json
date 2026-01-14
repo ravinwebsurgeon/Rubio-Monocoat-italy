@@ -112,6 +112,7 @@
       "settings": {
         "stock_message": "In stock – Ready to be shipped",
         "jump_to_text": "Jump to",
+        "sticky_change_btn": "Change",
         "Product-info": "Product information",
         "How-to-apply": "How to apply",
         "Technical-info": "Technical info",
