@@ -990,7 +990,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const custom_btn = document.querySelector('.order_sample');
     if (custom_btn) {
       console.log('change btn');
-      custom_btn.textContent = 'Order Sample';
+      custom_btn.textContent = '{{section.settings.order_btn }}';
     }
   }, 3000);
 });
@@ -2435,6 +2435,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   ],
   "settings": [
+     {
+      "type":"header",
+      "content":"Product Main Btns"
+    },
+    {
+      "type": "text",
+      "id": "order_btn",
+      "label": "Order Button Text"
+    },
+    {
+      "type":"text",
+      "id":"differnt_volumn_btn",
+      "label":"Redirection Button"
+    },
     {
       "type": "checkbox",
       "id": "enable_sticky_info",
