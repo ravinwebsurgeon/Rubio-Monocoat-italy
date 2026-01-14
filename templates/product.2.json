@@ -120,6 +120,7 @@
       "settings": {
         "stock_message": "In stock – Ready to be shipped",
         "jump_to_text": "jump to",
+        "sticky_change_btn": "Change",
         "Product-info": "Informazioni sul prodotto",
         "How-to-apply": "Come candidarsi",
         "Technical-info": "Informazioni tecniche",
