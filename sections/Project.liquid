@@ -336,8 +336,10 @@
                         </div> 
                         <div class="product-item-conts">
                           <div class="product-buttons-wraper">
-                            <button class="more-info-color">Learn More</button>
-                            <button class="order-sample-color">Order Sample</button>                  
+                            {% comment %} <button class="more-info-color">Learn More</button>
+                            <button class="order-sample-color">Order Sample</button>{% endcomment %}
+                            <button class="more-info-color">{{section.settings.learn_more_btn}}</button>
+                            <button class="order-sample-color">{{ section.settings.order_sample_btn }}</button>  
                           </div> 
                           <a href="{{ product.url }}">
                             <h3>{{ product.title }}</h3>
