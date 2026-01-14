@@ -29,12 +29,7 @@
         -%}
         {%- if picker_type == 'swatch' -%}
   <fieldset class="js product-form__input product-form__input--swatch">
-    <legend class="form__label">
-    View this {{ option.name }} on
-      {% comment %} <span data-selected-value>
-        {{- option.selected_value -}}
-      </span> {% endcomment %}
-    </legend>
+    <legend class="form__label">View this {{ option.name }} on </legend>
 
 
 {% assign current_variant = product.selected_or_first_available_variant %}
