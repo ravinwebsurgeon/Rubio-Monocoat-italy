@@ -116,6 +116,7 @@
   },
   "products": {
     "product": {
+      "view_option_on": "Ver {{ option }} em",
       "add_to_cart": "Adicionar ao carrinho",
       "description": "Descrição",
       "on_sale": "Em promoção",
