@@ -121,7 +121,7 @@
                               {% if total_values > max_to_show %}
                                 <button class="show-more-swatches"
                                         data-count="{{ total_values | minus: max_to_show }}">
-                                  +{{ total_values | minus: max_to_show }} more
+                                  +{{ total_values | minus: max_to_show }} {{section.settings.more_btn}}
                                 </button>
                               {% endif %}
                             </div>
