@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!stickyForm || !stickyBar) return;
 
   // ===== Sticky bar show/hide on scroll =====
-  const productForm = document.querySelector('form[action="/cart/add"]');
+  const productForm = document.querySelector('.custom__cart__action__form');
   window.addEventListener('scroll', function () {
     const rect = productForm.getBoundingClientRect();
     stickyBar.style.display = rect.bottom < 0 ? 'flex' : 'none';
