@@ -196,6 +196,8 @@
       ],
       "name": "Project",
       "settings": {
+        "main_heading": "Interior",
+        "main_heading1": "Exterior",
         "heading": "Choose your project:",
         "img1": "shopify://shop_images/Project_20211029_0007_jpg.webp",
         "img2": "shopify://shop_images/Finland_Lakehouse_First_loocation-2_jpg.webp",
