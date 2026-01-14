@@ -115,6 +115,7 @@
   },
   "products": {
     "product": {
+      "view_option_on": "{{ option }} 보기",
       "add_to_cart": "카트에 추가",
       "description": "설명",
       "on_sale": "할인",
