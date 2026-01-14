@@ -37,7 +37,13 @@
           id="sticky-variant-id"
           value="{{ product.selected_or_first_available_variant.id }}"
         >
-        <button type="submit" class="sticky-btn"> {{ 'products.product.add_to_cart' | t }}</button>
+        <button type="submit" class="sticky-btn">
+         {% if product.selected_or_first_available_variant.available == true %}
+           {{ 'products.product.add_to_cart' | t }}
+          {%- elsif product.selected_or_first_available_variant.available == false %}
+            {{ 'products.product.sold_out' | t }}
+          {% endif %}
+          </button>
       </form>
     </div>
   </div>
@@ -52,6 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const stickyImgEl = document.getElementById('sticky-variant-image');
   const stickyBar = document.getElementById('sticky-add-to-cart');
   const mainAddToCartBtn = document.querySelector('.product-form__submit[name="add"]'); // main add-to-cart
+  const stickyBtn = document.querySelector('.sticky-btn')
 
   if (!stickyForm || !stickyBar) return;
 
@@ -101,6 +108,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (variant.featured_image && stickyImgEl) {
       stickyImgEl.src = variant.featured_image.src;
+    }
+    if(variant.available){
+      stickyBtn.textContent = '{{ 'products.product.add_to_cart' | t }}';
+    }
+    else{
+      stickyBtn.textContent=' {{ 'products.product.sold_out' | t }}';
     }
   }
 
