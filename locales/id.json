@@ -115,7 +115,6 @@
   },
   "products": {
     "product": {
-      "view_option_on": "Lihat {{ option }} di",
       "add_to_cart": "Tambahkan ke keranjang",
       "description": "Deskripsi",
       "on_sale": "Obral",
