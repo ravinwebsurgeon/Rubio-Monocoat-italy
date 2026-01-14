@@ -115,6 +115,7 @@
   },
   "products": {
     "product": {
+       "view_option_on": "Diese {{ option }} ansehen auf",
       "add_to_cart": "In den Warenkorb legen",
       "description": "Beschreibung",
       "on_sale": "Sale",
