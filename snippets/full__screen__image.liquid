@@ -48,7 +48,8 @@
             // Step 1 — Open modal background ONLY
             modal.classList.add("active");
             document.body.classList.add('product-image-overlay')
-            document.querySelector('section.product-features-section>.section-heading').style.zIndex  = '0'
+             let someHeading = document.querySelector('section.product-features-section>.section-heading')
+            if(someHeading){someHeading.style.zIndex  = '0'}
 
             // Wait for fade-in
             await new Promise(r => setTimeout(r, 120));
@@ -88,7 +89,8 @@
         modalImg.classList.remove("show");
         modalVideo.classList.remove("show");
             document.body.classList.remove('product-image-overlay')
-            document.querySelector('section.product-features-section>.section-heading').style.zIndex  = '2'
+            let someHeading = document.querySelector('section.product-features-section>.section-heading')
+            if(someHeading){someHeading.style.zIndex  = '2'}
 
         setTimeout(() => {
             modalVideo.pause();
