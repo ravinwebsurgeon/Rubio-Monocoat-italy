@@ -15,21 +15,22 @@
         "container_xNmGKf": {
           "disabled": false,
           "settings": {
+            "class": "",
             "subhead": "",
-            "extra_text": "",
             "subtext": "0800 688 9661",
-            "class": ""
+            "extra_text": "",
+            "heading": "Telephone Advice"
+          }
+        },
+        "container_EGhzFM": {
+          "settings": {
+            "subtext": "hello@rubiomonocoat.co.uk"
           }
         },
         "container_6KNzLW": {
           "disabled": true,
           "settings": {
             "subtext": ""
-          }
-        },
-        "container_EGhzFM": {
-          "settings": {
-            "subtext": "hello@rubiomonocoat.co.uk"
           }
         }
       }
