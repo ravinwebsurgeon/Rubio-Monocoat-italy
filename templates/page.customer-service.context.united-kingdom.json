@@ -33,7 +33,26 @@
         "call_link": "tel:0800 688 9661",
         "email_link": "mailto:hello@rubiomonocoat.co.uk"
       },
-      "blocks": {}
+      "blocks": {
+        "contact_method_mVcVkc": {
+          "disabled": true,
+          "settings": {}
+        },
+        "contact_method_TxekfM": {
+          "settings": {
+            "title": "Contact Us by Phone",
+            "subtitle": "0800 688 9661",
+            "link": "tel:0800 688 9661"
+          }
+        },
+        "contact_method_JF4YCW": {
+          "settings": {
+            "title": "Send an Email",
+            "subtitle": "hello@rubiomonocoat.co.uk",
+            "link": "mailto:hello@rubiomonocoat.co.uk"
+          }
+        }
+      }
     }
   },
   "context": {
