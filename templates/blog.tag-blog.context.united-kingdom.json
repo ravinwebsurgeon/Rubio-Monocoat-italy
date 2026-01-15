@@ -15,9 +15,10 @@
         "container_ydfipW": {
           "disabled": false,
           "settings": {
-            "extra_text": "",
             "class": "",
-            "subtext": "0800 688 9661"
+            "subtext": "0800 688 9661",
+            "extra_text": "",
+            "heading": "Telephone Advice"
           }
         },
         "container_UjEXHD": {
