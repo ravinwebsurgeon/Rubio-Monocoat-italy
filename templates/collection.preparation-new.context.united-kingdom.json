@@ -1,0 +1,35 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "icons_section_rpAQK9": {
+      "settings": {},
+      "blocks": {
+        "container_VQAkd6": {
+          "disabled": false,
+          "settings": {
+            "extra_text": "",
+            "subtext": "0800 688 9661",
+            "class": ""
+          }
+        },
+        "container_QE3CaP": {
+          "settings": {
+            "subtext": "hello@rubiomonocoat.co.uk"
+          }
+        }
+      }
+    }
+  },
+  "context": {
+    "market": "united-kingdom"
+  },
+  "parent": "collection.preparation-new.json"
+}
