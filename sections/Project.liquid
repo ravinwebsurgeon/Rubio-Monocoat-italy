@@ -5,7 +5,7 @@
         <div class="pro-first-color">
           <h3 class="heading-pr">{{ section.settings.heading }}</h3>
           <div class="clear-choosens-btn-container">
-            <button id="clearchoosens" class="button clear-all-choosens" style="margin-top: 10px 0;">Clear All</button>
+            <button id="clearchoosens" class="button clear-all-choosens" style="margin-top: 10px 0;">{{section.settings.clear_all_btn }}</button>
           </div>
           <div class="pro-first">
             <!-- Interior (Static, no toggle) -->
@@ -31,13 +31,13 @@
                   <span class="surfaces-img-spn">
                     <img src="{{ section.settings.vertical_surface_img | img_url: 'master' }}" alt="Vertical surface">
                   </span>
-                  <p>Vertical surface</p>
+                  <p>{{section.settings.exterior_subheading1 }}</p>
                 </div>
                 <div class="surface-item horizontal" data-collection="{{ section.settings.horizontal_surface_collection.handle }}">
                   <span class="surfaces-img-spn">
                     <img src="{{ section.settings.horizontal_surface_img | img_url: 'master' }}" alt="Horizontal surface"> 
                   </span>
-                  <p>Horizontal surface</p>
+                  <p>{{section.settings.exterior_subheading2 }}</p>
                 </div>
               </div>
             </div>
@@ -169,8 +169,8 @@
             <div class="fil-color-outers">
               <!-- Buttons -->
               <div class="filter-buttons">
-                <button class="filter-btn active" data-target="colour-options">Colour</button>
-                <button class="filter-btn" data-target="product-options">Product</button>
+                <button class="filter-btn active" data-target="colour-options">{{section.settings.color_filter_btn}}</button>
+                <button class="filter-btn" data-target="product-options">{{section.settings.product_filter_btn}}</button>
                 {% comment %} <button class="filter-btn" data-target="sort-options">Sort By</button> {% endcomment %}
               </div>
               <!-- Options Panels -->
@@ -239,7 +239,7 @@
               </div> 
               {% endcomment %}
               <!-- Clear All Button -->
-              <button id="clearFilters" class="button clear-all" style="margin-top: 10px;">Clear All</button>
+              <button id="clearFilters" class="button clear-all" style="margin-top: 10px;">{{section.settings.clear_all_btn}}</button>
             </div>
           </div> 
           <!-- Video modal -->
