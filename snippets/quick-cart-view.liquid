@@ -217,7 +217,7 @@
               {% assign first_variant = product.variants.first %}
               <button class="product_cart_btn ajax__cart {% unless first_variant.available %} disabled-btn {% endunless %}"
                  {% unless first_variant.available %} disabled {% endunless %}
-                >Add to Cart</button> 
+                > {{ 'products.product.add_to_cart' | t }}</button> 
             </div>
           </div>
     </div>
