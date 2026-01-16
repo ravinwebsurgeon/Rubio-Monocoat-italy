@@ -16,7 +16,7 @@
 </script>
 
   <div class="quick__cart__hed">
-    <h2>Choose options</h2>
+    <h2>{{section.settings.choose_text }}</h2>
     <button class="quick__cart__close">&times;</button>
   </div>
   
@@ -46,7 +46,7 @@
             <div class="product__title__price">
                 <h3 class="product__title">{{ product.title }}</h3>
                 <p class="product__price">{{ product.price | money_with_currency }}</p>
-                <a href="{{ product.url }}" class="product__GOTO__main">View Details</a>
+                <a href="{{ product.url }}" class="product__GOTO__main">{{section.settings.view_btn}}</a>
             </div>
         </div>
         {% comment %} <div class="custom_product_variants">
