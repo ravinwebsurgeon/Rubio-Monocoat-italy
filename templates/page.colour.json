@@ -198,6 +198,8 @@
       "settings": {
         "main_heading": "Interior",
         "main_heading1": "Exterior",
+        "exterior_subheading1": "Vertical surface",
+        "exterior_subheading2": "Horizontal surface",
         "heading": "Choose your project:",
         "img1": "shopify://shop_images/Project_20211029_0007_jpg.webp",
         "img2": "shopify://shop_images/Finland_Lakehouse_First_loocation-2_jpg.webp",
@@ -209,6 +211,9 @@
         "video_link_text2": "Check out our expert tips!",
         "order_sample_btn": "Order Sample",
         "learn_more_btn": "Learn  More",
+        "color_filter_btn": "Color",
+        "product_filter_btn": "Product",
+        "clear_all_btn": "Clear All",
         "source_collection": "interior-colors",
         "source_collection1": "exterior-colors",
         "vertical_surface_img": "shopify://shop_images/DuroGrit_new_swatches_5.png",
