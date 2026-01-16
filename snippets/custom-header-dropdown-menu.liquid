@@ -1,3 +1,4 @@
+  {% assign lang = localization.language.iso_code | downcase %}
 <nav class="custom_header__inline-menu header__inline-menu">
   <ul class="custom_list-menu">
     {% assign main_parent_index = 0 %}
@@ -6,7 +7,11 @@
       {% assign first_child = main_parent_index | append: "" %} 
       <li class="main_menu_item">
         {%- if link.links != blank -%}
-          <a href="{{- link.url -}}">{{- link.title -}} <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+           {% assign final_url = link.url %}
+            {% capture final_url %}
+                {% render 'menu-refined-url', link_url: link.url, lang: lang %}
+            {% endcapture %}
+          <a href="{{ final_url | strip }}" data-lang="{{ lang }}" data-final-url="{{- link.url -}}">{{- link.title -}} <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M6.75 1.5L3.75 4.5L0.75 1.5" stroke="var(--color-header-links, --color-accent)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
           </a>
@@ -93,7 +98,10 @@
                             {% endif %}
                           {% endfor %}
                           <li class="main-sub-child_menu_item" data-custom-menu-key="{{childlink.handle  }}">
-                            <a href="{{ childlink.url }}">{{ childlink.title }}</a>
+                              {% capture final_url %}
+                                  {% render 'menu-refined-url', link_url: childlink.url, lang: lang %}
+                                {% endcapture %}
+                            <a href="{{ final_url | strip }}" data-final-url="{{ childlink.url }}">{{ childlink.title }}</a>
                           </li>
                         </div>
                         {% if childlink.links %}
@@ -118,7 +126,10 @@
                                   {% endif %}
                                 {% endfor %}
                                 <li class="child_menu_item"  data-custom-menu-child-key="{{grandchildlink.url }}">
-                                  <a href="{{ grandchildlink.url }}">{{ grandchildlink.title }}</a>
+                                  {% capture final_url %}
+                                      {% render 'menu-refined-url', link_url: grandchildlink.url, lang: lang %}
+                                  {% endcapture %}
+                                  <a href="{{ final_url | strip }}" data-shop="{{shop.domain }}" data-final-url="{{ grandchildlink.url }}">{{ grandchildlink.title }}</a>
                                 </li>
                               </div>
                             {% endfor %}
