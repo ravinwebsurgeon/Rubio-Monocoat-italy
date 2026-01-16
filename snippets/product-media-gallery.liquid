@@ -383,7 +383,7 @@
              style="display: none;">
             {% if media.media_type == 'image' %}
               {% comment %} <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}" data-type="image"> {% endcomment %}
-                <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
+                <img loading="lazy" src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
               {% comment %} </a> {% endcomment %}
             {% elsif media.media_type == 'video' %}
               {{ media | video_tag: controls: false, autoplay: true, loop: true, muted: true }}
@@ -409,7 +409,7 @@
            {% endfor %}
            style="display: none;">
             {% if image_source %}
-              <img src="{{ image_source | img_url: '1024x1024' }}" alt="{{ alt_text | escape }}">
+              <img loading="lazy" src="{{ image_source | img_url: '1024x1024' }}" alt="{{ alt_text | escape }}">
             {% elsif has_video %}
                 <video 
                 class="thumbnail-media"
@@ -459,7 +459,7 @@
             style="display: none;">
             {% if media.media_type == 'image' %}
               {% comment %} <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}" data-type="image"> {% endcomment %}
-                <img src="{{ media.preview_image | img_url: 'master' }}" alt="{{ media.alt | escape }}">
+                <img loading="lazy" src="{{ media.preview_image | img_url: 'master' }}" alt="{{ media.alt | escape }}">
               {% comment %} </a> {% endcomment %}
             {% elsif media.media_type == 'video' %}
               {{ media | video_tag: controls: false, autoplay: true, loop: true, muted: true }}
@@ -485,7 +485,7 @@
                   {% endfor %}
                   style="display: none;">
                   {% if image_source %}
-                    <img src="{{ image_source | img_url: '1024x1024' }}" alt="{{ alt_text | escape }}">
+                    <img loading="lazy" src="{{ image_source | img_url: '1024x1024' }}" alt="{{ alt_text | escape }}">
                   {% elsif has_video %}
                       <video 
                       class="thumbnail-media"
@@ -536,7 +536,7 @@
            style="display: none;">
           {% if media.media_type == 'image' %}
             {% comment %} <a class="glightbox" href="{{ media.preview_image | img_url: '2048x2048' }}" data-type="image"> {% endcomment %}
-              <img src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
+              <img loading="lazy" src="{{ media.preview_image | img_url: '1024x1024' }}" alt="{{ media.alt | escape }}">
             {% comment %} </a> {% endcomment %}
           {% elsif media.media_type == 'video' %}
             {{ media | video_tag: controls: false, autoplay: true, loop: true, muted: true }}
@@ -561,7 +561,7 @@
               {% endfor %}
               style="display: none;">
                {% if image_source %}
-                  <img src="{{ image_source | img_url: '1024x1024' }}" alt="{{ alt_text | escape }}">
+                  <img loading="lazy" src="{{ image_source | img_url: '1024x1024' }}" alt="{{ alt_text | escape }}">
                 {% elsif has_video %}
                       <video 
                       class="thumbnail-media"
