@@ -54,15 +54,19 @@
                   {% assign tab_images = source_collection.metafields.custom.species_images.value %}
                   {% assign tab_titles = source_collection.metafields.custom.species_titles.value %}
                   {% assign interior_tags = source_collection.metafields.custom.species_tag_name.value %}
-                  
+                  {% assign title_with_no_trans = source_collection.metafields.custom.species_title_no_tanslation.value %}
+
+
                   {% for image in tab_images %}
                     {% assign index = forloop.index0 %}
                     {% assign title = tab_titles[index] %}
                     {% assign tag = interior_tags[index] %}
+                    {% assign filter_title = title_with_no_trans[index] %}
                     <button
                       class="circle-tab"
                       data-tab="tab-{{ forloop.index0 }}"
                       data-interior-tag-name="{{ tag | escape }}"
+                      data-title-no-trans = {{filter_title }}
                     >
                       {% if image != blank %}
                         <span class="circle-tab-ing">
@@ -394,6 +398,11 @@
           '{{ title }}'{% unless forloop.last %},{% endunless %}
         {% endfor %}
       ],
+      species_titles_with_no_translation: [
+        {% for title in exteriorCollection.metafields.custom.species_title_no_tanslation.value %}
+          '{{ title }}'{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ],
       species_images: [
         {% for image in exteriorCollection.metafields.custom.species_images.value %}
           '{{ image | img_url: '200x200' }}'{% unless forloop.last %},{% endunless %}
@@ -420,6 +429,11 @@
     metafields: {
       species_titles: [
         {% for title in interiorCollection.metafields.custom.species_titles.value %}
+          '{{ title }}'{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ],
+       species_titles_with_no_translation: [
+        {% for title in interiorCollection.metafields.custom.species_title_no_tanslation.value %}
           '{{ title }}'{% unless forloop.last %},{% endunless %}
         {% endfor %}
       ],
@@ -1235,12 +1249,14 @@ document.addEventListener('click', (e) => {
         const imageUrl = collectionData.species_images[index];
         const tagName = collectionData.species_tag_name[index];
         const verticaltagName = collectionData.species_vertical_tag_name[index];
+        const title_no_trans = collectionData.species_titles_with_no_translation[index]
     
         const tabButton = document.createElement('button');
         tabButton.className = `circle-tab ${collectionType}-tab`;
         tabButton.setAttribute('data-tab', `${collectionType}-tab-${index}`);
+        tabButton.setAttribute('data-title-no-trans', title_no_trans);
         //tabButton.setAttribute('data-tag-name', tagName);
-        tabButton.setAttribute('data-collection-type', collectionType);
+        tabButton.setAttribute('data-collection-type', collectionType);        
 
         if (collectionType === 'exterior') {
           const h_tag = collectionData.species_tag_name?.[index] || '';
@@ -1871,7 +1887,8 @@ document.addEventListener("click", function(e) {
       }
       if (shouldShow) {
         const imgWrapper = product.querySelector('.product-image-wrapper');
-        const activeTabText = activeTab?.textContent?.trim().toLowerCase();
+        {% comment %} const activeTabText = activeTab?.textContent?.trim().toLowerCase(); {% endcomment %}
+        const activeTabText = activeTab?.getAttribute('data-title-no-trans')?.trim().toLowerCase();
  
         if (imgWrapper && activeTabText) {
           const image = imgWrapper?.dataset[activeTabText];
