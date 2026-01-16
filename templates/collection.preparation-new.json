@@ -26,7 +26,10 @@
         "filter_type": "drawer",
         "enable_sorting": false,
         "padding_top": 36,
-        "padding_bottom": 52
+        "padding_bottom": 52,
+        "all_products_heading": "All Products",
+        "choose_text": "Choose options",
+        "view_btn": "View Details"
       }
     },
     "how_to_use_faq_news_test_Ltrq6j": {
