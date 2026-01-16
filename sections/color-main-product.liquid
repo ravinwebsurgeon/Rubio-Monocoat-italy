@@ -915,7 +915,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const receivedData = getCookie("myvariant"); 
   if(receivedData) selectVariant(receivedData)
 
-  const productForm = document.querySelector('form[action="/cart/add"]');
+  {% comment %} const productForm = document.querySelector('form[action="/cart/add"]');
   if (!productForm) return;
 
   const variantIdInput = productForm.querySelector('input[name="id"]');
@@ -982,7 +982,7 @@ document.addEventListener('DOMContentLoaded', () => {
     div.style.setProperty('display', 'none', 'important');
     div.style.visibility = 'hidden';
     div.style.overflow = 'hidden';
-  });
+  }); {% endcomment %}
 
 });
 
