@@ -190,7 +190,7 @@
             class="preparation-collection collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}"
           >
             <div class="custom_collection_heading">
-              <h2>All Products</h2>
+              <h2>{{section.settings.all_products_heading}}</h2>
               {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
               <aside
                 aria-labelledby="verticalTitle"
