@@ -1,9 +1,55 @@
+<footer class="footer-landing">
+  <div class="footer-inner">
+
+    <!-- Left: Logo + Text -->
+    <div class="footer-left">
+      {% if section.settings.footer_logo != blank %}
+        <img src="{{ section.settings.footer_logo | image_url: width: 200 }}" class="footer-logo" loading="lazy" />
+      {% endif %}
+
+      {% if section.settings.footer_text != blank %}
+        <span class="footer-brand-text">
+          {{ section.settings.footer_text }}
+        </span>
+      {% endif %}
+    </div>
+
+    <!-- Right: Copyright -->
+    <div class="footer-right">
+      <span>
+       &copy; {{ 'now' | date: '%Y' }} {{ section.settings.copyright_text }}
+      </span>
+    </div>
+
+  </div>
+</footer>
+
 {% schema %}
 {
-    "name": "Footer-landing",
-    "settings": [{
-        "type": "header",
-        "content": "Footer Content"
-    }]
+  "name": "Footer Landing",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "footer_logo",
+      "label": "Footer logo"
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Brand text",
+      "default": "MONOCOAT"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright text",
+      "default": "Rubio Monocoat"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer Landing"
+    }
+  ]
 }
 {% endschema %}
