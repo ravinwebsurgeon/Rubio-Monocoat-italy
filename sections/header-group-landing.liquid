@@ -1,24 +1,64 @@
+<header class="header-landing header-align-{{ section.settings.logo_alignment }}">
+  <div class="header-inner">
 
+    {%- if section.settings.header_image != blank -%}
+      <div class="header-logo">
+        <a href="/">
+          <img 
+            src="{{ section.settings.header_image | image_url: width: 300 }}"
+            alt="{{ shop.name }}"
+            loading="lazy"
+          >
+        </a>
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.menu != blank -%}
+      <nav class="header-menu">
+        <ul>
+          {% for link in section.settings.menu.links %}
+            <li>
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    {%- endif -%}
+
+  </div>
+</header>
 
 {% schema %}
 {
-    "name": "header-landing",
-    "settings": [
-        {
-        "type": "header",
-        "content": "header Content"
-        },
-        {
-            "type": "image_picker",
-            "id":"header_image",
-            "label":"Header LOGO"
-        }
-    ],
-    "presets": [
-        {
-            "name": "header-landing",
-            "category": "header"
-        }
-    ]
+  "name": "Header Landing",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "header_image",
+      "label": "Header Logo"
+    },
+    {
+      "type": "select",
+      "id": "logo_alignment",
+      "label": "Logo alignment",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Header menu"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header Landing",
+      "category": "header"
+    }
+  ]
 }
 {% endschema %}
