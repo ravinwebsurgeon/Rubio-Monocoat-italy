@@ -155,12 +155,64 @@
       "settings": {
         "heading": "One Coat. Zero Wait. Flawless Protection."
       }
+    },
+    "stacks_up_pr3Rdr": {
+      "type": "stacks-up",
+      "blocks": {
+        "row_GhbVez": {
+          "type": "row",
+          "settings": {
+            "feature": "Number of coats",
+            "left_value": "3–5 coats",
+            "right_value": "1 coat"
+          }
+        },
+        "row_AcqC9g": {
+          "type": "row",
+          "settings": {
+            "feature": "Number of coats",
+            "left_value": "3–5 coats",
+            "right_value": "1 coat"
+          }
+        },
+        "row_6iDe3t": {
+          "type": "row",
+          "settings": {
+            "feature": "Number of coats",
+            "left_value": "3–5 coats",
+            "right_value": "1 coat"
+          }
+        },
+        "row_e8VJHP": {
+          "type": "row",
+          "settings": {
+            "feature": "Number of coats",
+            "left_value": "3–5 coats",
+            "right_value": "1 coat"
+          }
+        }
+      },
+      "block_order": [
+        "row_GhbVez",
+        "row_AcqC9g",
+        "row_6iDe3t",
+        "row_e8VJHP"
+      ],
+      "name": "Stacks-up Table",
+      "settings": {
+        "heading": "How Oil Plus 2C Stacks Up",
+        "subheading": "<p>Professional furniture builders are making the switch from traditional multi-coat finishes. Here's why.</p>",
+        "feature_column_title": "Feature",
+        "left_column_title": "Traditional Finish",
+        "right_column_title": "Oil Plus 2C"
+      }
     }
   },
   "order": [
     "main",
     "landing_page_banner_main_iG39xP",
     "landing_page_feature_section_ydKCFX",
-    "last_coat_slider_dW7fXy"
+    "last_coat_slider_dW7fXy",
+    "stacks_up_pr3Rdr"
   ]
 }
