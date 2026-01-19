@@ -1,67 +1,56 @@
-{% schema %}
+
+{%schema %}
 {
-  "name": "Stack-up Table",
-  "tag": "section",
-  "class": "comparison-table-section",
+  "name": "Stacks-up Table",
   "settings": [
     {
       "type": "text",
       "id": "heading",
-      "label": "Heading",
+      "label": "Table Heading",
+      "default": "How Oil Plus 2C Stacks Up"
     },
     {
-      "type": "richtext",
+      "type": "textarea",
       "id": "subheading",
-      "label": "Subheading",
-    },
-    {
-      "type": "text",
-      "id": "feature_column_title",
-      "label": "Feature column title",
-    },
-    {
-      "type": "text",
-      "id": "left_column_title",
-      "label": "Left column title",
-    },
-    {
-      "type": "text",
-      "id": "right_column_title",
-      "label": "Right column title",
+      "label": "Table Subheading",
+      "default": "Professional furniture builders are making the switch..."
     }
   ],
   "blocks": [
     {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "column_title",
+          "label": "Column Title"
+        }
+      ]
+    },
+    {
       "type": "row",
-      "name": "Comparison Row",
+      "name": "Row",
       "settings": [
         {
           "type": "text",
           "id": "feature",
-          "label": "Feature",
+          "label": "Feature"
         },
         {
           "type": "text",
-          "id": "left_value",
-          "label": "Traditional Finish value",
-        },
-        {
-          "type": "text",
-          "id": "right_value",
-          "label": "Oil Plus 2C value",
+          "id": "values",
+          "label": "Values (comma-separated)",
+          "info": "Enter values for each column, separated by commas"
         }
       ]
     }
   ],
+  "max_blocks": 50,
   "presets": [
     {
       "name": "Stacks-up Table",
-      "blocks": [
-        { "type": "row" },
-        { "type": "row" },
-        { "type": "row" },
-        { "type": "row" }
-      ]
+      "category": "Custom"
     }
   ]
 }
