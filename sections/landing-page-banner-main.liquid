@@ -1,40 +1,63 @@
 
 <section class="banner-content-main">
-    {% if section.settings.banner-img != blank %}
-        <div class="main_page_banner">
+    <div class="main_page_banner">
+        {% if section.settings.banner-img != blank %}
             <img src="{{ section.settings.banner-img | image_url: width: 200 }}" class="banner-main" />
-        </div>
-    {% endif %}
+        {% endif %}
+        <div class="banner-content">
+            {% if section.settings.banner_header != blank %}
+                <h1>{{ section.settings.banner_header }}</h1>
+            {% endif %}
+            {% if section.settings.sub_heading != blank %}
+                <h3>{{ section.settings.sub_heading }}</h3>
+            {% endif %}
+            {% if section.settings.banner_content != blank %}
+                <div class="banner-description">{{ section.settings.banner_content }}</div>
+            {% endif %}
 
-    <div class="banner-content">
-        {% if section.settings.banner_header != blank %}
-            <h1>{{ section.settings.banner_header }}</h1>
-        {% endif %}
-        {% if section.settings.sub_heading != blank %}
-            <h3>{{ section.settings.sub_heading }}</h3>
-        {% endif %}
-        {% if section.settings.banner_content != blank %}
-            <div class="banner-description">{{ section.settings.banner_content }}</div>
-        {% endif %}
-        {% if section.blocks.size > 0 %}
-            <div class="banner-items">
-                {% for block in section.blocks %}
-                    <div class="banner-item" {{ block.shopify_attributes }}>
-                        {% if block.settings.icon != blank %}
-                        <img src="{{ block.settings.icon | image_url: width: 80 }}" />
-                        {% endif %}
-                        {% if block.settings.heading != blank %}
-                            <p>{{ block.settings.heading }}</p>
-                        {% endif %}
-                    </div>
-                {% endfor %}
+            {% assign banner_content_blocks = section.blocks | where: "type", "banner_content" %}
+            {% if banner_content_blocks.size > 0 %}
+                <div class="banner-items">
+                    {% for block in banner_content_blocks  %}
+                        <div class="banner-item" {{ block.shopify_attributes }}>
+                            {% if block.settings.icon != blank %}
+                            <img src="{{ block.settings.icon | image_url: width: 80 }}" />
+                            {% endif %}
+                            {% if block.settings.heading != blank %}
+                                <p>{{ block.settings.heading }}</p>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        {% assign banner_badge_blocks = section.blocks | where: "type", "banner_badge" %}
+        {% if banner_content_blocks.size > 0 %}
+            <div class="banner-badge-content">
+                 {% for block in banner_badge_blocks  %}
+                      <div class="banner-badge" {{ block.shopify_attributes }}>
+                            {% if block.settings.badge-icon != blank %}
+                                <div class="banner__badge_media"> 
+                                    <img src="{{ block.settings.badge-icon | image_url: width: 80 }}" />
+                                </div>
+                            {% endif %}
+                            <div class="banner__badge__text">
+                                {% if block.settings.heading != blank %}
+                                    <p>{{ block.settings.heading }}</p>
+                                {% endif %}
+                                {% if block.settings.sub-heading != blank %}
+                                    <p>{{ block.settings.sub-heading }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                 {% endfor %}
             </div>
         {% endif %}
     </div>
 
 </section>
 <style>
-    .banner-content-main{position:relative;}
+    .main_page_banner{position:relative;}
     .banner-content{position:absolute;}
 </style>
 
