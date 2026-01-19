@@ -18,6 +18,23 @@
                 <tr>{{ block.settings.column_title }}</tr>
             {% endfor %}
         </thead>
+        <tbody>
+            <tr>
+                {% for row in feature_rows %}
+                    {{ row.settings.feature_data }}
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for row in finish_rows %}
+                    {{ row.settings.finish_data }}
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for row in oil_plus_rows %}
+                    {{ row.settings.text }}
+                {% endfor %}
+            </tr>
+        </tbody>
         </table>
     </div>
 </div>
