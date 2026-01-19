@@ -1,12 +1,47 @@
 
+<section class="banner-content">
+    {% if section.settings.banner-img != blank %}
+        <div class="main_page_banner">
+            <img src="{{ section.settings.banner-img | image_url: width: 200 }}" class="banner-main" />
+        </div>
+    {% endif %}
+    <div class="banner-content">
+        {% if section.settings.banner_header != blank %}
+            <h1>{{ section.settings.banner_header }}</h1>
+        {% endif %}
+        {% if section.settings.sub_heading != blank %}
+            <h3>{{ section.settings.sub_heading }}</h3>
+        {% endif %}
+        {% if section.settings.banner_content != blank %}
+            <div class="banner-description">{{ section.settings.banner_content }}</div>
+        {% endif %}
+
+        {% if section.blocks.size > 0 %}
+            <div class="banner-items">
+                {% for block in section.blocks %}
+                    <div class="banner-item" {{ block.shopify_attributes }}>
+                        {% if block.settings.icon != blank %}
+                        <img src="{{ block.settings.icon | image_url: width: 80 }}" />
+                        {% endif %}
+                        {% if block.settings.heading != blank %}
+                            <p>{{ block.settings.heading }}</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+</section>
+
 {% schema %}
 {
   "name": "Banner Content",
   "settings": [
     {
         "type": "image_picker",
-        "id": "header_image",
-        "label": "Header Logo"
+        "id": "banner-img",
+        "label": "Banner"
     },
     {
         "type": "text",
