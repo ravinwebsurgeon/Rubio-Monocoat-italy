@@ -8,7 +8,9 @@
     {% endif %}
     <div class="table-content">
         {% assign all_cols = section.blocks | where: 'type','column'  %}
-        {% assign all_rows = section.blocks | where: 'type','row'  %}
+        {% assign feature_rows = section.blocks | where: 'type','feature-row'  %}
+        {% assign finish_rows = section.blocks | where: 'type','traditional-finish-row'  %}
+        {% assign oil_plus_rows = section.blocks | where: 'type','oil-plus-2c-row'  %}
     </div>
 </div>
 {%schema %}
@@ -39,19 +41,35 @@
       ]
     },
     {
-      "type": "row",
-      "name": "Row",
+      "type": "feature-row",
+      "name": "Feature Row",
       "settings": [
         {
           "type": "text",
-          "id": "feature",
-          "label": "Feature"
-        },
+          "id": "feature_data",
+          "label": "Row Data"
+        }
+      ]
+    },
+     {
+      "type": "traditional-finish-row",
+      "name": "Finish Row",
+      "settings": [
         {
           "type": "text",
-          "id": "values",
-          "label": "Values (comma-separated)",
-          "info": "Enter values for each column, separated by commas"
+          "id": "finish_data",
+          "label": "Row Data"
+        }
+      ]
+    },
+    {
+      "type": "oil-plus-2c-row",
+      "name": "oil Plus 2C Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Row Data"
         }
       ]
     }
