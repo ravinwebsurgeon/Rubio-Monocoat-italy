@@ -1,0 +1,52 @@
+
+<div class="last-coat-slider">
+    <div class="heading_main">
+        {% if section.settings.heading  != blank %}  <h2>{{ section.settings.heading }}</h2> {% endif %}
+    </div>
+    <div class="slider__content">
+        {% assign slider_block = section.blocks | where:  "type","slide" %}
+        {% for block in slider_block %}
+            <div class="slide_item">
+                <img src="{{ block.settings.image | img_url: 'master' }}" />
+                <p>{{ block.settings.text }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Last Coat Banner Slider",
+  "settings": [
+    {
+        "type": "text",
+        "id":"heading",
+        "label":"Heading"
+    }
+  ],
+  "blocks": [
+    {
+        "type": "slide",
+        "name":"slide",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "text",
+                "id":"text",
+                "label":"text"
+            }
+        ]
+    }
+   ],
+  "presets": [
+    {
+      "name": "Last Coat Banner Slider",
+      "category": "page"
+    }
+  ]
+}
+{% endschema %}
