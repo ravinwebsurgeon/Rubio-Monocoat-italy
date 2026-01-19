@@ -129,6 +129,41 @@
         "content": "<p>Oil Plus 2C uses molecular bonding technology to penetrate wood fibres and create a protective layer from within. Unlike traditional finishes that sit on top of the wood, our formula becomes part of the wood structure itself.<br/><br/></p>"
       }
     },
+    "last_coat_slider_dW7fXy": {
+      "type": "last-coat-slider",
+      "blocks": {
+        "slide_njy8Fn": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/01_Apply-1_png.jpg",
+            "text": "APPLY"
+          }
+        },
+        "slide_3kCT8T": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/wiping-oil-on-wood.jpg",
+            "text": "WIPE"
+          }
+        },
+        "slide_h46wQk": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/finished-wood-floor.jpg",
+            "text": "DONE"
+          }
+        }
+      },
+      "block_order": [
+        "slide_njy8Fn",
+        "slide_3kCT8T",
+        "slide_h46wQk"
+      ],
+      "name": "Last Coat Banner Slider",
+      "settings": {
+        "heading": "One Coat. Zero Wait. Flawless Protection."
+      }
+    },
     "footer": {
       "type": "footer-group-landing",
       "settings": {
@@ -142,6 +177,7 @@
     "main",
     "landing_page_banner_main_iG39xP",
     "landing_page_feature_section_ydKCFX",
+    "last_coat_slider_dW7fXy",
     "footer"
   ]
 }
