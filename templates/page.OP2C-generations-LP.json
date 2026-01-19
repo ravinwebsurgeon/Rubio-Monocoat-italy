@@ -77,10 +77,50 @@
             "text": "Impact & Scratch Resistant",
             "sub-text": "Superior hardness"
           }
+        },
+        "content_DXBFna": {
+          "type": "content",
+          "settings": {
+            "text": "Stain Resistant",
+            "sub-text": "Certified quality"
+          }
+        },
+        "content_LrKNtL": {
+          "type": "content",
+          "settings": {
+            "text": "UV Stable",
+            "sub-text": "No discolouration"
+          }
+        },
+        "content_N9XLDy": {
+          "type": "content",
+          "settings": {
+            "text": "Wear resistance",
+            "sub-text": "10,000+ Test cycles"
+          }
+        },
+        "content_tpwNmr": {
+          "type": "content",
+          "settings": {
+            "text": "Safe to use – Safe for the environment",
+            "sub-text": "0% VOC"
+          }
+        },
+        "content_8yWmek": {
+          "type": "content",
+          "settings": {
+            "text": "Superior molecular bonding",
+            "sub-text": "Next-level technology"
+          }
         }
       },
       "block_order": [
-        "content_XHmpKE"
+        "content_XHmpKE",
+        "content_DXBFna",
+        "content_LrKNtL",
+        "content_N9XLDy",
+        "content_tpwNmr",
+        "content_8yWmek"
       ],
       "name": "Feature Section",
       "settings": {
