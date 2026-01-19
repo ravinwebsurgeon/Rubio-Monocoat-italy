@@ -1,15 +1,16 @@
 
 <section class="product-features-section" id="product-info">
 
-  <div class="features-wrapper">
+  <div class="feature_lists">
     <!-- Left column -->
-<div class="feature_lists">
-         {% if section.settings.heading != blank %}
+     {% if section.settings.heading != blank %}
         <h2 class="section-heading">{{ section.settings.heading }}</h2>
     {% endif %}
     {% if section.settings.content != blank %}
         <p>{{ section.settings.content }}</p>
     {% endif %}
+<div class="features-wrapper">
+        
     <ul class="product-features left-col">
     {% for block in section.blocks %}
         <li>
