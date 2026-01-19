@@ -1,0 +1,52 @@
+
+{% schema %}
+{
+  "name": "Banner Content",
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "header_image",
+        "label": "Header Logo"
+    },
+    {
+        "type": "text",
+        "id":"banner_header",
+        "label":"Heading"
+    },
+    {
+        "type": "text",
+        "id":"sub-heading",
+        "label":"Sub-Heading"
+    },
+    {
+        "type": "richtext",
+        "id":"banner_content",
+        "label":"Description"
+    }
+  ],
+  "blocks": [
+    {
+        "type": "banner_content",
+        "name":"Banner Content",
+        "settings": [
+            {
+                "type": "text",
+                "id":"heading",
+                "label": "Heading"
+            },
+            {
+                "type": "image_picker",
+                "id": "icon",
+                "label": "icon"
+            }
+        ]
+    }
+   ],
+  "presets": [
+    {
+      "name": "Banner Content",
+      "category": "page"
+    }
+  ]
+}
+{% endschema %}
