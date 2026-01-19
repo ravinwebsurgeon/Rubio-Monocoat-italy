@@ -1,0 +1,71 @@
+{% schema %}
+{
+  "name": "Stack-up Table",
+  "tag": "section",
+  "class": "comparison-table-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+    },
+    {
+      "type": "text",
+      "id": "feature_column_title",
+      "label": "Feature column title",
+    },
+    {
+      "type": "text",
+      "id": "left_column_title",
+      "label": "Left column title",
+    },
+    {
+      "type": "text",
+      "id": "right_column_title",
+      "label": "Right column title",
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Comparison Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature",
+          "label": "Feature",
+          "default": "Number of coats"
+        },
+        {
+          "type": "text",
+          "id": "left_value",
+          "label": "Traditional Finish value",
+          "default": "3–5 coats"
+        },
+        {
+          "type": "text",
+          "id": "right_value",
+          "label": "Oil Plus 2C value",
+          "default": "1 coat"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Stacks-up Table",
+      "blocks": [
+        { "type": "row" },
+        { "type": "row" },
+        { "type": "row" },
+        { "type": "row" }
+      ]
+    }
+  ]
+}
+{% endschema %}
