@@ -155,20 +155,12 @@
       "settings": {
         "heading": "One Coat. Zero Wait. Flawless Protection."
       }
-    },
-    "footer": {
-      "type": "footer-group-landing",
-      "settings": {
-        "footer_text": "",
-        "copyright_text": "Rubio Monocoat"
-      }
     }
   },
   "order": [
     "main",
     "landing_page_banner_main_iG39xP",
     "landing_page_feature_section_ydKCFX",
-    "last_coat_slider_dW7fXy",
-    "footer"
+    "last_coat_slider_dW7fXy"
   ]
 }
