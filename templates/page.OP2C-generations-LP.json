@@ -176,12 +176,68 @@
           "settings": {
             "column_title": "Oil Plus 2C"
           }
+        },
+        "feature_row_QH4Y3k": {
+          "type": "feature-row",
+          "settings": {
+            "feature_data": "Number of coats"
+          }
+        },
+        "feature_row_qGaKt4": {
+          "type": "feature-row",
+          "settings": {
+            "feature_data": "Sanding between coats"
+          }
+        },
+        "feature_row_Ddt8Yw": {
+          "type": "feature-row",
+          "settings": {
+            "feature_data": "Total application time"
+          }
+        },
+        "feature_row_FqQPAt": {
+          "type": "feature-row",
+          "settings": {
+            "feature_data": "Water resistance rating"
+          }
+        },
+        "feature_row_8zP7Ng": {
+          "type": "feature-row",
+          "settings": {
+            "feature_data": "Spot repair capability"
+          }
+        },
+        "feature_row_M9PPHi": {
+          "type": "feature-row",
+          "settings": {
+            "feature_data": "VOC after curing"
+          }
+        },
+        "feature_row_yHkbhe": {
+          "type": "feature-row",
+          "settings": {
+            "feature_data": "Maintenance frequency"
+          }
+        },
+        "feature_row_qePCnp": {
+          "type": "feature-row",
+          "settings": {
+            "feature_data": "Durability in high-traffic"
+          }
         }
       },
       "block_order": [
         "column_pzLpeG",
         "column_UykW36",
-        "column_dPLPpT"
+        "column_dPLPpT",
+        "feature_row_QH4Y3k",
+        "feature_row_qGaKt4",
+        "feature_row_Ddt8Yw",
+        "feature_row_FqQPAt",
+        "feature_row_8zP7Ng",
+        "feature_row_M9PPHi",
+        "feature_row_yHkbhe",
+        "feature_row_qePCnp"
       ],
       "name": "Stacks-up Table",
       "settings": {
