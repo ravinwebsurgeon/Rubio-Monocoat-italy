@@ -1,5 +1,37 @@
 
+<section class="product-features-section" id="product-info">
 
+
+  <div class="features-wrapper">
+    <!-- Left column -->
+    {% if section.settings.heading != blank %}
+    <h2 class="section-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+    <ul class="product-features left-col">
+    {% for block in section.blocks %}
+        <li>
+          {% if section.settings.icon != blank %}
+        <span class="mobile-only-icon">
+          {{ section.settings.icon }}
+        </span>
+      {% endif %}
+          <strong>{{ titles[i] }}</strong>
+          {% if descriptions[i] %}
+            <p>{{ descriptions[i] }}</p>
+          {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+
+    <!-- Center image -->
+    {% if section.settings.image != blank %}
+      <div class="feature-image">
+        <img src="{{ section.settings.image | image_url: width: 600 }}"/>
+      </div>
+    {% endif %}
+
+  </div>
+</section> 
 {% schema %}
 {
   "name": "Feature Section",
@@ -21,7 +53,7 @@
     },
     {
         "type": "richtext",
-        "id":"banner_content",
+        "id":"content",
         "label":"Description"
     }
   ],
