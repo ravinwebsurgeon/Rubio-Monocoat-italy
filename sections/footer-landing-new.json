@@ -8,8 +8,15 @@
  * ------------------------------------------------------------
  */
 {
-  "name": "footer-landing-new",
-  "type": "header",
-  "sections": {},
-  "order": []
+  "name": "Custom Footer (Page Only)",
+  "type": "footer",
+  "sections": {
+    "custom-footer": {
+      "type": "footer-group-landing",
+      "settings": {}
+    }
+  },
+  "order": [
+    "custom-footer"
+  ]
 }
