@@ -12,7 +12,9 @@
     "header": {
       "type": "header-group-landing",
       "settings": {
-        "header_image": "shopify://shop_images/header_logo_3.png"
+        "header_image": "shopify://shop_images/header_logo_3.png",
+        "logo_alignment": "left",
+        "menu": ""
       }
     },
     "main": {
@@ -22,14 +24,28 @@
         "padding_bottom": 36
       }
     },
+    "landing_page_banner_main_iG39xP": {
+      "type": "landing-page-banner-main",
+      "name": "Banner Content",
+      "settings": {
+        "banner-img": "shopify://shop_images/hero-image-03_png.jpg",
+        "banner_header": "Oil Plus 2C",
+        "sub-heading": "Built for generations. Finished in one coat.",
+        "banner_content": "<p>The professional wood finish for furniture builders who don’t compromise on durability — or on time. One single layer colours and protects the wood, creating a durable surface that endures daily use — safe to apply and built for professional furniture making.<br/><br/></p>"
+      }
+    },
     "footer": {
       "type": "footer-group-landing",
-      "settings": {}
+      "settings": {
+        "footer_text": "",
+        "copyright_text": "Rubio Monocoat"
+      }
     }
   },
   "order": [
     "header",
     "main",
+    "landing_page_banner_main_iG39xP",
     "footer"
   ]
 }
