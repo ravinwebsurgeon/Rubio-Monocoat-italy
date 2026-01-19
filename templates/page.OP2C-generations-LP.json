@@ -45,12 +45,20 @@
           "settings": {
             "heading": "Extensive Colour Range"
           }
+        },
+        "banner_badge_9HBJmc": {
+          "type": "banner_badge",
+          "settings": {
+            "heading": "Molecular Bonding",
+            "sub-heading": "Penetrates & binds at molecular level"
+          }
         }
       },
       "block_order": [
         "banner_content_6gMiVx",
         "banner_content_kXCW4B",
-        "banner_content_FLpPdD"
+        "banner_content_FLpPdD",
+        "banner_badge_9HBJmc"
       ],
       "name": "Banner Content",
       "settings": {
