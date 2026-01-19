@@ -2,38 +2,36 @@
 <section class="product-features-section" id="product-info">
 
     <!-- Left column -->
-
     <div class="features-wrapper">
-        
-    <div class="feature_lists">
-        {% if section.settings.heading != blank %}
-            <h2 class="section-heading">{{ section.settings.heading }}</h2>
+        <div class="feature_lists">
+            {% if section.settings.heading != blank %}
+                <h2 class="section-heading">{{ section.settings.heading }}</h2>
+            {% endif %}
+            {% if section.settings.content != blank %}
+                <p>{{ section.settings.content }}</p>
+            {% endif %}
+            <ul class="product-features left-col">
+            {% for block in section.blocks %}
+                <li>
+                    <div class="feature__list__data">
+                        {% if block.settings.icon != blank %}
+                        <img src="{{ block.settings.icon | img_url:'small'}}"/ >
+                        {% endif %}
+                        <div class="text__content">
+                            <p>{{ block.settings.text }}</p>
+                            <p class="below__text">{{ block.settings.sub-text}}</p>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+        <!-- Right image -->
+        {% if section.settings.image != blank %}
+        <div class="feature-image">
+            <img src="{{ section.settings.image | image_url: width: 600 }}"/>
+        </div>
         {% endif %}
-        {% if section.settings.content != blank %}
-            <p>{{ section.settings.content }}</p>
-        {% endif %}
-    <ul class="product-features left-col">
-    {% for block in section.blocks %}
-        <li>
-            <div class="feature__list__data">
-                {% if block.settings.icon != blank %}
-                <img src="{{ block.settings.icon | img_url:'small'}}"/ >
-                {% endif %}
-                <div class="text__content">
-                    <p>{{ block.settings.text }}</p>
-                    <p class="below__text">{{ block.settings.sub-text}}</p>
-                </div>
-            </div>
-        </li>
-    {% endfor %}
-    </ul>
-</div>
-    <!-- Right image -->
-    {% if section.settings.image != blank %}
-      <div class="feature-image">
-        <img src="{{ section.settings.image | image_url: width: 600 }}"/>
-      </div>
-    {% endif %}
 
   </div>
 </section> 
