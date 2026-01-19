@@ -5,25 +5,28 @@
   <div class="features-wrapper">
     <!-- Left column -->
     {% if section.settings.heading != blank %}
-    <h2 class="section-heading">{{ section.settings.heading }}</h2>
+        <h2 class="section-heading">{{ section.settings.heading }}</h2>
     {% endif %}
+    {% if section.settings.content != blank %}
+        <p>{{ section.settings.content }}</p>
+    {% endif %}
+
     <ul class="product-features left-col">
     {% for block in section.blocks %}
         <li>
-          {% if section.settings.icon != blank %}
-        <span class="mobile-only-icon">
-          {{ section.settings.icon }}
-        </span>
-      {% endif %}
-          <strong>{{ titles[i] }}</strong>
-          {% if descriptions[i] %}
-            <p>{{ descriptions[i] }}</p>
-          {% endif %}
+            <div class="feature__list__data">
+                {% if block.settings.icon != blank %}
+                <img src="{{ block.settings.icon | img_url:'small'}}"/ >
+                {% endif %}
+                <div class="text__content">
+                    <p>{{ block.settings.text }}</p>
+                    <p class="below__text">{{ block.settings.sub-text}}</p>
+                </div>
+            </div>
         </li>
     {% endfor %}
     </ul>
-
-    <!-- Center image -->
+    <!-- Right image -->
     {% if section.settings.image != blank %}
       <div class="feature-image">
         <img src="{{ section.settings.image | image_url: width: 600 }}"/>
