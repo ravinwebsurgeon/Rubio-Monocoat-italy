@@ -1,4 +1,15 @@
 
+<div class="stacks-up-table-main">
+    {% if section.settings.heading != blank or section.settings.subheading != blank %}
+        <div class="stacks-up-header">
+            <h2>{{ section.settings.heading }}</h2>
+            <p>{{section.settings.subheading }}</p>
+        </div>
+    {% endif %}
+    <div class="table-content">
+        
+    </div>
+</div>
 {%schema %}
 {
   "name": "Stacks-up Table",
@@ -7,13 +18,11 @@
       "type": "text",
       "id": "heading",
       "label": "Table Heading",
-      "default": "How Oil Plus 2C Stacks Up"
     },
     {
       "type": "textarea",
       "id": "subheading",
       "label": "Table Subheading",
-      "default": "Professional furniture builders are making the switch..."
     }
   ],
   "blocks": [
