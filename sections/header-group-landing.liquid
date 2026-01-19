@@ -4,7 +4,7 @@
     {%- if section.settings.header_image != blank -%}
       <div class="header-logo">
         <a href="/">
-          <img src="{{ section.settings.header_image | image_url: width: 300 }}" loading="lazy" >
+          <img src="{{ section.settings.header_image | image_url: width: 200 }}" loading="lazy" >
         </a>
       </div>
     {%- endif -%}
@@ -13,6 +13,7 @@
 <style>
     .header-landing{background:#333;}
 </style>
+
 
 {% schema %}
 {
