@@ -11,11 +11,16 @@
   "sections": {
     "header": {
       "type": "header-group-landing",
-      "settings": {}
+      "settings": {
+        "header_image": "shopify://shop_images/header_logo_3.png"
+      }
     },
     "main": {
       "type": "main-page",
-      "settings": {}
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     },
     "footer": {
       "type": "footer-group-landing",
