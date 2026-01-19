@@ -8,8 +8,15 @@
  * ------------------------------------------------------------
  */
 {
-  "name": "header-landing-new",
+  "name": "Custom Header (Page Only)",
   "type": "header",
-  "sections": {},
-  "order": []
+  "sections": {
+    "landing-header": {
+      "type": "header-group-landing",
+      "settings": {}
+    }
+  },
+  "order": [
+    "landing-header"
+  ]
 }
