@@ -1,20 +1,20 @@
 
-<section class="product-features-section" id="product-info">
+<section class="product-features-section landing__feature__section" id="product-info">
     <!-- Left column -->
-    <div class="features-wrapper">
-        <div class="feature_lists">
+    <div class="features-wrapper landing_feature_wrapper">
+        <div class="landing_feature_content">
             {% if section.settings.heading != blank %}
                 <h2 class="section-heading">{{ section.settings.heading }}</h2>
             {% endif %}
             {% if section.settings.content != blank %}
                 <p>{{ section.settings.content }}</p>
             {% endif %}
-            <ul class="product-features left-col">
+            <ul class="product-features left-col landing_product_features">
             {% for block in section.blocks %}
                 <li>
                     <div class="feature__list__data">
                         {% if block.settings.icon != blank %}
-                        <img src="{{ block.settings.icon | img_url:'small'}}"/ >
+                            <img src="{{ block.settings.icon | img_url:'small'}}"/ >
                         {% endif %}
                         <div class="text__content">
                             <p>{{ block.settings.text }}</p>
