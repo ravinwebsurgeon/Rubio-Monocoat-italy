@@ -9,15 +9,6 @@
  */
 {
   "sections": {
-    "header": {
-      "type": "header-group-landing",
-      "disabled": true,
-      "settings": {
-        "header_image": "shopify://shop_images/LOGO_WHITE_Horizontal.png",
-        "logo_alignment": "left",
-        "menu": ""
-      }
-    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -174,7 +165,6 @@
     }
   },
   "order": [
-    "header",
     "main",
     "landing_page_banner_main_iG39xP",
     "landing_page_feature_section_ydKCFX",
