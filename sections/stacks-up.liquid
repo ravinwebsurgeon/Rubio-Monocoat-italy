@@ -14,8 +14,8 @@
 
         <table class="stacks-up-table" border="1" cellpadding="10" cellspacing="0">
         <thead>
-            {% for headings in all_cols %}
-                <tr>{{ headings }}</tr>
+            {% for block in all_cols %}
+                <tr>{{ block.settings.column_title }}</tr>
             {% endfor %}
         </thead>
         </table>
