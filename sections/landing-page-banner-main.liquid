@@ -2,7 +2,7 @@
 <section class="banner-content-main">
     <div class="main_page_banner">
         {% if section.settings.banner-img != blank %}
-            <img src="{{ section.settings.banner-img | image_url: width: 200 }}" class="banner-main" />
+            <img src="{{ section.settings.banner-img | img_url: 'master'}}" class="banner-main" />
         {% endif %}
         <div class="banner-content">
             {% if section.settings.banner_header != blank %}
