@@ -33,7 +33,7 @@
         </div>
         {% assign banner_badge_blocks = section.blocks | where: "type", "banner_badge" %}
         {% if banner_content_blocks.size > 0 %}
-            <div class="banner-badge-content">
+            <div class="banner-badge-content flex-cols">
                  {% for block in banner_badge_blocks  %}
                       <div class="banner-badge" {{ block.shopify_attributes }}>
                             {% if block.settings.badge-icon != blank %}
@@ -60,6 +60,7 @@
     .main_page_banner{position:relative;}
     .banner-content h1, .banner-content h3{color:#fff;}
     .banner-content{position:absolute;bottom:0;color:#fff;}
+    .flex-cols{display:flex;}
 </style>
 
 {% schema %}
