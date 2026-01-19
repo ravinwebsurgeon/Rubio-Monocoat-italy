@@ -70,6 +70,18 @@
     },
     "landing_page_feature_section_ydKCFX": {
       "type": "landing-page-feature-section",
+      "blocks": {
+        "content_XHmpKE": {
+          "type": "content",
+          "settings": {
+            "text": "Impact & Scratch Resistant",
+            "sub-text": "Superior hardness"
+          }
+        }
+      },
+      "block_order": [
+        "content_XHmpKE"
+      ],
       "name": "Feature Section",
       "settings": {
         "image": "shopify://shop_images/OP2C-comp-A_png.jpg",
