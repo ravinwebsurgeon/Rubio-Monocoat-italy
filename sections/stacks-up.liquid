@@ -7,7 +7,8 @@
         </div>
     {% endif %}
     <div class="table-content">
-        
+        {% assign all_cols = section.blocks | where: 'type','column'  %}
+        {% assign all_rows = section.blocks | where: 'type','row'  %}
     </div>
 </div>
 {%schema %}
