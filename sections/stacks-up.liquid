@@ -1,4 +1,4 @@
-
+{% comment %} 
 <div class="stacks-up-table-main">
     {% if section.settings.heading != blank or section.settings.subheading != blank %}
         <div class="stacks-up-header">
@@ -81,5 +81,64 @@
       "category": "Page"
     }
   ]
+}
+{% endschema %} {% endcomment %}
+
+<div class="stacks-up-table-main">
+  {% if section.settings.heading or section.settings.subheading %}
+    <div class="stacks-up-header">
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.subheading }}</p>
+    </div>
+  {% endif %}
+
+  <table class="stacks-up-table" border="1" cellpadding="10" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        {% assign columns = section.blocks | where: 'type', 'column' %}
+        {% for col in columns %}
+          <th>{{ col.settings.column_title }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% assign rows = section.blocks | where: 'type', 'row' %}
+      {% for row in rows %}
+        <tr>
+          <td>{{ row.settings.feature_name }}</td>
+          {% for value in row.settings.column_values %}
+            <td>{{ value }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% schema %}
+{
+  "name": "Stacks-up Table",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Table Heading" },
+    { "type": "textarea", "id": "subheading", "label": "Table Subheading" }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [{ "type": "text", "id": "column_title", "label": "Column Title" }]
+    },
+    {
+      "type": "row",
+      "name": "Row",
+      "settings": [
+        { "type": "text", "id": "feature_name", "label": "Feature Name" },
+        { "type": "text", "id": "column_values", "label": "Comma-separated Column Values" }
+      ]
+    }
+  ],
+  "max_blocks": 50,
+  "presets": [{ "name": "Stacks-up Table", "category": "Page" }]
 }
 {% endschema %}
