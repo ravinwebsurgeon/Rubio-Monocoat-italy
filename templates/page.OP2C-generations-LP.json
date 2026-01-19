@@ -156,55 +156,37 @@
         "heading": "One Coat. Zero Wait. Flawless Protection."
       }
     },
-    "stacks_up_pr3Rdr": {
+    "stacks_up_4rThPC": {
       "type": "stacks-up",
       "blocks": {
-        "row_GhbVez": {
-          "type": "row",
+        "column_pzLpeG": {
+          "type": "column",
           "settings": {
-            "feature": "Number of coats",
-            "left_value": "3–5 coats",
-            "right_value": "1 coat"
+            "column_title": "Feature"
           }
         },
-        "row_AcqC9g": {
-          "type": "row",
+        "column_UykW36": {
+          "type": "column",
           "settings": {
-            "feature": "Number of coats",
-            "left_value": "3–5 coats",
-            "right_value": "1 coat"
+            "column_title": "Traditional Finish"
           }
         },
-        "row_6iDe3t": {
-          "type": "row",
+        "column_dPLPpT": {
+          "type": "column",
           "settings": {
-            "feature": "Number of coats",
-            "left_value": "3–5 coats",
-            "right_value": "1 coat"
-          }
-        },
-        "row_e8VJHP": {
-          "type": "row",
-          "settings": {
-            "feature": "Number of coats",
-            "left_value": "3–5 coats",
-            "right_value": "1 coat"
+            "column_title": "Oil Plus 2C"
           }
         }
       },
       "block_order": [
-        "row_GhbVez",
-        "row_AcqC9g",
-        "row_6iDe3t",
-        "row_e8VJHP"
+        "column_pzLpeG",
+        "column_UykW36",
+        "column_dPLPpT"
       ],
       "name": "Stacks-up Table",
       "settings": {
         "heading": "How Oil Plus 2C Stacks Up",
-        "subheading": "<p>Professional furniture builders are making the switch from traditional multi-coat finishes. Here's why.</p>",
-        "feature_column_title": "Feature",
-        "left_column_title": "Traditional Finish",
-        "right_column_title": "Oil Plus 2C"
+        "subheading": "Professional furniture builders are making the switch from traditional multi-coat finishes. Here's why."
       }
     }
   },
@@ -213,6 +195,6 @@
     "landing_page_banner_main_iG39xP",
     "landing_page_feature_section_ydKCFX",
     "last_coat_slider_dW7fXy",
-    "stacks_up_pr3Rdr"
+    "stacks_up_4rThPC"
   ]
 }
