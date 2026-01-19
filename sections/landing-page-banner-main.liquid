@@ -17,7 +17,7 @@
 
             {% assign banner_content_blocks = section.blocks | where: "type", "banner_content" %}
             {% if banner_content_blocks.size > 0 %}
-                <div class="banner-items">
+                <div class="banner-items flex-cols">
                     {% for block in banner_content_blocks  %}
                         <div class="banner-item" {{ block.shopify_attributes }}>
                             {% if block.settings.icon != blank %}
@@ -60,7 +60,7 @@
     .main_page_banner{position:relative;}
     .banner-content h1, .banner-content h3{color:#fff;}
     .banner-content{position:absolute;bottom:0;color:#fff;}
-    
+    .flex-cols{display:flex;}
 </style>
 
 {% schema %}
