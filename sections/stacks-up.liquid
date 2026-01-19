@@ -11,6 +11,14 @@
         {% assign feature_rows = section.blocks | where: 'type','feature-row'  %}
         {% assign finish_rows = section.blocks | where: 'type','traditional-finish-row'  %}
         {% assign oil_plus_rows = section.blocks | where: 'type','oil-plus-2c-row'  %}
+
+        <table class="stacks-up-table" border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            {% for headings in all_cols %}
+                <tr>{{ headings }}</tr>
+            {% endfor %}
+        </thead>
+        </table>
     </div>
 </div>
 {%schema %}
