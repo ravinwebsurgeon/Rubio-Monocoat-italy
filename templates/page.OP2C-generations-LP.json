@@ -68,6 +68,15 @@
         "banner_content": "<p>The professional wood finish for furniture builders who don’t compromise on durability — or on time. One single layer colours and protects the wood, creating a durable surface that endures daily use — safe to apply and built for professional furniture making.<br/><br/></p>"
       }
     },
+    "landing_page_feature_section_ydKCFX": {
+      "type": "landing-page-feature-section",
+      "name": "Feature Section",
+      "settings": {
+        "image": "shopify://shop_images/OP2C-comp-A_png.jpg",
+        "heading": "The science behind durability",
+        "content": "<p>Oil Plus 2C uses molecular bonding technology to penetrate wood fibres and create a protective layer from within. Unlike traditional finishes that sit on top of the wood, our formula becomes part of the wood structure itself.<br/><br/></p>"
+      }
+    },
     "footer": {
       "type": "footer-group-landing",
       "settings": {
@@ -80,6 +89,7 @@
     "header",
     "main",
     "landing_page_banner_main_iG39xP",
+    "landing_page_feature_section_ydKCFX",
     "footer"
   ]
 }
