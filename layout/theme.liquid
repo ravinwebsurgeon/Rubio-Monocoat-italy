@@ -466,9 +466,11 @@ html {
     {%- if settings.cart_type == 'drawer' -%}
       {%- render 'cart-drawer' -%} 
     {%- endif -%}
-    {% unless template == 'page.OP2C-generations-LP' %}
+    {% if template == 'page.OP2C-generations-LP' %}
+      {% sections 'header-landing-new'%}
+    {% else %}
       {% sections 'header-group' %}
-    {% endunless %}
+    {% endif %}
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
