@@ -27,6 +27,31 @@
     },
     "landing_page_banner_main_iG39xP": {
       "type": "landing-page-banner-main",
+      "blocks": {
+        "banner_content_6gMiVx": {
+          "type": "banner_content",
+          "settings": {
+            "heading": "Industrial Grade Protection"
+          }
+        },
+        "banner_content_kXCW4B": {
+          "type": "banner_content",
+          "settings": {
+            "heading": "Done in One Coat"
+          }
+        },
+        "banner_content_FLpPdD": {
+          "type": "banner_content",
+          "settings": {
+            "heading": "Extensive Colour Range"
+          }
+        }
+      },
+      "block_order": [
+        "banner_content_6gMiVx",
+        "banner_content_kXCW4B",
+        "banner_content_FLpPdD"
+      ],
       "name": "Banner Content",
       "settings": {
         "banner-img": "shopify://shop_images/hero-image-03_png.jpg",
