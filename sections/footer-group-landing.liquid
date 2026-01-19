@@ -16,9 +16,9 @@
 
     <!-- Right: Copyright -->
     <div class="footer-right">
-      <span>
+      {% comment %} <span>
        &copy; {{ 'now' | date: '%Y' }} {{ section.settings.copyright_text }}
-      </span>
+      </span> {% endcomment %}
       <span>
          &copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
       </span>
