@@ -1,15 +1,15 @@
 
 <section class="product-features-section" id="product-info">
-     {% if section.settings.heading != blank %}
+
+  <div class="features-wrapper">
+    <!-- Left column -->
+<div class="feature_lists">
+         {% if section.settings.heading != blank %}
         <h2 class="section-heading">{{ section.settings.heading }}</h2>
     {% endif %}
     {% if section.settings.content != blank %}
         <p>{{ section.settings.content }}</p>
     {% endif %}
-  <div class="features-wrapper">
-    <!-- Left column -->
-   
-
     <ul class="product-features left-col">
     {% for block in section.blocks %}
         <li>
@@ -25,6 +25,7 @@
         </li>
     {% endfor %}
     </ul>
+</div>
     <!-- Right image -->
     {% if section.settings.image != blank %}
       <div class="feature-image">
