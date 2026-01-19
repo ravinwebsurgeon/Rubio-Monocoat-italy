@@ -13,7 +13,11 @@
   "sections": {
     "landing-header": {
       "type": "header-group-landing",
-      "settings": {}
+      "settings": {
+        "header_image": "shopify://shop_images/LOGO_WHITE_Horizontal.png",
+        "logo_alignment": "center",
+        "menu": ""
+      }
     }
   },
   "order": [

@@ -11,6 +11,7 @@
   "sections": {
     "header": {
       "type": "header-group-landing",
+      "disabled": true,
       "settings": {
         "header_image": "shopify://shop_images/LOGO_WHITE_Horizontal.png",
         "logo_alignment": "left",
