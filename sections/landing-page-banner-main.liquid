@@ -1,10 +1,11 @@
 
-<section class="banner-content">
+<section class="banner-content-main">
     {% if section.settings.banner-img != blank %}
         <div class="main_page_banner">
             <img src="{{ section.settings.banner-img | image_url: width: 200 }}" class="banner-main" />
         </div>
     {% endif %}
+
     <div class="banner-content">
         {% if section.settings.banner_header != blank %}
             <h1>{{ section.settings.banner_header }}</h1>
@@ -15,7 +16,6 @@
         {% if section.settings.banner_content != blank %}
             <div class="banner-description">{{ section.settings.banner_content }}</div>
         {% endif %}
-
         {% if section.blocks.size > 0 %}
             <div class="banner-items">
                 {% for block in section.blocks %}
@@ -30,8 +30,8 @@
                 {% endfor %}
             </div>
         {% endif %}
-
     </div>
+    
 </section>
 
 {% schema %}
