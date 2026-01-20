@@ -35,8 +35,27 @@
           "settings": {
             "answer": "Shipping costs vary based on order value, delivery option, and location. Standard Delivery costs £3 for orders under £50 (incl. VAT) and is free for orders of £50 or more. Next Day Delivery (order before 2pm) costs £8.45 for orders under £50 and is free for orders over £50. For special locations, orders under £50 incur higher fees: £15 for the Scottish Highlands, £19.45 for Guernsey and Jersey, and £16.50 for the Isle of Man, while orders over £50 ship free of charge."
           }
+        },
+        "faq_item_fayUTq": {
+          "settings": {
+            "question": "Can I cancel my order?",
+            "answer": "Yes, you can cancel your order before it has been shipped, without needing to provide a reason. Once the cancellation is processed, you will receive a confirmation email and a full refund of any amount paid. After the shipping confirmation has been sent, cancellation is no longer possible. However, you can still return the products after delivery by following our return procedure, as outlined in our return policy."
+          }
+        },
+        "faq_item_gKtGGh": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "What is your warranty policy?",
+            "answer": "We offer a 2-year legal warranty on all our products, starting from the delivery date. If something isn’t right, simply contact us as soon as you notice the issue and keep your proof of purchase handy. We’ll do our best to repair or replace the product, and if that’s not possible, we’ll refund you. Please note that the warranty doesn’t cover damage caused by misuse or not following the care instructions."
+          }
         }
-      }
+      },
+      "block_order": [
+        "faq_item_bJ33cX",
+        "faq_item_fayUTq",
+        "faq_item_gKtGGh"
+      ]
     }
   },
   "context": {
