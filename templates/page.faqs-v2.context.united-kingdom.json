@@ -33,7 +33,7 @@
       "blocks": {
         "faq_item_bJ33cX": {
           "settings": {
-            "answer": "Shipping costs vary based on order value, delivery option, and location. Standard Delivery costs £3 for orders under £50 (incl. VAT) and is free for orders of £50 or more. Next Day Delivery (order before 2pm) costs £8.45 for orders under £50 and is free for orders over £50. The Next Day Delivery before 12pm upgrade costs £18 for orders under £50 and £10.50 for orders of £50 or more. For special locations, orders under £50 incur higher fees: £15 for the Scottish Highlands, £19.45 for Guernsey and Jersey, and £16.50 for the Isle of Man, while orders over £50 ship free of charge."
+            "answer": "Shipping costs vary based on order value, delivery option, and location. Standard Delivery costs £3 for orders under £50 (incl. VAT) and is free for orders of £50 or more. Next Day Delivery (order before 2pm) costs £8.45 for orders under £50 and is free for orders over £50. For special locations, orders under £50 incur higher fees: £15 for the Scottish Highlands, £19.45 for Guernsey and Jersey, and £16.50 for the Isle of Man, while orders over £50 ship free of charge."
           }
         },
         "faq_item_iL8tcD": {
@@ -51,8 +51,18 @@
             "question": "When is the cut-off time for Next Day Delivery?",
             "answer": "Orders must be placed before 2pm to qualify for Next Day Delivery."
           }
+        },
+        "faq_item_cenpwh": {
+          "settings": {
+            "question": "Do you offer Next Day Delivery?",
+            "answer": "Yes, we do. Next Day Delivery is available for orders placed before 2pm. It costs £8.45 for orders under £50 and is free for orders of £50 or more."
+          }
         }
-      }
+      },
+      "block_order": [
+        "faq_item_cenpwh",
+        "faq_item_bdXqaH"
+      ]
     }
   },
   "context": {
