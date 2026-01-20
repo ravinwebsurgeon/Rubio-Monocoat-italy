@@ -31,22 +31,22 @@
         "faq_item_bJ33cX": {
           "type": "faq_item",
           "settings": {
-            "question": "What is your return policy?",
-            "answer": "We offer a 30-day return policy on all products. Items must be unused and in their original packaging."
+            "question": "Is Oil Plus 2C safe for contact with food?",
+            "answer": "Yes, Oil Plus 2C is safe for food contact. It has been tested by the independent testing institute Eurofins in accordance with the European Framework Regulation 1935/2004 for materials intended to come into contact with food. The test results confirm that Oil Plus 2C complies with European food safety standards. This makes it perfectly suitable for countertops, cutting boards, tabletops, and other surfaces that come into contact with food. Oil Plus 2C has also been certified in combination with Universal Maintenance Oil and SheenPlus, further confirming its compliance with food safety requirements."
           }
         },
         "faq_item_iL8tcD": {
           "type": "faq_item",
           "settings": {
-            "question": "How long does shipping take?",
-            "answer": "Standard shipping typically takes 5-7 business days. Express shipping options are available at checkout."
+            "question": "Can I use Oil Plus 2C on previously treated wood?",
+            "answer": "For best results, Oil Plus 2C needs to come into direct contact with the raw wood fibers. If the wood has already been treated, the existing finish will need to be sanded off first before applying the product."
           }
         },
         "faq_item_nbkb4a": {
           "type": "faq_item",
           "settings": {
-            "question": "Do you ship internationally?",
-            "answer": "Yes, we ship to most countries worldwide. Shipping costs and delivery times vary by location."
+            "question": "How can I increase the sheen on wood treated with Oil Plus 2C?",
+            "answer": "If you’d like more sheen, you can apply SheenPlus on top of Oil Plus 2C after a minimum of 24 hours. Please note that SheenPlus can only be applied over a treated surface and is not suitable for use on untreated wood."
           }
         },
         "faq_item_FLVU8c": {
@@ -73,7 +73,7 @@
       ],
       "name": "FAQs section",
       "settings": {
-        "heading": "Frequently Asked Questions"
+        "heading": "Interior Products"
       }
     },
     "icons_section_ry8Hx7": {
