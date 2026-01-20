@@ -556,7 +556,7 @@ document.addEventListener("DOMContentLoaded", function(){
 });
  
 // Event delegation for add to cart buttons
-document.addEventListener('click', function(e) {
+{% comment %} document.addEventListener('click', function(e) {
   if (e.target.classList.contains('ajax_add_cart') || 
       e.target.closest('.ajax_add_cart')) {
     
@@ -565,7 +565,7 @@ document.addEventListener('click', function(e) {
     let variantId = button.dataset.variantId
     handleAddToCart(variantId,button);
   }
-});
+}); {% endcomment %}
 
 function handleAddToCart(variantId,button) {
   {% comment %} const variantId = button.dataset.variantId; {% endcomment %}

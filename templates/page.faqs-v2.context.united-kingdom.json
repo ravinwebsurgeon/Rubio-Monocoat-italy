@@ -71,11 +71,19 @@
           "settings": {
             "answer": "You have the right to withdraw from your purchase within 30 days of receiving your order, without giving any reason. If your order contains multiple products delivered on different days, the withdrawal period starts once the last item has been delivered."
           }
+        },
+        "faq_item_QtRPP6": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "How do I start a return?",
+            "answer": "To initiate a return, please contact us at hello@rubiomonocoat.com. Items that are sent back without first requesting a return will not be accepted."
+          }
         }
       },
       "block_order": [
         "faq_item_hRVpJb",
-        "faq_item_MfGaFp",
+        "faq_item_QtRPP6",
         "faq_item_zdjEmA",
         "faq_item_8RFaF6",
         "faq_item_XhXMQk"
