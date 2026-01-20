@@ -16,8 +16,8 @@
           "disabled": false,
           "settings": {
             "class": "",
-            "extra_text": "",
-            "subtext": "0800 688 9661"
+            "subtext": "0800 688 9661",
+            "extra_text": ""
           }
         },
         "container_aYeRcN": {
@@ -26,6 +26,29 @@
           }
         }
       }
+    },
+    "faqs_gnazct": {
+      "settings": {
+        "heading": "Delivery"
+      },
+      "blocks": {
+        "faq_item_bJ33cX": {
+          "settings": {
+            "question": "Do you offer Next Day Delivery?",
+            "answer": "Yes, we do. Next Day Delivery is available for orders placed before 2pm. It costs £8.45 for orders under £50 and is free for orders of £50 or more."
+          }
+        },
+        "faq_item_iL8tcD": {
+          "settings": {
+            "question": "When is the cut-off time for Next Day Delivery?",
+            "answer": "Orders must be placed before 2pm to qualify for Next Day Delivery."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_bJ33cX",
+        "faq_item_iL8tcD"
+      ]
     }
   },
   "context": {
