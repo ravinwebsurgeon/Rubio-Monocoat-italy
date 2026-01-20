@@ -31,15 +31,15 @@
         "faq_item_bJ33cX": {
           "type": "faq_item",
           "settings": {
-            "question": "What is your return policy?",
-            "answer": "We offer a 30-day return policy on all products. Items must be unused and in their original packaging."
+            "question": "How do I know when my interior oiled surface needs maintenance?",
+            "answer": "Signs of wear include visible walking zones, increased stain sensitivity or a surface that stays wet longer after cleaning. When this happens, the protective layer needs to be refreshed or restored."
           }
         },
         "faq_item_iL8tcD": {
           "type": "faq_item",
           "settings": {
-            "question": "How long does shipping take?",
-            "answer": "Standard shipping typically takes 5-7 business days. Express shipping options are available at checkout."
+            "question": "How do I restore wear or colour changes of interior wood over time?",
+            "answer": "If the surface looks dry or rough but the colour is still good, you can refresh it with Universal Maintenance Oil or Refresh Eco (for furniture and worktops). If the colour has faded or the walking zone is clearly visible, reapply Oil Plus 2C in the original colour. Both types of restoration can be done without sanding."
           }
         },
         "faq_item_nbkb4a": {
@@ -73,7 +73,7 @@
       ],
       "name": "FAQs section",
       "settings": {
-        "heading": "Frequently Asked Questions"
+        "heading": "Maintenance Products"
       }
     },
     "icons_section_ry8Hx7": {
