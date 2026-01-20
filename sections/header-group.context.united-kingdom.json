@@ -18,6 +18,12 @@
           }
         }
       }
+    },
+    "header": {
+      "settings": {
+        "menu": "main-menu-uk"
+      },
+      "blocks": {}
     }
   },
   "context": {
