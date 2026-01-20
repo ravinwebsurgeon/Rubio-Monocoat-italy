@@ -31,29 +31,29 @@
         "faq_item_bJ33cX": {
           "type": "faq_item",
           "settings": {
-            "question": "What is your return policy?",
-            "answer": "We offer a 30-day return policy on all products. Items must be unused and in their original packaging."
+            "question": "Does applying a second coat of DuroGrit provide better protection or a deeper colour?",
+            "answer": "DuroGrit is designed as a one-coat product. Applying additional coats can improve UV protection, but it also makes the system more film-forming, which may lead to issues such as peeling and longer curing times. In some cases, a second coat may be needed for aesthetic reasons, for example on heavily weathered or greyed wood. In this situation, the first coat acts as a primer and a second coat helps create a more even colour. If a second coat is applied, we recommend diluting DuroGrit with 20% water to minimise the risk of film formation."
           }
         },
         "faq_item_iL8tcD": {
           "type": "faq_item",
           "settings": {
-            "question": "How long does shipping take?",
-            "answer": "Standard shipping typically takes 5-7 business days. Express shipping options are available at checkout."
+            "question": "How can I remove overlap marks when applying DuroGrit?",
+            "answer": "Small imperfections can be corrected within about 15 minutes of application, depending on the weather. While the surface is still wet, apply a small amount of DuroGrit with a brush and use light pressure to blend it into the existing layer, then smooth it out evenly. If the surface has already dried, lightly sand the overlap by hand in the direction of the wood grain and apply a small amount of fresh product. This is best done before the product has fully cured, rather than several days later."
           }
         },
         "faq_item_nbkb4a": {
           "type": "faq_item",
           "settings": {
-            "question": "Do you ship internationally?",
-            "answer": "Yes, we ship to most countries worldwide. Shipping costs and delivery times vary by location."
+            "question": "What is the minimum and maximum application temperature for DuroGrit?",
+            "answer": "DuroGrit should be applied at temperatures between 10 °C and 30 °C. Do not apply the product below 10 °C or above 30 °C."
           }
         },
         "faq_item_FLVU8c": {
           "type": "faq_item",
           "settings": {
-            "question": "How can I track my order?",
-            "answer": "Once your order ships, you'll receive a tracking number via email. You can use this to track your package."
+            "question": "Is it really necessary to let new wood weather for 4–6 weeks before applying DuroGrit?",
+            "answer": "This is a recommendation rather than a strict requirement and mainly depends on the wood species. Some woods, such as fresh Cumaru, benefit from a few weeks of weathering to allow natural extractives to wash out, as these can weaken the coating. Other species, like pine or ipé, are usually less sensitive. We recommend testing your local wood species or sending samples to our laboratory to determine whether weathering is needed in your specific case."
           }
         },
         "faq_item_ygJDgi": {
@@ -73,7 +73,7 @@
       ],
       "name": "FAQs section",
       "settings": {
-        "heading": "Frequently Asked Questions"
+        "heading": "Exterior Products"
       }
     },
     "icons_section_ry8Hx7": {
