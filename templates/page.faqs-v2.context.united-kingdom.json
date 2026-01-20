@@ -46,22 +46,39 @@
     "faqs_ppyHAH": {
       "settings": {},
       "blocks": {
-        "faq_item_bdXqaH": {
-          "settings": {
-            "question": "When is the cut-off time for Next Day Delivery?",
-            "answer": "Orders must be placed before 2pm to qualify for Next Day Delivery."
-          }
-        },
         "faq_item_cenpwh": {
           "settings": {
             "question": "Do you offer Next Day Delivery?",
             "answer": "Yes, we do. Next Day Delivery is available for orders placed before 2pm. It costs £8.45 for orders under £50 and is free for orders of £50 or more."
+          }
+        },
+        "faq_item_bdXqaH": {
+          "settings": {
+            "question": "When is the cut-off time for Next Day Delivery?",
+            "answer": "Orders must be placed before 2pm to qualify for Next Day Delivery."
           }
         }
       },
       "block_order": [
         "faq_item_cenpwh",
         "faq_item_bdXqaH"
+      ]
+    },
+    "faqs_8jPU7r": {
+      "settings": {},
+      "blocks": {
+        "faq_item_hRVpJb": {
+          "settings": {
+            "answer": "You have the right to withdraw from your purchase within 30 days of receiving your order, without giving any reason. If your order contains multiple products delivered on different days, the withdrawal period starts once the last item has been delivered."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_hRVpJb",
+        "faq_item_MfGaFp",
+        "faq_item_zdjEmA",
+        "faq_item_8RFaF6",
+        "faq_item_XhXMQk"
       ]
     }
   },
