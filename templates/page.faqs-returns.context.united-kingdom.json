@@ -16,14 +16,51 @@
           "disabled": false,
           "settings": {
             "class": "",
+            "heading": "Telephone Advice",
             "subtext": "0800 688 9661",
-            "extra_text": "",
-            "heading": "Telephone Advice"
+            "extra_text": ""
           }
         },
         "container_aYeRcN": {
           "settings": {
             "subtext": "hello@rubiomonocoat.co.uk"
+          }
+        }
+      }
+    },
+    "faqs_gnazct": {
+      "settings": {
+        "heading": "Returns"
+      },
+      "blocks": {
+        "faq_item_bJ33cX": {
+          "settings": {
+            "question": "What is the withdrawal period?",
+            "answer": "You have the right to withdraw from your purchase within 30 days of receiving your order, without giving any reason. If your order contains multiple products delivered on different days, the withdrawal period starts once the last item has been delivered."
+          }
+        },
+        "faq_item_iL8tcD": {
+          "settings": {
+            "question": "How do I start a return?",
+            "answer": "To initiate a return, please contact us at hello@rubiomonocoat.com. Items that are sent back without first requesting a return will not be accepted."
+          }
+        },
+        "faq_item_nbkb4a": {
+          "settings": {
+            "question": "Do I have to pay for return shipping?",
+            "answer": "No, return shipping costs are covered by us, so you can send your return back without additional shipping charges."
+          }
+        },
+        "faq_item_FLVU8c": {
+          "settings": {
+            "question": "When and how will I receive my refund?",
+            "answer": "Once we receive your return, we will process your refund within 14 days. In some cases, we may wait until the products have arrived or until you provide proof of shipment. Refunds are always made using the same payment method you used for your original purchase."
+          }
+        },
+        "faq_item_ygJDgi": {
+          "settings": {
+            "question": "What will be refunded?",
+            "answer": "We refund the price paid for the returned products and the standard shipping costs. Additional delivery charges, such as express shipping, are not refunded. If you return only part of your order, only the returned items will be refunded and shipping costs will not be included."
           }
         }
       }
