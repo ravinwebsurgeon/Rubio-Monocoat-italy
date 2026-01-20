@@ -62,6 +62,20 @@
             "question": "How can I achieve a deeper colour with Oil Plus 2C?",
             "answer": "For a more intense colour, sand the wood with a lower grit so it absorbs more pigment. Using WoodPrep or an optional pre-treatment such as PreColour or Pre-Aging can also enhance the colour. Applying multiple coats of Oil Plus 2C will not increase colour intensity, as the wood only absorbs one layer."
           }
+        },
+        "faq_item_3nxyhb": {
+          "type": "faq_item",
+          "settings": {
+            "question": "I used too much Pre-Aging and the colour looks uneven. What should I do?",
+            "answer": "When using Pre-Aging, it’s important to spread the product evenly and avoid puddles. If the colour looks uneven, you can still correct it by gently evening it out with a cloth and a small amount of acetone. Once the colour is balanced, you can finish the wood with Oil Plus 2C."
+          }
+        },
+        "faq_item_8HJfVG": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I dilute Pre-Aging with water to achieve a lighter colour?",
+            "answer": "No, we do not recommend diluting Pre-Aging with water."
+          }
         }
       },
       "block_order": [
@@ -69,7 +83,9 @@
         "faq_item_iL8tcD",
         "faq_item_nbkb4a",
         "faq_item_FLVU8c",
-        "faq_item_ygJDgi"
+        "faq_item_ygJDgi",
+        "faq_item_3nxyhb",
+        "faq_item_8HJfVG"
       ],
       "name": "FAQs section",
       "settings": {
