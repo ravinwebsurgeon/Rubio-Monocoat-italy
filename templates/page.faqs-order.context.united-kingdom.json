@@ -49,12 +49,21 @@
             "question": "What is your warranty policy?",
             "answer": "We offer a 2-year legal warranty on all our products, starting from the delivery date. If something isn’t right, simply contact us as soon as you notice the issue and keep your proof of purchase handy. We’ll do our best to repair or replace the product, and if that’s not possible, we’ll refund you. Please note that the warranty doesn’t cover damage caused by misuse or not following the care instructions."
           }
+        },
+        "faq_item_B6PfxJ": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "What payment methods do you accept?",
+            "answer": "To make your shopping experience easy and secure, we offer several payment options. You can choose to pay with PayPal, credit cards, Shop & Google Pay. Simply select your preferred payment method at checkout and complete your order with confidence."
+          }
         }
       },
       "block_order": [
         "faq_item_bJ33cX",
         "faq_item_fayUTq",
-        "faq_item_gKtGGh"
+        "faq_item_gKtGGh",
+        "faq_item_B6PfxJ"
       ]
     }
   },
