@@ -999,5 +999,25 @@ function refreshCartDrawer() {
 });
 
 </script>
+<script>
+let visitorCountry = ''
+async function detectCountry() {
+  try {
+    const response = await fetch(
+      window.Shopify.routes.root + 'browsing_context_suggestions.json'
+    );
+    const data = await response.json();
+    console.log(data,data.detected_values.country.handle)
+    if (data.detected_values?.country) {
+      visitorCountry = data.detected_values.country.handle.toLowerCase();
+      return { country_code: data.detected_values.country.handle };
+    }
+  } catch (error) {
+    console.error('Country detection failed:', error);
+    return null;
+  }
+}
+
+</script>
   </body>
 </html>
