@@ -47,6 +47,15 @@
             "url": "https://x.com/RubioMonocoatUK"
           }
         },
+        "country_social_pxCUGk": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "GB",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@rubiomonocoat"
+          }
+        },
         "text_hWeadq": {
           "settings": {
             "subtext": "<p><strong>Rubio Monocoat UK</strong></p><p>UNIT 1, Purley Chase Industrial Estate, <br/>Pipers Ln, Ansley Common<br/>CV10 0RG Nuneaton</p><p>VAT: GB221582432</p><p>hello@rubiomonocoat.co.uk</p><p>0800 688 9661</p>"
@@ -59,6 +68,7 @@
         "country_social_NGFKiF",
         "country_social_ykb9w7",
         "country_social_cCQQNP",
+        "country_social_pxCUGk",
         "brand_information_A98rgG",
         "link_list_tfK6cN",
         "link_list_KBYewH",
