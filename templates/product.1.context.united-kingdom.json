@@ -16,14 +16,24 @@
           "disabled": false,
           "settings": {
             "class": "",
+            "heading": "Telephone Advice",
             "subtext": "0800 688 9661",
-            "extra_text": "",
-            "heading": "Telephone Advice"
+            "extra_text": ""
           }
         },
         "container_yzi7tm": {
           "settings": {
             "subtext": "hello@rubiomonocoat.co.uk"
+          }
+        }
+      }
+    },
+    "main": {
+      "settings": {},
+      "blocks": {
+        "icon_with_text_hk7wi6": {
+          "settings": {
+            "heading_1": "Free shipping from £50"
           }
         }
       }
