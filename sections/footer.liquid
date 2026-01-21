@@ -341,7 +341,6 @@
     detectCountry();
     detectCountry().then(result => {
       visitorCountry = result.country_code.toLowerCase();
-      console.log(countryBlocks)
       SocialLinkManage(countryBlocks,result.country_code.toLowerCase())
     });
   }, 2000);
