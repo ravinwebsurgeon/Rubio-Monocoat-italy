@@ -350,7 +350,7 @@
     const matchedCountryData = countryBlocks.filter(
       item => item.country.toLowerCase() === country
     );
-    console.log(matchedCountryData, 'matchedCountryData');
+    {% comment %} console.log(matchedCountryData, 'matchedCountryData'); {% endcomment %}
       // Loop through matched links and update icons
     matchedCountryData.forEach(item => {
       const LowerCaseTitle = item.label.toLowerCase();
