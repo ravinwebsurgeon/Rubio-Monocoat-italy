@@ -326,6 +326,45 @@
   </div>
 </footer>
 
+
+<script>
+   const countryBlocks = [
+    {% for block in section.blocks %}
+      {% if block.type == 'country_social' %}
+        {
+          country: "{{ block.settings.country }}",
+          label: "{{ block.settings.label }}",
+          url: "{{ block.settings.url }}"
+        }{% unless forloop.last %},{% endunless %}
+      {% endif %}
+    {% endfor %}
+  ];
+  setTimeout(() => {
+    detectCountry();
+    detectCountry().then(result => {
+      visitorCountry = result.country_code.toLowerCase();
+      SocialLinkManage(countryBlocks,result.country_code.toLowerCase())
+    });
+  }, 2000);
+  function SocialLinkManage(countryBlocks,country){
+    const matchedCountryData = countryBlocks.filter(
+      item => item.country.toLowerCase() === country
+    );
+    console.log(matchedCountryData, 'matchedCountryData');
+      // Loop through matched links and update icons
+    matchedCountryData.forEach(item => {
+      const LowerCaseTitle = item.label.toLowerCase();
+      const selector = `.social__link__add[data-social-label="${LowerCaseTitle}"]`;
+      const linkEl = document.querySelector(selector);
+      if (linkEl) {
+        linkEl.href = item.url;
+        linkEl.style.display = 'block'
+      } 
+    });
+  }
+</script>
+
+
 {% schema %}
 {
   "name": "t:sections.footer.name",
