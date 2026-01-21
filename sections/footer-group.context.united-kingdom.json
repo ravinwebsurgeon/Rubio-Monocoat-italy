@@ -12,14 +12,20 @@
     "footer": {
       "settings": {},
       "blocks": {
+        "country_social_NGFKiF": {
+          "settings": {
+            "country": "GB"
+          }
+        },
         "text_hWeadq": {
           "settings": {
             "subtext": "<p><strong>Rubio Monocoat UK</strong></p><p>UNIT 1, Purley Chase Industrial Estate, <br/>Pipers Ln, Ansley Common<br/>CV10 0RG Nuneaton</p><p>VAT: GB221582432</p><p>hello@rubiomonocoat.co.uk</p><p>0800 688 9661</p>"
           }
         },
-        "country_social_NGFKiF": {
+        "country_social_jyNNYq": {
           "settings": {
-            "country": "GB"
+            "country": "GB",
+            "url": "https://www.facebook.com/MonocoatUK"
           }
         }
       }
