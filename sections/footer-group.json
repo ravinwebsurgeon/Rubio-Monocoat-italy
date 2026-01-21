@@ -60,7 +60,7 @@
         "country_social_jyNNYq": {
           "type": "country_social",
           "settings": {
-            "country": "gb",
+            "country": "IT",
             "label": "Facebook",
             "url": "https://www.facebook.com/rubiomonocoatitalia"
           }
@@ -68,7 +68,7 @@
         "country_social_NGFKiF": {
           "type": "country_social",
           "settings": {
-            "country": "GB",
+            "country": "IT",
             "label": "Youtube",
             "url": "https://www.youtube.com/c/RubioMonocoatRMC"
           }
