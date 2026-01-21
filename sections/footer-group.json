@@ -49,6 +49,14 @@
     "footer": {
       "type": "footer",
       "blocks": {
+        "country_social_gWTFPf": {
+          "type": "country_social",
+          "settings": {
+            "country": "IT",
+            "label": "Instagram",
+            "url": "https://www.instagram.com/rubiomonocoatitalia/?hl=en"
+          }
+        },
         "brand_information_A98rgG": {
           "type": "brand_information",
           "settings": {
@@ -86,6 +94,7 @@
         }
       },
       "block_order": [
+        "country_social_gWTFPf",
         "brand_information_A98rgG",
         "link_list_tfK6cN",
         "link_list_KBYewH",
