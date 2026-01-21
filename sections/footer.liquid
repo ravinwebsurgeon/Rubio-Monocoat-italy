@@ -356,7 +356,9 @@
       const linkEl = document.querySelector(selector);
       if (linkEl) {
         linkEl.href = item.url;
-        linkEl.style.display = 'block'
+        {% comment %} linkEl.style.display = 'block' {% endcomment %}
+          linkEl.parentNode.style.setProperty('display', 'block', 'important');
+        linkEl.parentNode.style.visibility = 'visible'
       } 
     });
   }
