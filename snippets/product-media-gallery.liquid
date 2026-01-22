@@ -344,7 +344,7 @@
       Text: {{ entry.text | json }}
     </div>
   {% endfor %} {% endcomment %}
-{% assign product_images_meta = product.metafields.custom.extra_product_images.value %}
+{% comment %} {% assign product_images_meta = product.metafields.custom.extra_product_images.value %}
 
 <div class="custom-media-gallery">
 
@@ -583,8 +583,446 @@
   </div>
 </div>
 
-</div>
+</div> {% endcomment %}
 
+
+{% assign product_title_normalized = product.title | downcase | strip | remove: ' ' | remove: '.' %}
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign meta_entries = product.metafields.custom.extra_product_images.value %}
+
+{% assign matching_images = '' %}
+{% assign matching_videos = '' %}
+
+{% comment %} sort product media for color page{% endcomment %}
+{% assign media_with_alt = '' | split: ',' %}
+{% assign media_without_alt = '' | split: ',' %}
+
+{% for media in product.media %}
+  {% assign alt_normalized = media.alt | downcase | strip | remove: ' ' | remove: '.' %}
+  {% if media.alt != blank and media.alt != '' or product_title_normalized == alt_normalized %}
+    {% assign media_with_alt = media_with_alt | append: media.id | append: ',' %}
+  {% else %}
+    {% assign media_without_alt = media_without_alt | append: media.id | append: ',' %}
+  {% endif %}
+{% endfor %}
+
+{% assign sorted_media = media_with_alt | concat: media_without_alt %}
+{% assign sorted_media_array = sorted_media | split: ',' %}
+{% comment %} 
+{% for mediaitem_id in sorted_media_array %}
+  {% if mediaitem_id != '' %}
+    {% assign mediaitem_id_number = mediaitem_id | plus: 0 %} {# convert string to number #}
+    {% for media in product.media %}
+      {% if media.id == mediaitem_id_number %}
+        <img src="{{ media.preview_image | img_url: 'small' }}" alt="{{ media.alt }}">
+        <pre>{{ media | json }}</pre>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %} {% endcomment %}
+
+{% if template.suffix == 'colorproduct' %}
+  {% assign images_with_alt = '' %}
+  {% assign images_without_alt_or_title = '' %}
+  {% assign videos_with_alt = '' %}
+  {% assign videos_without_alt_or_title = '' %}
+
+  {% assign product_title_normalized = product.title | downcase | strip | remove: ' ' | remove: '.' %}
+  {% assign colorvalues = current_variant.metafields.custom.color_option_values.value %}
+
+  {% comment %} Process product.media {% endcomment %}
+  {% for media in product.media %}
+    {% assign should_include = false %}
+    {% assign alt_normalized = media.alt | downcase | strip | remove: ' ' | remove: '.' %}
+
+    {% if media.alt == blank or media.alt == '' or product_title_normalized == alt_normalized %}
+      {% assign should_include = true %}
+    {% else %}
+      {% assign alt_parts = media.alt | split: '/' %}
+      {% assign all_parts_match = true %}
+      {% for alt in alt_parts %}
+        {% assign alt_normalized = alt | downcase | strip | remove: ' ' | remove: '.' %}
+        {% assign found = false %}
+        {% for option in colorvalues %}
+          {% assign option_normalized = option | downcase | strip | remove: ' ' | remove: '.' %}
+          {% if alt_normalized == option_normalized %}
+            {% assign found = true %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+        {% if found == false %}
+          {% assign all_parts_match = false %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+      {% if all_parts_match %}
+        {% assign should_include = true %}
+      {% endif %}
+    {% endif %}
+
+    {% if should_include %}
+      {% if media.media_type == 'image' %}
+        {% capture image_url %}{{ media.preview_image | image_url }}{% endcapture %}
+        {% if media.alt != blank and media.alt != '' and product_title_normalized != alt_normalized %}
+          {% assign images_with_alt = images_with_alt | append: image_url | append: ',' %}
+        {% else %}
+          {% assign images_without_alt_or_title = images_without_alt_or_title | append: image_url | append: ',' %}
+        {% endif %}
+
+      {% elsif media.media_type == 'video' %}
+        {% assign mp4_found = false %}
+        {% for source in media.sources %}
+          {% if source.url contains '.mp4' %}
+            {% assign video_url = source.url %}
+            {% assign mp4_found = true %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+
+        {% if mp4_found == false and media.sources.first.url %}
+          {% assign first_source = media.sources.first.url %}
+          {% if first_source contains '.m3u8' %}
+            {% assign video_url = first_source | replace: '.m3u8', '.mp4' | replace: '/videos/c/vp/', '/videos/c/o/v/' %}
+          {% else %}
+            {% assign video_url = first_source %}
+          {% endif %}
+        {% endif %}
+
+        {% if media.alt != blank and media.alt != '' and product_title_normalized != alt_normalized %}
+          {% assign videos_with_alt = videos_with_alt | append: video_url | append: ',' %}
+        {% else %}
+          {% assign videos_without_alt_or_title = videos_without_alt_or_title | append: video_url | append: ',' %}
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+  {% comment %} Process meta_entries {% endcomment %}
+  {% if meta_entries %}
+    {% for entry in meta_entries %}
+      {% assign should_include = false %}
+      {% if entry.text == blank or entry.text == '' %}
+        {% assign should_include = true %}
+      {% else %}
+        {% assign alt_parts = entry.text | split: '/' %}
+        {% assign all_parts_match = true %}
+        {% for alt in alt_parts %}
+          {% assign alt_normalized = alt | downcase | strip | remove: ' ' | remove: '.' %}
+          {% assign found = false %}
+          {% for option in colorvalues %}
+            {% assign option_normalized = option | downcase | strip | remove: ' ' | remove: '.' %}
+            {% if alt_normalized == option_normalized %}
+              {% assign found = true %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          {% if found == false %}
+            {% assign all_parts_match = false %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+        {% if all_parts_match %}
+          {% assign should_include = true %}
+        {% endif %}
+      {% endif %}
+
+      {% if should_include %}
+        {% if entry.img %}
+          {% if entry.img contains 'shopify' %}
+            {% assign image_url = entry.img | file_img_url: '800x' %}
+          {% else %}
+            {% assign image_url = entry.img | file_url %}
+          {% endif %}
+
+          {% if entry.text != blank and entry.text != '' and product_title_normalized != alt_normalized %}
+            {% assign images_with_alt = images_with_alt | append: image_url | append: ',' %}
+          {% else %}
+            {% assign images_without_alt_or_title = images_without_alt_or_title | append: image_url | append: ',' %}
+          {% endif %}
+        {% endif %}
+
+        {% if entry.video %}
+          {% assign video_url = entry.video | file_url %}
+          {% if video_url contains '.m3u8' %}
+            {% assign video_url = video_url | replace: '.m3u8', '.mp4' | replace: '/videos/c/vp/', '/videos/c/o/v/' %}
+          {% endif %}
+
+          {% if entry.text != blank and entry.text != '' and product_title_normalized != alt_normalized %}
+            {% assign videos_with_alt = videos_with_alt | append: video_url | append: ',' %}
+          {% else %}
+            {% assign videos_without_alt_or_title = videos_without_alt_or_title | append: video_url | append: ',' %}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  {% comment %} Merge priority groups {% endcomment %}
+  {% assign matching_images = images_with_alt | append: images_without_alt_or_title %}
+  {% assign matching_videos = videos_with_alt | append: videos_without_alt_or_title %}
+
+{% else %}
+
+  {% comment %} Process product media {% endcomment %}
+  {% for media in product.media %}
+    {% assign should_include = false %}
+    {% assign alt_normalized = media.alt | downcase | strip | remove: ' '| remove: '.' %}
+    {% if media.alt == blank or media.alt == '' or product_title_normalized == alt_normalized %}
+      {% assign should_include = true %}
+    {% else %}
+      {% assign alt_parts = media.alt | split: '/' %}
+      {% assign all_parts_match = true %}
+
+      {% for alt in alt_parts %}
+        {% assign alt_normalized = alt | downcase | strip | remove: ' ' | remove: '.' %}
+        {% assign found = false %}
+
+        {% for option in current_variant.options %}
+          {% assign option_normalized = option | downcase | strip | remove: ' ' | remove: '.' %}
+          {% if alt_normalized == option_normalized %}
+            {% assign found = true %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+        
+        {% if found == false %}
+          {% assign all_parts_match = false %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+    
+      {% if all_parts_match %}
+        {% assign should_include = true %}
+      {% endif %}
+    {% endif %}
+  
+    {% if should_include %}
+      {% if media.media_type == 'image' %}
+        {% capture image_url %}
+          {{ media.preview_image | image_url }}
+        {% endcapture %}
+        {% assign matching_images = matching_images | append: image_url | append: ',' %}
+      {% elsif media.media_type == 'video' %}
+        {% comment %} Look for MP4 source first {% endcomment %}
+        {% assign mp4_found = false %}
+        {% for source in media.sources %}
+          {% if source.url contains '.mp4' %}
+            {% assign matching_videos = matching_videos | append: source.url | append: ',' %}
+            {% assign mp4_found = true %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+      
+        {% comment %} If no MP4 found, try to get MP4 from m3u8 URL pattern {% endcomment %}
+        {% if mp4_found == false and media.sources.first.url %}
+          {% assign first_source = media.sources.first.url %}
+          {% if first_source contains '.m3u8' %}
+            {% comment %} Convert m3u8 to mp4 URL pattern {% endcomment %}
+            {% assign mp4_url = first_source | replace: '.m3u8', '.mp4' | replace: '/videos/c/vp/', '/videos/c/o/v/' %}
+            {% assign matching_videos = matching_videos | append: mp4_url | append: ',' %}
+          {% else %}
+            {% assign matching_videos = matching_videos | append: first_source | append: ',' %}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+  {% comment %} Process meta entries {% endcomment %}
+  {% if meta_entries %}
+    {% for entry in meta_entries %}
+      {% assign should_include = false %}
+      {% if entry.text == blank or entry.text == '' %}
+        {% assign should_include = true %}
+      {% else %}
+        {% assign alt_parts = entry.text | split: '/' %}
+        {% assign all_parts_match = true %}
+
+        {% for alt in alt_parts %}
+          {% assign alt_normalized = alt | downcase | strip | remove: ' ' | remove: '.' %}
+          {% assign found = false %}
+
+          {% for option in current_variant.options %}
+            {% assign option_normalized = option | downcase | strip | remove: ' ' | remove: '.' %}
+            {% if alt_normalized == option_normalized %}
+              {% assign found = true %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+
+          {% if found == false %}
+            {% assign all_parts_match = false %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+      
+        {% if all_parts_match %}
+          {% assign should_include = true %}
+        {% endif %}
+      {% endif %}
+
+      {% if should_include %}
+        {% if entry.img %}
+          {% if entry.img contains 'shopify' %}
+            {% assign image_url = entry.img | file_img_url: '800x' %}
+          {% else %}
+            {% assign image_url = entry.img | file_url %}
+          {% endif %}
+          {% assign matching_images = matching_images | append: image_url | append: ',' %}
+        {% endif %}
+
+        {% if entry.video %}
+          {% assign video_url = entry.video | file_url %}
+          {% comment %} Check if it's an M3U8 file and convert to MP4 {% endcomment %}
+          {% if video_url contains '.m3u8' %}
+            {% comment %} Try multiple patterns to convert M3U8 to MP4 {% endcomment %}
+            {% assign mp4_url_1 = video_url | replace: '.m3u8', '.mp4' %}
+            {% assign mp4_url_2 = video_url | replace: '/videos/c/vp/', '/videos/c/o/v/' | replace: '.m3u8', '.mp4' %}
+            {% assign mp4_url_3 = video_url | replace: 'cdn.shopify.com/videos/c/vp/', 'cdn.shopify.com/videos/c/o/v/' | replace: '.m3u8', '.mp4' %}
+          
+            {% comment %} Choose the first valid MP4 URL pattern {% endcomment %}
+            {% assign final_video_url = mp4_url_1 %}
+            {% if mp4_url_2 contains '.mp4' and mp4_url_2 contains '/videos/c/o/v/' %}
+              {% assign final_video_url = mp4_url_2 %}
+            {% elsif mp4_url_3 contains '.mp4' and mp4_url_3 contains '/videos/c/o/v/' %}
+              {% assign final_video_url = mp4_url_3 %}
+            {% endif %}
+          
+            {% assign matching_videos = matching_videos | append: final_video_url | append: ',' %}
+          {% else %}
+            {% assign matching_videos = matching_videos | append: video_url | append: ',' %}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+{% endif %}
+{% assign image_array = matching_images | split: ',' %}
+{% assign video_array = matching_videos | split: ',' %}
+
+<div class="custom-media-gallery" id="custom-media-gallery">
+  <div class="desktop-gallery">
+    <div class="main-image-wrapper">
+      <div class="cus-sticky">
+        {% comment %} Check if there are any images in the array {% endcomment %}
+        {% assign has_images = false %}
+        {% for img in image_array %}
+          {% assign img_trimmed = img | strip %}
+          {% if img_trimmed != blank and img_trimmed != ' ' %}
+            {% assign has_images = true %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+  
+  {% comment %} Display logic {% endcomment %}
+  {% if has_images %}
+    {% comment %} Show only the first valid image {% endcomment %}
+    {% for img in image_array %}
+      {% assign img_trimmed = img | strip %}
+      {% if img_trimmed != blank and img_trimmed != ' ' %}
+        <div class="main-image-item">
+          <img
+            src="{{ img_trimmed }}"
+            loading="lazy"
+            alt="{{ product.title }}"
+          >
+        </div>
+        {% break %}{% comment %} Exit after first image {% endcomment %}
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    {% comment %} No images, show the first valid video {% endcomment %}
+    {% for video in video_array %}
+      {% assign video_trimmed = video | strip %}
+      {% if video_trimmed != blank and video_trimmed != ' ' %}
+        <div class="main-image-item">
+          <video 
+            class="thumbnail-media"
+            autoplay 
+            muted 
+            loop 
+            playsinline
+          >
+            <source src="{{ video_trimmed }}" type="video/mp4">
+          </video>
+        </div>
+        {% break %}{% comment %} Exit after first video {% endcomment %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+      </div>
+    </div>
+    <div class="thumbnails-wrapper">
+      <div class="cus-sticky">
+        {% for video in video_array %}
+          {% assign video_trimmed = video | strip %}
+          {% if video_trimmed != blank and video_trimmed != ' ' %}
+            <div class="thumbnail-item">
+              <video 
+                class="thumbnail-media"
+                autoplay 
+                muted 
+                loop 
+                playsinline
+              >
+                <source src="{{ video_trimmed }}" type="video/mp4">
+              </video>
+            </div>
+          {% endif %}
+        {% endfor %}
+        
+        {% for img in image_array %}
+          {% assign img_trimmed = img | strip %}
+          {% if img_trimmed != blank and img_trimmed != ' ' %}
+            <div class="thumbnail-item">
+              <img
+                src="{{ img_trimmed }}"
+                loading="lazy"
+                alt="{{ product.title }}"
+              >
+            </div>
+          {% endif %}
+        {% endfor %} 
+      </div>
+    </div>
+  </div>
+ <div class="mobile-gallery">
+  <div class="swiper">
+    <div class="swiper-wrapper">
+           {% for img in image_array %}
+          {% assign img_trimmed = img | strip %}
+          {% if img_trimmed != blank and img_trimmed != ' ' %}
+            <div class="swiper-slide">
+              <img
+                src="{{ img_trimmed }}"
+                loading="lazy"
+                alt="{{ product.title }}"
+              >
+            </div>
+          {% endif %}
+        {% endfor %} 
+        {% for video in video_array %}
+          {% assign video_trimmed = video | strip %}
+          {% if video_trimmed != blank and video_trimmed != ' ' %}
+            <div class="swiper-slide">
+              <video 
+                class="thumbnail-media"
+                autoplay 
+                muted 
+                loop 
+                playsinline
+              >
+                <source src="{{ video_trimmed }}" type="video/mp4">
+              </video>
+            </div>
+          {% endif %}
+        {% endfor %}
+
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+  </div>
+</div>
 
 {% style %}
 .desktop-gallery { display: block; }
@@ -730,18 +1168,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let mobileSwiper; // store swiper instance
 
-  function updateGallery() {
-    const selectedOptions = {};
-    variantOptions.forEach(option => {
-      const capitalized = option.charAt(0).toUpperCase() + option.slice(1);
-      let selected = document.querySelector(`.swatch-input__input[name^="${capitalized}"]:checked`);
-      if (!selected) {
-        selected = document.querySelector(`select[name="${capitalized}"]`);
-      }
-      selectedOptions[option.toLowerCase()] = selected ? selected.value.toLowerCase() : null;
-    });
-
-    function normalizeShopifySrc(src) {
+  function normalizeShopifySrc(src) {
       if (!src) return '';
       let cleanSrc = src.split('?')[0];
       cleanSrc = cleanSrc.replace(/_(\d+)x(\d+)(\.\w+)$/, '$3');
@@ -756,6 +1183,19 @@ document.addEventListener('DOMContentLoaded', () => {
          .replace(/[^a-z0-9-]/g, '') // remove everything except letters, numbers, and dashes
     : '';
     }
+{% comment %}     
+  function updateGallery() {
+    const selectedOptions = {};
+    variantOptions.forEach(option => {
+      const capitalized = option.charAt(0).toUpperCase() + option.slice(1);
+      let selected = document.querySelector(`.swatch-input__input[name^="${capitalized}"]:checked`);
+      if (!selected) {
+        selected = document.querySelector(`select[name="${capitalized}"]`);
+      }
+      selectedOptions[option.toLowerCase()] = selected ? selected.value.toLowerCase() : null;
+    });
+
+    
     let found = false;
     {% comment %} document.querySelectorAll('.main-image-item').forEach(item => {
   let show = false; // default: hidden
@@ -926,7 +1366,7 @@ document.querySelectorAll('.mobile-gallery .swiper .swiper-wrapper .swiper-slide
       autoplayVideos: true,
     });
     
-  }
+  } {% endcomment %}
 
   // Variant change listener
   document.body.addEventListener('change', (e) => {
