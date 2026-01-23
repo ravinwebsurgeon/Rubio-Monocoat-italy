@@ -1,7 +1,16 @@
+{%- comment -%}
+  Inputs:
+    link_url -> the original URL
+    lang -> current language ('en', 'it', etc.)
+  Output:
+    final_url -> processed URL with /en prefix and color translation
+{%- endcomment -%}
+
 {% assign colors_it = "Nero,Bianco,Grigio,Rosso,Blu,Scuro,Vivaci,Naturale" | split: "," %}
 {% assign colors_en = "Black,White,Grey,Red,Blue,Dark,Bright,Natural" | split: "," %}
-{% assign final_url = link_url %}
 
+{% assign final_url = link_url %}
+{% assign country_code = localization.country.iso_code | downcase %}
 {% if lang == 'en' %}
 
   {%- comment -%} Split URL into path + query {%- endcomment -%}
@@ -37,8 +46,10 @@
 
       {% if key contains 'color' %}
         {% assign color_index = nil %}
-        {% for i in (0..colors_it.size) %}
-          {% if colors_it[i] == value %}
+        {% if country_code == 'it' %}{% assign matched_color_list = colors_it %} {% endif %}
+        {% if country_code == 'gb' %}{% assign matched_color_list = colors_en %} {% endif %}
+        {% for i in (0..matched_color_list.size) %}
+          {% if matched_color_list[i] == value %}
             {% assign color_index = i %}
             {% break %}
           {% endif %}
