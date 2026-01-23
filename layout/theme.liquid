@@ -499,7 +499,15 @@ html {
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
       <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
     </ul>
+  <script>
+    // Match /products/sample-kit with or without 2-letter language prefix
+    const path = window.location.pathname;
+    const regex = /^\/([a-z]{2}\/)?products\/sample-kit\/?$/;
 
+    if (regex.test(path)) {
+      window.location.href = "/";
+    }
+  </script>
     <script>
       window.shopUrl = '{{ request.origin }}';
       window.routes = {
@@ -1034,14 +1042,6 @@ async function detectCountry() {
 }
 
 </script>
-<script>
-  // Match /products/sample-kit with or without 2-letter language prefix
-  const path = window.location.pathname;
-  const regex = /^\/([a-z]{2}\/)?products\/sample-kit\/?$/;
 
-  if (regex.test(path)) {
-    window.location.href = "/";
-  }
-</script>
   </body>
 </html>
