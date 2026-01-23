@@ -140,14 +140,11 @@
             {% if country_iso == 'ch' and user_lang == 'it' %}{% assign custom_index = 'ch-it' %}{% endif %} {% comment %}Switzerland and Italian {%endcomment %}
                   
             <div class="variant-custom-cost__m2 {{ user_lang }}">
-                {% comment %} {% assign values_list = current_variant.metafields.custom.cost_m2_list.value %}
-                {% for val in values_list %}
-                  <div>{{ val }}</div>
-                {% endfor %}  {% endcomment %}
-                {% assign json_values_list = current_variant.metafields.custom.cost_volume_json.value | parse_json %}
+          
+                {% comment %} {% assign json_values_list = current_variant.metafields.custom.cost_volume_json.value | parse_json %}
                 {% for val in json_values_list %}
                     {{ val[custom_index] }} 
-                {% endfor %} 
+                {% endfor %}  {% endcomment %}
             </div>
         </div>
       {% endif %}
