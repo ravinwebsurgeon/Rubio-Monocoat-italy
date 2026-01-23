@@ -23,7 +23,7 @@
   {% endif %}
 
   {%- comment -%} Build EN path WITHOUT query {%- endcomment -%}
-  {% unless country_code == 'gb' %}
+  {% unless country_code == 'gb'  or country_code == 'gg' %}
     {% if path_only contains 'http' %}
       {% assign protocol_and_domain = path_only | split:'/' | slice:0,3 | join:'/' %}
       {% assign path_after_domain = path_only | remove_first: protocol_and_domain %}
