@@ -1034,5 +1034,14 @@ async function detectCountry() {
 }
 
 </script>
+<script>
+  // Match /products/sample-kit with or without 2-letter language prefix
+  const path = window.location.pathname;
+  const regex = /^\/([a-z]{2}\/)?products\/sample-kit\/?$/;
+
+  if (regex.test(path)) {
+    window.location.href = "/";
+  }
+</script>
   </body>
 </html>
