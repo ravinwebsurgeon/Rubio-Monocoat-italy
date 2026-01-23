@@ -47,7 +47,7 @@
       {% if key contains 'color' %}
         {% assign color_index = nil %}
         {% if country_code == 'it' %}{% assign matched_color_list = colors_it %} {% endif %}
-        {% if country_code == 'gb' %}{% assign matched_color_list = colors_en %} {% endif %}
+        {% if country_code == 'gb' or country_code == 'gg' %}{% assign matched_color_list = colors_en %} {% endif %}
         {% for i in (0..matched_color_list.size) %}
           {% if matched_color_list[i] == value %}
             {% assign color_index = i %}
