@@ -23,17 +23,19 @@
   {% endif %}
 
   {%- comment -%} Build EN path WITHOUT query {%- endcomment -%}
-  {% if path_only contains 'http' %}
-    {% assign protocol_and_domain = path_only | split:'/' | slice:0,3 | join:'/' %}
-    {% assign path_after_domain = path_only | remove_first: protocol_and_domain %}
-    {% assign final_url = protocol_and_domain | append:'/en' | append:path_after_domain %}
-  {% else %}
-    {% unless path_only contains '/en' %}
-      {% assign final_url = '/en' | append:path_only %}
+  {% unless country_code == 'gb' %}
+    {% if path_only contains 'http' %}
+      {% assign protocol_and_domain = path_only | split:'/' | slice:0,3 | join:'/' %}
+      {% assign path_after_domain = path_only | remove_first: protocol_and_domain %}
+      {% assign final_url = protocol_and_domain | append:'/en' | append:path_after_domain %}
     {% else %}
-      {% assign final_url = path_only %}
-    {% endunless %}
-  {% endif %}
+      {% unless path_only contains '/en' %}
+        {% assign final_url = '/en' | append:path_only %}
+      {% else %}
+        {% assign final_url = path_only %}
+      {% endunless %}
+    {% endif %}
+  {% endunless %}
 
   {%- comment -%} Translate query params {%- endcomment -%}
   {% if query_string != '' %}
