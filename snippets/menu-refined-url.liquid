@@ -11,7 +11,6 @@
 
 {% assign final_url = link_url %}
 {% assign country_code = localization.country.iso_code | downcase %}
-
 {% if lang == 'en' %}
 
   {%- comment -%} Split URL into path + query {%- endcomment -%}
@@ -23,21 +22,17 @@
     {% assign query_string = '' %}
   {% endif %}
 
-  {%- comment -%} Build EN path WITHOUT query, skip /en if country is GB {%- endcomment -%}
-  {% if country_code != 'gb' %}
-    {% if path_only contains 'http' %}
-      {% assign protocol_and_domain = path_only | split:'/' | slice:0,3 | join:'/' %}
-      {% assign path_after_domain = path_only | remove_first: protocol_and_domain %}
-      {% assign final_url = protocol_and_domain | append:'/en' | append:path_after_domain %}
-    {% else %}
-      {% unless path_only contains '/en' %}
-        {% assign final_url = '/en' | append:path_only %}
-      {% else %}
-        {% assign final_url = path_only %}
-      {% endunless %}
-    {% endif %}
+  {%- comment -%} Build EN path WITHOUT query {%- endcomment -%}
+  {% if path_only contains 'http' %}
+    {% assign protocol_and_domain = path_only | split:'/' | slice:0,3 | join:'/' %}
+    {% assign path_after_domain = path_only | remove_first: protocol_and_domain %}
+    {% assign final_url = protocol_and_domain | append:'/en' | append:path_after_domain %}
   {% else %}
-    {% assign final_url = path_only %}
+    {% unless path_only contains '/en' %}
+      {% assign final_url = '/en' | append:path_only %}
+    {% else %}
+      {% assign final_url = path_only %}
+    {% endunless %}
   {% endif %}
 
   {%- comment -%} Translate query params {%- endcomment -%}
@@ -51,8 +46,8 @@
 
       {% if key contains 'color' %}
         {% assign color_index = nil %}
-        {% if country_code == 'it' %}{% assign matched_color_list = colors_it %}{% endif %}
-        {% if country_code == 'gb' %}{% assign matched_color_list = colors_en %}{% endif %}
+        {% if country_code == 'it' %}{% assign matched_color_list = colors_it %} {% endif %}
+        {% if country_code == 'gb' %}{% assign matched_color_list = colors_en %} {% endif %}
         {% for i in (0..matched_color_list.size) %}
           {% if matched_color_list[i] == value %}
             {% assign color_index = i %}
