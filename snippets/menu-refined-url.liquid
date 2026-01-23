@@ -71,7 +71,12 @@
       {% endif %}
     {% endfor %}
 
-    {% assign final_url = final_url | append:'?' | append:new_params %}
+    {% comment %} {% assign final_url = final_url | append:'?' | append:new_params %} {% endcomment %}
+         {% if final_url contains '?' %}
+      {% assign final_url = final_url | append:'&' | append:new_params %}
+    {% else %}
+      {% assign final_url = final_url | append:'?' | append:new_params %}
+    {% endif %}
   {% endif %}
 
 {% endif %}
