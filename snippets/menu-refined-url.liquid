@@ -71,7 +71,7 @@
       {% endif %}
     {% endfor %}
 
-    {% assign final_url = final_url | append:'?' | append:new_params %}
+    {% assign final_url = path_only | append:'?' | append:new_params %}
 
   {% endif %}
 
