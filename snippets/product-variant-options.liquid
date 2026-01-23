@@ -119,6 +119,26 @@
 
       {% if is_size_option and current_variant %}
         <div class="custom_price_value" style="display:flex;">
+           {% assign country_iso = localization.country.iso_code | downcase %}
+          {% if user_lang == 'en' %}
+              {% assign custom_index = country_iso %}
+              {% assign custom_index = country_iso | append: '-en' %}
+            {% endif %}
+            {% if country_iso == 'it' and user_lang == 'it' %}{% assign custom_index = 'it' %}{% endif %} {% comment %}Italy and Italian {% endcomment %}
+            {% if country_iso == 'dk' and user_lang == 'de' %}{% assign custom_index = 'dk' %}{% endif %} {% comment %}Denmark and Danish {%endcomment %}
+            {% if country_iso == 'no' and user_lang == 'no' %}{% assign custom_index = 'no' %}{% endif %} {% comment %}Norway and Norwegian {%endcomment %}
+            {% if country_iso == 'se' and user_lang == 'se' %}{% assign custom_index = 'se' %}{% endif %} {% comment %}Sweden and Swedish {%endcomment %}
+            {% if country_iso == 'nl' and user_lang == 'nl' %}{% assign custom_index = 'nl' %}{% endif %} {% comment %}NETHERLANDS and Dutch {%endcomment %}
+            {% if country_iso == 'fr' and user_lang == 'fr' %}{% assign custom_index = 'fr' %}{% endif %} {% comment %}France and French {%endcomment %}
+            {% if country_iso == 'be' and user_lang == 'nl' %}{% assign custom_index = 'be-nl' %}{% endif %} {% comment %}Beligum and Dutch {%endcomment %}
+            {% if country_iso == 'be' and user_lang == 'fr' %}{% assign custom_index = 'be-fr' %}{% endif %} {% comment %}Beligum and French {%endcomment %}
+            {% if country_iso == 'de' and user_lang == 'de' %}{% assign custom_index = 'de' %}{% endif %} {% comment %}Germany and German {%endcomment %}
+            {% if country_iso == 'at' and user_lang == 'de' %}{% assign custom_index = 'at-de' %}{% endif %} {% comment %}Austria and German {%endcomment %}
+            {% if country_iso == 'fi' and user_lang == 'fi' %}{% assign custom_index = 'fi' %}{% endif %} {% comment %}Finland and Finnish {%endcomment %}
+            {% if country_iso == 'ch' and user_lang == 'de' %}{% assign custom_index = 'ch-de' %}{% endif %} {% comment %}Switzerland and German {%endcomment %}
+            {% if country_iso == 'ch' and user_lang == 'fr' %}{% assign custom_index = 'ch-fr' %}{% endif %} {% comment %}Switzerland and French {%endcomment %}
+            {% if country_iso == 'ch' and user_lang == 'it' %}{% assign custom_index = 'ch-it' %}{% endif %} {% comment %}Switzerland and Italian {%endcomment %}
+                  
             <div class="variant-custom-cost__m2 {{ user_lang }}">
                 {% comment %} {% assign values_list = current_variant.metafields.custom.cost_m2_list.value %}
                 {% for val in values_list %}
@@ -126,7 +146,7 @@
                 {% endfor %}  {% endcomment %}
                 {% assign json_values_list = current_variant.metafields.custom.cost_volume_json.value | parse_json %}
                 {% for val in json_values_list %}
-                    {{ val[user_lang] }} 
+                    {{ val[custom_index] }} 
                 {% endfor %} 
             </div>
         </div>
