@@ -11,7 +11,7 @@
             {% capture final_url %}
                 {% render 'menu-refined-url', link_url: link.url, lang: lang %}
             {% endcapture %}
-          <a href="{{ final_url | strip }}" data-lang="{{ lang }}" data-final-url="{{- link.url -}}">{{- link.title -}} <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <a href="{{ final_url | strip }}" data-market-country="{{localization.country.iso_code }}" data-lang="{{ lang }}" data-final-url="{{- link.url -}}">{{- link.title -}} <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M6.75 1.5L3.75 4.5L0.75 1.5" stroke="var(--color-header-links, --color-accent)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
           </a>
