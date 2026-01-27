@@ -9,29 +9,12 @@
  */
 {
   "sections": {
-    "icons_section_rzewec": {
-      "settings": {},
-      "blocks": {
-        "container_wfiezd": {
-          "disabled": false,
-          "settings": {
-            "class": "",
-            "heading": "Telephone Advice",
-            "subtext": "0800 688 9661",
-            "extra_text": ""
-          }
-        },
-        "container_bxqMjj": {
-          "settings": {
-            "subtext": "hello@rubiomonocoat.co.uk"
-          }
-        }
-      }
-    },
     "contact_options_FYkrkp": {
       "settings": {
         "call_link": "tel:0800 688 9661",
-        "email_link": "mailto:hello@rubiomonocoat.co.uk"
+        "email_link": "mailto:hello@rubiomonocoat.co.uk",
+        "right_description": "Our experts are available on working days from 8:30 am. to 5:00 pm. for <strong> free product advice. </strong>",
+        "availability_text": "Our team is available mo - fr from 8:30 am - 4:30 pm"
       },
       "blocks": {
         "contact_method_mVcVkc": {
@@ -50,6 +33,25 @@
             "title": "Send an Email",
             "subtitle": "hello@rubiomonocoat.co.uk",
             "link": "mailto:hello@rubiomonocoat.co.uk"
+          }
+        }
+      }
+    },
+    "icons_section_rzewec": {
+      "settings": {},
+      "blocks": {
+        "container_wfiezd": {
+          "disabled": false,
+          "settings": {
+            "class": "",
+            "heading": "Telephone Advice",
+            "subtext": "0800 688 9661",
+            "extra_text": ""
+          }
+        },
+        "container_bxqMjj": {
+          "settings": {
+            "subtext": "hello@rubiomonocoat.co.uk"
           }
         }
       }
