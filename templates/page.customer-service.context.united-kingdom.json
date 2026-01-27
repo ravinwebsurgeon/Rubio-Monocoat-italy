@@ -11,10 +11,10 @@
   "sections": {
     "contact_options_FYkrkp": {
       "settings": {
+        "availability_text": "Our team is available mo - fr from 8:30 am - 4:30 pm",
+        "right_description": "Our experts are available on working days from 8:30 am to 5:00 pm for <strong> free product advice. </strong>",
         "call_link": "tel:0800 688 9661",
-        "email_link": "mailto:hello@rubiomonocoat.co.uk",
-        "right_description": "Our experts are available on working days from 8:30 am. to 5:00 pm. for <strong> free product advice. </strong>",
-        "availability_text": "Our team is available mo - fr from 8:30 am - 4:30 pm"
+        "email_link": "mailto:hello@rubiomonocoat.co.uk"
       },
       "blocks": {
         "contact_method_mVcVkc": {
