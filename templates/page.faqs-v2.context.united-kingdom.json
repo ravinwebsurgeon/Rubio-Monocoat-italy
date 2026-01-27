@@ -65,6 +65,11 @@
           "settings": {
             "answer": "Yes, please use the most convenient method of shipping."
           }
+        },
+        "faq_item_8RFaF6": {
+          "settings": {
+            "answer": "Once we receive your return, we will process your refund within 14 days. Refunds are always made using the same payment method you used for your original purchase."
+          }
         }
       },
       "block_order": [
