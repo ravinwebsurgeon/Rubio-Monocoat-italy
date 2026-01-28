@@ -16,14 +16,29 @@
           "disabled": false,
           "settings": {
             "class": "",
+            "heading": "Telephone Advice",
             "subhead": "",
-            "subtext": "+45 88 77 98 18",
-            "heading": "Telephone Advice"
+            "subtext": "+45 88 77 98 18"
           }
         },
         "container_EGhzFM": {
           "settings": {
             "subtext": "service@rubiomonocoat.dk"
+          }
+        }
+      }
+    },
+    "video_products_home_8dwaBA": {
+      "settings": {},
+      "blocks": {
+        "product_block_YBnHge": {
+          "settings": {
+            "price_color": "#000000"
+          }
+        },
+        "product_block_xDy89z": {
+          "settings": {
+            "price_color": "#000000"
           }
         }
       }
