@@ -24,6 +24,11 @@
             "url": "https://www.facebook.com/RubioMonocoatDanmark"
           }
         },
+        "country_social_NGFKiF": {
+          "settings": {
+            "country": "DK"
+          }
+        },
         "country_social_PDjcgT": {
           "type": "country_social",
           "disabled": false,
@@ -33,14 +38,18 @@
             "url": "https://www.pinterest.com/rubiomonocoat"
           }
         },
+        "country_social_xRh7KV": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "DK",
+            "label": "Tiktok",
+            "url": "https://www.tiktok.com/@rubiomonocoat"
+          }
+        },
         "text_hWeadq": {
           "settings": {
             "subtext": "<p><strong>Rubio Monocoat Denmark ApS </strong><br/>c/o Business Park Nord<br/>Østre Allé 6<br/>DK-9530 Støvring<br/>Danmark<br/>CVR:DK39120372</p>"
-          }
-        },
-        "country_social_NGFKiF": {
-          "settings": {
-            "country": "DK"
           }
         }
       },
@@ -49,6 +58,7 @@
         "country_social_jyNNYq",
         "country_social_NGFKiF",
         "country_social_PDjcgT",
+        "country_social_xRh7KV",
         "brand_information_A98rgG",
         "link_list_tfK6cN",
         "link_list_KBYewH",
