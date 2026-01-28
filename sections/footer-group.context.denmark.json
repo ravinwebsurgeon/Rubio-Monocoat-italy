@@ -24,11 +24,6 @@
             "url": "https://www.facebook.com/RubioMonocoatDanmark"
           }
         },
-        "text_hWeadq": {
-          "settings": {
-            "subtext": "<p><strong>Rubio Monocoat Denmark ApS </strong><br/>c/o Business Park Nord<br/>Østre Allé 6<br/>DK-9530 Støvring<br/>Danmark<br/>CVR:DK39120372</p>"
-          }
-        },
         "country_social_PDjcgT": {
           "type": "country_social",
           "disabled": false,
@@ -36,6 +31,16 @@
             "country": "DK",
             "label": "Pinterest",
             "url": "https://www.pinterest.com/rubiomonocoat"
+          }
+        },
+        "text_hWeadq": {
+          "settings": {
+            "subtext": "<p><strong>Rubio Monocoat Denmark ApS </strong><br/>c/o Business Park Nord<br/>Østre Allé 6<br/>DK-9530 Støvring<br/>Danmark<br/>CVR:DK39120372</p>"
+          }
+        },
+        "country_social_NGFKiF": {
+          "settings": {
+            "country": "DK"
           }
         }
       },
