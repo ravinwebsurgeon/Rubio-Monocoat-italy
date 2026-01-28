@@ -16,8 +16,9 @@
           "disabled": false,
           "settings": {
             "class": "",
+            "subtext": "+45 88 77 98 18",
             "extra_text": "",
-            "subtext": "+45 88 77 98 18"
+            "heading": "Telephone Advice"
           }
         },
         "container_BxEzhc": {
