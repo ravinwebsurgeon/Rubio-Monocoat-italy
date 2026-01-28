@@ -1,0 +1,35 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "icons_section_c6PKTK": {
+      "settings": {},
+      "blocks": {
+        "container_MBf3h7": {
+          "disabled": false,
+          "settings": {
+            "heading": "Telephone Advice",
+            "extra_text": "",
+            "class": ""
+          }
+        },
+        "container_BEfXan": {
+          "settings": {
+            "subtext": "service@rubiomonocoat.dk"
+          }
+        }
+      }
+    }
+  },
+  "context": {
+    "market": "denmark"
+  },
+  "parent": "page.privacy-policy.json"
+}
