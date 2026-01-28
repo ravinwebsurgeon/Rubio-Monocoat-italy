@@ -29,15 +29,6 @@
             "country": "DK"
           }
         },
-        "country_social_PDjcgT": {
-          "type": "country_social",
-          "disabled": false,
-          "settings": {
-            "country": "DK",
-            "label": "Pinterest",
-            "url": "https://www.pinterest.com/rubiomonocoat"
-          }
-        },
         "country_social_kL4TN": {
           "type": "country_social",
           "disabled": false,
@@ -45,6 +36,15 @@
             "country": "DK",
             "label": "TikTok",
             "url": "https://www.tiktok.com/@rubiomonocoat"
+          }
+        },
+        "country_social_etdyD": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "DK",
+            "label": "Pinterest",
+            "url": "https://www.pinterest.com/rubiomonocoatoil/_created/"
           }
         },
         "text_hWeadq": {
@@ -57,8 +57,8 @@
         "country_social_gWTFPf",
         "country_social_jyNNYq",
         "country_social_NGFKiF",
-        "country_social_PDjcgT",
         "country_social_kL4TN",
+        "country_social_etdyD",
         "brand_information_A98rgG",
         "link_list_tfK6cN",
         "link_list_KBYewH",
