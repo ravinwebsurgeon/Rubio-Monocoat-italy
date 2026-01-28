@@ -17,8 +17,13 @@
           "settings": {
             "class": "",
             "heading": "Telephone Advice",
-            "extra_text": "",
-            "subtext": "+45 88 77 98 18"
+            "subtext": "+45 88 77 98 18",
+            "extra_text": ""
+          }
+        },
+        "container_bVy9hB": {
+          "settings": {
+            "subtext": "service@rubiomonocoat.dk"
           }
         }
       }
