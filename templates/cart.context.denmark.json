@@ -1,0 +1,31 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "icons_section_ydUpbm": {
+      "settings": {},
+      "blocks": {
+        "container_QXp6CL": {
+          "disabled": false,
+          "settings": {
+            "class": "",
+            "heading": "Telephone Advice",
+            "extra_text": "",
+            "subtext": "+45 88 77 98 18"
+          }
+        }
+      }
+    }
+  },
+  "context": {
+    "market": "denmark"
+  },
+  "parent": "cart.json"
+}
