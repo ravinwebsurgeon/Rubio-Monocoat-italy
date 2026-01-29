@@ -26,6 +26,7 @@
                 {% if block.settings.product %}
                   {% assign product = all_products[block.settings.product] %}
                   {% if product %}
+                    <a href="{{product.url}}" class="full-block-link">
                     <div class="product-card" style="background: {{ block.settings.product_card_bg_color | default: '#ffffff' }}; border-radius: {{ block.settings.product_card_border_radius | default: 20 }}px;">
                       <div class="product-image">
                         <img src="{{ product.featured_image | img_url: '150x' }}" alt="{{ product.title }}">
@@ -45,13 +46,13 @@
                             <img src="{{ block.settings.icon_1 | img_url: '40x' }}" alt="Add to Cart">
                           </a>
                         {% endif %} {% endcomment %}
-                        <a href="{{product.url}}">
+                        {% comment %} <a href="{{product.url}}"> {% endcomment %}
                             {% comment %} <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 16 16">
                                 <text x="50%" y="80%" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="17" fill="currentColor">i</text>
                             </svg> {% endcomment %}
                             
                             <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#183029" viewBox="0 0 256 256"><path d="M142,176a6,6,0,0,1-6,6,14,14,0,0,1-14-14V128a2,2,0,0,0-2-2,6,6,0,0,1,0-12,14,14,0,0,1,14,14v40a2,2,0,0,0,2,2A6,6,0,0,1,142,176ZM124,94a10,10,0,1,0-10-10A10,10,0,0,0,124,94Zm106,34A102,102,0,1,1,128,26,102.12,102.12,0,0,1,230,128Zm-12,0a90,90,0,1,0-90,90A90.1,90.1,0,0,0,218,128Z"></path></svg>
-                          </a>
+                          {% comment %} </a> {% endcomment %}
                         {% comment %} {% if block.settings.icon_2 %}
                           <a href="javascript:void(0);" class="slide-next-btn gg-{{ forloop.index }}">
                             <img src="{{ block.settings.icon_2 | img_url: '40x' }}" alt="Next Products">
@@ -59,6 +60,7 @@
                         {% endif %} {% endcomment %}
                       </div>
                     </div>
+                  </a>
                   {% endif %}
                 {% endif %}
               {% endfor %}
@@ -215,6 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </script>
 {% stylesheet %}
+.full-block-link{text-decoration:none;}
 .product-overlay {
   position: absolute;
   bottom: 20px;
