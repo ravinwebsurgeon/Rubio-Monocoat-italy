@@ -6,17 +6,32 @@
  {% assign image = product.metafields.custom.tech_info_image.value %}
  {% assign items = product.metafields.custom.technical_des_content.value | parse_json %}
  {% assign json_downloads = product.metafields.custom.technical_downloads.value | parse_json %}
- {% comment %} {% assign user_country_iso = localization.country.iso_code | downcase %} {% endcomment %}
+
+ {% assign country_iso = localization.country.iso_code | downcase %}
  {% assign user_lang = localization.language.iso_code | downcase %}
 
- {%  case user_lang %}
-    {% when 'it' %}
-      {% assign country_key = 'italy' %}
-    {% when 'de' %}
-      {% assign country_key = 'german' %}
-    {% else %}
-      {% assign country_key = '' %}
- {% endcase %}
+  {% assign custom_index = '' %}
+  {% if country_iso == 'it' and user_lang == 'it' %}{% assign custom_index = 'it' %}{% endif %} {% comment %}Italy and Italian {% endcomment %}
+  {% if country_iso == 'dk' and user_lang == 'de' %}{% assign custom_index = 'dk' %}{% endif %} {% comment %}Denmark and Danish {%endcomment %}
+  {% if country_iso == 'no' and user_lang == 'no' %}{% assign custom_index = 'no' %}{% endif %} {% comment %}Norway and Norwegian {%endcomment %}
+  {% if country_iso == 'se' and user_lang == 'se' %}{% assign custom_index = 'se' %}{% endif %} {% comment %}Sweden and Swedish {%endcomment %}
+  {% if country_iso == 'nl' and user_lang == 'nl' %}{% assign custom_index = 'nl' %}{% endif %} {% comment %}NETHERLANDS and Dutch {%endcomment %}
+  {% if country_iso == 'fr' and user_lang == 'fr' %}{% assign custom_index = 'fr' %}{% endif %} {% comment %}France and French {%endcomment %}
+  {% if country_iso == 'be' and user_lang == 'nl' %}{% assign custom_index = 'be-nl' %}{% endif %} {% comment %}Beligum and Dutch {%endcomment %}
+  {% if country_iso == 'be' and user_lang == 'fr' %}{% assign custom_index = 'be-fr' %}{% endif %} {% comment %}Beligum and French {%endcomment %}
+  {% if country_iso == 'de' and user_lang == 'de' %}{% assign custom_index = 'de' %}{% endif %} {% comment %}Germany and German {%endcomment %}
+  {% if country_iso == 'at' and user_lang == 'de' %}{% assign custom_index = 'at-de' %}{% endif %} {% comment %}Austria and German {%endcomment %}
+  {% if country_iso == 'fi' and user_lang == 'fi' %}{% assign custom_index = 'fi' %}{% endif %} {% comment %}Finland and Finnish {%endcomment %}
+  {% if country_iso == 'ch' and user_lang == 'de' %}{% assign custom_index = 'ch-de' %}{% endif %} {% comment %}Switzerland and German {%endcomment %}
+  {% if country_iso == 'ch' and user_lang == 'fr' %}{% assign custom_index = 'ch-fr' %}{% endif %} {% comment %}Switzerland and French {%endcomment %}
+  {% if country_iso == 'ch' and user_lang == 'it' %}{% assign custom_index = 'ch-it' %}{% endif %} {% comment %}Switzerland and Italian {%endcomment %}
+
+  {% if custom_index == '' and user_lang == 'en' and country_iso != blank %}
+    {% assign custom_index = country_iso %}
+    {% assign custom_index = country_iso | append: '-en' %}
+  {% endif %}
+
+
 
 {% comment %} {% if country_key != '' %}
   {% for item in json_downloads %}
@@ -66,25 +81,14 @@
 
                 <div class="tech-info-answer">
                   <div class="technical_content_here {{  t_question }} {{ user_lang }}">
-                  {% comment %} {% if user_country_iso == 'it' %}
-                    {% assign urls = product.metafields.custom.technical_downloads_italy.value | split: ',' %}
-                  {% elsif user_country_iso == 'de' %}
-                    {% assign urls = product.metafields.custom.technical_downloads_german.value | split: ',' %}
-                  {% endif %} {% endcomment %}
-
-                  {% comment %} {% if t_question contains 'Download' or t_question contains 'download' or  t_question contains 'Downloads' or  t_question contains 'downloads' or t_question contains 'Scarica' %} {% endcomment %}
-                      {% comment %} {% for url in urls %}
-                        <a href="{{ url | strip }}" class="tech-download-btn" onclick="forceDownload(event, this.href)">Download File</a>
-                      {% endfor %} {% endcomment %}
-                       {% comment %} {% if forloop.index == 4 %} {% endcomment %}
-                        {% comment %} {% assign translated_question = t_question | downcase %} {% endcomment %}
-                      {% comment %} {% if translated_question contains 'download' or translated_question contains 'downloads' or t_question contains 'scarica' %} {% endcomment %}
                       {% if t_question contains 'Download' or t_question contains 'download' or  t_question contains 'Downloads' or  t_question contains 'downloads' or t_question contains 'Scarica'  or t_question contains 'scarica' %}
-                      {% for item in json_downloads %}
-                          {% if item[user_lang] %}
-                            {{ item[user_lang] }}
-                          {% endif %}
-                        {% endfor %}
+                      <div class="download__content {{ country_iso }} {{ user_lang }}">
+                            {% for item in json_downloads %}
+                              {% if item[custom_index] %}
+                                {{ item[custom_index] }}
+                              {% endif %}
+                            {% endfor %}
+                          </div>
 
                   {% else %}
                       {% if items.size > forloop.index0 %}
