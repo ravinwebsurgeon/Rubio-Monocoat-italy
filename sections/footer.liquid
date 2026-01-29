@@ -303,7 +303,8 @@
       <div class="footer__copyright caption">
         <small class="copyright__content">
           {% comment %} &copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}} {% endcomment %}
-           Copyright 2025 All Rights Reserved.
+           
+           {{ section.settings.copyright__content }}
         </small>
         {% comment %} <small class="copyright__content">{{ powered_by_link }}</small> {% endcomment %}
         {%- if section.settings.show_policy -%}
@@ -596,6 +597,15 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "header",
+      "content":"Copyright Content"
+    },
+    {
+      "type": "text",
+      "id":"copyright__content",
+      "label":"Copyright Content"
     }
   ],
   "default": {
