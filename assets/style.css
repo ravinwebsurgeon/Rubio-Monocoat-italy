@@ -1136,7 +1136,9 @@ footer.footer.color-scheme-3.gradient.section-sections--19350337421544__footer-p
 small.copyright__content {
     font-family: 'Frutiger Neue LT W1G';
     font-weight: 500;
-    font-size: 18px;
+    /* font-size: 18px; */
+        font-size: 17px;
+
     line-height: 25px;
     color: #fff;
 }
