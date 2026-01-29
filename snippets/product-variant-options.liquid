@@ -141,10 +141,6 @@
               {% assign custom_index = country_iso | append: '-en' %}
             {% endif %}
             <div class="variant-custom-cost__m2 {{ user_lang }}">
-                {% comment %} {% assign values_list = current_variant.metafields.custom.cost_m2_list.value %}
-                {% for val in values_list %}
-                  <div>{{ val }}</div>
-                {% endfor %}  {% endcomment %}
                 {% assign json_values_list = current_variant.metafields.custom.cost_volume_json.value | parse_json %}
                 {% for val in json_values_list %}
                     {{ val[custom_index] }} 
