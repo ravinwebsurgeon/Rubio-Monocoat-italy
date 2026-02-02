@@ -175,6 +175,10 @@
 
                   <div class="variant-radio-group" data-index="option{{ forloop.index }}">
                     {% for value in option.values %}
+                         {% assign option_disabled = true %}
+                          {% if value.available %}
+                            {% assign option_disabled = false %}
+                          {% endif %}
                       <label class="variant-radio-label">
                         <input
                           type="radio"
