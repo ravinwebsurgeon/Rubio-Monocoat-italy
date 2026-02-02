@@ -67,7 +67,7 @@
                         {% assign texts = textsd[forloop.index0] %}
                         <div class="meeta-fl">
                           {% if image %}
-                            <span class="immmg"><img src="{{ image | image_url: width: 20 }}" alt="{{ texts | escape }}"></span>
+                            <span class="immmg"><img src="{{ image | image_url: width: 20 }}" alt="{{ texts | escape }}" loading="lazy" /></span>
                           {% endif %}
                           {% if texts %}
                             <span class="mememe">{{ texts }}</span>
