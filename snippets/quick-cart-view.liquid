@@ -186,7 +186,7 @@
                           class="swatch-input__input variant-radio-input {% if option_disabled -%} disabled {% endif %}"
                           data-value="{{ value | escape }}"
                         >
-                      <span> {{ value }} </span>
+                      <span class="choose-option-text"> {{ value }} </span>
                       </label>
                     {% endfor %}
                   </div>
@@ -226,6 +226,36 @@
     </div>
 </div>
 <style>
+  /* REQUIRED: anchor for absolute positioning */
+.color__swatch__label {
+  position: relative;
+}
+
+/* Draw diagonal line when swatch is disabled */
+.swatch-input__input.visually-disabled + .swatch-checkmark::after,
+.swatch-input__input:disabled + .swatch-checkmark::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 1px;
+  background-color: #183029;
+  top: 50%;
+  left: 1px;
+  right: -1px;
+  transform: rotate(-45deg);
+  pointer-events: none;
+}
+.swatch-input__input:disabled + .choose-option-text::after,
+.swatch-input__input.disabled + .choose-option-text::after {
+  content: "";
+  position: absolute;
+  width: 82px;
+  height: 1px;
+  background-color: #183029;
+  top: 50%;
+  left: -1px;
+  pointer-events: none;
+}
   .product__video__item{display:none;width:100%;height:100%;}
 .quick__cart__main {
     position: fixed;
