@@ -31,7 +31,7 @@
             {% for img in images %}
                 {% assign index = forloop.index0 %} 
                 <div class="surface_content">
-                    <img src="{{ img |img_url:'master' }}" />
+                    <img src="{{ img |img_url:'master' }}" loading="lazy" />
                     <div class="surface-button-main">
                         <a href="{{ images_btn_links[index] }}"> 
                           {{ images_btn_text[index] }}
