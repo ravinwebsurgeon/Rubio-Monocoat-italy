@@ -11,9 +11,9 @@
           <div class="collection-item">
             <a href="{{ collection.url }}">
               {% if collection.image %}
-                <img src="{{ collection.image | img_url: '600x600' }}" alt="{{ collection.title }}">
+                <img loading="lazy" src="{{ collection.image | img_url: '600x600' }}" alt="{{ collection.title }}">
               {% elsif collection.products.first and collection.products.first.featured_image %}
-                <img src="{{ collection.products.first.featured_image | img_url: '600x600' }}" alt="{{ collection.title }}">
+                <img loading="lazy" src="{{ collection.products.first.featured_image | img_url: '600x600' }}" alt="{{ collection.title }}">
               {% else %}
                 <div class="placeholder-image" style="background:#f4f4f4;height:250px;"></div>
               {% endif %}
