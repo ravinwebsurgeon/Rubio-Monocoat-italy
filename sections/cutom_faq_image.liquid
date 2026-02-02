@@ -103,6 +103,7 @@
     <div class="image-column">
       {% if right_image != blank %}
         <img 
+          loading="lazy"
           src="{{ right_image | image_url: width: 800 }}" 
           alt="{{ section.settings.faq_heading | escape }}" 
           class="faq-image">
