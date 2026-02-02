@@ -604,7 +604,9 @@ button.show-more-swatches {
  {% endfor %} {% endcomment %}
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
   {%- paginate collection.products by section.settings.products_per_page -%}
-    {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
+    {% comment %} 
+     <!-- due to  not used comment this section start -->
+     {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
       <facet-filters-form class="facets facets-vertical-sort page-width small-hide">
         <form class="facets-vertical-form" id="FacetSortForm">
           <div class="facet-filters sorting caption">
@@ -661,6 +663,8 @@ button.show-more-swatches {
         </form>
       </facet-filters-form>
     {%- endif -%}
+     <!-- due to  not used comment this section end --> 
+     {% endcomment %}
 
     <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}">
       {{ 'component-facets.css' | asset_url | stylesheet_tag }}
