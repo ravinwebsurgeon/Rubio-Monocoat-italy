@@ -179,7 +179,7 @@
                           {% if value.available %}
                             {% assign option_disabled = false %}
                           {% endif %}
-                      <label class="variant-radio-label">
+                      <label class="variant-radio-label" data-check="{{ value.available }}">
                         <input
                           type="radio"
                           {% comment %} name="{{ option.name }}-{{ option.position }}" {% endcomment %}
