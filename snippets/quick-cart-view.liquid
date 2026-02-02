@@ -183,7 +183,7 @@
                           value="{{ value | escape }}"
                           {% comment %} {% if option.selected_value == value %}checked{% endif %} {% endcomment %}
                           {% if loop.first or option.selected_value == value %}checked{% endif %}
-                          class="swatch-input__input variant-radio-input {% if option_disabled -%} visually-disabled {% endif %}"
+                          class="swatch-input__input variant-radio-input {% if option_disabled -%} disabled {% endif %}"
                           data-value="{{ value | escape }}"
                         >
                       <span> {{ value }} </span>
