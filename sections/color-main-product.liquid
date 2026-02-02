@@ -256,7 +256,7 @@
 
                         <div class="icon_text_item custom_toxin_icon">
                           {% if icon %}
-                            <img src="{{ icon | image_url: width: 40 }}" alt="icon">
+                            <img src="{{ icon | image_url: width: 40 }}" alt="icon" loading="lazy" >
                           {% endif %}
 
                           {% if text_item %}
