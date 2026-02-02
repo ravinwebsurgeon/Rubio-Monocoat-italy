@@ -102,7 +102,7 @@
         <div class="icon-column">
           <div class="icon-image-wrap block-wrap-{{ block.id }}">
             {% if block.settings.icon != blank %}
-              <img src="{{ block.settings.icon | img_url: '100x100' }}" 
+              <img loading="lazy" src="{{ block.settings.icon | img_url: '100x100' }}" 
                    alt="{{ block.settings.heading }}" 
                    class="icon-img-{{ block.id }}">
             {% endif %}
