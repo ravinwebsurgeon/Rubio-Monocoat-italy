@@ -1172,7 +1172,7 @@ function renderWishlistPage() {
     const productHTML = `
       <div class="wishlist-item" style="margin-bottom: 30px;">
         <a href="${item.productUrl}">
-          <img class="check-l" src="${item.productImg}" alt="${item.productTitle} ">
+          <img loading="lazy" class="check-l" src="${item.productImg}" alt="${item.productTitle} ">
         </a>
         <h4><a class="wish-tit" href="${item.productUrl}">${item.productTitle}</a></h4>
         <p class="price-wish">${item.productPrice}</p>
