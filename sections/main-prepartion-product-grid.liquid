@@ -667,8 +667,12 @@ button.show-more-swatches {
      {% endcomment %}
 
     <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}">
+      {% comment %} 
+        <!-- due to  not used comment this section start --> 
       {{ 'component-facets.css' | asset_url | stylesheet_tag }}
-      <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script> 
+      <!-- due to  not used comment this section end -->
+      {% endcomment %}
       
 
       <div
