@@ -27,7 +27,7 @@
                   <div class="best_selling_product___media">
                     {% comment %} {{ product.featured_image | image_url: width: 400 | image_tag }} {% endcomment %}
                     <a href="{{ product.url }}">
-                      <img src="{{ product.featured_image | img_url: 'medium' }}" />
+                      <img src="{{ product.featured_image | img_url: 'medium' }}" loading="lazy" />
                     </a>
                   </div>
                 {% comment %} {% endif %} {% endcomment %}
