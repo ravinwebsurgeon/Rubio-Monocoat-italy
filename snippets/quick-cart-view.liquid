@@ -119,7 +119,10 @@
                   <div class="color-swatch-group product_color_swatchs" data-index="option{{ forloop.index }}">
 
                     {% for value in option.values %}
-
+                      {% assign option_disabled = true %}
+                          {% if value.available %}
+                            {% assign option_disabled = false %}
+                          {% endif %}
                       {%- comment -%}
                       Build swatch display EXACTLY like swatch.liquid
                       {%- endcomment -%}
@@ -159,7 +162,7 @@
                           value="{{ value | escape }}"
                           {% comment %} {% if option.selected_value == value %}checked{% endif %} {% endcomment %}
                           {% if loop.first or option.selected_value == value %}checked{% endif %}
-                          class="swatch-input__input color-swatch-input color__swatch__input"
+                          class="swatch-input__input color-swatch-input color__swatch__input {% if option_disabled -%} visually-disabled {% endif %}"
                           data-value="{{ value | escape }}"
                         >
                         <span class="swatch-checkmark"></span>
