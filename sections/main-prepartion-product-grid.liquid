@@ -1006,6 +1006,9 @@ function updateVariantId(cart, variants, variantIdInput) {
     console.warn("No variant matches:", selectedOptions);
      {% comment %} const allImages = cart.querySelectorAll(".product__image__item");
           allImages[0].style.display = "block"; {% endcomment %}
+           cart.querySelector('.product_cart_btn.ajax__cart').classList.add('disabled-btn')
+          cart.querySelector('.product_cart_btn.ajax__cart').textContent = `{{ 'products.product.sold_out' | t }}`
+          cart.querySelector('.product_cart_btn.ajax__cart').disabled = true;
   }
 }
 function handleStockInventory(cart,id){
