@@ -12,16 +12,18 @@
 
         <!-- ✅ Selected Options will appear here -->
         <div class="sticky_variant_options_main">
-          <span class="sticky-variant-options" id="sticky-variant-options">
-            {% if product.selected_or_first_available_variant %}
-              {{ product.selected_or_first_available_variant.option1 }}
-              {% if product.selected_or_first_available_variant.option2 %}
-                / {{ product.selected_or_first_available_variant.option2 }}
+          {% if product.variants.size > 1 %}
+            <span class="sticky-variant-options" id="sticky-variant-options">
+              {% if product.selected_or_first_available_variant %}
+                {{ product.selected_or_first_available_variant.option1 }}
+                {% if product.selected_or_first_available_variant.option2 %}
+                  / {{ product.selected_or_first_available_variant.option2 }}
+                {% endif %}
               {% endif %}
-            {% endif %}
-          </span>
-          <a href="#variant-selects-{{ section.id }}" class="change_variants"><span>{{ change_btn }}</span></a>
-      </div>
+            </span>
+            <a href="#variant-selects-{{ section.id }}" class="change_variants"><span>{{ change_btn }}</span></a>
+          {% endif %}
+        </div>
       </div>
     </div>
 
