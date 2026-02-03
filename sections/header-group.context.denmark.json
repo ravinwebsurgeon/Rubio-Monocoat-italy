@@ -12,6 +12,15 @@
     "announcement-bar": {
       "settings": {},
       "blocks": {
+        "announcement_48AKz": {
+          "type": "announcement",
+          "disabled": false,
+          "settings": {
+            "text": "Made in Belgium 🇧🇪",
+            "link": "",
+            "custom_svg": ""
+          }
+        },
         "announcement-bar-0": {
           "settings": {
             "text": "Free delivery on orders over 500 kr."
@@ -23,7 +32,13 @@
             "text": "Ordered before 12:00, shipped the same day - delivery within 2-3 business days."
           }
         }
-      }
+      },
+      "block_order": [
+        "announcement_48AKz",
+        "announcement-bar-0",
+        "announcement_6zGjFz",
+        "announcement_FVKwNP"
+      ]
     }
   },
   "context": {
