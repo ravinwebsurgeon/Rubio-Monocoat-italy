@@ -68,6 +68,16 @@
           "settings": {
             "button_link": "shopify://pages/faqs-delivery"
           }
+        },
+        "image_block_VK4FrP": {
+          "settings": {
+            "button_link": "shopify://pages/faqs-recycle-1"
+          }
+        },
+        "image_block_RfDBJw": {
+          "settings": {
+            "button_link": "shopify://pages/faqs-recycle"
+          }
         }
       }
     }
