@@ -78,6 +78,21 @@
           "settings": {
             "button_link": "shopify://pages/faqs-recycle"
           }
+        },
+        "image_block_gK6EXi": {
+          "settings": {
+            "button_link": "shopify://pages/faqs-interior-products"
+          }
+        },
+        "image_block_rFNrHV": {
+          "settings": {
+            "button_link": "shopify://pages/faqs-exterior-products"
+          }
+        },
+        "image_block_eWaRwC": {
+          "settings": {
+            "button_link": "shopify://pages/faqs-maintenance-products"
+          }
         }
       }
     }
