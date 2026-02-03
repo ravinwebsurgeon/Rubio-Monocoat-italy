@@ -55,6 +55,21 @@
           }
         }
       }
+    },
+    "image_block_with_button_w63mgR": {
+      "settings": {},
+      "blocks": {
+        "image_block_fcQDc7": {
+          "settings": {
+            "button_link": "shopify://pages/faqs-order"
+          }
+        },
+        "image_block_6x34jJ": {
+          "settings": {
+            "button_link": "shopify://pages/faqs-delivery"
+          }
+        }
+      }
     }
   },
   "context": {
