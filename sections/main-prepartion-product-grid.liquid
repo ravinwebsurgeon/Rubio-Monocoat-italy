@@ -1004,8 +1004,8 @@ function updateVariantId(cart, variants, variantIdInput) {
 
   } else {
     console.warn("No variant matches:", selectedOptions);
-     const allImages = cart.querySelectorAll(".product__image__item");
-          allImages[0].style.display = "block";
+     {% comment %} const allImages = cart.querySelectorAll(".product__image__item");
+          allImages[0].style.display = "block"; {% endcomment %}
   }
 }
 function handleStockInventory(cart,id){
