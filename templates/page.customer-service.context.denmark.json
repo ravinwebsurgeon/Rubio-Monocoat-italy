@@ -30,7 +30,11 @@
       }
     },
     "contact_options_FYkrkp": {
-      "settings": {},
+      "settings": {
+        "availability_text": "Our team is available mo - fr from 8:30 a.m. - 5:00 p.m.",
+        "call_link": "tel:+45 88 77 98 18",
+        "email_link": "mailto:service@rubiomonocoat.dk"
+      },
       "blocks": {
         "contact_method_mVcVkc": {
           "disabled": true,
@@ -44,8 +48,8 @@
         },
         "contact_method_JF4YCW": {
           "settings": {
-            "subtitle": "service@rubiomonocoat.dk",
             "title": "Send an email",
+            "subtitle": "service@rubiomonocoat.dk",
             "link": "mailto:service@rubiomonocoat.dk"
           }
         }
