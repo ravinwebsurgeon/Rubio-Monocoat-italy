@@ -15,15 +15,25 @@
         "container_K8pcTz": {
           "disabled": false,
           "settings": {
-            "heading": "Telephone Advice",
-            "extra_text": "",
             "class": "",
-            "subtext": "+45 88 77 98 18"
+            "heading": "Telephone Advice",
+            "subtext": "+45 88 77 98 18",
+            "extra_text": ""
           }
         },
         "container_aYeRcN": {
           "settings": {
             "subtext": "service@rubiomonocoat.dk"
+          }
+        }
+      }
+    },
+    "faqs_gnazct": {
+      "settings": {},
+      "blocks": {
+        "faq_item_bJ33cX": {
+          "settings": {
+            "answer": "For orders below 500 DKK incl. VAT, shipping costs are charged to the customer. If the delivery address is in Denmark, the shipping fee is 37.50 DKK. For orders of 500 DKK or more (VAT included), shipping is free."
           }
         }
       }
