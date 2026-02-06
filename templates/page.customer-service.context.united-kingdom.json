@@ -9,6 +9,46 @@
  */
 {
   "sections": {
+    "image_block_with_button_w63mgR": {
+      "settings": {},
+      "blocks": {
+        "image_block_fcQDc7": {
+          "settings": {
+            "button_link": "shopify://pages/faqs-order"
+          }
+        },
+        "image_block_6x34jJ": {
+          "settings": {
+            "button_link": "shopify://pages/faqs-delivery"
+          }
+        },
+        "image_block_VK4FrP": {
+          "settings": {
+            "button_link": "shopify://pages/faqs-recycle-1"
+          }
+        },
+        "image_block_RfDBJw": {
+          "settings": {
+            "button_link": "shopify://pages/faqs-recycle"
+          }
+        },
+        "image_block_gK6EXi": {
+          "settings": {
+            "button_link": "shopify://pages/faqs-interior-products"
+          }
+        },
+        "image_block_rFNrHV": {
+          "settings": {
+            "button_link": "shopify://pages/faqs-exterior-products"
+          }
+        },
+        "image_block_eWaRwC": {
+          "settings": {
+            "button_link": "shopify://pages/faqs-maintenance-products"
+          }
+        }
+      }
+    },
     "contact_options_FYkrkp": {
       "settings": {
         "availability_text": "Our team is available mo - fr from 8:30 am - 4:30 pm",
@@ -46,52 +86,13 @@
             "class": "",
             "heading": "Telephone Advice",
             "subtext": "0800 688 9661",
-            "extra_text": ""
+            "extra_text": "",
+            "enable_feature": true
           }
         },
         "container_bxqMjj": {
           "settings": {
             "subtext": "hello@rubiomonocoat.co.uk"
-          }
-        }
-      }
-    },
-    "image_block_with_button_w63mgR": {
-      "settings": {},
-      "blocks": {
-        "image_block_fcQDc7": {
-          "settings": {
-            "button_link": "shopify://pages/faqs-order"
-          }
-        },
-        "image_block_6x34jJ": {
-          "settings": {
-            "button_link": "shopify://pages/faqs-delivery"
-          }
-        },
-        "image_block_VK4FrP": {
-          "settings": {
-            "button_link": "shopify://pages/faqs-recycle-1"
-          }
-        },
-        "image_block_RfDBJw": {
-          "settings": {
-            "button_link": "shopify://pages/faqs-recycle"
-          }
-        },
-        "image_block_gK6EXi": {
-          "settings": {
-            "button_link": "shopify://pages/faqs-interior-products"
-          }
-        },
-        "image_block_rFNrHV": {
-          "settings": {
-            "button_link": "shopify://pages/faqs-exterior-products"
-          }
-        },
-        "image_block_eWaRwC": {
-          "settings": {
-            "button_link": "shopify://pages/faqs-maintenance-products"
           }
         }
       }
