@@ -27,6 +27,17 @@
           }
         }
       }
+    },
+    "faqs_gnazct": {
+      "settings": {},
+      "blocks": {},
+      "block_order": [
+        "faq_item_bJ33cX",
+        "faq_item_iL8tcD",
+        "faq_item_nbkb4a",
+        "faq_item_FLVU8c",
+        "faq_item_ygJDgi"
+      ]
     }
   },
   "context": {
