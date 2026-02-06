@@ -9,32 +9,6 @@
  */
 {
   "sections": {
-    "icons_section_qxzcqt": {
-      "settings": {},
-      "blocks": {
-        "container_xNmGKf": {
-          "disabled": false,
-          "settings": {
-            "class": "",
-            "heading": "Telephone Advice",
-            "subhead": "",
-            "subtext": "0800 688 9661",
-            "extra_text": ""
-          }
-        },
-        "container_EGhzFM": {
-          "settings": {
-            "subtext": "hello@rubiomonocoat.co.uk"
-          }
-        },
-        "container_6KNzLW": {
-          "disabled": true,
-          "settings": {
-            "subtext": ""
-          }
-        }
-      }
-    },
     "video_products_home_8dwaBA": {
       "settings": {},
       "blocks": {
@@ -61,6 +35,34 @@
         "product_block_G4KjHq": {
           "settings": {
             "price_color": "#000000"
+          }
+        }
+      }
+    },
+    "icons_section_qxzcqt": {
+      "settings": {},
+      "blocks": {
+        "container_xNmGKf": {
+          "disabled": false,
+          "settings": {
+            "class": "",
+            "heading": "Telephone Advice",
+            "subhead": "",
+            "subtext": "0800 688 9661",
+            "extra_text": "",
+            "enable_feature": true,
+            "link_type": "phone"
+          }
+        },
+        "container_EGhzFM": {
+          "settings": {
+            "subtext": "hello@rubiomonocoat.co.uk"
+          }
+        },
+        "container_6KNzLW": {
+          "disabled": true,
+          "settings": {
+            "subtext": ""
           }
         }
       }
