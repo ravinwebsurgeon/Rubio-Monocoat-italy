@@ -55,9 +55,10 @@
                             {% if related_article.image %}
                             <img src="{{ related_article.image | image_url: width: 400 }}" alt="{{ a.title }}">
                             {% endif %}
-                            <h4>{{ related_article.title }}</h4>
+                            
                         </a>
-                        <p>{{ related_article.content  }}</p>
+                        <h4>{{ related_article.title }}</h4>
+                        {% comment %} <p>{{ related_article.content  }}</p> {% endcomment %}
                         <div class="related_articles_tag">
                             {% for tag in related_article.tags %}
                                 <a href="{{ blog.url }}/tagged/{{ tag | handleize }}"><p>{{ tag }}</p></a>
