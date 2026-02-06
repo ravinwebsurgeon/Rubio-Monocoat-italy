@@ -16,9 +16,11 @@
           "disabled": false,
           "settings": {
             "class": "",
+            "heading": "Telephone Advice",
             "subtext": "0800 688 9661",
             "extra_text": "",
-            "heading": "Telephone Advice"
+            "enable_feature": true,
+            "link_type": "phone"
           }
         },
         "container_myEtjz": {
