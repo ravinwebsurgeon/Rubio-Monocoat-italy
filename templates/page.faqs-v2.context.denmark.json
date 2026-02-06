@@ -35,6 +35,11 @@
           "settings": {
             "answer": "For orders below 500 DKK incl. VAT, shipping costs are charged to the customer. If the delivery address is in Denmark, the shipping fee is 37.50 DKK. For orders of 500 DKK or more (VAT included), shipping is free."
           }
+        },
+        "faq_item_iL8tcD": {
+          "settings": {
+            "answer": "Yes, you can cancel your order before it has been shipped, without needing to provide a reason. Once the cancellation is processed, you will receive a confirmation email and a full refund of any amount paid. After the shipping confirmation has been sent, cancellation is no longer possible. However, you can still return the products after delivery by following our return procedure."
+          }
         }
       }
     }
