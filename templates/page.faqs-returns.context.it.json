@@ -53,6 +53,14 @@
             "question": "How can I cancel or return my order?",
             "answer": "You can notify us of your withdrawal by emailing info@rubiomonocoat.it\n or by using our online return form or standard withdrawal form. Just let us know clearly that you wish to return your order."
           }
+        },
+        "faq_item_KATdth": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "What will be refunded?",
+            "answer": "We refund the price paid for the returned products and the standard shipping costs. Additional delivery charges, such as express shipping, are not refunded. If you return only part of your order, only the returned items will be refunded and shipping costs will not be included."
+          }
         }
       },
       "block_order": [
@@ -60,7 +68,8 @@
         "faq_item_iL8tcD",
         "faq_item_nbkb4a",
         "faq_item_FLVU8c",
-        "faq_item_ygJDgi"
+        "faq_item_ygJDgi",
+        "faq_item_KATdth"
       ]
     }
   }
