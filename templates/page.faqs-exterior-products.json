@@ -21,7 +21,7 @@
       "type": "custom-faq-banner",
       "name": "faq banner",
       "settings": {
-        "heading": "FAQ’s",
+        "heading": "Exterior Products",
         "text": "Discover the answer to our frequently asked questions."
       }
     },
@@ -105,7 +105,7 @@
       ],
       "name": "FAQs section",
       "settings": {
-        "heading": "Exterior Products"
+        "heading": ""
       }
     },
     "icons_section_ry8Hx7": {
