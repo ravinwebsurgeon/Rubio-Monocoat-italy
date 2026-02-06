@@ -29,14 +29,15 @@
             "class": "",
             "heading": "Telephone Advice",
             "subtext": "0800 688 9661",
-            "extra_text": "",
             "enable_feature": true,
-            "link_type": "phone"
+            "link_type": "phone",
+            "extra_text": ""
           }
         },
         "container_yzi7tm": {
           "settings": {
-            "subtext": "hello@rubiomonocoat.co.uk"
+            "subtext": "hello@rubiomonocoat.co.uk",
+            "enable_feature": true
           }
         }
       }
