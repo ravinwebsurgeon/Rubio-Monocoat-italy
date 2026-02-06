@@ -21,7 +21,7 @@
       "type": "custom-faq-banner",
       "name": "faq banner",
       "settings": {
-        "heading": "FAQ’s",
+        "heading": "Recycle",
         "text": "Discover the answer to our frequently asked questions."
       }
     },
@@ -73,7 +73,7 @@
       ],
       "name": "FAQs section",
       "settings": {
-        "heading": "Frequently Asked Questions"
+        "heading": ""
       }
     },
     "icons_section_ry8Hx7": {
