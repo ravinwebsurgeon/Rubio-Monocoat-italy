@@ -44,7 +44,15 @@
             "answer": "We refund the price paid for the returned products. Shipping costs are not refunded."
           }
         }
-      }
+      },
+      "block_order": [
+        "faq_item_bJ33cX",
+        "faq_item_iL8tcD",
+        "faq_item_nbkb4a",
+        "faq_item_FLVU8c",
+        "faq_item_UUR9f6",
+        "faq_item_ygJDgi"
+      ]
     },
     "icons_section_Q84VnV": {
       "settings": {},
@@ -55,9 +63,9 @@
             "class": "",
             "heading": "Telephone Advice",
             "subtext": "0800 688 9661",
-            "extra_text": "",
             "enable_feature": true,
-            "link_type": "phone"
+            "link_type": "phone",
+            "extra_text": ""
           }
         },
         "container_aYeRcN": {
