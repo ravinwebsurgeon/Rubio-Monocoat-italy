@@ -29,19 +29,21 @@
         },
         "container_9NRGxp": {
           "settings": {
+            "heading": "Send Us an Email",
             "subtext": "info@rubiomonocoat.it",
-            "heading": "Send Us an Email"
+            "enable_feature": true,
+            "link_type": "email"
           }
-        },
-        "container_nYBfwa": {
-          "disabled": true,
-          "settings": {}
         },
         "container_3Ax9dN": {
           "settings": {
             "heading": "Ask Our Experts",
             "subtext": "Get personalized help based on your project"
           }
+        },
+        "container_nYBfwa": {
+          "disabled": true,
+          "settings": {}
         }
       }
     }
