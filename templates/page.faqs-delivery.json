@@ -35,41 +35,25 @@
             "answer": "Orders placed before 12:00 PM are prepared the same afternoon and shipped on the same business day. Orders placed after 12:00 PM are usually shipped on the next business day."
           }
         },
-        "faq_item_iL8tcD": {
+        "faq_item_nbkb4a": {
           "type": "faq_item",
           "settings": {
             "question": "My shipment has been delayed, what happens now?",
             "answer": "We work with FedEx for deliveries within Europe. Unfortunately, we don’t have direct control over the shipping process once your order has been handed over to the carrier. In case of a delay, we recommend contacting your local FedEx office for the most up-to-date information about your shipment."
           }
         },
-        "faq_item_nbkb4a": {
+        "faq_item_iL8tcD": {
           "type": "faq_item",
           "settings": {
-            "question": "Do you ship internationally?",
-            "answer": "Yes, we ship to most countries worldwide. Shipping costs and delivery times vary by location."
-          }
-        },
-        "faq_item_FLVU8c": {
-          "type": "faq_item",
-          "settings": {
-            "question": "How can I track my order?",
-            "answer": "Once your order ships, you'll receive a tracking number via email. You can use this to track your package."
-          }
-        },
-        "faq_item_ygJDgi": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What payment methods do you accept?",
-            "answer": "We accept all major credit cards, PayPal, and other secure payment methods at checkout."
+            "question": "Where can I find my Track & Trace information?",
+            "answer": "You will automatically receive a Track & Trace code by email as soon as your order has been shipped. You can also follow your order through your account on our online store, where the Track & Trace information will be available as long as the order was placed using your personal account and not as a guest."
           }
         }
       },
       "block_order": [
         "faq_item_bJ33cX",
-        "faq_item_iL8tcD",
         "faq_item_nbkb4a",
-        "faq_item_FLVU8c",
-        "faq_item_ygJDgi"
+        "faq_item_iL8tcD"
       ],
       "name": "FAQs section",
       "settings": {
