@@ -38,8 +38,8 @@
         "faq_item_iL8tcD": {
           "type": "faq_item",
           "settings": {
-            "question": "How long does shipping take?",
-            "answer": "Standard shipping typically takes 5-7 business days. Express shipping options are available at checkout."
+            "question": "My shipment has been delayed, what happens now?",
+            "answer": "We work with FedEx for deliveries within Europe. Unfortunately, we don’t have direct control over the shipping process once your order has been handed over to the carrier. In case of a delay, we recommend contacting your local FedEx office for the most up-to-date information about your shipment."
           }
         },
         "faq_item_nbkb4a": {
