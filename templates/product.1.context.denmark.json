@@ -16,15 +16,25 @@
           "disabled": false,
           "settings": {
             "class": "",
+            "heading": "Telephone Advice",
             "subhead": "",
             "subtext": "+45 88 77 98 18",
-            "extra_text": "",
-            "heading": "Telephone Advice"
+            "extra_text": ""
           }
         },
         "container_yzi7tm": {
           "settings": {
             "subtext": "service@rubiomonocoat.dk"
+          }
+        }
+      }
+    },
+    "main": {
+      "settings": {},
+      "blocks": {
+        "icon_with_text_hk7wi6": {
+          "settings": {
+            "heading_1": "Free shipping from 500 DKK"
           }
         }
       }
