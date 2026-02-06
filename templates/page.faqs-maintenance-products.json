@@ -21,7 +21,7 @@
       "type": "custom-faq-banner",
       "name": "faq banner",
       "settings": {
-        "heading": "FAQ’s",
+        "heading": "Maintenance Products",
         "text": "Discover the answer to our frequently asked questions."
       }
     },
@@ -89,7 +89,7 @@
       ],
       "name": "FAQs section",
       "settings": {
-        "heading": "Maintenance Products"
+        "heading": ""
       }
     },
     "icons_section_ry8Hx7": {
