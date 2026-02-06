@@ -12,19 +12,41 @@
     "icons_section_rzewec": {
       "settings": {},
       "blocks": {
-        "container_bxqMjj": {
-          "disabled": false,
-          "settings": {
-            "subtext": "service@rubiomonocoat.dk"
-          }
-        },
         "container_wfiezd": {
           "disabled": false,
           "settings": {
             "class": "",
             "heading": "Telephone Advice",
-            "extra_text": "",
-            "subtext": "+45 88 77 98 18"
+            "subtext": "+45 88 77 98 18",
+            "extra_text": ""
+          }
+        },
+        "container_bxqMjj": {
+          "disabled": false,
+          "settings": {
+            "subtext": "service@rubiomonocoat.dk"
+          }
+        }
+      }
+    },
+    "contact_options_FYkrkp": {
+      "settings": {},
+      "blocks": {
+        "contact_method_mVcVkc": {
+          "disabled": true,
+          "settings": {}
+        },
+        "contact_method_TxekfM": {
+          "settings": {
+            "subtitle": "+45 88 77 98 18",
+            "link": "tel:+45 88 77 98 18"
+          }
+        },
+        "contact_method_JF4YCW": {
+          "settings": {
+            "subtitle": "service@rubiomonocoat.dk",
+            "title": "Send an email",
+            "link": "mailto:service@rubiomonocoat.dk"
           }
         }
       }
