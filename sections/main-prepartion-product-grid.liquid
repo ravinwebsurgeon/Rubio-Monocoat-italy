@@ -927,11 +927,49 @@ document.addEventListener("DOMContentLoaded", function() {
     variantInputs.forEach(input => {
       input.addEventListener("change", () => {
         updateVariantId(cart, variants, variantIdInput);
+        updateOptionAvailability(cart,variants)
       });
     });
 
   });
 });
+function updateOptionAvailability(cart, variants) {
+  const optionGroups = cart.querySelectorAll("[data-index^='option']");
+  const selectedOptions = [];
+  optionGroups.forEach(group => {
+    const checked = group.querySelector("input[type='radio']:checked");
+    selectedOptions.push(checked ? checked.dataset.value : null);
+  });
+  optionGroups.forEach((group, optionIndex) => {
+    const radios = group.querySelectorAll("input[type='radio']");
+    radios.forEach(radio => {
+      const testValue = radio.dataset.value;
+      // Build test option combination
+      const testOptions = [...selectedOptions];
+      testOptions[optionIndex] = testValue;
+      const isAvailable = variants.some(variant => {
+        if (!variant.available || variant.inventory_quantity <= 0) return false;
+        return variant.options.every((opt, idx) => {
+          if (testOptions[idx] === null) return true;
+          return opt === testOptions[idx];
+        });
+      });
+      if (isAvailable) {
+        radio.classList.remove("disabled", "visually-disabled");
+        radio.closest("label")?.classList.remove("disabled");
+      } else {
+        radio.classList.add("disabled", "visually-disabled");
+        radio.closest("label")?.classList.add("disabled");
+
+        // Uncheck if currently selected
+        {% comment %} if (radio.checked) {
+          radio.checked = false;
+        } {% endcomment %}
+      }
+    });
+  });
+}
+
 function updateVariantId(cart, variants, variantIdInput) {
   const selectedOptions = [];
   const optionGroups = cart.querySelectorAll("[data-index^='option']");
