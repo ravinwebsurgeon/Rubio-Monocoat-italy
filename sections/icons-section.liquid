@@ -21,10 +21,21 @@
           </div>
           <div class="text-part">
             <h3>{{ block.settings.heading }}</h3>
+            {% if block.settings.enable_feature %}
+              {% assign value = block.settings.subtext | strip_html | strip %}
+              {% if block.settings.link_type == 'email' %}
+                <a href="mailto:{{ value }}" class="custom-contact-link">
+              {% elsif block.settings.link_type == 'phone' %}
+                <a href="tel:{{ value | remove: ' ' }}"  class="custom-contact-link">
+              {% endif %}
+            {% endif %}
+
             <div class="available-and-text">
               <span>{{ block.settings.subhead }}</span>
               <p>{{ block.settings.subtext }}</p>
             </div>
+            
+            {% if block.settings.enable_feature %}</a>{% endif %}
             <p>{{ block.settings.extra_text }}</p>
           </div>
         </div>
@@ -38,6 +49,12 @@
 
 <style>
 
+    .custom-contact-link{
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
   .four-containers_outer .first-container-sec .available-and-text {
     display: flex;
     {% comment %} justify-content: center; {% endcomment %}
