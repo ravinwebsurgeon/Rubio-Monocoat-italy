@@ -24,14 +24,6 @@
         "heading": ""
       },
       "blocks": {
-        "faq_item_X6Yxw": {
-          "type": "faq_item",
-          "disabled": false,
-          "settings": {
-            "question": "What will be refunded?",
-            "answer": "We refund the price paid for the returned products and the standard shipping costs. Additional delivery charges, such as express shipping, are not refunded. If you return only part of your order, only the returned items will be refunded and shipping costs will not be included."
-          }
-        },
         "faq_item_bJ33cX": {
           "settings": {
             "question": "What is the withdrawal period?",
@@ -58,8 +50,16 @@
         },
         "faq_item_ygJDgi": {
           "settings": {
-            "question": "When and how will I receive my refund?",
-            "answer": "Once we receive your return, we will process your refund within 14 days. In some cases, we may wait until the products have arrived or until you provide proof of shipment. Refunds are always made using the same payment method you used for your original purchase."
+            "question": "How can I cancel or return my order?",
+            "answer": "You can notify us of your withdrawal by emailing info@rubiomonocoat.it\n or by using our online return form or standard withdrawal form. Just let us know clearly that you wish to return your order."
+          }
+        },
+        "faq_item_X6Yxw": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "What will be refunded?",
+            "answer": "We refund the price paid for the returned products and the standard shipping costs. Additional delivery charges, such as express shipping, are not refunded. If you return only part of your order, only the returned items will be refunded and shipping costs will not be included."
           }
         }
       },
