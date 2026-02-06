@@ -33,7 +33,7 @@
           "settings": {
             "block_image": "shopify://shop_images/Untitled_design_-_2025-12-16T141641.299.png",
             "button_text": "Order",
-            "button_link": "#"
+            "button_link": "shopify://pages/faqs-order"
           }
         },
         "image_block_6x34jJ": {
@@ -41,7 +41,7 @@
           "settings": {
             "block_image": "shopify://shop_images/Untitled_design.svg",
             "button_text": "Delivery",
-            "button_link": ""
+            "button_link": "shopify://pages/faqs-delivery"
           }
         },
         "image_block_VK4FrP": {
@@ -49,7 +49,7 @@
           "settings": {
             "block_image": "shopify://shop_images/Untitled_design_-_2025-12-16T142011.967.png",
             "button_text": "Returns",
-            "button_link": ""
+            "button_link": "shopify://pages/faqs-recycle-1"
           }
         },
         "image_block_RfDBJw": {
@@ -57,7 +57,7 @@
           "settings": {
             "block_image": "shopify://shop_images/ecycle.png",
             "button_text": "Recycle",
-            "button_link": ""
+            "button_link": "shopify://pages/faqs-recycle"
           }
         },
         "image_block_gK6EXi": {
@@ -65,7 +65,7 @@
           "settings": {
             "block_image": "shopify://shop_images/Oil_Plus_2C_-_project_4.png",
             "button_text": "Interior products",
-            "button_link": "shopify://collections/application"
+            "button_link": "shopify://pages/faqs-interior-products"
           }
         },
         "image_block_rFNrHV": {
@@ -73,7 +73,7 @@
           "settings": {
             "block_image": "shopify://shop_images/cladding_categories_2.png",
             "button_text": "Exterior Products",
-            "button_link": "shopify://collections/exterior-application"
+            "button_link": "shopify://pages/faqs-exterior-products"
           }
         },
         "image_block_eWaRwC": {
@@ -81,7 +81,7 @@
           "settings": {
             "block_image": "shopify://shop_images/Cleaning_maintenance.png",
             "button_text": "Maintenance products",
-            "button_link": "shopify://collections/maintenance"
+            "button_link": "shopify://pages/faqs-maintenance-products"
           }
         }
       },
