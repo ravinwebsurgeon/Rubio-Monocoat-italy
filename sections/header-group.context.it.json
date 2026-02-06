@@ -12,5 +12,15 @@
   "context": {
     "market": "it"
   },
-  "sections": {}
+  "sections": {
+    "announcement-bar": {
+      "settings": {},
+      "blocks": {
+        "announcement_aMm3jY": {
+          "disabled": true,
+          "settings": {}
+        }
+      }
+    }
+  }
 }
