@@ -16,18 +16,19 @@
     "icons_section_T466iz": {
       "settings": {},
       "blocks": {
-        "container_UPz37a": {
-          "disabled": true,
-          "settings": {}
-        },
         "container_gGfKrg": {
           "disabled": true,
           "settings": {}
         },
         "container_myEtjz": {
           "settings": {
-            "subtext": "info@rubiomonocoat.it"
+            "subtext": "info@rubiomonocoat.it",
+            "enable_feature": true
           }
+        },
+        "container_UPz37a": {
+          "disabled": true,
+          "settings": {}
         }
       }
     }
