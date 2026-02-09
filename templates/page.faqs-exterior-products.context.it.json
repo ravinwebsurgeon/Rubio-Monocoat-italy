@@ -24,14 +24,6 @@
         "heading": ""
       },
       "blocks": {
-        "faq_item_JmwFm": {
-          "type": "faq_item",
-          "disabled": false,
-          "settings": {
-            "question": "Can DuroGrit colours be mixed?",
-            "answer": "In theory, DuroGrit colours can be mixed. However, these custom mixes may not offer the same level of long-lasting protection as our standard colours and may fade more quickly. As these combinations have not been tested in our laboratory, we cannot guarantee their durability."
-          }
-        },
         "faq_item_bJ33cX": {
           "settings": {
             "question": "Does applying a second coat of DuroGrit provide better protection or a deeper colour?",
@@ -85,6 +77,14 @@
             "question": "How do I clean brushes and tools used to apply DuroGrit?",
             "answer": "Clean brushes and tools immediately after use with water. If the bristles feel stiff or greasy after repeated use, you can also wash them with warm (not hot) water and a mild soap or washing-up liquid. Alternatively, you can use a small amount of Exterior Wood Cleaner mixed with water, as this helps the product loosen more easily. Rinse thoroughly with clean water until the water runs clear."
           }
+        },
+        "faq_item_JmwFm": {
+          "type": "faq_item",
+          "disabled": false,
+          "settings": {
+            "question": "Can DuroGrit colours be mixed?",
+            "answer": "In theory, DuroGrit colours can be mixed. However, these custom mixes may not offer the same level of long-lasting protection as our standard colours and may fade more quickly. As these combinations have not been tested in our laboratory, we cannot guarantee their durability."
+          }
         }
       },
       "block_order": [
@@ -98,6 +98,16 @@
         "faq_item_6ejn7",
         "faq_item_JmwFm"
       ]
+    },
+    "icons_section_Q84VnV": {
+      "settings": {},
+      "blocks": {
+        "container_aYeRcN": {
+          "settings": {
+            "enable_feature": true
+          }
+        }
+      }
     }
   }
 }
