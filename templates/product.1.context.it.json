@@ -18,6 +18,16 @@
         "cart_icon": "shopify://shop_images/shopping-cart-light.svg"
       },
       "blocks": {}
+    },
+    "icons_section_t3Wiqj": {
+      "settings": {},
+      "blocks": {
+        "container_yzi7tm": {
+          "settings": {
+            "enable_feature": true
+          }
+        }
+      }
     }
   }
 }
