@@ -671,7 +671,7 @@ document.addEventListener("DOMContentLoaded", function () {
             productLinkUrl = product.url;
           }
           {% comment %} console.log(swatch_color,'swatchValue',product) {% endcomment %}
-{% comment %}           
+          {% comment %}           
           const dataImagesStr = centerSlide.getAttribute("data-images");
             console.log("Raw data-images:", dataImagesStr);
           let images=''
@@ -693,7 +693,7 @@ document.addEventListener("DOMContentLoaded", function () {
             matchedImage = images[0]; // fallback
           }
           console.log(matchedImage,'matchedImage') 
-{% endcomment %}
+          {% endcomment %}
           document.getElementById("inspired-proouter").innerHTML = `
              <a href="${productLinkUrl}"> <div class="product-image-wrap">
                 <img id="product-img"
