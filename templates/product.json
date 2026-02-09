@@ -283,6 +283,8 @@
             "heading": "Telephone advice",
             "subhead": "",
             "subtext": "",
+            "enable_feature": false,
+            "link_type": "email",
             "extra_text": "Answer the questions"
           }
         },
@@ -294,6 +296,8 @@
             "heading": "Send us an email",
             "subhead": "",
             "subtext": "info@rubiomonocoat.it",
+            "enable_feature": true,
+            "link_type": "email",
             "extra_text": ""
           }
         },
@@ -305,6 +309,8 @@
             "heading": "Customized advice",
             "subhead": "",
             "subtext": "Answer the questions",
+            "enable_feature": false,
+            "link_type": "email",
             "extra_text": ""
           }
         },
@@ -317,6 +323,8 @@
             "heading": "Ask via chat",
             "subhead": "",
             "subtext": "Answer the questions",
+            "enable_feature": false,
+            "link_type": "email",
             "extra_text": ""
           }
         }
