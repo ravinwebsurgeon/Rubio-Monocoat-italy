@@ -1,0 +1,27 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "context": {
+    "market": "it"
+  },
+  "parent": "page.return-policy.json",
+  "sections": {
+    "icons_section_CaqHz7": {
+      "settings": {},
+      "blocks": {
+        "container_jt44Hk": {
+          "settings": {
+            "enable_feature": true
+          }
+        }
+      }
+    }
+  }
+}
