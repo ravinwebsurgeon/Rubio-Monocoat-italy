@@ -38,6 +38,11 @@
         "container_VL7XEr": {
           "disabled": true,
           "settings": {}
+        },
+        "container_jt44Hk": {
+          "settings": {
+            "enable_feature": true
+          }
         }
       }
     }
