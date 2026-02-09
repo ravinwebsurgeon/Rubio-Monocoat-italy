@@ -1,4 +1,4 @@
-{%- comment -%}
+{% comment %} {%- comment -%}
   Inputs:
     link_url -> the original URL
     lang -> current language ('en', 'it', etc.)
@@ -76,5 +76,71 @@
   {% endif %}
 
 {% endif %}
+
+{{ final_url | strip }} {% endcomment %}
+
+{%- comment -%}
+  Inputs: 
+    link_url -> the original URL
+    lang -> current language ('en', 'it', etc.)
+  Output:
+    final_url -> processed URL with /en prefix and color translation
+{%- endcomment -%}
+
+{% assign final_url = link_url %}
+{% assign country_code = localization.country.iso_code | downcase %}
+
+{% assign colors_it = "Nero,Bianco,Grigio,Rosso,Blu,Scuro,Vivaci,Naturale" | split: "," %}
+{% assign colors_dk = "Sort,Hvid,Grå,Rød,Blå,Mørk,Lys,Naturlig" | split: "," %}
+{% assign colors_en = "Black,White,Grey,Red,Blue,Dark,Bright,Natural" | split: "," %}
+
+{% if final_url contains '?' %}
+  {% assign path_only = final_url | split:'?' | first %}
+  {% assign query_string = final_url | split:'?' | last %}
+{% else %}
+  {% assign path_only = final_url %}
+  {% assign query_string = '' %}
+{% endif %}
+
+{% if query_string != '' %}
+  {% assign params = query_string | split:'&' %}
+  {% assign new_params = '' %}
+  {% for p in params %}
+    {% assign key = p | split:'=' | first %}
+    {% assign value = p | split:'=' | last %}
+    {% if key contains 'color' %}
+      {% assign color_index = nil %}
+      {% assign  index = colors_it.size | minus: 1 %}
+      {% for i in (0..index) %}
+        {% assign it_color = colors_it[i] | downcase %}
+        {% assign value_given = value | downcase %}
+        {% if it_color == value_given %}
+          {% assign color_index = i %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+      {% if color_index != nil %}
+        {% if lang == 'it' %}
+          {% assign value = colors_it[color_index] %}
+        {% elsif lang == 'da' %}
+          {% assign value = colors_dk[color_index] %}
+        {% else %}
+          {% assign value = colors_en[color_index] %}
+        {% endif %}
+      {% endif %}
+    {% endif %}
+
+    {% assign param = key | append:'=' | append:value %}
+
+    {% if forloop.first %}
+      {% assign new_params = param %}
+    {% else %}
+      {% assign new_params = new_params | append:'&' | append:param %}
+    {% endif %}
+  {% endfor %}
+
+  {% assign final_url = path_only | append:'?' | append:new_params %}
+{% endif %}
+
 
 {{ final_url | strip }}
