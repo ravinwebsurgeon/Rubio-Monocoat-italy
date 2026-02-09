@@ -16,18 +16,19 @@
     "icons_section_rpAQK9": {
       "settings": {},
       "blocks": {
-        "container_aqKV6K": {
-          "disabled": true,
-          "settings": {}
-        },
         "container_VQAkd6": {
           "disabled": true,
           "settings": {}
         },
         "container_QE3CaP": {
           "settings": {
-            "subtext": "info@rubiomonocoat.it"
+            "subtext": "info@rubiomonocoat.it",
+            "enable_feature": true
           }
+        },
+        "container_aqKV6K": {
+          "disabled": true,
+          "settings": {}
         }
       }
     }
