@@ -20,14 +20,15 @@
           "disabled": true,
           "settings": {}
         },
+        "container_FjdR8H": {
+          "settings": {
+            "subtext": "info@rubiomonocoat.it",
+            "enable_feature": true
+          }
+        },
         "container_kNKNHV": {
           "disabled": true,
           "settings": {}
-        },
-        "container_FjdR8H": {
-          "settings": {
-            "subtext": "info@rubiomonocoat.it"
-          }
         }
       }
     }
