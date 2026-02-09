@@ -13,6 +13,13 @@
     "market": "it"
   },
   "sections": {
+    "main": {
+      "disabled": false,
+      "settings": {
+        "padding_top": 28
+      },
+      "blocks": {}
+    },
     "rich_text_kPd9mt": {
       "disabled": true,
       "settings": {},
@@ -29,12 +36,15 @@
         }
       }
     },
-    "main": {
-      "disabled": false,
-      "settings": {
-        "padding_top": 28
-      },
-      "blocks": {}
+    "icons_section_YzXqMN": {
+      "settings": {},
+      "blocks": {
+        "container_jB8tDi": {
+          "settings": {
+            "enable_feature": true
+          }
+        }
+      }
     }
   }
 }
