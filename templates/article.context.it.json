@@ -20,14 +20,15 @@
           "disabled": true,
           "settings": {}
         },
+        "container_cypRaj": {
+          "settings": {
+            "subtext": "info@rubiomonocoat.it",
+            "enable_feature": true
+          }
+        },
         "container_rRtd98": {
           "disabled": true,
           "settings": {}
-        },
-        "container_cypRaj": {
-          "settings": {
-            "subtext": "info@rubiomonocoat.it"
-          }
         }
       }
     }
