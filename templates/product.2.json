@@ -300,6 +300,8 @@
             "heading": "Telephone advice",
             "subhead": "",
             "subtext": "Available on +32 (0) 51 30 80 54",
+            "enable_feature": false,
+            "link_type": "email",
             "extra_text": "On weekdays 08:30 - 17:00"
           }
         },
@@ -311,6 +313,8 @@
             "heading": "Send us an email",
             "subhead": "",
             "subtext": "info@rubiomonocoat.it",
+            "enable_feature": false,
+            "link_type": "email",
             "extra_text": "Response within 2 working days"
           }
         },
@@ -322,6 +326,8 @@
             "heading": "Customized advice",
             "subhead": "",
             "subtext": "Fill out the form",
+            "enable_feature": false,
+            "link_type": "email",
             "extra_text": "Advice within 2 days"
           }
         },
@@ -334,6 +340,8 @@
             "heading": "Take the Test",
             "subhead": "",
             "subtext": "Answer the questions",
+            "enable_feature": false,
+            "link_type": "email",
             "extra_text": "Direct Personal advice"
           }
         }
@@ -363,6 +371,8 @@
             "heading": "Telephone advice",
             "subhead": "",
             "subtext": "",
+            "enable_feature": false,
+            "link_type": "email",
             "extra_text": "Answer the questions"
           }
         },
@@ -374,6 +384,8 @@
             "heading": "Send us an email",
             "subhead": "",
             "subtext": "info@rubiomonocoat.it",
+            "enable_feature": true,
+            "link_type": "email",
             "extra_text": ""
           }
         },
@@ -385,6 +397,8 @@
             "heading": "Customized advice",
             "subhead": "",
             "subtext": "Answer the questions",
+            "enable_feature": false,
+            "link_type": "email",
             "extra_text": ""
           }
         },
@@ -397,6 +411,8 @@
             "heading": "Ask via chat",
             "subhead": "",
             "subtext": "Answer the questions",
+            "enable_feature": false,
+            "link_type": "email",
             "extra_text": ""
           }
         }
