@@ -22,7 +22,8 @@
         },
         "container_BxEzhc": {
           "settings": {
-            "subtext": "info@rubiomonocoat.it"
+            "subtext": "info@rubiomonocoat.it",
+            "enable_feature": true
           }
         },
         "container_R8piUt": {
