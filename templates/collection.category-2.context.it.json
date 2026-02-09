@@ -12,5 +12,16 @@
     "market": "it"
   },
   "parent": "collection.category-2.json",
-  "sections": {}
+  "sections": {
+    "icons_section_YzJMte": {
+      "settings": {},
+      "blocks": {
+        "container_yRY6Uc": {
+          "settings": {
+            "enable_feature": true
+          }
+        }
+      }
+    }
+  }
 }
