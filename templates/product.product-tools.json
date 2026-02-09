@@ -35,6 +35,10 @@
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
+            "woodtype": "Does this colour work on my woodtype?",
+            "Suited": "Suited for:",
+            "Notsuited": "Not suited for:",
+            "Lesssuited": "Less suited for:",
             "picker_type": "button",
             "swatch_shape": "circle"
           }
@@ -74,6 +78,15 @@
         "shipping_info_dQ4qci"
       ],
       "settings": {
+        "stock_message": "",
+        "jump_to_text": "",
+        "sticky_change_btn": "",
+        "Product-info": "Informazioni sul prodotto",
+        "How-to-apply": "Come candidarsi",
+        "Technical-info": "Informazioni tecniche",
+        "Inspiration": "Ispirazione",
+        "FAQ": "Domande frequenti",
+        "Reviews": "Recensioni",
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
         "media_size": "medium",
@@ -167,6 +180,8 @@
             "heading": "Telephone advice",
             "subhead": "",
             "subtext": "",
+            "enable_feature": false,
+            "link_type": "email",
             "extra_text": "Answer the questions"
           }
         },
@@ -178,6 +193,8 @@
             "heading": "Send us an email",
             "subhead": "",
             "subtext": "info@rubiomonocoat.it",
+            "enable_feature": true,
+            "link_type": "email",
             "extra_text": ""
           }
         },
@@ -189,6 +206,8 @@
             "heading": "Customized advice",
             "subhead": "",
             "subtext": "Answer the questions",
+            "enable_feature": false,
+            "link_type": "email",
             "extra_text": ""
           }
         },
@@ -201,6 +220,8 @@
             "heading": "Ask via chat",
             "subhead": "",
             "subtext": "Answer the questions",
+            "enable_feature": false,
+            "link_type": "email",
             "extra_text": ""
           }
         }
