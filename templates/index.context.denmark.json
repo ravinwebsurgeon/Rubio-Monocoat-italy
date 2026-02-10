@@ -9,25 +9,6 @@
  */
 {
   "sections": {
-    "icons_section_qxzcqt": {
-      "settings": {},
-      "blocks": {
-        "container_xNmGKf": {
-          "disabled": false,
-          "settings": {
-            "class": "",
-            "heading": "Telephone Advice",
-            "subhead": "",
-            "subtext": "+45 88 77 98 18"
-          }
-        },
-        "container_EGhzFM": {
-          "settings": {
-            "subtext": "service@rubiomonocoat.dk"
-          }
-        }
-      }
-    },
     "video_products_home_8dwaBA": {
       "settings": {},
       "blocks": {
@@ -54,6 +35,27 @@
         "product_block_G4KjHq": {
           "settings": {
             "price_color": "#000000"
+          }
+        }
+      }
+    },
+    "icons_section_qxzcqt": {
+      "settings": {},
+      "blocks": {
+        "container_xNmGKf": {
+          "disabled": false,
+          "settings": {
+            "class": "",
+            "heading": "Telephone Advice",
+            "subhead": "",
+            "subtext": "+45 88 77 98 18",
+            "link_type": "phone",
+            "enable_feature": true
+          }
+        },
+        "container_EGhzFM": {
+          "settings": {
+            "subtext": "service@rubiomonocoat.dk"
           }
         }
       }
