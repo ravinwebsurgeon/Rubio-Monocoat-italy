@@ -16,6 +16,7 @@
       "blocks": {
         "announcement_8Q6gWT": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "Made in Belgium",
             "link": "",
