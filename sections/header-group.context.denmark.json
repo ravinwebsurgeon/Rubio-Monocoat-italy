@@ -22,12 +22,22 @@
           "settings": {
             "text": "Ordered before 12:00, shipped the same day - delivery within 2-3 business days."
           }
+        },
+        "announcement_UhqMPa": {
+          "type": "announcement",
+          "disabled": false,
+          "settings": {
+            "text": "Made in Belgium",
+            "link": "",
+            "custom_svg": ""
+          }
         }
       },
       "block_order": [
         "announcement-bar-0",
         "announcement_6zGjFz",
-        "announcement_FVKwNP"
+        "announcement_FVKwNP",
+        "announcement_UhqMPa"
       ]
     }
   },
