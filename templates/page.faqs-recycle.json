@@ -63,8 +63,8 @@
             "heading": "Telephone advice",
             "subhead": "",
             "subtext": "",
-            "enable_feature": false,
-            "link_type": "email",
+            "enable_feature": true,
+            "link_type": "phone",
             "extra_text": "Answer the questions"
           }
         },
@@ -76,7 +76,7 @@
             "heading": "Send us an email",
             "subhead": "",
             "subtext": "rubio@monocoatusa.com",
-            "enable_feature": false,
+            "enable_feature": true,
             "link_type": "email",
             "extra_text": ""
           }
