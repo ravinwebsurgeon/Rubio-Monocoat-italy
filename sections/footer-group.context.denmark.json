@@ -12,6 +12,15 @@
     "footer": {
       "settings": {},
       "blocks": {
+        "country_social_BPjdA": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "DK",
+            "label": "Facebook",
+            "url": "https://www.facebook.com/RubioMonocoatDanmark"
+          }
+        },
         "country_social_EgWa6": {
           "type": "country_social",
           "disabled": false,
@@ -43,6 +52,7 @@
         }
       },
       "block_order": [
+        "country_social_BPjdA",
         "country_social_EgWa6",
         "country_social_NGFKiF",
         "country_social_kL4TN",
