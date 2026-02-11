@@ -13,6 +13,14 @@
     
     <div class="four-containers">
       {% for block in section.blocks %}
+          {% if block.settings.enable_feature %}
+            {% assign value = block.settings.subtext | strip_html | strip %}
+            {% if block.settings.link_type == 'email' %}
+              <a href="mailto:{{ value }}" class="custom-contact-link">
+            {% elsif block.settings.link_type == 'phone' %}
+              <a href="tel:{{ value | remove: ' ' }}"  class="custom-contact-link">
+            {% endif %}
+          {% endif %}
         <div class="container-item {{ block.settings.class }}">
           <div class="icon-part">
             {% if block.settings.icon %}
@@ -21,24 +29,14 @@
           </div>
           <div class="text-part">
             <h3>{{ block.settings.heading }}</h3>
-            {% if block.settings.enable_feature %}
-              {% assign value = block.settings.subtext | strip_html | strip %}
-              {% if block.settings.link_type == 'email' %}
-                <a href="mailto:{{ value }}" class="custom-contact-link">
-              {% elsif block.settings.link_type == 'phone' %}
-                <a href="tel:{{ value | remove: ' ' }}"  class="custom-contact-link">
-              {% endif %}
-            {% endif %}
-
             <div class="available-and-text">
               <span>{{ block.settings.subhead }}</span>
               <p>{{ block.settings.subtext }}</p>
             </div>
-            
-            {% if block.settings.enable_feature %}</a>{% endif %}
             <p>{{ block.settings.extra_text }}</p>
           </div>
         </div>
+        {% if block.settings.enable_feature %}</a>{% endif %}
       {% endfor %}
     </div>
   </div>
@@ -50,7 +48,7 @@
 <style>
 
     .custom-contact-link{
-    display: block;
+    display: flex;
     text-decoration: none;
     color: inherit;
     cursor: pointer;
