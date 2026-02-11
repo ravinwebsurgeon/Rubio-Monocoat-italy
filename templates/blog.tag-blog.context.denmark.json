@@ -12,5 +12,25 @@
     "market": "denmark"
   },
   "parent": "blog.tag-blog.json",
-  "sections": {}
+  "sections": {
+    "icons_section_XdWayc": {
+      "settings": {},
+      "blocks": {
+        "container_ydfipW": {
+          "disabled": false,
+          "settings": {
+            "heading": "Telephone Advice",
+            "extra_text": "",
+            "class": "",
+            "subhead": "+45 88 77 98 18"
+          }
+        },
+        "container_UjEXHD": {
+          "settings": {
+            "subtext": "service@rubiomonocoat.dk"
+          }
+        }
+      }
+    }
+  }
 }
