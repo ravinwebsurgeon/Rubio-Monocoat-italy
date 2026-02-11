@@ -16,9 +16,11 @@
           "disabled": false,
           "settings": {
             "class": "",
+            "heading": "Telephone Advice",
             "subtext": "+45 88 77 98 18",
             "extra_text": "",
-            "heading": "Telephone Advice"
+            "link_type": "phone",
+            "enable_feature": true
           }
         },
         "container_MjMmcR": {
