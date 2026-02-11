@@ -114,7 +114,7 @@
 
                 {% assign downcase_name = option.name | downcase %}
 
-                {% if downcase_name contains 'color' or downcase_name contains 'colour' %}
+                {% if downcase_name contains 'color' or downcase_name contains 'colour' or downcase_name contains 'farve' %}
 
                   <div class="color-swatch-group product_color_swatchs" data-index="option{{ forloop.index }}">
 
