@@ -18,7 +18,17 @@
       "blocks": {
         "container_tGrMy6": {
           "settings": {
-            "enable_feature": true
+            "enable_feature": true,
+            "subtext": "hello@rubiomonocoat.co.uk"
+          }
+        },
+        "container_Gp786q": {
+          "disabled": false,
+          "settings": {
+            "class": "",
+            "heading": "Telephone Advice",
+            "subtext": "0800 688 9661",
+            "extra_text": ""
           }
         }
       }
