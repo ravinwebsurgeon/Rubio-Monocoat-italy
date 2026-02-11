@@ -51,6 +51,8 @@
             "heading": "Telephone advice",
             "subhead": "",
             "subtext": "",
+            "enable_feature": true,
+            "link_type": "phone",
             "extra_text": "Answer the questions"
           }
         },
@@ -62,6 +64,8 @@
             "heading": "Send Us an Email",
             "subhead": "",
             "subtext": "rubio@monocoatusa.com",
+            "enable_feature": true,
+            "link_type": "email",
             "extra_text": ""
           }
         },
@@ -73,6 +77,8 @@
             "heading": "Ask Our Experts",
             "subhead": "",
             "subtext": "Get personalized help based on your project",
+            "enable_feature": false,
+            "link_type": "email",
             "extra_text": ""
           }
         },
@@ -85,6 +91,8 @@
             "heading": "Ask via chat",
             "subhead": "",
             "subtext": "Answer the questions",
+            "enable_feature": false,
+            "link_type": "email",
             "extra_text": ""
           }
         }
