@@ -51,6 +51,7 @@
       "blocks": {
         "country_social_gWTFPf": {
           "type": "country_social",
+          "disabled": true,
           "settings": {
             "country": "IT",
             "label": "Instagram",
