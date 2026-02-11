@@ -10,7 +10,6 @@
 {
   "sections": {
     "icons_section_Q84VnV": {
-      "settings": {},
       "blocks": {
         "container_K8pcTz": {
           "disabled": false,
@@ -29,7 +28,6 @@
       }
     },
     "faqs_gnazct": {
-      "settings": {},
       "blocks": {
         "faq_item_bJ33cX": {
           "settings": {
@@ -56,11 +54,6 @@
           "settings": {
             "question": "What payment methods do you accept?",
             "answer": "To make your shopping experience easy and secure, we offer several payment options. You can choose to pay with PayPal, credit cards, Shop & Google Pay. Simply select your preferred payment method at checkout and complete your order."
-          }
-        },
-        "faq_item_eJqy7e": {
-          "settings": {
-            "question": "What is your warranty policy? "
           }
         }
       },
