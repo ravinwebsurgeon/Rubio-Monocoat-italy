@@ -356,6 +356,8 @@
     matchedCountryData.forEach(item => {
       const LowerCaseTitle = item.label.toLowerCase();
       const selector = `.social__link__add[data-social-label="${LowerCaseTitle}"]`;
+            console.log(selector , 'check social selector')
+
       const linkEl = document.querySelector(selector);
       if (linkEl) {
         linkEl.href = item.url;
