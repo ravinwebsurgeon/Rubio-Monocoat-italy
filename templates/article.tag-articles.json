@@ -56,8 +56,8 @@
             "heading": "Telephone advice",
             "subhead": "",
             "subtext": "",
-            "enable_feature": false,
-            "link_type": "email",
+            "enable_feature": true,
+            "link_type": "phone",
             "extra_text": "Answer the questions"
           }
         },
