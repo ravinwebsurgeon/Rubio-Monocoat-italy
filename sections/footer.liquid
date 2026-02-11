@@ -344,11 +344,12 @@
     detectCountry();
     detectCountry().then(result => {
       visitorCountry = result.country_code.toLowerCase();
-      console.log('footer chwck',countryBlocks)
       SocialLinkManage(countryBlocks,result.country_code.toLowerCase())
     });
   }, 2000);
   function SocialLinkManage(countryBlocks,country){
+      console.log('footer chwck',countryBlocks)
+
     const matchedCountryData = countryBlocks.filter(
       item => item.country.toLowerCase() === country
     );
