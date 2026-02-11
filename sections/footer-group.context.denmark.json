@@ -15,13 +15,15 @@
         "country_social_gWTFPf": {
           "settings": {
             "country": "DK",
+            "label": "Instagram",
             "url": "https://www.instagram.com/rubiomonocoatdanmark"
           }
         },
         "country_social_jyNNYq": {
           "settings": {
             "country": "DK",
-            "url": "https://www.facebook.com/RubioMonocoatDanmark"
+            "url": "https://www.facebook.com/RubioMonocoatDanmark",
+            "label": "Facebook"
           }
         },
         "country_social_NGFKiF": {
