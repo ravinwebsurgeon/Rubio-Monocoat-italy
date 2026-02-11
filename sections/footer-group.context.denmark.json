@@ -21,13 +21,6 @@
             "url": "https://www.instagram.com/rubiomonocoatdanmark"
           }
         },
-        "country_social_jyNNYq": {
-          "settings": {
-            "country": "DK",
-            "label": "Facebook",
-            "url": "https://www.facebook.com/RubioMonocoatDanmark"
-          }
-        },
         "country_social_NGFKiF": {
           "settings": {
             "country": "DK",
@@ -51,7 +44,6 @@
       },
       "block_order": [
         "country_social_EgWa6",
-        "country_social_jyNNYq",
         "country_social_NGFKiF",
         "country_social_kL4TN",
         "brand_information_A98rgG",
