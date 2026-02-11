@@ -12,13 +12,6 @@
     "footer": {
       "settings": {},
       "blocks": {
-        "country_social_gWTFPf": {
-          "settings": {
-            "country": "DK",
-            "label": "Instagram",
-            "url": "https://www.instagram.com/rubiomonocoatdanmark"
-          }
-        },
         "country_social_jyNNYq": {
           "settings": {
             "country": "DK",
@@ -48,7 +41,6 @@
         }
       },
       "block_order": [
-        "country_social_gWTFPf",
         "country_social_jyNNYq",
         "country_social_NGFKiF",
         "country_social_kL4TN",
