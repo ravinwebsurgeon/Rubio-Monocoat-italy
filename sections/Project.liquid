@@ -562,6 +562,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+{% comment %} 
+--------------------
+FilterProducts works when color,product or avialable filter choose 
+then show products basis on selected options
+-------------------- 
+{% endcomment %}
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -570,6 +576,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const availableFilter= document.getElementById('available-filter');
   const products = document.querySelectorAll('.product-item');
 
+  {% comment %}
+    ------------------
+   due to multiple occuracnce we comment this code
+   ------------------ 
+   
   function filterProducts() {
     const selectedColour = colourFilter.value;
     const selectedProduct= productFilter.value;
@@ -587,7 +598,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       product.style.display = (colourMatch && productMatch && availableMatch) ? '' : 'none';
     });
-  }
+  } {% endcomment %}
 
   if(colourFilter){colourFilter.addEventListener('change', filterProducts);}
   if(productFilter){productFilter.addEventListener('change', filterProducts);}
