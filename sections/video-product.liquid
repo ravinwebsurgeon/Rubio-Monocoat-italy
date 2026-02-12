@@ -102,7 +102,7 @@
 </section>
 {% endif %}
 {% endunless %}
-<script>
+{% comment %} <script>
 $(document).ready(function () {
   function setCartBubble(count) {
     var $icon = $("#cart-icon-bubble");
@@ -212,14 +212,121 @@ console.log(delay,'acheckdelay')
   setInterval(moveSlides, delay);
 });
 
+</script> {% endcomment %}
 
 
+{% comment %} 
+ --------
+ Above code works fine but it's
+ Optmized code below --Replacing setInterval with requestAnimationFrame and Reducing repeated jQuery DOM queries
+ -----
+ {% endcomment %}
 
 
+<script>
+$(function () {
+  // ---------- CART BUBBLE FUNCTION ----------
+  function setCartBubble(count) {
+    const $icon = $("#cart-icon-bubble");
+    if (!$icon.length) return;
 
+    let $bubble = $icon.find(".cart-count-bubble");
+    if (count > 0) {
+      if (!$bubble.length) {
+        $bubble = $('<div class="cart-count-bubble" aria-live="polite"></div>').appendTo($icon);
+      }
+      $bubble.html(
+        `<span aria-hidden="true">${count}</span>` +
+        `<span class="visually-hidden">${count} item${count > 1 ? 's' : ''}</span>`
+      ).show();
+    } else {
+      $bubble.remove();
+    }
+  }
 
+  // ---------- POLLING CART COUNT ----------
+  const cartPollInterval = 2000;
+  setInterval(() => {
+    $.getJSON("/cart.js", cart => setCartBubble(cart.item_count));
+  }, cartPollInterval);
 
+  // ---------- ADD TO CART HANDLER ----------
+  $(document).on("click", ".add-to-cart-btn", function (e) {
+    e.preventDefault();
+    const variantId = $(this).data("variant-id");
+    if (!variantId) return console.error("Variant ID missing");
+
+    $.ajax({
+      type: "POST",
+      url: "/cart/add.js",
+      data: { id: variantId, quantity: 1 },
+      dataType: "json",
+      success: () => {
+        $.get("/?section_id=cart-drawer", function (data) {
+          const $drawer = $("cart-drawer");
+          const $newDrawer = $(data).find("cart-drawer");
+          $drawer.html($newDrawer.html())
+            .attr("class", ($newDrawer.attr("class") || "drawer animate").replace("is-empty", "").trim())
+            .addClass("active");
+        });
+      },
+      error: err => console.error("Error adding to cart:", err)
+    });
+  });
+
+  // ---------- CLOSE DRAWER ON OVERLAY CLICK ----------
+  $(document).on("click", ".cart-drawer__overlay", () => $("cart-drawer").removeClass("active"));
+});
+
+// ---------- PRODUCT SLIDER ----------
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector(".product-track");
+  const wrapper = document.querySelector(".product-slider");
+  if (!track || !wrapper) return;
+
+  const slides = Array.from(track.children);
+  if (!slides.length) return;
+
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+  const slideWidth = slides[0].offsetWidth;
+  const delay = {{ product.metafields.custom.vide_product_delay.value | default: 6 | plus: 0 }} * 1000;
+
+  let isPaused = false;
+  let lastTime = performance.now();
+
+  // Optional: pause on hover (uncomment if needed)
+  // wrapper.addEventListener("mouseenter", () => isPaused = true);
+  // wrapper.addEventListener("mouseleave", () => isPaused = false);
+
+  function moveSlides(timestamp) {
+    if (isPaused) {
+      requestAnimationFrame(moveSlides);
+      return;
+    }
+
+    if (timestamp - lastTime >= delay) {
+      currentIndex++;
+      track.style.transition = "transform 0.8s ease-in-out";
+      track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+      if (currentIndex >= totalSlides) {
+        setTimeout(() => {
+          track.style.transition = "none";
+          track.style.transform = "translateX(0)";
+          currentIndex = 0;
+        }, 800);
+      }
+      lastTime = timestamp;
+    }
+
+    requestAnimationFrame(moveSlides);
+  }
+
+  requestAnimationFrame(moveSlides);
+});
 </script>
+
 
 {% stylesheet %}
 .custom-featured-video{width:100% !important; height:100% !important;object-fit: contain !important;}
