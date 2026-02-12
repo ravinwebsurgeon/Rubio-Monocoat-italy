@@ -1844,7 +1844,7 @@ document.addEventListener("click", function(e) {
         parent = 'interior';
       }
  
-      if (parent === 'exterior') {
+      {% comment %} if (parent === 'exterior') {
         let exteriorMainTag = activeTab.dataset.exteriorTagName?.trim().toLowerCase() || '';
         let exteriorVerticalTag = activeTab.dataset.exteriorVTagName?.trim().toLowerCase() || '';
  
@@ -1854,7 +1854,21 @@ document.addEventListener("click", function(e) {
         } else {
           selectedTags = [exteriorMainTag].filter(Boolean);
         }
-      } else if (parent === 'interior') {
+      }  {% endcomment %}
+      if (parent === 'exterior') {
+        let exteriorMainTag = activeTab.dataset.exteriorTagName?.trim().toLowerCase() || '';
+        let exteriorVerticalTag = activeTab.dataset.exteriorVTagName?.trim().toLowerCase() || '';
+        let parentActiveTabText = activeTab.getAttribute('data-title-no-trans')?.trim().toLowerCase() || '';
+        if (!surface) {
+          let tag = `${parent}_${parentActiveTabText}`
+          selectedTags = [tag];
+        } else if (surface === 'vertical') {
+          selectedTags = [exteriorVerticalTag].filter(Boolean);
+        } else {
+          selectedTags = [exteriorMainTag].filter(Boolean);
+        }
+      } 
+      else if (parent === 'interior') {
         const interiorTag = activeTab.dataset.interiorTagName?.trim().toLowerCase() || '';
         selectedTags = [interiorTag];
       }
