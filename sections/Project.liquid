@@ -634,7 +634,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   {% endcomment %}
-   
+
   // Surface toggle click handler
   document.querySelectorAll('.surface-item').forEach(si => {
     si.addEventListener('click', () => {
@@ -734,7 +734,10 @@ if (openBtn && modal && closeBtn && video) {
   }
 });
 
-
+{% comment %} 
+  -------------------------------
+   this functionality is twice filterProducts
+   -------------------------------
   //for filters
 document.addEventListener('DOMContentLoaded', function() {
   const colourFilter = document.getElementById('colour-filter');
@@ -763,7 +766,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if(colourFilter){colourFilter.addEventListener('change', filterProducts);}
   if(productFilter){productFilter.addEventListener('change', filterProducts);}
-}); 
+});  {% endcomment %}
 
 
 
