@@ -1385,13 +1385,13 @@ document.querySelectorAll('.mobile-gallery .swiper .swiper-wrapper .swiper-slide
   });
 
   // ✅ Initialize GLightbox & Swiper after DOM load
-  window.activeLightbox = GLightbox({
+  {% comment %} window.activeLightbox = GLightbox({
     selector: '.glightbox[data-type="image"]',
     touchNavigation: true,
     loop: true,
     zoomable: true,
     autoplayVideos: true,
-  });
+  }); {% endcomment %}
 
   if (window.innerWidth <= 991) {
     mobileSwiper = new Swiper('.mobile-gallery .swiper', {
