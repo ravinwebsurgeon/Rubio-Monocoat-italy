@@ -12,5 +12,16 @@
     "market": "norway"
   },
   "parent": "footer-group.json",
-  "sections": {}
+  "sections": {
+    "footer": {
+      "settings": {},
+      "blocks": {
+        "text_hWeadq": {
+          "settings": {
+            "subtext": "<p><strong>Rubio Monocoat Norway AS </strong><br/>Kolonivegen 43<br/>2072 DAL<br/>Norge<br/>MVA :NO920826148MVA</p>"
+          }
+        }
+      }
+    }
+  }
 }
