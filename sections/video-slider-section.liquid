@@ -77,7 +77,7 @@
 
           {% for option in product.options_with_values %}
               {% assign opt_name = option.name | downcase %}
-              {% if opt_name == 'color' or opt_name == 'colour' or opt_name == 'colore' %}
+              {% if opt_name == 'color' or opt_name == 'colour' or opt_name == 'colore' or opt_name == 'farve' %}
                   {% for value in option.values %}
                       {% assign val_down = value | downcase %}
                       {% if value == selected_variant.option1 %}
@@ -654,7 +654,8 @@ document.addEventListener("DOMContentLoaded", function () {
           const colorOptionIndex = product.options.findIndex(option =>
             option.name.toLowerCase() === "color" ||
             option.name.toLowerCase() === "colore" ||
-            option.name.toLowerCase() === "colour"
+            option.name.toLowerCase() === "colour" ||
+            option.name.toLowerCase() === "farve" 
           );
 
           if (colorOptionIndex !== -1) {
