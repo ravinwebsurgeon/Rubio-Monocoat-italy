@@ -53,7 +53,7 @@
           "type": "faq_item",
           "settings": {
             "question": "What payment methods do you accept?",
-            "answer": "What payment methods do you accept?\nTo make your shopping experience easy and secure, we offer several payment options. You can choose to pay with PayPal, credit cards, Shop & Google Pay. Simply select your preferred payment method at checkout and complete your order."
+            "answer": "To make your shopping experience easy and secure, we offer several payment options. You can choose to pay with PayPal, credit cards, Shop & Google Pay. Simply select your preferred payment method at checkout and complete your order."
           }
         }
       },
