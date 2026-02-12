@@ -670,30 +670,6 @@ document.addEventListener("DOMContentLoaded", function () {
           } else {
             productLinkUrl = product.url;
           }
-          {% comment %} console.log(swatch_color,'swatchValue',product) {% endcomment %}
-          {% comment %}           
-          const dataImagesStr = centerSlide.getAttribute("data-images");
-            console.log("Raw data-images:", dataImagesStr);
-          let images=''
-            try {
-              images = JSON.parse(dataImagesStr);
-              console.log("Parsed images:", images);
-            } catch(e) {
-              console.error("Failed to parse JSON:", e);
-            }
-            console.log(selectedVariant.options,'selectedVariant.options')
-          let matchedImage = images.find(img => {
-            // match if alt contains all variant options, e.g. "Red / XL"
-            return selectedVariant.options.every(opt =>
-              img.alt.toLowerCase().includes(opt.toLowerCase())
-            );
-          });
-
-          if (!matchedImage) {
-            matchedImage = images[0]; // fallback
-          }
-          console.log(matchedImage,'matchedImage') 
-          {% endcomment %}
           document.getElementById("inspired-proouter").innerHTML = `
              <a href="${productLinkUrl}"> <div class="product-image-wrap">
                 <img id="product-img"
