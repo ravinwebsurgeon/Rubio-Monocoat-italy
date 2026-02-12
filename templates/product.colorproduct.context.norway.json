@@ -19,10 +19,15 @@
         "container_EQkbb7": {
           "disabled": false,
           "settings": {
-            "heading": "Telephone Advice",
             "class": "",
+            "heading": "Telephone Advice",
             "subhead": "+47 63 95 63 95",
             "extra_text": ""
+          }
+        },
+        "container_FjdR8H": {
+          "settings": {
+            "subtext": "info-no@rubiomonocoat.com"
           }
         }
       }
