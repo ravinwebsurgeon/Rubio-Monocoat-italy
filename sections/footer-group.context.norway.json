@@ -16,11 +16,6 @@
     "footer": {
       "settings": {},
       "blocks": {
-        "text_hWeadq": {
-          "settings": {
-            "subtext": "<p><strong>Rubio Monocoat Norway AS </strong><br/>Kolonivegen 43<br/>2072 DAL<br/>Norge<br/>MVA :NO920826148MVA<br/>+47 63 95 63 95<br/>info-no@rubiomonocoat.com</p>"
-          }
-        },
         "country_social_gWTFPf": {
           "settings": {
             "country": "NO",
@@ -38,8 +33,33 @@
             "country": "NO",
             "url": "https://www.youtube.com/c/RubioMonocoatRMC"
           }
+        },
+        "country_social_VzVHLT": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "NO",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@rubiomonocoat"
+          }
+        },
+        "text_hWeadq": {
+          "settings": {
+            "subtext": "<p><strong>Rubio Monocoat Norway AS </strong><br/>Kolonivegen 43<br/>2072 DAL<br/>Norge<br/>MVA :NO920826148MVA<br/>+47 63 95 63 95<br/>info-no@rubiomonocoat.com</p>"
+          }
         }
-      }
+      },
+      "block_order": [
+        "country_social_gWTFPf",
+        "country_social_jyNNYq",
+        "country_social_NGFKiF",
+        "country_social_VzVHLT",
+        "brand_information_A98rgG",
+        "link_list_tfK6cN",
+        "link_list_KBYewH",
+        "link_list_cERTPd",
+        "text_hWeadq"
+      ]
     }
   }
 }
