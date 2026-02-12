@@ -45,12 +45,12 @@
       "blocks": {
         "faq_item_bdXqaH": {
           "settings": {
-            "answer": "Orders are shipped with Postnord MyPack, and delivery usually takes 2 to 3 business days. Please note that orders placed on the weekend will be processed the next business day."
+            "answer": "Bestillinger sendes med Postnord MyPack, og levering tar vanligvis 2 til 3 virkedager. Vær oppmerksom på at bestillinger som legges inn i helgen, behandles den neste virkedagen."
           }
         },
         "faq_item_cenpwh": {
           "settings": {
-            "answer": "We work with Postnord MyPack, for deliveries within Europe. Unfortunately, we don’t have direct control over the shipping process once your order has been handed over to the carrier. In case of a delay, we recommend contacting your local Postnord MyPack, office for the most up-to-date information about your shipment."
+            "answer": "Vi samarbeider med Postnord MyPack. Dessverre har vi ikke direkte kontroll over fraktprosessen når bestillingen din er overlevert til transportøren. Ved forsinkelse anbefaler vi å kontakte ditt lokale Postnord MyPack,-kontor for den mest oppdaterte informasjonen om forsendelsen din."
           }
         }
       }
