@@ -12,5 +12,22 @@
     "market": "norway"
   },
   "parent": "header-group.json",
-  "sections": {}
+  "sections": {
+    "announcement-bar": {
+      "settings": {},
+      "blocks": {
+        "announcement-bar-0": {
+          "settings": {
+            "text": "Levering 2-3 dager",
+            "custom_svg": ""
+          }
+        },
+        "announcement_6zGjFz": {
+          "settings": {
+            "text": "Official Norwegian dealer"
+          }
+        }
+      }
+    }
+  }
 }
