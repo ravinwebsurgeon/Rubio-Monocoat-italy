@@ -1380,7 +1380,7 @@ document.querySelectorAll('.mobile-gallery .swiper .swiper-wrapper .swiper-slide
              target.matches(`select[name="${lowercased}"]`) ||
              target.matches(`select[name="${capitalized}"]`);
     })) {
-      updateGallery();
+      {% comment %} updateGallery(); {% endcomment %}
     }
   });
 
@@ -1405,7 +1405,7 @@ document.querySelectorAll('.mobile-gallery .swiper .swiper-wrapper .swiper-slide
   }
 
   // Initial call
-  updateGallery();
+  {% comment %} updateGallery(); {% endcomment %}
 });
 
 
