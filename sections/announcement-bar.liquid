@@ -152,6 +152,12 @@
 
     <div class="annouce_menu">
       <div class="annouce-wrapper">
+         {% if section.settings.b2b_text != blank %}
+          <div class="annouce_login test">
+            {% comment %} <a href="{{ routes.account_login_url }}">{{ section.settings.b2b_text }}</a> {% endcomment %}
+            <a href="{{ section.settings.b2b_text_link }}">{{ section.settings.b2b_text }}</a>
+        </div>
+        {% endif %}
         <div class="annouce_review">
           <a href="{{ section.settings.review_link }}">{{ section.settings.review_text }}</a>
           </div>
@@ -240,6 +246,16 @@
      "type": "text",
      "id":"review_text",
      "label": "Add Reviw text"
+     },
+      {
+     "type": "text",
+     "id":"b2b_text",
+     "label": "Add Login Text"
+     },
+     {
+     "type": "url",
+     "id":"b2b_text_link",
+     "label": "Add Login Link"
      },
     {
      "type": "url",
