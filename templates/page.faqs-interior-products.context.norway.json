@@ -12,5 +12,25 @@
     "market": "norway"
   },
   "parent": "page.faqs-interior-products.json",
-  "sections": {}
+  "sections": {
+    "icons_section_Q84VnV": {
+      "settings": {},
+      "blocks": {
+        "container_K8pcTz": {
+          "disabled": false,
+          "settings": {
+            "heading": "Telephone Advice",
+            "subhead": "+47 63 95 63 95",
+            "class": "",
+            "extra_text": ""
+          }
+        },
+        "container_aYeRcN": {
+          "settings": {
+            "subtext": "info-no@rubiomonocoat.com"
+          }
+        }
+      }
+    }
+  }
 }
