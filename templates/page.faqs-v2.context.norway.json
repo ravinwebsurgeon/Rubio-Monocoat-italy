@@ -31,6 +31,15 @@
           }
         }
       }
+    },
+    "faqs_gnazct": {
+      "blocks": {
+        "faq_item_bJ33cX": {
+          "settings": {
+            "answer": "For orders up to 600 NOK incl. VAT, you pay the shipping costs. If the delivery address is in Norway, the shipping costs are 49 NOK. When you spend 600 NOK incl. VAT or more, you pay no shipping costs."
+          }
+        }
+      }
     }
   }
 }
