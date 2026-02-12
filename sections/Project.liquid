@@ -611,6 +611,11 @@ document.addEventListener('DOMContentLoaded', function() {
   /* circle tabs */
    const checkbox = document.getElementById('available-filter');
 
+  {% comment %} 
+   ---------------------
+    Check this code if comment -- it not effect on frontend
+    --------------------- 
+
   // Circle tab click handler
   document.querySelectorAll('.circle-tab').forEach(btn => {
     btn.addEventListener('click', e => {
@@ -628,7 +633,8 @@ document.addEventListener('DOMContentLoaded', function() {
       showproducts();
     });
   });
- 
+  {% endcomment %}
+   
   // Surface toggle click handler
   document.querySelectorAll('.surface-item').forEach(si => {
     si.addEventListener('click', () => {
