@@ -33,7 +33,10 @@
       }
     },
     "contact_options_FYkrkp": {
-      "settings": {},
+      "settings": {
+        "call_link": "tel:+47 63 95 63 95",
+        "email_link": "mailto:info-no@rubiomonocoat.com"
+      },
       "blocks": {
         "contact_method_mVcVkc": {
           "disabled": true,
