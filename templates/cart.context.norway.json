@@ -12,5 +12,25 @@
     "market": "norway"
   },
   "parent": "cart.json",
-  "sections": {}
+  "sections": {
+    "icons_section_ydUpbm": {
+      "settings": {},
+      "blocks": {
+        "container_QXp6CL": {
+          "disabled": false,
+          "settings": {
+            "class": "",
+            "heading": "Telephone Advice",
+            "subhead": "+47 63 95 63 95",
+            "extra_text": ""
+          }
+        },
+        "container_bVy9hB": {
+          "settings": {
+            "subtext": "info-no@rubiomonocoat.com"
+          }
+        }
+      }
+    }
+  }
 }
