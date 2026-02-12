@@ -12,5 +12,20 @@
     "market": "norway"
   },
   "parent": "product.colorproduct.json",
-  "sections": {}
+  "sections": {
+    "icons_section_VqU6QH": {
+      "settings": {},
+      "blocks": {
+        "container_EQkbb7": {
+          "disabled": false,
+          "settings": {
+            "heading": "Telephone Advice",
+            "class": "",
+            "subhead": "+47 63 95 63 95",
+            "extra_text": ""
+          }
+        }
+      }
+    }
+  }
 }
