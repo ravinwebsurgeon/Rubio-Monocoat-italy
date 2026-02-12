@@ -31,6 +31,15 @@
           }
         }
       }
+    },
+    "faqs_gnazct": {
+      "blocks": {
+        "faq_item_bJ33cX": {
+          "settings": {
+            "answer": "Orders are shipped with Postnord MyPack, and delivery usually takes 2 to 3 business days. Please note that orders placed on the weekend will be processed the next business day."
+          }
+        }
+      }
     }
   }
 }
