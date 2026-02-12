@@ -366,7 +366,7 @@
 }
 </style>
 
-<script>
+{% comment %} <script>
 document.addEventListener("DOMContentLoaded", function () {
   const faqItems = document.querySelectorAll(".faq-item");
 
@@ -416,8 +416,82 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-</script>
+</script> {% endcomment %}
 
+{% comment %} 
+ --------
+ Above code works fine but it use foreach twice time
+ Optmized code below --reduce number of loops
+ -----
+ {% endcomment %}
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const faqItems = document.querySelectorAll(".faq-item");
+  if (!faqItems.length) return;
+
+  let activeItem = null; // Track currently open FAQ
+
+  const openItem = (item) => {
+    const answer = item.querySelector(".faq-answer");
+    if (!answer) return;
+
+    item.classList.add("active");
+    answer.style.height = answer.scrollHeight + "px";
+
+    answer.addEventListener(
+      "transitionend",
+      function handler() {
+        if (item.classList.contains("active")) {
+          answer.style.height = "auto";
+        }
+        answer.removeEventListener("transitionend", handler);
+      }
+    );
+
+    activeItem = item;
+  };
+
+  const closeItem = (item) => {
+    const answer = item.querySelector(".faq-answer");
+    if (!answer) return;
+
+    answer.style.height = answer.scrollHeight + "px";
+    requestAnimationFrame(() => {
+      item.classList.remove("active");
+      answer.style.height = "0px";
+    });
+
+    if (activeItem === item) activeItem = null;
+  };
+
+  faqItems.forEach((item) => {
+    const question = item.querySelector(".faq-question");
+    const answer = item.querySelector(".faq-answer");
+    if (!question || !answer) return;
+
+    // Initialize default open FAQ (optional)
+    if (item.classList.contains("active")) {
+      activeItem = item;
+      answer.style.height = answer.scrollHeight + "px";
+      answer.addEventListener(
+        "transitionend",
+        () => { answer.style.height = "auto"; },
+        { once: true }
+      );
+    }
+
+    question.addEventListener("click", () => {
+      if (item === activeItem) {
+        closeItem(item); // Toggle off
+      } else {
+        if (activeItem) closeItem(activeItem); // Close previous
+        openItem(item); // Open clicked
+      }
+    });
+  });
+});
+</script>
 
 {% schema %}
 {
