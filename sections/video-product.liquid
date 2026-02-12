@@ -175,38 +175,6 @@ $(document).on("click", ".slide-next-btn.gg-3, .slide-next-btn.gg-2", function (
     }, 200); // change the time as needed
 });
 
-{% comment %} document.addEventListener("DOMContentLoaded", function () {
-  const track = document.querySelector(".product-track");
-  const wrapper = document.querySelector(".product-slider");
-
-  // Clone slides for infinite seamless loop
-  const slides = Array.from(track.children);
-  slides.forEach(slide => track.appendChild(slide.cloneNode(true)));
-
-  let speed = 1; // adjust speed
-  let offset = 0;
-  let isPaused = false;
-
-  wrapper.addEventListener("mouseenter", () => isPaused = true);
-  wrapper.addEventListener("mouseleave", () => isPaused = false);
-
-  function animate() {
-    if (!isPaused) {
-      offset -= speed;
-
-      // Use modulo to loop smoothly without jump
-      offset %= track.scrollWidth / 2;
-
-      track.style.transform = `translateX(${offset}px)`;
-    }
-
-    requestAnimationFrame(animate);
-  }
-
-  animate();
-}); {% endcomment %}
-
-
 document.addEventListener("DOMContentLoaded", function () {
   const track = document.querySelector(".product-track");
   const wrapper = document.querySelector(".product-slider");
