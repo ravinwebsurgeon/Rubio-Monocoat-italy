@@ -10,7 +10,10 @@
 {
   "sections": {
     "announcement-bar": {
-      "settings": {},
+      "settings": {
+        "b2b_text": "Login",
+        "b2b_text_link": "https://order.rubiomonocoat.com/en-gb/account/"
+      },
       "blocks": {
         "announcement-bar-0": {
           "settings": {
