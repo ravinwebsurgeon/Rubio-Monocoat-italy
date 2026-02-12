@@ -366,49 +366,6 @@
 }
 </style>
 
-{% comment %} <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const faqItems = document.querySelectorAll(".faq-item");
-
-  faqItems.forEach((item) => {
-    const question = item.querySelector(".faq-question");
-    const answer = item.querySelector(".faq-answer");
-
-    // OPEN default active
-    if (item.classList.contains("active")) {
-      answer.style.height = answer.scrollHeight + "px";
-    }
-
-    question.addEventListener("click", () => {
-      const isActive = item.classList.contains("active");
-
-      if (isActive) {
-        // CLOSE
-        item.classList.remove("active");
-        answer.style.height = answer.scrollHeight + "px";
-        requestAnimationFrame(() => {
-          answer.style.height = "0px";
-        });
-      } else {
-        // OPEN
-        item.classList.add("active");
-        answer.style.height = "0px";
-        requestAnimationFrame(() => {
-          answer.style.height = answer.scrollHeight + "px";
-        });
-      }
-    });
-
-    // reset to auto height after open
-    answer.addEventListener("transitionend", () => {
-      if (item.classList.contains("active")) {
-        answer.style.height = "auto";
-      }
-    });
-  });
-});
-</script> {% endcomment %}
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const faqItems = document.querySelectorAll(".faq-item");
