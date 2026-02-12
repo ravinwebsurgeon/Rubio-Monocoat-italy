@@ -20,6 +20,24 @@
           "settings": {
             "subtext": "<p><strong>Rubio Monocoat Norway AS </strong><br/>Kolonivegen 43<br/>2072 DAL<br/>Norge<br/>MVA :NO920826148MVA<br/>+47 63 95 63 95<br/>info-no@rubiomonocoat.com</p>"
           }
+        },
+        "country_social_gWTFPf": {
+          "settings": {
+            "country": "NO",
+            "url": "https://www.instagram.com/rubiomonocoatnorway/"
+          }
+        },
+        "country_social_jyNNYq": {
+          "settings": {
+            "country": "NO",
+            "url": "https://www.facebook.com/rubiomonocoatnorge"
+          }
+        },
+        "country_social_NGFKiF": {
+          "settings": {
+            "country": "NO",
+            "url": "https://www.youtube.com/c/RubioMonocoatRMC"
+          }
         }
       }
     }
