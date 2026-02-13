@@ -1,4 +1,4 @@
-{% assign show_desktop = section.settings.show_on_desktop %}
+{% comment %} {% assign show_desktop = section.settings.show_on_desktop %}
 {% assign show_mobile = section.settings.show_on_mobile %}
 
 {% unless product.tags contains 'icons_section' %}
@@ -85,6 +85,305 @@
   gap: 15px;
   flex-direction: column;
   text-align:center;
+}
+.icon-part img {
+  max-width: 64px;
+  height: auto;
+}
+.text-part h3 {
+  margin: 0;
+  font-size: 18px;
+  text-align:center;
+}
+.text-part p {
+  margin: 4px 0;
+  font-size: 14px;
+  text-align:center;
+}
+
+/* Default: show on both if no special class */
+.four-containers_outer {
+  display: block;
+}
+
+/* Desktop only */
+.desktop-only {
+  display: block;
+}
+.four-containers_outer.pdp-icons-sec { 
+    margin: 0;
+}
+@media screen and (max-width: 767px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+/* Mobile only */
+.mobile-only {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  .mobile-only {
+    display: block !important;
+  }
+}
+
+
+
+</style>
+
+{% schema %}
+{
+  "name": "icons section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class"
+    },
+     {
+      "type": "checkbox",
+      "id": "show_on_desktop",
+      "label": "Show on Desktop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_on_mobile",
+      "label": "Show on Mobile",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "container",
+      "name": "Container",
+      "settings": [
+        {
+          "type": "text",
+          "id": "class",
+          "label": "Section Class"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Sample Heading"
+        },
+        {
+          "type": "text",
+          "id": "subhead",
+          "label": "Sub head"
+        },
+        {
+          "type": "text",
+          "id": "subtext",
+          "label": "Sub Text",
+          "default": "This is subtext"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_feature",
+          "label": "Clickable Email & Phone",
+        },
+        {
+          "type": "select",
+          "id": "link_type",
+          "label": "Subtext type",
+          "options": [
+            { "value": "email", "label": "Email" },
+            { "value": "phone", "label": "Phone number" }
+          ],
+          "default": "email"
+        },
+        {
+          "type": "text",
+          "id": "extra_text",
+          "label": "Extra Text",
+          "default": "Additional details here"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "icons section",
+      "category": "Custom",
+      "blocks": [
+        { "type": "container" },
+        { "type": "container" },
+        { "type": "container" },
+        { "type": "container" }
+      ]
+    }
+  ]
+}
+{% endschema %} {% endcomment %}
+
+
+{% assign show_desktop = section.settings.show_on_desktop %}
+{% assign show_mobile = section.settings.show_on_mobile %}
+
+{% unless product.tags contains 'icons_section' %}
+{% if show_desktop or show_mobile %}
+  <div class="four-containers_outer  
+    {% if show_desktop %}
+      {% if show_mobile == false %} desktop-only {% endif %}
+    {% endif %}
+    {% if show_mobile %}
+      {% if show_desktop == false %} mobile-only {% endif %}
+    {% endif %}  {{ section.settings.custom_class }} ">
+    
+    {% comment %} <div class="four-containers">
+      {% for block in section.blocks %}
+          {% assign link_url = '' %}
+            {% if block.settings.enable_feature %}
+              {% assign value = block.settings.subtext | strip_html | strip %}
+
+              {% if block.settings.link_type == 'email' and value != blank %}
+                {% assign link_url = 'mailto:' | append: value %}
+              {% elsif block.settings.link_type == 'phone' and value != blank %}
+                {% assign clean_phone = value | remove: ' ' %}
+                {% assign link_url = 'tel:' | append: clean_phone %}
+              {% endif %}
+            {% endif %}
+
+            {% if link_url != '' %}
+              <a href="{{ link_url }}" class="custom-contact-link">
+            {% endif %}
+        <div class="container-item {{ block.settings.class }}">
+          <div class="icon-part">
+            {% if block.settings.icon %}
+              <img src="{{ block.settings.icon | img_url: '64x64' }}" alt="Icon" loading="lazy" />
+            {% endif %}
+          </div>
+          <div class="text-part">
+            <h3>{{ block.settings.heading }}</h3>
+           
+            <div class="available-and-text">
+              <span>{{ block.settings.subhead }}</span>
+              <p>{{ block.settings.subtext }}</p>
+            </div>
+           
+            <p>{{ block.settings.extra_text }}</p>
+          </div>
+        </div>
+        {% if link_url != '' %}</a>{% endif %}
+      {% endfor %}
+    </div> {% endcomment %}
+    <div class="four-containers">
+  {% for block in section.blocks %}
+    {% assign link_url = '' %}
+    {% if block.settings.enable_feature %}
+      {% assign value = block.settings.subtext | strip_html | strip %}
+
+      {% if block.settings.link_type == 'email' and value != blank %}
+        {% assign link_url = 'mailto:' | append: value %}
+      {% elsif block.settings.link_type == 'phone' and value != blank %}
+        {% assign clean_phone = value | remove: ' ' %}
+        {% assign link_url = 'tel:' | append: clean_phone %}
+      {% endif %}
+    {% endif %}
+
+    <div class="container-item {{ block.settings.class }}">
+      
+      {% if link_url != '' %}
+        <a href="{{ link_url }}" class="custom-contact-link">
+      {% endif %}
+
+        <div class="icon-part">
+          {% if block.settings.icon %}
+            <img src="{{ block.settings.icon | img_url: '64x64' }}" alt="Icon" loading="lazy" />
+          {% endif %}
+        </div>
+
+        <div class="text-part">
+          <h3>{{ block.settings.heading }}</h3>
+          <div class="available-and-text">
+            <span>{{ block.settings.subhead }}</span>
+            <p>{{ block.settings.subtext }}</p>
+          </div>
+          <p>{{ block.settings.extra_text }}</p>
+        </div>
+
+      {% if link_url != '' %}
+        </a>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+  </div>
+{% endif %}
+{% endunless %}
+
+
+
+<style>
+  .custom-contact-link{
+    display: flex;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  .container-item a.custom-contact-link {
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.container-item a.custom-contact-link:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+  .four-containers_outer .first-container-sec .available-and-text {
+    display: flex;
+    {% comment %} justify-content: center; {% endcomment %}
+    align-items: center;
+    margin: 5px 0 15px;
+    color: #000000b2 !important;
+}
+
+.four-containers_outer .first-container-sec .available-and-text p, .four-containers_outer .first-container-sec .available-and-text p a {
+    margin: 0;
+        color: #000000b2 !important;
+        text-decoration: none;
+}
+
+.four-containers_outer .first-container-sec .available-and-text span {
+    margin-right: 5px;
+    font-size: 16px;
+    line-height: 10px;
+    color: #000000b2 !important;
+}
+
+.four-containers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.container-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-direction: column;
+  text-align:center;
+  position:relative;
 }
 .icon-part img {
   max-width: 64px;
