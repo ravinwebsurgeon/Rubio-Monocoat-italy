@@ -1042,19 +1042,22 @@ function updateVariantId(cart, variants, variantIdInput) {
 
   } else {
     console.warn("No variant matches:", selectedOptions);
-   
-        const allImages = cart.querySelectorAll(".product__image__item");
-        // Check if all images are hidden
-        const allHidden = Array.from(allImages).every(img => {
-          return window.getComputedStyle(img).display === "none";
-        });
-
-        if (allHidden && allImages.length > 0) {
-          allImages[0].style.display = "block";
-        }
-           cart.querySelector('.product_cart_btn.ajax__cart').classList.add('disabled-btn')
-          cart.querySelector('.product_cart_btn.ajax__cart').textContent = `{{ 'products.product.sold_out' | t }}`
-          cart.querySelector('.product_cart_btn.ajax__cart').disabled = true;
+    const allImages = cart.querySelectorAll(".product__image__item");
+    // Check if all images are hidden
+    const allHidden = Array.from(allImages).every(img => {
+      return window.getComputedStyle(img).display === "none";
+    });
+    if (allHidden && allImages.length > 0) {
+      allImages[0].style.display = "block";
+    }
+    if (variants.length === 1 &&(variants[0].options.length === 0 ||variants[0].options[0] === "Default Title")) {
+          console.log('dont change cart btn action')
+    }
+   else{
+      cart.querySelector('.product_cart_btn.ajax__cart').classList.add('disabled-btn')
+      cart.querySelector('.product_cart_btn.ajax__cart').textContent = `{{ 'products.product.sold_out' | t }}`
+      cart.querySelector('.product_cart_btn.ajax__cart').disabled = true;
+   }
   }
 }
 function handleStockInventory(cart,id){
