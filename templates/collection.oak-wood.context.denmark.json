@@ -9,6 +9,15 @@
  */
 {
   "sections": {
+    "product-grid": {
+      "settings": {
+        "learn_more_collection": "Learn More",
+        "all_products_heading": "",
+        "choose_text": "Choose options",
+        "view_btn": "View Details"
+      },
+      "blocks": {}
+    },
     "icons_section_7qKdwJ": {
       "settings": {},
       "blocks": {
@@ -27,12 +36,6 @@
           }
         }
       }
-    },
-    "product-grid": {
-      "settings": {
-        "learn_more_collection": "Learn More"
-      },
-      "blocks": {}
     }
   },
   "context": {
