@@ -119,8 +119,8 @@
 
       {% if is_size_option and current_variant %}
         <div class="custom_price_value" style="display:flex;">
-           {% assign country_iso = localization.country.iso_code | downcase %}
-           {% assign custom_index = '' %}
+          {% assign country_iso = localization.country.iso_code | downcase %}
+          {% assign custom_index = '' %}
           {% if country_iso == 'it' and user_lang == 'it' %}{% assign custom_index = 'it' %}{% endif %} {% comment %}Italy and Italian {% endcomment %}
             {% if country_iso == 'dk' and user_lang == 'da' %}{% assign custom_index = 'dk' %}{% endif %} {% comment %}Denmark and Danish {%endcomment %}
             {% if country_iso == 'no' and user_lang == 'nb' %}{% assign custom_index = 'no' %}{% endif %} {% comment %}Norway and Norwegian {%endcomment %}
