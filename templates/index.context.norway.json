@@ -20,8 +20,9 @@
           "disabled": false,
           "settings": {
             "class": "",
+            "heading": "Telephone Advice",
             "subhead": "+47 63 95 63 95",
-            "heading": "Telephone Advice"
+            "link_type": "phone"
           }
         },
         "container_EGhzFM": {
