@@ -19,10 +19,10 @@
         "container_X3D3LU": {
           "disabled": false,
           "settings": {
+            "class": "",
             "heading": "Telephone Advice",
             "subhead": "+47 63 95 63 95",
-            "extra_text": "",
-            "class": ""
+            "extra_text": ""
           }
         },
         "container_BxEzhc": {
@@ -31,6 +31,12 @@
           }
         }
       }
+    },
+    "product-grid": {
+      "settings": {
+        "learn_more_collection": "Learn More"
+      },
+      "blocks": {}
     }
   }
 }
