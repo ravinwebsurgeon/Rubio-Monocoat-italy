@@ -11,7 +11,7 @@
   "sections": {
     "announcement-bar": {
       "settings": {
-        "b2b_text": "Login",
+        "b2b_text": "B2B Portal",
         "b2b_text_link": "https://order.rubiomonocoat.com/en-gb/account/"
       },
       "blocks": {
