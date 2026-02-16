@@ -8,21 +8,16 @@
  * ------------------------------------------------------------
  */
 {
-  "markets": {
-    "it": {
-      "parent": "@default"
-    },
-    "united-kingdom": {
-      "parent": "@default"
-    },
-    "denmark": {
-      "parent": "@default"
-    },
-    "norway": {
-      "parent": "@default"
-    },
-    "sweden": {
-      "parent": "@default"
+  "context": {
+    "market": "sweden"
+  },
+  "parent": "collection.oak-wood.json",
+  "sections": {
+    "product-grid": {
+      "settings": {
+        "learn_more_collection": "Learn More"
+      },
+      "blocks": {}
     }
   }
 }
