@@ -21,8 +21,9 @@
           "settings": {
             "class": "",
             "heading": "Telephone Advice",
-            "subhead": "+47 63 95 63 95",
-            "extra_text": ""
+            "subhead": "",
+            "extra_text": "",
+            "subtext": "+47 63 95 63 95"
           }
         },
         "container_FjdR8H": {
