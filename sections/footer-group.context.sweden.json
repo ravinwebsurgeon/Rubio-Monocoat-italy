@@ -16,11 +16,6 @@
     "footer": {
       "settings": {},
       "blocks": {
-        "text_hWeadq": {
-          "settings": {
-            "subtext": "<p><strong>Rubio Monocoat Sweden A.B.</strong><br/>Sandsborgsvägen 50-52<br/>122 33 Enskede<br/>Sverige<br/>Moms: SE556855771301<br/>+46 81 010 12<br/>service@rubiomonocoat.se</p>"
-          }
-        },
         "country_social_gWTFPf": {
           "settings": {
             "country": "SE",
@@ -38,8 +33,43 @@
             "country": "SE",
             "url": "https://www.youtube.com/@rubiomonocoatscandinavia"
           }
+        },
+        "country_social_GXT9jX": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "SE",
+            "label": "Pinterest",
+            "url": "https://www.pinterest.com/rubiomonocoat/_created/"
+          }
+        },
+        "country_social_kU8kLz": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "SE",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@rubiomonocoat"
+          }
+        },
+        "text_hWeadq": {
+          "settings": {
+            "subtext": "<p><strong>Rubio Monocoat Sweden A.B.</strong><br/>Sandsborgsvägen 50-52<br/>122 33 Enskede<br/>Sverige<br/>Moms: SE556855771301<br/>+46 81 010 12<br/>service@rubiomonocoat.se</p>"
+          }
         }
-      }
+      },
+      "block_order": [
+        "country_social_gWTFPf",
+        "country_social_jyNNYq",
+        "country_social_NGFKiF",
+        "country_social_GXT9jX",
+        "country_social_kU8kLz",
+        "brand_information_A98rgG",
+        "link_list_tfK6cN",
+        "link_list_KBYewH",
+        "link_list_cERTPd",
+        "text_hWeadq"
+      ]
     }
   }
 }
