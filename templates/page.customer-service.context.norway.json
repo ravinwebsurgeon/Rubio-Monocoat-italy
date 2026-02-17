@@ -13,25 +13,6 @@
   },
   "parent": "page.customer-service.json",
   "sections": {
-    "icons_section_rzewec": {
-      "settings": {},
-      "blocks": {
-        "container_wfiezd": {
-          "disabled": false,
-          "settings": {
-            "class": "",
-            "heading": "Telephone Advice",
-            "subhead": "+47 63 95 63 95",
-            "extra_text": ""
-          }
-        },
-        "container_bxqMjj": {
-          "settings": {
-            "subtext": "info-no@rubiomonocoat.com"
-          }
-        }
-      }
-    },
     "contact_options_FYkrkp": {
       "settings": {
         "call_link": "tel:+47 63 95 63 95",
@@ -52,6 +33,26 @@
           "settings": {
             "subtitle": "info-no@rubiomonocoat.com",
             "link": "mailto:info-no@rubiomonocoat.com"
+          }
+        }
+      }
+    },
+    "icons_section_rzewec": {
+      "settings": {},
+      "blocks": {
+        "container_wfiezd": {
+          "disabled": false,
+          "settings": {
+            "class": "",
+            "heading": "Telephone Advice",
+            "subhead": "",
+            "extra_text": "",
+            "subtext": "+47 63 95 63 95"
+          }
+        },
+        "container_bxqMjj": {
+          "settings": {
+            "subtext": "info-no@rubiomonocoat.com"
           }
         }
       }
