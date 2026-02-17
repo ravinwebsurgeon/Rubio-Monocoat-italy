@@ -13,30 +13,32 @@
   },
   "parent": "page.faqs-order.json",
   "sections": {
+    "faqs_gnazct": {
+      "settings": {},
+      "blocks": {
+        "faq_item_bJ33cX": {
+          "settings": {
+            "answer": "For orders up to 600 NOK incl. VAT, you pay the shipping costs. If the delivery address is in Norway, the shipping costs are 49 NOK. When you spend 600 NOK incl. VAT or more, you pay no shipping costs."
+          }
+        }
+      }
+    },
     "icons_section_Q84VnV": {
       "settings": {},
       "blocks": {
         "container_K8pcTz": {
           "disabled": false,
           "settings": {
-            "heading": "Telephone Advice",
             "class": "",
+            "heading": "Telephone Advice",
             "subhead": "+47 63 95 63 95",
-            "extra_text": ""
+            "extra_text": "",
+            "subtext": "+47 63 95 63 95"
           }
         },
         "container_aYeRcN": {
           "settings": {
             "subtext": "info-no@rubiomonocoat.com"
-          }
-        }
-      }
-    },
-    "faqs_gnazct": {
-      "blocks": {
-        "faq_item_bJ33cX": {
-          "settings": {
-            "answer": "For orders up to 600 NOK incl. VAT, you pay the shipping costs. If the delivery address is in Norway, the shipping costs are 49 NOK. When you spend 600 NOK incl. VAT or more, you pay no shipping costs."
           }
         }
       }
