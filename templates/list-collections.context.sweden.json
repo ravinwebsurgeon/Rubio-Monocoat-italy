@@ -14,6 +14,13 @@
   "parent": "list-collections.json",
   "sections": {
     "icons_section_9q3gpk": {
+      "custom_css": [
+        ".four-containers_outer {background: #396948 !important;}",
+        ".four-containers {display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;}",
+        ".four-containers .container-item {background: #457253; border-radius: 10px; padding: 17px; flex: 0 0 320px; min-height: 140px; text-align: center;}",
+        ".container-item,.container-item * {color: #fff;}",
+        ".container-item.is-hidden {display: none;}"
+      ],
       "settings": {},
       "blocks": {
         "container_6KDyGn": {
@@ -22,16 +29,16 @@
             "class": "",
             "heading": "Telephone Advice",
             "subtext": "+46 81 010 12",
-            "extra_text": "",
+            "enable_feature": true,
             "link_type": "phone",
-            "enable_feature": true
+            "extra_text": ""
           }
         },
         "container_4cUfFf": {
           "settings": {
+            "heading": "Send Us an Email",
             "subtext": "service@rubiomonocoat.se",
-            "enable_feature": true,
-            "heading": "Send Us an Email"
+            "enable_feature": true
           }
         },
         "container_aptTCm": {
