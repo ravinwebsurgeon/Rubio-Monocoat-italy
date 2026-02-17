@@ -23,6 +23,25 @@
           }
         }
       }
+    },
+    "icons_section_t3Wiqj": {
+      "settings": {},
+      "blocks": {
+        "container_QCLTc8": {
+          "disabled": false,
+          "settings": {
+            "class": "",
+            "heading": "Telephone Advice",
+            "subtext": "+47 63 95 63 95",
+            "extra_text": ""
+          }
+        },
+        "container_yzi7tm": {
+          "settings": {
+            "subtext": "info-no@rubiomonocoat.com"
+          }
+        }
+      }
     }
   }
 }
