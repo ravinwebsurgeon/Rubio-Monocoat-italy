@@ -19,10 +19,11 @@
         "container_PaMNwN": {
           "disabled": false,
           "settings": {
-            "subhead": "+47 63 95 63 95",
-            "extra_text": "",
             "class": "",
-            "heading": "Telephone Advice"
+            "heading": "Telephone Advice",
+            "subhead": "",
+            "extra_text": "",
+            "subtext": "+47 63 95 63 95"
           }
         },
         "container_jt44Hk": {
