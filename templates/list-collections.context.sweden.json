@@ -12,5 +12,35 @@
     "market": "sweden"
   },
   "parent": "list-collections.json",
-  "sections": {}
+  "sections": {
+    "icons_section_9q3gpk": {
+      "settings": {},
+      "blocks": {
+        "container_6KDyGn": {
+          "disabled": false,
+          "settings": {
+            "class": "",
+            "heading": "Telephone Advice",
+            "subtext": "+46 81 010 12",
+            "extra_text": "",
+            "link_type": "phone",
+            "enable_feature": true
+          }
+        },
+        "container_4cUfFf": {
+          "settings": {
+            "subtext": "service@rubiomonocoat.se",
+            "enable_feature": true,
+            "heading": "Send Us an Email"
+          }
+        },
+        "container_aptTCm": {
+          "settings": {
+            "heading": "Ask Our Experts",
+            "subtext": "Get personalized help based on your project"
+          }
+        }
+      }
+    }
+  }
 }
