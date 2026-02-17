@@ -19,10 +19,11 @@
         "container_MBf3h7": {
           "disabled": false,
           "settings": {
+            "class": "",
             "heading": "Telephone Advice",
-            "subhead": "+47 63 95 63 95",
+            "subhead": "",
             "extra_text": "",
-            "class": ""
+            "subtext": "+47 63 95 63 95"
           }
         },
         "container_BEfXan": {
