@@ -12,5 +12,25 @@
     "market": "sweden"
   },
   "parent": "product.colorproduct.json",
-  "sections": {}
+  "sections": {
+    "icons_section_VqU6QH": {
+      "settings": {},
+      "blocks": {
+        "container_EQkbb7": {
+          "disabled": false,
+          "settings": {
+            "heading": "Telephone Advice",
+            "class": "",
+            "subtext": "+46 81 010 12",
+            "extra_text": ""
+          }
+        },
+        "container_FjdR8H": {
+          "settings": {
+            "subtext": "service@rubiomonocoat.se"
+          }
+        }
+      }
+    }
+  }
 }
