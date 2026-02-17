@@ -12,5 +12,20 @@
     "market": "sweden"
   },
   "parent": "cart.json",
-  "sections": {}
+  "sections": {
+    "icons_section_ydUpbm": {
+      "settings": {},
+      "blocks": {
+        "container_QXp6CL": {
+          "disabled": false,
+          "settings": {
+            "class": "",
+            "heading": "Telephone Advice",
+            "subtext": "+46 81 010 12",
+            "extra_text": ""
+          }
+        }
+      }
+    }
+  }
 }
