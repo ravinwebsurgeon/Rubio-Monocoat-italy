@@ -18,6 +18,25 @@
         "learn_more_collection": "Learn More"
       },
       "blocks": {}
+    },
+    "icons_section_7qKdwJ": {
+      "settings": {},
+      "blocks": {
+        "container_X3D3LU": {
+          "disabled": false,
+          "settings": {
+            "heading": "Telephone Advice",
+            "subtext": "+46 81 010 12",
+            "class": "",
+            "extra_text": ""
+          }
+        },
+        "container_BxEzhc": {
+          "settings": {
+            "subtext": "service@rubiomonocoat.se"
+          }
+        }
+      }
     }
   }
 }
