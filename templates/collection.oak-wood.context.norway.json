@@ -13,6 +13,12 @@
   },
   "parent": "collection.oak-wood.json",
   "sections": {
+    "product-grid": {
+      "settings": {
+        "learn_more_collection": "Learn More"
+      },
+      "blocks": {}
+    },
     "icons_section_7qKdwJ": {
       "settings": {},
       "blocks": {
@@ -21,8 +27,9 @@
           "settings": {
             "class": "",
             "heading": "Telephone Advice",
-            "subhead": "+47 63 95 63 95",
-            "extra_text": ""
+            "subhead": "",
+            "extra_text": "",
+            "subtext": "+47 63 95 63 95"
           }
         },
         "container_BxEzhc": {
@@ -31,12 +38,6 @@
           }
         }
       }
-    },
-    "product-grid": {
-      "settings": {
-        "learn_more_collection": "Learn More"
-      },
-      "blocks": {}
     }
   }
 }
