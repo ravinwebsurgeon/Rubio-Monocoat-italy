@@ -31,6 +31,17 @@
           }
         }
       }
+    },
+    "main": {
+      "settings": {},
+      "blocks": {
+        "icon_with_text_hk7wi6": {
+          "settings": {
+            "heading_1": "Free shipping from 600 SEK",
+            "heading_2": "Delivery 3-5 days"
+          }
+        }
+      }
     }
   }
 }
