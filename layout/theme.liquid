@@ -1503,7 +1503,7 @@ async function detectCountry() {
 
 </script>
 <!-- Utilize StorefrontHelper to enrich product JSON with locale-aware titles -->
-<script>
+{% comment %} <script>
   // update product JSON every time products are loaded or changed
   document.addEventListener('rebuy.productsChange', (e) => {
     const widget = e.detail.widget;
@@ -1512,6 +1512,6 @@ async function detectCountry() {
     // loop over products in the widget and enrich product json
     widget.data.products.forEach((product) => storefrontHelper.updateProductJSON(product));
   });
-</script>
+</script> {% endcomment %}
   </body>
 </html>
