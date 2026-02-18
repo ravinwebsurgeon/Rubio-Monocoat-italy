@@ -14,14 +14,17 @@
   "parent": "page.customer-service.json",
   "sections": {
     "contact_options_FYkrkp": {
+      "custom_css": [
+        ".advice-card {background: transparent !important;}"
+      ],
       "settings": {
-        "call_link": "",
-        "email_link": "",
         "availability_text": "Our team is available mo - fr from 8:30 am - 15:30 pm",
         "right_heading": "",
         "right_description": "",
         "call_text": "",
-        "email_text": ""
+        "call_link": "",
+        "email_text": "",
+        "email_link": ""
       },
       "blocks": {
         "contact_method_mVcVkc": {
