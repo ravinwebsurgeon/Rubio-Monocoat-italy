@@ -15,8 +15,13 @@
   "sections": {
     "contact_options_FYkrkp": {
       "settings": {
-        "call_link": "tel:+47 63 95 63 95",
-        "email_link": "mailto:info-no@rubiomonocoat.com"
+        "call_link": "",
+        "email_link": "",
+        "availability_text": "Our team is available mo - fr from 8:30 am - 15:30 pm",
+        "right_heading": "",
+        "right_description": "",
+        "call_text": "",
+        "email_text": ""
       },
       "blocks": {
         "contact_method_mVcVkc": {
@@ -30,10 +35,23 @@
           }
         },
         "contact_method_JF4YCW": {
+          "disabled": false,
           "settings": {
             "subtitle": "info-no@rubiomonocoat.com",
             "link": "mailto:info-no@rubiomonocoat.com"
           }
+        },
+        "team_member_jNKWWh": {
+          "disabled": true,
+          "settings": {}
+        },
+        "team_member_DxJkEh": {
+          "disabled": true,
+          "settings": {}
+        },
+        "team_member_W8EVBN": {
+          "disabled": true,
+          "settings": {}
         }
       }
     },
@@ -46,8 +64,8 @@
             "class": "",
             "heading": "Telephone Advice",
             "subhead": "",
-            "extra_text": "",
-            "subtext": "+47 63 95 63 95"
+            "subtext": "+47 63 95 63 95",
+            "extra_text": ""
           }
         },
         "container_bxqMjj": {
