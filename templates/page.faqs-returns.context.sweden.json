@@ -17,10 +17,12 @@
       "settings": {},
       "blocks": {
         "container_K8pcTz": {
-          "disabled": true,
+          "disabled": false,
           "settings": {
             "heading": "Telephone Advice",
-            "subtext": "+46 81 010 12"
+            "subtext": "+46 81 010 12",
+            "extra_text": "",
+            "class": ""
           }
         },
         "container_aYeRcN": {
