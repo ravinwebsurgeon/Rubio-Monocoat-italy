@@ -12,5 +12,25 @@
     "market": "sweden"
   },
   "parent": "page.all-reviews-seo.json",
-  "sections": {}
+  "sections": {
+    "icons_section_T466iz": {
+      "settings": {},
+      "blocks": {
+        "container_gGfKrg": {
+          "disabled": false,
+          "settings": {
+            "class": "",
+            "heading": "Telephone Advice",
+            "subtext": "+46 81 010 12",
+            "extra_text": ""
+          }
+        },
+        "container_myEtjz": {
+          "settings": {
+            "subtext": "service@rubiomonocoat.se"
+          }
+        }
+      }
+    }
+  }
 }
