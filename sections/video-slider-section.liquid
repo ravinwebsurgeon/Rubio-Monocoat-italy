@@ -77,7 +77,13 @@
 
           {% for option in product.options_with_values %}
               {% assign opt_name = option.name | downcase %}
-              {% if opt_name == 'color' or opt_name == 'colour' or opt_name == 'colore' or opt_name == 'farve' %}
+              {% if 
+                opt_name == 'color' or
+                opt_name == 'colour' or
+                opt_name == 'colore' or 
+                opt_name == 'farve' or
+                opt_name == 'farge' 
+                %}
                   {% for value in option.values %}
                       {% assign val_down = value | downcase %}
                       {% if value == selected_variant.option1 %}
