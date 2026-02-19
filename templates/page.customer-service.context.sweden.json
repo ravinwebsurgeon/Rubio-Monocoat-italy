@@ -19,15 +19,59 @@
         "container_wfiezd": {
           "disabled": false,
           "settings": {
+            "class": "",
             "heading": "Telephone Advice",
             "subtext": "+46 81 010 12",
-            "extra_text": "",
-            "class": ""
+            "extra_text": ""
           }
         },
         "container_bxqMjj": {
           "settings": {
             "subtext": "service@rubiomonocoat.se"
+          }
+        }
+      }
+    },
+    "contact_options_FYkrkp": {
+      "custom_css": [
+        ".advice-card {background: transparent !important;}"
+      ],
+      "settings": {
+        "availability_text": "Our team is available mo - fr from 8:30 am - 5:00 pm",
+        "right_heading": "",
+        "right_description": "",
+        "call_text": "",
+        "email_text": "",
+        "call_link": "",
+        "email_link": ""
+      },
+      "blocks": {
+        "team_member_jNKWWh": {
+          "disabled": true,
+          "settings": {}
+        },
+        "team_member_DxJkEh": {
+          "disabled": true,
+          "settings": {}
+        },
+        "team_member_W8EVBN": {
+          "disabled": true,
+          "settings": {}
+        },
+        "contact_method_mVcVkc": {
+          "disabled": true,
+          "settings": {}
+        },
+        "contact_method_TxekfM": {
+          "settings": {
+            "subtitle": "+46 81 010 12",
+            "link": "tel:+46 81 010 12"
+          }
+        },
+        "contact_method_JF4YCW": {
+          "settings": {
+            "subtitle": "service@rubiomonocoat.se",
+            "link": "mailto:service@rubiomonocoat.se"
           }
         }
       }
