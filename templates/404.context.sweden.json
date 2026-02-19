@@ -1,0 +1,33 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "context": {
+    "market": "sweden"
+  },
+  "parent": "404.json",
+  "sections": {
+    "icons_section_jipyQX": {
+      "settings": {},
+      "blocks": {
+        "container_dFqDif": {
+          "disabled": false,
+          "settings": {
+            "subtext": "+46 81 010 12"
+          }
+        },
+        "container_9NRGxp": {
+          "settings": {
+            "subtext": "service@rubiomonocoat.se"
+          }
+        }
+      }
+    }
+  }
+}
