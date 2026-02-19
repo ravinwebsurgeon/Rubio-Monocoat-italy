@@ -11,6 +11,6 @@
   "context": {
     "market": "sweden"
   },
-  "parent": "blog.tag-blog.json",
+  "parent": "article.tag-articles.json",
   "sections": {}
 }
