@@ -12,5 +12,17 @@
     "market": "sweden"
   },
   "parent": "page.general-conditions.json",
-  "sections": {}
+  "sections": {
+    "icons_section_YzXqMN": {
+      "settings": {},
+      "blocks": {
+        "container_gRftgp": {
+          "disabled": false,
+          "settings": {
+            "extra_text": "Answer the question"
+          }
+        }
+      }
+    }
+  }
 }
