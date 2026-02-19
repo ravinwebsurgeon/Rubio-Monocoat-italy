@@ -846,7 +846,7 @@ button.show-more-swatches {
              const productData = JSON.parse(productJsonEl.textContent);
             const variants = productData.variants;
             const selectedVariant = variants.find(v => v.id === variantIdInt);
-            console.log(selectedVariant.inventory_quantity,'selectedVariant Data') 
+            console.log(selectedVariant.inventory_quantity,selected_quantity,'selectedVariant Data') 
             
             const maxStock = selectedVariant.inventory_quantity;
               if (selected_quantity > maxStock) {
@@ -854,6 +854,36 @@ button.show-more-swatches {
               }
             }
             fetch('/cart/add.js', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+        id: variantId,
+        quantity: selected_quantity
+    })
+})
+.then(async (response) => {
+    const text = await response.text();
+
+    if (!response.ok) {
+        console.error("Server response:", text);
+        throw new Error(`Error ${response.status}`);
+    }
+
+    return text ? JSON.parse(text) : {};
+})
+.then((data) => {
+    console.log('Added to cart:', data);
+    updateCartCount(selected_quantity);
+    refreshCartDrawer();
+})
+.catch((error) => {
+    console.error('Error adding to cart:', error);
+    alert("Something went wrong.");
+});
+            {% comment %} fetch('/cart/add.js', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -873,7 +903,7 @@ button.show-more-swatches {
             .catch(error => {
                 console.error('Error adding to cart:', error);
                 alert("Something went wrong.");
-            });
+            }); {% endcomment %}
         });
     }); 
 });
