@@ -12,5 +12,22 @@
     "market": "sweden"
   },
   "parent": "blog.tag-blog.json",
-  "sections": {}
+  "sections": {
+    "icons_section_XdWayc": {
+      "settings": {},
+      "blocks": {
+        "container_ydfipW": {
+          "disabled": false,
+          "settings": {
+            "subtext": "+46 81 010 12"
+          }
+        },
+        "container_UjEXHD": {
+          "settings": {
+            "subtext": "service@rubiomonocoat.se"
+          }
+        }
+      }
+    }
+  }
 }
