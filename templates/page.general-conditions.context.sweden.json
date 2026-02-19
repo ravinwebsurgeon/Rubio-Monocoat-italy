@@ -19,7 +19,13 @@
         "container_gRftgp": {
           "disabled": false,
           "settings": {
-            "extra_text": "Answer the question"
+            "extra_text": "",
+            "subtext": "+46 81 010 12"
+          }
+        },
+        "container_jB8tDi": {
+          "settings": {
+            "subtext": "service@rubiomonocoat.se"
           }
         }
       }
