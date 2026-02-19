@@ -46,14 +46,14 @@
           "type": "container",
           "disabled": true,
           "settings": {
-            "class": "first-container-sec",
+            "class": "",
             "icon": "shopify://shop_images/phone_1.png",
-            "heading": "Telephone advice",
+            "heading": "Telephone Advice",
             "subhead": "",
             "subtext": "",
             "enable_feature": true,
             "link_type": "phone",
-            "extra_text": "Answer the questions"
+            "extra_text": ""
           }
         },
         "container_bVy9hB": {
