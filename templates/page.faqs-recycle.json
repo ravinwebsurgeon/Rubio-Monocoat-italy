@@ -127,6 +127,7 @@
       "blocks": {
         "container_K8pcTz": {
           "type": "container",
+          "disabled": true,
           "settings": {
             "class": "",
             "icon": "shopify://shop_images/phone_1.png",

@@ -47,8 +47,13 @@
       "blocks": {
         "container_aYeRcN": {
           "settings": {
-            "enable_feature": true
+            "enable_feature": true,
+            "subtext": "info@rubiomonocoat.it"
           }
+        },
+        "container_K8pcTz": {
+          "disabled": true,
+          "settings": {}
         }
       }
     }
