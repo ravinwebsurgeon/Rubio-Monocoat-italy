@@ -35,6 +35,15 @@
           }
         }
       }
+    },
+    "faqs_8jPU7r": {
+      "blocks": {
+        "faq_item_f4NCJY": {
+          "settings": {
+            "answer": "We work with Postnord MyPack for deliveries. Unfortunately, we don’t have direct control over the shipping process once your order has been handed over to the carrier. In case of a delay, we recommend contacting your local Postnord MyPack office for the most up-to-date information about your shipment."
+          }
+        }
+      }
     }
   }
 }
