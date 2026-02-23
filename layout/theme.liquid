@@ -872,6 +872,17 @@ document.addEventListener("DOMContentLoaded", function() {
         s.parentNode.insertBefore(t, s);
     })();
   </script>
+  <!-- Utilize StorefrontHelper to enrich product JSON with locale-aware titles -->
+<script>
+  // update product JSON every time products are loaded or changed
+  document.addEventListener('rebuy.productsChange', (e) => {
+    const widget = e.detail.widget;
+    const storefrontHelper = new ShopifyStorefrontHelper();
+
+    // loop over products in the widget and enrich product json
+    widget.data.products.forEach((product) => storefrontHelper.updateProductJSON(product));
+  });
+</script>
   </head>
 
   <body class="template{{ template | handle }} gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
@@ -1502,17 +1513,7 @@ async function detectCountry() {
 }
 
 </script>
-<!-- Utilize StorefrontHelper to enrich product JSON with locale-aware titles -->
-<script>
-  // update product JSON every time products are loaded or changed
-  document.addEventListener('rebuy.productsChange', (e) => {
-    const widget = e.detail.widget;
-    const storefrontHelper = new ShopifyStorefrontHelper();
 
-    // loop over products in the widget and enrich product json
-    widget.data.products.forEach((product) => storefrontHelper.updateProductJSON(product));
-  });
-</script>
   <script src="https://partnertrackshopify.dk/js/register.js" async></script>
   </body>
 </html>
