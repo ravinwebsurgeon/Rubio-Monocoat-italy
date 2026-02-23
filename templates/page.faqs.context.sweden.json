@@ -1,0 +1,31 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "page.faqs.json",
+  "context": {
+    "market": "sweden"
+  },
+  "sections": {
+    "faqs_ppyHAH": {
+      "blocks": {
+        "faq_item_bdXqaH": {
+          "settings": {
+            "answer": "Orders are shipped with Postnord MyPack and delivery time is normally 3 to 5 working days. Please note that orders placed during the weekend will be processed the next working day."
+          }
+        },
+        "faq_item_cenpwh": {
+          "settings": {
+            "answer": "We work with Postnord MyPack for deliveries. Unfortunately, we don’t have direct control over the shipping process once your order has been handed over to the carrier. In case of a delay, we recommend contacting your local Postnord MyPack office for the most up-to-date information about your shipment."
+          }
+        }
+      }
+    }
+  }
+}
