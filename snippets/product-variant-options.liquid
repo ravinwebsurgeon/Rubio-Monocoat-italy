@@ -108,7 +108,7 @@
 
       {% comment %} {% if option.name == 'Size' and current_variant %} {% endcomment %}
       {% comment %} {% if parent_loop_index  == 2  and current_variant %} {% endcomment %}
-       {% assign size_names = "Size,Formato,Størrelse" | split: "," %}
+       {% assign size_names = "Size,Formato,Størrelse","Storlek " | split: "," %}
        {% assign is_size_option = false %}
         {% for name in size_names %}
           {% if option.name == name %}
