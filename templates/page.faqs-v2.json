@@ -113,11 +113,11 @@
             "answer": "You have the right to withdraw from your purchase within 14 days of receiving your order, without giving any reason. If your order contains multiple products delivered on different days, the withdrawal period starts once the last item has been delivered."
           }
         },
-        "faq_item_f4NCJY": {
+        "faq_item_AagYUk": {
           "type": "faq_item",
           "settings": {
             "question": "How can I cancel or return my order?",
-            "answer": "You can notify us of your withdrawal by emailing service@rubiomonocoat.dk or by using our online return form or standard withdrawal form. Just let us know clearly that you wish to return your order."
+            "answer": "You can notify us of your withdrawal by emailing info@rubiomonocoat.it or by using our online return form or standard withdrawal form. Just let us know clearly that you wish to return your order."
           }
         },
         "faq_item_MfGaFp": {
@@ -151,7 +151,7 @@
       },
       "block_order": [
         "faq_item_hRVpJb",
-        "faq_item_f4NCJY",
+        "faq_item_AagYUk",
         "faq_item_MfGaFp",
         "faq_item_zdjEmA",
         "faq_item_8RFaF6",
