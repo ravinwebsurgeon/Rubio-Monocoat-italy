@@ -95,8 +95,8 @@
                       %}
                       <div class="download__content {{ custom_index }} {{ country_iso }} {{ user_lang }}">
                             {% for item in json_downloads %}
-                              {% if item[custom_index] %}
-                                {{ item[custom_index] }}
+                              {% if item['se'] %}
+                                {{ item['se'] }}
                               {% endif %}
                             {% endfor %}
                           </div>
