@@ -232,7 +232,7 @@
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "custom_liquid": "<div class=\"video-container\">\n  <iframe \n    src=\"https://www.youtube.com/embed/PLOlPyUzf5I?si=fDk3MmwVKqcr6WN6\"\n    title=\"YouTube video player\"\n    frameborder=\"0\"\n    allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\"\n    allowfullscreen>\n  </iframe>\n</div>\n\n<style>\n.video-container {\n  width: 100%;\n  max-width: 1000px;     /* Maximale breedte op desktop */\n  margin: 0 auto;        /* Centreert horizontaal */\n  padding: 20px 0;\n}\n\n.video-container iframe {\n  width: 100%;\n  aspect-ratio: 16 / 9;  /* Houdt perfecte verhouding */\n  border-radius: 12px;   /* Optioneel: mooi afgerond */\n}\n</style>",
+        "custom_liquid": "<div class=\"video-container\">\n  <iframe \n    src=\"https://www.youtube.com/embed/PLOlPyUzf5I?rel=0&modestbranding=1\"\n    title=\"YouTube video player\"\n    allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\"\n    allowfullscreen>\n  </iframe>\n</div>\n\n<style>\n.video-container {\n  width: 100%;\n  max-width: 1200px;  /* Groot genoeg voor HD weergave */\n  margin: 0 auto;\n  padding: 40px 0;\n}\n\n.video-container iframe {\n  width: 100%;\n  aspect-ratio: 16 / 9;\n  border: 0;\n}\n</style>",
         "color_scheme": "",
         "padding_top": 40,
         "padding_bottom": 52
