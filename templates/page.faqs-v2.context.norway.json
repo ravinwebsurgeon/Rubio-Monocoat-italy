@@ -40,7 +40,13 @@
     },
     "faqs_8jPU7r": {
       "settings": {},
-      "blocks": {}
+      "blocks": {
+        "faq_item_AagYUk": {
+          "settings": {
+            "answer": "You can notify us of your withdrawal by emailing info-no@rubiomonocoat.com or by using our online return form or standard withdrawal form. Just let us know clearly that you wish to return your order."
+          }
+        }
+      }
     },
     "icons_section_Q84VnV": {
       "settings": {},
