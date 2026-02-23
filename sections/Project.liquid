@@ -1325,12 +1325,12 @@ document.addEventListener('click', (e) => {
         currentLang = document.documentElement.lang;
       }
       const translationMap = {
-        black: { en: 'Black', it: 'Nero', fr: 'Noir', da:'Sort' },
-        Dark: { en: 'Dark', it: 'Scuro', fr:'sombre', da:'Mørk' },
-        Gray: { en: 'Gray', it: 'Grigio', fr:'gris', da:'Grå' },
-        white: { en: 'White', it: 'Bianco', fr: 'Blanc', da:'Hvid' },
-        Bright:   { en: 'Bright', it: 'Vivaci', fr: 'vive',da:'Lys' },
-        Natural: { en: 'Natural', it: 'Naturale', fr: 'naturelle', da:'Naturlig'}
+        black: { en: 'Black', it: 'Nero', fr: 'Noir', da:'Sort' , se:'Svart' },
+        Dark: { en: 'Dark', it: 'Scuro', fr:'sombre', da:'Mørk', se:'Mörk' },
+        Gray: { en: 'Gray', it: 'Grigio', fr:'gris', da:'Grå' ,se:'Grå'},
+        white: { en: 'White', it: 'Bianco', fr: 'Blanc', da:'Hvid', se:'Vit' },
+        Bright:   { en: 'Bright', it: 'Vivaci', fr: 'vive',da:'Lys' se:'Ljus' },
+        Natural: { en: 'Natural', it: 'Naturale', fr: 'naturelle', da:'Naturlig', se:'Naturlig'}
      };
 
       const params = new URLSearchParams(window.location.search);
