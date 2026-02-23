@@ -228,6 +228,16 @@
         "delay_time": 10
       }
     },
+    "custom_liquid_KpYakb": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<div class=\"video-wrapper\">\n  <iframe \n    src=\"https://www.youtube.com/embed/PLOlPyUzf5I?si=fDk3MmwVKqcr6WN6\" \n    title=\"YouTube video player\" \n    frameborder=\"0\" \n    allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" \n    referrerpolicy=\"strict-origin-when-cross-origin\" \n    allowfullscreen>\n  </iframe>\n</div>\n\n<style>\n.video-wrapper {\n  display: flex;\n  justify-content: center;\n  margin: 40px 0;\n}\n\n.video-wrapper iframe {\n  width: 80%;              /* Maak groter of kleiner naar wens */\n  max-width: 1200px;       /* Maximale breedte */\n  aspect-ratio: 16 / 9;    /* Houdt juiste video verhouding */\n  height: auto;\n}\n</style>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "how_to_use_faq_metafield_k4TgDV": {
       "type": "how-to-use-faq-metafield",
       "name": "How To Use FAQ",
@@ -436,6 +446,7 @@
     "certificate_slider_jEWJiA",
     "related-products",
     "video_product_FcVMD6",
+    "custom_liquid_KpYakb",
     "how_to_use_faq_metafield_k4TgDV",
     "technical_info_faq_MAX6Rn",
     "video_slider_section_dQyWeG",
