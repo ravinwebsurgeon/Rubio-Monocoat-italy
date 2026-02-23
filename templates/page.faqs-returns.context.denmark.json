@@ -31,11 +31,6 @@
     "faqs_gnazct": {
       "settings": {},
       "blocks": {
-        "faq_item_iL8tcD": {
-          "settings": {
-            "answer": "You can notify us of your withdrawal by emailing service@rubiomonocoat.dk\n or by using our online return form or standard withdrawal form. Just let us know clearly that you wish to return your order."
-          }
-        },
         "faq_item_xrCiQ3": {
           "type": "faq_item",
           "disabled": false,
@@ -47,7 +42,6 @@
       },
       "block_order": [
         "faq_item_bJ33cX",
-        "faq_item_iL8tcD",
         "faq_item_nbkb4a",
         "faq_item_FLVU8c",
         "faq_item_ygJDgi",
