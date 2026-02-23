@@ -12,5 +12,26 @@
     "market": "sweden"
   },
   "parent": "header-group.json",
-  "sections": {}
+  "sections": {
+    "announcement-bar": {
+      "settings": {},
+      "blocks": {
+        "announcement-bar-0": {
+          "settings": {
+            "text": "Free delivery on orders over 600 SEK"
+          }
+        },
+        "announcement_6zGjFz": {
+          "disabled": false,
+          "settings": {
+            "text": "Delivery 3-5 days"
+          }
+        },
+        "announcement_8Q6gWT": {
+          "disabled": false,
+          "settings": {}
+        }
+      }
+    }
+  }
 }
