@@ -1515,5 +1515,60 @@ async function detectCountry() {
 </script>
 
   <script src="https://partnertrackshopify.dk/js/register.js" async></script>
+  <script>
+function enrichProductJSON(products, widget) {
+for (var i = 0; i < products.length; i++) {
+updateProductJSON(products[i], widget);
+}
+
+function updateProductJSON(product, widget) {
+fetch(Shopify.routes.root + "products/" + product.handle + ".js")
+.then((res) => res.json())
+.then((data) => {
+var new_product = data;
+//console.log(new_product.title)
+for (var i = 0; i < products.length; i++) {
+if (products[i].id == new_product.id) {
+if (!new_product.available) {
+//console.log(widget.data.products[i].title)
+widget.data.products.splice(i, 1);
+} else {
+for (var j = 0, new_variant; j < new_product.variants.length; j++) {
+new_variant = new_product.variants[j];
+for (var x = 0, variant; x < product.variants.length; x++) {
+variant = product.variants[x];
+if (variant.id == new_variant.id) {
+if ( new_variant.available === false) {
+//console.log('before variant splice', widget.data.products[i]?.variants)
+widget.data.products[i]?.variants?.splice(x, 1);
+//console.log('after variant splice', widget.data.products[i]?.variants)
+}
+break;
+}
+}
+}
+}
+break;
+}
+if (widget.data.products[i].variants.length < 1) {
+//console.log(widget.data.products[i])
+widget.data.products.splice(i, 1);
+}
+}
+widget.data.products.forEach((product) => {
+Rebuy.util.selectVariantByID(product, product.variants[0].id);
+});
+});
+}
+}
+
+document.addEventListener("rebuy.ready", (event) => {
+enrichProductJSON(event.detail.widget.data.products, event.detail.widget);
+});
+
+document.addEventListener("rebuy.productsChange", (event) => {
+enrichProductJSON(event.detail.widget.data.products, event.detail.widget);
+});
+</script>
   </body>
 </html>
