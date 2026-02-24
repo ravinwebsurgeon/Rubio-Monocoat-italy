@@ -23,6 +23,9 @@
     },
     "sweden": {
       "parent": "@default"
+    },
+    "netherlands": {
+      "parent": "@default"
     }
   }
 }
