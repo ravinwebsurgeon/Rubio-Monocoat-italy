@@ -316,6 +316,7 @@
         },
         "product_block_G4KjHq": {
           "type": "product_block",
+          "disabled": true,
           "settings": {
             "product": "white-wiping-rags",
             "icon_1": "shopify://shop_images/Shopping_Bag.png",
