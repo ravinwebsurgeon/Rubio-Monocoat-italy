@@ -18,7 +18,12 @@
         "b2b_text": "B2B Portal",
         "b2b_text_link": "https://order.rubiomonocoat.com/nl-nl/account/"
       },
-      "blocks": {}
+      "blocks": {
+        "announcement_MmhmyX": {
+          "disabled": true,
+          "settings": {}
+        }
+      }
     }
   }
 }
