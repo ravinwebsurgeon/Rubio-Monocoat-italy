@@ -19,6 +19,10 @@
           "settings": {
             "text": "Free delivery on orders over £50"
           }
+        },
+        "announcement_MmhmyX": {
+          "disabled": true,
+          "settings": {}
         }
       }
     },
