@@ -187,6 +187,11 @@
         "type": "shopify://apps/t-lab-ai-language-translate/blocks/language_detection/b5b83690-efd4-434d-8c6a-a5cef4019faf",
         "disabled": true,
         "settings": {}
+      },
+      "14236898902689827741": {
+        "type": "shopify://apps/stack-discounts-pro/blocks/app-embed/42061352-3816-430f-b7f9-d8d92f58c694",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
