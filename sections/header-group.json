@@ -14,6 +14,14 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
+        "announcement_MmhmyX": {
+          "type": "announcement",
+          "settings": {
+            "text": "Orders may experience slight delays due to technical issues in our warehouse",
+            "link": "",
+            "custom_svg": ""
+          }
+        },
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
@@ -50,6 +58,7 @@
         }
       },
       "block_order": [
+        "announcement_MmhmyX",
         "announcement-bar-0",
         "announcement_6zGjFz",
         "announcement_FVKwNP",
