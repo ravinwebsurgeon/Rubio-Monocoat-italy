@@ -15,7 +15,12 @@
   "sections": {
     "announcement-bar": {
       "settings": {},
-      "blocks": {}
+      "blocks": {
+        "announcement_yxaLy3": {
+          "disabled": true,
+          "settings": {}
+        }
+      }
     }
   }
 }
