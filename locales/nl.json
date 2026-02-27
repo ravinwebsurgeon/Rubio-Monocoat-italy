@@ -77,7 +77,7 @@
     "unit_price_separator": "per",
     "vendor": "Verkoper:",
     "error": "Fout",
-    "refresh_page": "Een selectie kiezen resulteert in het geheel verversen van de pagina.",
+    "refresh_page": "Een selectie kiezen resulteert in het geheel refreshen van de pagina.",
     "link_messages": {
       "new_window": "Opent in een nieuw venster.",
       "external": "Opent externe website."
