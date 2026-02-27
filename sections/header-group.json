@@ -14,6 +14,14 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
+        "announcement_yxaLy3": {
+          "type": "announcement",
+          "settings": {
+            "text": "Order Mon. - Fri. by 2 pm for weekday delivery (excl. Sat. & Public Holidays)",
+            "link": "",
+            "custom_svg": ""
+          }
+        },
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
@@ -50,6 +58,7 @@
         }
       },
       "block_order": [
+        "announcement_yxaLy3",
         "announcement-bar-0",
         "announcement_6zGjFz",
         "announcement_FVKwNP",
