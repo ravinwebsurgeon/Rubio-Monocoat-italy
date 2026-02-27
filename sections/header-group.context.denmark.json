@@ -26,6 +26,10 @@
         "announcement_8Q6gWT": {
           "disabled": false,
           "settings": {}
+        },
+        "announcement_yxaLy3": {
+          "disabled": true,
+          "settings": {}
         }
       }
     }
