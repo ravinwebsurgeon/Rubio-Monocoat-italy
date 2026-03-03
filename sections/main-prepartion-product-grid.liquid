@@ -1053,11 +1053,11 @@ function updateVariantId(cart, variants, variantIdInput) {
     if (variants.length === 1 &&(variants[0].options.length === 0 ||variants[0].options[0] === "Default Title")) {
           console.log('dont change cart btn action')
     }
-   else{
+   {% comment %} else{
       cart.querySelector('.product_cart_btn.ajax__cart').classList.add('disabled-btn')
       cart.querySelector('.product_cart_btn.ajax__cart').textContent = `{{ 'products.product.sold_out' | t }}`
       cart.querySelector('.product_cart_btn.ajax__cart').disabled = true;
-   }
+   } {% endcomment %}
   }
 }
 function handleStockInventory(cart,id){
