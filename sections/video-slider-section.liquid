@@ -639,8 +639,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const rawHandle = centerSlide.getAttribute("data-product-hanlde") || "";
       const swatch_color = centerSlide.getAttribute("data-product-color") || "";
-      console.log(cleanHandle,'cleanHandle')
       const [cleanHandle, queryString] = rawHandle.split("?");
+      console.log(cleanHandle,'cleanHandle')
+
       fetch(`/products/${cleanHandle}.js`)
         .then(res => res.json())
         .then(product => {
