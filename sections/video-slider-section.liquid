@@ -680,13 +680,14 @@ document.addEventListener("DOMContentLoaded", function () {
             style: "currency",
             currency: "{{ shop.currency }}",
           });
-          console.log('asadadsad')
           let productLinkUrl;
           if (queryString && selectedVariant) {
             productLinkUrl = `${product.url}?variant=${selectedVariant.id}`;
           } else {
             productLinkUrl = product.url;
           }
+          console.log('productLinkUrl',productLinkUrl)
+
           document.getElementById("inspired-proouter").innerHTML = `
              <a href="${productLinkUrl}"> <div class="product-image-wrap">
                 <img id="product-img"
