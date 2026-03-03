@@ -94,6 +94,7 @@
 {% assign colors_dk = "Sort,Hvid,Grå,Rød,Blå,Mørk,Lys,Naturlig" | split: "," %}
 {% assign colors_no = "Svart,Hvit,Grå,Rød,Blå,Mørk,Lys,Naturlig" | split: "," %}
 {% assign colors_se = "Svart,Vit,Grå,Röd,blå,Mörk,Ljus,Naturlig" | split: "," %} 
+{% assign colors_nl = "Zwart,Wit,Grijs,Rood,Blauw,Donker,Helder,Natuurlijk" | split: "," %} 
 
 {% assign colors_en = "Black,White,Grey,Red,Blue,Dark,Bright,Natural" | split: "," %}
 
@@ -131,6 +132,8 @@
           {% assign value = colors_no[color_index] %}
         {% elsif lang == 'sv' %}
           {% assign value = colors_se[color_index] %}
+        {% elsif lang == 'nl' %}
+          {% assign value = colors_nl[color_index] %}
         {% else %}
           {% assign value = colors_en[color_index] %}
         {% endif %}
