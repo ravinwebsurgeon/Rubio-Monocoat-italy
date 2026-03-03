@@ -1067,7 +1067,7 @@ function handleStockInventory(cart,id){
         const productVariants = productDatamain.variants;
         const selectedVariantMain = productVariants.find(v => v.id === id);
         console.log(selectedVariantMain,'selectedVariantMain')
-        if(selectedVariantMain.inventory_quantity == 0 && !selectedVariantMain.available){ 
+        if(selectedVariantMain.inventory_quantity == 0){ 
           cart.querySelector('.product_cart_btn.ajax__cart').classList.add('disabled-btn')
           cart.querySelector('.product_cart_btn.ajax__cart').textContent = `{{ 'products.product.sold_out' | t }}`
           cart.querySelector('.product_cart_btn.ajax__cart').disabled = true;
