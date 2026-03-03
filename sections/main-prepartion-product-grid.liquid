@@ -797,7 +797,7 @@ button.show-more-swatches {
           let id = my_cart.querySelector(".variant-selector");
           
           my_cart.classList.add('active__Cart')
-          updateVariantId(my_cart, pro_variants, id);
+           updateVariantId(my_cart, pro_variants, id);
           const allImages = my_cart.querySelectorAll(".product__image__item.first__visit");
           {% comment %} allImages[0].style.display = "block"; {% endcomment %}
           allImages.forEach(img => {
@@ -1067,7 +1067,7 @@ function handleStockInventory(cart,id){
         const productVariants = productDatamain.variants;
         const selectedVariantMain = productVariants.find(v => v.id === id);
         console.log(selectedVariantMain,'selectedVariantMain')
-        if(selectedVariantMain.inventory_quantity == 0 && !selectedVariantMain.available){ 
+        if(selectedVariantMain.inventory_quantity == 0){ 
           cart.querySelector('.product_cart_btn.ajax__cart').classList.add('disabled-btn')
           cart.querySelector('.product_cart_btn.ajax__cart').textContent = `{{ 'products.product.sold_out' | t }}`
           cart.querySelector('.product_cart_btn.ajax__cart').disabled = true;
