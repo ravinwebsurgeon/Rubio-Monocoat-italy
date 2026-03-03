@@ -1,4 +1,5 @@
 <div class="quick__cart__main" data-product-handle = '{{ product.handle }}'>
+  {% comment %} "inventory_quantity": {% if v.inventory_management %}{{ v.inventory_quantity | default: 0 }}{% else %}9999{% endif %} {% endcomment %}
 <script type="application/json" class="quick-product-json">
 {
   "variants": [
