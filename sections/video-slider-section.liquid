@@ -83,7 +83,8 @@
                 opt_name == 'colore' or 
                 opt_name == 'farve' or
                 opt_name == 'farge' or
-                 opt_name == 'färg'
+                 opt_name == 'färg' or
+                 opt_name == 'kleur'
                 %}
                   {% for value in option.values %}
                       {% assign val_down = value | downcase %}
@@ -664,7 +665,8 @@ document.addEventListener("DOMContentLoaded", function () {
             option.name.toLowerCase() === "colour" ||
             option.name.toLowerCase() === "farve"  ||
             option.name.toLowerCase() === "farge" ||
-            option.name.toLowerCase() === "färg"
+            option.name.toLowerCase() === "färg" ||
+            option.name.toLowerCase() === "kleur"
           );
 
           if (colorOptionIndex !== -1) {
