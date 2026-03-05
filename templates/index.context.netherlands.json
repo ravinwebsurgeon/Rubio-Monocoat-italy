@@ -12,5 +12,22 @@
     "market": "netherlands"
   },
   "parent": "index.json",
-  "sections": {}
+  "sections": {
+    "icons_section_qxzcqt": {
+      "settings": {},
+      "blocks": {
+        "container_xNmGKf": {
+          "disabled": true,
+          "settings": {
+            "heading": "Telephone Advice"
+          }
+        },
+        "container_EGhzFM": {
+          "settings": {
+            "subtext": "info@rubiomonocoat.nl"
+          }
+        }
+      }
+    }
+  }
 }
