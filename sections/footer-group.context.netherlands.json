@@ -12,5 +12,16 @@
     "market": "netherlands"
   },
   "parent": "footer-group.json",
-  "sections": {}
+  "sections": {
+    "footer": {
+      "settings": {},
+      "blocks": {
+        "text_hWeadq": {
+          "settings": {
+            "subtext": "<p><strong>Rubio Monocoat Nederland B.V.</strong><br/>Hulswitweg 109<br/>2031 BG Haarlem<br/>Netherlands<br/>VAT: NL815324479B01<br/>info@rubiomonocoat.nl</p>"
+          }
+        }
+      }
+    }
+  }
 }
