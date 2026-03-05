@@ -14,7 +14,9 @@
   },
   "sections": {
     "announcement-bar": {
-      "settings": {},
+      "settings": {
+        "b2b_text_link": "https://order.rubiomonocoat.com/it/conto/"
+      },
       "blocks": {
         "announcement_yxaLy3": {
           "disabled": true,
