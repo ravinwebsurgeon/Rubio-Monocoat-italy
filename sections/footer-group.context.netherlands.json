@@ -16,9 +16,10 @@
     "footer": {
       "settings": {},
       "blocks": {
-        "text_hWeadq": {
+        "country_social_gWTFPf": {
           "settings": {
-            "subtext": "<p><strong>Rubio Monocoat Nederland B.V.</strong><br/>Hulswitweg 109<br/>2031 BG Haarlem<br/>Netherlands<br/>VAT: NL815324479B01<br/>info@rubiomonocoat.nl</p>"
+            "country": "ITNL",
+            "url": "https://www.instagram.com/rubiomonocoatnederland/"
           }
         },
         "country_social_jyNNYq": {
@@ -27,19 +28,38 @@
             "url": "https://www.facebook.com/rubiomonocoatnl"
           }
         },
-        "country_social_gWTFPf": {
-          "settings": {
-            "country": "ITNL",
-            "url": "https://www.instagram.com/rubiomonocoatnederland/"
-          }
-        },
         "country_social_NGFKiF": {
           "settings": {
             "country": "NL",
             "url": "https://www.youtube.com/c/RubioMonocoatRMC"
           }
+        },
+        "country_social_TEfdg3": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "NL",
+            "label": "Pinterest",
+            "url": "https://www.pinterest.com/rubiomonocoat/_created/"
+          }
+        },
+        "text_hWeadq": {
+          "settings": {
+            "subtext": "<p><strong>Rubio Monocoat Nederland B.V.</strong><br/>Hulswitweg 109<br/>2031 BG Haarlem<br/>Netherlands<br/>VAT: NL815324479B01<br/>info@rubiomonocoat.nl</p>"
+          }
         }
-      }
+      },
+      "block_order": [
+        "country_social_gWTFPf",
+        "country_social_jyNNYq",
+        "country_social_NGFKiF",
+        "country_social_TEfdg3",
+        "brand_information_A98rgG",
+        "link_list_tfK6cN",
+        "link_list_KBYewH",
+        "link_list_cERTPd",
+        "text_hWeadq"
+      ]
     }
   }
 }
