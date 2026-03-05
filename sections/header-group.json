@@ -67,7 +67,7 @@
       "settings": {
         "review_link": "shopify://pages/all-reviews-page",
         "review_text": "Reviews",
-        "b2b_text": "",
+        "b2b_text": "B2B Portal",
         "b2b_text_link": "",
         "service_link": "shopify://pages/customer-service",
         "service_text": "Customer Service",
