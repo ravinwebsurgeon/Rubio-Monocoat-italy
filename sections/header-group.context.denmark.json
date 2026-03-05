@@ -10,8 +10,14 @@
 {
   "sections": {
     "announcement-bar": {
-      "settings": {},
+      "settings": {
+        "b2b_text_link": "https://order.rubiomonocoat.com/da/konto/"
+      },
       "blocks": {
+        "announcement_yxaLy3": {
+          "disabled": true,
+          "settings": {}
+        },
         "announcement-bar-0": {
           "settings": {
             "text": "Free delivery on orders over 500 DKK"
@@ -25,10 +31,6 @@
         },
         "announcement_8Q6gWT": {
           "disabled": false,
-          "settings": {}
-        },
-        "announcement_yxaLy3": {
-          "disabled": true,
           "settings": {}
         }
       }
