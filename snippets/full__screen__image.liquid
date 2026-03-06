@@ -14,6 +14,7 @@
     const closeBtn = document.querySelector('.close-fullscreen');
 
     const thumbnailImages = [...document.querySelectorAll('.thumbnail-item img')].filter(img => !img.closest('video'));
+    console.log('thumbnailImages',thumbnailImages)
     const thumbnailVideos = [...document.querySelectorAll('.thumbnail-item video')];
     const mainImages = [...document.querySelectorAll('.main-image-item img')].filter(img => !img.closest('video'));
     const mainVideos = [...document.querySelectorAll('.main-image-item video')];
