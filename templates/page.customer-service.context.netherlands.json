@@ -13,22 +13,12 @@
   },
   "parent": "page.customer-service.json",
   "sections": {
-    "icons_section_rzewec": {
-      "settings": {},
-      "blocks": {
-        "container_bxqMjj": {
-          "settings": {
-            "subtext": "info@rubiomonocoat.nl"
-          }
-        }
-      }
-    },
     "contact_options_FYkrkp": {
       "settings": {
+        "availability_text": "Our team is available mo - fr from 8:30 a.m.- 5:00 p.m.",
         "call_text": "",
         "call_link": "",
-        "email_link": "mailto:info@rubiomonocoat.nl",
-        "availability_text": "Our team is available mo - fr from 8:30 a.m.- 5:00 p.m."
+        "email_link": "mailto:info@rubiomonocoat.nl"
       },
       "blocks": {
         "contact_method_mVcVkc": {
@@ -46,6 +36,22 @@
           }
         }
       }
+    },
+    "icons_section_rzewec": {
+      "settings": {},
+      "blocks": {
+        "container_bxqMjj": {
+          "settings": {
+            "subtext": "info@rubiomonocoat.nl"
+          }
+        }
+      }
+    },
+    "custom_faq_banner_mxfxLm": {
+      "settings": {
+        "text": ""
+      },
+      "blocks": {}
     }
   }
 }
