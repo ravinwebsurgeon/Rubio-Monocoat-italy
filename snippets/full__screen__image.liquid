@@ -7,18 +7,128 @@
 </div>
 
 <script>
- document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("click", async function (e) {
+
+  // ----------------------------------------
+  // TARGET MEDIA (event delegation)
+  // ----------------------------------------
+  const mediaEl = e.target.closest(
+    '.thumbnail-item img, .thumbnail-item video,' +
+    '.main-image-item img, .main-image-item video,' +
+    '.swiper-slide img, .swiper-slide video'
+  );
+
+  if (!mediaEl) return;
+
+  // ----------------------------------------
+  // ELEMENTS
+  // ----------------------------------------
+  const modal = document.querySelector('.fullscreen-modal');
+  const modalImg = document.querySelector('.fs-img');
+  const modalVideo = document.querySelector('.fs-video');
+  const closeBtn = document.querySelector('.close-fullscreen');
+
+  if (!modal || !modalImg || !modalVideo) return;
+
+  // ----------------------------------------
+  // RESET STATE
+  // ----------------------------------------
+  modalImg.classList.remove("show");
+  modalVideo.classList.remove("show");
+
+  modalImg.style.display = "none";
+  modalVideo.style.display = "none";
+
+  modalVideo.pause();
+  modalVideo.src = "";
+
+  // ----------------------------------------
+  // OPEN MODAL BACKGROUND
+  // ----------------------------------------
+  modal.classList.add("active");
+  document.body.classList.add('product-image-overlay');
+
+  const someHeading = document.querySelector(
+    'section.product-features-section > .section-heading'
+  );
+  if (someHeading) someHeading.style.zIndex = '0';
+
+  // small delay for smooth fade
+  await new Promise(r => setTimeout(r, 120));
+
+  // ----------------------------------------
+  // IMAGE
+  // ----------------------------------------
+  if (mediaEl.tagName.toLowerCase() === 'img') {
+    modalImg.src = mediaEl.src;
+    modalImg.style.display = "block";
+
+    requestAnimationFrame(() => {
+      modalImg.classList.add("show");
+    });
+  }
+
+  // ----------------------------------------
+  // VIDEO
+  // ----------------------------------------
+  if (mediaEl.tagName.toLowerCase() === 'video') {
+    const source = mediaEl.querySelector('source')?.src;
+    if (!source) return;
+
+    modalVideo.src = source;
+    modalVideo.style.display = "block";
+    modalVideo.muted = false;
+    modalVideo.controls = true;
+    modalVideo.playsInline = true;
+
+    requestAnimationFrame(() => {
+      modalVideo.classList.add("show");
+      modalVideo.play().catch(() => {});
+    });
+  }
+
+  // ----------------------------------------
+  // CLOSE HANDLERS
+  // ----------------------------------------
+  function closeModal() {
+    modal.classList.remove("active");
+    modalImg.classList.remove("show");
+    modalVideo.classList.remove("show");
+
+    document.body.classList.remove('product-image-overlay');
+    if (someHeading) someHeading.style.zIndex = '2';
+
+    setTimeout(() => {
+      modalVideo.pause();
+      modalVideo.src = "";
+      modalVideo.controls = false;
+    }, 300);
+  }
+
+  closeBtn.onclick = closeModal;
+
+  modal.onclick = ev => {
+    if (ev.target === modal) closeModal();
+  };
+});
+
+{% comment %}     
+document.addEventListener("click", async function (e) {
+  const media = e.target.closest('.custom-media-gallery');
+
+  if (!media) return;
+
     const modal = document.querySelector('.fullscreen-modal');
     const modalImg = document.querySelector('.fs-img');
     const modalVideo = document.querySelector('.fs-video');
     const closeBtn = document.querySelector('.close-fullscreen');
 
-    const thumbnailImages = [...document.querySelectorAll('.thumbnail-item img')].filter(img => !img.closest('video'));
-    const thumbnailVideos = [...document.querySelectorAll('.thumbnail-item video')];
-    const mainImages = [...document.querySelectorAll('.main-image-item img')].filter(img => !img.closest('video'));
-    const mainVideos = [...document.querySelectorAll('.main-image-item video')];
-    const swiperImages = [...document.querySelectorAll('.swiper-slide img')]; // Select all images inside swiper slides
-    const swiperVideos = [...document.querySelectorAll('.swiper-slide video')]; // Select all videos inside swiper slides
+    const thumbnailImages = [...media.querySelectorAll('.thumbnail-item img')].filter(img => !img.closest('video'));
+    const thumbnailVideos = [...media.querySelectorAll('.thumbnail-item video')];
+    const mainImages = [...media.querySelectorAll('.main-image-item img')].filter(img => !img.closest('video'));
+    const mainVideos = [...media.querySelectorAll('.main-image-item video')];
+    const swiperImages = [...media.querySelectorAll('.swiper-slide img')]; // Select all images inside swiper slides
+    const swiperVideos = [...media.querySelectorAll('.swiper-slide video')]; // Select all videos inside swiper slides
     
     const allMedia = [
         ...thumbnailImages,
@@ -32,10 +142,9 @@
     // ----------------------------------------------------------
     // OPEN — SMOOTH VERSION
     // ----------------------------------------------------------
-    console.log(allMedia,'allMedia')
     allMedia.forEach(el => {
         el.addEventListener('click', async () => {
-            console.log('clicked media',el)
+
             // Reset
             modalImg.classList.remove("show");
             modalVideo.classList.remove("show");
@@ -44,11 +153,10 @@
             modalVideo.style.display = "none";
             modalVideo.pause();
             modalVideo.src = "";
-
             // Step 1 — Open modal background ONLY
             modal.classList.add("active");
             document.body.classList.add('product-image-overlay')
-             let someHeading = document.querySelector('section.product-features-section>.section-heading')
+            let someHeading = document.querySelector('section.product-features-section>.section-heading')
             if(someHeading){someHeading.style.zIndex  = '0'}
 
             // Wait for fade-in
@@ -91,7 +199,6 @@
             document.body.classList.remove('product-image-overlay')
             let someHeading = document.querySelector('section.product-features-section>.section-heading')
             if(someHeading){someHeading.style.zIndex  = '2'}
-
         setTimeout(() => {
             modalVideo.pause();
             modalVideo.src = "";
@@ -103,7 +210,7 @@
     modal.addEventListener("click", e => {
         if (e.target === modal) closeModal();
     });
-});
+}); {% endcomment %}
 
 </script>
 
