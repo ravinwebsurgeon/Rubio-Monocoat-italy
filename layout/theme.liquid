@@ -1575,5 +1575,19 @@ async function detectCountry() {
     enrichProductJSON(event.detail.widget.data.products, event.detail.widget);
     });
   </script>
+  {% assign lower_market_country = localization.country.iso_code | downcase %}
+{% assign chatbot_shops_list = "dk,be,nl,fr" | split:',' %}
+{% assign is_chatbot_shop = false %}
+  {% for s_name in chatbot_shops_list  %}
+    {% if lower_market_country == s_name %}
+      {% assign is_chatbot_shop = true %}
+      {% break %} 
+    {% endif %}
+  {% endfor %}
+  {% if is_chatbot_shop %}
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="js-eu1.hs-scripts.com/25068682.js"></script>
+    <!-- End of HubSpot Embed Code -->
+  {% endif %}
   </body>
 </html>
