@@ -193,7 +193,7 @@
                         value="{{ locale.iso_code }}"
                         {% if localization.language.iso_code == locale.iso_code %}selected{% endif %}
                       >
-                        {{ locale.endonym_name }}
+                        {{ locale.endonym_name |capitalize  }}
                       </option>
                     {% endfor %}
                   </select>
