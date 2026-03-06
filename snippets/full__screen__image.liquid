@@ -5,7 +5,7 @@
     </div>
     <button class="close-fullscreen">×</button>
 </div>
-{% comment %} 
+
 <script>
  document.addEventListener("DOMContentLoaded", function () {
     const modal = document.querySelector('.fullscreen-modal');
@@ -104,67 +104,8 @@
     });
 });
 
-</script> {% endcomment %}
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-  const modal = document.querySelector('.fullscreen-modal');
-  const modalImg = document.querySelector('.fs-img');
-  const modalVideo = document.querySelector('.fs-video');
-  const closeBtn = document.querySelector('.close-fullscreen');
-
-  // Event delegation
-  document.getElementById('custom-media-gallery').addEventListener('click', async (e) => {
-    const el = e.target;
-    if (el.tagName.toLowerCase() !== "img" && el.tagName.toLowerCase() !== "video") return;
-
-    // Reset modal
-    modalImg.classList.remove("show");
-    modalVideo.classList.remove("show");
-    modalImg.style.display = "none";
-    modalVideo.style.display = "none";
-    modalVideo.pause();
-    modalVideo.src = "";
-
-    // Show modal background
-    modal.classList.add("active");
-    document.body.classList.add('product-image-overlay');
-
-    let someHeading = document.querySelector('section.product-features-section>.section-heading');
-    if(someHeading){ someHeading.style.zIndex = '0'; }
-
-    await new Promise(r => setTimeout(r, 120));
-
-    if (el.tagName.toLowerCase() === "video") {
-      const source = el.querySelector("source").src;
-      modalVideo.src = source;
-      modalVideo.style.display = "block";
-      requestAnimationFrame(() => {
-        modalVideo.classList.add("show");
-        modalVideo.play();
-      });
-    } else {
-      modalImg.src = el.src;
-      modalImg.style.display = "block";
-      requestAnimationFrame(() => {
-        modalImg.classList.add("show");
-      });
-    }
-  });
-
-  function closeModal() {
-    modal.classList.remove("active");
-    modalImg.classList.remove("show");
-    modalVideo.classList.remove("show");
-    document.body.classList.remove('product-image-overlay');
-    let someHeading = document.querySelector('section.product-features-section>.section-heading');
-    if(someHeading){ someHeading.style.zIndex = '2'; }
-    setTimeout(() => { modalVideo.pause(); modalVideo.src = ""; }, 350);
-  }
-
-  closeBtn.addEventListener("click", closeModal);
-  modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
-});
 </script>
+
 <style>
     /* ============================
    FULLSCREEN MODAL WRAPPER
