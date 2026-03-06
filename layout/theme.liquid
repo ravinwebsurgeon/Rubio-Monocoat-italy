@@ -1576,7 +1576,7 @@ async function detectCountry() {
     });
   </script>
   {% assign lower_market_country = localization.country.iso_code | downcase %}
-{% assign chatbot_shops_list = "dk,be,nl,fr" | split:',' %}
+{% assign chatbot_shops_list = "be,nl,fr" | split:',' %}
 {% assign is_chatbot_shop = false %}
   {% for s_name in chatbot_shops_list  %}
     {% if lower_market_country == s_name %}
