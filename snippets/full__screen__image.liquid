@@ -5,6 +5,107 @@
     </div>
     <button class="close-fullscreen">×</button>
 </div>
+{% comment %} 
+<script>
+ document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.querySelector('.fullscreen-modal');
+    const modalImg = document.querySelector('.fs-img');
+    const modalVideo = document.querySelector('.fs-video');
+    const closeBtn = document.querySelector('.close-fullscreen');
+
+    const thumbnailImages = [...document.querySelectorAll('.thumbnail-item img')].filter(img => !img.closest('video'));
+    const thumbnailVideos = [...document.querySelectorAll('.thumbnail-item video')];
+    const mainImages = [...document.querySelectorAll('.main-image-item img')].filter(img => !img.closest('video'));
+    const mainVideos = [...document.querySelectorAll('.main-image-item video')];
+    const swiperImages = [...document.querySelectorAll('.swiper-slide img')]; // Select all images inside swiper slides
+    const swiperVideos = [...document.querySelectorAll('.swiper-slide video')]; // Select all videos inside swiper slides
+    
+    const allMedia = [
+        ...thumbnailImages,
+        ...thumbnailVideos,
+        ...mainImages,
+        ...mainVideos,
+        ...swiperImages,
+        ...swiperVideos
+    ];
+
+    // ----------------------------------------------------------
+    // OPEN — SMOOTH VERSION
+    // ----------------------------------------------------------
+    console.log(allMedia,'allMedia')
+    allMedia.forEach(el => {
+        el.addEventListener('click', async () => {
+            console.log('clicked media',el)
+            // Reset
+            modalImg.classList.remove("show");
+            modalVideo.classList.remove("show");
+
+            modalImg.style.display = "none";
+            modalVideo.style.display = "none";
+            modalVideo.pause();
+            modalVideo.src = "";
+
+            // Step 1 — Open modal background ONLY
+            modal.classList.add("active");
+            document.body.classList.add('product-image-overlay')
+             let someHeading = document.querySelector('section.product-features-section>.section-heading')
+            if(someHeading){someHeading.style.zIndex  = '0'}
+
+            // Wait for fade-in
+            await new Promise(r => setTimeout(r, 120));
+
+            // Step 2 — Now show media inside smoothly
+            if (el.tagName.toLowerCase() === "video") {
+                const source = el.querySelector("source").src;
+
+                modalVideo.src = source;
+                modalVideo.style.display = "block";
+
+                // Allow it to appear after layout
+                requestAnimationFrame(() => {
+                    modalVideo.classList.add("show");
+                    modalVideo.play();
+                });
+
+            } else {
+                modalImg.src = el.src;
+                modalImg.style.display = "block";
+
+                requestAnimationFrame(() => {
+                    modalImg.classList.add("show");
+                });
+            }
+
+        });
+    });
+
+    // ----------------------------------------------------------
+    // CLOSE
+    // ----------------------------------------------------------
+    function closeModal() {
+
+        modal.classList.remove("active");
+
+        modalImg.classList.remove("show");
+        modalVideo.classList.remove("show");
+            document.body.classList.remove('product-image-overlay')
+            let someHeading = document.querySelector('section.product-features-section>.section-heading')
+            if(someHeading){someHeading.style.zIndex  = '2'}
+
+        setTimeout(() => {
+            modalVideo.pause();
+            modalVideo.src = "";
+        }, 350);
+    }
+
+    closeBtn.addEventListener("click", closeModal);
+
+    modal.addEventListener("click", e => {
+        if (e.target === modal) closeModal();
+    });
+});
+
+</script> {% endcomment %}
 
 <script>
     document.addEventListener("click", async function (e) {
@@ -111,107 +212,6 @@
     if (ev.target === modal) closeModal();
   };
 });
-
-{% comment %}     
-document.addEventListener("click", async function (e) {
-  const media = e.target.closest('.custom-media-gallery');
-
-  if (!media) return;
-
-    const modal = document.querySelector('.fullscreen-modal');
-    const modalImg = document.querySelector('.fs-img');
-    const modalVideo = document.querySelector('.fs-video');
-    const closeBtn = document.querySelector('.close-fullscreen');
-
-    const thumbnailImages = [...media.querySelectorAll('.thumbnail-item img')].filter(img => !img.closest('video'));
-    const thumbnailVideos = [...media.querySelectorAll('.thumbnail-item video')];
-    const mainImages = [...media.querySelectorAll('.main-image-item img')].filter(img => !img.closest('video'));
-    const mainVideos = [...media.querySelectorAll('.main-image-item video')];
-    const swiperImages = [...media.querySelectorAll('.swiper-slide img')]; // Select all images inside swiper slides
-    const swiperVideos = [...media.querySelectorAll('.swiper-slide video')]; // Select all videos inside swiper slides
-    
-    const allMedia = [
-        ...thumbnailImages,
-        ...thumbnailVideos,
-        ...mainImages,
-        ...mainVideos,
-        ...swiperImages,
-        ...swiperVideos
-    ];
-
-    // ----------------------------------------------------------
-    // OPEN — SMOOTH VERSION
-    // ----------------------------------------------------------
-    allMedia.forEach(el => {
-        el.addEventListener('click', async () => {
-
-            // Reset
-            modalImg.classList.remove("show");
-            modalVideo.classList.remove("show");
-
-            modalImg.style.display = "none";
-            modalVideo.style.display = "none";
-            modalVideo.pause();
-            modalVideo.src = "";
-            // Step 1 — Open modal background ONLY
-            modal.classList.add("active");
-            document.body.classList.add('product-image-overlay')
-            let someHeading = document.querySelector('section.product-features-section>.section-heading')
-            if(someHeading){someHeading.style.zIndex  = '0'}
-
-            // Wait for fade-in
-            await new Promise(r => setTimeout(r, 120));
-
-            // Step 2 — Now show media inside smoothly
-            if (el.tagName.toLowerCase() === "video") {
-                const source = el.querySelector("source").src;
-
-                modalVideo.src = source;
-                modalVideo.style.display = "block";
-
-                // Allow it to appear after layout
-                requestAnimationFrame(() => {
-                    modalVideo.classList.add("show");
-                    modalVideo.play();
-                });
-
-            } else {
-                modalImg.src = el.src;
-                modalImg.style.display = "block";
-
-                requestAnimationFrame(() => {
-                    modalImg.classList.add("show");
-                });
-            }
-
-        });
-    });
-
-    // ----------------------------------------------------------
-    // CLOSE
-    // ----------------------------------------------------------
-    function closeModal() {
-
-        modal.classList.remove("active");
-
-        modalImg.classList.remove("show");
-        modalVideo.classList.remove("show");
-            document.body.classList.remove('product-image-overlay')
-            let someHeading = document.querySelector('section.product-features-section>.section-heading')
-            if(someHeading){someHeading.style.zIndex  = '2'}
-        setTimeout(() => {
-            modalVideo.pause();
-            modalVideo.src = "";
-        }, 350);
-    }
-
-    closeBtn.addEventListener("click", closeModal);
-
-    modal.addEventListener("click", e => {
-        if (e.target === modal) closeModal();
-    });
-}); {% endcomment %}
-
 </script>
 
 <style>
