@@ -1139,16 +1139,7 @@ const variantOptions = {{ product.options | json }}; // ["Color", "Size"]
   updateGallery();
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Initialize GLightbox
-  const lightbox = GLightbox({
-    selector: '.glightbox',
-    touchNavigation: true,
-    loop: true,
-    zoomable: true,
-    autoplayVideos: true,
-  });
-});
+
 
 if (window.innerWidth <= 991) {
   const swiper = new Swiper('.mobile-gallery .swiper', {
@@ -1163,6 +1154,16 @@ if (window.innerWidth <= 991) {
 </script> {% endcomment %}
 
 <script>
+  document.addEventListener('DOMContentLoaded', () => {
+  // Initialize GLightbox
+  const lightbox = GLightbox({
+    selector: '.glightbox',
+    touchNavigation: true,
+    loop: true,
+    zoomable: true,
+    autoplayVideos: true,
+  });
+});
 document.addEventListener('DOMContentLoaded', () => {
   const variantOptions = {{ product.options | json }};
 
