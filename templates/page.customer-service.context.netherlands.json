@@ -22,6 +22,29 @@
           }
         }
       }
+    },
+    "contact_options_FYkrkp": {
+      "settings": {
+        "call_text": "",
+        "call_link": "",
+        "email_link": "mailto:info@rubiomonocoat.nl"
+      },
+      "blocks": {
+        "contact_method_mVcVkc": {
+          "disabled": true,
+          "settings": {}
+        },
+        "contact_method_TxekfM": {
+          "disabled": true,
+          "settings": {}
+        },
+        "contact_method_JF4YCW": {
+          "settings": {
+            "subtitle": "info@rubiomonocoat.nl",
+            "link": "mailto:info@rubiomonocoat.nl"
+          }
+        }
+      }
     }
   }
 }
