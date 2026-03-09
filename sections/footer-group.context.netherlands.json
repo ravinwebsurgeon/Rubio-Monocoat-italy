@@ -25,6 +25,15 @@
             "url": "https://www.youtube.com/c/RubioMonocoatRMC"
           }
         },
+        "country_social_VUeEh": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "NL",
+            "label": "Instagram",
+            "url": "https://www.instagram.com/rubiomonocoatnederland/"
+          }
+        },
         "country_social_jyNNYq": {
           "settings": {
             "country": "NL",
@@ -57,6 +66,7 @@
       },
       "block_order": [
         "country_social_qJzRU",
+        "country_social_VUeEh",
         "country_social_jyNNYq",
         "country_social_TEfdg3",
         "country_social_87NEwH",
