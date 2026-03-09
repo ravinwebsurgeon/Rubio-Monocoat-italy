@@ -34,12 +34,6 @@
             "url": "https://www.instagram.com/rubiomonocoatnederland/"
           }
         },
-        "country_social_jyNNYq": {
-          "settings": {
-            "country": "NL",
-            "url": "https://www.facebook.com/rubiomonocoatnl"
-          }
-        },
         "country_social_TEfdg3": {
           "type": "country_social",
           "disabled": false,
@@ -67,7 +61,6 @@
       "block_order": [
         "country_social_qJzRU",
         "country_social_VUeEh",
-        "country_social_jyNNYq",
         "country_social_TEfdg3",
         "country_social_87NEwH",
         "brand_information_A98rgG",
