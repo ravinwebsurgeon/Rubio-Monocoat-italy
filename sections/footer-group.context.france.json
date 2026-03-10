@@ -1,0 +1,26 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "footer-group.json",
+  "context": {
+    "market": "france"
+  },
+  "sections": {
+    "footer": {
+      "blocks": {
+        "text_hWeadq": {
+          "settings": {
+            "subtext": "<p><strong>Rubio Monocoat France</strong></p><p>65 Rue Claude Bernard</p><p>77550 Moissy-Cramayel</p><p>France</p><p>BTW: FR83514561000</p><p>support@rubiomonocoat.fr</p><p>+33 7 57 94 17 86 (Monday - Friday from 9:15 a.m. to 12 p.m. and 13:30 to 17:00 p.m.)</p>"
+          }
+        }
+      }
+    }
+  }
+}
