@@ -13,12 +13,18 @@
   },
   "parent": "page.customer-service.json",
   "sections": {
+    "custom_faq_banner_mxfxLm": {
+      "settings": {
+        "text": ""
+      },
+      "blocks": {}
+    },
     "contact_options_FYkrkp": {
       "settings": {
         "availability_text": "Our team is available mo - fr from 8:30 a.m.- 5:00 p.m.",
         "call_text": "",
         "call_link": "",
-        "email_link": "mailto:info@rubiomonocoat.nl"
+        "email_link": "mailto:service@rubiomonocoat.com"
       },
       "blocks": {
         "contact_method_mVcVkc": {
@@ -46,12 +52,6 @@
           }
         }
       }
-    },
-    "custom_faq_banner_mxfxLm": {
-      "settings": {
-        "text": ""
-      },
-      "blocks": {}
     }
   }
 }
