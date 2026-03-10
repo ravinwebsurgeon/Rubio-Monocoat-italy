@@ -12,23 +12,5 @@
     "market": "france"
   },
   "parent": "404.json",
-  "sections": {
-    "icons_section_jipyQX": {
-      "settings": {},
-      "blocks": {
-        "container_dFqDif": {
-          "disabled": false,
-          "settings": {
-            "subtext": "+33 7 57 94 17 86",
-            "extra_text": "Mon–Fri: 9:15–12:00 & 13:30–17:00"
-          }
-        },
-        "container_9NRGxp": {
-          "settings": {
-            "subtext": "support@rubiomonocoat.fr"
-          }
-        }
-      }
-    }
-  }
+  "sections": {}
 }
