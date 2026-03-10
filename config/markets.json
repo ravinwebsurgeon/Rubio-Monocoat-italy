@@ -29,6 +29,9 @@
     },
     "france": {
       "parent": "@default"
+    },
+    "belgium": {
+      "parent": "@default"
     }
   }
 }
