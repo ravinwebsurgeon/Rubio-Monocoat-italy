@@ -18,6 +18,23 @@
         "learn_more_collection": "Learn More"
       },
       "blocks": {}
+    },
+    "icons_section_7qKdwJ": {
+      "settings": {},
+      "blocks": {
+        "container_X3D3LU": {
+          "disabled": false,
+          "settings": {
+            "subtext": "+33 7 57 94 17 86",
+            "extra_text": "Mon–Fri: 9:15–12:00 & 13:30–17:00"
+          }
+        },
+        "container_BxEzhc": {
+          "settings": {
+            "subtext": "support@rubiomonocoat.fr"
+          }
+        }
+      }
     }
   }
 }
