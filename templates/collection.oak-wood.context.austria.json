@@ -12,5 +12,12 @@
     "market": "austria"
   },
   "parent": "collection.oak-wood.json",
-  "sections": {}
+  "sections": {
+    "product-grid": {
+      "settings": {
+        "learn_more_collection": "Learn More"
+      },
+      "blocks": {}
+    }
+  }
 }
