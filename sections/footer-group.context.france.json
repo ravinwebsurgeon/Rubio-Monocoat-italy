@@ -14,13 +14,62 @@
   },
   "sections": {
     "footer": {
+      "settings": {},
       "blocks": {
         "text_hWeadq": {
           "settings": {
             "subtext": "<p><strong>Rubio Monocoat France</strong></p><p>65 Rue Claude Bernard</p><p>77550 Moissy-Cramayel</p><p>France</p><p>BTW: FR83514561000</p><p>support@rubiomonocoat.fr</p><p>+33 7 57 94 17 86 (Monday - Friday from 9:15 a.m. to 12 p.m. and 13:30 to 17:00 p.m.)</p>"
           }
+        },
+        "country_social_gWTFPf": {
+          "settings": {
+            "country": "FR",
+            "url": "https://www.instagram.com/rubiomonocoatfrance/"
+          }
+        },
+        "country_social_jyNNYq": {
+          "settings": {
+            "country": "FR",
+            "url": "https://www.facebook.com/rubiomonocoatfrance"
+          }
+        },
+        "country_social_crqKaB": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "FR",
+            "label": "Pinterest",
+            "url": "https://www.pinterest.com/rubiomonocoatfrance/"
+          }
+        },
+        "country_social_R4M4Be": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "FR",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@rubiomonocoatfrance"
+          }
+        },
+        "country_social_NGFKiF": {
+          "settings": {
+            "country": "FR",
+            "url": "https://www.youtube.com/@RubioMonocoatFrance"
+          }
         }
-      }
+      },
+      "block_order": [
+        "country_social_gWTFPf",
+        "country_social_jyNNYq",
+        "country_social_NGFKiF",
+        "country_social_crqKaB",
+        "country_social_R4M4Be",
+        "brand_information_A98rgG",
+        "link_list_tfK6cN",
+        "link_list_KBYewH",
+        "link_list_cERTPd",
+        "text_hWeadq"
+      ]
     }
   }
 }
