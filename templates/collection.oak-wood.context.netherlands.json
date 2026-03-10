@@ -22,6 +22,12 @@
           }
         }
       }
+    },
+    "product-grid": {
+      "settings": {
+        "learn_more_collection": "Learn More"
+      },
+      "blocks": {}
     }
   }
 }
