@@ -34,16 +34,6 @@
     "header": {
       "settings": {},
       "blocks": {
-        "custom_images_6WCkhf": {
-          "type": "Custom_images",
-          "disabled": false,
-          "settings": {
-            "sub-menu_title": "Type",
-            "menu_key": "4.3",
-            "menu_image": "shopify://shop_images/house-simple-bold_1.svg",
-            "tag_title": "Bestseller"
-          }
-        },
         "custom_images_AeyfFU": {
           "type": "Custom_images",
           "disabled": false,
@@ -52,6 +42,16 @@
             "menu_key": "4.3,1",
             "menu_image": "shopify://shop_images/width_20025-ezgif.com-webp-to-png-converter.png",
             "tag_title": ""
+          }
+        },
+        "custom_images_6WCkhf": {
+          "type": "Custom_images",
+          "disabled": false,
+          "settings": {
+            "sub-menu_title": "Type",
+            "menu_key": "4.3",
+            "menu_image": "shopify://shop_images/house-simple-bold_1.svg",
+            "tag_title": "Bestseller"
           }
         }
       },
