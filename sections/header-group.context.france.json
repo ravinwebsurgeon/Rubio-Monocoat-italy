@@ -30,6 +30,80 @@
           "settings": {}
         }
       }
+    },
+    "header": {
+      "settings": {},
+      "blocks": {
+        "custom_images_6WCkhf": {
+          "type": "Custom_images",
+          "disabled": false,
+          "settings": {
+            "sub-menu_title": "Type",
+            "menu_key": "4.3",
+            "menu_image": "shopify://shop_images/house-simple-bold_1.svg",
+            "tag_title": "Bestseller"
+          }
+        },
+        "custom_images_AeyfFU": {
+          "type": "Custom_images",
+          "disabled": false,
+          "settings": {
+            "sub-menu_title": "Bright colours",
+            "menu_key": "4.3,1",
+            "menu_image": "shopify://shop_images/width_20025-ezgif.com-webp-to-png-converter.png",
+            "tag_title": ""
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_t3nHxE",
+        "mega_menu_83cerV",
+        "mega_menu_Ctxmmn",
+        "mega_menu_tFTCKH",
+        "mega_menu_wimkN7",
+        "custom_images_HHqDm6",
+        "custom_images_cAhKzJ",
+        "custom_images_7dUwaR",
+        "custom_images_4abKUQ",
+        "custom_images_wnVmdD",
+        "custom_images_xj4RXz",
+        "custom_images_nypj6B",
+        "custom_images_YCteHV",
+        "custom_images_z4zbht",
+        "custom_images_fbcaVq",
+        "custom_images_GbcCfk",
+        "custom_images_dgJbkW",
+        "custom_images_9rae9t",
+        "custom_images_ALbzXQ",
+        "custom_images_PYzHVp",
+        "custom_images_4Npnpa",
+        "custom_images_MzyewX",
+        "custom_images_ihdEyP",
+        "custom_images_tGHJf8",
+        "custom_images_iT9Wnp",
+        "custom_images_YQGxtW",
+        "custom_images_hL3AFF",
+        "custom_images_X3Y37g",
+        "custom_images_DJfPKi",
+        "custom_images_byhRjU",
+        "custom_images_n3c8HV",
+        "custom_images_Agp6nU",
+        "custom_images_qfQGRm",
+        "custom_images_pfXwXE",
+        "custom_images_GLJyLg",
+        "custom_images_D8FMTA",
+        "custom_images_MTUeQP",
+        "custom_images_qCcYh7",
+        "custom_images_nbAVU9",
+        "custom_images_cXNgep",
+        "custom_images_Fd79Vg",
+        "custom_images_AeyfFU",
+        "custom_images_g3JF7t",
+        "custom_images_YqQTYn",
+        "custom_images_TmFCbD",
+        "custom_images_XqWWjr",
+        "custom_images_6WCkhf"
+      ]
     }
   }
 }
