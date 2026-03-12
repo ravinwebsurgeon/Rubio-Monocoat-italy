@@ -19,10 +19,10 @@
         "container_xNmGKf": {
           "disabled": false,
           "settings": {
-            "heading": "Telephone Advice",
-            "subtext": "+33 7 57 94 17 86",
             "class": "",
+            "heading": "Telephone Advice",
             "subhead": "",
+            "subtext": "+33 7 57 94 17 86",
             "extra_text": "Mon–Fri: 9:15–12:00 & 13:30–17:00"
           }
         },
@@ -32,6 +32,43 @@
           }
         }
       }
+    },
+    "two_color_grid_ifntXn": {
+      "settings": {},
+      "blocks": {
+        "color_item_N3aGeQ": {
+          "settings": {
+            "title": "Smoke 5%",
+            "text": "Light, transparent grey",
+            "image": "shopify://shop_images/Oil_Plus_2C_Oak_Smoke5.jpg",
+            "full_image": "shopify://shop_images/project_smoke_5.png"
+          }
+        },
+        "color_item_a6e4XY": {
+          "settings": {
+            "title": "Natural",
+            "text": "Subtle & sophisticated",
+            "image": "shopify://shop_images/Oil_Plus_2C_Oak_Natural.jpg",
+            "full_image": "shopify://shop_images/Project_natural.png"
+          }
+        },
+        "color_item_JDDP8d": {
+          "settings": {
+            "title": "Bourbon",
+            "image": "shopify://shop_images/Oil_Plus_2C_Oak_Bourbon.jpg",
+            "full_image": "shopify://shop_images/project_bourbon.png",
+            "text": "Warm brown with orange undertone"
+          }
+        }
+      },
+      "block_order": [
+        "color_item_NXwrqq",
+        "color_item_N3aGeQ",
+        "color_item_D4jTci",
+        "color_item_a6e4XY",
+        "color_item_JDDP8d",
+        "color_item_9L8db7"
+      ]
     }
   }
 }
