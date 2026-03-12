@@ -536,5 +536,12 @@
       "send_on": "YYYY-MM-DD",
       "send_on_label": "Send on (optional)"
     }
+  },
+  "shopify": {
+    "checkout": {
+      "field_errors": {
+        "address_company_too_long": "Company name is too long(maximun 10 characters)"
+      }
+    }
   }
 }
