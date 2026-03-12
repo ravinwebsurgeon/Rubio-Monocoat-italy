@@ -13,6 +13,43 @@
   },
   "parent": "index.json",
   "sections": {
+    "two_color_grid_ifntXn": {
+      "settings": {},
+      "blocks": {
+        "color_item_N3aGeQ": {
+          "settings": {
+            "image": "shopify://shop_images/Oil_Plus_2C_Oak_Smoke5.jpg",
+            "full_image": "shopify://shop_images/project_smoke_5.png",
+            "title": "Smoke 5%",
+            "text": "Light, transparent grey"
+          }
+        },
+        "color_item_a6e4XY": {
+          "settings": {
+            "image": "shopify://shop_images/Oil_Plus_2C_Oak_Natural.jpg",
+            "full_image": "shopify://shop_images/Project_natural.png",
+            "title": "Natural",
+            "text": "Subtle & sophisticated"
+          }
+        },
+        "color_item_JDDP8d": {
+          "settings": {
+            "image": "shopify://shop_images/Oil_Plus_2C_Oak_Bourbon.jpg",
+            "full_image": "shopify://shop_images/project_bourbon.png",
+            "title": "Bourbon",
+            "text": "Warm brown with orange undertone"
+          }
+        }
+      },
+      "block_order": [
+        "color_item_NXwrqq",
+        "color_item_N3aGeQ",
+        "color_item_D4jTci",
+        "color_item_a6e4XY",
+        "color_item_JDDP8d",
+        "color_item_9L8db7"
+      ]
+    },
     "icons_section_qxzcqt": {
       "settings": {},
       "blocks": {
@@ -32,43 +69,6 @@
           }
         }
       }
-    },
-    "two_color_grid_ifntXn": {
-      "settings": {},
-      "blocks": {
-        "color_item_N3aGeQ": {
-          "settings": {
-            "title": "Smoke 5%",
-            "text": "Light, transparent grey",
-            "image": "shopify://shop_images/Oil_Plus_2C_Oak_Smoke5.jpg",
-            "full_image": "shopify://shop_images/project_smoke_5.png"
-          }
-        },
-        "color_item_a6e4XY": {
-          "settings": {
-            "title": "Natural",
-            "text": "Subtle & sophisticated",
-            "image": "shopify://shop_images/Oil_Plus_2C_Oak_Natural.jpg",
-            "full_image": "shopify://shop_images/Project_natural.png"
-          }
-        },
-        "color_item_JDDP8d": {
-          "settings": {
-            "title": "Bourbon",
-            "image": "shopify://shop_images/Oil_Plus_2C_Oak_Bourbon.jpg",
-            "full_image": "shopify://shop_images/project_bourbon.png",
-            "text": "Warm brown with orange undertone"
-          }
-        }
-      },
-      "block_order": [
-        "color_item_NXwrqq",
-        "color_item_N3aGeQ",
-        "color_item_D4jTci",
-        "color_item_a6e4XY",
-        "color_item_JDDP8d",
-        "color_item_9L8db7"
-      ]
     }
   }
 }
