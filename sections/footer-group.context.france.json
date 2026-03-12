@@ -16,6 +16,15 @@
     "footer": {
       "settings": {},
       "blocks": {
+        "country_social_tUy3z": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "FR",
+            "label": "Youtube",
+            "url": "https://www.youtube.com/@RubioMonocoatFrance"
+          }
+        },
         "country_social_crqKaB": {
           "type": "country_social",
           "disabled": false,
@@ -41,6 +50,7 @@
         }
       },
       "block_order": [
+        "country_social_tUy3z",
         "country_social_crqKaB",
         "country_social_R4M4Be",
         "brand_information_A98rgG",
