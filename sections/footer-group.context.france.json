@@ -16,12 +16,6 @@
     "footer": {
       "settings": {},
       "blocks": {
-        "country_social_gWTFPf": {
-          "settings": {
-            "country": "",
-            "url": "https://www.instagram.com/rubiomonocoatfrance/"
-          }
-        },
         "country_social_jyNNYq": {
           "settings": {
             "country": "FR",
@@ -59,7 +53,6 @@
         }
       },
       "block_order": [
-        "country_social_gWTFPf",
         "country_social_jyNNYq",
         "country_social_NGFKiF",
         "country_social_crqKaB",
