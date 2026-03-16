@@ -13,25 +13,13 @@
   },
   "parent": "page.customer-service.json",
   "sections": {
-    "icons_section_rzewec": {
+    "image_block_with_button_w63mgR": {
       "settings": {},
       "blocks": {
-        "container_wfiezd": {
-          "disabled": false,
+        "image_block_gK6EXi": {
           "settings": {
-            "subtext": "+33 7 57 94 17 86",
-            "extra_text": "Mon–Fri: 9:15–12:00 & 13:30–17:00"
+            "button_text": "Interior Products"
           }
-        },
-        "container_bxqMjj": {
-          "disabled": false,
-          "settings": {
-            "subtext": "support@rubiomonocoat.fr"
-          }
-        },
-        "container_kab4cn": {
-          "disabled": false,
-          "settings": {}
         }
       }
     },
@@ -77,13 +65,25 @@
         }
       }
     },
-    "image_block_with_button_w63mgR": {
+    "icons_section_rzewec": {
       "settings": {},
       "blocks": {
-        "image_block_gK6EXi": {
+        "container_wfiezd": {
+          "disabled": false,
           "settings": {
-            "button_text": "Interior Products"
+            "subtext": "01 89 72 40 57",
+            "extra_text": "Mon–Fri: 9:15–12:00 & 13:30–17:00"
           }
+        },
+        "container_bxqMjj": {
+          "disabled": false,
+          "settings": {
+            "subtext": "support@rubiomonocoat.fr"
+          }
+        },
+        "container_kab4cn": {
+          "disabled": false,
+          "settings": {}
         }
       }
     }
