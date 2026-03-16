@@ -76,6 +76,16 @@
           "settings": {}
         }
       }
+    },
+    "image_block_with_button_w63mgR": {
+      "settings": {},
+      "blocks": {
+        "image_block_gK6EXi": {
+          "settings": {
+            "button_text": "Interior Products"
+          }
+        }
+      }
     }
   }
 }
