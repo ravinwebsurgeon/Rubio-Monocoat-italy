@@ -13,6 +13,16 @@
   },
   "parent": "page.faqs-returns.json",
   "sections": {
+    "faqs_gnazct": {
+      "settings": {},
+      "blocks": {
+        "faq_item_UUR9f6": {
+          "settings": {
+            "answer": "You can notify us of your withdrawal by emailing support@rubiomonocoat.fr\n or by using our online return form or standard withdrawal form. Just let us know clearly that you wish to return your order."
+          }
+        }
+      }
+    },
     "icons_section_Q84VnV": {
       "settings": {},
       "blocks": {
@@ -20,23 +30,14 @@
           "disabled": false,
           "settings": {
             "class": "",
-            "extra_text": "Mon–Fri: 9:15–12:00 & 13:30–17:00",
             "heading": "Telephone Advice",
-            "subtext": "+33 7 57 94 17 86"
+            "subtext": "01 89 72 40 57",
+            "extra_text": "Mon–Fri: 9:15–12:00 & 13:30–17:00"
           }
         },
         "container_aYeRcN": {
           "settings": {
             "subtext": "support@rubiomonocoat.fr"
-          }
-        }
-      }
-    },
-    "faqs_gnazct": {
-      "blocks": {
-        "faq_item_UUR9f6": {
-          "settings": {
-            "answer": "You can notify us of your withdrawal by emailing support@rubiomonocoat.fr\n or by using our online return form or standard withdrawal form. Just let us know clearly that you wish to return your order."
           }
         }
       }
