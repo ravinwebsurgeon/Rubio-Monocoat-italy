@@ -24,14 +24,25 @@
           }
         },
         "container_bxqMjj": {
+          "disabled": false,
           "settings": {
             "subtext": "support@rubiomonocoat.fr"
           }
+        },
+        "container_kab4cn": {
+          "disabled": false,
+          "settings": {}
         }
       }
     },
     "contact_options_FYkrkp": {
-      "settings": {},
+      "settings": {
+        "availability_text": "Our team is available mo - fr from 9:15–12:00 & 13:30–17:00",
+        "right_heading": "",
+        "right_description": "",
+        "call_text": "",
+        "email_text": ""
+      },
       "blocks": {
         "contact_method_mVcVkc": {
           "disabled": true,
@@ -48,6 +59,18 @@
             "subtitle": "support@rubiomonocoat.fr",
             "link": "mailto:support@rubiomonocoat.fr"
           }
+        },
+        "team_member_jNKWWh": {
+          "disabled": true,
+          "settings": {}
+        },
+        "team_member_DxJkEh": {
+          "disabled": true,
+          "settings": {}
+        },
+        "team_member_W8EVBN": {
+          "disabled": true,
+          "settings": {}
         }
       }
     }
