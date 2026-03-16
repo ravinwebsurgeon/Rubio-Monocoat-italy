@@ -13,6 +13,17 @@
   },
   "parent": "product.1.json",
   "sections": {
+    "main": {
+      "settings": {},
+      "blocks": {
+        "icon_with_text_hk7wi6": {
+          "settings": {
+            "heading_1": "Free shipping from €135",
+            "heading_2": "Order before 12 pm, shipped today"
+          }
+        }
+      }
+    },
     "icons_section_t3Wiqj": {
       "settings": {},
       "blocks": {
@@ -21,24 +32,13 @@
           "settings": {
             "class": "",
             "heading": "Telephone Advice",
-            "subtext": "+33 7 57 94 17 86",
+            "subtext": "01 89 72 40 57",
             "extra_text": "Mon–Fri: 9:15–12:00 & 13:30–17:00"
           }
         },
         "container_yzi7tm": {
           "settings": {
             "subtext": "support@rubiomonocoat.fr"
-          }
-        }
-      }
-    },
-    "main": {
-      "settings": {},
-      "blocks": {
-        "icon_with_text_hk7wi6": {
-          "settings": {
-            "heading_1": "Free shipping from €135",
-            "heading_2": "Order before 12 pm, shipped today"
           }
         }
       }
