@@ -19,10 +19,10 @@
         "container_K8pcTz": {
           "disabled": false,
           "settings": {
-            "extra_text": "Mon–Fri: 9:15–12:00 & 13:30–17:00",
-            "subtext": "+33 7 57 94 17 86",
+            "subtext": "01 89 72 40 57",
+            "enable_feature": true,
             "link_type": "phone",
-            "enable_feature": true
+            "extra_text": "Mon–Fri: 9:15–12:00 & 13:30–17:00"
           }
         },
         "container_aYeRcN": {
