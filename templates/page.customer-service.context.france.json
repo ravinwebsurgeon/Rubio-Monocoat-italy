@@ -29,6 +29,21 @@
           }
         }
       }
+    },
+    "contact_options_FYkrkp": {
+      "settings": {},
+      "blocks": {
+        "contact_method_mVcVkc": {
+          "disabled": true,
+          "settings": {}
+        },
+        "contact_method_TxekfM": {
+          "settings": {
+            "subtitle": "01 89 72 40 57",
+            "link": "tel:01 89 72 40 57"
+          }
+        }
+      }
     }
   }
 }
