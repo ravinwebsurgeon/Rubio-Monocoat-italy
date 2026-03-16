@@ -64,7 +64,7 @@
           "type": "image_block",
           "settings": {
             "block_image": "shopify://shop_images/Oil_Plus_2C_-_project_4.png",
-            "button_text": "Interior products",
+            "button_text": "Interior Products",
             "button_link": "shopify://pages/faqs-interior-products"
           }
         },
@@ -80,7 +80,7 @@
           "type": "image_block",
           "settings": {
             "block_image": "shopify://shop_images/Cleaning_maintenance.png",
-            "button_text": "Maintenance products",
+            "button_text": "Maintenance Products",
             "button_link": "shopify://pages/faqs-maintenance-products"
           }
         }
