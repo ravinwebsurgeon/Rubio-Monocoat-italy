@@ -42,6 +42,15 @@
             "url": "https://www.pinterest.com/rubiomonocoat/_created/"
           }
         },
+        "country_social_fmDpBL": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "BE",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@rubiomonocoat"
+          }
+        },
         "text_hWeadq": {
           "settings": {
             "subtext": "<p><strong>Rubio Monocoat HQ</strong></p><p>Ambachtenlaan 58 </p><p>8870 Izegem</p><p>Belgium</p><p>VAT: BE0607980657</p><p>shop@rubiomonocoat.com</p><p>+32 51 335 335</p>"
@@ -53,6 +62,7 @@
         "country_social_jyNNYq",
         "country_social_NGFKiF",
         "country_social_MJzADX",
+        "country_social_fmDpBL",
         "brand_information_A98rgG",
         "link_list_tfK6cN",
         "link_list_KBYewH",
