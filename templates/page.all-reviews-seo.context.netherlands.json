@@ -20,6 +20,11 @@
           "settings": {
             "subtext": "info@rubiomonocoat.nl"
           }
+        },
+        "container_bk6jiW": {
+          "settings": {
+            "class": "open_chat"
+          }
         }
       }
     }
