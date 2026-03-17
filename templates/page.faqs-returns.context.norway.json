@@ -13,10 +13,6 @@
   },
   "parent": "page.faqs-returns.json",
   "sections": {
-    "faqs_gnazct": {
-      "settings": {},
-      "blocks": {}
-    },
     "icons_section_Q84VnV": {
       "settings": {},
       "blocks": {
@@ -26,13 +22,18 @@
             "class": "",
             "heading": "Telephone Advice",
             "subhead": "",
-            "extra_text": "",
-            "subtext": "+47 63 95 63 95"
+            "subtext": "+47 63 95 63 95",
+            "extra_text": ""
           }
         },
         "container_aYeRcN": {
           "settings": {
             "subtext": "info-no@rubiomonocoat.com"
+          }
+        },
+        "container_8dN9R3": {
+          "settings": {
+            "class": ""
           }
         }
       }
