@@ -75,6 +75,11 @@
           "settings": {
             "subtext": "info-no@rubiomonocoat.com"
           }
+        },
+        "container_kab4cn": {
+          "settings": {
+            "class": ""
+          }
         }
       }
     }
