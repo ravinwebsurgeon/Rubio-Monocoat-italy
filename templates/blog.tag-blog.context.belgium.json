@@ -12,5 +12,25 @@
     "market": "belgium"
   },
   "parent": "blog.tag-blog.json",
-  "sections": {}
+  "sections": {
+    "icons_section_XdWayc": {
+      "settings": {},
+      "blocks": {
+        "container_ydfipW": {
+          "disabled": false,
+          "settings": {
+            "class": "",
+            "extra_text": "",
+            "heading": "Telephone Advice",
+            "subtext": "+32 51 335 335"
+          }
+        },
+        "container_UjEXHD": {
+          "settings": {
+            "subtext": "shop@rubiomonocoat.com"
+          }
+        }
+      }
+    }
+  }
 }
