@@ -26,6 +26,11 @@
           "settings": {
             "subtext": "info@rubiomonocoat.nl"
           }
+        },
+        "container_PEaFYM": {
+          "settings": {
+            "class": "open_chat"
+          }
         }
       }
     }
