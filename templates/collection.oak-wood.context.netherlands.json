@@ -13,6 +13,12 @@
   },
   "parent": "collection.oak-wood.json",
   "sections": {
+    "product-grid": {
+      "settings": {
+        "learn_more_collection": "Learn More"
+      },
+      "blocks": {}
+    },
     "icons_section_7qKdwJ": {
       "settings": {},
       "blocks": {
@@ -20,14 +26,13 @@
           "settings": {
             "subtext": "info@rubiomonocoat.nl"
           }
+        },
+        "container_ndArPt": {
+          "settings": {
+            "class": "open_chat"
+          }
         }
       }
-    },
-    "product-grid": {
-      "settings": {
-        "learn_more_collection": "Learn More"
-      },
-      "blocks": {}
     }
   }
 }
