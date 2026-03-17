@@ -16,24 +16,26 @@
     "footer": {
       "settings": {},
       "blocks": {
-        "text_hWeadq": {
-          "settings": {
-            "subtext": "<p><strong>Rubio Monocoat HQ</strong></p><p>Ambachtenlaan 58 </p><p>8870 Izegem</p><p>Belgium</p><p>VAT: BE0607980657</p><p>shop@rubiomonocoat.com</p><p>+32 51 335 335</p>"
-          }
-        },
         "country_social_gWTFPf": {
           "settings": {
-            "country": "BE"
+            "country": "BE",
+            "url": "https://www.instagram.com/rubiomonocoatbelgie/"
           }
         },
         "country_social_jyNNYq": {
           "settings": {
-            "country": "BE"
+            "country": "BE",
+            "url": "https://www.facebook.com/rubiomonocoatbelgie"
           }
         },
         "country_social_NGFKiF": {
           "settings": {
             "country": "BE"
+          }
+        },
+        "text_hWeadq": {
+          "settings": {
+            "subtext": "<p><strong>Rubio Monocoat HQ</strong></p><p>Ambachtenlaan 58 </p><p>8870 Izegem</p><p>Belgium</p><p>VAT: BE0607980657</p><p>shop@rubiomonocoat.com</p><p>+32 51 335 335</p>"
           }
         }
       }
