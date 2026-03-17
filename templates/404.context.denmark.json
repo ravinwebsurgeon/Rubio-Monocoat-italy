@@ -15,8 +15,8 @@
         "container_dFqDif": {
           "disabled": false,
           "settings": {
-            "heading": "Telephone Advice",
             "class": "",
+            "heading": "Telephone Advice",
             "subtext": "+45 88 77 98 18",
             "extra_text": ""
           }
@@ -24,6 +24,11 @@
         "container_9NRGxp": {
           "settings": {
             "subtext": "service@rubiomonocoat.dk"
+          }
+        },
+        "container_3Ax9dN": {
+          "settings": {
+            "class": ""
           }
         }
       }

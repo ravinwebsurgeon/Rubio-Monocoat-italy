@@ -9,6 +9,16 @@
  */
 {
   "sections": {
+    "main": {
+      "settings": {},
+      "blocks": {
+        "icon_with_text_hk7wi6": {
+          "settings": {
+            "heading_1": "Free shipping from 500 DKK"
+          }
+        }
+      }
+    },
     "icons_section_t3Wiqj": {
       "settings": {},
       "blocks": {
@@ -26,15 +36,10 @@
           "settings": {
             "subtext": "service@rubiomonocoat.dk"
           }
-        }
-      }
-    },
-    "main": {
-      "settings": {},
-      "blocks": {
-        "icon_with_text_hk7wi6": {
+        },
+        "container_NCh84a": {
           "settings": {
-            "heading_1": "Free shipping from 500 DKK"
+            "class": "open_chat"
           }
         }
       }
