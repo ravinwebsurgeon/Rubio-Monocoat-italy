@@ -12,5 +12,16 @@
     "market": "belgium"
   },
   "parent": "footer-group.json",
-  "sections": {}
+  "sections": {
+    "footer": {
+      "settings": {},
+      "blocks": {
+        "text_hWeadq": {
+          "settings": {
+            "subtext": "<p><strong>Rubio Monocoat HQ</strong></p><p>Ambachtenlaan 58 </p><p>8870 Izegem</p><p>Belgium</p><p>VAT: BE0607980657</p><p>shop@rubiomonocoat.com</p><p>+32 51 335 335</p>"
+          }
+        }
+      }
+    }
+  }
 }
