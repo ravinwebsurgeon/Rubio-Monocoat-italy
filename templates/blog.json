@@ -53,7 +53,7 @@
         "container_VQth9G": {
           "type": "container",
           "settings": {
-            "class": "",
+            "class": "open_chat",
             "icon": "shopify://shop_images/headset.png",
             "heading": "Customized advice",
             "subhead": "",
