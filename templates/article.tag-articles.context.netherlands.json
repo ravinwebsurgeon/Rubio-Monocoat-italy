@@ -16,14 +16,19 @@
     "icons_section_Gf9WqK": {
       "settings": {},
       "blocks": {
+        "container_tGrMy6": {
+          "settings": {
+            "subtext": "info@rubiomonocoat.nl"
+          }
+        },
         "container_FQU6Rz": {
           "settings": {
             "subtext": ""
           }
         },
-        "container_tGrMy6": {
+        "container_xA7XMy": {
           "settings": {
-            "subtext": "info@rubiomonocoat.nl"
+            "class": "open_chat"
           }
         }
       }
