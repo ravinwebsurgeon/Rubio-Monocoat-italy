@@ -10,7 +10,7 @@
       <div class="contact-buttons">
         {% for block in section.blocks %}
           {% if block.type == 'contact_method' %}
-          <div class="contact-item">
+          <div class="contact-item  {{ block.settings.block_class }}">
             <div class="contact-icon">
               {{ block.settings.icon_svg }}
             </div>
