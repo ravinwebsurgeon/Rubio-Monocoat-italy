@@ -29,7 +29,9 @@
       "blocks": {
         "contact_method_mVcVkc": {
           "disabled": true,
-          "settings": {}
+          "settings": {
+            "block_class": "open_chat"
+          }
         },
         "contact_method_TxekfM": {
           "disabled": true,
