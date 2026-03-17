@@ -52,13 +52,18 @@
             "class": "",
             "heading": "Telephone Advice",
             "subhead": "",
-            "link_type": "phone",
-            "subtext": "+47 63 95 63 95"
+            "subtext": "+47 63 95 63 95",
+            "link_type": "phone"
           }
         },
         "container_EGhzFM": {
           "settings": {
             "subtext": "info-no@rubiomonocoat.com"
+          }
+        },
+        "container_PEaFYM": {
+          "settings": {
+            "class": ""
           }
         }
       }
