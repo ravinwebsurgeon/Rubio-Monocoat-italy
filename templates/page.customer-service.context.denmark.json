@@ -9,6 +9,32 @@
  */
 {
   "sections": {
+    "contact_options_FYkrkp": {
+      "settings": {
+        "availability_text": "Our team is available mo - fr from 8:30 a.m. - 5:00 p.m.",
+        "call_link": "tel:+45 88 77 98 18",
+        "email_link": "mailto:service@rubiomonocoat.dk"
+      },
+      "blocks": {
+        "contact_method_mVcVkc": {
+          "disabled": false,
+          "settings": {}
+        },
+        "contact_method_TxekfM": {
+          "settings": {
+            "subtitle": "+45 88 77 98 18",
+            "link": "tel:+45 88 77 98 18"
+          }
+        },
+        "contact_method_JF4YCW": {
+          "settings": {
+            "title": "Send an email",
+            "subtitle": "service@rubiomonocoat.dk",
+            "link": "mailto:service@rubiomonocoat.dk"
+          }
+        }
+      }
+    },
     "icons_section_rzewec": {
       "settings": {},
       "blocks": {
@@ -25,32 +51,6 @@
           "disabled": false,
           "settings": {
             "subtext": "service@rubiomonocoat.dk"
-          }
-        }
-      }
-    },
-    "contact_options_FYkrkp": {
-      "settings": {
-        "availability_text": "Our team is available mo - fr from 8:30 a.m. - 5:00 p.m.",
-        "call_link": "tel:+45 88 77 98 18",
-        "email_link": "mailto:service@rubiomonocoat.dk"
-      },
-      "blocks": {
-        "contact_method_mVcVkc": {
-          "disabled": true,
-          "settings": {}
-        },
-        "contact_method_TxekfM": {
-          "settings": {
-            "subtitle": "+45 88 77 98 18",
-            "link": "tel:+45 88 77 98 18"
-          }
-        },
-        "contact_method_JF4YCW": {
-          "settings": {
-            "title": "Send an email",
-            "subtitle": "service@rubiomonocoat.dk",
-            "link": "mailto:service@rubiomonocoat.dk"
           }
         }
       }
