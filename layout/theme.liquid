@@ -1585,6 +1585,7 @@ async function detectCountry() {
     document.addEventListener('click', function(e) {
       const target = e.target.closest('.open_chat');
       if (target) {
+        console.log('chat opened')
         e.preventDefault();
         openChat();
       }
