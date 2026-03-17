@@ -137,14 +137,14 @@
           "type": "container",
           "disabled": true,
           "settings": {
-            "class": "",
+            "class": "first-container-sec",
             "icon": "shopify://shop_images/phone_1.png",
-            "heading": "Telephone Advice",
+            "heading": "Telephone advice",
             "subhead": "",
             "subtext": "",
             "enable_feature": true,
             "link_type": "phone",
-            "extra_text": ""
+            "extra_text": "Answer the questions"
           }
         },
         "container_aYeRcN": {
@@ -163,7 +163,7 @@
         "container_8dN9R3": {
           "type": "container",
           "settings": {
-            "class": "",
+            "class": "open_chat",
             "icon": "shopify://shop_images/headset.png",
             "heading": "Ask Our Experts",
             "subhead": "",
