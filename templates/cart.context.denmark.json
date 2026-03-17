@@ -25,6 +25,11 @@
           "settings": {
             "subtext": "service@rubiomonocoat.dk"
           }
+        },
+        "container_4TFVAH": {
+          "settings": {
+            "class": "open_chat"
+          }
         }
       }
     }
