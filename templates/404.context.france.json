@@ -27,6 +27,11 @@
           "settings": {
             "subtext": "support@rubiomonocoat.fr"
           }
+        },
+        "container_3Ax9dN": {
+          "settings": {
+            "class": "open_chat"
+          }
         }
       }
     }
