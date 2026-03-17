@@ -18,6 +18,22 @@
         "learn_more_collection": "Learn More"
       },
       "blocks": {}
+    },
+    "icons_section_7qKdwJ": {
+      "settings": {},
+      "blocks": {
+        "container_X3D3LU": {
+          "disabled": false,
+          "settings": {
+            "subtext": "+32 51 335 335"
+          }
+        },
+        "container_BxEzhc": {
+          "settings": {
+            "subtext": "shop@rubiomonocoat.com"
+          }
+        }
+      }
     }
   }
 }
