@@ -50,6 +50,11 @@
           "settings": {
             "subtext": "info@rubiomonocoat.nl"
           }
+        },
+        "container_kab4cn": {
+          "settings": {
+            "class": "open_chat"
+          }
         }
       }
     }
