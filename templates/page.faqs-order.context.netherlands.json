@@ -13,6 +13,16 @@
   },
   "parent": "page.faqs-order.json",
   "sections": {
+    "faqs_gnazct": {
+      "settings": {},
+      "blocks": {
+        "faq_item_bJ33cX": {
+          "settings": {
+            "answer": "For orders below €50.00 (VAT included), shipping costs are charged to the customer.\nIf the delivery address is in the Netherlands, the shipping fee is €5.00. For orders of €50.00 or more (VAT included), shipping is free."
+          }
+        }
+      }
+    },
     "icons_section_Q84VnV": {
       "settings": {},
       "blocks": {
@@ -20,14 +30,10 @@
           "settings": {
             "subtext": "info@rubiomonocoat.nl"
           }
-        }
-      }
-    },
-    "faqs_gnazct": {
-      "blocks": {
-        "faq_item_bJ33cX": {
+        },
+        "container_8dN9R3": {
           "settings": {
-            "answer": "For orders below €50.00 (VAT included), shipping costs are charged to the customer.\nIf the delivery address is in the Netherlands, the shipping fee is €5.00. For orders of €50.00 or more (VAT included), shipping is free."
+            "class": "open_chat"
           }
         }
       }
