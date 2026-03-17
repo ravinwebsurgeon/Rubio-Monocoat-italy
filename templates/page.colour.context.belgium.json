@@ -12,5 +12,22 @@
     "market": "belgium"
   },
   "parent": "page.colour.json",
-  "sections": {}
+  "sections": {
+    "icons_section_PB6Qty": {
+      "settings": {},
+      "blocks": {
+        "container_jtjmCk": {
+          "disabled": false,
+          "settings": {
+            "subtext": "+32 51 335 335"
+          }
+        },
+        "container_GBVHCN": {
+          "settings": {
+            "subtext": "shop@rubiomonocoat.com"
+          }
+        }
+      }
+    }
+  }
 }
