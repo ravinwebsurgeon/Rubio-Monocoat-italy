@@ -40,6 +40,11 @@
           "settings": {
             "subtext": "support@rubiomonocoat.fr"
           }
+        },
+        "container_NCh84a": {
+          "settings": {
+            "class": "open_chat"
+          }
         }
       }
     }
