@@ -210,7 +210,7 @@
         "container_kab4cn": {
           "type": "container",
           "settings": {
-            "class": "",
+            "class": "open_chat",
             "icon": "shopify://shop_images/headset.png",
             "heading": "Ask Our Experts",
             "subhead": "",
