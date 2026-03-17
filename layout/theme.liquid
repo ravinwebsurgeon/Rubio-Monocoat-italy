@@ -1575,6 +1575,20 @@ async function detectCountry() {
     enrichProductJSON(event.detail.widget.data.products, event.detail.widget);
     });
   </script>
+  <script>
+      function openChat() {
+      if (window.HubSpotConversations) {
+        window.HubSpotConversations.widget.open();
+      }
+    }
+    document.addEventListener('click', function(e) {
+      const target = e.target.closest('.open_chat');
+      if (target) {
+        e.preventDefault();
+        openChat();
+      }
+    });
+  </script>
   {% assign lower_market_country = localization.country.iso_code | downcase %}
 {% assign chatbot_shops_list = "be,fr,dk,nl" | split:',' %}
 {% assign is_chatbot_shop = false %}
