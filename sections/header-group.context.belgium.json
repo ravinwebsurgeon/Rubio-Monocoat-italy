@@ -12,5 +12,20 @@
     "market": "belgium"
   },
   "parent": "header-group.json",
-  "sections": {}
+  "sections": {
+    "announcement-bar": {
+      "settings": {},
+      "blocks": {
+        "announcement_yxaLy3": {
+          "disabled": true,
+          "settings": {}
+        },
+        "announcement_6zGjFz": {
+          "settings": {
+            "text": "Ordered before 12 pm, shipped the same day"
+          }
+        }
+      }
+    }
+  }
 }
