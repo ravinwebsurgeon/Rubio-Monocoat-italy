@@ -34,7 +34,7 @@
           "type": "announcement",
           "disabled": true,
           "settings": {
-            "text": "Ordered before 12:00, shipped the same day",
+            "text": "Ordered before 12 pm, shipped the same day",
             "link": "",
             "custom_svg": ""
           }
