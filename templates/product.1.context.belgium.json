@@ -36,6 +36,16 @@
           }
         }
       }
+    },
+    "main": {
+      "settings": {},
+      "blocks": {
+        "icon_with_text_hk7wi6": {
+          "settings": {
+            "heading_2": "Order before 12 pm, shipped today"
+          }
+        }
+      }
     }
   }
 }
