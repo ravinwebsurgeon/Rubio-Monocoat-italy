@@ -28,11 +28,6 @@
             "url": "https://www.facebook.com/rubiomonocoatbelgie"
           }
         },
-        "country_social_NGFKiF": {
-          "settings": {
-            "country": "BE"
-          }
-        },
         "country_social_MJzADX": {
           "type": "country_social",
           "disabled": false,
@@ -60,7 +55,6 @@
       "block_order": [
         "country_social_gWTFPf",
         "country_social_jyNNYq",
-        "country_social_NGFKiF",
         "country_social_MJzADX",
         "country_social_fmDpBL",
         "brand_information_A98rgG",
