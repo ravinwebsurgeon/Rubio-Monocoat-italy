@@ -22,9 +22,12 @@
             "url": "https://www.instagram.com/rubiomonocoatbelgie/"
           }
         },
-        "country_social_jyNNYq": {
+        "country_social_gVJzK": {
+          "type": "country_social",
+          "disabled": false,
           "settings": {
             "country": "BE",
+            "label": "Facebook",
             "url": "https://www.facebook.com/rubiomonocoatbelgie"
           }
         },
@@ -63,7 +66,7 @@
       },
       "block_order": [
         "country_social_gWTFPf",
-        "country_social_jyNNYq",
+        "country_social_gVJzK",
         "country_social_TwYU8",
         "country_social_MJzADX",
         "country_social_fmDpBL",
