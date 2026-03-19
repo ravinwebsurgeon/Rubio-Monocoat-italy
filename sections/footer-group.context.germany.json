@@ -33,11 +33,21 @@
             "label": "Instagram",
             "url": ""
           }
+        },
+        "country_social_AKjmm": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "de",
+            "label": "Youtube",
+            "url": ""
+          }
         }
       },
       "block_order": [
         "country_social_eegYa",
         "country_social_HJDkn",
+        "country_social_AKjmm",
         "brand_information_A98rgG",
         "link_list_tfK6cN",
         "link_list_KBYewH",
