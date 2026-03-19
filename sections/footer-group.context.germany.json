@@ -15,39 +15,8 @@
   "sections": {
     "footer": {
       "settings": {},
-      "blocks": {
-        "country_social_Rj3td": {
-          "type": "country_social",
-          "disabled": false,
-          "settings": {
-            "country": "DE",
-            "label": "Facebook",
-            "url": "https://www.facebook.com"
-          }
-        },
-        "country_social_6N3bD": {
-          "type": "country_social",
-          "disabled": false,
-          "settings": {
-            "country": "DE",
-            "label": "Instagram",
-            "url": "https://www.instagram.com/rubiomonocoatitalia/"
-          }
-        },
-        "country_social_TdxMF": {
-          "type": "country_social",
-          "disabled": false,
-          "settings": {
-            "country": "DE",
-            "label": "Youtube",
-            "url": "https://www.youtube.com/c/RubioMonocoatRMC"
-          }
-        }
-      },
+      "blocks": {},
       "block_order": [
-        "country_social_Rj3td",
-        "country_social_6N3bD",
-        "country_social_TdxMF",
         "brand_information_A98rgG",
         "link_list_tfK6cN",
         "link_list_KBYewH",
