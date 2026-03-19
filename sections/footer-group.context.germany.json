@@ -16,6 +16,15 @@
     "footer": {
       "settings": {},
       "blocks": {
+        "country_social_LK3j9": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "DE",
+            "label": "Instagram",
+            "url": ""
+          }
+        },
         "country_social_z3nge": {
           "type": "country_social",
           "disabled": false,
@@ -32,6 +41,7 @@
         }
       },
       "block_order": [
+        "country_social_LK3j9",
         "country_social_z3nge",
         "country_social_jyNNYq",
         "brand_information_A98rgG",
