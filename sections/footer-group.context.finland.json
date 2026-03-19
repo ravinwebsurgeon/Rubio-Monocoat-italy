@@ -16,6 +16,15 @@
     "footer": {
       "settings": {},
       "blocks": {
+        "country_social_CXVaF": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "FI",
+            "label": "Facebook",
+            "url": "https://www.facebook.com/rubiomonocoatitalia"
+          }
+        },
         "country_social_9HFYx": {
           "type": "country_social",
           "disabled": false,
@@ -36,6 +45,7 @@
         }
       },
       "block_order": [
+        "country_social_CXVaF",
         "country_social_9HFYx",
         "country_social_hiJpX",
         "brand_information_A98rgG",
