@@ -16,7 +16,7 @@
     "footer": {
       "settings": {},
       "blocks": {
-        "country_social_Aj64W": {
+        "country_social_NEmbx": {
           "type": "country_social",
           "disabled": false,
           "settings": {
@@ -45,7 +45,7 @@
         }
       },
       "block_order": [
-        "country_social_Aj64W",
+        "country_social_NEmbx",
         "country_social_QWTfm",
         "country_social_Mhzq8",
         "brand_information_A98rgG",
