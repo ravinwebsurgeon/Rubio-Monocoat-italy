@@ -21,43 +21,13 @@
           "disabled": false,
           "settings": {
             "country": "DE",
-            "label": "",
-            "url": ""
-          }
-        },
-        "country_social_qkPz8": {
-          "type": "country_social",
-          "disabled": false,
-          "settings": {
-            "country": "DE",
             "label": "Facebook",
-            "url": ""
-          }
-        },
-        "country_social_VNH7R": {
-          "type": "country_social",
-          "disabled": false,
-          "settings": {
-            "country": "DE",
-            "label": "Instagram",
-            "url": ""
-          }
-        },
-        "country_social_zgtT7": {
-          "type": "country_social",
-          "disabled": false,
-          "settings": {
-            "country": "DE",
-            "label": "Youtube",
             "url": ""
           }
         }
       },
       "block_order": [
         "country_social_Wm7aL",
-        "country_social_qkPz8",
-        "country_social_VNH7R",
-        "country_social_zgtT7",
         "brand_information_A98rgG",
         "link_list_tfK6cN",
         "link_list_KBYewH",
