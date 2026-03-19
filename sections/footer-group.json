@@ -40,7 +40,7 @@
       "custom_css": [],
       "name": "t:sections.newsletter.presets.name",
       "settings": {
-        "color_scheme": "scheme-5",
+        "color_scheme": "scheme-2",
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 52
@@ -51,6 +51,7 @@
       "blocks": {
         "country_social_gWTFPf": {
           "type": "country_social",
+          "disabled": true,
           "settings": {
             "country": "IT",
             "label": "Instagram",
@@ -59,6 +60,7 @@
         },
         "country_social_jyNNYq": {
           "type": "country_social",
+          "disabled": true,
           "settings": {
             "country": "IT",
             "label": "Facebook",
@@ -67,6 +69,7 @@
         },
         "country_social_NGFKiF": {
           "type": "country_social",
+          "disabled": true,
           "settings": {
             "country": "IT",
             "label": "Youtube",
