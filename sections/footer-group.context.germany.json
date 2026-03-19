@@ -16,6 +16,15 @@
     "footer": {
       "settings": {},
       "blocks": {
+        "country_social_pTQa3": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "DE",
+            "label": "TikTok",
+            "url": "https://www.facebook.com/"
+          }
+        },
         "country_social_EEQ8W": {
           "type": "country_social",
           "disabled": false,
@@ -45,6 +54,7 @@
         }
       },
       "block_order": [
+        "country_social_pTQa3",
         "country_social_EEQ8W",
         "country_social_mRRcA",
         "country_social_EPn7h",
