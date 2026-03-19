@@ -15,8 +15,19 @@
   "sections": {
     "footer": {
       "settings": {},
-      "blocks": {},
+      "blocks": {
+        "country_social_eegYa": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "DE",
+            "label": "Facebook",
+            "url": ""
+          }
+        }
+      },
       "block_order": [
+        "country_social_eegYa",
         "brand_information_A98rgG",
         "link_list_tfK6cN",
         "link_list_KBYewH",
