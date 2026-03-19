@@ -22,6 +22,15 @@
     "footer": {
       "settings": {},
       "blocks": {
+        "country_social_LEgHx": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "SE",
+            "label": "Instagram",
+            "url": "https://www.instagram.com/rubiomonocoatsverige/"
+          }
+        },
         "country_social_8WgCn": {
           "type": "country_social",
           "disabled": false,
@@ -56,6 +65,7 @@
         }
       },
       "block_order": [
+        "country_social_LEgHx",
         "country_social_8WgCn",
         "country_social_GXT9jX",
         "country_social_kU8kLz",
