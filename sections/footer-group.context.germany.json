@@ -16,6 +16,12 @@
     "footer": {
       "settings": {},
       "blocks": {
+        "country_social_NGFKiF": {
+          "settings": {
+            "country": "DE",
+            "label": "Youtube-1"
+          }
+        },
         "country_social_EEQ8W": {
           "type": "country_social",
           "disabled": false,
@@ -41,11 +47,6 @@
             "country": "DE",
             "label": "Youtube",
             "url": "https://www.youtube.com/c/RubioMonocoatRMC"
-          }
-        },
-        "country_social_NGFKiF": {
-          "settings": {
-            "country": "DE"
           }
         }
       },
