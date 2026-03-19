@@ -20,9 +20,9 @@
           "type": "country_social",
           "disabled": false,
           "settings": {
-            "country": "DE",
+            "country": "de",
             "label": "Facebook",
-            "url": ""
+            "url": "https://www.facebook.com/rubiomonocoatitalia"
           }
         },
         "country_social_HJDkn": {
