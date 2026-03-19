@@ -22,6 +22,15 @@
     "footer": {
       "settings": {},
       "blocks": {
+        "country_social_LR6mP": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "NO",
+            "label": "Instagram",
+            "url": "https://www.instagram.com/rubiomonocoatnorway/"
+          }
+        },
         "country_social_V7nmr": {
           "type": "country_social",
           "disabled": false,
@@ -56,6 +65,7 @@
         }
       },
       "block_order": [
+        "country_social_LR6mP",
         "country_social_V7nmr",
         "country_social_zyVLR",
         "country_social_Gn6Ta",
