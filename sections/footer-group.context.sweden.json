@@ -22,6 +22,15 @@
     "footer": {
       "settings": {},
       "blocks": {
+        "country_social_8WgCn": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "SE",
+            "label": "Facebook",
+            "url": "https://www.facebook.com/rubiomonocoatsverige"
+          }
+        },
         "country_social_GXT9jX": {
           "type": "country_social",
           "disabled": false,
@@ -47,6 +56,7 @@
         }
       },
       "block_order": [
+        "country_social_8WgCn",
         "country_social_GXT9jX",
         "country_social_kU8kLz",
         "brand_information_A98rgG",
