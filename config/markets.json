@@ -41,6 +41,9 @@
     },
     "austria": {
       "parent": "@default"
+    },
+    "germany": {
+      "parent": "@default"
     }
   }
 }

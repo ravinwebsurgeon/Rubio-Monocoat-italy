@@ -12,5 +12,26 @@
     "market": "germany"
   },
   "parent": "footer-group.json",
-  "sections": {}
+  "sections": {
+    "footer": {
+      "settings": {},
+      "blocks": {
+        "country_social_gWTFPf": {
+          "settings": {
+            "country": "DE"
+          }
+        },
+        "country_social_jyNNYq": {
+          "settings": {
+            "country": "DE"
+          }
+        },
+        "country_social_NGFKiF": {
+          "settings": {
+            "country": "DE"
+          }
+        }
+      }
+    }
+  }
 }
