@@ -16,9 +16,13 @@
     "footer": {
       "settings": {},
       "blocks": {
-        "country_social_gWTFPf": {
+        "country_social_z3nge": {
+          "type": "country_social",
+          "disabled": false,
           "settings": {
-            "country": "DE"
+            "country": "DE",
+            "label": "Youtube",
+            "url": ""
           }
         },
         "country_social_jyNNYq": {
@@ -31,7 +35,17 @@
             "country": "DE"
           }
         }
-      }
+      },
+      "block_order": [
+        "country_social_z3nge",
+        "country_social_jyNNYq",
+        "country_social_NGFKiF",
+        "brand_information_A98rgG",
+        "link_list_tfK6cN",
+        "link_list_KBYewH",
+        "link_list_cERTPd",
+        "text_hWeadq"
+      ]
     }
   }
 }
