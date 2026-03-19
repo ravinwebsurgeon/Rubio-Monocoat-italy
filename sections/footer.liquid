@@ -348,7 +348,7 @@
     });
   }, 2000);
   function SocialLinkManage(countryBlocks,country){
-      console.log('footer check',countryBlocks)
+      console.log('footer check',countryBlocks,`{{ request.host }}`)
 
     const matchedCountryData = countryBlocks.filter(
       item => item.country.toLowerCase() === country
