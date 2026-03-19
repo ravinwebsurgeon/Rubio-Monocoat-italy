@@ -24,10 +24,20 @@
             "label": "Facebook",
             "url": ""
           }
+        },
+        "country_social_HJDkn": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "DE",
+            "label": "Instagram",
+            "url": ""
+          }
         }
       },
       "block_order": [
         "country_social_eegYa",
+        "country_social_HJDkn",
         "brand_information_A98rgG",
         "link_list_tfK6cN",
         "link_list_KBYewH",
