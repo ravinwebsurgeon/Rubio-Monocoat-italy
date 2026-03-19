@@ -22,6 +22,15 @@
     "footer": {
       "settings": {},
       "blocks": {
+        "country_social_zyVLR": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "NO",
+            "label": "Youtube",
+            "url": "https://www.youtube.com/c/RubioMonocoatRMC"
+          }
+        },
         "country_social_Gn6Ta": {
           "type": "country_social",
           "disabled": false,
@@ -38,6 +47,7 @@
         }
       },
       "block_order": [
+        "country_social_zyVLR",
         "country_social_Gn6Ta",
         "brand_information_A98rgG",
         "link_list_tfK6cN",
