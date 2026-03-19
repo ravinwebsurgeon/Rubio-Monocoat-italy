@@ -22,6 +22,15 @@
     "footer": {
       "settings": {},
       "blocks": {
+        "country_social_Gn6Ta": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "NO",
+            "label": "Tiktok",
+            "url": "https://www.tiktok.com/@rubiomonocoat"
+          }
+        },
         "text_hWeadq": {
           "settings": {
             "subtext": "<p><strong>Rubio Monocoat Norway AS </strong><br/>Kolonivegen 43<br/>2072 DAL<br/>Norge<br/>MVA :NO920826148MVA<br/>+47 63 95 63 95<br/>info-no@rubiomonocoat.com</p>"
@@ -29,6 +38,7 @@
         }
       },
       "block_order": [
+        "country_social_Gn6Ta",
         "brand_information_A98rgG",
         "link_list_tfK6cN",
         "link_list_KBYewH",
