@@ -341,7 +341,7 @@
     {% endfor %}
   ];
   setTimeout(() => {
-    detectCountry();
+    {% comment %} detectCountry(); {% endcomment %}
     detectCountry().then(result => {
       visitorCountry = result.country_code.toLowerCase();
       SocialLinkManage(countryBlocks,result.country_code.toLowerCase())
