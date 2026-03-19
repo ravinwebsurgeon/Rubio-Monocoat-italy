@@ -12,5 +12,17 @@
     "market": "finland"
   },
   "parent": "footer-group.json",
-  "sections": {}
+  "sections": {
+    "footer": {
+      "settings": {},
+      "blocks": {},
+      "block_order": [
+        "brand_information_A98rgG",
+        "link_list_tfK6cN",
+        "link_list_KBYewH",
+        "link_list_cERTPd",
+        "text_hWeadq"
+      ]
+    }
+  }
 }
