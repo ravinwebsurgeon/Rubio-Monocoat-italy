@@ -16,15 +16,6 @@
     "footer": {
       "settings": {},
       "blocks": {
-        "country_social_RNacg": {
-          "type": "country_social",
-          "disabled": false,
-          "settings": {
-            "country": "DE",
-            "label": "TEST",
-            "url": ""
-          }
-        },
         "country_social_eegYa": {
           "type": "country_social",
           "disabled": false,
@@ -54,7 +45,6 @@
         }
       },
       "block_order": [
-        "country_social_RNacg",
         "country_social_eegYa",
         "country_social_HJDkn",
         "country_social_AKjmm",
