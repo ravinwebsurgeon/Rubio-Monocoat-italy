@@ -4050,7 +4050,7 @@ section.icon-columns-section.wood_colorss .container {
     }
 
     header.header {
-        grid-template-columns: 1fr 2fr 1fr !important;
+        grid-template-columns: 1fr 3.3fr 1fr !important;
     }
     .left-column {
         background: #f5f5f5;
