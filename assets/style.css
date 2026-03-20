@@ -138,7 +138,7 @@ details[open] .modal-overlay:after {
 header.header {
     max-width: 1760px;
     padding: 12px 30px !important;
-    grid-template-columns: 1fr 1fr 1fr !important;
+    grid-template-columns: 1fr 2fr 1fr !important;
 }
 
 .utility-bar--bottom-border {
