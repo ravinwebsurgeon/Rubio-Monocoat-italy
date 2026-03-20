@@ -15,7 +15,7 @@
   "sections": {
     "announcement-bar": {
       "settings": {
-        "b2b_text": "Commande revendeurs agréés",
+        "b2b_text": "Order from Authorized Resellers",
         "b2b_text_link": "https://order.rubiomonocoat.com/fr-fr/compte/"
       },
       "blocks": {
