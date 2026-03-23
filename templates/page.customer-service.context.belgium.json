@@ -13,6 +13,12 @@
   },
   "parent": "page.customer-service.json",
   "sections": {
+    "custom_faq_banner_mxfxLm": {
+      "settings": {
+        "text": ""
+      },
+      "blocks": {}
+    },
     "icons_section_rzewec": {
       "settings": {},
       "blocks": {
@@ -29,9 +35,10 @@
         }
       }
     },
-    "custom_faq_banner_mxfxLm": {
+    "contact_options_FYkrkp": {
       "settings": {
-        "text": ""
+        "availability_text": "Our team is available mo - fr from 8:30 am - 5:00 pm",
+        "right_description": "Our experts are available on working days from 8:30 am to 5:00 pm for <strong> free product advice. </strong>"
       },
       "blocks": {}
     }
