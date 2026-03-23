@@ -38,7 +38,9 @@
     "contact_options_FYkrkp": {
       "settings": {
         "availability_text": "Our team is available mo - fr from 8:30 am - 5:00 pm",
-        "right_description": "Our experts are available on working days from 8:30 am to 5:00 pm for <strong> free product advice. </strong>"
+        "right_description": "Our experts are available on working days from 8:30 am to 5:00 pm for <strong> free product advice. </strong>",
+        "call_link": "tel:+32 51 335 335",
+        "email_link": "mailto:service@rubiomonocoat.com"
       },
       "blocks": {}
     }
