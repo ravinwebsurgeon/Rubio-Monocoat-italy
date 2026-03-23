@@ -28,6 +28,12 @@
           }
         }
       }
+    },
+    "custom_faq_banner_mxfxLm": {
+      "settings": {
+        "text": ""
+      },
+      "blocks": {}
     }
   }
 }
