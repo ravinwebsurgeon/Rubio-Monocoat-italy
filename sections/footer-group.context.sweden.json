@@ -60,7 +60,7 @@
         },
         "text_hWeadq": {
           "settings": {
-            "subtext": "<p><strong>Rubio Monocoat Sweden A.B.</strong><br/>Sandsborgsvägen 50-52<br/>122 33 Enskede<br/>Sweden<br/>VAT: SE556855771301<br/>+46 81 010 12<br/>service@rubiomonocoat.se</p>"
+            "subtext": "<p><strong>Rubio Monocoat Sweden A.B.</strong></p><p>Sandsborgsvägen 50-52</p><p>122 33 Enskede</p><p>Sweden</p><p>VAT: SE556855771301</p><p><a href=\"tel:+46 81 010 12\" title=\"tel:+46 81 010 12\">+46 81 010 12</a></p><p><a href=\"mailto:service@rubiomonocoat.se\" title=\"mailto:service@rubiomonocoat.se\">service@rubiomonocoat.se</a></p>"
           }
         }
       },
