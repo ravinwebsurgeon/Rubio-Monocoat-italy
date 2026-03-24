@@ -16,13 +16,13 @@
     "footer": {
       "settings": {},
       "blocks": {
-        "country_social_eYAPq": {
+        "country_social_LhYeP": {
           "type": "country_social",
           "disabled": false,
           "settings": {
             "country": "DE",
-            "label": "Pinterest",
-            "url": "https://www.pinterest.com/rubiomonocoat/_created/"
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@rubiomonocoat"
           }
         },
         "country_social_EEQ8W": {
@@ -51,6 +51,15 @@
             "label": "Youtube",
             "url": "https://www.youtube.com/c/RubioMonocoatRMC"
           }
+        },
+        "country_social_eYAPq": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "DE",
+            "label": "Pinterest",
+            "url": "https://www.pinterest.com/rubiomonocoat/_created/"
+          }
         }
       },
       "block_order": [
@@ -58,6 +67,7 @@
         "country_social_mRRcA",
         "country_social_EPn7h",
         "country_social_eYAPq",
+        "country_social_LhYeP",
         "brand_information_A98rgG",
         "link_list_tfK6cN",
         "link_list_KBYewH",
