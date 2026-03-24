@@ -187,6 +187,11 @@
         "type": "shopify://apps/t-lab-ai-language-translate/blocks/language_detection/b5b83690-efd4-434d-8c6a-a5cef4019faf",
         "disabled": true,
         "settings": {}
+      },
+      "3138269044488530766": {
+        "type": "shopify://apps/uppromote-affiliate/blocks/core-script/64c32457-930d-4cb9-9641-e24c0d9cf1f4",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
