@@ -230,7 +230,7 @@
                     <div class="tag_list">
                         <h2>Tags</h2>
                         {% for tag in blog.tags %}
-                          <a href="/blogs/{{blog.handle}}/tagged/{{tag}}"><p>{{ tag }}</p></a>
+                          <a href="/blogs/{{blog.handle}}/tagged/{{tag | handleize }}"><p>{{ tag }}</p></a>
                         {% endfor %}
                     </div>
                 </div>
