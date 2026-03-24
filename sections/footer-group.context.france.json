@@ -63,7 +63,7 @@
         },
         "text_hWeadq": {
           "settings": {
-            "subtext": "<p><strong>Rubio Monocoat France</strong></p><p>65 Rue Claude Bernard</p><p>77550 Moissy-Cramayel</p><p>France</p><p>BTW: FR83514561000</p><p>support@rubiomonocoat.fr</p><p>01 89 72 40 57 (Mon–Fri: 9:15–12:00 & 13:30–17:00)</p>"
+            "subtext": "<p><strong>Rubio Monocoat France</strong></p><p>65 Rue Claude Bernard</p><p>77550 Moissy-Cramayel</p><p>France</p><p>BTW: FR83514561000</p><p><a href=\"mailto:support@rubiomonocoat.fr\" title=\"mailto:support@rubiomonocoat.fr\">support@rubiomonocoat.fr</a></p><p><a href=\"tel:01 89 72 40 57\" title=\"tel:01 89 72 40 57\">01 89 72 40 57</a> (Mon–Fri: 9:15–12:00 & 13:30–17:00)</p>"
           }
         }
       },
