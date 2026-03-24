@@ -25,7 +25,8 @@
         "container_aptTCm": {
           "settings": {
             "heading": "Ask Our Experts",
-            "subtext": "Get personalized help based on your project"
+            "subtext": "Get personalized help based on your project",
+            "class": ""
           }
         }
       }
