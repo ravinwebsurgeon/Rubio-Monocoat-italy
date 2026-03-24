@@ -12,5 +12,19 @@
     "market": "germany"
   },
   "parent": "header-group.json",
-  "sections": {}
+  "sections": {
+    "announcement-bar": {
+      "settings": {},
+      "blocks": {
+        "announcement_yxaLy3": {
+          "disabled": true,
+          "settings": {}
+        },
+        "announcement_6zGjFz": {
+          "disabled": false,
+          "settings": {}
+        }
+      }
+    }
+  }
 }
