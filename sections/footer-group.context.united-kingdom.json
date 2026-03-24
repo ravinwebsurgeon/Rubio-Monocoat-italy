@@ -58,7 +58,7 @@
         },
         "text_hWeadq": {
           "settings": {
-            "subtext": "<p><strong>Rubio Monocoat UK</strong><br/>UNIT 1, Purley Chase Industrial Estate, <br/>Pipers Ln, Ansley Common<br/>CV10 0RG Nuneaton<br/>VAT:GB221582432<br/>hello@rubiomonocoat.co.uk<br/>0800 688 9661</p>"
+            "subtext": "<p><strong>Rubio Monocoat UK</strong></p><p>UNIT 1, Purley Chase Industrial Estate, </p><p>Pipers Ln, Ansley Common</p><p>CV10 0RG Nuneaton</p><p>VAT:GB221582432</p><p><a href=\"mailto:hello@rubiomonocoat.co.uk\" title=\"mailto:hello@rubiomonocoat.co.uk\">hello@rubiomonocoat.co.uk</a></p><p><a href=\"tel:0800 688 9661\" title=\"tel:0800 688 9661\">0800 688 9661</a></p>"
           }
         }
       },
