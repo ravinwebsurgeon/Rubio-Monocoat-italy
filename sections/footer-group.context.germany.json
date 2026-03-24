@@ -16,15 +16,6 @@
     "footer": {
       "settings": {},
       "blocks": {
-        "country_social_LhYeP": {
-          "type": "country_social",
-          "disabled": false,
-          "settings": {
-            "country": "DE",
-            "label": "TikTok",
-            "url": "https://www.tiktok.com/@rubiomonocoat"
-          }
-        },
         "country_social_EEQ8W": {
           "type": "country_social",
           "disabled": false,
@@ -59,6 +50,20 @@
             "country": "DE",
             "label": "Pinterest",
             "url": "https://www.pinterest.com/rubiomonocoat/_created/"
+          }
+        },
+        "country_social_LhYeP": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "DE",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@rubiomonocoat"
+          }
+        },
+        "text_hWeadq": {
+          "settings": {
+            "subtext": "<p><strong>Rubio Monocoat Deutschland GmbH</strong></p><p>Breiter Weg 232 A</p><p>D-39104 Magdeburg, Deutschland</p><p>VAT: DE298337745</p><p><a href=\"mailto:onlineshop@rubiomonocoat.de\">onlineshop@rubiomonocoat.de</a></p>"
           }
         }
       },
