@@ -27,6 +27,25 @@
           }
         }
       }
+    },
+    "contact_options_FYkrkp": {
+      "settings": {},
+      "blocks": {
+        "contact_method_mVcVkc": {
+          "disabled": true,
+          "settings": {}
+        },
+        "contact_method_TxekfM": {
+          "disabled": true,
+          "settings": {}
+        },
+        "contact_method_JF4YCW": {
+          "settings": {
+            "subtitle": "onlineshop@rubiomonocoat.de",
+            "link": "mailto:onlineshop@rubiomonocoat.de"
+          }
+        }
+      }
     }
   }
 }
