@@ -24,6 +24,11 @@
           "settings": {
             "subtext": "onlineshop@rubiomonocoat.de"
           }
+        },
+        "container_PEaFYM": {
+          "settings": {
+            "class": ""
+          }
         }
       }
     }
