@@ -29,7 +29,12 @@
       }
     },
     "contact_options_FYkrkp": {
-      "settings": {},
+      "settings": {
+        "right_description": "",
+        "call_text": "",
+        "email_text": "",
+        "right_heading": ""
+      },
       "blocks": {
         "contact_method_mVcVkc": {
           "disabled": true,
@@ -44,6 +49,18 @@
             "subtitle": "onlineshop@rubiomonocoat.de",
             "link": "mailto:onlineshop@rubiomonocoat.de"
           }
+        },
+        "team_member_jNKWWh": {
+          "disabled": true,
+          "settings": {}
+        },
+        "team_member_DxJkEh": {
+          "disabled": true,
+          "settings": {}
+        },
+        "team_member_W8EVBN": {
+          "disabled": true,
+          "settings": {}
         }
       }
     }
