@@ -16,6 +16,15 @@
     "footer": {
       "settings": {},
       "blocks": {
+        "country_social_eYAPq": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "DE",
+            "label": "Pinterest",
+            "url": "https://www.pinterest.com/rubiomonocoat/_created/"
+          }
+        },
         "country_social_EEQ8W": {
           "type": "country_social",
           "disabled": false,
@@ -48,6 +57,7 @@
         "country_social_EEQ8W",
         "country_social_mRRcA",
         "country_social_EPn7h",
+        "country_social_eYAPq",
         "brand_information_A98rgG",
         "link_list_tfK6cN",
         "link_list_KBYewH",
