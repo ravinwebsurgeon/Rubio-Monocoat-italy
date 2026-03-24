@@ -60,7 +60,7 @@
         },
         "text_hWeadq": {
           "settings": {
-            "subtext": "<p><strong>Rubio Monocoat Norway AS </strong><br/>Kolonivegen 43<br/>2072 DAL<br/>Norge<br/>MVA :NO920826148MVA<br/>+47 63 95 63 95<br/>info-no@rubiomonocoat.com</p>"
+            "subtext": "<p><strong>Rubio Monocoat Norway AS </strong></p><p>Kolonivegen 43</p><p>2072 DAL, Norge</p><p>MVA :NO920826148MVA</p><p><a href=\"tel:+47 63 95 63 95\" title=\"tel:+47 63 95 63 95\">+47 63 95 63 95</a></p><p><a href=\"mailto:info-no@rubiomonocoat.com\" title=\"mailto:info-no@rubiomonocoat.com\">info-no@rubiomonocoat.com</a></p>"
           }
         }
       },
