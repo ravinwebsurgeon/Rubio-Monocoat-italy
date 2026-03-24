@@ -29,11 +29,14 @@
       }
     },
     "contact_options_FYkrkp": {
+      "custom_css": [
+        ".advice-card {background: transparent !important;}"
+      ],
       "settings": {
+        "right_heading": "",
         "right_description": "",
         "call_text": "",
-        "email_text": "",
-        "right_heading": ""
+        "email_text": ""
       },
       "blocks": {
         "contact_method_mVcVkc": {
