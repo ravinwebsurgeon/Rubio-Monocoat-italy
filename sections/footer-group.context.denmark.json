@@ -9,6 +9,12 @@
  */
 {
   "sections": {
+    "newsletter_ziterB": {
+      "settings": {
+        "color_scheme": "scheme-2"
+      },
+      "blocks": {}
+    },
     "footer": {
       "settings": {},
       "blocks": {
@@ -50,7 +56,7 @@
         },
         "text_hWeadq": {
           "settings": {
-            "subtext": "<p><strong>Rubio Monocoat Denmark ApS </strong><br/>c/o Business Park Nord<br/>Østre Allé 6<br/>DK-9530 Støvring<br/>Danmark<br/>CVR:DK39120372</p>"
+            "subtext": "<p><strong>Rubio Monocoat Denmark ApS</strong></p><p><strong> </strong>c/o Business Park Nord</p><p>Østre Allé 6</p><p>DK-9530 Støvring, Danmark<br/><br/>CVR:DK39120372</p><p><a href=\"mailto:service@rubiomonocoat.dk\" title=\"mailto:service@rubiomonocoat.dk\">service@rubiomonocoat.dk</a></p><p>+45 88 77 98 18</p>"
           }
         }
       },
@@ -65,12 +71,6 @@
         "link_list_cERTPd",
         "text_hWeadq"
       ]
-    },
-    "newsletter_ziterB": {
-      "settings": {
-        "color_scheme": "scheme-2"
-      },
-      "blocks": {}
     }
   },
   "context": {
