@@ -12,5 +12,20 @@
     "market": "germany"
   },
   "parent": "index.json",
-  "sections": {}
+  "sections": {
+    "icons_section_qxzcqt": {
+      "settings": {},
+      "blocks": {
+        "container_xNmGKf": {
+          "disabled": true,
+          "settings": {}
+        },
+        "container_EGhzFM": {
+          "settings": {
+            "subtext": "onlineshop@rubiomonocoat.de"
+          }
+        }
+      }
+    }
+  }
 }
