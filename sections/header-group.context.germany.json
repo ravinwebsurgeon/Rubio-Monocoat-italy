@@ -14,7 +14,9 @@
   "parent": "header-group.json",
   "sections": {
     "announcement-bar": {
-      "settings": {},
+      "settings": {
+        "b2b_text_link": "https://order.rubiomonocoat.com/de/konto/"
+      },
       "blocks": {
         "announcement_yxaLy3": {
           "disabled": true,
