@@ -25,9 +25,12 @@
             "url": "https://www.instagram.com/rubiomonocoatoesterreich/"
           }
         },
-        "country_social_jyNNYq": {
+        "country_social_jRJFW": {
+          "type": "country_social",
+          "disabled": false,
           "settings": {
             "country": "AT",
+            "label": "Facebook",
             "url": "https://www.facebook.com/rubiomonocoatoesterreich"
           }
         },
@@ -54,7 +57,7 @@
       },
       "block_order": [
         "country_social_FRcDC",
-        "country_social_jyNNYq",
+        "country_social_jRJFW",
         "country_social_NGFKiF",
         "country_social_BnQYp",
         "brand_information_A98rgG",
