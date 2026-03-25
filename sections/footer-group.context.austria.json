@@ -12,5 +12,16 @@
     "market": "austria"
   },
   "parent": "footer-group.json",
-  "sections": {}
+  "sections": {
+    "footer": {
+      "settings": {},
+      "blocks": {
+        "text_hWeadq": {
+          "settings": {
+            "subtext": "<p><strong>Rubio Monocoat Vertriebs GmbH</strong></p><p>Aubauerstraße 11</p><p>4812 Pinsdorf, Austria</p><p>VAT: ATU76965946</p><p><a href=\"mailto:shop@rubiomonocoat.at\">shop@rubiomonocoat.at</a></p><p><a href=\"tel:+43 7612 63203\" title=\"tel:+43 7612 63203\">+43 7612 63203</a></p>"
+          }
+        }
+      }
+    }
+  }
 }
