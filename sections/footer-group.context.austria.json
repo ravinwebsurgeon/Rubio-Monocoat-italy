@@ -16,12 +16,50 @@
     "footer": {
       "settings": {},
       "blocks": {
+        "country_social_BnQYp": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "AT",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@rubiomonocoat"
+          }
+        },
         "text_hWeadq": {
           "settings": {
             "subtext": "<p><strong>Rubio Monocoat Vertriebs GmbH</strong></p><p>Aubauerstraße 11</p><p>4812 Pinsdorf, Austria</p><p>VAT: ATU76965946</p><p><a href=\"mailto:shop@rubiomonocoat.at\">shop@rubiomonocoat.at</a></p><p><a href=\"tel:+43 7612 63203\" title=\"tel:+43 7612 63203\">+43 7612 63203</a></p>"
           }
+        },
+        "country_social_gWTFPf": {
+          "settings": {
+            "country": "AT",
+            "url": "https://www.instagram.com/rubiomonocoatoesterreich/"
+          }
+        },
+        "country_social_jyNNYq": {
+          "settings": {
+            "country": "AT",
+            "url": "https://www.facebook.com/rubiomonocoatoesterreich"
+          }
+        },
+        "country_social_NGFKiF": {
+          "settings": {
+            "country": "AT",
+            "url": "https://www.youtube.com/c/RubioMonocoatRMC"
+          }
         }
-      }
+      },
+      "block_order": [
+        "country_social_gWTFPf",
+        "country_social_jyNNYq",
+        "country_social_NGFKiF",
+        "country_social_BnQYp",
+        "brand_information_A98rgG",
+        "link_list_tfK6cN",
+        "link_list_KBYewH",
+        "link_list_cERTPd",
+        "text_hWeadq"
+      ]
     }
   }
 }
