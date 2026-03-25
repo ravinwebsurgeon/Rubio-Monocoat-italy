@@ -22,6 +22,25 @@
           }
         }
       }
+    },
+    "icons_section_t3Wiqj": {
+      "settings": {},
+      "blocks": {
+        "container_QCLTc8": {
+          "disabled": false,
+          "settings": {
+            "class": "",
+            "heading": "Telephone Advice",
+            "subtext": "+43 7612 63203",
+            "extra_text": ""
+          }
+        },
+        "container_yzi7tm": {
+          "settings": {
+            "subtext": "shop@rubiomonocoat.at"
+          }
+        }
+      }
     }
   }
 }
