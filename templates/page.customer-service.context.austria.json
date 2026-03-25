@@ -12,5 +12,27 @@
     "market": "austria"
   },
   "parent": "page.customer-service.json",
-  "sections": {}
+  "sections": {
+    "icons_section_rzewec": {
+      "settings": {},
+      "blocks": {
+        "container_wfiezd": {
+          "disabled": false,
+          "settings": {
+            "subtext": "+43 7612 63203"
+          }
+        },
+        "container_bxqMjj": {
+          "settings": {
+            "subtext": "shop@rubiomonocoat.at"
+          }
+        },
+        "container_kab4cn": {
+          "settings": {
+            "class": ""
+          }
+        }
+      }
+    }
+  }
 }
