@@ -18,6 +18,27 @@
         "learn_more_collection": "Learn More"
       },
       "blocks": {}
+    },
+    "icons_section_7qKdwJ": {
+      "settings": {},
+      "blocks": {
+        "container_X3D3LU": {
+          "disabled": false,
+          "settings": {
+            "subtext": "+43 7612 63203"
+          }
+        },
+        "container_BxEzhc": {
+          "settings": {
+            "subtext": "shop@rubiomonocoat.at"
+          }
+        },
+        "container_ndArPt": {
+          "settings": {
+            "class": ""
+          }
+        }
+      }
     }
   }
 }
