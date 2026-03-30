@@ -361,8 +361,8 @@
         "color_item_NXwrqq": {
           "type": "color_item",
           "settings": {
-            "image": "shopify://shop_images/pure-7243241.jpg",
-            "full_image": "shopify://shop_images/pure-7466569.png",
+            "image": "shopify://shop_images/Oil_Plus_2C_Oak_Pure.jpg",
+            "full_image": "shopify://shop_images/Project_pure.png",
             "title": "Pure",
             "text": "Most transparent finish"
           }
@@ -370,8 +370,8 @@
         "color_item_N3aGeQ": {
           "type": "color_item",
           "settings": {
-            "image": "shopify://shop_images/natural-6108610.jpg",
-            "full_image": "shopify://shop_images/natural-9327353.png",
+            "image": "shopify://shop_images/Oil_Plus_2C_Oak_Natural.jpg",
+            "full_image": "shopify://shop_images/Project_natural.png",
             "title": "Natural",
             "text": "Subtle & sophisticated"
           }
@@ -379,8 +379,8 @@
         "color_item_a6e4XY": {
           "type": "color_item",
           "settings": {
-            "image": "shopify://shop_images/charcoal-1109262.jpg",
-            "full_image": "shopify://shop_images/charcoal-3615418.png",
+            "image": "shopify://shop_images/Oil_Plus_2C_Oak_Charcoal.jpg",
+            "full_image": "shopify://shop_images/Project_charcoal.png",
             "title": "Charcoal",
             "text": "Intense & dark"
           }
@@ -388,8 +388,8 @@
         "color_item_D4jTci": {
           "type": "color_item",
           "settings": {
-            "image": "shopify://shop_images/white-5-8105713.jpg",
-            "full_image": "shopify://shop_images/white-5-8020568.png",
+            "image": "shopify://shop_images/Oil_Plus_2C_Oak_White5.jpg",
+            "full_image": "shopify://shop_images/Project_white5.png",
             "title": "White 5%",
             "text": "Light & airy"
           }
@@ -397,8 +397,8 @@
         "color_item_9L8db7": {
           "type": "color_item",
           "settings": {
-            "image": "shopify://shop_images/chocolate-2141569.jpg",
-            "full_image": "shopify://shop_images/care-set-furniture-stairs-6159749.png",
+            "image": "shopify://shop_images/Oil_Plus_2C_Oak_Chocolate.jpg",
+            "full_image": "shopify://shop_images/Project_chocolate.png",
             "title": "Chocolate",
             "text": "Warm brown"
           }
@@ -406,8 +406,8 @@
         "color_item_JDDP8d": {
           "type": "color_item",
           "settings": {
-            "image": "shopify://shop_images/smoke-1299984.jpg",
-            "full_image": "shopify://shop_images/smoke-2959748.png",
+            "image": "shopify://shop_images/Oil_Plus_2C_Oak_Smoke.jpg",
+            "full_image": "shopify://shop_images/Project_smoke.png",
             "title": "Smoke",
             "text": "Subtle & natural"
           }
