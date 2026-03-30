@@ -31,6 +31,15 @@
           }
         }
       }
+    },
+    "faqs_ppyHAH": {
+      "blocks": {
+        "faq_item_bdXqaH": {
+          "settings": {
+            "answer": "Orders placed before 12:00 pm are prepared the same afternoon and shipped on the same business day. Orders placed after 12:00 pm are usually shipped on the next business day."
+          }
+        }
+      }
     }
   }
 }
