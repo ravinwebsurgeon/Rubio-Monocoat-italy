@@ -15,7 +15,8 @@
   "sections": {
     "announcement-bar": {
       "settings": {
-        "b2b_text_link": "https://order.rubiomonocoat.com/nl-be/account/"
+        "b2b_text_link": "",
+        "b2b_text": ""
       },
       "blocks": {
         "announcement_yxaLy3": {
