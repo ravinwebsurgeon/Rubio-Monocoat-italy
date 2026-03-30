@@ -18,7 +18,7 @@
     .custom_collection_main{
       width:100%;
     }
-    .header_main_heading h2{
+    .header_main_heading h1{
       color:#fff;
       font-family: 'Frutiger Neue LT W1G Cn XBlack';
       font-weight: 900;
@@ -413,7 +413,7 @@ button.show-more-swatches {
   .collection_header_main {
     padding: 30px 0;
   }
-  .header_main_heading h2 {
+  .header_main_heading h1 {
       margin: 0 0 10px;
       font-size:24px;
   }
@@ -513,7 +513,8 @@ button.show-more-swatches {
 {% if cat_heading != blank %}
     <div class="collection_header_main {{ heading_image }}">
       <div class="page-center">
-        <div class="header_main_heading"><h2>{{ cat_heading }}</h2></div>
+        {% comment %} <div class="header_main_heading"><h2>{{ cat_heading }}</h2></div> {% endcomment %}
+        <div class="header_main_heading"><h1>{{ cat_heading }}</h1></div>
         <div class="header_main_subheading">{{ cat_subheading }}</div>
       </div>        
     </div>
