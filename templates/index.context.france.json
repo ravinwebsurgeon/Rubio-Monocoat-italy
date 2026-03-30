@@ -18,24 +18,24 @@
       "blocks": {
         "color_item_N3aGeQ": {
           "settings": {
-            "image": "shopify://shop_images/smoke-5-2163241.jpg",
-            "full_image": "shopify://shop_images/smoke-5-6956618.png",
+            "image": "shopify://shop_images/Oil_Plus_2C_Oak_Smoke5.jpg",
+            "full_image": "shopify://shop_images/project_smoke_5.png",
             "title": "Smoke 5%",
             "text": "Light, transparent grey"
           }
         },
         "color_item_a6e4XY": {
           "settings": {
-            "image": "shopify://shop_images/natural-6108610.jpg",
-            "full_image": "shopify://shop_images/natural-9327353.png",
+            "image": "shopify://shop_images/Oil_Plus_2C_Oak_Natural.jpg",
+            "full_image": "shopify://shop_images/Project_natural.png",
             "title": "Natural",
             "text": "Subtle & sophisticated"
           }
         },
         "color_item_JDDP8d": {
           "settings": {
-            "image": "shopify://shop_images/bourbon-1739395.jpg",
-            "full_image": "shopify://shop_images/bourbon-8173554.png",
+            "image": "shopify://shop_images/Oil_Plus_2C_Oak_Bourbon.jpg",
+            "full_image": "shopify://shop_images/project_bourbon.png",
             "title": "Bourbon",
             "text": "Warm brown with orange undertone"
           }
