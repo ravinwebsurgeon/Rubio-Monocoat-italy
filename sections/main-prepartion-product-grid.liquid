@@ -847,7 +847,7 @@ button.show-more-swatches {
              const productData = JSON.parse(productJsonEl.textContent);
             const variants = productData.variants;
             const selectedVariant = variants.find(v => v.id === variantIdInt);
-            console.log(selectedVariant.inventory_quantity,selected_quantity,'selectedVariant Data') 
+            {% comment %} console.log(selectedVariant.inventory_quantity,selected_quantity,'selectedVariant Data')  {% endcomment %}
             
             const maxStock = selectedVariant.inventory_quantity;
               if ((selected_quantity > maxStock) && maxStock != 0) {
@@ -1042,7 +1042,7 @@ function updateVariantId(cart, variants, variantIdInput) {
     handleStockInventory(cart,foundVariant.id)
 
   } else {
-    console.warn("No variant matches:", selectedOptions);
+    {% comment %} console.warn("No variant matches:", selectedOptions); {% endcomment %}
     const allImages = cart.querySelectorAll(".product__image__item");
     // Check if all images are hidden
     const allHidden = Array.from(allImages).every(img => {
@@ -1052,7 +1052,7 @@ function updateVariantId(cart, variants, variantIdInput) {
       allImages[0].style.display = "block";
     }
     if (variants.length === 1 &&(variants[0].options.length === 0 ||variants[0].options[0] === "Default Title")) {
-          console.log('dont change cart btn action')
+          {% comment %} console.log('dont change cart btn action') {% endcomment %}
     }
    else{
       cart.querySelector('.product_cart_btn.ajax__cart').classList.add('disabled-btn')
