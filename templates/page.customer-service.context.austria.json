@@ -59,6 +59,23 @@
         "team_member_W8EVBN": {
           "disabled": true,
           "settings": {}
+        },
+        "contact_method_mVcVkc": {
+          "disabled": true,
+          "settings": {}
+        },
+        "contact_method_TxekfM": {
+          "settings": {
+            "subtitle": "+43 7612 63203",
+            "link": "tel:+43 7612 63203"
+          }
+        },
+        "contact_method_JF4YCW": {
+          "settings": {
+            "title": "Send an email",
+            "subtitle": "shop@rubiomonocoat.at",
+            "link": "mailto:shop@rubiomonocoat.at"
+          }
         }
       }
     }
