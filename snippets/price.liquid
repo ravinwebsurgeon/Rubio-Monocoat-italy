@@ -124,5 +124,13 @@
         {{ 'products.product.sold_out' | t }}
       </span>
     {%- endif -%}
+       <div class="variant-custom-price-per-m2">
+      {% assign json_values_list = product.selected_or_first_available_variant.metafields.custom.cost_volume_json.value | parse_json %}
+      {% for val in json_values_list %}
+        {% if val[custom_index]  %}
+        <span>({{ val[custom_index] | strip_html  }})</span>
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
 {% endunless %}
