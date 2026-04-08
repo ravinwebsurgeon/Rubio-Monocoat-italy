@@ -131,14 +131,7 @@
       {{ input_dataset }}
     >
     <label for="{{ input_id }}">
-      <div class="variant-label-text">
-        {{ value }}
-        {{ label_unavailable }}
-      </div>
-
-      {% comment %} {% if option.name == 'Size' and current_variant %} {% endcomment %}
-      {% comment %} {% if parent_loop_index  == 2  and current_variant %} {% endcomment %}
-      {% assign size_names = 'Size,Formato,Størrelse,Storlek,Volume,Taille,Größe,Koko' | split: ',' %}
+      {% assign size_names = 'Size,Formato,Størrelse,Storlek' | split: ',' %}
       {% assign is_size_option = false %}
       {% for name in size_names %}
         {% if option.name == name %}
@@ -146,6 +139,53 @@
           {% break %}
         {% endif %}
       {% endfor %}
+      {% if is_size_option and current_variant %}
+        <div class="component-indicator">
+          {% assign component_indicator = current_variant.metafields.custom.component_indicator.value %}
+          {% assign tooltip = current_variant.metafields.custom.component_indicator_tooltip.value %}
+
+          {% if component_indicator %}
+            <div class="indicator-wrapper">
+              <span class="indicator-text">
+                {{ component_indicator }}
+              </span>
+              <span class="indicator-icon">
+                {% comment %}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <text x="12" y="16" text-anchor="middle" font-size="14" fill="currentColor">?</text>
+                  </svg>
+                {% endcomment %}
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.9.4-1.5 1-1.5 2.2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="12" cy="17" r="1" fill="currentColor"/>
+                </svg>
+              </span>
+              {% if tooltip %}
+                <div class="indicator-tooltip">
+                  {{ tooltip }}
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+      <div class="variant-label-text">
+        {{ value }}
+        {{ label_unavailable }}
+      </div>
+
+      {% comment %} {% if option.name == 'Size' and current_variant %} {% endcomment %}
+      {% comment %} {% if parent_loop_index  == 2  and current_variant %} {% endcomment %}
+      {% assign coverage_estimate_val = current_variant.metafields.custom.coverage_estimation.value %}
+      {% if is_size_option and current_variant and coverage_estimate_val %}
+        <div class="custom_coverage_estimate" style="display:flex;justify-content:center;">
+          <div class="variant-coverage-estimate" id="cost__volume__{{ current_variant.id }}">
+            {% if coverage_estimate_val %}
+              <span>{{ coverage_estimate_val }} </span>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
 
       {% if is_size_option and current_variant %}
         <div class="custom_price_value" style="display:flex;">
