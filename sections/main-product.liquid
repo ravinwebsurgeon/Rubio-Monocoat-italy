@@ -3087,7 +3087,6 @@ function initMobileSwiper() {
     }
   });
 
-  // Autoplay first slide video
   const firstSlide = window.mobileSwiper.slides[0];
   const firstVideo = firstSlide?.querySelector('video');
   if (firstVideo) {
@@ -3098,7 +3097,6 @@ function initMobileSwiper() {
 
 </script>
 
-
 <style>
 .component-indicator {
   position: absolute;
@@ -3106,7 +3104,6 @@ function initMobileSwiper() {
   left: 0;
   right: 0;
 } 
-/* Indicator wrapper styling */
 .indicator-wrapper {
   position: relative;
   display: inline-flex;
@@ -3119,11 +3116,9 @@ function initMobileSwiper() {
   font-size: 14px;
   letter-spacing: normal;
 }
-
-/* Tooltip styling */
 .indicator-tooltip {
   position: absolute;
-  bottom: 120%; /* Position above the icon */
+  bottom: 120%;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 6px;
@@ -3138,14 +3133,11 @@ function initMobileSwiper() {
   border-radius: 6px;
   font-size: 14px;
 }
-
-/* Show tooltip when hovering the icon */
 .indicator-wrapper .indicator-icon:hover ~ .indicator-tooltip,
 .indicator-wrapper.active .indicator-tooltip {
   opacity: 1;
   visibility: visible;
 }
-
 .indicator-icon {
   margin-left: 5px;
   cursor: pointer;
@@ -3159,11 +3151,9 @@ function initMobileSwiper() {
   width: 16px;
   height: 16px;
 }
-
 .indicator-wrapper span.indicator-text {
   width: calc(100% - 21px);
 }
-
 .custom_coverage_estimate {
   color: #183029;
   margin: 0 0 4px;
