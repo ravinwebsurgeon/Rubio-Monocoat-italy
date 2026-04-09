@@ -115,6 +115,14 @@
         {% render 'unit-price', price: product.selected_or_first_available_variant.unit_price, measurement: product.selected_or_first_available_variant.unit_price_measurement %}
       {%- endif -%}
     </div>
+    <div class="variant-custom-price-per-m2">
+      {% assign json_values_list = product.selected_or_first_available_variant.metafields.custom.cost_volume_json.value | parse_json %}
+      {% for val in json_values_list %}
+        {% if val[custom_index]  %}
+        <span>({{ val[custom_index] | strip_html  }})</span>
+        {% endif %}
+      {% endfor %}
+    </div>
     {%- if show_badges -%}
       <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
         {{ 'products.product.on_sale' | t }}
@@ -124,13 +132,5 @@
         {{ 'products.product.sold_out' | t }}
       </span>
     {%- endif -%}
-       <div class="variant-custom-price-per-m2">
-      {% assign json_values_list = product.selected_or_first_available_variant.metafields.custom.cost_volume_json.value | parse_json %}
-      {% for val in json_values_list %}
-        {% if val[custom_index]  %}
-        <span>({{ val[custom_index] | strip_html  }})</span>
-        {% endif %}
-      {% endfor %}
-    </div>
   </div>
 {% endunless %}
