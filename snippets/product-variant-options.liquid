@@ -131,7 +131,7 @@
       {{ input_dataset }}
     >
     <label for="{{ input_id }}">
-      {% assign size_names = 'Size,Formato,Størrelse,Storlek' | split: ',' %}
+      {% assign size_names = 'Size,Formato,Størrelse,Storlek,Taille,Volume,Koko,Größe' | split: ',' %}
       {% assign is_size_option = false %}
       {% for name in size_names %}
         {% if option.name == name %}
