@@ -236,11 +236,31 @@
               <button class="product_cart_btn ajax__cart {% unless first_variant.available %} disabled-btn {% endunless %}"
                  {% unless first_variant.available %} disabled {% endunless %}
                 > {{ 'products.product.add_to_cart' | t }}</button> 
+                 <span class="btn-loader hidden">
+                    <span class="spinner"></span>
+                  </span>
             </div>
           </div>
     </div>
 </div>
 <style>
+    .spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ccc;
+  border-top: 2px solid #000;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+/* REQUIRED: anchor for absolute positioning */
+.color__swatch__label {
+  position: relative;
+}
   /* REQUIRED: anchor for absolute positioning */
 .color__swatch__label {
   position: relative;
