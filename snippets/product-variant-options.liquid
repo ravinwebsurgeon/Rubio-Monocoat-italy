@@ -1,4 +1,4 @@
-{% comment %}
+{% comment %} {% comment %}
   Renders product variant options
 
   Accepts:
@@ -186,6 +186,226 @@
           </div>
         </div>
       {% endif %}
+    </label>
+  {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
+    <option
+      id="{{ input_id }}"
+      value="{{ value | escape }}"
+      {% if value.selected %}
+        selected="selected"
+      {% endif %}
+      {% if swatch_value and picker_type == 'swatch_dropdown' %}
+        data-option-swatch-value="{{ swatch_value }}"
+        {% if swatch_focal_point %}
+          data-option-swatch-focal-point="{{ swatch_focal_point }}"
+        {% endif %}
+      {% endif %}
+      {{ input_dataset }}
+    >
+      {% if option_disabled -%}
+        {{- 'products.product.value_unavailable' | t: option_value: value -}}
+      {%- else -%}
+        {{- value -}}
+      {%- endif %}
+    </option>
+  {%- endif -%}
+{%- endfor -%} {% endcomment %}
+{% comment %}
+  Renders product variant options
+
+  Accepts:
+  - product: {Object} product object.
+  - option: {Object} current product_option object.
+  - block: {Object} block object.
+  - picker_type: {String} type of picker to dispay
+
+
+  Usage:
+  {% render 'product-variant-options',
+    product: product,
+    option: option,
+    block: block
+    picker_type: picker_type
+  %}
+{% endcomment %}
+
+
+{%- liquid
+  assign product_form_id = 'product-form-' | append: section.id
+-%}
+
+{%- for value in option.values -%}
+  {%- liquid
+    assign swatch_focal_point = null
+    if value.swatch.image
+      assign image_url = value.swatch.image | image_url: width: 50
+      assign swatch_value = 'url(' | append: image_url | append: ')'
+      assign swatch_focal_point = value.swatch.image.presentation.focal_point
+    elsif value.swatch.color
+      assign swatch_value = 'rgb(' | append: value.swatch.color.rgb | append: ')'
+    else
+      assign swatch_value = null
+    endif
+
+    assign option_disabled = true
+    if value.available
+      assign option_disabled = false
+    endif
+  -%}
+
+  {%- capture input_id -%}
+    {{ section.id }}-{{ option.position }}-{{ forloop.index0 -}}
+  {%- endcapture -%}
+
+  {%- capture input_name -%}
+    {{ option.name }}-{{ option.position }}
+  {%- endcapture -%}
+
+  {%- capture input_dataset -%}
+    data-product-url="{{ value.product_url }}"
+    data-option-value-id="{{ value.id }}"
+  {%- endcapture -%}
+
+  {%- capture label_unavailable -%}
+    <span class="visually-hidden label-unavailable">
+      {{- 'products.product.variant_sold_out_or_unavailable' | t -}}
+    </span>
+  {%- endcapture -%}
+
+  {%- if picker_type == 'swatch' -%}
+    {%- capture help_text -%}
+      <span class="visually-hidden">{{ value | escape }}</span>
+      {{ label_unavailable }}
+    {%- endcapture -%}
+    {%
+      render 'swatch-input',
+      id: input_id,
+      name: input_name,
+      value: value | escape,
+      swatch: value.swatch,
+      product_form_id: product_form_id,
+      checked: value.selected,
+      visually_disabled: option_disabled,
+      shape: block.settings.swatch_shape,
+      help_text: help_text,
+      additional_props: input_dataset,
+      swatchIndex:forloop.index0
+    %}
+  {%- elsif picker_type == 'button' -%}
+    {% comment %}
+      Default button picker, modified for Size option
+    {% endcomment %}
+
+    {% comment %} {% assign current_variant = null %}
+    {% for variant in product.variants %}
+      {% if variant.options contains value %}
+        {% assign current_variant = variant %}
+        {% break %}
+      {% endif %}
+    {% endfor %} {% endcomment %}
+
+    {% assign current_variant = null %}
+{% assign selected_variant = product.selected_or_first_available_variant %}
+
+{% for variant in product.variants %}
+  {% assign match = true %}
+
+  {% for option_name in product.options %}
+    {% assign option_index = forloop.index0 %}
+
+    {% if option_name == option.name %}
+      {% if variant.options[option_index] != value %}
+        {% assign match = false %}
+      {% endif %}
+    {% else %}
+      {% if variant.options[option_index] != selected_variant.options[option_index] %}
+        {% assign match = false %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+  {% if match %}
+    {% assign current_variant = variant %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+    <input
+      type="radio"
+      id="{{ input_id }}"
+      class="swatch-input__input  {% if option_disabled %}disabled{% endif %}"
+      name="{{ input_name | escape }}"
+      value="{{ value | escape }}"
+      form="{{ product_form_id }}"
+      {% if value.selected %}
+        checked
+      {% endif %}
+      {{ input_dataset }}
+    >
+    <label for="{{ input_id }}">
+      {% assign size_names = 'Size,Formato,Størrelse,Storlek,Taille,Volume,Koko,Größe' | split: ',' %}
+      {% assign is_size_option = false %}
+      {% for name in size_names %}
+        {% if option.name == name %}
+          {% assign is_size_option = true %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+      {% if is_size_option and current_variant %}
+        <div class="component-indicator">
+          {% assign component_indicator = current_variant.metafields.custom.component_indicator.value %}
+          {% assign tooltip = current_variant.metafields.custom.component_indicator_tooltip.value %}
+
+          {% if component_indicator %}
+            <div class="indicator-wrapper">
+              <span class="indicator-text">
+                {{ component_indicator }}
+              </span>
+              <span class="indicator-icon">
+                {% comment %}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <text x="12" y="16" text-anchor="middle" font-size="14" fill="currentColor">?</text>
+                  </svg>
+                {% endcomment %}
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.9.4-1.5 1-1.5 2.2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="12" cy="17" r="1" fill="currentColor"/>
+                </svg>
+              </span>
+              {% if tooltip %}
+                <div class="indicator-tooltip">
+                  {{ tooltip }}
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <div class="variant-label-text">
+        {{ value }}
+        {{ label_unavailable }}
+      </div>
+      {% assign coverage_estimate_val = current_variant.metafields.custom.coverage_estimation.value %}
+      {% if is_size_option and current_variant and coverage_estimate_val %}
+        <div class="custom_coverage_estimate" style="display:flex;justify-content:center;">
+          <div class="variant-coverage-estimate" id="cost__volume__{{ current_variant.id }}">
+            {% if coverage_estimate_val %}
+              <span>{{ coverage_estimate_val }} </span>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+        {% comment %} {% if is_size_option and current_variant %}
+        <div class="custom_price_value" style="display:flex;">
+          <div class="variant-custom-cost__m2 {{ user_lang }}">
+            {% assign json_values_list = current_variant.metafields.custom.cost_volume_json.value | parse_json %}
+            {% for val in json_values_list %}
+              {{ val[custom_index] }}
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %} {% endcomment %}
     </label>
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
     <option
