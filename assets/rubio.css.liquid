@@ -2909,10 +2909,18 @@ button.custom_product_cart_btn {
         padding-bottom: 5px;
     }
 } 
+@media(max-width:639px){
+    .product-section .product-form__input.product-form__input--pill {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .indicator-tooltip {
+        min-width: 190px;
+    }
+}
 @media(max-width:767px){
     .product-section .product-form__input.product-form__input--pill {
-        display: flex;
-        flex-wrap: wrap;
+        /* display: flex;
+        flex-wrap: wrap; */
         padding-bottom: 13px;
     }
     .product-section .product-form__input.product-form__input--pill label {
