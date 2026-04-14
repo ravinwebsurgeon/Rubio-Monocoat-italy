@@ -3116,6 +3116,23 @@ function initMobileSwiper() {
   font-size: 14px;
   letter-spacing: normal;
 }
+{% comment %} .indicator-tooltip {
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+  z-index: 10;
+  background: #bfcfc4;
+  color: #000;
+  padding: 6px 9px;
+  border-radius: 6px;
+  font-size: 14px;
+} {% endcomment %}
 .indicator-tooltip {
   position: absolute;
   bottom: 120%;
@@ -3132,6 +3149,10 @@ function initMobileSwiper() {
   padding: 6px 9px;
   border-radius: 6px;
   font-size: 14px;
+  white-space: pre-line;
+  width: 100%;
+  max-width: 320px;
+  min-width: 300px;
 }
 .indicator-wrapper .indicator-icon:hover ~ .indicator-tooltip,
 .indicator-wrapper.active .indicator-tooltip {
