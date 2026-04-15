@@ -1,0 +1,38 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "context": {
+    "market": "finland"
+  },
+  "parent": "page.delivery-policy.json",
+  "sections": {
+    "icons_section_CaqHz7": {
+      "settings": {},
+      "blocks": {
+        "container_PaMNwN": {
+          "disabled": false,
+          "settings": {
+            "subtext": "+358 40 594 81 10"
+          }
+        },
+        "container_jt44Hk": {
+          "settings": {
+            "subtext": "webshop@rubiomonocoat.fi"
+          }
+        },
+        "container_4WzBpJ": {
+          "settings": {
+            "class": ""
+          }
+        }
+      }
+    }
+  }
+}
