@@ -12,5 +12,27 @@
     "market": "finland"
   },
   "parent": "page.accessibility.json",
-  "sections": {}
+  "sections": {
+    "icons_section_7AaBdN": {
+      "settings": {},
+      "blocks": {
+        "container_bfQRcQ": {
+          "disabled": false,
+          "settings": {
+            "subtext": "+358 40 594 81 10"
+          }
+        },
+        "container_MjMmcR": {
+          "settings": {
+            "subtext": "webshop@rubiomonocoat.fi"
+          }
+        },
+        "container_DAfmjr": {
+          "settings": {
+            "class": ""
+          }
+        }
+      }
+    }
+  }
 }
