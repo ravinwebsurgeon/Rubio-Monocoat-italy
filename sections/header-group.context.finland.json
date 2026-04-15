@@ -12,5 +12,24 @@
     "market": "finland"
   },
   "parent": "header-group.json",
-  "sections": {}
+  "sections": {
+    "announcement-bar": {
+      "settings": {},
+      "blocks": {
+        "announcement_yxaLy3": {
+          "disabled": true,
+          "settings": {}
+        },
+        "announcement-bar-0": {
+          "settings": {
+            "text": "Free delivery on orders over €70"
+          }
+        },
+        "announcement_6zGjFz": {
+          "disabled": false,
+          "settings": {}
+        }
+      }
+    }
+  }
 }
