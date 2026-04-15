@@ -12,5 +12,33 @@
     "market": "finland"
   },
   "parent": "collection.oak-wood.json",
-  "sections": {}
+  "sections": {
+    "product-grid": {
+      "settings": {
+        "learn_more_collection": "Learn More"
+      },
+      "blocks": {}
+    },
+    "icons_section_7qKdwJ": {
+      "settings": {},
+      "blocks": {
+        "container_X3D3LU": {
+          "disabled": false,
+          "settings": {
+            "subtext": "+358 40 594 81 10"
+          }
+        },
+        "container_BxEzhc": {
+          "settings": {
+            "subtext": "webshop@rubiomonocoat.fi"
+          }
+        },
+        "container_ndArPt": {
+          "settings": {
+            "class": ""
+          }
+        }
+      }
+    }
+  }
 }

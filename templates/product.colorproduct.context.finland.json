@@ -12,5 +12,22 @@
     "market": "finland"
   },
   "parent": "product.colorproduct.json",
-  "sections": {}
+  "sections": {
+    "icons_section_VqU6QH": {
+      "settings": {},
+      "blocks": {
+        "container_EQkbb7": {
+          "disabled": false,
+          "settings": {
+            "subtext": "+358 40 594 81 10"
+          }
+        },
+        "container_FjdR8H": {
+          "settings": {
+            "subtext": "+358 40 594 81 10"
+          }
+        }
+      }
+    }
+  }
 }
