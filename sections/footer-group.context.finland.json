@@ -42,6 +42,11 @@
             "label": "Youtube",
             "url": "https://www.youtube.com/c/RubioMonocoatRMC"
           }
+        },
+        "text_hWeadq": {
+          "settings": {
+            "subtext": "<p><strong>Rubio Monocoat Finland Oy</strong></p><p>Höyläämötie 11 </p><p>00380 Helsinki, Suomi</p><p>VAT: </p><p><a href=\"mailto:webshop@rubiomonocoat.fi\" title=\"mailto:webshop@rubiomonocoat.fi\">webshop@rubiomonocoat.fi</a></p><p>+358 40 594 81 10</p>"
+          }
         }
       },
       "block_order": [
