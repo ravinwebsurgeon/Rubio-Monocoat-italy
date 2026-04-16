@@ -16,15 +16,6 @@
     "footer": {
       "settings": {},
       "blocks": {
-        "country_social_UxcpB": {
-          "type": "country_social",
-          "disabled": false,
-          "settings": {
-            "country": "FI",
-            "label": "TikTok",
-            "url": "https://www.tiktok.com/@rubiomonocoat"
-          }
-        },
         "country_social_CXVaF": {
           "type": "country_social",
           "disabled": false,
@@ -52,9 +43,18 @@
             "url": "https://www.youtube.com/c/RubioMonocoatRMC"
           }
         },
+        "country_social_UxcpB": {
+          "type": "country_social",
+          "disabled": false,
+          "settings": {
+            "country": "FI",
+            "label": "TikTok",
+            "url": "https://www.tiktok.com/@rubiomonocoat"
+          }
+        },
         "text_hWeadq": {
           "settings": {
-            "subtext": "<p><strong>Rubio Monocoat Finland Oy</strong></p><p>Höyläämötie 11 </p><p>00380 Helsinki, Suomi</p><p>VAT: </p><p><a href=\"mailto:webshop@rubiomonocoat.fi\" title=\"mailto:webshop@rubiomonocoat.fi\">webshop@rubiomonocoat.fi</a></p><p>+358 40 594 81 10</p>"
+            "subtext": "<p><strong>Rubio Monocoat Finland Oy</strong></p><p>Puutarhatie 22C</p><p>01300 VANTAA, Suomi</p><p>VAT: </p><p><a href=\"mailto:webshop@rubiomonocoat.fi\" title=\"mailto:webshop@rubiomonocoat.fi\">webshop@rubiomonocoat.fi</a></p><p>+358 40 594 81 10</p>"
           }
         }
       },
