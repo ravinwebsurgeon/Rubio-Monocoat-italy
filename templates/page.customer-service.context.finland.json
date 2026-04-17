@@ -35,6 +35,9 @@
       }
     },
     "contact_options_FYkrkp": {
+      "custom_css": [
+        ".advice-card {background: transparent !important;}"
+      ],
       "settings": {
         "availability_text": "Our team is available mo - fr from 8:30 am - 5:00 pm",
         "right_heading": "",
