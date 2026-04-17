@@ -33,6 +33,45 @@
           }
         }
       }
+    },
+    "contact_options_FYkrkp": {
+      "settings": {
+        "availability_text": "Our team is available mo - fr from 8:30 am - 5:00 pm",
+        "right_heading": "",
+        "right_description": "",
+        "call_text": "",
+        "email_text": ""
+      },
+      "blocks": {
+        "contact_method_mVcVkc": {
+          "disabled": true,
+          "settings": {}
+        },
+        "contact_method_TxekfM": {
+          "settings": {
+            "subtitle": "+358 40 594 81 10",
+            "link": "tel:+358 40 594 81 10"
+          }
+        },
+        "contact_method_JF4YCW": {
+          "settings": {
+            "subtitle": "webshop@rubiomonocoat.fi",
+            "link": "mailto:webshop@rubiomonocoat.fi"
+          }
+        },
+        "team_member_jNKWWh": {
+          "disabled": true,
+          "settings": {}
+        },
+        "team_member_DxJkEh": {
+          "disabled": true,
+          "settings": {}
+        },
+        "team_member_W8EVBN": {
+          "disabled": true,
+          "settings": {}
+        }
+      }
     }
   }
 }
