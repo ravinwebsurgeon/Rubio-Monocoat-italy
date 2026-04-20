@@ -46,6 +46,25 @@
           }
         }
       }
+    },
+    "faqs_8jPU7r": {
+      "blocks": {
+        "faq_item_hRVpJb": {
+          "settings": {
+            "answer": "You have the right to withdraw from your purchase within 30 days of receiving your order, without giving any reason. If your order contains multiple products delivered on different days, the withdrawal period starts once the last item has been delivered."
+          }
+        },
+        "faq_item_AagYUk": {
+          "settings": {
+            "answer": "To return your products, simply log in to your account on our website, navigate to the \"Orders\" section in your menu, select the relevant items, and click \"Request Return\" to start the return procedure. "
+          }
+        },
+        "faq_item_MfGaFp": {
+          "settings": {
+            "answer": "After informing us of your withdrawal, you have up to 30 days to return the products. Please make sure the items are sent back without unnecessary delay."
+          }
+        }
+      }
     }
   }
 }
