@@ -13,6 +13,16 @@
   },
   "parent": "page.faqs-returns.json",
   "sections": {
+    "faqs_gnazct": {
+      "settings": {},
+      "blocks": {
+        "faq_item_UUR9f6": {
+          "settings": {
+            "answer": "To return your products, simply log in to your account on our website, navigate to the \"Orders\" section in your menu, select the relevant items, and click \"Request Return\" to start the return procedure."
+          }
+        }
+      }
+    },
     "icons_section_Q84VnV": {
       "settings": {},
       "blocks": {
@@ -20,9 +30,9 @@
           "disabled": false,
           "settings": {
             "class": "",
-            "extra_text": "",
             "heading": "Telephone Advice",
-            "subtext": "+43 7612 63203"
+            "subtext": "+43 7612 63203",
+            "extra_text": ""
           }
         },
         "container_aYeRcN": {
@@ -33,15 +43,6 @@
         "container_8dN9R3": {
           "settings": {
             "class": ""
-          }
-        }
-      }
-    },
-    "faqs_gnazct": {
-      "blocks": {
-        "faq_item_UUR9f6": {
-          "settings": {
-            "answer": "You can notify us of your withdrawal by emailing shop@rubiomonocoat.at or by using our online return form or standard withdrawal form. Just let us know clearly that you wish to return your order."
           }
         }
       }
