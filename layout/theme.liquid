@@ -977,13 +977,13 @@ document.addEventListener("DOMContentLoaded", function() {
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "{{ shop.url }}/#organization",
+  "@id": "{{ request.host }}/#organization",
   "name": "Rubio Monocoat",
   "legalName": "Rubio Monocoat International NV",
-  "url": "{{ shop.url }}",
+  "url": "{{ request.host }}",
   "logo": {
     "@type": "ImageObject",
-    "url": "{{ shop.url }}/cdn/shop/files/header_logo_3.png",
+    "url": "{{ request.host }}/cdn/shop/files/header_logo_3.png",
     "width": 300,
     "height": 60
   },
