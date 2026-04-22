@@ -1014,8 +1014,44 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ request.origin }}/"
+    },
 
-  </head>
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Products",
+      "item": "{{ request.origin }}/products"
+    },
+
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ collection.title | default: 'Products' }}",
+      "item": "{{ request.origin }}{{ collection.url | default: '/collections/all' }}"
+    },
+
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "{{ product.title }}"
+    }
+
+  ]
+}
+</script>
+
+</head>
 
   <body class="template{{ template | handle }} gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <!-- Google Tag Manager (noscript) -->
