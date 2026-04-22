@@ -900,7 +900,7 @@ document.addEventListener("DOMContentLoaded", function() {
   "@type": "WebSite",
   "@id": "{{ request.origin }}/#website",
   "name": "Rubio Monocoat",
-  "url":  "{{ request.origin }}",
+  "url":  {{ request.origin }},
   "publisher": {
     "@id": "{{ request.origin }}/#organization"
   },
@@ -1005,7 +1005,7 @@ document.addEventListener("DOMContentLoaded", function() {
   "@id": "{{ request.origin }}/#organization",
   "name": "Rubio Monocoat",
   "legalName": "Rubio Monocoat International NV",
-  "url": "{{ request.origin  }}"",
+  "url": {{ request.origin  }},
   "logo": {
     "@type": "ImageObject",
     "url": "{{ settings.logo | image_url: width: 500 | prepend: "https:" | json }}",
