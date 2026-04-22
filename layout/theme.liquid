@@ -1217,7 +1217,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 {% endif %}
 {% if request.page_type == 'page' and template.suffix == 'faqs-v2' %}
-<script type="application/ld+json">
+{% comment %} <script type="application/ld+json">
 {
 "@context":"https://schema.org",
 "@type":"FAQPage",
@@ -1233,7 +1233,7 @@ document.addEventListener("DOMContentLoaded", function() {
 {% endfor %}
 ]
 }
-</script>
+</script> {% endcomment %}
 
 {% endif %}
 
