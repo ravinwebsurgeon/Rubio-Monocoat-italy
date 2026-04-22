@@ -898,11 +898,11 @@ document.addEventListener("DOMContentLoaded", function() {
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": "{{ request.origin }}/#website",
+  "@id": {{ request.origin | append: "/#website" | json }},
   "name": "Rubio Monocoat",
   "url":  {{ request.origin | json }},
   "publisher": {
-    "@id": "{{ request.origin }}/#organization"
+    "@id":{{ request.origin | append: "/#organization" | json }}
   },
   "potentialAction": {
     "@type": "SearchAction",
