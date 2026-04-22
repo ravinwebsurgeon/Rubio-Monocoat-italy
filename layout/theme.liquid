@@ -1080,7 +1080,7 @@ document.addEventListener("DOMContentLoaded", function() {
   {% assign color_value = blank %}
 {% for option in product.options %}
   {% assign option_name = option | downcase %}
-  {% if option_name == 'color' %}
+  {% if option_name == 'colour' %}
     {% assign idx = forloop.index0 %}
     {% assign color_value = product.selected_or_first_available_variant.options[idx] %}
   {% endif %}
