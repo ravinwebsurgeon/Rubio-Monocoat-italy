@@ -888,7 +888,7 @@ document.addEventListener("DOMContentLoaded", function() {
       widget.data.products.forEach((product) => storefrontHelper.updateProductJSON(product));  
   });  
   </script>
-
+   <!-- Structured Data Added -->
   
 {%- if request.page_type == 'index' -%}
   {% assign potential_action_target = request.origin | append: routes.search_url | append: '?q={search_term_string}' %}
@@ -913,89 +913,89 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 </script>
 {%- endif -%}
+
 {% assign country_iso_down_head = localization.country.iso_code | downcase %}
 {% case country_iso_down_head %}
+  {% when 'it' %}
+    {% assign legal_name = "Rubio Monocoat Italia srl" %}
+    {% assign street = "Via Torino 24/8" %}
+    {% assign city = "Cernusco sul Naviglio (MI)" %}
+    {% assign country = "IT" %}
 
-{% when 'it' %}
-  {% assign legal_name = "Rubio Monocoat Italia srl" %}
-  {% assign street = "Via Torino 24/8" %}
-  {% assign city = "Cernusco sul Naviglio (MI)" %}
-  {% assign country = "IT" %}
+  {% when 'gb' %}
+    {% assign legal_name = "Rubio Monocoat UK" %}
+    {% assign street = "Unit 1, Purley Chase Industrial Estate, Pipers Ln, Ansley Common" %}
+    {% assign city = "Nuneaton" %}
+    {% assign country = "GB" %}
 
-{% when 'gb' %}
-  {% assign legal_name = "Rubio Monocoat UK" %}
-  {% assign street = "Unit 1, Purley Chase Industrial Estate, Pipers Ln, Ansley Common" %}
-  {% assign city = "Nuneaton" %}
-  {% assign country = "GB" %}
+  {% when 'dk' %}
+    {% assign legal_name = "Rubio Monocoat ApS" %}
+    {% assign street = "c/o Business Park Nord, Østre Allé 6" %}
+    {% assign city = "Støvring" %}
+    {% assign country = "DK" %}
 
-{% when 'dk' %}
-  {% assign legal_name = "Rubio Monocoat ApS" %}
-  {% assign street = "c/o Business Park Nord, Østre Allé 6" %}
-  {% assign city = "Støvring" %}
-  {% assign country = "DK" %}
+  {% when 'no' %}
+    {% assign legal_name = "Rubio Monocoat Norway AS" %}
+    {% assign street = "Kolonivegen 43" %}
+    {% assign city = "Dal" %}
+    {% assign country = "NO" %}
 
-{% when 'no' %}
-  {% assign legal_name = "Rubio Monocoat Norway AS" %}
-  {% assign street = "Kolonivegen 43" %}
-  {% assign city = "Dal" %}
-  {% assign country = "NO" %}
+  {% when 'nl' %}
+    {% assign legal_name = "Rubio Monocoat Nederland B.V." %}
+    {% assign street = "Hulswitweg 109" %}
+    {% assign city = "Haarlem" %}
+    {% assign country = "NL" %}
 
-{% when 'nl' %}
-  {% assign legal_name = "Rubio Monocoat Nederland B.V." %}
-  {% assign street = "Hulswitweg 109" %}
-  {% assign city = "Haarlem" %}
-  {% assign country = "NL" %}
+  {% when 'fr' %}
+    {% assign legal_name = "Rubio Monocoat France" %}
+    {% assign street = "65 Rue Claude Bernard" %}
+    {% assign city = "Moissy-Cramayel" %}
+    {% assign country = "FR" %}
 
-{% when 'fr' %}
-  {% assign legal_name = "Rubio Monocoat France" %}
-  {% assign street = "65 Rue Claude Bernard" %}
-  {% assign city = "Moissy-Cramayel" %}
-  {% assign country = "FR" %}
-
-{% when 'fi' %}
- {% assign legal_name = "Rubio Monocoat Finland Oy" %}
-  {% assign street = "Puutarhatie 22C" %}
-  {% assign city = "Vantaa" %}
-  {% assign country = "FI" %}
+  {% when 'fi' %}
+  {% assign legal_name = "Rubio Monocoat Finland Oy" %}
+    {% assign street = "Puutarhatie 22C" %}
+    {% assign city = "Vantaa" %}
+    {% assign country = "FI" %}
 
 
-{% when 'se' %}
-  {% assign legal_name = "Rubio Monocoat Sweden A.B." %}
-  {% assign street = "Sandsborgsvägen 50-52" %}
-  {% assign city = "Enskede" %}
-  {% assign country = "SE" %}
+  {% when 'se' %}
+    {% assign legal_name = "Rubio Monocoat Sweden A.B." %}
+    {% assign street = "Sandsborgsvägen 50-52" %}
+    {% assign city = "Enskede" %}
+    {% assign country = "SE" %}
 
-{% when 'be' %}
-   {% assign legal_name = "Rubio Monocoat België" %}
-  {% assign street = "Ambachtenstraat 58" %}
-  {% assign city = "Izegem" %}
-  {% assign country = "BE" %}
+  {% when 'be' %}
+    {% assign legal_name = "Rubio Monocoat België" %}
+    {% assign street = "Ambachtenstraat 58" %}
+    {% assign city = "Izegem" %}
+    {% assign country = "BE" %}
 
-{% when 'de' %}
- {% assign legal_name = "Rubio Monocoat Deutschland GmbH" %}
-  {% assign street = "Breiter Weg 232 A" %}
-  {% assign city = "Magdeburg" %}
-  {% assign country = "DE" %}
+  {% when 'de' %}
+  {% assign legal_name = "Rubio Monocoat Deutschland GmbH" %}
+    {% assign street = "Breiter Weg 232 A" %}
+    {% assign city = "Magdeburg" %}
+    {% assign country = "DE" %}
 
-{% when 'ch' %}
- {% assign legal_name = "Rubio Monocoat België" %}
-  {% assign street = "Ambachtenstraat 58" %}
-  {% assign city = "Izegem" %}
-  {% assign country = "CH" %}
+  {% when 'ch' %}
+  {% assign legal_name = "Rubio Monocoat België" %}
+    {% assign street = "Ambachtenstraat 58" %}
+    {% assign city = "Izegem" %}
+    {% assign country = "CH" %}
 
-{% when 'at' %}
- {% assign legal_name = "Rubio Monocoat Vertriebs GmbH" %}
-  {% assign street = "Aubauerstraße 11" %}
-  {% assign city = "Pinsdorf" %}
-  {% assign country = "AT" %}
+  {% when 'at' %}
+  {% assign legal_name = "Rubio Monocoat Vertriebs GmbH" %}
+    {% assign street = "Aubauerstraße 11" %}
+    {% assign city = "Pinsdorf" %}
+    {% assign country = "AT" %}
 
-{% else %}
-  {% assign legal_name = "Rubio Monocoat Italia srl" %}
-  {% assign street = "Via Torino 24/8" %}
-  {% assign city = "Cernusco sul Naviglio (MI)" %}
-  {% assign country = "IT" %}
-
+  {% else %}
+    {% assign legal_name = "Rubio Monocoat Italia srl" %}
+    {% assign street = "Via Torino 24/8" %}
+    {% assign city = "Cernusco sul Naviglio (MI)" %}
+    {% assign country = "IT" %}
 {% endcase %}
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1075,6 +1075,7 @@ document.addEventListener("DOMContentLoaded", function() {
   ]
 }
 </script>
+
 {% if template contains 'product' %}
   <script type="application/ld+json">
   {
