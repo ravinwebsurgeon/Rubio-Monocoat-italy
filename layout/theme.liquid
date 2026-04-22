@@ -1002,10 +1002,10 @@ document.addEventListener("DOMContentLoaded", function() {
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": `{{ request.origin | append: "/#organization" | json }}`,
+  "@id": {{ request.origin | append: "/#organization" | json }},
   "name": "Rubio Monocoat",
   "legalName": "Rubio Monocoat International NV",
-  "url": `{{ request.origin | json }}`,
+  "url": {{ request.origin | json }},
   "logo": {
     "@type": "ImageObject",
     "url": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
