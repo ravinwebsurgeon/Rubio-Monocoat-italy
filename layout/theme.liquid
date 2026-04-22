@@ -1118,7 +1118,7 @@ document.addEventListener("DOMContentLoaded", function() {
     "@context": "https://schema.org",
     "@type": "Product",
     "@id": "{{ request.origin }}/products/{{ product.handle }}/#product",
-    "name": "{{ product.vendor }} {{ product.title }} - {{ color_value }}",
+    "name": "Rubio Monocoat {{ product.title }} - {{ color_value }}",
     "sku": "{{ product.selected_or_first_available_variant.sku }}",
     {% if product.selected_or_first_available_variant.barcode != blank %}
     "gtin13": "{{ product.selected_or_first_available_variant.barcode }}",
@@ -1127,7 +1127,7 @@ document.addEventListener("DOMContentLoaded", function() {
     "image": [{% for image in product.images %}"{{ image | image_url }}"{% unless forloop.last %},{% endunless %}{% endfor %}],
     "brand": {
       "@type": "Brand",
-      "name": "{{ product.vendor }}",
+      "name": "Rubio Monocoat ",
       "url": "{{ request.origin }}",
       "slogan": "The Power of One"
     },
@@ -1179,7 +1179,7 @@ document.addEventListener("DOMContentLoaded", function() {
 {"@context":"https://schema.org",
 "@type":"ProductGroup",
 "@id":"{{ request.origin }}/products/{{ product.handle }}#productgroup",
-"name":"{{ product.vendor }} {{ product.title }}",
+"name":"Rubio Monocoat {{ product.title }}",
 "description":"{{ product.description | strip_html | escape }}",
 "variesBy":[{% for option in product.options_with_values %}"{{ option.name | downcase }}"{% unless forloop.last %},{% endunless %}{% endfor %}],
 "brand":{"@type":"Brand","name":"{{ product.vendor | default: 'Rubio Monocoat' }}"},
