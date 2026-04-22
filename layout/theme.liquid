@@ -1231,23 +1231,101 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 {% endif %}
 {% if request.page_type == 'page' and template.suffix == 'faqs-v2' %}
-{% comment %} <script type="application/ld+json">
+<script type="application/ld+json">
 {
-"@context":"https://schema.org",
-"@type":"FAQPage",
-"mainEntity":[
-{% for block in section.blocks %}
-  {
-   "@type":"Question",
-   "name":"{{ block.settings.question | escape }}",
-   "acceptedAnswer":{
-    "@type":"Answer",
-     "text":"{{ block.settings.answer | strip_html | escape }}"}}
-  {% unless forloop.last %},{% endunless %} 
-{% endfor %}
-]
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the shipping costs?",
+      "acceptedAnswer": { "@type": "Answer",
+        "text": "For orders below €50.00 (VAT included), shipping costs are charged to the customer.
+If the delivery address is in Belgium, the shipping fee is €5.00. For orders of €50.00 or more (VAT included), shipping is free." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I cancel my order?",
+      "acceptedAnswer": { "@type": "Answer",
+        "text": "Yes, you can cancel your order before it has been shipped, without needing to provide a reason. Once the cancellation is processed, you will receive a confirmation email and a full refund of any amount paid. After the shipping confirmation has been sent, cancellation is no longer possible. However, you can still return the products after delivery by following our return procedure, as outlined in our cancellation policy." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is your warranty policy?",
+      "acceptedAnswer": { "@type": "Answer",
+        "text": "We offer a 2-year legal warranty on all our products, starting from the delivery date. If something isn’t right, simply contact us as soon as you notice the issue and keep your proof of purchase handy. We’ll do our best to repair or replace the product, and if that’s not possible, we’ll refund you. Please note that the warranty doesn’t cover damage caused by misuse or not following the care instructions." }
+    },
+
+    {
+      "@type": "Question",
+      "name": "What payment methods do you accept?",
+      "acceptedAnswer": { "@type": "Answer",
+        "text": "To make your shopping experience easy and secure, we offer several payment options. You can choose to pay with PayPal, credit cards, Shop & Google Pay. Simply select your preferred payment method at checkout and complete your order with confidence." }
+    },
+
+    {
+      "@type": "Question",
+      "name": "If I order today, when will I receive my order?",
+      "acceptedAnswer": { "@type": "Answer",
+        "text": "Orders placed before 12:00 PM are prepared the same afternoon and shipped on the same business day. Orders placed after 12:00 PM are usually shipped on the next business day." }
+    },
+{
+      "@type": "Question",
+      "name": "My shipment has been delayed, what happens now?",
+      "acceptedAnswer": { "@type": "Answer",
+        "text": "We work with FedEx for deliveries within Europe. Unfortunately, we don’t have direct control over the shipping process once your order has been handed over to the carrier. In case of a delay, we recommend contacting your local FedEx office for the most up-to-date information about your shipment." }
+    },
+
+{
+      "@type": "Question",
+      "name": "Where can I find my Track & Trace information?",
+      "acceptedAnswer": { "@type": "Answer",
+        "text": "You will automatically receive a Track & Trace code by email as soon as your order has been shipped. You can also follow your order through your account on our online store, where the Track & Trace information will be available as long as the order was placed using your personal account and not as a guest." }
+    },
+
+{
+      "@type": "Question",
+      "name": "What is the withdrawal period?",
+      "acceptedAnswer": { "@type": "Answer",
+        "text": "You have the right to withdraw from your purchase within 30 days of receiving your order, without giving any reason. If your order contains multiple products delivered on different days, the withdrawal period starts once the last item has been delivered." }
+    },
+{
+      "@type": "Question",
+      "name": "How can I cancel or return my order?",
+      "acceptedAnswer": { "@type": "Answer",
+        "text": "You can notify us of your withdrawal by emailing shop@rubiomonocoat.com
+ or by using our online return form or standard withdrawal form. Just let us know clearly that you wish to return your order." }
+    },
+
+{
+      "@type": "Question",
+      "name": "How long do I have to return my products?",
+      "acceptedAnswer": { "@type": "Answer",
+        "text": "After informing us of your withdrawal, you have up to 30 days to return the products. Please make sure the items are sent back without unnecessary delay." }
+    },
+{
+      "@type": "Question",
+      "name": "Do I have to pay for return shipping?",
+      "acceptedAnswer": { "@type": "Answer",
+        "text": "No, return shipping costs are covered by us, so you can send your return back without additional shipping charges." }
+    },
+{
+      "@type": "Question",
+      "name": "When and how will I receive my refund?",
+      "acceptedAnswer": { "@type": "Answer",
+        "text": "Once we receive your return, we will process your refund within 14 days. In some cases, we may wait until the products have arrived or until you provide proof of shipment. Refunds are always made using the same payment method you used for your original purchase." }
+    },
+{
+      "@type": "Question",
+      "name": "What will be refunded?",
+      "acceptedAnswer": { "@type": "Answer",
+        "text": "We refund the price paid for the returned products and the standard shipping costs. Additional delivery charges, such as express shipping, are not refunded. If you return only part of your order, only the returned items will be refunded and shipping costs will not be included." }
+    },
+
+  ]
 }
-</script> {% endcomment %}
+</script>
+
 
 {% endif %}
 
