@@ -888,6 +888,135 @@ document.addEventListener("DOMContentLoaded", function() {
       widget.data.products.forEach((product) => storefrontHelper.updateProductJSON(product));  
   });  
   </script>
+{% assign country_iso_down_head = localization.country.iso_code | downcase %}
+{% case country_iso_down_head %}
+
+{% when 'it' %}
+  {% assign legal_name = "Rubio Monocoat Italia srl" %}
+  {% assign street = "Via Torino 24/8" %}
+  {% assign city = "Cernusco sul Naviglio (MI)" %}
+  {% assign country = "IT" %}
+
+{% when 'gb' %}
+  {% assign legal_name = "Rubio Monocoat UK" %}
+  {% assign street = "Unit 1, Purley Chase Industrial Estate, Pipers Ln, Ansley Common" %}
+  {% assign city = "Nuneaton" %}
+  {% assign country = "GB" %}
+
+{% when 'dk' %}
+  {% assign legal_name = "Rubio Monocoat ApS" %}
+  {% assign street = "c/o Business Park Nord, Østre Allé 6" %}
+  {% assign city = "Støvring" %}
+  {% assign country = "DK" %}
+
+{% when 'no' %}
+  {% assign legal_name = "Rubio Monocoat Norway AS" %}
+  {% assign street = "Kolonivegen 43" %}
+  {% assign city = "Dal" %}
+  {% assign country = "NO" %}
+
+{% when 'nl' %}
+  {% assign legal_name = "Rubio Monocoat Nederland B.V." %}
+  {% assign street = "Hulswitweg 109" %}
+  {% assign city = "Haarlem" %}
+  {% assign country = "NL" %}
+
+{% when 'fr' %}
+  {% assign legal_name = "Rubio Monocoat France" %}
+  {% assign street = "65 Rue Claude Bernard" %}
+  {% assign city = "Moissy-Cramayel" %}
+  {% assign country = "FR" %}
+
+{% when 'fi' %}
+ {% assign legal_name = "Rubio Monocoat Finland Oy" %}
+  {% assign street = "Puutarhatie 22C" %}
+  {% assign city = "Vantaa" %}
+  {% assign country = "FI" %}
+
+
+{% when 'se' %}
+  {% assign legal_name = "Rubio Monocoat Sweden A.B." %}
+  {% assign street = "Sandsborgsvägen 50-52" %}
+  {% assign city = "Enskede" %}
+  {% assign country = "SE" %}
+
+{% when 'be' %}
+   {% assign legal_name = "Rubio Monocoat België" %}
+  {% assign street = "Ambachtenstraat 58" %}
+  {% assign city = "Izegem" %}
+  {% assign country = "BE" %}
+
+{% when 'de' %}
+ {% assign legal_name = "Rubio Monocoat Deutschland GmbH" %}
+  {% assign street = "Breiter Weg 232 A" %}
+  {% assign city = "Magdeburg" %}
+  {% assign country = "DE" %}
+
+{% when 'ch' %}
+ {% assign legal_name = "Rubio Monocoat België" %}
+  {% assign street = "Ambachtenstraat 58" %}
+  {% assign city = "Izegem" %}
+  {% assign country = "CH" %}
+
+{% when 'at' %}
+ {% assign legal_name = "Rubio Monocoat Vertriebs GmbH" %}
+  {% assign street = "Aubauerstraße 11" %}
+  {% assign city = "Pinsdorf" %}
+  {% assign country = "AT" %}
+
+{% else %}
+  {% assign legal_name = "Rubio Monocoat Italia srl" %}
+  {% assign street = "Via Torino 24/8" %}
+  {% assign city = "Cernusco sul Naviglio (MI)" %}
+  {% assign country = "IT" %}
+
+{% endcase %}
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "{{ shop.url }}/#organization",
+  "name": "Rubio Monocoat",
+  "legalName": "Rubio Monocoat International NV",
+  "url": "{{ shop.url }}",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "{{ shop.url }}/cdn/shop/files/header_logo_3.png",
+    "width": 300,
+    "height": 60
+  },
+  "description": "Rubio Monocoat creates innovative, ecological wood oils that protect and colour wood in a single layer using molecular bonding.",
+  "slogan": "The Power of One",
+  "foundingDate": "2000",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{street}}",
+    "addressLocality":"{{city}}",
+    "addressCountry": "{{country}}"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "email": "service@rubiomonocoat.com"
+  },
+  "knowsAbout": [
+    "wood finishing",
+    "wood oils",
+    "ecological coatings"
+  ],
+  "sameAs": [
+    "https://www.rubiomonocoat.com",
+    "https://www.linkedin.com/company/rubio-monocoat/",
+    "https://www.facebook.com/RubioMonocoat",
+    "https://www.instagram.com/rubiomonocoat/",
+    "https://www.youtube.com/user/RubioMonocoat"
+  ]
+}
+</script>
+
+
   </head>
 
   <body class="template{{ template | handle }} gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
