@@ -900,7 +900,7 @@ document.addEventListener("DOMContentLoaded", function() {
   "@type": "WebSite",
   "@id": "{{ request.origin }}/#website",
   "name": "Rubio Monocoat",
-  "url": "{{ request.origin | json }}",
+  "url": {{ request.origin | json }},
   "publisher": {
     "@id": "{{ request.origin }}/#organization"
   },
@@ -908,7 +908,7 @@ document.addEventListener("DOMContentLoaded", function() {
     "@type": "SearchAction",
     "target": {
       "@type": "EntryPoint",
-      "urlTemplate": " {{ potential_action_target | json }}"
+      "urlTemplate": {{ potential_action_target | json }}
     },
     "query-input": "required name=search_term_string"
   }
