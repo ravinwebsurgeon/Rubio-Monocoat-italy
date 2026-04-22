@@ -1072,7 +1072,8 @@ document.addEventListener("DOMContentLoaded", function() {
     {
       "@type": "ListItem",
       "position": 4,
-      "name": "{{ product.title }}"
+      "name": "{{ product.title }}",
+      "item": "{{ request.origin }}{{ product.url  }}"
     }
 
   ]
