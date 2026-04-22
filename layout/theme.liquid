@@ -1095,9 +1095,6 @@ document.addEventListener("DOMContentLoaded", function() {
       option_name contains 'väri'  %}
     {% assign idx = forloop.index0 %}
     {% assign color_value = product.selected_or_first_available_variant.options[idx] %}
-  {% else %}
-      {% assign second_value = product.selected_or_first_available_variant.options[idx] %}
-      {% assign second_name = option.name %}
   {% endif %}
 {% endfor %}
 <!-- Product Schema (Variant Page — Full)  -->
@@ -1121,7 +1118,7 @@ document.addEventListener("DOMContentLoaded", function() {
     },
 
     "color": "{{ color_value }}",
-    "weight": { "@type": "QuantitativeValue", "value": {{ second_value }}, "unitCode": "MLT" },
+    "weight": { "@type": "QuantitativeValue", "value": {{ product.selected_or_first_available_variant.weight }}, "unitCode": "MLT" },
     "additionalProperty": [
       { 
     "@type": "PropertyValue", 
