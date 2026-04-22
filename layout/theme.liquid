@@ -1081,23 +1081,38 @@ document.addEventListener("DOMContentLoaded", function() {
 {% endunless %}
 
 {% if template contains 'product' %}
-  {% assign color_value = blank %}
-{% for option in product.options %}
-  {% assign option_name = option | downcase %}
-  {% if option_name contains 'color' or 
-      option_name contains 'colour' or 
-      option_name contains 'farve' or
-      option_name contains 'farge' or
-      option_name contains 'färg' or
-      option_name contains 'kleur' or
-      option_name contains 'couleur' or
-      option_name contains 'farbe' or
-      option_name contains 'väri'  %}
-    {% assign idx = forloop.index0 %}
-    {% assign color_value = product.selected_or_first_available_variant.options[idx] %}
+  {% assign color_index = -1 %}
+
+{% for option in product.options_with_values %}
+  {% assign down = option.name | downcase %}
+
+  {% if down contains 'color'
+    or down contains 'colour'
+    or down contains 'farve'
+    or down contains 'farge'
+    or down contains 'färg'
+    or down contains 'kleur'
+    or down contains 'couleur'
+    or down contains 'farbe'
+    or down contains 'väri' %}
+
+    {% assign color_index = forloop.index0 %}
   {% endif %}
 {% endfor %}
-<!-- Product Schema (Variant Page — Full)  -->
+{% assign color_value = blank %}
+{% assign size_value = blank %}
+
+{% if color_index != -1 %}
+  {% assign color_value = product.selected_or_first_available_variant.options[color_index] %}
+{% endif %}
+
+{% for option in product.options_with_values %}
+  {% unless forloop.index0 == color_index %}
+    {% assign size_value = product.selected_or_first_available_variant.options[forloop.index0] %}
+  {% endunless %}
+{% endfor %}
+<!-- Product Schema (Variant Page — Full) For Product page  -->
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -1118,7 +1133,7 @@ document.addEventListener("DOMContentLoaded", function() {
     },
 
     "color": "{{ color_value }}",
-    "weight": { "@type": "QuantitativeValue", "value": {{ product.selected_or_first_available_variant.weight }}, "unitCode": "MLT" },
+    "weight": { "@type": "QuantitativeValue", "value": {{ size_value }}, "unitCode": "MLT" },
     "additionalProperty": [
       { 
     "@type": "PropertyValue", 
