@@ -1113,13 +1113,18 @@ document.addEventListener("DOMContentLoaded", function() {
   {% endunless %}
 {% endfor %}
 <!-- Product Schema (Variant Page — Full) For Product page  -->
+{% assign make_name = "Rubio Monocoat " | append: product.title %}
 
-  <script type="application/ld+json">
+{% if color_value != blank %}
+  {% assign make_name = make_name | append: " - " | append: color_value %}
+{% endif %}
+
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Product",
     "@id": "{{ request.origin }}/products/{{ product.handle }}/#product",
-    "name": "Rubio Monocoat {{ product.title }} - {{ color_value }}",
+    "name": "{{ make_name }}",
     "sku": "{{ product.selected_or_first_available_variant.sku }}",
     {% if product.selected_or_first_available_variant.barcode != blank %}
     "gtin13": "{{ product.selected_or_first_available_variant.barcode }}",
