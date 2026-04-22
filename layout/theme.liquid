@@ -1005,7 +1005,7 @@ document.addEventListener("DOMContentLoaded", function() {
   "@id": "{{ request.origin }}/#organization",
   "name": "Rubio Monocoat",
   "legalName": "Rubio Monocoat International NV",
-  "url": "{{ request.origin  | json }}",
+  "url": {{ request.origin  }},
   "logo": {
     "@type": "ImageObject",
     "url": "{{ settings.logo | image_url: width: 500 | prepend: "https:" | json }}",
