@@ -1077,6 +1077,15 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 {% if template contains 'product' %}
+  {% assign color_value = blank %}
+{% for option in product.options %}
+  {% assign option_name = option | downcase %}
+  {% if option_name == 'color' %}
+    {% assign idx = forloop.index0 %}
+    {% assign color_value = product.selected_or_first_available_variant.options[idx] %}
+  {% endif %}
+{% endfor %}
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -1098,7 +1107,7 @@ document.addEventListener("DOMContentLoaded", function() {
       "slogan": "The Power of One"
     },
 
-    "color": "{{ product.selected_or_first_available_variant.option1 }}",
+    "color": "{{ color_value }}",
     "weight": { "@type": "QuantitativeValue", "value": {{ product.selected_or_first_available_variant.weight }}, "unitCode": "MLT" },
     "additionalProperty": [
       { 
