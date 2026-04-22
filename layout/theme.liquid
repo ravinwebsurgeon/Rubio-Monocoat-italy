@@ -1199,8 +1199,8 @@ document.addEventListener("DOMContentLoaded", function() {
   "tool": [{"@type": "HowToTool","name": "Application cloth or brush"}],
   "supply": [{"@type": "HowToSupply","name": "{{ product.vendor }} {{ product.title }}"}],
   "step": [
-    {% assign faq_questions = collection.metafields.custom.how_to_use_faq_question.value %}
-    {% assign faq_answers = collection.metafields.custom.how_to_use_faq_answer.value %}
+    {% assign faq_questions = product.metafields.custom.how_to_use_faq_question.value %}
+    {% assign faq_answers = product.metafields.custom.how_to_use_faq_answer.value %}
     {% if faq_questions and faq_answers %}
       {% for question in faq_questions %}
         {% assign answer = faq_answers[forloop.index0] %}
