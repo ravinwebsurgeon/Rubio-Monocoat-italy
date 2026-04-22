@@ -1039,6 +1039,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 </script>
  <!--  BreadcrumbList Schema -->
+ {%- unless request.page_type == 'index' -%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1075,6 +1076,7 @@ document.addEventListener("DOMContentLoaded", function() {
   ]
 }
 </script>
+{% endunless %}
 
 {% if template contains 'product' %}
   {% assign color_value = blank %}
