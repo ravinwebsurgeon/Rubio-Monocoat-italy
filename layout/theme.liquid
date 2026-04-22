@@ -1216,6 +1216,26 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 </script>
 {% endif %}
+{% if request.page_type == 'page' and template.suffix == 'faqs-v2' %}
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"mainEntity":[
+{% for block in section.blocks %}
+  {
+   "@type":"Question",
+   "name":"{{ block.settings.question | escape }}",
+   "acceptedAnswer":{
+    "@type":"Answer",
+     "text":"{{ block.settings.answer | strip_html | escape }}"}}
+  {% unless forloop.last %},{% endunless %} 
+{% endfor %}
+]
+}
+</script>
+
+{% endif %}
 
 </head>
 
