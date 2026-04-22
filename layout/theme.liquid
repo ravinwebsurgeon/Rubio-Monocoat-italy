@@ -1196,7 +1196,7 @@ document.addEventListener("DOMContentLoaded", function() {
 {"@type":"Product",
 "name":"{{ variant.title }} - {{ color_value }}",
 "sku":"{{ variant.sku }}",
-{% if color_value != blank %}"color":"{{ color_value }},"{% endif %}
+{% if color_value != blank %}"color":"{{ color_value }}",{% endif %}
 "url":"{{ request.origin }}{{ product.url }}?variant={{ variant.id }}"
 }{% unless forloop.last %},{% endunless %}
 {% endfor %}
