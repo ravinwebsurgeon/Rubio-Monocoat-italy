@@ -983,7 +983,7 @@ document.addEventListener("DOMContentLoaded", function() {
   "url": "{{ request.host }}",
   "logo": {
     "@type": "ImageObject",
-    "url": "{{ request.host }}/cdn/shop/files/header_logo_3.png",
+    "url": "{{ settings.logo | image_url: width: 500 | prepend: "https:" | json }}",
     "width": 300,
     "height": 60
   },
