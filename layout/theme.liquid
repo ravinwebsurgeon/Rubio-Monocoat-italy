@@ -1191,6 +1191,15 @@ document.addEventListener("DOMContentLoaded", function() {
 "description":"{{ product.description | strip_html | escape }}",
 "variesBy":[{% for option in product.options_with_values %}"{{ option.name | downcase }}"{% unless forloop.last %},{% endunless %}{% endfor %}],
 "brand":{"@type":"Brand","name":"{{ product.vendor | default: 'Rubio Monocoat' }}"},
+ {% if product.metafields.reviews.rating_count > 0 %}
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": {{ product.metafields.reviews.rating.value | default: 0 | json }},
+    "reviewCount": {{ product.metafields.reviews.rating_count | json }},
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  {% endif %}
 "hasVariant":[
 {% for variant in product.variants %}
 {% assign color_value = blank %}
