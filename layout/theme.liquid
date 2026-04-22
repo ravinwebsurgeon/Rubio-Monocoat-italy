@@ -900,7 +900,7 @@ document.addEventListener("DOMContentLoaded", function() {
   "@type": "WebSite",
   "@id": {{ request.origin | append: "/#website" | json }},
   "name": "Rubio Monocoat",
-  "url":  {{ request.origin | json }},
+  "url": {{ request.origin | json }},
   "publisher": {
     "@id":{{ request.origin | append: "/#organization" | json }}
   },
