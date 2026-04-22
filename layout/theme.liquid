@@ -900,7 +900,7 @@ document.addEventListener("DOMContentLoaded", function() {
   "@type": "WebSite",
   "@id": "{{ request.origin }}/#website",
   "name": "Rubio Monocoat",
-  "url":  {{ request.origin }},
+  "url":  {{ request.origin | json }},
   "publisher": {
     "@id": "{{ request.origin }}/#organization"
   },
@@ -1005,7 +1005,7 @@ document.addEventListener("DOMContentLoaded", function() {
   "@id": "{{ request.origin }}/#organization",
   "name": "Rubio Monocoat",
   "legalName": "Rubio Monocoat International NV",
-  "url": {{ request.origin  }},
+  "url": {{ request.origin | json }},
   "logo": {
     "@type": "ImageObject",
     "url": "{{ settings.logo | image_url: width: 500 | prepend: "https:" | json }}",
@@ -1038,7 +1038,7 @@ document.addEventListener("DOMContentLoaded", function() {
     "https://www.instagram.com/rubiomonocoat/",
     "https://www.youtube.com/user/RubioMonocoat"
   ]
-}
+} 
 </script>
  <!--  BreadcrumbList Schema -->
  {%- unless request.page_type == 'index' -%}
