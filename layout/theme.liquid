@@ -892,6 +892,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <!-- Structured Data Added -->
 <!-- WebSite Schema (Homepage only) -->
+{% capture my_url %}
+  {{ request.origin | json }}
+{% endcapture %}
 {%- if request.page_type == 'index' -%}
   {% assign potential_action_target = request.origin | append: routes.search_url | append: '?q={search_term_string}' %}
 <script type="application/ld+json">
@@ -900,7 +903,7 @@ document.addEventListener("DOMContentLoaded", function() {
   "@type": "WebSite",
   "@id": "{{ request.origin }}/#website",
   "name": "Rubio Monocoat",
-  "url": {{ request.origin | json }},
+  "url": {{ my_url }},
   "publisher": {
     "@id": "{{ request.origin }}/#organization"
   },
