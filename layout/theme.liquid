@@ -1037,7 +1037,7 @@ document.addEventListener("DOMContentLoaded", function() {
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "{{ collection.title }}",
+      "name": "{{ collection.title | default: 'all' }}",
       "item": "{{ request.origin }}{{ collection.url | default: '/collections/all' }}"
     },
 
