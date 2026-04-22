@@ -1050,6 +1050,71 @@ document.addEventListener("DOMContentLoaded", function() {
   ]
 }
 </script>
+{% if template contains 'product' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": "{{ request.origin }}/products/{{ product.handle }}/#product",
+    "name": "{{ product.vendor }} {{ product.title }}",
+    "sku": "{{ product.selected_or_first_available_variant.sku }}",
+    {% if product.selected_or_first_available_variant.barcode != blank %}
+    "gtin13": "{{ product.selected_or_first_available_variant.barcode }}",
+    {% endif %}  
+    "description":"{{ product.description | strip_html | escape }}",
+    "image": [
+      "{{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url }}"
+    ],
+    "brand": {
+      "@type": "Brand",
+      "name": "{{ product.vendor }}",
+      "url": "{{ request.origin }}",
+      "slogan": "The Power of One"
+    },
+
+    "color": "{{ product.selected_or_first_available_variant.option1 }}",
+    "weight": { "@type": "QuantitativeValue", "value": {{ product.selected_or_first_available_variant.weight }}, "unitCode": "MLT" },
+    "additionalProperty": [
+      { 
+    "@type": "PropertyValue", 
+          "name": "Coverage",
+          "value": "{{ product.selected_or_first_available_variant.metafields.custom.coverage_estimation.value }}" 
+      },
+      { 
+    "@type": "PropertyValue", 
+          "name": "VOC Content", 
+          "value": "0 g/L" 
+      },
+      { 
+    "@type": "PropertyValue", 
+          "name": "Drying Time",
+          "value": "24 hours at 18-22 degrees C" 
+      },
+      { 
+    "@type": "PropertyValue", 
+    "name": "Number of Layers", 
+    "value": "1" 
+    }
+    ],
+    "hasCertification": [
+      { "@type": "Certification",
+        "name": "Cradle to Cradle Certified Gold",
+        "issuedBy": { "@type": "Organization",
+          "name": "Cradle to Cradle Products Innovation Institute" } }
+    ],
+    "isVariantOf": {
+      "@type": "ProductGroup",
+      "@id": "{{ request.origin }}/products/{{ product.handle }}/#productgroup"
+    },
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "{{ cart.currency.iso_code }}",
+      "availability": "https://schema.org/InStoreOnly",
+      "url": "{{ request.origin }}/products/{{ product.handle }}"
+    }
+  }
+  </script>
+{% endif %}
 
 </head>
 
