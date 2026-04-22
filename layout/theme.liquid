@@ -1008,7 +1008,7 @@ document.addEventListener("DOMContentLoaded", function() {
   "url": {{ request.origin | json }},
   "logo": {
     "@type": "ImageObject",
-    "url": "{{ settings.logo | image_url: width: 500 | prepend: "https:" | json }}",
+    "url": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
     "width": 300,
     "height": 60
   },
