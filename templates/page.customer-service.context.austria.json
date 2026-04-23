@@ -13,6 +13,51 @@
   },
   "parent": "page.customer-service.json",
   "sections": {
+    "contact_options_FYkrkp": {
+      "custom_css": [
+        ".advice-card {background: transparent !important;}"
+      ],
+      "settings": {
+        "availability_text": "Our team is available Mon–Thu (7:30–16:30), Fri (7:30–12:00)",
+        "right_heading": "",
+        "right_description": "",
+        "call_text": "",
+        "call_link": "",
+        "email_text": "",
+        "email_link": ""
+      },
+      "blocks": {
+        "contact_method_mVcVkc": {
+          "disabled": true,
+          "settings": {}
+        },
+        "contact_method_TxekfM": {
+          "settings": {
+            "subtitle": "+43 7612 63203",
+            "link": "tel:+43 7612 63203"
+          }
+        },
+        "contact_method_JF4YCW": {
+          "settings": {
+            "title": "Send an email",
+            "subtitle": "shop@rubiomonocoat.at",
+            "link": "mailto:shop@rubiomonocoat.at"
+          }
+        },
+        "team_member_jNKWWh": {
+          "disabled": true,
+          "settings": {}
+        },
+        "team_member_DxJkEh": {
+          "disabled": true,
+          "settings": {}
+        },
+        "team_member_W8EVBN": {
+          "disabled": true,
+          "settings": {}
+        }
+      }
+    },
     "icons_section_rzewec": {
       "settings": {},
       "blocks": {
@@ -30,51 +75,6 @@
         "container_kab4cn": {
           "settings": {
             "class": ""
-          }
-        }
-      }
-    },
-    "contact_options_FYkrkp": {
-      "custom_css": [
-        ".advice-card {background: transparent !important;}"
-      ],
-      "settings": {
-        "availability_text": "Our team is available mo - fr from 8:30 am - 5:00 pm",
-        "right_heading": "",
-        "right_description": "",
-        "call_text": "",
-        "call_link": "",
-        "email_text": "",
-        "email_link": ""
-      },
-      "blocks": {
-        "team_member_jNKWWh": {
-          "disabled": true,
-          "settings": {}
-        },
-        "team_member_DxJkEh": {
-          "disabled": true,
-          "settings": {}
-        },
-        "team_member_W8EVBN": {
-          "disabled": true,
-          "settings": {}
-        },
-        "contact_method_mVcVkc": {
-          "disabled": true,
-          "settings": {}
-        },
-        "contact_method_TxekfM": {
-          "settings": {
-            "subtitle": "+43 7612 63203",
-            "link": "tel:+43 7612 63203"
-          }
-        },
-        "contact_method_JF4YCW": {
-          "settings": {
-            "title": "Send an email",
-            "subtitle": "shop@rubiomonocoat.at",
-            "link": "mailto:shop@rubiomonocoat.at"
           }
         }
       }
