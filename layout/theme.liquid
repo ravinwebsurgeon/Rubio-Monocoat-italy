@@ -1194,7 +1194,7 @@ document.addEventListener("DOMContentLoaded", function() {
  {% if product.metafields.reviews.rating_count > 0 %}
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": {{ product.metafields.reviews.rating.value | default: 0 | json }},
+    "ratingValue": {{ product.metafields.reviews.rating.value | default: 0 }},
     "reviewCount": {{ product.metafields.reviews.rating_count | json }},
     "bestRating": "5",
     "worstRating": "1"
