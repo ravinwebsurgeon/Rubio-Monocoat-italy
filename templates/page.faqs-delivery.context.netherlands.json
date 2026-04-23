@@ -27,6 +27,15 @@
           }
         }
       }
+    },
+    "faqs_gnazct": {
+      "blocks": {
+        "faq_item_nbkb4a": {
+          "settings": {
+            "answer": "We work with DHL for deliveries within the Netherlands. Unfortunately, we don’t have direct control over the shipping process once your order has been handed over to the carrier. In case of a delay, we recommend contacting your local DHL office for the most up-to-date information about your shipment."
+          }
+        }
+      }
     }
   }
 }
