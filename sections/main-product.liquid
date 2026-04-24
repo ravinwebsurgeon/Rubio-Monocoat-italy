@@ -3104,11 +3104,7 @@ function initMobileSwiper() {
   left: 0;
   right: 0;
 } 
-@media(max-width:767px){
-  .indicator-text {
-      font-size: 11.5px;
-  }
-}
+
 .indicator-wrapper {
   position: relative;
   display: inline-flex;
@@ -3202,6 +3198,11 @@ function initMobileSwiper() {
   .indicator-tooltip {
     width: 100%;
     white-space: normal;
+  }
+}
+@media(max-width:767px){
+  .indicator-wrapper span.indicator-text {
+      font-size: 11.5px;
   }
 }
 @media (min-width: 1280px) and (max-width: 1480px) {
