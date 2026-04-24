@@ -3200,12 +3200,13 @@ function initMobileSwiper() {
     white-space: normal;
   }
 }
-@media(max-width:767px){
+
+{% comment %} @media (min-width: 1280px) and (max-width: 1480px) {
   .indicator-wrapper span.indicator-text {
-      font-size: 11.5px;
+    font-size: 13px;
   }
-}
-@media (min-width: 1280px) and (max-width: 1480px) {
+} {% endcomment %}
+@media(max-width: 1480px) {
   .indicator-wrapper span.indicator-text {
     font-size: 11px;
   }
